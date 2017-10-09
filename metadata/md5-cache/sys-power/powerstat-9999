@@ -1,0 +1,9 @@
+DEFINED_PHASES=compile unpack
+DEPEND=>=dev-vcs/git-1.8.2.1
+DESCRIPTION=Laptop power measuring tool
+EAPI=6
+HOMEPAGE=https://launchpad.net/ubuntu/+source/powerstat https://github.com/ColinIanKing/powerstat
+LICENSE=GPL-2+
+SLOT=0
+_eclasses_=git-r3	52a888802d25387c2c74cb845d1219bc	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af
+_md5_=4eafe45922d1db16bc7b3bb2a97e2f77

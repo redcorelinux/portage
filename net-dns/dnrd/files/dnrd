@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+# Copyright 1999-2003 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License, v2 or later
+
+PIDFILE="/var/run/dnrd.pid"
+
+depend() {
+	provide dns
+	need net
+}
+
+start() {
+	ebegin "Starting dnrd"
+	/usr/sbin/dnrd $DNRD_OPTS &> /dev/null &
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping dnrd"
+	/usr/sbin/dnrd -k	
+	eend $?
+}
+
