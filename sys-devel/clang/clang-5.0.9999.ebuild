@@ -62,6 +62,11 @@ S=${WORKDIR}/x/y/${P}
 # least intrusive of all
 CMAKE_BUILD_TYPE=RelWithDebInfo
 
+PATCHES=(
+	# fix finding compiler-rt libs
+	"${FILESDIR}"/5.0.0/0001-Driver-Use-arch-type-to-find-compiler-rt-libraries-o.patch
+)
+
 # Multilib notes:
 # 1. ABI_* flags control ABIs libclang* is built for only.
 # 2. clang is always capable of compiling code for all ABIs for enabled
@@ -99,19 +104,6 @@ src_unpack() {
 			"${WORKDIR}"/llvm
 	fi
 	git-r3_checkout "${EGIT_REPO_URI}" "${S}"
-}
-
-src_prepare() {
-	# fix finding compiler-rt libs
-	eapply "${FILESDIR}"/5.0.0/0001-Driver-Use-arch-type-to-find-compiler-rt-libraries-o.patch
-
-	cd tools/extra || die
-	# fix stand-alone test build for extra tools
-	eapply "${FILESDIR}"/5.0.0/extra/0002-test-Fix-clang-library-dir-in-LD_LIBRARY_PATH-For-st.patch
-	cd - >/dev/null || die
-
-	# User patches
-	eapply_user
 }
 
 multilib_src_configure() {

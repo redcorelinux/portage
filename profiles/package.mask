@@ -29,6 +29,82 @@
 
 #--- END OF EXAMPLES ---
 
+# Jonas Stein <jstein@gentoo.org> (17 Oct 2017)
+# dev-tex/texmfind was superseded by app-portage/pfl 
+# See also bug #634494. Masked for removal on 2017-11-30
+dev-tex/texmfind
+
+# Andreas Sturmlechner <asturm@gentoo.org> (16 Oct 2017)
+# Qt4WebKit is ancient and is likely to have more holes
+# in it than swiss cheese. Bug #620684
+dev-qt/qtwebkit:4
+
+# Andreas Sturmlechner <asturm@gentoo.org> (16 Oct 2017)
+# Reverse-deps on dead Qt4WebKit. Bug #620684
+<app-misc/anki-2.1
+<app-misc/sleepyhead-1.0.0_beta2
+<media-gfx/freecad-0.17_pre
+media-sound/google-musicmanager
+net-im/qutim
+net-misc/teamviewer
+net-voip/vidyodesktop
+<sci-libs/opencascade-7.0
+<sci-libs/vtk-6.1.0-r4
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Possible alternatives are net-mail/gnubiff, kde-misc/gmailfeed.
+# Masked for removal in 30 days. Bug #629018
+kde-misc/kbiff
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Masked for removal in 30 days. Bug #629018
+kde-misc/kfax
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Use any image viewer instead, like gwenview.
+# Masked for removal in 30 days. Bug #629018
+kde-misc/kover
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Use media-sound/fmit instead.
+# Masked for removal in 30 days. Bug #633498
+media-sound/k4guitune
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4.
+# Masked for removal in 30 days. Bug #633510
+media-sound/kenvy24
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Masked for removal in 30 days. Bug #633502
+media-sound/kmidimon
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Masked for removal in 30 days. Bug #629018
+media-sound/kradio
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4.
+# Masked for removal in 30 days. Bug #629018
+media-sound/waheela
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4.
+# Masked for removal in 30 days. Bug #629018
+media-video/loopy
+
+# Andreas Sturmlechner <asturm@gentoo.org> (15 Oct 2017)
+# Dead upstream, depends on dead kdelibs4/Qt4/Qt3Support.
+# Use net-p2p/amule instead.
+# Masked for removal in 30 days. Bug #629018
+net-p2p/kmldonkey
+
 # Raymond Jennings <shentino@gmail.com> (08 Jun 2017)
 # Depends on qt4 which is being removed.
 # Upstream announced EOL effective July 2017.
@@ -273,18 +349,6 @@ app-xemacs/cogre
 app-xemacs/ecb
 app-xemacs/xemacs-packages-all
 
-# Lars Wendler <polynomial-c@gentoo.org> (06 Aug 2017)
-# Masked for security reasons:
-# https://bugs.gentoo.org/600214
-<app-emulation/virtualbox-5.0.40
-<app-emulation/virtualbox-additions-5.0.40
-<app-emulation/virtualbox-bin-5.0.40
-<app-emulation/virtualbox-extpack-oracle-5.0.40
-<app-emulation/virtualbox-guest-additions-5.0.40
-<app-emulation/virtualbox-modules-5.0.40
-<x11-drivers/xf86-video-virtualbox-5.0.40
-
-
 # Bernard Cafarelli <voyageur@gentoo.org> (04 Aug 2017)
 # Temporary mask as current net-ftp/filezilla does not compile
 # with it, bug #626292
@@ -501,10 +565,6 @@ x11-libs/gtk+:1
 =app-emulation/ganeti-2.16*
 =app-emulation/ganeti-2.17*
 
-# Markos Chandras <hwoarang@gentoo.org> (10 Dec 2016)
-# Reverse dependencies need testing, wrt bug #580760
->=net-libs/libtorrent-rasterbar-1.1.1
-
 # Michał Górny <mgorny@gentoo.org> (17 Nov 2016)
 # New version masked for testing. It supports source-window buffer size
 # over 2G but it 'currently performs 3-5% slower and has 1-2% worse
@@ -597,11 +657,6 @@ sys-fs/bedup
 # Sebastian Pipping <sping@gentoo.org> (8 Aug 2015)
 # Upcoming, too young to go into testing unmasked
 dev-libs/iniparser:4
-
-# Davide Pesavento <pesa@gentoo.org> (23 Jul 2015)
-# Standalone version of qtwebkit from the 2.3 upstream branch.
-# Needs revdep testing. Bug #388207.
-=dev-qt/qtwebkit-4.10*
 
 # Justin Lecher <jlec@gentoo.org> (28 Feb 2015)
 # Unfixed security problems
