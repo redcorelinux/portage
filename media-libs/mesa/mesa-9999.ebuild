@@ -33,7 +33,7 @@ SLOT="0"
 RESTRICT="!bindist? ( bindist )"
 
 RADEON_CARDS="r100 r200 r300 r600 radeon radeonsi"
-VIDEO_CARDS="${RADEON_CARDS} freedreno i915 i965 imx intel nouveau vc4 vivante vmware"
+VIDEO_CARDS="${RADEON_CARDS} freedreno i915 i965 imx intel nouveau vc4 virgl vivante vmware"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
@@ -70,11 +70,12 @@ REQUIRED_USE="
 	video_cards_r600?   ( gallium )
 	video_cards_radeonsi?   ( gallium llvm )
 	video_cards_vc4? ( gallium )
+	video_cards_virgl? ( gallium )
 	video_cards_vivante? ( gallium gbm )
 	video_cards_vmware? ( gallium )
 "
 
-LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.82"
+LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.85"
 # keep correct libdrm and dri2proto dep
 # keep blocks in rdepend for binpkg
 RDEPEND="
@@ -351,6 +352,8 @@ multilib_src_configure() {
 				--with-clang-libdir="${EPREFIX}/usr/lib"
 				"
 		fi
+
+		gallium_enable video_cards_virgl virgl
 	fi
 
 	if use vulkan; then
