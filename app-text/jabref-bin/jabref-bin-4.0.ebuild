@@ -3,6 +3,8 @@
 
 EAPI=6
 
+JAVA_PKG_WANT_TARGET=1.8
+
 inherit eutils java-pkg-2
 
 MY_PV_1="${PV/_beta/b}"
@@ -22,9 +24,10 @@ DEPEND="app-arch/unzip"
 
 RDEPEND="
 	|| (
-		dev-java/oracle-jre-bin:1.8[javafx]
-		dev-java/oracle-jdk-bin:1.8[javafx]
+	dev-java/oracle-jre-bin:1.8[javafx]
+	dev-java/oracle-jdk-bin:1.8[javafx]
 	)
+	>=virtual/jre-1.8
 "
 
 S="${WORKDIR}"
