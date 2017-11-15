@@ -18,8 +18,7 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="git://sourceware.org/git/glibc.git"
 	inherit git-r3
 else
-	# KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-	KEYWORDS=""
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 	SRC_URI="mirror://gnu/glibc/${P}.tar.xz"
 fi
 
@@ -189,6 +188,21 @@ pkg_pretend() {
 			eerror "${files}"
 			die "old __guard detected"
 		fi
+	fi
+
+	# Check for sanity of /etc/nsswitch.conf
+	if [[ -e ${EROOT}/etc/nsswitch.conf ]] ; then
+		local entry
+		for entry in passwd group shadow; do
+			if ! egrep -q "^[ \t]*${entry}:.*files" "${EROOT}"/etc/nsswitch.conf; then
+				eerror "Your ${EROOT}/etc/nsswitch.conf is out of date."
+				eerror "Please make sure you have 'files' entries for"
+				eerror "'passwd:', 'group:' and 'shadow:' databases."
+				eerror "For more details see:"
+				eerror "  https://wiki.gentoo.org/wiki/Project:Toolchain/nsswitch.conf_in_glibc-2.26"
+				die "nsswitch.conf has no 'files' provider in '${entry}'."
+			fi
+		done
 	fi
 }
 
