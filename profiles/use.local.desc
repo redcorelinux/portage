@@ -2366,6 +2366,7 @@ dev-perl/HTTP-Entity-Parser:xs - Install C-Based dependieces for faster performa
 dev-perl/JSON:xs - Install C-based dev-perl/JSON-XS for faster performance
 dev-perl/JSON-MaybeXS:xs - Install a C-Based backend to make JSON encode/decode fast
 dev-perl/Lab-Measurement:xpression - Install the Xpression measurement framework
+dev-perl/Lab-VXI11:libtirpc - Build against net-libs/libtirpc for RPC support
 dev-perl/List-MoreUtils:xs - Install C-Based backend implementation for performance
 dev-perl/MCE:sereal - Install dev-perl/Sereal-Encoder and decoder for faster worker IPC
 dev-perl/Mail-IMAPClient:md5 - Install support for DIGEST-MD5 and CRAM-MD5 Authentication
@@ -3607,7 +3608,6 @@ lxqt-base/lxqt-panel:mainmenu - Build mainmenu plugin
 lxqt-base/lxqt-panel:mount - Build mount plugin
 lxqt-base/lxqt-panel:networkmonitor - Build networkmonitor plugin
 lxqt-base/lxqt-panel:quicklaunch - Build quicklaunch plugin
-lxqt-base/lxqt-panel:screensaver - Build screensaver plugin
 lxqt-base/lxqt-panel:sensors - Build sensors plugin
 lxqt-base/lxqt-panel:showdesktop - Build showdesktop plugin
 lxqt-base/lxqt-panel:statusnotifier - Build statusnotifier plugin
