@@ -29,10 +29,25 @@
 
 #--- END OF EXAMPLES ---
 
-# Ulrich Müller <ulm@gentoo.org> (01 Dec 2017)
-# Major breakage (network access in upstream configure), bug #639438.
-dev-db/qt5-sqlcipher
-=net-im/openmittsu-0.9.9.48
+# Andreas Sturmlechner <asturm@gentoo.org> (03 Dec 2017)
+# Dead upstream, depends on dead qt4.
+# Masked for removal in 30 days. Bug #639254
+x11-misc/qtnotifydaemon
+
+# Andreas Sturmlechner <asturm@gentoo.org> (03 Dec 2017)
+# Dead upstream, depends on dead qt4.
+# Masked for removal in 30 days. Bug #637098
+app-office/qchartdiary
+
+# Andreas Sturmlechner <asturm@gentoo.org> (03 Dec 2017)
+# Dead upstream, depends on dead qt4.
+# Masked for removal in 30 days. Bug #638688
+x11-plugins/qled
+
+# Michael Palimaka <kensington@gentoo.org> (02 Dec 2017)
+# Depends on dead Qt 4. Dead upstream.
+# Masked for removal in 30 days. Bug #639252.
+dev-vcs/qsvn
 
 # Alexey Shvetsov <alexxy@gentoo.org> (01 Dec 2017)
 # Mask beta gromacs version
