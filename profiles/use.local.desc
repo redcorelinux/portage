@@ -2155,6 +2155,7 @@ dev-libs/libslz:tools - Install additional tools (zenc, zdec)
 dev-libs/libsodium:asm - Enables assembly implementations
 dev-libs/libsodium:urandom - Use /dev/urandom instead of /dev/random
 dev-libs/libsolv:rpm - Enable support for RPM files
+dev-libs/libspt:libtirpc - Build against net-libs/libtirpc for RPC support
 dev-libs/libsqlora8:orathreads - Use Oracle threads
 dev-libs/libtasn1:valgrind - Enable usage of dev-util/valgrind in debug
 dev-libs/libtermkey:demos - Install demos, which pulls in dev-libs/glib
@@ -2650,6 +2651,13 @@ dev-qt/qt-creator:systemd - Add support for retrieving application output from j
 dev-qt/qt-creator:valgrind - Add support for memory debugging using dev-util/valgrind
 dev-qt/qt-creator:webengine - Use dev-qt/qtwebengine to view documentation
 dev-qt/qt-creator:winrt - Build plugin for WinRT devices
+dev-qt/qt-docs:charts - Install documentation for dev-qt/qtcharts
+dev-qt/qt-docs:datavis - Install documentation for dev-qt/qtdatavis3d
+dev-qt/qt-docs:networkauth - Install documentation for dev-qt/qtnetworkauth
+dev-qt/qt-docs:script - Install documentation for dev-qt/qtscript
+dev-qt/qt-docs:speech - Install documentation for dev-qt/qtspeech
+dev-qt/qt-docs:virtualkeyboard - Install documentation for dev-qt/qtvirtualkeyboard
+dev-qt/qt-docs:webengine - Install documentation for dev-qt/qtwebengine
 dev-qt/qt-meta:qt3support - Enable the Qt3Support library for Qt4
 dev-qt/qt3d:gles2 - Use GLES 2.0 or later instead of full OpenGL
 dev-qt/qt3d:qml - Build QML/QtQuick bindings
@@ -8095,7 +8103,6 @@ sys-kernel/aufs-sources:vanilla - Use vanilla kernel sources without applying ge
 sys-kernel/ck-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
 sys-kernel/ck-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/dracut:debug - Module installing additional tools like strace, file editor, ssh and more
-sys-kernel/genkernel:crypt - Obsolete USE flag. Use cryptsetup for LUKS support. (bug ##414523)
 sys-kernel/genkernel:cryptsetup - Enable support for Luks disk encryption using sys-fs/cryptsetup
 sys-kernel/genkernel:firmware - Prefer system firmware sys-kernel/linux-firmware over local copy.
 sys-kernel/genkernel-next:cryptsetup - Enable support for Luks disk enrcyption using sys-fs/cryptsetup
