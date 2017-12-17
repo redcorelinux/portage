@@ -29,6 +29,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Mike Gilbert <floppym@gentoo.org> (16 Dec 2017)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-65
+
 # Aaron W. Swenson <titanofold.org> (15 Dec 2017)
 # Masked for removal in 30 days (2017-01-14). Upstream doesn't appear
 # to be active and is really far behind in supporting the latest
@@ -56,8 +61,7 @@ net-libs/polarssl
 
 # Andreas Sturmlechner <asturm@gentoo.org> (12 Dec 2017)
 # Depends on dead kdelibs4/qt4, unmaintained upstream. No port to
-# KF5 released. If you depend on this package, please help test KF5-based
-# amarok-9999 in KDE ebuild repository to decide on a possible snapshot.
+# KF5 released.
 # Possible alternatives are media-sound/cantata (an awesome mpd client),
 # media-sound/clementine and media-sound/tomahawk (the latter also declared
 # unmaintained upstream).
@@ -449,11 +453,6 @@ virtual/jre:1.7
 <media-plugins/audacious-plugins-3.9
 <x11-themes/audacious-themes-0.0.4-r1
 
-# Mike Gilbert <floppym@gentoo.org> (04 Nov 2017)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-64
-
 # Marc Schiffbauer <mschiff@gentoo.org> (01 Nov 2017)
 # Upstream abandoned obnam as of the end of the year
 # Masked for removal in 30 days.
@@ -511,12 +510,6 @@ sys-devel/automake:1.5
 sys-devel/automake:1.6
 sys-devel/automake:1.7
 sys-devel/automake:1.8
-
-# Lars Wendler <polynomial-c@gentoo.org> (12 Oct 2017)
-# Dead upstream. No qt5 release. Use app-admin/keepassxc as drop-in
-# replacement which has very active upstream and regular releases.
-# Masked for removal in 30 days.
-app-admin/keepassx
 
 # Kent Fredric <kentnl@gentoo.org> (11 Oct 2017)
 # This package should now be provided entirely by dev-lang/perl,
