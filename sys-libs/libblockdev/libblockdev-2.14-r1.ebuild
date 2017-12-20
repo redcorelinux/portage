@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/rhinstaller/libblockdev"
 SRC_URI="https://github.com/rhinstaller/${PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="bcache +cryptsetup dmraid doc lvm kbd test"
 
 CDEPEND="
@@ -25,7 +25,7 @@ CDEPEND="
 	cryptsetup? (
 		>=dev-libs/nss-3.18.0
 		dev-libs/volume_key
-		>=sys-fs/cryptsetup-1.6.7
+		>=sys-fs/cryptsetup-1.6.7:=
 	)
 	dmraid? (
 		sys-fs/dmraid
