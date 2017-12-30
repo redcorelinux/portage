@@ -7,6 +7,21 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Andrey Utkin <andrey_utkin@gentoo.org> (29 Dec 2017)
+# This flag can be sensibly enabled only on macos.
+# Can be unmasked in prefix/darwin/macos profiles. Bug #637482
+media-video/ffmpeg appkit
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# The whole zeitgeist stuck is dead (#629180)
+gnome-extra/synapse zeitgeist
+www-client/midori zeitgeist
+app-editors/gedit-plugins zeitgeist
+app-misc/bijiben zeitgeist
+dev-libs/folks zeitgeist
+media-sound/rhythmbox zeitgeist
+media-video/totem zeitgeist
+
 # Pacho Ramos <pacho@gentoo.org> (27 Dec 2017)
 # We will remove ptlib, its support was broken anyway (#624578).
 net-voip/yate h323
@@ -413,11 +428,6 @@ dev-db/mysql cluster
 # Cluster code is still under development, only base functionality
 # is implemented. Masking for testing and evaluation.
 app-admin/clsync cluster mhash
-
-# Michał Górny <mgorny@gentoo.org> (30 Nov 2014)
-# Not supported at the moment. DirectFB lacks multilib support,
-# and we have to decide if we want it.
-x11-libs/cairo directfb
 
 # Brian Evans <grknight@gentoo.org> (29 Nov 2014)
 # Strongly recommened by upstream to disable lzo and zlib due to memory leaks

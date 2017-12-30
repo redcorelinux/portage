@@ -29,6 +29,97 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (29 Dec 2017)
+# Last release in 2003, EAPI 0, C++ extremely broken
+# Removal in 30 days
+app-admin/jinit
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Dead since 2005, nothing requires it, installs object files in
+# /usr/share/doc (#451792). Removal in a month.
+media-libs/libdvb
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Fails to build (#595706), nothing requires it. Removal in a month.
+dev-lang/blassic
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Fails at runtime (#614314). Removal in a month.
+app-text/nfoview
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Needs to be migrated to pycryptodome, this was merged into paramiko
+# (#611616). Removal in a month.
+dev-python/ssh
+dev-python/starcluster
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Fails with recent boost (#617060, #598702). Removal in a month.
+media-gfx/aqsis
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# A major version bump is needed (#412447), fails with multilib-strict
+# (#613542), not compatible with newer imagemagick (#619514), cannot be
+# downloaded (#635566). Removal in a month.
+media-libs/vips
+media-gfx/nip2
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Multiple build failures and bugs (#634316), fails with recent lua
+# (#434242), init script is buggy (#496724), bash completion files installed
+# wrongly (#526280), fails with newer botan (#537572). Removal in a month.
+dev-vcs/monotone
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Fails to build (#622110), upstream dead for years. Removal in a month.
+app-misc/tasque
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Needs a major version bump and relies on lots of dead libs (#624160).
+# Removal in a month.
+x11-terms/terminator
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Requires dead gnome2 python bindings (#629180) and old gstreamer, also all
+# zeitgeist stack has important bugs and upstream is gone (#629180#c2):
+# zeitgeist-explorer doesn't start (#622084), activity-log-manager fails to
+# build (#625140), 
+gnome-extra/gnome-activity-journal
+gnome-extra/zeitgeist-explorer
+gnome-extra/activity-log-manager
+gnome-extra/zeitgeist
+dev-libs/libzeitgeist
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Dead for ages, relies on old gnome2 python bindings (#640036). Removal in
+# a month.
+gnome-extra/cameramonitor
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Upstream gone, relies on old gnome2 python bindings (#640042). Removal in
+# a month.
+media-gfx/gnome-specimen
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Upstream dead for ages, relies on old gnome2 python bindings (#640050).
+# Removal in a month.
+net-misc/polly
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Upstream gone, relies on old gnome2 python bindings (#640052). Removal in
+# a month.
+sys-apps/pyrenamer
+
+# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
+# Upstream dead since 2006, relies on old gnome2 python bindings and many
+# other dead libs (#640068). Removal in a month.
+media-sound/ifp-gnome
+
+# David Seifert <soap@gentoo.org> (28 Dec 2017)
+# Last release in 2001, doesn't support amd64, EAPI 2.
+# Removal in 30 days
+app-crypt/nistp224
+
 # Jonas Stein <jstein@gentoo.org> (28 Dec 2017)
 # Upstream deleted all files more than 6 years ago and is inactive. 
 # See also bug #628960
@@ -187,10 +278,6 @@ app-text/dvibook
 app-text/dvipdfm
 app-text/dvipdfmx
 app-text/xdvipdfmx
-
-# Andreas Sturmlechner <asturm@gentoo.org> (25 Dec 2017)
-# Masked for testing
-=dev-db/tora-3.2
 
 # Thomas Beierlein <tomjbe@gentoo.org> (23 Dec 2017)
 # To adapt to changed version naming by upstream 
@@ -454,61 +541,6 @@ media-gfx/kpovmodeler
 # Depends on dead Qt4, no release in two years
 # Masked for removal in 30 days, bug #625110
 dev-util/qfsm
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Declared dead upstream. Masked for removal in 30 days. Bug #634138
-kde-apps/blogilo
-kde-apps/jovie
-kde-apps/kabcclient
-kde-apps/kaccessible
-kde-apps/kdepim-kresources
-kde-apps/kdepim-l10n
-kde-apps/kdepim-wizards
-kde-apps/kdepimlibs
-kde-apps/kdewebdev-meta
-kde-apps/kfilereplace
-kde-apps/kioclient
-kde-apps/klinkstatus
-kde-apps/knode
-kde-apps/knotify
-kde-apps/kppp
-kde-apps/kremotecontrol
-kde-apps/ktimetracker
-kde-apps/ktimezoned
-kde-apps/libkface
-kde-apps/libkpgp
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Depends on dead kdepimlibs:4. KF5-based snapshot available.
-# Masked for removal in 30 days. Bug #634138
-app-office/kraft:4
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Depends on dead kdepimlibs:4. KF5-based snapshot available.
-# Masked for removal in 30 days. Bug #634138
-kde-apps/kopete:4
-kde-misc/kopete-antispam
-kde-misc/kopete-thinklight
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Dead upstream, depends on dead kdelibs4/Qt3Support/Qt4.
-# Masked for removal in 30 days. Bug #634324
-games-mud/kmuddy
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Dead upstream, depends on dead kdelibs4/Qt3Support/Qt4.
-# Masked for removal in 30 days. Bug #629018
-kde-misc/krcstat
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Dead upstream, depends on dead Qt3Support/Qt4.
-# Masked for removal in 30 days. Bug #639244
-net-dialup/qtwvdialer
-
-# Andreas Sturmlechner <asturm@gentoo.org> (30 Nov 2017)
-# Dead upstream, depends on dead kdelibs4/Qt3Support/Qt4.
-# Masked for removal in 30 days. Bug #629018
-x11-themes/bespin
 
 # Jonas Stein <jstein@gentoo.org> (29 Nov 2017)
 # The old yafaray-0.1.1 depends on qt4 and has bugs we can not fix. 
