@@ -3,8 +3,8 @@
 
 EAPI=6
 
-MODULE_AUTHOR=BDFOY
-MODULE_VERSION=1.002
+DIST_AUTHOR=BDFOY
+DIST_VERSION=1.002
 inherit perl-module
 
 DESCRIPTION="Object and functions to work with International Standard Serial Numbers"
@@ -17,14 +17,12 @@ DEPEND="
 	test? ( virtual/perl-Test-Simple )
 "
 
-SRC_TEST=do
-
 src_install() {
 	perl-module_src_install
 	rm -rf "${ED}"/usr/share/man || die
 }
 
 src_test() {
-	perl_rm_files t/pod.t t/pod_coverage.t t/prereq.t
+	perl_rm_files t/pod.t t/pod_coverage.t
 	perl-module_src_test
 }
