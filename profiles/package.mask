@@ -29,6 +29,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (05 Jan 2018)
+# Masked for removal in 30 days, merged into dev-util/kdevelop
+dev-util/kdevplatform
+
+# Andreas Sturmlechner <asturm@gentoo.org> (05 Jan 2018)
+# Masked for removal in 30 days, no more rdeps, bug #642462
+kde-apps/katepart
+kde-apps/kdebase-data
+kde-apps/konsolepart
+
 # Alice Ferrazzi <alicef@gentoo.org> (05 Jan 2018)
 # kernel: Meltdown and Spectre - Processor flaw. (#643228)
 # Please upgrade for Intel processor flaw workaround, 
@@ -62,11 +72,6 @@ sys-fs/ocfs2-tools
 # (#626050, #626052). Removal in a month.
 net-nds/ypserv
 net-nds/ypbind
-
-# Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
-# Unmaintained, no server still usable for this software (#626676). Removal
-# in a month.
-app-text/antixls
 
 # Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
 # Upstream is died, no server still usable for this (#626770). Removal in a
@@ -374,7 +379,6 @@ dev-dotnet/referenceassemblies-pcl
 # Pacho Ramos <pacho@gentoo.org> (27 Dec 2017)
 # Dead for ages, rely on deprecated/dead libs (#447466). Removal in a month.
 dev-vcs/bzr-gtk
-dev-vcs/bzr-explorer
 
 # Pacho Ramos <pacho@gentoo.org> (27 Dec 2017)
 # Completely broken for years (#514400, #596078, #598609, #640096, #641428).
@@ -637,12 +641,6 @@ net-ftp/oneclickftp
 # Masked for removal in 30 days. Bug #640138.
 dev-vcs/qct
 
-# Andreas Sturmlechner <asturm@gentoo.org> (06 Dec 2017)
-# No maintainer, depends on dead PyQt4/Qt4.
-# Masked for removal in 30 days. Bugs #480250, #640114
-dev-vcs/qbzr
-dev-vcs/bzr-explorer
-
 # Bernard Cafarelli <voyageur@gentoo.org> (05 Dec 2017)
 # Dead Window Maker dockapps, dead upstreams and download links
 # (no release for more than 10 years)
@@ -708,16 +706,6 @@ app-emulation/wine
 # Masked for removal on 2017-12-30
 dev-tex/isotope
 
-# Matt Turner <mattst88@gentoo.org> (25 Nov 2017)
-# Unmaintained upstream. Masked for removal in 30 days.
-# Bug #606132.
-x11-drivers/xf86-input-acecad
-x11-drivers/xf86-input-aiptek
-x11-drivers/xf86-input-fpit
-x11-drivers/xf86-input-hyperpen
-x11-drivers/xf86-input-mutouch
-x11-drivers/xf86-input-pentouch
-
 # Michał Górny <mgorny@gentoo.org> (25 Nov 2017)
 # Testing branch GTK+3 release. Changes API, breaks xfce-base/xfdesktop.
 # Masked until the latter sees a new release.
@@ -730,12 +718,6 @@ x11-drivers/xf86-input-pentouch
 # dev-texlive/texlive-latexextra
 # Masked for removal on 2017-12-30
 dev-tex/notoccite
-
-# Matt Turner <mattst88@gentoo.org> (23 Nov 2017)
-# The modesetting driver is part of the xorg-server package since version 1.17.
-# The separate xf86-video-modesetting package is no longer needed.
-# Bug #606132.
-x11-drivers/xf86-video-modesetting
 
 # Andreas Sturmlechner <asturm@gentoo.org> (16 Nov 2017)
 # Qt4WebKit is ancient and full of security holes.
@@ -940,11 +922,6 @@ app-xemacs/cogre
 app-xemacs/ecb
 app-xemacs/xemacs-packages-all
 
-# Bernard Cafarelli <voyageur@gentoo.org> (04 Aug 2017)
-# Temporary mask as current net-ftp/filezilla does not compile
-# with it, bug #626292
->=dev-libs/libfilezilla-0.10.0
-
 # Kent Fredric <kentnl@gentoo.org> (21 Jul 2017)
 # Masked due to serious regression that introduces widespread data
 # corruption when storing data in blobs. Masked, because any code
@@ -1052,8 +1029,7 @@ net-wireless/cpyrit-cuda
 # Bernard Cafarelli <voyageur@gentoo.org> (8 May 2017)
 # Coordinated conversion to wxGTK:3.0-gtk3
 # Drop mask after migration of existing wxGTK:3.0 users
-# and wxGTK-3.0.3 bump in tree
->=net-ftp/filezilla-3.25.2-r1
+=net-ftp/filezilla-3.29.0-r300
 
 # Rick Farina <zerochaos@gentoo.org> (17 Apr 2017)
 # Masking old versions because upstream changed versioning
