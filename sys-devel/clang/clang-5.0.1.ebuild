@@ -30,7 +30,7 @@ LLVM_TARGET_USEDEPS=${ALL_LLVM_TARGETS[@]/%/?}
 
 LICENSE="UoI-NCSA"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm64 ~x86 ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ~arm64 ~x86 ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="debug default-compiler-rt default-libcxx doc +static-analyzer
 	test xml z3 kernel_FreeBSD ${ALL_LLVM_TARGETS[*]}"
 
@@ -67,9 +67,9 @@ CMAKE_BUILD_TYPE=RelWithDebInfo
 
 PATCHES=(
 	# fix finding compiler-rt libs
-	"${FILESDIR}"/5.0.0/0001-Driver-Use-arch-type-to-find-compiler-rt-libraries-o.patch
+	"${FILESDIR}"/5.0.1/0001-Driver-Use-arch-type-to-find-compiler-rt-libraries-o.patch
 	# add Prefix include paths for Darwin
-	"${FILESDIR}"/5.0.0/darwin_prefix-include-paths.patch
+	"${FILESDIR}"/5.0.1/darwin_prefix-include-paths.patch
 )
 
 # Multilib notes:

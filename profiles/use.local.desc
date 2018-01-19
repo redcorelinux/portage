@@ -223,6 +223,7 @@ app-arch/rar:all_sfx - Install all SFX (Self-Extracting) files rather than just 
 app-arch/tar:minimal - just install `tar`
 app-arch/unzip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
 app-arch/wimlib:fuse - Use fuse libraries
+app-arch/wimlib:iso - Install app-cdr/cdrtools in order to prepare iso images
 app-arch/wimlib:ntfs - Use libntfs-3g library from sys-fs/ntfs3g
 app-arch/wimlib:openssl - Use the SHA-1 message digest from libcrypto instead of compilling another implementation
 app-arch/wimlib:yasm - Use yasm assembler instead of nasm
@@ -760,7 +761,6 @@ app-i18n/im-chooser:xfce - Enable support for XFCE panel
 app-i18n/imsettings:gconf - Enable support for gnome-base/gconf
 app-i18n/imsettings:gtk2 - Build with x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 app-i18n/imsettings:xfconf - Enable support for xfce-base/xfconf
-app-i18n/kimera:anthy - Enable support for app-i18n/anthy
 app-i18n/mozc:fcitx4 - Enable support for app-i18n/fcitx 4
 app-i18n/mozc:gui - Install graphical user interface tool (mozc_tool)
 app-i18n/mozc:handwriting-tegaki - Use handwriting recognition model from app-i18n/tegaki-zinnia-japanese
@@ -2826,6 +2826,7 @@ dev-util/apitrace:system-snappy - Link dynamic against app-arch/snappy
 dev-util/bazel:tools - Install extra bazel tools to build from sources
 dev-util/bitcoin-tx:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
 dev-util/bitcoin-tx:ljr - Enable Luke Dashjr's patches
+dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
 dev-util/buildbot:mail - Add support for watching a maildir for commits.
 dev-util/buildbot:manhole - Add support for manhole (debug over ssh)
@@ -5043,6 +5044,7 @@ media-video/ogmrip:ogm - Support for OGM container format
 media-video/ogmrip:srt - Support for SRT subtitle format
 media-video/orion:mpv - Use the media-video/mpv player (upstream default) instead of the dev-qt/qtmultimedia one
 media-video/parole:clutter - Compile in Clutter GTK+ support
+media-video/peek:keybinder - Enable support for global hotkeys using dev-libs/keybinder
 media-video/qgifer:imagemagick - Use imagemagick for image operations
 media-video/qgifer:opencv3 - Use media-libs/opencv:0/3.0 for video operations instead media-libs/opencv:0/2.4
 media-video/rtmpdump:gnutls - Use GnuTLS library instead of the default OpenSSL
@@ -6325,6 +6327,7 @@ net-misc/connman:wispr - Enable support for WISPr hotspot logins.
 net-misc/connman-gtk:openconnect - Support easier authentication to AnyConnect VPNs
 net-misc/crossbar:tor - include tor services connections support
 net-misc/csync:sftp - Enable sftp transfer support via net-libs/libssh
+net-misc/curl:brotli - Enable brotli compression support
 net-misc/curl:http2 - Enabled HTTP/2.0 support
 net-misc/curl:metalink - Enable metalink support
 net-misc/curl:rtmp - Enable RTMP Streaming Media support
@@ -6677,7 +6680,6 @@ net-p2p/bitcoin-qt:linguas_ar - Arabic locale
 net-p2p/bitcoin-qt:linguas_be_BY - Belarusian locale for Belarus
 net-p2p/bitcoin-qt:linguas_bg - Bulgarian locale
 net-p2p/bitcoin-qt:linguas_bg_BG - Bulgarian locale for Bulgaria
-net-p2p/bitcoin-qt:linguas_bs - Bosnian locale
 net-p2p/bitcoin-qt:linguas_ca - Catalan locale
 net-p2p/bitcoin-qt:linguas_ca@valencia - Catalan (Valencian) locale
 net-p2p/bitcoin-qt:linguas_ca_ES - Catalan locale for Spain
@@ -7683,11 +7685,6 @@ sci-visualization/visit:cgns - Builds the reader for the CFD General Notation Sy
 sci-visualization/visit:silo - Adds support for reading .silo files.
 sci-visualization/visit:xdmf2 - Support for xdmf2 formated data.
 sci-visualization/yt:hub - Connect to the yt hub with dev-python/girder-client
-sci-visualization/zhu3d:linguas_cs - Czech locale
-sci-visualization/zhu3d:linguas_de - German locale
-sci-visualization/zhu3d:linguas_es - Spanish locale
-sci-visualization/zhu3d:linguas_fr - French locale
-sci-visualization/zhu3d:linguas_zh - Chinese locale
 sec-policy/selinux-base:open_perms - Enable the open permissions for file object classes (SELinux policy capability).
 sec-policy/selinux-base:peer_perms - Enable the labeled networking peer permissions (SELinux policy capability).
 sec-policy/selinux-base:ubac - Enable User Based Access Control (UBAC) in the SELinux policy
@@ -8673,6 +8670,7 @@ www-servers/apache:apache2_modules_access_compat - Group authorizations based on
 www-servers/apache:apache2_modules_authn_core - Provides core authentication capabilities common to all authentication providers (functionality provided by authn_alias in previous versions).
 www-servers/apache:apache2_modules_authz_core - Provides core authorization capabilities to various authorization/authorization modules, such as authn_file and authz_user.
 www-servers/apache:apache2_modules_authz_dbd - Provides authorization capabilities via SQL database so that authenticated users can be allowed or denied access to portions of the web site by group membership.
+www-servers/apache:apache2_modules_brotli - Enable brotli compression support
 www-servers/apache:apache2_modules_cache_disk - Disk based storage module for the HTTP caching filter (similar to mem_cache in previous versions).
 www-servers/apache:apache2_modules_cache_socache - Shared object cache (socache) based storage module for the HTTP caching filter.
 www-servers/apache:apache2_modules_http2 - Enable http2/alpn module
