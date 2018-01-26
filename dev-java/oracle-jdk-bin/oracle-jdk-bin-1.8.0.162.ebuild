@@ -5,7 +5,7 @@ EAPI=6
 
 inherit desktop gnome2-utils java-vm-2 prefix versionator
 
-KEYWORDS="-* ~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~sparc64-solaris ~x64-solaris"
+KEYWORDS="-* amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux ~x64-macos ~sparc64-solaris ~x64-solaris"
 
 if [[ "$(get_version_component_range 4)" == 0 ]] ; then
 	S_PV="$(get_version_component_range 1-3)"
@@ -113,8 +113,14 @@ pkg_nofetch() {
 src_unpack() {
 	if use x64-macos ; then
 		mkdir -p "${T}"/dmgmount || die
-		hdiutil attach "${DISTDIR}"/jdk-${MY_PV}-macosx-x64.dmg -mountpoint "${T}"/dmgmount || die
-		xar -Oxf "${T}"/dmgmount/JDK\ $(get_version_component_range 2)\ Update\ ${update}.pkg jdk${PV//.}.pkg/Payload | zcat | cpio -idv || die
+		hdiutil attach "${DISTDIR}"/jdk-${MY_PV}-macosx-x64.dmg \
+			-mountpoint "${T}"/dmgmount || die
+		local jdkgen=$(get_version_component_range 2)
+		local uver=$(get_version_component_range 4)
+		( cd "${T}" &&
+		  xar -xf "${T}/dmgmount/JDK ${jdkgen} Update ${uver}.pkg" \
+		  jdk${PV//.}.pkg/Payload ) || die
+		zcat "${T}"/jdk${PV//.}.pkg/Payload | cpio -idv || die
 		hdiutil detach "${T}"/dmgmount || die
 		mv Contents/Home "${S}" || die
 	fi

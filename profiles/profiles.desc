@@ -258,13 +258,12 @@ x86		default/linux/x86/17.0/systemd			stable
 
 # Gentoo/FreeBSD Profiles
 # @MAINTAINER: bsd@gentoo.org
-amd64-fbsd	default/bsd/fbsd/amd64/9.1			dev
+amd64-fbsd	default/bsd/fbsd/amd64/9.1			exp
 amd64-fbsd	default/bsd/fbsd/amd64/11.1			dev
 amd64-fbsd	default/bsd/fbsd/amd64/9.1/clang		exp
 amd64-fbsd	default/bsd/fbsd/amd64/11.1/clang		exp
-sparc-fbsd      default/bsd/fbsd/sparc/8.2                      exp
-x86-fbsd	default/bsd/fbsd/x86/9.1			dev
-x86-fbsd	default/bsd/fbsd/x86/11.1			dev
+x86-fbsd	default/bsd/fbsd/x86/9.1			exp
+x86-fbsd	default/bsd/fbsd/x86/11.1			exp
 
 # Hardened Profiles
 # @MAINTAINER: hardened@gentoo.org
@@ -323,27 +322,6 @@ ppc		default/linux/uclibc/ppc				exp
 ppc		hardened/linux/uclibc/ppc				exp
 x86		default/linux/uclibc/x86				exp
 x86		hardened/linux/uclibc/x86				exp
-
-# uclibc/embedded multiarch profiles
-# @MAINTAINER: uclibc@gentoo.org
-#amd64		uclibc/amd64					dev
-#arm		uclibc/arm					dev
-#arm		uclibc/arm/2.4					dev
-#mips		uclibc/mips					dev
-#mips		uclibc/mips/hardened				dev
-#ppc		uclibc/ppc					dev
-#ppc		uclibc/ppc/2.4					dev
-#ppc		uclibc/ppc/hardened				dev
-#ppc		uclibc/ppc/hardened/2.4				dev
-#sh		uclibc/sh					dev
-#sh		uclibc/sh/2.4					dev
-#x86		uclibc/x86					dev
-#x86		uclibc/x86/2.4					dev
-#x86		uclibc/x86/2005.1				dev
-#x86		uclibc/x86/2005.1/2.4				dev
-#x86		uclibc/x86/hardened				dev
-#x86		uclibc/x86/hardened/2.4				dev
-
 
 # These are Gentoo Prefix profiles, maintained by the Prefix team
 # @MAINTAINER: prefix@gentoo.org
