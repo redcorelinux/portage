@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -48,7 +48,11 @@ RDEPEND="sys-libs/ncurses:0=
 		)
 		gtk? ( x11-libs/gtk+:2 )
 		!gtk? (
-			motif? ( >=x11-libs/motif-2.3:0 )
+			motif? (
+				>=x11-libs/motif-2.3:0
+				x11-libs/libXp
+				x11-libs/libXpm
+			)
 			!motif? (
 				Xaw3d? ( x11-libs/libXaw3d )
 				!Xaw3d? ( athena? ( x11-libs/libXaw ) )
@@ -205,8 +209,9 @@ src_configure() {
 }
 
 src_compile() {
-	export SANDBOX_ON=0			# for the unbelievers, see Bug #131505
-	emake CC="$(tc-getCC)" \
+	# Disable the sandbox. For the unbelievers, see bug #131505
+	SANDBOX_ON=0 LD_PRELOAD="" emake \
+		CC="$(tc-getCC)" \
 		AR="$(tc-getAR) cq" \
 		RANLIB="$(tc-getRANLIB)"
 }

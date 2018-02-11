@@ -29,6 +29,82 @@
 
 #--- END OF EXAMPLES ---
 
+# Michael Palimamka <kensington@gentoo.org> (11 Feb 2018
+# Fails to build (bug #538400). Requires dead Qt 4 (bug #637014).
+# Dead upstream. Masked for removal in 30 days.
+media-sound/lastfmplayer
+
+# Aaron W. Swenson <titanofold@gentoo.org> (10 Feb 2018)
+# The 9.2 branch of PostgreSQL is past EOL. Removal in 30 days (12 Mar 2018).
+<dev-db/postgresql-9.3
+
+# Lars Wendler <polynomial-c@gentoo.org> (08 Feb 2018)
+# 4.4.0 server does not properly write lease changes to the lease file
+# in some cases:
+# https://lists.isc.org/pipermail/dhcp-users/2018-February/021164.html
+=net-misc/dhcp-4.4.0
+
+# Eray Aslan <eras@gentoo.org> (08 Feb 2018)
+# Mask experimental software
+=mail-mta/postfix-3.4*
+
+# Thomas Deutschmann <whissi@gentoo.org> (07 Feb 2018)
+# Intel recommends to pull these versions because they could
+# cause higher than expected reboots and other unpredictable
+# system behavior. Bug #646646
+=sys-firmware/intel-microcode-20171117_p20171215
+=sys-firmware/intel-microcode-20171117_p20171215-r1
+=sys-firmware/intel-microcode-20180108
+=sys-firmware/intel-microcode-20180108-r1
+
+# Matt Turner <mattst88@gentoo.org> (06 Feb 2018)
+# New package with subsuming lots of existing packages. Lots of reverse
+# dependencies will need to be updated.
+x11-proto/xorgproto
+>=x11-proto/bigreqsproto-1.1.2-r1
+>=x11-proto/compositeproto-0.4.2-r2
+>=x11-proto/damageproto-1.2.1-r2
+>=x11-proto/dmxproto-2.3.1-r2
+>=x11-proto/dri2proto-2.8-r2
+>=x11-proto/dri3proto-1.0-r1
+>=x11-proto/fixesproto-5.0-r2
+>=x11-proto/fontsproto-2.1.3-r1
+>=x11-proto/glproto-1.4.17-r2
+>=x11-proto/inputproto-2.3.2-r1
+>=x11-proto/kbproto-1.0.7-r1
+>=x11-proto/presentproto-1.1-r1
+>=x11-proto/randrproto-1.5.0-r1
+>=x11-proto/recordproto-1.14.2-r2
+>=x11-proto/renderproto-0.11.1-r2
+>=x11-proto/resourceproto-1.2.0-r1
+>=x11-proto/scrnsaverproto-1.2.2-r2
+>=x11-proto/trapproto-3.4.3-r1
+>=x11-proto/videoproto-2.3.3-r1
+>=x11-proto/xcmiscproto-1.2.2-r1
+>=x11-proto/xextproto-7.3.0-r1
+>=x11-proto/xf86bigfontproto-1.2.0-r2
+>=x11-proto/xf86dgaproto-2.1-r3
+>=x11-proto/xf86driproto-2.1.1-r2
+>=x11-proto/xf86miscproto-0.9.3-r1
+>=x11-proto/xf86vidmodeproto-2.3.1-r2
+>=x11-proto/xineramaproto-1.2.1-r2
+>=x11-proto/xproto-7.0.31-r1
+
+# Matt Turner <mattst88@gentoo.org> (06 Feb 2018)
+# Dead and unused
+# Masked for removal in 30 days. Bug #646838
+x11-libs/libXCalibrate
+x11-libs/libXfontcache
+x11-misc/xtscal
+x11-proto/fontcacheproto
+x11-proto/xcalibrateproto
+x11-proto/xf86rushproto
+
+# Tim Harder <radhermit@gentoo.org> (05 Feb 2018)
+# Unmaintained, replaced by newsboat fork.
+# Masked for removal in 30 days.
+net-news/newsbeuter
+
 # Andreas Sturmlechner <asturm@gentoo.org> (03 Feb 2018)
 # Dead upstream, depends on deprecated Qt4.
 # Masked for removal in 30 days. Bug #644370
@@ -294,15 +370,6 @@ dev-libs/libFuzzer
 # Mask followup bugfixes for =sys-apps/attr-2.4.48 as well until proper
 # testing has been conducted.
 =sys-apps/acl-2.2.52-r2
-
-# Andreas Sturmlechner <asturm@gentoo.org> (09 Jan 2018)
-# Dead upstream, depends on dead Qt4.
-# Bug #643976. Masked for removal in 30 days.
-media-video/2mandvd
-
-# Andreas Sturmlechner <asturm@gentoo.org> (07 Jan 2018)
-# Masked for removal in 30 days, no more rdeps, bug #602816
-dev-python/python-poppler-qt4
 
 # Alice Ferrazzi <alicef@gentoo.org> (05 Jan 2018)
 # kernel: Meltdown and Spectre - Processor flaw. (#643228)
@@ -804,11 +871,6 @@ dev-ruby/poltergeist
 <dev-util/nvidia-cuda-sdk-8
 <dev-util/nvidia-cuda-toolkit-8
 net-wireless/cpyrit-cuda
-
-# Maciej Mrozowski <reavertm@gentoo.org> (18 May 2017)
-# Experimental, most consumers does not support it yet
->=dev-games/openscenegraph-3.5.5
->=dev-games/openscenegraph-qt-3.5.5
 
 # Bernard Cafarelli <voyageur@gentoo.org> (8 May 2017)
 # Coordinated conversion to wxGTK:3.0-gtk3
