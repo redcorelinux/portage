@@ -29,6 +29,84 @@
 
 #--- END OF EXAMPLES ---
 
+# Thomas Deutschmann <whissi@gentoo.org> (23 Feb 2018)
+# Unmaintained in Gentoo, known critical vulnerabilities like
+# auth bypass. Removal in 30 days. Bugs #559658, #592080.
+sys-cluster/ganglia-web
+
+# Mart Raudsepp <leio@gentoo.org> (23 Feb 2018)
+# Old net-libs/webkit-gtk SLOTs have hundreds of known security issues.
+# Use the security safe net-libs webkit-gtk SLOT=4 instead via
+# libraries and applications ported to gtk3 and webkit2gtk API.
+# Masked for removal in 30 days. Bug #577068.
+# Please keep this package.mask entry until at least 25th May 2018 for
+# extra notification of the security vulnerabilities.
+net-libs/webkit-gtk:2
+net-libs/webkit-gtk:3
+
+# Mart Raudsepp <leio@gentoo.org> (23 Feb 2018)
+# Older versions of GnuCash use security vulnerable old webkit-gtk slot.
+# Use gnucash-2.7.4 or newer instead, but pay attention to the news item:
+# https://www.gentoo.org/support/news-items/2018-01-14-gnucash.html
+<app-office/gnucash-2.7
+
+# Steve Dibb <beandog@gentoo.org> (22 Feb 2018)
+# Very old project of mine, hasn't worked in years, no plans to
+# support, and mpv can provide resume playback by default.
+# Masked for removal in 30 days. Bug #648568
+media-video/mplayer-resume
+
+# Steve Dibb <beandog@gentoo.org> (22 Feb 2018)
+# Dead upstream, never really used, libdvdread and libdvdnav provide
+# DVD access.
+# Masked for removal in 30 days. Bug #648566
+media-libs/libdvdplay
+
+# Steve Dibb <beandog@gentoo.org> (22 Feb 2018)
+# Dead upstream, long since replaced by libaacs for functionality.
+# Masked for removal in 30 days. Bug #648560
+media-video/aacskeys
+
+# Brian Evans <grknight@gentoo.org> (22 Feb 2018)
+# Multiple vulnerablities, EOL upstream.
+# Masked for removal in 30 days. Bug #604182
+dev-php/ZendFramework
+
+# Michael Palimaka <kensington@gentoo.org> (22 Feb 2018)
+# Plugin for removed package media-sound/amarok. Dead upstream.
+# Depends on vulnerable gstreamer:0.10.
+# Masked for removal in 30 days. Bug #629184.
+media-sound/moodbar
+
+# Mart Raudsepp <leio@gentoo.org> (22 Feb 2018)
+# This package was renamed to dev-libs/libgnome-games-support without
+# a pkgmove; everything in tree uses it now instead of libgames-support.
+# Masked for removal in 30 days. Bug #648468.
+dev-libs/libgames-support
+
+# Thomas Deutschmann <whissi@gentoo.org> (22 Feb 2018)
+# Upstream's release tarball doesn't match Git content.
+# Masked until clarified.
+=app-admin/rsyslog-8.33.0
+
+# Ulrich Müller <ulm@gentoo.org> (21 Feb 2018)
+# Homepage is dead. Apparently the last release was in 2012
+# and it does not work with Emacs 25 and later.
+# Masked for removal in 30 days. Bug #590400.
+app-emacs/mcomplete
+
+# Ulrich Müller <ulm@gentoo.org> (21 Feb 2018)
+# Obsolete predecessor of js-mode, which is included
+# with Emacs since version 23. Homepage is dead.
+# Masked for removal in 30 days. Bug #648150.
+app-emacs/javascript
+
+# Ulrich Müller <ulm@gentoo.org> (21 Feb 2018)
+# Last release in 2006. Homepage is dead. Upstream says
+# that app-emacs/muse should be used as replacement.
+# Masked for removal in 30 days. Bug #619194.
+app-emacs/emacs-wiki
+
 # Ulrich Müller <ulm@gentoo.org> (15 Feb 2018)
 # Masked for testing. Note that 11.92 and 12.1 are equivalent
 # in functionality.
@@ -157,11 +235,6 @@ media-sound/qtagconvert
 # Masked for removal in 30 days. Bug #644516
 media-sound/qpitch
 
-# Lars Wendler <polynomial-c@gentoo.org> (28 Jan 2018)
-# Masked for testing.
-# At least app-misc/mc is broken when using a 256color TERM setting.
-=sys-libs/ncurses-6.1
-
 # Andreas Sturmlechner <asturm@gentoo.org> (28 Jan 2018)
 # Dead upstream, depends on deprecated Qt4.
 # Masked for removal in 30 days. Bug #644558
@@ -176,47 +249,6 @@ media-fonts/fontawesome:0/5
 # Masked for removal in 30 days. Bug #644532.
 media-video/qx11grab
 
-# Hans de Graaff <graaff@gentoo.org> (24 Jan 2018)
-# Remove packages that are ruby22-only, and either cannot
-# be updated to ruby23, or are in old, obsolete, slots.
-# Masked for removal in 30 days.
-dev-ruby/amq-protocol:0
-dev-ruby/aws-sdk:0
-dev-ruby/bson:3
-dev-ruby/camping
-dev-ruby/execjs:1
-dev-ruby/mocha:0.11
-dev-ruby/mocha:0.12
-dev-ruby/mocha:0.13
-dev-ruby/mongo
-dev-ruby/net-ssh-multi
-dev-ruby/pcaprub:0.11
-dev-ruby/postgres_ext:2.4
-dev-ruby/rack:1.4
-dev-ruby/rack:1.5
-dev-ruby/rbtree
-dev-ruby/recog:2.0.14
-dev-ruby/right_http_connection
-dev-ruby/rspec-rails:2
-dev-ruby/sass:0
-dev-ruby/sass-rails:4.0
-dev-ruby/snmplib
-dev-ruby/sprockets:2
-dev-ruby/test-unit:0
-dev-ruby/tilt:0
-virtual/ruby-minitest
-www-apps/jekyll-gist
-
-# Andreas Sturmlechner <asturm@gentoo.org> (23 Jan 2018)
-# Depends on deprecated Qt4, no revdeps left.
-# Masked for removal in 30 days.
-dev-libs/libindicate-qt
-
-# Andreas Sturmlechner <asturm@gentoo.org> (22 Jan 2018)
-# Depends on deprecated Qt4, dead project.
-# Masked for removal in 30 days.
-app-emulation/qtemu
-
 # Andreas Sturmlechner <asturm@gentoo.org> (22 Jan 2018)
 # Depends on deprecated Qt4, upstream is slowly doing a qml port.
 # Masked for removal in 60 days. Revisit bug #645504 before deciding
@@ -228,37 +260,9 @@ games-strategy/hedgewars
 # Please migrate to cyrus-imapd-3.0 releases
 =net-mail/cyrus-imapd-2.5*
 
-# Andreas Sturmlechner <asturm@gentoo.org> (20 Jan 2018)
-# Outdated and broken for a long time, blocking cleanups.
-# Depends on deprecated LINGUAS/Qt4/kde4-functions.eclass.
-# Masked for removal in 30 days. Bugs #520070, 555082, 643994, 644312
-net-p2p/dogecoin-qt
-net-p2p/primecoin-qt
-net-p2p/primecoind
-
-# Andreas Sturmlechner <asturm@gentoo.org> (19 Jan 2018)
-# Outdated and broken for a long time, holding up several cleanups.
-# Masked for removal in 30 days. Bug #513564
-sci-physics/geant-python
-
 # Patrice Clement <monsieurp@gentoo.org> (18 Jan 2018)
 # mpv >= 0.28.0 requires changes currently only available in ffmpeg-9999.
 >=media-video/mpv-0.28.0
-
-# Andreas Sturmlechner <asturm@gentoo.org> (18 Jan 2018)
-# Broken by >=kde-apps/kcalcore-17.12.0, but also merged into
-# kdepim-runtime 17.12 as an official feature. Bug #642926
-kde-misc/akonadi-ews
-
-# Andreas Sturmlechner <asturm@gentoo.org> (18 Jan 2018)
-# Dead upstream, depends on dead Qt4/poppler-qt4.
-# Masked for removal in 30 days. Bug #641852
-dev-tex/pstplus
-
-# Andreas Sturmlechner <asturm@gentoo.org> (18 Jan 2018)
-# Depends on dead PyQt4/Qt4, upstream needs help w/ PyQt5.
-# Masked for removal in 30 days. Bug #634986
-dev-tex/texamator
 
 # Michał Górny <mgorny@gentoo.org> (10 Jan 2018)
 # The Fuzzer library is now installed as part of core LLVM. That's
@@ -767,8 +771,8 @@ net-wireless/cpyrit-cuda
 # Bernard Cafarelli <voyageur@gentoo.org> (8 May 2017)
 # Coordinated conversion to wxGTK:3.0-gtk3
 # Drop mask after migration of existing wxGTK:3.0 users
-=net-ftp/filezilla-3.29.0-r300
 =net-ftp/filezilla-3.30.0-r300
+=net-ftp/filezilla-3.31.0-r300
 
 # Rick Farina <zerochaos@gentoo.org> (17 Apr 2017)
 # Masking old versions because upstream changed versioning

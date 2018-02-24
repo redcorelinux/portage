@@ -273,8 +273,8 @@ src_configure() {
 }
 
 src_compile() {
-	export SANDBOX_ON=0			# for the unbelievers, see Bug #131505
-	emake
+	# Disable sandbox when dumping. For the unbelievers, see bug #131505
+	emake RUN_TEMACS="env SANDBOX_ON=0 LD_PRELOAD= ./temacs"
 }
 
 src_install () {
@@ -321,7 +321,7 @@ src_install () {
 		cdir="/usr/src/debug/${CATEGORY}/${PF}/${S#"${WORKDIR}/"}/src"
 	fi
 
-	sed -e "${cdir:+#}/^Y/d" -e "s/^[XY]//" >"${T}/${SITEFILE}" <<-EOF
+	sed -e "${cdir:+#}/^Y/d" -e "s/^[XY]//" >"${T}/${SITEFILE}" <<-EOF || die
 	X
 	;;; ${PN}-${SLOT} site-lisp configuration
 	X

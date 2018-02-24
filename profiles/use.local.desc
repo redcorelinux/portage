@@ -79,7 +79,9 @@ app-admin/gtkdiskfree:gtk2 - Support GTK+ 2.x instead of GTK+ 3.x
 app-admin/hddtemp:network-cron - Monthly cronjob to update hddtemp.db.
 app-admin/keepass:aot - Generate native code at build time, rather than runtime.
 app-admin/keepassxc:autotype - Add support to autotype the passwords into other applications
+app-admin/keepassxc:browser - Enables browser plugin support
 app-admin/keepassxc:http - Add http support
+app-admin/keepassxc:network - Enable network support
 app-admin/keepassxc:yubikey - Enable database unlocking via YubiKey.
 app-admin/lastpass-cli:X - Use x11-misc/xclip or x11-misc/xsel to copy passwords to the clipboard.
 app-admin/lastpass-cli:pinentry - Use app-crypt/pinentry to prompt for passwords.
@@ -261,6 +263,8 @@ app-backup/dar:gcrypt - Enables strong encryption support
 app-backup/dar:gpg - Enables usage of asymetric crypto algorithms
 app-backup/deja-dup:nautilus - Build gnome-base/nautilus extension
 app-backup/duplicity:s3 - Support for backing up to the Amazon S3 system
+app-backup/fsarchiver:lz4 - Enable lz4 compression support
+app-backup/fsarchiver:zstd - Enable zstd compression support
 app-backup/holland-backup-mysql-meta:lvm - Install Holland LVM Plugin
 app-backup/holland-backup-mysql-meta:mysqldump - Install Holland mysqldump Plugin
 app-backup/holland-backup-mysql-meta:mysqlhotcopy - Install Holland mysqlhotcopy Plugin
@@ -1304,6 +1308,7 @@ dev-db/cppdb:mysql_internal - Don't build a separate mysql loadable module but r
 dev-db/cppdb:odbc_internal - Don't build a separate postgresql loadable module but rather build it into the cppdb library itself
 dev-db/cppdb:postgres_internal - Don't build a separate odbc loadable module but rather build it into the cppdb library itself
 dev-db/cppdb:sqlite_internal - Don't build a separate sqlite3 loadable module but rather build it into the cppdb library itself
+dev-db/etcd:server - Installs etcd daemon
 dev-db/firebird:server - Install the server components of Firebird, not just the client
 dev-db/firebird:xinetd - Install ClassicServer
 dev-db/maatkit:udf - Build the MySQL UDFs shipped with maatkit, requires non-minimal MySQL
@@ -2498,7 +2503,9 @@ dev-python/fastparquet:snappy - Enable support for snappy compression
 dev-python/flask-restful:paging - Enable resource paging support
 dev-python/geopy:timezone - Enables localized date support
 dev-python/geopy:yahoo - Enables use of YahooPlaceFinder
-dev-python/glance_store:cinder - adds cinder backend support
+dev-python/glance_store:cinder - enable cinder backend supprt
+dev-python/glance_store:swift - enable swift backend supprt
+dev-python/glance_store:vmware - enable vmware backend supprt
 dev-python/gmpy:mpir - Use sci-libs/mpir as gmp implementation
 dev-python/icalendar:doc - Generate examples and other extra documentation
 dev-python/ipython:matplotlib - Add support for dev-python/matplotlib
@@ -2586,6 +2593,8 @@ dev-python/scrapy:boto - Add support for Amazon S3 via dev-python/boto
 dev-python/scrapy:ibl - Use Instace Based Learning algorithm for automatic extraction
 dev-python/setuptools_scm:mercurial - Enables mercurial backend
 dev-python/simplecv:shell - Enable the iPython SimpleCV shell
+dev-python/simplespectral:faster - Use sci-libs/scipy to speed up drawing
+dev-python/simplespectral:fastest - Use dev-python/pyFFTW to speed up drawing to the max
 dev-python/sphinx:net - enable internet capabilities
 dev-python/sympy:imaging - Add support for dev-python/pillow
 dev-python/sympy:ipython - Add support for dev-python/ipython
@@ -3547,6 +3556,7 @@ kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a 
 kde-plasma/kinfocenter:gles2 - Show OpenGL ES information in kinfocenter
 kde-plasma/kinfocenter:pci - Show advanced PCI information
 kde-plasma/kmenuedit:hotkeys - Enable support for hotkey editing
+kde-plasma/kscreenlocker:consolekit - Add support for killing the screenlocker when sys-auth/consolekit is the session tracker
 kde-plasma/kwin:gles2 - Use OpenGL ES 2 instead of full GL
 kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
 kde-plasma/libksysguard:detailedmemory - Enable display of detailed memory information using dev-qt/qtwebkit.
@@ -4347,6 +4357,9 @@ media-libs/xine-lib:vis - Adds support for SIMD optimizations for UltraSPARC pro
 media-libs/xine-lib:vpx - Enable VP8 codec support via media-libs/libvpx.
 media-libs/xine-lib:xvmc - Enable support for XVideo Motion Compensation (accelerated mpeg playback).
 media-libs/xvid:pic - disable optimized assembly code that is not PIC friendly
+media-plugins/alsa-plugins:arcam_av - Enables Arcam AV control plugin
+media-plugins/alsa-plugins:mix - Enables upmix and vdownmix plugin
+media-plugins/alsa-plugins:usb_stream - Enables usb_stream plugin
 media-plugins/audacious-plugins:adplug - Build with AdPlug (Adlib sound card emulation) support
 media-plugins/audacious-plugins:ampache - Support controlling audacious via www-apps/ampache
 media-plugins/audacious-plugins:aosd - Enable support for Audacious OSD
@@ -5074,69 +5087,70 @@ media-video/vdr:ttxtsubs - support for media-plugins/vdr-ttxtsubs
 media-video/vdr:vasarajanauloja - replacement for the liemikuutio patch, adds some nice must haves features
 media-video/vdr:wareagleicon - Replace original icon set in menu
 media-video/vdr:yaepg - Enables support for the vdr-yaepg plugin
-media-video/vlc:X - Enables support for, e.g., fullscreen mode via the X Window System. By itself, this flag does not build a graphical interface.
-media-video/vlc:aom - Enables experimental support for AV1 codec
-media-video/vlc:archive - Enables support for libarchive stream extractor
-media-video/vlc:atmo - Enables support for AtmoLight (homebrew Ambient Lighting Technology)
-media-video/vlc:audioqueue - Enables AudioQueue audio module for Mac OS X.
-media-video/vlc:avcodec - Enables libavcodec support for video/audio encoding/decoding. libavcodec is part of FFmpeg.
-media-video/vlc:avformat - Enables libformat support for reading and writing various media containers. libavformat is part of FFmpeg.
-media-video/vlc:bluray - Enables libbluray for Blu-ray disc support.
-media-video/vlc:chromaprint - Enables libchromaprint for Chromaprint based audio fingerprinter support.
-media-video/vlc:chromecast - Enable experimental support for Google Chromecast.
-media-video/vlc:dc1394 - Enables IIDC cameras support.
-media-video/vlc:directx - Enable Win32 DirectX support.
-media-video/vlc:dvbpsi - Enables support for Mpeg-TS files (.ts, .m2ts, .mts) via media-libs/libdvbpsi.
-media-video/vlc:dxva2 - Enables Win32 DxVA2 support.
-media-video/vlc:faad - Enable AAC audio decoding library support via media-libs/faad2.
-media-video/vlc:fdk - Enables the Fraunhofer AAC codec library.
-media-video/vlc:fluidsynth - Enables Fluidsynth MIDI software synthesis (with external sound fonts).
-media-video/vlc:gcrypt - Enables cryptography support via libgcrypt.
-media-video/vlc:gme - Enables support for media-libs/game-music-emu for playing various video game music formats.
-media-video/vlc:gnome - Adds support for GNOME's filesystem abstraction layer, gnome-base/gnome-vfs. This flag is not GUI-related.
-media-video/vlc:growl - Enables growl notification support (over UDP for remote access and native on OSX)
-media-video/vlc:gstreamer - Enables GStreamer based decoding support (currently supports only video decoding)
-media-video/vlc:httpd - Enables a web based interface for vlc.
-media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate.
-media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins.
-media-video/vlc:libtiger - Enables Ogg Kate subtitles rendering using libtiger.
-media-video/vlc:linsys - Enables support for Linux Linear Systems Ltd. SDI and HD-SDI input cards.
-media-video/vlc:live - Enables live555 streaming media support (client support for rtsp).
-media-video/vlc:lua - Enable Lua scripting support, needed for including support for Jamendo (online music platform) and similar things.
-media-video/vlc:macosx-dialog-provider - Enables Mac OS X dialog module.
-media-video/vlc:macosx-eyetv - Enables Mac OS X EyeTV (TNT Tuner) module.
-media-video/vlc:macosx-notifications - Enables Mac OS X notifications module (formerly growl).
-media-video/vlc:macosx-qtkit - Enables Mac OS X qtkit module: qtcapture (video) and qtsound (audio) module.
-media-video/vlc:macosx-quartztext - Enables Mac OS X quartz text module.
-media-video/vlc:matroska - Enables matroska support using reference libraries (fallback on other existing matroska support if disabled, i.e., matroska enabled FFmpeg)
+media-video/vlc:X - Enable support for, e.g., fullscreen mode via the X Window System. By itself, this flag does not build a graphical interface
+media-video/vlc:aom - Enable experimental support for AV1 codec
+media-video/vlc:archive - Enable support for libarchive stream extractor
+media-video/vlc:atmo - Enable support for AtmoLight (homebrew Ambient Lighting Technology)
+media-video/vlc:audioqueue - Enable AudioQueue audio module for Mac OS X
+media-video/vlc:avcodec - Enable libavcodec support for video/audio encoding/decoding. libavcodec is part of FFmpeg
+media-video/vlc:avformat - Enable libformat support for reading and writing various media containers. libavformat is part of FFmpeg
+media-video/vlc:bluray - Enable libbluray for Blu-ray disc support
+media-video/vlc:chromaprint - Enable libchromaprint for Chromaprint based audio fingerprinter support
+media-video/vlc:chromecast - Enable experimental support for Google Chromecast
+media-video/vlc:dc1394 - Enable IIDC cameras support
+media-video/vlc:directx - Enable Win32 DirectX support
+media-video/vlc:dvbpsi - Enable support for Mpeg-TS files (.ts, .m2ts, .mts) via media-libs/libdvbpsi
+media-video/vlc:dxva2 - Enable Win32 DxVA2 support
+media-video/vlc:encode - Enable streaming-output support and videolan manager to control multiple streams from within one instance
+media-video/vlc:faad - Enable AAC audio decoding library support via media-libs/faad2
+media-video/vlc:fdk - Enable the Fraunhofer AAC codec library
+media-video/vlc:fluidsynth - Enable Fluidsynth MIDI software synthesis (with external sound fonts)
+media-video/vlc:gcrypt - Enable cryptography support via libgcrypt
+media-video/vlc:gme - Enable support for media-libs/game-music-emu for playing various video game music formats
+media-video/vlc:gnome - Adds support for GNOME's filesystem abstraction layer, gnome-base/gnome-vfs. This flag is not GUI-related
+media-video/vlc:growl - Enable growl notification support (over UDP for remote access and native on OSX)
+media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently supports only video decoding)
+media-video/vlc:httpd - Enable a web based interface for vlc
+media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
+media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins
+media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
+media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
+media-video/vlc:live - Enable live555 streaming media support (client support for rtsp)
+media-video/vlc:lua - Enable Lua scripting support, needed for including support for Jamendo (online music platform) and similar things
+media-video/vlc:macosx-dialog-provider - Enable Mac OS X dialog module
+media-video/vlc:macosx-eyetv - Enable Mac OS X EyeTV (TNT Tuner) module
+media-video/vlc:macosx-notifications - Enable Mac OS X notifications module (formerly growl)
+media-video/vlc:macosx-qtkit - Enable Mac OS X qtkit module: qtcapture (video) and qtsound (audio) module
+media-video/vlc:macosx-quartztext - Enable Mac OS X quartz text module
+media-video/vlc:matroska - Enable matroska support using reference libraries (fallback on other existing matroska support if disabled, i.e., matroska enabled FFmpeg)
 media-video/vlc:mpeg - Add libmpeg2 support for mpeg-1 and mpeg-2 video streams
-media-video/vlc:nfs - Enables support for nfs protocol via net-fs/libnfs
-media-video/vlc:omxil - Enables OpenMAX Integration Layer codec module.
-media-video/vlc:opencv - Enabled OpenCV (computer vision) filter module.
-media-video/vlc:optimisememory - Enable optimisation for memory rather than performance.
-media-video/vlc:opus - Support opus decoding via libopus.
-media-video/vlc:postproc - Enables image post-processing via libpostproc (part of FFmpeg).
-media-video/vlc:projectm - Enables the projectM visualization plugin.
-media-video/vlc:rtsp - Enables real audio and RTSP modules.
+media-video/vlc:nfs - Enable support for nfs protocol via net-fs/libnfs
+media-video/vlc:omxil - Enable OpenMAX Integration Layer codec module
+media-video/vlc:opencv - Enable OpenCV (computer vision) filter module
+media-video/vlc:optimisememory - Enable optimisation for memory rather than performance
+media-video/vlc:opus - Support opus decoding via libopus
+media-video/vlc:postproc - Enable image post-processing via libpostproc (part of FFmpeg)
+media-video/vlc:projectm - Enable the projectM visualization plugin
+media-video/vlc:rtsp - Enable real audio and RTSP modules
 media-video/vlc:run-as-root - Allows vlc to start for root. Don't enable this unless you have a very specific (e.g. embedded) need for it!
-media-video/vlc:schroedinger - Enable Dirac video support (an advanced royalty-free video compression format) via libschroedinger (high-speed implementation in C of the Dirac codec).
-media-video/vlc:sdl-image - Enables sdl image video decoder (depends on sdl)
-media-video/vlc:sftp - Enables libssh2 to support SFTP file transfer.
-media-video/vlc:shout - Enables libshout output.
-media-video/vlc:sid - Adds support for playing C64 SID files through media-libs/libsidplay:2.
-media-video/vlc:skins - Enables support for the skins2 interface.
-media-video/vlc:swscale - Enables image scaling and conversion via libswscale (part of FFmpeg).
-media-video/vlc:tremor - Enables tremor, a fixed-point version of the Ogg Vorbis decoder.
-media-video/vlc:twolame - Enables twolame support (MPEG Audio Layer 2 encoder).
-media-video/vlc:upnp - Enables support for the Intel SDK stack based UPnP discovery module instead of CyberLink.
-media-video/vlc:vcdx - Enables VCD with navigation via libvcdinfo (depends on cdio)
-media-video/vlc:vlm - New videolan (media) manager (vlm), a little manager designed to launch and manage multiple streams from within one instance of VLC.
-media-video/vlc:vpx - Enables the decoder(s) from the WebM VP8 / VP9 Codec SDK.
-media-video/vlc:wma-fixed - Enables fixed point WMA decoder.
-media-video/vlc:x265 - Support X265 Encoder.
-media-video/vlc:xcb - Support the X C-language Binding, a replacement for Xlib; !!! you will need this option to be able to integrate video in the Qt interface, see bug #500678.
-media-video/vlc:zeroconf - Enables support for zero-configuration networking via avahi.
-media-video/vlc:zvbi - Enables support for teletext subtitles via the zvbi library.
+media-video/vlc:schroedinger - Enable Dirac video support (an advanced royalty-free video compression format) via libschroedinger (high-speed implementation in C of the Dirac codec)
+media-video/vlc:sdl-image - Enable sdl image video decoder (depends on sdl)
+media-video/vlc:sftp - Enable libssh2 to support SFTP file transfer
+media-video/vlc:shout - Enable libshout output
+media-video/vlc:sid - Adds support for playing C64 SID files through media-libs/libsidplay:2
+media-video/vlc:skins - Enable support for the skins2 interface
+media-video/vlc:swscale - Enable image scaling and conversion via libswscale (part of FFmpeg)
+media-video/vlc:tremor - Enable tremor, a fixed-point version of the Ogg Vorbis decoder
+media-video/vlc:twolame - Enable twolame support (MPEG Audio Layer 2 encoder)
+media-video/vlc:upnp - Enable support for the Intel SDK stack based UPnP discovery module instead of CyberLink
+media-video/vlc:vcdx - Enable VCD with navigation via libvcdinfo (depends on cdio)
+media-video/vlc:vlm - New videolan (media) manager (vlm), a little manager designed to launch and manage multiple streams from within one instance of VLC
+media-video/vlc:vpx - Enable the decoder(s) from the WebM VP8 / VP9 Codec SDK
+media-video/vlc:wma-fixed - Enable fixed point WMA decoder
+media-video/vlc:x265 - Support X265 Encoder
+media-video/vlc:xcb - Support the X C-language Binding, a replacement for Xlib; !!! you will need this option to be able to integrate video in the Qt interface, see bug #500678
+media-video/vlc:zeroconf - Enable support for zero-configuration networking via avahi
+media-video/vlc:zvbi - Enable support for teletext subtitles via the zvbi library
 media-video/webcamoid:headers - Install development headers
 media-video/webcamoid:libuvc - Build with libuvc support
 media-video/webcamoid:qtaudio - Enable audio capture/play via dev-qt/qtmultimedia
@@ -5333,6 +5347,9 @@ net-analyzer/smokeping:dig - Install net-dns/bind-tools for dig functionality
 net-analyzer/smokeping:echoping - Install net-analyzer/echoping for echoping functionality
 net-analyzer/smokeping:ssh - Install ssh functionality
 net-analyzer/smokeping:telnet - Install dev-perl/Net-Telnet for telnet functionality
+net-analyzer/sngrep:eep - Enable EEP packet send/receive support
+net-analyzer/sngrep:gnutls - Use net-libs/gnutls to parse captured TLS packets
+net-analyzer/sngrep:openssl - Use dev-libs/openssl to parse captured TLS packets
 net-analyzer/snort:active-response - Enables support for automatically sending TCP resets and ICMP unreachable messages to terminate connections. Used with inline deployments.
 net-analyzer/snort:control-socket - Enables Snort's control socket.
 net-analyzer/snort:dynamicplugin - Enable ability to dynamically load preprocessors, detection engine, and rules library. This is required if you want to use shared object (SO) snort rules.
@@ -6316,6 +6333,7 @@ net-misc/eventd:speech - Enable plugin for Text-To-Speech support
 net-misc/eventd:webhook - Enable plugin to send payloads to webhook handlers
 net-misc/eventd:websocket - Enable support for WebSocket protocol
 net-misc/fatrat:bittorrent - Use the bittorrent protocol via net-libs/libtorrent-rasterbar.
+net-misc/felix:bird - Use BIRD, e.g. for route reflection
 net-misc/freerdp:client - Build client binaries
 net-misc/freerdp:openh264 - Enable H.264 support using media-libs/openh264
 net-misc/freerdp:server - Build server binaries
@@ -6421,6 +6439,29 @@ net-misc/nextcloud-client:shibboleth - Build support for Shibboleth single sign-
 net-misc/ntp:openntpd - Allow ntp to be installed alongside openntpd
 net-misc/ntp:parse-clocks - Add support for PARSE clocks
 net-misc/ntp:samba - Provide support for Samba's signing daemon (needed for Active Directory domain controllers)
+net-misc/ntpsec:early - Drop root privileges early
+net-misc/ntpsec:gdb - Enable debugging with gdb
+net-misc/ntpsec:heat - Install contrib heat generating scripts
+net-misc/ntpsec:nist - Enable lockclock
+net-misc/ntpsec:ntpviz - Make visualizations of offsets, jiffies, etc.
+net-misc/ntpsec:rclock_arbiter - Arbiter 1088A/B GPS driver
+net-misc/ntpsec:rclock_generic - Enable support for generic time radios and GPSDOs
+net-misc/ntpsec:rclock_gpsd - Enable gpsd daemon support
+net-misc/ntpsec:rclock_hpgps - Hewlett Packard GPS driver
+net-misc/ntpsec:rclock_jjy - JJY driver
+net-misc/ntpsec:rclock_local - Support for undisciplined local clock (not recommended)
+net-misc/ntpsec:rclock_modem - NIST/USNO/PTB Modem Time Services
+net-misc/ntpsec:rclock_neoclock - NeoClock4X DCF77/TDF driver
+net-misc/ntpsec:rclock_nmea - NMEA GPS driver
+net-misc/ntpsec:rclock_oncore - Oncore driver
+net-misc/ntpsec:rclock_pps - PPS cesium clock driver
+net-misc/ntpsec:rclock_shm - Obtain refclock info from shared memory-segment
+net-misc/ntpsec:rclock_spectracom - Spectracom driver
+net-misc/ntpsec:rclock_trimble - Trimble driver
+net-misc/ntpsec:rclock_truetime - Trutime driver (deprecated)
+net-misc/ntpsec:rclock_zyfer - Zyfer driver
+net-misc/ntpsec:smear - Specify the interval over which a leap second is applied (experimental)
+net-misc/ntpsec:tests - Enable tests
 net-misc/ofono:atmodem - ETSI AT modem support.
 net-misc/ofono:bluetooth - Enable Bluetooth modem support using net-wireless/bluez.
 net-misc/ofono:cdmamodem - Enable CDMA modem support.
@@ -6718,54 +6759,6 @@ net-p2p/datacoin-hp:logrotate - Use app-admin/logrotate for rotating logs
 net-p2p/dbhub:switch_user - Enable support for switching user
 net-p2p/deluge:console - Enable default console UI
 net-p2p/deluge:webinterface - Install dependencies needed for the web interface
-net-p2p/dogecoin-qt:linguas_af_ZA - Afrikaans locale for South Africa
-net-p2p/dogecoin-qt:linguas_ar - Arabic locale
-net-p2p/dogecoin-qt:linguas_bg - Bulgarian locale
-net-p2p/dogecoin-qt:linguas_bs - Bosnian locale
-net-p2p/dogecoin-qt:linguas_ca - Catalan locale
-net-p2p/dogecoin-qt:linguas_ca_ES - Catalan locale for Spain
-net-p2p/dogecoin-qt:linguas_cs - Czech locale
-net-p2p/dogecoin-qt:linguas_cy - Welsh locale
-net-p2p/dogecoin-qt:linguas_da - Danish locale
-net-p2p/dogecoin-qt:linguas_de - German locale
-net-p2p/dogecoin-qt:linguas_el_GR - Modern Greek locale for Greece
-net-p2p/dogecoin-qt:linguas_en - English locale
-net-p2p/dogecoin-qt:linguas_eo - Esperanto locale
-net-p2p/dogecoin-qt:linguas_es - Spanish locale
-net-p2p/dogecoin-qt:linguas_es_CL - Spanish locale for Chile
-net-p2p/dogecoin-qt:linguas_et - Estonian locale
-net-p2p/dogecoin-qt:linguas_eu_ES - Basque locale for Spain
-net-p2p/dogecoin-qt:linguas_fa - Persian locale
-net-p2p/dogecoin-qt:linguas_fa_IR - Persian locale for Iran
-net-p2p/dogecoin-qt:linguas_fi - Finnish locale
-net-p2p/dogecoin-qt:linguas_fr - French locale
-net-p2p/dogecoin-qt:linguas_fr_CA - French locale for Canada
-net-p2p/dogecoin-qt:linguas_gu_IN - Gujarati locale for India
-net-p2p/dogecoin-qt:linguas_he - Hebrew locale
-net-p2p/dogecoin-qt:linguas_hi_IN - Hindi locale for India
-net-p2p/dogecoin-qt:linguas_hr - Croatian locale
-net-p2p/dogecoin-qt:linguas_hu - Hungarian locale
-net-p2p/dogecoin-qt:linguas_it - Italian locale
-net-p2p/dogecoin-qt:linguas_ja - Japanese locale
-net-p2p/dogecoin-qt:linguas_la - Latin locale
-net-p2p/dogecoin-qt:linguas_lt - Lithuanian locale
-net-p2p/dogecoin-qt:linguas_lv_LV - Latvian locale for Latvia
-net-p2p/dogecoin-qt:linguas_nb - Norwegian Bokmål locale
-net-p2p/dogecoin-qt:linguas_nl - Dutch locale
-net-p2p/dogecoin-qt:linguas_pl - Polish locale
-net-p2p/dogecoin-qt:linguas_pt_BR - Portuguese locale for Brazil
-net-p2p/dogecoin-qt:linguas_pt_PT - Portuguese locale for Portugal
-net-p2p/dogecoin-qt:linguas_ro_RO - Romanian locale for Romania
-net-p2p/dogecoin-qt:linguas_ru - Russian locale
-net-p2p/dogecoin-qt:linguas_sk - Slovak locale
-net-p2p/dogecoin-qt:linguas_sr - Serbian locale
-net-p2p/dogecoin-qt:linguas_sv - Swedish locale
-net-p2p/dogecoin-qt:linguas_th_TH - Thai locale for Thailand
-net-p2p/dogecoin-qt:linguas_tr - Turkish locale
-net-p2p/dogecoin-qt:linguas_uk - Ukrainian locale
-net-p2p/dogecoin-qt:linguas_zh_CN - Chinese locale for China
-net-p2p/dogecoin-qt:linguas_zh_TW - Chinese locale for Taiwan
-net-p2p/dogecoin-qt:qrcode - Enable generation of QR Codes for receiving payments
 net-p2p/eiskaltdcpp:cli - Enable sample cli based on readline
 net-p2p/eiskaltdcpp:daemon - Enable eiskaltdcpp-daemon
 net-p2p/eiskaltdcpp:dht - Enable DHT (distributed hash table) support for libeiskaltdcpp
@@ -6799,55 +6792,6 @@ net-p2p/mldonkey:gnutella - enable gnutella and gnutella2 support
 net-p2p/mldonkey:guionly - enable client build only
 net-p2p/mldonkey:magic - enable use of libmagic
 net-p2p/ppcoind:logrotate - Use app-admin/logrotate for rotating logs
-net-p2p/primecoin-qt:linguas_af_ZA - Afrikaans locale for South Africa
-net-p2p/primecoin-qt:linguas_ar - Arabic locale
-net-p2p/primecoin-qt:linguas_bg - Bulgarian locale
-net-p2p/primecoin-qt:linguas_bs - Bosnian locale
-net-p2p/primecoin-qt:linguas_ca - Catalan locale
-net-p2p/primecoin-qt:linguas_ca_ES - Catalan locale for Spain
-net-p2p/primecoin-qt:linguas_cs - Czech locale
-net-p2p/primecoin-qt:linguas_cy - Welsh locale
-net-p2p/primecoin-qt:linguas_da - Danish locale
-net-p2p/primecoin-qt:linguas_de - German locale
-net-p2p/primecoin-qt:linguas_el_GR - Modern Greek locale for Greece
-net-p2p/primecoin-qt:linguas_en - English locale
-net-p2p/primecoin-qt:linguas_eo - Esperanto locale
-net-p2p/primecoin-qt:linguas_es - Spanish locale
-net-p2p/primecoin-qt:linguas_es_CL - Spanish locale for Chile
-net-p2p/primecoin-qt:linguas_et - Estonian locale
-net-p2p/primecoin-qt:linguas_eu_ES - Basque locale for Spain
-net-p2p/primecoin-qt:linguas_fa - Persian locale
-net-p2p/primecoin-qt:linguas_fa_IR - Persian locale for Iran
-net-p2p/primecoin-qt:linguas_fi - Finnish locale
-net-p2p/primecoin-qt:linguas_fr - French locale
-net-p2p/primecoin-qt:linguas_fr_CA - French locale for Canada
-net-p2p/primecoin-qt:linguas_gu_IN - Gujarati locale for India
-net-p2p/primecoin-qt:linguas_he - Hebrew locale
-net-p2p/primecoin-qt:linguas_hi_IN - Hindi locale for India
-net-p2p/primecoin-qt:linguas_hr - Croatian locale
-net-p2p/primecoin-qt:linguas_hu - Hungarian locale
-net-p2p/primecoin-qt:linguas_it - Italian locale
-net-p2p/primecoin-qt:linguas_ja - Japanese locale
-net-p2p/primecoin-qt:linguas_la - Latin locale
-net-p2p/primecoin-qt:linguas_lt - Lithuanian locale
-net-p2p/primecoin-qt:linguas_lv_LV - Latvian locale for Latvia
-net-p2p/primecoin-qt:linguas_nb - Norwegian Bokmål locale
-net-p2p/primecoin-qt:linguas_nl - Dutch locale
-net-p2p/primecoin-qt:linguas_pl - Polish locale
-net-p2p/primecoin-qt:linguas_pt_BR - Portuguese locale for Brazil
-net-p2p/primecoin-qt:linguas_pt_PT - Portuguese locale for Portugal
-net-p2p/primecoin-qt:linguas_ro_RO - Romanian locale for Romania
-net-p2p/primecoin-qt:linguas_ru - Russian locale
-net-p2p/primecoin-qt:linguas_sk - Slovak locale
-net-p2p/primecoin-qt:linguas_sr - Serbian locale
-net-p2p/primecoin-qt:linguas_sv - Swedish locale
-net-p2p/primecoin-qt:linguas_th_TH - Thai locale for Thailand
-net-p2p/primecoin-qt:linguas_tr - Turkish locale
-net-p2p/primecoin-qt:linguas_uk - Ukrainian locale
-net-p2p/primecoin-qt:linguas_zh_CN - Chinese locale for China
-net-p2p/primecoin-qt:linguas_zh_TW - Chinese locale for Taiwan
-net-p2p/primecoin-qt:qrcode - Enable generation of QR Codes for receiving payments
-net-p2p/primecoind:logrotate - Use app-admin/logrotate for rotating logs
 net-p2p/pybitmessage:opencl - Uses dev-python/pyopencl for GPU acceleration.
 net-p2p/qbittorrent:webui - Enable the Web UI
 net-p2p/resilio-sync:pax_kernel - Use paxctl to mark binaries
@@ -7081,6 +7025,7 @@ net-wireless/gr-osmosdr:hackrf - Build with Great Scott Gadgets HackRF support
 net-wireless/gr-osmosdr:iqbalance - Enable support for I/Q balancing using gr-iqbal
 net-wireless/gr-osmosdr:mirisdr - Build with Mirics MSi2500 + MSi001 SDR support
 net-wireless/gr-osmosdr:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
+net-wireless/gr-osmosdr:soapy - Build with SoapySDR support
 net-wireless/gr-osmosdr:uhd - Build with Ettus Research USRP Hardware Driver support
 net-wireless/horst:pcap - Add support for network packet capture via net-libs/libpcap
 net-wireless/hostapd:crda - Add CRDA support
@@ -7104,6 +7049,12 @@ net-wireless/openbsc:gprs - Support GPRS via OpenGGSN
 net-wireless/osmocom-bb:transmit - Enable transmission capabilities.
 net-wireless/pyrit:cuda - Enable CUDA support via net-wireless/cpyrit-cuda
 net-wireless/pyrit:opencl - Enable OpenCL support via net-wireless/cpyrit-opencl
+net-wireless/soapy_power:faster - Use sci-libs/scipy to speed up drawing
+net-wireless/soapy_power:fastest - Use dev-python/pyFFTW to speed up drawing to the max
+net-wireless/soapysdr:bladerf - Add support for bladerf hardware
+net-wireless/soapysdr:hackrf - Add support for hackrf hardware
+net-wireless/soapysdr:rtlsdr - Add support for rtlsdr hardware
+net-wireless/soapysdr:uhd - Add support for Ettus USRP hardware
 net-wireless/spectools:debug - Build the raw output client for spectools. (for developers)
 net-wireless/spectools:gtk - Build the gtk-2 based client for spectools
 net-wireless/spectools:ncurses - Build the ncurses based client for spectools
@@ -7586,6 +7537,8 @@ sci-physics/thepeg:fastjet - Adds support for sci-physics/fastjet
 sci-physics/thepeg:hepmc - Adds support for High Energy Physics Monte Carlo Generators sci-physics/hepmc
 sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
+sci-physics/vgm:geant4 - Enable interaction with Geant4(sci-physics/geant:4)
+sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
 sci-physics/yoda:c++11 - Build using the C++11 standard
 sci-physics/yoda:root - Adds support for sci-physics/root
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
@@ -7992,6 +7945,7 @@ sys-cluster/mvapich2:medium-cluster - Automatically generated description for me
 sys-cluster/mvapich2:romio - Automatically generated description for romio
 sys-cluster/neutron:compute-only - Only install things needed on compute hosts
 sys-cluster/neutron:dhcp - Installs the initscripts for the neutron dhcp service
+sys-cluster/neutron:haproxy - haproxy backend support
 sys-cluster/neutron:l3 - Installs the initscripts for the neutron l3 agent service
 sys-cluster/neutron:linuxbridge - Installs the initscripts for the neutron linuxbridge agent service
 sys-cluster/neutron:metadata - Installs the initscripts for the neutron metadata agent service
@@ -8572,6 +8526,7 @@ www-client/uget:hide-temp-files - Make temporary files that are used while downl
 www-client/uget:openssl - Use dev-libs/openssl instead of net-libs/gnutls
 www-client/uget:rss - Enable uGet feed messages
 www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding
+www-client/weboob:deprecated - Enable dev-python/mechanize support (deprecated in favor of dev-python/requests
 www-client/weboob:fast-libs - Enable fast libs
 www-client/weboob:secure-updates - Enable secure updates
 www-misc/gurlchecker:json - Enable support for parsing Google Chrome and derivatives bookmarks.
