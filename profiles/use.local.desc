@@ -286,7 +286,6 @@ app-cdr/brasero:packagekit - Enable support for the distro-neutral package manag
 app-cdr/brasero:playlist - Enable support for playlists through dev-libs/totem-pl-parser
 app-cdr/brasero:tracker - Enable audio playlist search using the app-misc/tracker indexer
 app-cdr/cdemu:cdemu-daemon - Pull app-cdr/cdemu-daemon dependency, useful in chroot environment (bug #315491). Do not disable until you know what you are doing.
-app-cdr/cdrdao:gcdmaster - Enable building of gcdmaster application
 app-cdr/cuetools:extras - Install additional script that tag files based on cue/toc file information
 app-cdr/dvdisaster:debug - Enable memory debugging.
 app-cdr/gaffitter:scripts - Install additional gaffitter scripts for external programs
@@ -412,7 +411,7 @@ app-editors/fe:sendmail - Send mail after editor abend
 app-editors/gedit-plugins:charmap - Insert special characters just by clicking on them
 app-editors/gedit-plugins:git - Shows document changes related to git's HEAD
 app-editors/gedit-plugins:terminal - Embed a terminal in the bottom pane
-app-editors/gedit-plugins:zeitgeist - Build the plugin to inject events to gnome-extra/zeitgeist
+app-editors/gedit-plugins:zeitgeist - Build the plugin to inject events to zeitgeist
 app-editors/gvim:gtk3 - Enable GTK+3 interface
 app-editors/gvim:luajit - Use dev-lang/luajit instead of dev-lang/lua
 app-editors/gvim:netbeans - Include netbeans external editor integration support
@@ -627,6 +626,7 @@ app-emulation/wine-any:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-any:d3d9 - Apply highly experimental patches for Gallium Nine support. This patch may break some applications.
 app-emulation/wine-any:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-any:gecko - Add support for the Gecko engine when using iexplore
+app-emulation/wine-any:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-any:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
 app-emulation/wine-any:mono - Add support for .NET using Wine's Mono add-on
 app-emulation/wine-any:netapi - Use libnetapi from net-fs/samba to support Windows networks in netapi32.dll
@@ -643,11 +643,13 @@ app-emulation/wine-any:samba - Add support for NTLM auth. see http://wiki.winehq
 app-emulation/wine-any:staging - Apply Wine-Staging patches for advanced feature support that haven't made it into upstream Wine yet
 app-emulation/wine-any:themes - Support GTK+:3 window theming through Wine-Staging
 app-emulation/wine-any:udev - Use virtual/libudev to provide plug and play support
+app-emulation/wine-any:vulkan - Enable Vulkan drivers
 app-emulation/wine-d3d9:capi - Enable ISDN support via CAPI
 app-emulation/wine-d3d9:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-d3d9:d3d9 - Apply highly experimental patches for Gallium Nine support. This patch may break some applications.
 app-emulation/wine-d3d9:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-d3d9:gecko - Add support for the Gecko engine when using iexplore
+app-emulation/wine-d3d9:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-d3d9:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
 app-emulation/wine-d3d9:mono - Add support for .NET using Wine's Mono add-on
 app-emulation/wine-d3d9:netapi - Use libnetapi from net-fs/samba to support Windows networks in netapi32.dll
@@ -660,10 +662,12 @@ app-emulation/wine-d3d9:realtime - Pull in sys-auth/rtkit for low-latency pulsea
 app-emulation/wine-d3d9:run-exes - Use Wine to open and run .EXE and .MSI files
 app-emulation/wine-d3d9:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
 app-emulation/wine-d3d9:udev - Use virtual/libudev to provide plug and play support
+app-emulation/wine-d3d9:vulkan - Enable Vulkan drivers
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-staging:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-staging:gecko - Add support for the Gecko engine when using iexplore
+app-emulation/wine-staging:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-staging:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
 app-emulation/wine-staging:mono - Add support for .NET using Wine's Mono add-on
 app-emulation/wine-staging:netapi - Use libnetapi from net-fs/samba to support Windows networks in netapi32.dll
@@ -680,10 +684,12 @@ app-emulation/wine-staging:samba - Add support for NTLM auth. see http://wiki.wi
 app-emulation/wine-staging:staging - Apply Wine-Staging patches for advanced feature support that haven't made it into upstream Wine yet
 app-emulation/wine-staging:themes - Support GTK+:3 window theming through Wine-Staging
 app-emulation/wine-staging:udev - Use virtual/libudev to provide plug and play support
+app-emulation/wine-staging:vulkan - Enable Vulkan drivers
 app-emulation/wine-vanilla:capi - Enable ISDN support via CAPI
 app-emulation/wine-vanilla:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-vanilla:gecko - Add support for the Gecko engine when using iexplore
+app-emulation/wine-vanilla:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-vanilla:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
 app-emulation/wine-vanilla:mono - Add support for .NET using Wine's Mono add-on
 app-emulation/wine-vanilla:netapi - Use libnetapi from net-fs/samba to support Windows networks in netapi32.dll
@@ -696,6 +702,7 @@ app-emulation/wine-vanilla:realtime - Pull in sys-auth/rtkit for low-latency pul
 app-emulation/wine-vanilla:run-exes - Use Wine to open and run .EXE and .MSI files
 app-emulation/wine-vanilla:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
 app-emulation/wine-vanilla:udev - Use virtual/libudev to provide plug and play support
+app-emulation/wine-vanilla:vulkan - Enable Vulkan drivers
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/x48:readline - Enables support for libreadline
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
@@ -1074,6 +1081,7 @@ app-portage/conf-update:colordiff - Use colors when displaying diffs (app-misc/c
 app-portage/conf-update:libressl - Enable SSL connections and crypto functions using dev-libs/libressl
 app-portage/eix:debug - Build with upstream's CXXFLAGS/LDFLAGS for debugging support; not recommended for normal use.
 app-portage/eix:doc - Create description of the eix cache file additionally in html format
+app-portage/eix:jumbo-build - Compile faster and produce better binary. Recommended unless compiling on a quite memory-restricted system.
 app-portage/eix:sqlite - Compile in support for portage's sqlite backend; to actually use it you need additional configuration of portage and eix
 app-portage/g-sorcery:bson - Support BSON file format for package DB
 app-portage/gemato:blake2 - Install dependencies needed for BLAKE2 hash functions
@@ -1313,6 +1321,7 @@ dev-db/firebird:server - Install the server components of Firebird, not just the
 dev-db/firebird:xinetd - Install ClassicServer
 dev-db/maatkit:udf - Build the MySQL UDFs shipped with maatkit, requires non-minimal MySQL
 dev-db/mariadb:backup - Build mariadb-backup which supports SST and hot backup of InnoDB, Aria and MyISAM including compression and encryption
+dev-db/mariadb:client-libs - Build the client libraries from the server package instead of the C Connector packages
 dev-db/mariadb:cluster - Add support for NDB clustering (deprecated)
 dev-db/mariadb:community - Enables the community features from upstream.
 dev-db/mariadb:embedded - Build embedded server (libmysqld)
@@ -1343,6 +1352,7 @@ dev-db/mariadb:systemtap - Build support for profiling and tracing using dev-uti
 dev-db/mariadb:test - Install upstream testsuites for end use.
 dev-db/mariadb:tokudb - Add support for TokuDB storage engine
 dev-db/mariadb:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
+dev-db/mariadb-connector-c:mysqlcompat - Enable mysqlclient library symbolic links
 dev-db/mariadb-galera:embedded - Build embedded server (libmysqld)
 dev-db/mariadb-galera:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
 dev-db/mariadb-galera:jdbc - Enable the CONNECT engine to access foreign databases via JDBC
@@ -1940,7 +1950,7 @@ dev-lang/ruby:readline - Use the sys-libs/readline library to provide the readli
 dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
 dev-lang/rust:clang - Use sys-devel/clang for building
 dev-lang/rust:extended - Build and install rls, rustfmt and cargo alongside the compiler and stdlib
-dev-lang/rust:jemalloc - Use sys-libs/jemalloc as the standard memory allocator
+dev-lang/rust:jemalloc - Use dev-libs/jemalloc as the standard memory allocator
 dev-lang/rust:libcxx - Use sys-libs/libcxx as standard library when building with sys-devel/clang
 dev-lang/rust:system-llvm - Use system sys-devel/llvm in place of the bundled one
 dev-lang/scala:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
@@ -3511,11 +3521,11 @@ kde-apps/okular:markdown - Enable Markdown support via app-text/discount
 kde-apps/okular:mobi - Enable mobipocket support
 kde-apps/okular:mobile - Enable Plasma mobile support
 kde-apps/okular:plucker - Enable Plucker E-Book for Palm OS devices support
-kde-apps/okular:share - Enable support for a share menu using dev-libs/purpose
+kde-apps/okular:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/okular:speech - Enable text-to-speech support
 kde-apps/pimcommon:designer - Build plugins for dev-qt/designer
 kde-apps/spectacle:kipi - Enable support for the KDE Image Plugin Interface
-kde-apps/spectacle:share - Enable support for a share menu using dev-libs/purpose
+kde-apps/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/step:qalculate - Enable the libqalculate library for unit conversion
 kde-frameworks/frameworkintegration:appstream - Enable AppStream software metadata support
 kde-frameworks/kconfigwidgets:man - Build and install man pages
@@ -5045,8 +5055,6 @@ media-video/ogmrip:srt - Support for SRT subtitle format
 media-video/orion:mpv - Use the media-video/mpv player (upstream default) instead of the dev-qt/qtmultimedia one
 media-video/parole:clutter - Compile in Clutter GTK+ support
 media-video/peek:keybinder - Enable support for global hotkeys using dev-libs/keybinder
-media-video/qgifer:imagemagick - Use imagemagick for image operations
-media-video/qgifer:opencv3 - Use media-libs/opencv:0/3.0 for video operations instead media-libs/opencv:0/2.4
 media-video/rtmpdump:gnutls - Use GnuTLS library instead of the default OpenSSL
 media-video/simplescreenrecorder:asm - Enable x86 assembly optimisation.
 media-video/simplescreenrecorder:vpx - Enable VP8 codec support via media-libs/libvpx.
@@ -5064,7 +5072,6 @@ media-video/transcode:mjpeg - Enables mjpegtools support
 media-video/transcode:nuv - NuppelVideo container format demuxing
 media-video/transcode:pic - disable optimized assembly code that is not PIC friendly
 media-video/transcode:postproc - Build with ffmpeg libpostproc support
-media-video/tsmuxer:qt4 - Installs tsMuxerGUI (needs Qt4)
 media-video/vdr:alternatechannel - Use alternate channel on record
 media-video/vdr:bidi - fribidi support, for languages, written from right to left
 media-video/vdr:ddepgentry - remove duplicate EPG entries
@@ -5123,6 +5130,7 @@ media-video/vlc:macosx-notifications - Enable Mac OS X notifications module (for
 media-video/vlc:macosx-qtkit - Enable Mac OS X qtkit module: qtcapture (video) and qtsound (audio) module
 media-video/vlc:macosx-quartztext - Enable Mac OS X quartz text module
 media-video/vlc:matroska - Enable matroska support using reference libraries (fallback on other existing matroska support if disabled, i.e., matroska enabled FFmpeg)
+media-video/vlc:microdns - Enable Chromecast auto-detection using net-libs/libmicrodns
 media-video/vlc:mpeg - Add libmpeg2 support for mpeg-1 and mpeg-2 video streams
 media-video/vlc:nfs - Enable support for nfs protocol via net-fs/libnfs
 media-video/vlc:omxil - Enable OpenMAX Integration Layer codec module
@@ -5499,6 +5507,7 @@ net-dns/dnssec-validator:ecdsa-check - Requires openssl[-bindist]
 net-dns/hash-slinger:ipsec - Enable support for IPSECKEY records (ipseckey)
 net-dns/hash-slinger:openpgp - Enable support for OPENPGPKEY records (openpgpkey)
 net-dns/hash-slinger:ssh - Enable support for SSHFP records (sshfp)
+net-dns/idnkit:liteonly - Compile and install lite library only
 net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
 net-dns/knot:fastparser - Use a zone file parser that is faster, but requires more memory and CPU time to compile
@@ -6861,9 +6870,6 @@ net-proxy/privoxy:tools - Install log parser, regression tester and user agent g
 net-proxy/privoxy:whitelists - Support trust files (white lists)
 net-proxy/privoxy:zlib - Use sys-libs/zlib to decompress data before filtering
 net-proxy/rejik:banlists - Install upstream provided simple banlists
-net-proxy/shadowsocks-libev:mbedtls - Use net-libs/mbedtls as crypto backend
-net-proxy/shadowsocks-libev:openssl - Use dev-libs/openssl as crypto backend
-net-proxy/shadowsocks-libev:system-libs - Use system libraries instead of the ones included in the upstream distribution
 net-proxy/squid:ecap - Adds support for loadable content adaptation modules (http://www.e-cap.org)
 net-proxy/squid:esi - Enable ESI for accelerators, will cause squid reverse proxies to be capable of the Edge Acceleration Specification (www.esi.org)
 net-proxy/squid:htcp - Enable HTCP protocol
@@ -7059,7 +7065,6 @@ net-wireless/spectools:debug - Build the raw output client for spectools. (for d
 net-wireless/spectools:gtk - Build the gtk-2 based client for spectools
 net-wireless/spectools:ncurses - Build the ncurses based client for spectools
 net-wireless/ubertooth:bluez - use bluez to support clock following and scanning
-net-wireless/ubertooth:pcap - Use libpcap for packet capture and read/write
 net-wireless/ubertooth:specan - Enable the ubertooth spectrum analyzer
 net-wireless/ubertooth:ubertooth1-firmware - Build/install ubertooth1-firmware
 net-wireless/urh:hackrf - use native backend which directly uses net-libs/libhackrf
@@ -8459,6 +8464,7 @@ www-client/elinks:gopher - Enable support for the gopher protocol
 www-client/elinks:mouse - Make elinks to grab all mouse events
 www-client/elinks:tre - Enable support for regex searches via dev-libs/tre
 www-client/elinks:xml - Enable support for bookmarks via dev-libs/expat
+www-client/falkon:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 www-client/firefox:bindist - Disable official Firefox branding (icons, name) which are not binary-redistributable according to upstream.
 www-client/firefox:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 www-client/firefox:eme-free - Disable EME (DRM plugin) cabability at build time
@@ -8501,6 +8507,7 @@ www-client/netsurf:rosprite - RISC OS Sprite bitmap image support (media-libs/li
 www-client/netsurf:svgtiny - SVG image support via media-libs/svgatiny instead of gnome-base/librsvg
 www-client/netsurf:webp - WebP image support (media-libs/libwebp)
 www-client/opera:gtk - Install support libraries and runtime dependencies to support GTK+/GNOME desktop integration
+www-client/otter:webengine - Use dev-qt/qtwebengine as backend instead of dev-qt/qtwebkit (experimental)
 www-client/qupzilla:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 www-client/qupzilla:nonblockdialogs - Enable fancy non-blocking JavaScript dialogs shown inside the page, not blocking the application window. When closing browser windows with open dialogs, this can crash the application.
 www-client/seamonkey:calendar - Build Mozilla's calendar
@@ -8832,6 +8839,7 @@ x11-terms/rxvt-unicode:secondary-wheel - Support for wheel scrolling on secondar
 x11-terms/rxvt-unicode:unicode3 - Use 21 instead of 16 bits to represent unicode characters
 x11-terms/rxvt-unicode:wcwidth - Enable wide char width support
 x11-terms/terminator:libnotify - Enables desktop notifications viadev-python/notify-python
+x11-terms/xfce4-terminal:utempter - Include utmp management support via sys-libs/libutempter
 x11-terms/xterm:openpty - Use openpty() in preference to posix_openpt()
 x11-terms/xterm:toolbar - Enable the xterm toolbar to be built
 x11-themes/arc-theme:cinnamon - Install theme for gnome-extra/cinnamon
@@ -8905,7 +8913,6 @@ x11-wm/enlightenment:enlightenment_modules_notification - notification-daemon al
 x11-wm/enlightenment:enlightenment_modules_packagekit - Package manager integration
 x11-wm/enlightenment:enlightenment_modules_pager - Gadget to allow you to visualize your virtual desktops and the windows they contain
 x11-wm/enlightenment:enlightenment_modules_pager-plain - A simpler desktop pager
-x11-wm/enlightenment:enlightenment_modules_policy-mobile - 
 x11-wm/enlightenment:enlightenment_modules_quickaccess - Enlightenment Quickaccess Launcher
 x11-wm/enlightenment:enlightenment_modules_shot - Simple screenshot+save/upload module
 x11-wm/enlightenment:enlightenment_modules_start - Enlightenment's 'Start' button equivalent

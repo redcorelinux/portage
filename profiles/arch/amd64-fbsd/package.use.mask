@@ -1,6 +1,28 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (02 Mar 2018)
+# Someone needs to test the driver.
+x11-base/xorg-drivers video_cards_amdgpu
+
+# Michał Górny <mgorny@gentoo.org> (02 Mar 2018)
+# Requires sys-fs/fuse. Maybe it could work with fuse4bsd?
+net-fs/openafs fuse
+
+# Michał Górny <mgorny@gentoo.org> (01 Mar 2018)
+# Requires separate libacl while FreeBSD has it in libc.
+dev-lang/php acl
+
+# Michał Górny <mgorny@gentoo.org> (01 Mar 2018)
+# Unkeyworded dependencies.
+dev-libs/cyrus-sasl authdaemond
+gnome-base/gvfs cdda google nfs
+sys-auth/consolekit evdev pm-utils
+
+# Michał Górny <mgorny@gentoo.org> (28 Feb 2018)
+# Requires masked USE flags.
+gnome-base/gvfs mtp
+
 # Michał Górny <mgorny@gentoo.org> (22 Feb 2018)
 # USE=libcxxrt is use.forced.
 sys-libs/libcxx libcxxabi
@@ -22,7 +44,6 @@ media-video/ffmpeg frei0r sofalizer
 # Michał Górny <mgorny@gentoo.org> (19 Feb 2018)
 # Unkeyworded dependencies.
 app-doc/doxygen clang
-dev-libs/leveldb tcmalloc
 dev-libs/libpeas jit
 dev-perl/GD fcgi
 media-libs/libcanberra gnome
