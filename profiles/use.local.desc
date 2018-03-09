@@ -1081,7 +1081,6 @@ app-portage/conf-update:colordiff - Use colors when displaying diffs (app-misc/c
 app-portage/conf-update:libressl - Enable SSL connections and crypto functions using dev-libs/libressl
 app-portage/eix:debug - Build with upstream's CXXFLAGS/LDFLAGS for debugging support; not recommended for normal use.
 app-portage/eix:doc - Create description of the eix cache file additionally in html format
-app-portage/eix:jumbo-build - Compile faster and produce better binary. Recommended unless compiling on a quite memory-restricted system.
 app-portage/eix:sqlite - Compile in support for portage's sqlite backend; to actually use it you need additional configuration of portage and eix
 app-portage/g-sorcery:bson - Support BSON file format for package DB
 app-portage/gemato:blake2 - Install dependencies needed for BLAKE2 hash functions
@@ -2290,7 +2289,7 @@ dev-lisp/abcl:clisp - Build Armed Bear Common Lisp using GNU CLISP
 dev-lisp/abcl:cmucl - Build Armed Bear Common Lisp using CMU Common Lisp
 dev-lisp/abcl:jad - Enable support for disassembling compiled code using JAD
 dev-lisp/clisp:hyperspec - Use local hyperspec instead of online version
-dev-lisp/clisp:new-clx - Build CLISP with support for the NEW-CLX module which is a C binding to the Xorg libraries
+dev-lisp/clisp:new-clx - Build CLISP with support for the NEW-CLX module which is a -C binding to the Xorg libraries
 dev-lisp/clisp:pari - Build CLISP with support for the PARI Computer Algebra System
 dev-lisp/clisp:svm - Build CLISP with support for the Support Vector Machine module
 dev-lisp/clx:doc - Builds documentation
@@ -2541,6 +2540,7 @@ dev-python/matplotlib:gtk2 - Enable x11-libs/gtk+:2 support
 dev-python/matplotlib:gtk3 - Enable x11-libs/gtk+:3 support
 dev-python/matplotlib:pyside - Qt support via dev-python/pyside
 dev-python/mpmath:matplotlib - Add support for dev-python/matplotlib
+dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/nbdime:webtools - Install web-based diff and merge tools.
 dev-python/netaddr:cli - Enable netaddr shell with dev-python/ipython
 dev-python/networkx:scipy - Enables scipy backend
@@ -2805,10 +2805,8 @@ dev-scheme/kawa:sax - Assume SAX2 is available with dev-java/sax
 dev-scheme/kawa:servlets - Build support for generating servlets with dev-java/servletapi
 dev-scheme/kawa:swing - Assume Swing is available
 dev-scheme/kawa:xqtests - Support XQuery Test Suite
-dev-scheme/racket:backtrace - Support GC backtrace dumps
 dev-scheme/racket:futures - Enable racket/future library for fine-grained hardware parallelism
 dev-scheme/racket:places - Enable racket/place library for share-nothing parallelism and message-passing communication. Compared to futures, places are heavyweight, but they have a simpler performance model.
-dev-scheme/racket:plot - Enable plot libraries
 dev-scheme/racket:threads - Enable support for green threads
 dev-scheme/scm:arrays - Support for arrays, uniform-arrays and uniform-vectors.
 dev-scheme/scm:bignums - Support for large precision integers.
@@ -2914,7 +2912,6 @@ dev-util/geany-plugins:enchant - Enable spell checking using enchant
 dev-util/geany-plugins:gpg - Enable geanypg plugin which integrates GPG using app-crypt/gpgme
 dev-util/geany-plugins:gtk3 - Use GTK+3 instead of GTK+2
 dev-util/geany-plugins:gtkspell - Use gtkspell for dictionary support in GeanyVC
-dev-util/geany-plugins:keyrecord - Enable the keyrecord plugin
 dev-util/geany-plugins:multiterm - Enable the multiterm plugin
 dev-util/geany-plugins:overview - Enable overview plugin
 dev-util/geany-plugins:pretty-printer - Enable pretty-printer plugin
@@ -3238,6 +3235,10 @@ games-fps/urbanterror:skeetshootmod - Build support for skeetshoot mod for speci
 games-fps/urbanterror:voip - Use ioq3 ingame VoIP (experimental)
 games-fps/worldofpadman:maps - Install extra maps (PadPack)
 games-fps/xonotic:ode - Enable support for physics engine from dev-games/ode
+games-fps/yamagi-quake2:client - Build client
+games-fps/yamagi-quake2:ctf - Build support for the 'Capture The Flag' addon
+games-fps/yamagi-quake2:rogue - Build support for the 'Ground Zero' Mission Pack
+games-fps/yamagi-quake2:xatrix - Build support for the 'The Reckoning' Mission Pack
 games-kids/crayon-physics:bundled-libs - Use the upstream provided bundled libraries.
 games-misc/katawa-shoujo:system-renpy - Use games-engines/renpy instead of the bundled one (experimental)
 games-misc/little-inferno:bundled-libs - Use bundled libraries.
@@ -3582,6 +3583,7 @@ kde-plasma/plasma-meta:crypt - Pull in kde-plasma/plasma-vault for encrypted vau
 kde-plasma/plasma-meta:display-manager - Pull in a graphical display manager
 kde-plasma/plasma-meta:grub - Pull in Breeze theme for sys-boot/grub
 kde-plasma/plasma-meta:gtk - Enable Breeze widget style and KCM for GTK2 and GTK3
+kde-plasma/plasma-meta:legacy-systray - Add support for applications using legacy xembed systray icons, depending on USE qt4 or gtk.
 kde-plasma/plasma-meta:pam - Enable support for kwallet auto-unlocking
 kde-plasma/plasma-meta:plymouth - Pull in Breeze theme for sys-boot/plymouth
 kde-plasma/plasma-meta:pulseaudio - Install Plasma applet for PulseAudio volume management
@@ -4268,6 +4270,7 @@ media-libs/mlt:opencv - Build motion tracking module using media-libs/opencv
 media-libs/mlt:python - Build SWIG bindings for Python
 media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms.
 media-libs/mlt:ruby - Build SWIG bindings for Ruby
+media-libs/mlt:sdl2 - Build media-libs/libsdl2 module
 media-libs/netpbm:rle - Build converters for the RLE format (utah raster toolkit)
 media-libs/opencolorio:pdf - Install extra documentation in PDF format
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
@@ -4542,6 +4545,8 @@ media-sound/csound:websocket - Build the websocket opcode
 media-sound/darkice:aacplus - AAC+ encoding via media-libs/libaacplus
 media-sound/darkice:opus - Enable Opus audio codec support
 media-sound/darkice:twolame - Build with twolame support
+media-sound/deinvert:liquid - improve sound quality using net-libs/liquid-dsp
+media-sound/deinvert:wav - wav file support using media-libs/libsndfile
 media-sound/denemo:fluidsynth - Enable Fluidsynth MIDI software synthesis
 media-sound/denemo:portmidi - Enable support for the portmidi backend
 media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
@@ -5732,9 +5737,6 @@ net-im/err:plugins - Enable support for installing plugins with dev-vcs/git
 net-im/gajim:idle - Enable idle module
 net-im/gajim:srv - SRV capabilities
 net-im/gajim:xhtml - Enable XHTML support
-net-im/jabberd2:experimental - Enable experimental features such as TLS Everywhere.
-net-im/jabberd2:memdebug - Enable nad and pool debug. Requires USE="debug" to be set.
-net-im/jabberd2:websocket - Enable WebSocket support on C2S port.
 net-im/kadu:gadu - Enables Gadu communication protocol
 net-im/kadu:mpd - Enables Music Player Daemon support
 net-im/kadu:otr - Enable char encryption via OTR library
@@ -7019,7 +7021,6 @@ net-wireless/gnuradio:wavelet - enable wavelet signal processing blocks
 net-wireless/gnuradio:zeromq - enable zeromq message passing blocks
 net-wireless/gqrx:gr-audio - Use audio support from net-wireless/gnuradio
 net-wireless/gr-air-modes:fgfs - Support FlightGear
-net-wireless/gr-air-modes:gui - Build the GUI
 net-wireless/gr-air-modes:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
 net-wireless/gr-air-modes:uhd - Build with Ettus Research USRP Hardware Driver support
 net-wireless/gr-baz:armadillo - install MUSIC DOA estimator block
@@ -7067,6 +7068,16 @@ net-wireless/spectools:ncurses - Build the ncurses based client for spectools
 net-wireless/ubertooth:bluez - use bluez to support clock following and scanning
 net-wireless/ubertooth:specan - Enable the ubertooth spectrum analyzer
 net-wireless/ubertooth:ubertooth1-firmware - Build/install ubertooth1-firmware
+net-wireless/uhd:b100 - support B100 hardware
+net-wireless/uhd:b200 - support B200, B210, B200mini, B205mini hardware
+net-wireless/uhd:e300 - support E300, E310 hardware
+net-wireless/uhd:mpmd - support N300, N310 hardware
+net-wireless/uhd:n230 - support N230 harware
+net-wireless/uhd:octoclock - Octoclock Network Support
+net-wireless/uhd:usrp1 - support USRP1 hardware
+net-wireless/uhd:usrp2 - support USRP2, N200, N210 hardware
+net-wireless/uhd:utils - utilities needed to list, query, calibrate, or update FPGA/Firmware
+net-wireless/uhd:x300 - support X300, X310 hardware
 net-wireless/urh:hackrf - use native backend which directly uses net-libs/libhackrf
 net-wireless/urh:rtlsdr - use native backend which directly uses net-wireless/rtl-sdr
 net-wireless/urh:uhd - use native backend which directly uses net-wireless/uhd
@@ -7210,7 +7221,6 @@ sci-geosciences/grass:liblas - Include support for LAS and LAZ encoded LiDAR fil
 sci-geosciences/grass:opencl - Enable OpenCL support
 sci-geosciences/gshhs:data - Add earth data with sci-geosciences/gshhs-data
 sci-geosciences/liblas:gdal - Add support for the sci-libs/gdal geospatial raster library
-sci-geosciences/liblas:geotiff - Add support for geo-tagged TIFF files with sci-libs/libgeotiff
 sci-geosciences/mapnik:gdal - Enable sci-libs/gdal library support
 sci-geosciences/mapserver:gdal - Enable sci-libs/gdal library support
 sci-geosciences/mapserver:geos - Enable sci-libs/geos library support
@@ -7219,7 +7229,7 @@ sci-geosciences/mapserver:proj - Enable sci-libs/proj library support (geographi
 sci-geosciences/mapserver:xslt - Enable xslt and exslt support xml-mapfile support
 sci-geosciences/merkaartor:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration
 sci-geosciences/merkaartor:webengine - Enable dev-qt/qtwebengine in some plugins
-sci-geosciences/qgis:designer - Build custom widgets for dev-qt/designer
+sci-geosciences/qgis:3d - Build QGIS 3D library using dev-qt/qt3d
 sci-geosciences/qgis:georeferencer - Determines whether georeferencer plugin should be built
 sci-geosciences/qgis:grass - Add support for sci-geosciences/grass
 sci-geosciences/qgis:mapserver - Determines whether mapserver should be built
@@ -7544,7 +7554,6 @@ sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
 sci-physics/vgm:geant4 - Enable interaction with Geant4(sci-physics/geant:4)
 sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
-sci-physics/yoda:c++11 - Build using the C++11 standard
 sci-physics/yoda:root - Adds support for sci-physics/root
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
 sci-visualization/gnuplot:bitmap - Enable dot-matrix printers and pbm terminal
@@ -7657,6 +7666,7 @@ sys-apps/fwupd:gpg - Enable GPG support.
 sys-apps/fwupd:man - Build and install man pages
 sys-apps/fwupd:uefi - Enable UEFI support
 sys-apps/fwupd:uefi_labels - Enable UEFI labels support
+sys-apps/gawk:forced-sandbox - Always enable --sandbox mode for simpler/secure runtime (disables e/r/w commands)
 sys-apps/gawk:mpfr - use mpfr for high precision arithmetic (-M / --bignum)
 sys-apps/gnome-disk-utility:fat - Include FAT16/FAT32 support (sys-fs/dosfstools)
 sys-apps/hwdata-gentoo:binary-drivers - Adds support for ATI/NVIDIA binary drivers
@@ -7739,6 +7749,7 @@ sys-apps/s390-tools:ncurses - build hyptop monitoring program
 sys-apps/s390-tools:pfm - build the cpacfstats tool
 sys-apps/s390-tools:zfcpdump - build the kernel disk dumping utility
 sys-apps/s390-tools:zlib - build the zgetdump utility
+sys-apps/sed:forced-sandbox - Always enable --sandbox mode for simpler/secure runtime (disables e/r/w commands)
 sys-apps/selinux-python:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
 sys-apps/smartmontools:caps - Build against sys-libs/libcap-ng to allow smartd to drop its privileges.
 sys-apps/smartmontools:daemon - Install the monitoring daemon (smartd) and associated scripts.
@@ -7887,6 +7898,7 @@ sys-cluster/ceph:lttng - Add support for LTTng
 sys-cluster/ceph:mgr - Build the ceph-mgr daemon
 sys-cluster/ceph:nss - Use dev-libs/nss for cryptography
 sys-cluster/ceph:radosgw - Add radosgw support
+sys-cluster/ceph:system-boost - Use system dev-libs/boost instead of the bundled one
 sys-cluster/ceph:xfs - Add xfs support
 sys-cluster/ceph:zfs - Add zfs support
 sys-cluster/charm:ampi - Build implementation of MPI on top of Charm++
@@ -8960,12 +8972,9 @@ x11-wm/pekwm:themes - Install additional themes
 x11-wm/ratpoison:history - Use sys-libs/readline for history handling
 x11-wm/ratpoison:sloppy - Install sloppy, a focus-follows-mouse implementation for ratpoison
 x11-wm/ratpoison:xrandr - Enable support for XRandR
-x11-wm/stumpwm:clisp - Use CLISP for the runtime
 x11-wm/stumpwm:contrib - Install contrib modules
 x11-wm/stumpwm:doc - Include documentation
-x11-wm/stumpwm:ecl - Use SCL for the runtime
 x11-wm/stumpwm:emacs - Add support for GNU Emacs
-x11-wm/stumpwm:sbcl - Use SBCL for the runtime
 x11-wm/subtle:xrandr - Enable support for the X RandR extension
 x11-wm/subtle:xtest - Enable support for the XTest extension
 x11-wm/vtwm:rplay - Enable rplay support, needed for sound.

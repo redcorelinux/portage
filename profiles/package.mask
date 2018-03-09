@@ -29,6 +29,99 @@
 
 #--- END OF EXAMPLES ---
 
+# José María Alonso <nimiux@gentoo.org> (09 Mar 2018)
+# Obsolete package
+# Masked for removal in 30 days. Bug #646742
+dev-lisp/common-lisp-controller
+dev-lisp/asdf-binary-locations
+
+# José María Alonso <nimiux@gentoo.org> (08 Mar 2018)
+# Obsolete package
+# Masked for removal in 30 days. Bug #648448
+dev-lisp/gentoo-init
+
+# Michael Palimaka <kensington@gentoo.org> (07 Mar 2018)
+# Depends on deprecated Qt 4. Dead upstream.
+# Masked for removal in 30 days. Bug #649116.
+media-video/qt-recordmydesktop
+
+# Michael Palimaka <kensington@gentoo.org> (07 Mar 2018)
+# Depends on deprecated Qt 4. Dead upstream.
+# Masked for removal in 30 days. Bug #644424.
+media-gfx/qosmic
+
+# Brian Evans <grknight@gentoo.org> (06 Mar 2018)
+# MariaDB MaxScale 1.x depends on the deprecated libmysqld
+# Newer versions bundle software that require git access
+# and modify system libraries for their own purposes making
+# it exteremely difficult to package.
+# Bug 649764 Removal in 30 days.
+dev-db/maxscale
+
+# Lars Wendler <polynomial-c@gentoo.org> (06 Mar 2018)
+# Masked as it breaks x2go
+=net-misc/nx-3.5.99.15
+=net-misc/x2goserver-4.1.0.0-r1
+
+# Andreas Sturmlechner <asturm@gentoo.org> (06 Mar 2018)
+# Maintainer not responding, depends on deprecated Qt4.
+# Masked for removal in 30 days. Bug 598651, 635192, 644396
+media-gfx/photivo
+
+# Patrice Clement <monsieurp@gentoo.org> (05 Mar 2018)
+# Package name change from msgpack-python to msgpack breaks dependencies.
+>=dev-python/msgpack-0.5.6
+>=dev-python/neovim-python-client-0.2.1
+
+# Andreas Sturmlechner <asturm@gentoo.org> (05 Mar 2018)
+# Dead upstream, depends on deprecated Qt4.
+# Masked for removal in 30 days. Bug 644404
+net-fs/smbtatools
+
+# Mike Gilbert <floppym@gentoo.org> (04 Mar 2018)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-66
+
+# Andreas Sturmlechner <asturm@gentoo.org> (04 Mar 2018)
+# Dead upstream, depends on deprecated Qt4. media-sound/cantata
+# is an actively developed alternative based on Qt5.
+# Masked for removal in 30 days. Bug 644412
+media-sound/qmpdclient
+
+# Andreas Sturmlechner <asturm@gentoo.org> (04 Mar 2018)
+# Dead upstream, depends on deprecated Qt4.
+# Masked for removal in 30 days. Bug 645436
+sci-chemistry/massxpert
+
+# Andreas Sturmlechner <asturm@gentoo.org> (04 Mar 2018)
+# Dead upstream, depends on deprecated Qt4.
+# Masked for removal in 30 days. Bug 514438, 644522
+sci-chemistry/gsim
+
+# Andreas Sturmlechner <asturm@gentoo.org> (04 Mar 2018)
+# Depends on deprecated dev-python/pyqwt, blocks Qt4 removal.
+# Masked for removal in 30 days unless someone bumps to 5.2.2.
+# Bug 645218, 649094
+sci-chemistry/PyMca
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (03 Mar 2018)
+# Fails to build without rpc support in glibc (bug 631044);
+# no maintainer, requires obsolete hardware. Removal in
+# 30 days.
+app-pda/p3nfs
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (03 Mar 2018)
+# Fails to build without rpc support in glibc (bug 377867);
+# fails to build with libtirpc; apparently functionality is
+# now included in libtirpc. No consumers. Removal in 30 days.
+net-libs/librpcsecgss
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (03 Mar 2018)
+# Marked obsolete on CTAN. EAPI=3 ebuild. No consumers.
+# Masked for removal in 30 days. Bug 644258
+app-text/noweb
+
 # Jason Zaman <perfinion@gentoo.org> (02 Mar 2018)
 # Became sys-apps/selinux-python in release 2.7
 # Masked for removal in 30 days.
@@ -37,6 +130,15 @@ dev-python/sepolgen
 # Tim Harder <radhermit@gentoo.org> (01 Mar 2018)
 # Masked for testing.
 >=dev-python/aiohttp-3
+
+# Ulrich Müller <ulm@gentoo.org> (01 Mar 2018)
+# Very old (Open)Motif version 2.2 installing libXm.so.3.
+# Released in 2004. Non-free. No revdeps in Gentoo repo.
+# Depends on x11-libs/libXp which is on its way out.
+# If you still need this for third-party binaries, try the
+# workaround outlined in https://bugs.gentoo.org/210021#c19.
+# Masked for removal in 90 days. Bug #649080.
+x11-libs/motif:2.2
 
 # Andreas Sturmlechner <asturm@gentoo.org> (28 Feb 2018)
 # Dead upstream, depends on dead Qt4.
@@ -118,11 +220,6 @@ media-sound/moodbar
 # Masked for removal in 30 days. Bug #648468.
 dev-libs/libgames-support
 
-# Thomas Deutschmann <whissi@gentoo.org> (22 Feb 2018)
-# Upstream's release tarball doesn't match Git content.
-# Masked until clarified.
-=app-admin/rsyslog-8.33.0
-
 # Ulrich Müller <ulm@gentoo.org> (21 Feb 2018)
 # Homepage is dead. Apparently the last release was in 2012
 # and it does not work with Emacs 25 and later.
@@ -141,11 +238,6 @@ app-emacs/javascript
 # Masked for removal in 30 days. Bug #619194.
 app-emacs/emacs-wiki
 app-emacs/emacs-wiki-blog
-
-# Ulrich Müller <ulm@gentoo.org> (15 Feb 2018)
-# Masked for testing. Note that 11.92 and 12.1 are equivalent
-# in functionality.
->=app-emacs/auctex-12.1
 
 # Brian Evans <grknight@gentoo.org (15 Feb 2018)
 # These PEAR packages are unmaintained upstream and
@@ -210,16 +302,6 @@ x11-proto/xf86rushproto
 # Unmaintained, replaced by newsboat fork.
 # Masked for removal in 30 days.
 net-news/newsbeuter
-
-# Andreas Sturmlechner <asturm@gentoo.org> (03 Feb 2018)
-# Dead upstream, depends on deprecated Qt4.
-# Masked for removal in 30 days. Bug #644370
-media-libs/hupnp-ng
-
-# Andreas Sturmlechner <asturm@gentoo.org> (03 Feb 2018)
-# Depends on deprecated Qt4, unmaintained, no one bothers to bump.
-# Masked for removal in 30 days. Bug #464658
-sys-apps/ultracopier
 
 # Patrice Clement <monsieurp@gentoo.org> (26 Jan 2018)
 # Has different symbols. Known to cause issues with i3bar/swaybar.
@@ -313,21 +395,6 @@ app-misc/misterhouse
 # Configure hangs (#628726), a major version bump is needed (#510050).
 # Removal in a month.
 app-forensics/autopsy
-
-# Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
-# Multiple security issues, init scripts need a major rework (#629416,
-# #629412, #631068, #623806). Removal in a month.
-net-im/jabberd2
-net-im/mu-conference
-
-# Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
-# Not compatible with current libmowgli, no reverse deps (#630030). Removal
-# in a month.
-dev-libs/libmcs
-
-# Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
-# No reverse deps, fails to build (#630866). Removal in a month.
-dev-libs/libmowgli-glib
 
 # Pacho Ramos <pacho@gentoo.org> (04 Jan 2018)
 # Deprecated tools replace by dev-python/awscli (#633374). Removal in a
@@ -463,11 +530,6 @@ app-vim/pam-syntax
 virtual/jdk:9
 virtual/jre:9
 
-# Mike Gilbert <floppym@gentoo.org> (16 Dec 2017)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-65
-
 # Patrice Clement <monsieurp@gentoo.org> (12 Dec 2017)
 # Masked due to a hard dependency on an ancient versions of dev-libs/msgpack
 # (<0.6) that have been punted from the tree.
@@ -494,16 +556,11 @@ games-kids/crayon-physics
 >=xfce-base/thunar-1.7
 >=xfce-extra/thunar-archive-plugin-0.4.0
 >=xfce-extra/thunar-media-tags-plugin-0.3.0
-
-# Andreas Sturmlechner <asturm@gentoo.org> (16 Nov 2017)
-# Qt4WebKit is ancient and full of security holes.
-# Masked for removal in 30 days. Bug #620684
-dev-qt/qtwebkit:4
+>=xfce-extra/thunar-shares-plugin-0.3.0
 
 # Andreas Sturmlechner <asturm@gentoo.org> (16 Nov 2017)
 # Depends on dead Qt4WebKit. Masked for removal in 30 days. Bug #620702
-<media-gfx/freecad-0.17
-=media-gfx/freecad-9999
+<media-gfx/freecad-0.18
 
 # Jonas Stein <jstein@gentoo.org> (11 Nov 2017)
 # The upstream developer and former maintainer asked to treeclean these
@@ -840,11 +897,6 @@ dev-java/spring-instrument
 # for questions.
 <=media-gfx/slic3r-1.1.9999
 
-# José María Alonso <nimiux@gentoo.org> (24 Mar 2016)
-# Fails to build dev-lisp/sbcl-1.3.3 #563812
-=dev-lisp/asdf-3.1.7
-=dev-lisp/uiop-3.1.7
-
 # James Le Cuirot <chewi@gentoo.org> (07 Feb 2016)
 # Masked until 2.0 final arrives, which hopefully won't depend on
 # commons-dbcp:0 as that requires Java 6. Note that the 2.0 in the
@@ -861,12 +913,6 @@ dev-java/jcs
 # Keep it masked until they are done. sys-fs/duperemove is
 # the suggested replacement for the meantime.
 sys-fs/bedup
-
-# Ian Delaney <idella4@gentoo.org> (27 Oct 2015)
-# fails to build dev-lisp/sbcl-1.2.16 #563812
-# mgorny: dev-lisp/uiop as version-bound revdep
-=dev-lisp/asdf-3.1.6
-=dev-lisp/uiop-3.1.6
 
 # Mike Pagano <mpagano@gentoo.org> (2 Oct 2015)
 # A regression in kernel 4.1.9 could lead to a system
