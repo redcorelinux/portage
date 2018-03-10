@@ -2073,6 +2073,7 @@ dev-libs/gmime:smime - Enable experimental S/MIME support
 dev-libs/gmp:asm - Enable use of hand optimized assembly routines (faster execution)
 dev-libs/gmp:pgo - After building gmp, run some tests against to produce faster libraries -- this option will double the compile time
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
+dev-libs/granite:demo - Build the Granite demo application (to present all available UI features provided by the library)
 dev-libs/hidapi:fox - Build a x11-libs/fox GUI
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
@@ -2560,7 +2561,6 @@ dev-python/py-amqp:extras - Install extra tools to generate initial Python mod f
 dev-python/pygame:midi - Enable midi support using media-libs/portmidi
 dev-python/pygpu:cuda - Enable NVIDIA CUDA toolkit support
 dev-python/pygpu:opencl - Enable OpenCL support
-dev-python/pyhamcrest:numpy - Enable optional dependence on dev-python/numpy
 dev-python/pyilmbase:numpy - Add bindings for dev-python/numpy use.
 dev-python/pyocr:cuneiform - Enable support for the app-text/cuneiform OCR engine
 dev-python/pyocr:tesseract - Enable support for the app-text/tesseract OCR engine
@@ -7936,6 +7936,7 @@ sys-cluster/glusterfs:fuse - Add FUSE mount helper
 sys-cluster/glusterfs:georeplication - Enable support for georeplication (requires dev-lang/python)
 sys-cluster/glusterfs:glupy - Enable support for translators written in Python
 sys-cluster/glusterfs:infiniband - Add support for Infiniband ibverbs transport. Libraries can be found in science overlay
+sys-cluster/glusterfs:ipv6 - Use IPv6 by default, requires libtirpc
 sys-cluster/glusterfs:libtirpc - Build against net-libs/libtirpc for RPC support
 sys-cluster/glusterfs:qemu-block - Transparently create files as QCow2/QED images in the backend, including the possibility to snapshot.
 sys-cluster/glusterfs:rsyslog - Install configuration snippet for app-admin/rsyslog
