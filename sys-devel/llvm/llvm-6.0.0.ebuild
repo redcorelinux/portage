@@ -32,7 +32,7 @@ ALL_LLVM_TARGETS=( "${ALL_LLVM_TARGETS[@]/#/llvm_targets_}" )
 LICENSE="UoI-NCSA rc BSD public-domain
 	llvm_targets_ARM? ( LLVM-Grant )"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~amd64 ~x86 ~amd64-fbsd ~amd64-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="debug doc gold libedit +libffi ncurses test xar xml
 	kernel_Darwin ${ALL_LLVM_TARGETS[*]}"
 RESTRICT="!test? ( test )"
@@ -74,15 +74,6 @@ S=${WORKDIR}/${P/_/}.src
 
 # least intrusive of all
 CMAKE_BUILD_TYPE=RelWithDebInfo
-
-pkg_pretend() {
-	if tc-is-gcc && [[ $(gcc-major-version) -ge 7 ]]; then
-		eerror "GCC 7 is known to cause mis-compilation that causes the build to hang."
-		eerror "Please use an older version to build LLVM until a good solution is found."
-		eerror "Bug report: https://bugs.gentoo.org/649880"
-		die "GCC-7+ is not supported"
-	fi
-}
 
 src_prepare() {
 	# Fix llvm-config for shared linking and sane flags
@@ -177,6 +168,13 @@ multilib_src_configure() {
 			-DCMAKE_CROSSCOMPILING=ON
 			-DLLVM_TABLEGEN="${tblgen}"
 		)
+	fi
+
+	# workaround BMI bug in gcc-7 (fixed in 7.4)
+	# https://bugs.gentoo.org/649880
+	if tc-is-gcc && [[ $(gcc-major-version) -eq 7 && $(gcc-minor-version) -lt 4 ]]; then
+		local CFLAGS="${CFLAGS} -mno-bmi"
+		local CXXFLAGS="${CXXFLAGS} -mno-bmi"
 	fi
 
 	# LLVM_ENABLE_ASSERTIONS=NO does not guarantee this for us, #614844
