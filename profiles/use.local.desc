@@ -101,6 +101,7 @@ app-admin/pass:dmenu - Add support for x11-misc/dmenu with the 'passmenu' progra
 app-admin/pass:fish-completion - Enable fish completion support.
 app-admin/pass:git - Use dev-vcs/git for password revisions.
 app-admin/pass:importers - Allow importing passwords from other password managers using various contributed scripts.
+app-admin/pass-otp:qrcode - Add support for qtcodes using media-gfx/qrencode
 app-admin/passwordsafe:minimal - Avoid collision with app-misc/pwsafe
 app-admin/passwordsafe:qr - Enable QR code password display
 app-admin/passwordsafe:xml - Enable XML import support
@@ -485,6 +486,11 @@ app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
 app-emulation/e-uae:capslib - Add CAPS library support
 app-emulation/e-uae:sdl-sound - Use media-libs/sdl-sound for audio output
 app-emulation/free42:alsa - Adds support for Advanced Linux Sound Architecture
+app-emulation/fuse:backend-X - Use X11 rendering backend
+app-emulation/fuse:backend-fbcon - Use framebuffer rendering backend
+app-emulation/fuse:backend-gtk - Use GTK+ rendering backend
+app-emulation/fuse:backend-sdl - Use SDL rendering backend
+app-emulation/fuse:backend-svga - Use svgalib rendering backend
 app-emulation/fuse-utils:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
 app-emulation/ganeti:drbd - Enable DRBD support
 app-emulation/ganeti:experimental - Enable experimental patches. Warning! This will break RPC within major versions if the patches applied differ!
@@ -2928,6 +2934,7 @@ dev-util/google-perftools:minimal - Only build the tcmalloc_minimal library, ign
 dev-util/google-perftools:optimisememory - To build libtcmalloc with smaller internal caches.
 dev-util/gtk-doc:highlight - Enable source code highlighting
 dev-util/gtk-doc:vim - Enable source code highlighting through app-editors/vim
+dev-util/heaptrack:zstd - Enable support for ZSTD compression using app-arch/zstd
 dev-util/idea-community:custom-jdk - Install and use IntelliJ's custom JRE.
 dev-util/idea-ultimate:custom-jdk - Install and use IntelliJ's custom JRE.
 dev-util/intel-ocl-sdk:android - Install android related files
@@ -3071,7 +3078,6 @@ games-action/minetest:redis - Enable redis backend via dev-libs/hiredis
 games-action/minetest:server - Build minetest server
 games-action/minetest:spatial - Enable SpatialIndex AreaStore backend
 games-action/solar2:bundled-libs - Use the upstream provided bundled libraries.
-games-action/super-hexagon:bundled-libs - Use the upstream provided bundled libraries.
 games-action/supermariowar:server - Compile and install Super Mario War server files
 games-action/supertuxkart:fribidi - Support for right-to-left languages
 games-action/supertuxkart:recorder - Enable recording with media-libs/libopenglrecorder
@@ -3280,7 +3286,6 @@ games-rpg/dungeon-defenders:bundled-libs - Use the upstream provided bundled lib
 games-rpg/eternal-lands-data:bloodsuckermaps - Will install Bloodsucker's Maps in place of the official map files
 games-rpg/eternal-lands-data:music - Enables in-game music
 games-rpg/eternal-lands-data:sound - Enables in-game sound effects
-games-rpg/grimrock:bundled-libs - Use bundled libraries.
 games-rpg/kqlives:cheats - Enable cheating mode
 games-rpg/manaplus:mumble - Enable support for voice chat
 games-rpg/manaplus:pugixml - Use dev-libs/pugixml for XML parsing isntead of dev-libs/libxml2
@@ -3814,6 +3819,7 @@ mail-mta/courier:fax - Enables fax support in the courier mail server
 mail-mta/courier:norewrite - Prevents courier mail server from mangling virtual user addresses when sending
 mail-mta/courier:web - Enable the web interface
 mail-mta/courier:webmail - Enable the webmail interface
+mail-mta/exim:arc - Adds support for Authenticated Receive Chain (ARC)
 mail-mta/exim:dane - Adds support for DNS-based Authentication of Named Entities
 mail-mta/exim:dcc - Adds support for Distributed Checksum Clearinghouse (DCC)
 mail-mta/exim:dkim - Adds support for DomainKeys Identified Mail (DKIM)
@@ -4084,7 +4090,6 @@ media-gfx/pstoedit:emf - Enable media-libs/libemf support
 media-gfx/pstoedit:flash - Enable media-libs/ming SWF support
 media-gfx/pstoedit:pptx - Enable support for generating PowerPoint pptx files
 media-gfx/qiv:magic - Use libmagic to determine mimetypes
-media-gfx/qiviewer:webp - Build support for WEBP image format
 media-gfx/sigal:s3 - Enables support for the Amazon S3 service.
 media-gfx/simple-scan:colord - Support color management using x11-misc/colord
 media-gfx/slic3r:gui - Enable GUI
@@ -4094,7 +4099,6 @@ media-gfx/ufraw:fits - Enable support for the FITS image format through sci-libs
 media-gfx/ufraw:timezone - enable DST correction for file timestamps
 media-gfx/xpaint:pgf - Support for loading PGF images
 media-gfx/xsane:ocr - Enable support for Optical Character Recognition reader
-media-gfx/yafaray:blender - install media-gfx/blender scripts
 media-libs/a52dec:djbfft - Prefer D.J. Bernstein's library for fourier transforms
 media-libs/allegro:dumb - Enable media-libs/dumb module library support
 media-libs/allegro:physfs - Enable physfs support
@@ -5427,6 +5431,7 @@ net-analyzer/wireshark:editcap - Install editcap, to edit and/or translate the f
 net-analyzer/wireshark:libssh - Use net-libs/libssh (for sshdump)
 net-analyzer/wireshark:libxml2 - Use dev-libs/libxml2 for handling XML configuration in dissectors
 net-analyzer/wireshark:lz4 - Use app-arch/lz4 for compression/decompression
+net-analyzer/wireshark:maxminddb - Use dev-libs/libmaxminddb for IP address geolocation
 net-analyzer/wireshark:mergecap - Install mergecap, to merge two or more capture files into one
 net-analyzer/wireshark:netlink - Use dev-libs/libnl
 net-analyzer/wireshark:nghttp2 - Use net-libs/nghttp2 for HTTP/2 support
@@ -8296,6 +8301,7 @@ sys-libs/musl-nscd:minimal - Only installs the header files
 sys-libs/ncurses:ada - Add bindings for the ADA programming language
 sys-libs/ncurses:tinfo - Build curses library (libncurses) sep from the low-level terminfo library (libtinfo) -- usually needed only for binary packages -- but it is binary compatible in either mode
 sys-libs/ncurses:trace - Enable test trace() support in ncurses calls
+sys-libs/newlib:nano - Build additional newlib-nano library
 sys-libs/pam:berkdb - Build the pam_userdb module, that allows to authenticate users against a Berkeley DB file. Please note that enabling this USE flag will create a PAM module that links to the Berkeley DB (as provided by sys-libs/db) installed in /usr/lib and will thus not work for boot-critical services authentication.
 sys-libs/pam:cracklib - Build the pam_cracklib module, that allows to verify the chosen passwords' strength through the use of sys-libs/cracklib. Please note that simply enabling the USE flag on this package will not make use of pam_cracklib by default, you should also enable it in sys-auth/pambase as well as update your configuration files.
 sys-libs/readline:utils - Install rlfe (ReadLine Front-End) helper tool -- a wrapper program for making any stdin use readline
@@ -8637,7 +8643,6 @@ www-servers/nginx:luajit - Use dev-lang/luajit instead of dev-lang/lua for lua s
 www-servers/nginx:pcre-jit - Enable JIT for pcre
 www-servers/nginx:rtmp - NGINX-based Media Streaming Server
 www-servers/nginx:ssl - Enable HTTPS module for http. Enable SSL/TLS support for POP3/IMAP/SMTP for mail.
-www-servers/pound:dynscaler - Enable dynamic rescaling of back-end priorities
 www-servers/pshs:magic - Enable automatic detection of Content-Type using libmagic (sys-apps/file)
 www-servers/pshs:netlink - Use libnetlink (sys-apps/iproute2) to get network interface addresses
 www-servers/pshs:qrcode - Enable generating QRCodes for server URL
