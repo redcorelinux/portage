@@ -1,6 +1,12 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (15 Apr 2018)
+# Unkeyworded dep masks moved from default/linux.
+app-admin/diamond mongo
+net-libs/gnutls test-full
+mail-client/mutt notmuch
+
 # Andreas Sturmlechner <asturm@gentoo.org> (02 Mar 2018)
 # Requires unkeyworded deps
 >=dev-python/ipython-5.4.1 notebook qt5 smp
@@ -34,11 +40,6 @@ app-doc/doxygen clang
 # Thomas Deutschmann <whissi@gentoo.org> (28 Nov 2017)
 # Requires dev-libs/mongo-c-driver which isn't keyworded
 >=app-admin/rsyslog-8.31 mongodb
-
-# Ulrich Müller <ulm@gentoo.org> (23 Oct 2017)
-# Needs net-mail/mailutils which is not keyworded, bug #635216.
-app-editors/emacs mailutils
-app-editors/emacs-vcs mailutils
 
 # Andreas Sturmlechner <asturm@gentoo.org> (11 Oct 2017)
 # Required dependency dev-qt/qtspeech is not keyworded.
@@ -472,7 +473,7 @@ media-libs/phonon vlc
 
 # Michael Sterrett <mr_bones_@gentoo.org> (04 Mar 2012)
 # arm is missing keywords for >=dev-libs/json-glib-0.12
-app-admin/syslog-ng json
+app-admin/syslog-ng json mongodb
 
 # Anthony G. Basile <blueness@gentoo.org> (Dec 21, 2011)
 # Mask the vde flag on tinc because net-misc/vde is not
