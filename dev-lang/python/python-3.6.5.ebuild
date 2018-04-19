@@ -16,7 +16,7 @@ SRC_URI="https://www.python.org/ftp/python/${PV}/${MY_P}.tar.xz
 
 LICENSE="PSF-2"
 SLOT="3.6/3.6m"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="build examples gdbm hardened ipv6 libressl +ncurses +readline sqlite +ssl test +threads tk wininst +xml"
 RESTRICT="!test? ( test )"
 
@@ -38,7 +38,7 @@ RDEPEND="app-arch/bzip2:0=
 	sqlite? ( >=dev-db/sqlite-3.3.8:3= )
 	ssl? (
 		!libressl? ( dev-libs/openssl:0= )
-		libressl? ( dev-libs/libressl:= )
+		libressl? ( dev-libs/libressl:0= )
 	)
 	tk? (
 		>=dev-lang/tcl-8.0:0=
@@ -68,6 +68,7 @@ src_prepare() {
 		"${WORKDIR}/patches"
 		"${FILESDIR}/${PN}-3.5-distutils-OO-build.patch"
 		"${FILESDIR}/3.6.5-disable-nis.patch"
+		"${FILESDIR}/python-3.6.5-libressl-compatibility.patch"
 	)
 
 	default

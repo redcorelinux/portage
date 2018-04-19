@@ -3,8 +3,7 @@
 
 EAPI=5
 
-# ruby20 crashes in test suite
-USE_RUBY="ruby21 ruby22 ruby23"
+USE_RUBY="ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_DOCDIR="rdoc"
@@ -51,6 +50,12 @@ all_ruby_prepare() {
 	sed -i -e '/test_for_real/,/^    end/ s:^:#:' \
 		tests/test_pending_connect_timeout.rb || die
 	rm -f tests/test_{get_sock_opt,set_sock_opt,idle_connection}.rb || die
+	sed -i -e '/test_ipv6_tcp_client_with_ipv6_google_com/aomit "network"' tests/test_ipv6.rb || die
+	# don't test unsecure and obsolete protocols
+	sed -i -e 's/sslv2 sslv3//' \
+		-e '/\(test_any_to_v3\|test_v3_to_any\|test_v3_to_v3\|test_v3_with_external\)/aomit "obsolete"' \
+		tests/test_ssl_protocols.rb || die
+
 }
 
 each_ruby_configure() {

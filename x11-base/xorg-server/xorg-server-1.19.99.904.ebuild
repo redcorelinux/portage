@@ -4,7 +4,7 @@
 EAPI=5
 
 XORG_DOC=doc
-inherit xorg-2 multilib versionator flag-o-matic
+inherit autotools xorg-2 multilib versionator flag-o-matic
 EGIT_REPO_URI="https://anongit.freedesktop.org/git/xorg/xserver.git"
 
 DESCRIPTION="X.Org X servers"
@@ -108,9 +108,10 @@ REQUIRED_USE="!minimal? (
 	)
 	xephyr? ( kdrive )"
 
-#UPSTREAMED_PATCHES=(
-#	"${WORKDIR}/patches/"
-#)
+UPSTREAMED_PATCHES=(
+	"${FILESDIR}"/${P}-modesetting-Move-GBM-code-inside-ifdef-GLAMOR_HAS_GB.patch
+	"${FILESDIR}"/${P}-xwayland-Fix-build-without-glamor.patch
+)
 
 PATCHES=(
 	"${UPSTREAMED_PATCHES[@]}"
@@ -130,6 +131,12 @@ pkg_setup() {
 		ewarn "glamor is necessary for acceleration under Xwayland."
 		ewarn "Performance may be unacceptable without it."
 	fi
+}
+
+src_prepare() {
+	xorg-2_src_prepare
+	# needed because xwayland patch touches hw/xwayland/Makefile.am
+	eautoreconf
 }
 
 src_configure() {
