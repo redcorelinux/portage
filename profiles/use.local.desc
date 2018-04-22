@@ -1376,6 +1376,7 @@ dev-db/mariadb-galera:tokudb - Add support for TokuDB storage engine
 dev-db/mariadb-galera:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
 dev-db/mongodb:mms-agent - Install the MongoDB Monitoring Service agent
 dev-db/mongodb:tools - Install the MongoDB tools (mongoimport, mongodump...) from app-admin/mongo-tools
+dev-db/mysql:client-libs - Build the client libraries from the server package instead of the C Connector packages (not recommended)
 dev-db/mysql:cluster - Add support for NDB clustering (deprecated)
 dev-db/mysql:community - Enables the community features from upstream.
 dev-db/mysql:embedded - Build embedded server (libmysqld)
@@ -1409,6 +1410,7 @@ dev-db/mysql-cluster:systemtap - Build support for profiling and tracing using d
 dev-db/mysql-cluster:test - Install upstream testsuites for end use.
 dev-db/mysql-cluster:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
 dev-db/mysql-connector-c++:gcov - Build coverage support
+dev-db/mysql-connector-c++:legacy - Build the legacy 1.x API as well as the DevX API
 dev-db/oracle-instantclient:jdbc - Support for XA, Internationalization, and RowSet operations under JDBC
 dev-db/oracle-instantclient:odbc - Libraries for enabling ODBC applications
 dev-db/oracle-instantclient:sdk - Header files and an example makefile for developing Oracle applications
@@ -1944,6 +1946,7 @@ dev-lang/php:xslt - Enable the XSL extension
 dev-lang/php:zip - Enable ZIP file support
 dev-lang/php:zip-encryption - Enable ZIP file encryption from dev-libs/libzip
 dev-lang/polyml:portable - Build the portable interpreter version of Poly/ML instead of native
+dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
 dev-lang/python:threads - Enable threading support. (DON'T DISABLE THIS UNLESS YOU KNOW WHAT YOU'RE DOING)
 dev-lang/python:wide-unicode - Enable wide Unicode implementation which uses 4-byte Unicode characters. Switching of this USE flag changes ABI of Python and requires reinstallation of many Python modules. (DON'T DISABLE THIS UNLESS YOU KNOW WHAT YOU'RE DOING)
 dev-lang/python:wininst - Install Windows executables required to create an executable installer for MS Windows.
@@ -2307,7 +2310,6 @@ dev-libs/xqilla:htmltidy - Use app-text/htmltidy when parsing HTML
 dev-libs/yaz:ziffy - Install ziffy, a promiscuous Z39.50 APDU sniffer
 dev-lisp/clisp:hyperspec - Use local hyperspec instead of online version
 dev-lisp/clisp:new-clx - Build CLISP with support for the NEW-CLX module which is a -C binding to the Xorg libraries
-dev-lisp/clisp:pari - Build CLISP with support for the PARI Computer Algebra System
 dev-lisp/clisp:svm - Build CLISP with support for the Support Vector Machine module
 dev-lisp/clx:doc - Builds documentation
 dev-lisp/cmucl:source - Include source code for CMUCL in installation
@@ -3508,6 +3510,7 @@ kde-apps/ktp-text-ui:speech - Enable incoming messages to be read out using text
 kde-apps/kwave:opus - Enable Opus audio codec support
 kde-apps/kwave:qtmedia - Enable playback via Qt5Multimedia
 kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
+kde-apps/libksane:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 kde-apps/mailcommon:designer - Build plugins for dev-qt/designer
 kde-apps/marble:aprs - Enable support for APRS data sources
 kde-apps/marble:designer - Install plugin for dev-qt/designer
@@ -4740,7 +4743,8 @@ media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
 media-sound/supercollider:wiimote - Build sclang with Wii Remote support
-media-sound/teamspeak-server-bin:tsdns - Make use of TeamSpeak DNS.
+media-sound/teamspeak-server-bin:doc - Install TeamSpeak complete documentation.
+media-sound/teamspeak-server-bin:tsdns - Install TeamSpeak DNS.
 media-sound/tomahawk:hatchet - Enable support for the synchronisation through Hatchet
 media-sound/tomahawk:telepathy - Enable support for the real-time communication framework telepathy
 media-sound/traverso:lv2 - Add support for Ladspa V2
@@ -4904,6 +4908,7 @@ media-video/ffmpeg:cdio - Enables audio CD grabbing with dev-libs/libcdio.
 media-video/ffmpeg:celt - Adds Xiph CELT audio decoding support via media-libs/celt
 media-video/ffmpeg:chromaprint - Enables audio fingerprinting support with media-libs/chromaprint.
 media-video/ffmpeg:chromium - Builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi.
+media-video/ffmpeg:codec2 - Enables codec2 low bit rate speech codec support via media-libs/codec2.
 media-video/ffmpeg:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 media-video/ffmpeg:ebur128 - Enables EBU R128 loudness normalization filter via media-libs/libebur128
 media-video/ffmpeg:fdk - Use external fdk-aac library for AAC encoding
@@ -4922,6 +4927,7 @@ media-video/ffmpeg:libilbc - Enables iLBC de/encoding via media-libs/libilbc.
 media-video/ffmpeg:librtmp - Enables Real Time Messaging Protocol using librtmp (media-video/rtmpdump) in addition to FFmpeg's native implementation.
 media-video/ffmpeg:libsoxr - Enables audio resampling through media-libs/soxr.
 media-video/ffmpeg:libv4l - Uses media-libs/libv4l for video4linux instead of direct calls. Adds support for more devices via the userspace library.
+media-video/ffmpeg:lv2 - Enables lv2 audio filter wrapper.
 media-video/ffmpeg:mipsdspr1 - Enables MIPS DSP ASE R1 optimizations.
 media-video/ffmpeg:mipsdspr2 - Enables MIPS DSP ASE R2 optimizations.
 media-video/ffmpeg:mipsfpu - Enables floating point MIPS optimizations.
@@ -7069,7 +7075,12 @@ sci-chemistry/avogadro:glsl - Enable glsl features via GLEW.
 sci-chemistry/avogadro2:rpc - Enable RPC server
 sci-chemistry/avogadro2:vtk - include vtk support
 sci-chemistry/ball:cuda - Include cuda support
-sci-chemistry/ball:sql - Include SQL database support
+sci-chemistry/ball:fftw - Build with sci-libs/fftw (switching BALL to GPL3)
+sci-chemistry/ball:gui - Build VIEW library required for visualization and graphical user interfaces
+sci-chemistry/ball:lpsolve - Enable support for the Mixed Integer Linear Programming solver
+sci-chemistry/ball:openbabel - Enable support for sci-chemistry/openbabel (switching BALL to GPL3)
+sci-chemistry/ball:svm - Enable support for the Support Vector Machine module
+sci-chemistry/ball:webengine - Enable QtWebEngine support with Qt5 (requires gui)
 sci-chemistry/chemtool:emf - EMF export support
 sci-chemistry/cns:aria - Support patch for sci-chemistry/aria
 sci-chemistry/eden:double-precision - More precise calculations at the expense of speed
@@ -7732,7 +7743,7 @@ sys-auth/oath-toolkit:pam - Build PAM module for pluggable login authentication 
 sys-auth/oath-toolkit:pskc - Build tools & library for the Portable Symmetric Key Container (PSKC) format per RFC6030
 sys-auth/pam_mktemp:prevent-removal - If supported, set EXT2_APPEND_FL on /tmp/.private to prevent temporary directories from being removed
 sys-auth/pam_mysql:openssl - Use OpenSSL for md5 and sha1 support
-sys-auth/pam_u2f:debug - Enable debug messages using the pam logging macros. (Note: these will be visible on stdout for terminal logins).
+sys-auth/pam_u2f:debug - Enable debug messages using the pam logging macros.
 sys-auth/pambase:consolekit - Enable pam_ck_connector module on local system logins. This allows for console logins to make use of ConsoleKit authorization.
 sys-auth/pambase:cracklib - Enable pam_cracklib module on system authentication stack. This produces warnings when changing password to something easily crackable. It requires the same USE flag to be enabled on sys-libs/pam or system login might be impossible.
 sys-auth/pambase:debug - Enable debug information logging on syslog(3) for all the modules supporting this in the system authentication and system login stacks.
@@ -8377,7 +8388,6 @@ www-apps/redmine:markdown - Enable support for Markdown
 www-apps/redmine:passenger - Enable support for www-apache/passenger
 www-apps/rt:lighttpd - Add www-servers/lighttpd support
 www-apps/sitebar:plugins - Install optional plugins
-www-apps/sugarcrm:json - Add JSON (JavaScript Object Notation) support
 www-apps/trac:highlight - Enable syntax highlighting
 www-apps/trac:i18n - Enable support for i18n with dev-python/Babel
 www-apps/trac:restructuredtext - Enable support for reStructuredText for wiki formatting
@@ -8753,7 +8763,6 @@ x11-terms/eterm:escreen - Enable built-in app-misc/screen support
 x11-terms/eterm:utempter - Include libutempter support
 x11-terms/gnome-terminal:gnome-shell - Integrate with gnome-base/gnome-shell search
 x11-terms/gnome-terminal:nautilus - Build gnome-base/nautilus extension
-x11-terms/hanterm:utempter - Records user logins. Useful on multi-user systems
 x11-terms/kitty:imagemagick - Support displaying images in the terminal with icat
 x11-terms/mate-terminal:gtk3 - Build with GTK+3 instead of GTK+2
 x11-terms/mlterm:fcitx - Enable support for app-i18n/fcitx
