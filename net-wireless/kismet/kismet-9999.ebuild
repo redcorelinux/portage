@@ -3,7 +3,9 @@
 
 EAPI=6
 
-inherit autotools eutils multilib user
+PYTHON_COMPAT=( python2_7 )
+
+inherit autotools eutils multilib user python-single-r1
 
 MY_P=${P/\./-}
 MY_P=${MY_P/./-R}
@@ -28,6 +30,7 @@ SLOT="0/${PV}"
 IUSE="+pcre speech selinux +suid"
 
 CDEPEND="
+	${PYTHON_DEPS}
 	net-misc/networkmanager:=
 	dev-libs/glib:=
 	dev-libs/elfutils:=
@@ -70,8 +73,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_enable pcre) \
-		--disable-python-tools
+		$(use_enable pcre)
+		#--disable-python-tools
 }
 
 src_compile() {
@@ -133,7 +136,7 @@ src_install() {
 	#	dobin *.rb
 	#fi
 
-	cd "${S}"
+	#cd "${S}"
 	emake DESTDIR="${D}" commoninstall
 	emake DESTDIR="${D}" forceconfigs
 

@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils eutils pax-utils versionator
+inherit cmake-utils desktop pax-utils versionator
 
 DESCRIPTION="A dynamic floating and tiling window manager"
 HOMEPAGE="https://awesomewm.org/"
@@ -44,7 +44,7 @@ DEPEND="${RDEPEND}
 	dev-util/gperf
 	virtual/pkgconfig
 	media-gfx/imagemagick[png]
-	>=x11-proto/xcb-proto-1.5
+	>=x11-base/xcb-proto-1.5
 	>=x11-proto/xproto-7.0.15
 	doc? ( dev-lua/ldoc )
 	test? (
