@@ -402,7 +402,6 @@ app-editors/fe:sendmail - Send mail after editor abend
 app-editors/gedit-plugins:charmap - Insert special characters just by clicking on them
 app-editors/gedit-plugins:git - Shows document changes related to git's HEAD
 app-editors/gedit-plugins:terminal - Embed a terminal in the bottom pane
-app-editors/gedit-plugins:zeitgeist - Build the plugin to inject events to zeitgeist
 app-editors/gvim:gtk3 - Enable GTK+3 interface
 app-editors/gvim:netbeans - Include netbeans external editor integration support
 app-editors/gvim:racket - Enable support for Scheme using dev-scheme/racket
@@ -634,6 +633,7 @@ app-emulation/wine-any:realtime - Pull in sys-auth/rtkit for low-latency pulseau
 app-emulation/wine-any:run-exes - Use Wine to open and run .EXE and .MSI files
 app-emulation/wine-any:s3tc - Pull in media-libs/libtxc_dxtn for DXTn texture compression, needed for many games
 app-emulation/wine-any:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
+app-emulation/wine-any:sdl - Add support for gamepad detection using SDL
 app-emulation/wine-any:staging - Apply Wine-Staging patches for advanced feature support that haven't made it into upstream Wine yet
 app-emulation/wine-any:themes - Support GTK+:3 window theming through Wine-Staging
 app-emulation/wine-any:udev - Use virtual/libudev to provide plug and play support
@@ -655,6 +655,7 @@ app-emulation/wine-d3d9:prelink - Run prelink on DLLs during build; For versions
 app-emulation/wine-d3d9:realtime - Pull in sys-auth/rtkit for low-latency pulseaudio support
 app-emulation/wine-d3d9:run-exes - Use Wine to open and run .EXE and .MSI files
 app-emulation/wine-d3d9:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
+app-emulation/wine-d3d9:sdl - Add support for gamepad detection using SDL
 app-emulation/wine-d3d9:udev - Use virtual/libudev to provide plug and play support
 app-emulation/wine-d3d9:vulkan - Enable Vulkan drivers
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
@@ -1138,7 +1139,6 @@ app-text/ebook-tools:lit2epub - Install lit2epub script
 app-text/editorconfig-core-c:cli - Install command line interface.
 app-text/enchant:aspell - Adds support for app-text/aspell spell checker
 app-text/enchant:hunspell - Adds support for app-text/hunspell spell checker
-app-text/enchant:zemberek - Adds support for app-text/zemberek-server spell checker server
 app-text/evince:dvi - Enable the built-in DVI viewer
 app-text/evince:nautilus - Enable property page extension in gnome-base/nautilus
 app-text/evince:t1lib - Enable the Type-1 fonts for the built-in DVI viewer (media-libs/t1lib)
@@ -2018,6 +2018,7 @@ dev-libs/c-blosc:lz4 - Enable lz4 compression
 dev-libs/c-blosc:snappy - Enable snappy compression
 dev-libs/c-blosc:zstd - Enable zstd compression
 dev-libs/check:subunit - Enable support for the subunit unit test protocol
+dev-libs/crypto++:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
 dev-libs/cyberjack:fox - Enable installation of x11-libs/fox based fxcyberjack program
 dev-libs/cyrus-sasl:authdaemond - Add Courier-IMAP authdaemond unix socket support (net-mail/courier-imap, mail-mta/courier)
 dev-libs/cyrus-sasl:ldapdb - Enable ldapdb plugin
@@ -4418,7 +4419,7 @@ media-plugins/vdr-epgsearch:conflictcheckonly - ToDo
 media-plugins/vdr-epgsearch:epgsearchonly - ToDo
 media-plugins/vdr-epgsearch:quicksearch - ToDo
 media-plugins/vdr-epgsearch:tre - Add support for unlimited fuzzy searching with help of dev-libs/tre library
-media-plugins/vdr-music:graphtft - Enable support for media-plugins/vdr-graphtft
+media-plugins/vdr-music:graphtft - Enable support for vdr-graphtft plugin
 media-plugins/vdr-pvr350:yaepg - Enables full support for the output format of vdr-yaepg
 media-plugins/vdr-streamdev:client - Compile the VDR plugin vdr-streamdev-client that acts like a dvb-budget card
 media-plugins/vdr-streamdev:server - Compile the VDR plugin vdr-streamdev-server that allows remote systems to access the DVB cards used for the local VDR
@@ -5057,7 +5058,7 @@ media-video/vdr:alternatechannel - Use alternate channel on record
 media-video/vdr:bidi - fribidi support, for languages, written from right to left
 media-video/vdr:ddepgentry - remove duplicate EPG entries
 media-video/vdr:dvlvidprefer - controls video-dir choice on recording
-media-video/vdr:graphtft - support for media-plugins/vdr-graphtftplugin up from version 0.1.7
+media-video/vdr:graphtft - support for vdr-graphtft plugin up from version 0.1.7
 media-video/vdr:html - Install HTML documentation
 media-video/vdr:jumpingseconds - skip seconds in played records
 media-video/vdr:jumpplay - Enables automatic jumping over cut marks while watching a recording
@@ -5332,7 +5333,7 @@ net-analyzer/scanlogd:nids - Use net-libs/libnids for packet capturing
 net-analyzer/scanlogd:pcap - Use net-libs/libpcap for packet capturing
 net-analyzer/scapy:pyx - Enable dev-python/pyx support for psdump/pdfdump commands
 net-analyzer/scapy:tcpreplay - Enable net-analyzer/tcpreplay support for fast packet replay
-net-analyzer/scapy:visual - Enable dev-python/visual support for 3d graphs
+net-analyzer/scapy:visual - Enable visual package support for 3d graphs
 net-analyzer/smokeping:dig - Install net-dns/bind-tools for dig functionality
 net-analyzer/smokeping:echoping - Install net-analyzer/echoping for echoping functionality
 net-analyzer/smokeping:ssh - Install ssh functionality
@@ -6926,6 +6927,7 @@ net-wireless/gr-osmosdr:soapy - Build with SoapySDR support
 net-wireless/gr-osmosdr:uhd - Build with Ettus Research USRP Hardware Driver support
 net-wireless/horst:pcap - Add support for network packet capture via net-libs/libpcap
 net-wireless/hostapd:crda - Add CRDA support
+net-wireless/hostapd:internal-tls - Use internal TLSv1 implementation instead of depending on OpenSSL, LibreSSL or GnuTLS
 net-wireless/hostapd:logwatch - Install support files for sys-apps/logwatch
 net-wireless/hostapd:netlink - Adding support for using netlink to create VLANs
 net-wireless/hostapd:sqlite - Adding sqlite support
@@ -7294,6 +7296,9 @@ sci-libs/symengine:llvm - Build with LLVM
 sci-libs/symengine:mpc - Add support for multiprecision complex arithmetic(dev-libs/mpc)
 sci-libs/symengine:mpfr - Add support for multiprecision floating point rouding(dev-libs/mpfr)
 sci-libs/taucs:cilk - Enable multithreading using dev-lang/cilk
+sci-libs/tensorflow:cuda - Enable support for nVidia CUDA
+sci-libs/tensorflow:jemalloc - Enable support for dev-libs/jemalloc
+sci-libs/tensorflow:mpi - Enable support for MPI
 sci-libs/umfpack:cholmod - Use sci-libs/cholmod for matrix ordering
 sci-libs/vtk:R - Enable support for dev-lang/R
 sci-libs/vtk:all-modules - Build all modules
