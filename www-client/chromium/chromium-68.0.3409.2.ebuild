@@ -17,7 +17,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="component-build cups gnome-keyring +hangouts jumbo-build kerberos neon pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc"
+IUSE="component-build cups gnome-keyring +hangouts jumbo-build kerberos neon pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc widevine"
 RESTRICT="!system-ffmpeg? ( proprietary-codecs? ( bindist ) )"
 
 COMMON_DEPEND="
@@ -85,6 +85,7 @@ RDEPEND="${COMMON_DEPEND}
 	virtual/ttf-fonts
 	selinux? ( sec-policy/selinux-chromium )
 	tcmalloc? ( !<x11-drivers/nvidia-drivers-331.20 )
+	widevine? ( www-plugins/chrome-binary-plugins[widevine(-)] )
 "
 # dev-vcs/git - https://bugs.gentoo.org/593476
 # sys-apps/sandbox - https://crbug.com/586444
@@ -129,7 +130,6 @@ Some web pages may require additional fonts to display properly.
 Try installing some of the following packages if some characters
 are not displayed properly:
 - media-fonts/arphicfonts
-- media-fonts/bitstream-cyberbit
 - media-fonts/droid
 - media-fonts/ipamonafont
 - media-fonts/noto
@@ -144,6 +144,7 @@ GTK+ icon theme.
 "
 
 PATCHES=(
+	"${FILESDIR}/chromium-widevine-r2.patch"
 	"${FILESDIR}/chromium-compiler-r1.patch"
 	"${FILESDIR}/chromium-ffmpeg-build-r0.patch"
 	"${FILESDIR}/chromium-webrtc-r0.patch"
@@ -472,6 +473,7 @@ src_configure() {
 
 	# Optional dependencies.
 	myconf_gn+=" enable_hangout_services_extension=$(usex hangouts true false)"
+	myconf_gn+=" enable_widevine=$(usex widevine true false)"
 	myconf_gn+=" use_cups=$(usex cups true false)"
 	myconf_gn+=" use_gnome_keyring=$(usex gnome-keyring true false)"
 	myconf_gn+=" use_kerberos=$(usex kerberos true false)"
@@ -551,6 +553,9 @@ src_configure() {
 	# Bug 491582.
 	export TMPDIR="${WORKDIR}/temp"
 	mkdir -p -m 755 "${TMPDIR}" || die
+
+	# https://bugs.gentoo.org/654216
+	addpredict /dev/dri/
 
 	if ! use system-ffmpeg; then
 		local build_ffmpeg_args=""

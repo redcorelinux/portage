@@ -93,7 +93,7 @@
 # -- EAPI support check --
 
 case ${EAPI:-0} in
-	0|1|2|3|4|5|6|7) ;;
+	0|1|2|3|4|5|6) ;;
 	*) die "EAPI ${EAPI} unsupported."
 esac
 
@@ -134,6 +134,9 @@ escons() {
 		local SCONSOPTS
 		_scons_clean_makeopts
 	fi
+
+	# pass ebuild environment variables through!
+	local -x GENTOO_SCONS_ENV_PASSTHROUGH=1
 
 	set -- scons ${SCONSOPTS} ${EXTRA_ESCONS} "${@}"
 	echo "${@}" >&2

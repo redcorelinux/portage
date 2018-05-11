@@ -5,7 +5,8 @@ EAPI="6"
 inherit autotools eutils readme.gentoo-r1 user systemd git-r3
 
 DESCRIPTION="Lightweight high-performance web server"
-HOMEPAGE="https://www.lighttpd.net/"
+HOMEPAGE="https://www.lighttpd.net
+		  https://github.com/lighttpd"
 EGIT_REPO_URI="https://git.lighttpd.net/lighttpd1.4.git git+ssh://git@lighttpd.net/lighttpd/lighttpd1.4.git git://git.lighttpd.net/lighttpd/lighttpd1.4.git"
 
 LICENSE="BSD GPL-2"
@@ -93,11 +94,7 @@ pkg_setup() {
 		ewarn "as conditionals and modules such as mod_re{write,direct}"
 		ewarn "and mod_ssi."
 	fi
-	if use mmap; then
-		ewarn "You have enabled the mmap option. This option may allow"
-		ewarn "local users to trigger SIGBUG crashes. Use this option"
-		ewarn "with EXTRA care."
-	fi
+
 	enewgroup lighttpd
 	enewuser lighttpd -1 -1 /var/www/localhost/htdocs lighttpd
 

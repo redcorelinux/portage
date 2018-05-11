@@ -6,7 +6,8 @@ EAPI=6
 inherit autotools flag-o-matic readme.gentoo-r1 systemd user
 
 DESCRIPTION="Lightweight high-performance web server"
-HOMEPAGE="https://www.lighttpd.net/"
+HOMEPAGE="https://www.lighttpd.net
+		  https://github.com/lighttpd"
 SRC_URI="https://download.lighttpd.net/lighttpd/releases-1.4.x/${P}.tar.xz"
 
 LICENSE="BSD GPL-2"
@@ -99,11 +100,7 @@ pkg_setup() {
 		ewarn "as conditionals and modules such as mod_re{write,direct}"
 		ewarn "and mod_ssi."
 	fi
-	if use mmap; then
-		ewarn "You have enabled the mmap option. This option may allow"
-		ewarn "local users to trigger SIGBUG crashes. Use this option"
-		ewarn "with EXTRA care."
-	fi
+
 	enewgroup lighttpd
 	enewuser lighttpd -1 -1 /var/www/localhost/htdocs lighttpd
 
