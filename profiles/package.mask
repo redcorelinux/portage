@@ -29,6 +29,52 @@
 
 #--- END OF EXAMPLES ---
 
+# Amy Liffey <amynka@gentoo.org> (16 May 2018)
+# Obsolete and not used anymore replaced by app-crypt/eid-mw.
+# Requested by maintainer Vincent Hardy <vincent.hardy.be@gmail.com>
+# Removal in 30 days.
+app-misc/eid-viewer-bin
+
+# Michał Górny <mgorny@gentoo.org> (16 May 2018)
+# Ancient, unmaintained and seriously broken.  Applying patches
+# in the ebuild was broken in 2014 and nobody even reported that.
+# Building tests is broken.  No reverse dependencies.  Back in the day,
+# the package was so bad and incomplete that I've decided it's easier to
+# write my own implementation.  sci-libs/libh2o is a good replacement.
+# Bug #655852.  Removal in 30 days.
+sci-libs/freesteam
+
+# Michał Górny <mgorny@gentoo.org> (16 May 2018)
+# Broken *FLAGS handling.  Use -r3 instead.
+=dev-util/scons-3.0.1-r2
+
+# Michał Górny <mgorny@gentoo.org> (15 May 2018)
+# Distfile missing BLAKE2B hash.  The package is fetch-restricted,
+# the sources can apparently by only obtained by buying it, or filing
+# an academic license request and having it approved.  Please provide
+# the updated hash if you have the matching distfile.
+# Bug #642908.  Removal in 30 days.
+sci-libs/coinhsl
+
+# Michał Górny <mgorny@gentoo.org> (15 May 2018)
+# Remaining fetch-restricted game packages missing BLAKE2B hashes.
+# Please provide updated hashes if you have the matching distfiles.
+# Bug #642876.  Removal in 30 days.
+games-action/shadowgrounds-bin
+games-action/shadowgrounds-survivor-bin
+games-action/trine2
+games-misc/dont-starve
+games-puzzle/larry
+games-rpg/avadon
+games-rpg/bastion
+games-rpg/penumbra-collection
+games-rpg/wasteland2
+
+# Michał Górny <mgorny@gentoo.org> (15 May 2018)
+# All current versions are unfetchable.  No maintainer activity
+# since 2014.  Bug #600962.  Removal in 30 days.
+net-misc/asterisk-g729
+
 # Michał Górny <mgorny@gentoo.org> (14 May 2018)
 # All current releases do not install, as well as the latest nightly
 # build upstream (dated July 2017).  Last upstream activity around
@@ -50,7 +96,7 @@ dev-libs/libmemcache
 
 # Andreas Sturmlechner <asturm@gentoo.org> (10 May 2018)
 # Depends on dead Qt4. Masked for removal in 30 days.
-dev-python/pyside-tools
+dev-python/pyside-tools:0
 
 # Andreas Sturmlechner <asturm@gentoo.org> (10 May 2018)
 # Depends on dead Qt4, does not build, needs someone to bump to Qt5.
@@ -686,12 +732,6 @@ dev-java/jcs
 # Keep it masked until they are done. sys-fs/duperemove is
 # the suggested replacement for the meantime.
 sys-fs/bedup
-
-# Lars Wendler <polynomial-c@gentoo.org> (20 Aug 2015)
-# Releases are not from original upstream but from a fork.
-# Masked as requested by vapier.
-~net-misc/iputils-20160308
-~net-misc/iputils-20161105
 
 # Justin Lecher <jlec@gentoo.org> (28 Feb 2015)
 # Unfixed security problems

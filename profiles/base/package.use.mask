@@ -7,6 +7,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Michał Górny <mgorny@gentoo.org> (16 May 2018)
+# Depends on last-rited sci-libs/coinhsl.
+sci-libs/ipopt hsl
+
 # Andreas Sturmlechner <asturm@gentoo.org> (10 May 2018)
 # Depends on obsolete dev-libs/sni-qt and dead Qt4.
 kde-plasma/plasma-desktop qt4
@@ -56,10 +60,6 @@ sys-fabric/ofed mstflint
 # x11-themes/vdrgraphtft-avp is being removed (#592066)
 media-plugins/vdr-music graphtft
 
-# Pacho Ramos <pacho@gentoo.org> (17 Mar 2018)
-# app-text/zemberek-server is being removed (#587806)
-app-text/enchant zemberek
-
 # Lars Wendler <polynomial-c@gentoo.org> (14 Mar 2018)
 # Broken on all 32bit arches. Globally masked because of sys-apps/dmapi having
 # no active upstream anymore.
@@ -78,12 +78,18 @@ app-admin/testdisk ewf
 >=sys-cluster/ceph-12.2.4 system-boost
 
 # Brian Evans <grknight@gentoo.org> (5 Mar 2018)
-# Mask embedded USE on virtual/mysql to transition it to be obsolete
->=virtual/mysql-5.6-r11 embedded
+# Mask embedded USE on virtual/mysql and friends to transition it to be obsolete
+virtual/mysql embedded
+dev-db/mariadb embedded
+dev-db/mariadb-galera embedded
+dev-db/mysql embedded
+dev-db/mysql-cluster embedded
+dev-perl/DBD-mysql embedded
 
 # Brian Evans <grknight@gentoo.org> (28 Feb 2018)
 # Mask client-libs USE to force users to install alternative standard pacakges
 dev-db/mariadb client-libs
+dev-db/mariadb-galera client-libs
 dev-db/mysql client-libs
 dev-db/percona-server client-libs
 
@@ -118,13 +124,6 @@ net-analyzer/nagios-plugin-check_raid i2o
 # This flag can be sensibly enabled only on macos.
 # Can be unmasked in prefix/darwin/macos profiles. Bug #637482
 media-video/ffmpeg appkit
-
-# Pacho Ramos <pacho@gentoo.org> (28 Dec 2017)
-# The whole zeitgeist stack is dead (#629180)
-gnome-extra/synapse zeitgeist
-app-editors/gedit-plugins zeitgeist
-dev-libs/folks zeitgeist
-www-client/midori zeitgeist
 
 # James Le Cuirot <chewi@gentoo.org> (17 Dec 2017)
 # Java 9 is not yet fully supported on Gentoo. Having a masked
