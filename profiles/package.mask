@@ -29,6 +29,33 @@
 
 #--- END OF EXAMPLES ---
 
+# Chema Alonso Josa <nimiux@gentoo.org> (28 May 2018)
+# Upstream is dead.
+# Masked for removal in 30 days. Bug #646118
+net-misc/urlview
+
+# Andreas Sturmlechner <asturm@gentoo.org> (27 May 2018)
+# Depends on dead Qt4. No more revdeps. Masked for removal in 30 days.
+dev-util/automoc
+media-libs/phonon-qt7
+
+# Kent Fredric <kentnl@gentoo.org> (27 May 2018)
+# Subject to Man-in-the-middle security bypass vulnerability.
+# Retained in tree only for users who need older versions
+# for compatibility reasons.
+# Bug: #623942
+<dev-perl/DBD-mysql-4.44.0
+
+# Akinori Hattori <hattya@gentoo.org> (27 May 2018)
+# Dead upstream, for old versions of iBus
+# Masked for removal in 30 days.
+app-i18n/ibus-tutcode
+
+# Matt Turner <mattst88@gentoo.org> (25 May 2018)
+# New package. Needs to interact with media-libs/mesa and
+# x11-drivers/nvidia-drivers. Work in progress.
+media-libs/libglvnd
+
 # Andreas Sturmlechner <asturm@gentoo.org> (24 May 2018)
 # Depends on dead Qt4. Masked for removal in 30 days. Bug #629018
 dev-libs/libattica
@@ -137,8 +164,6 @@ sci-libs/freesteam
 # Remaining fetch-restricted game packages missing BLAKE2B hashes.
 # Please provide updated hashes if you have the matching distfiles.
 # Bug #642876.  Removal in 30 days.
-games-action/shadowgrounds-bin
-games-action/shadowgrounds-survivor-bin
 games-action/trine2
 games-misc/dont-starve
 games-puzzle/larry
@@ -329,7 +354,8 @@ sci-chemistry/cyana
 # Mart Raudsepp <leio@gentoo.org> (30 Mar 2018)
 # GStreamer mp3 decoder plugin based on libmad is removed with gstreamer-1.12.
 # media-plugins/gst-plugins-mpg123 is the suggested replacement.
-# Masked for removal in 30 days. Bug 631128
+# Please keep this package.mask entry until at least 26th June 2018 for
+# extra notification of the deprecation and replacement. Bug #631128.
 media-plugins/gst-plugins-mad:1.0
 
 # Lars Wendler <polynomial-c@gentoo.org> (27 Mar 2018)
@@ -374,15 +400,6 @@ media-plugins/gst-plugins-mad:1.0
 # Upstream has been dead since 2012.  Migrate to uclibc-ng.
 # See https://wiki.gentoo.org/wiki/Project:Hardened_uClibc
 sys-libs/uclibc
-
-# Mart Raudsepp <leio@gentoo.org> (23 Feb 2018)
-# Old net-libs/webkit-gtk SLOTs have hundreds of known security issues.
-# Use the security safe net-libs webkit-gtk SLOT=4 instead via
-# libraries and applications ported to gtk3 and webkit2gtk API.
-# Please keep this package.mask entry until at least 25th May 2018 for
-# extra notification of the security vulnerabilities. Bug #577068.
-net-libs/webkit-gtk:2
-net-libs/webkit-gtk:3
 
 # Eray Aslan <eras@gentoo.org> (08 Feb 2018)
 # Mask experimental software
