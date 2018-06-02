@@ -42,7 +42,7 @@ pkg_setup() {
 	linux-info_pkg_setup
 	CONFIG_CHECK="
 		!DEBUG_LOCK_ALLOC
-		!REISER4_FS
+		!CONFIG_REISER4_FS
 		EFI_PARTITION
 		IOSCHED_NOOP
 		MODULES

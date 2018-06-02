@@ -1,14 +1,13 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=2
 
-inherit toolchain-funcs
-
-MY_P="${P/pidgin-/}"
+inherit base toolchain-funcs
 
 DESCRIPTION="Pidgin plug-in supporting microblog services like Twitter or identi.ca"
 HOMEPAGE="https://code.google.com/p/microblog-purple/"
+MY_P="${P/pidgin-/}"
 SRC_URI="https://microblog-purple.googlecode.com/files/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
@@ -22,21 +21,19 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 S=${WORKDIR}/${MY_P}
 
-src_prepare() {
-	default
+pkg_setup() {
+	tc-export CC
+}
 
+src_prepare() {
 	# upstream Issue 226 (Respect LDFLAGS)
-	sed -i "/^LDFLAGS/d" global.mak || die "sed for LDFLAGS failed"
+	sed -i "/^LDFLAGS/d" global.mak || die
 
 	# upstream Issue 225 (Warnings during compilation using make -j2)
-	sed -i "s/make /\$(MAKE) /g" Makefile || die "sed #2 failed"
+	sed -i "s/make /\$(MAKE) /g" Makefile || die
 
 	# upstream Issue 224 (configurable twitgin)
 	if ! use twitgin; then
 		sed -i 's/twitgin//g' Makefile || die
 	fi
-}
-
-src_configure() {
-	tc-export CC
 }

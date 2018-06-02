@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=2
 
 DESCRIPTION="A perl script to convert Ogg Vorbis files to MP3 files"
 HOMEPAGE="http://www.gitorious.org/ogg2mp3/pages/Home"
@@ -18,6 +18,6 @@ RDEPEND="media-sound/lame
 DEPEND=""
 
 src_install() {
-	dobin ogg2mp3
+	dobin ogg2mp3 || die "dobin failed"
 	dodoc doc/{AUTHORS,ChangeLog,README,TODO}
 }

@@ -1,11 +1,10 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=2
+inherit autotools eutils
 
-inherit autotools
-
-DESCRIPTION="General-purpose console screen reader"
+DESCRIPTION="general-purpose console screen reader"
 HOMEPAGE="http://yasr.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
@@ -17,34 +16,34 @@ IUSE="nls"
 RDEPEND=""
 DEPEND="nls? ( sys-devel/gettext )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.9-automake113.patch
-	"${FILESDIR}"/${PN}-0.6.9-gettext019.patch
-	"${FILESDIR}"/${PN}-0.6.9-gcc43.patch
-	"${FILESDIR}"/${PN}-0.6.9-remove-m4.patch
-)
-
 src_prepare() {
-	default
 	local x=/usr/share/gettext/po/Makefile.in.in
-	[[ -e $x ]] && cp -f $x po/ || die #330879
+	[[ -e $x ]] && cp -f $x po/ #330879
 
-	rm -r "${S}"/m4 || die
+	epatch "${FILESDIR}"/${P}-automake113.patch \
+		"${FILESDIR}"/${P}-gettext018.patch \
+		"${FILESDIR}"/${P}-gcc43.patch \
+		"${FILESDIR}"/${P}-remove-m4.patch
 
-	sed -i \
-	's:^\(synthesizer=emacspeak server\):#\1:
-	s:^\(synthesizer port=|/usr/local/bin/eflite\):#\1:
-	s:^#\(synthesizer=speech dispatcher\):\1:
-	s:^#\(synthesizer port=127.0.0.1.6560\):\1:' yasr.conf || die
-
-	mv configure.{in,ac} || die
+	rm -r "${S}"/m4
 	eautoreconf
 }
 
 src_configure() {
 	econf \
-		--datadir="${EPREFIX}"/etc \
+		--datadir=/etc \
+		--disable-dependency-tracking \
 		$(use_enable nls)
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die
+	dodoc README ChangeLog AUTHORS BUGS CREDITS
+	dosed \
+	's:^\(synthesizer=emacspeak server\):#\1:
+	s:^\(synthesizer port=|/usr/local/bin/eflite\):#\1:
+	s:^#\(synthesizer=speech dispatcher\):\1:
+	s:^#\(synthesizer port=127.0.0.1.6560\):\1:' /etc/yasr/yasr.conf
 }
 
 pkg_postinst() {

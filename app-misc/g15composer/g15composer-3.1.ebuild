@@ -1,7 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=2
+inherit eutils
 
 DESCRIPTION="A library to render text and shapes into a buffer usable by the Logitech G15"
 HOMEPAGE="https://sourceforge.net/projects/g15tools/"
@@ -22,10 +23,12 @@ src_configure() {
 }
 
 src_install() {
-	default
+	emake DESTDIR="${D}" install || die "make install failed"
 
 	newinitd "${FILESDIR}/${P}.initd" ${PN}
 	newconfd "${FILESDIR}/${P}.confd" ${PN}
+
+	dodoc AUTHORS README ChangeLog
 
 	if use examples ; then
 		exeinto "/usr/share/${PN}"

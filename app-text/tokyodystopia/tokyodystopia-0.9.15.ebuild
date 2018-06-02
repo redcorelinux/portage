@@ -1,7 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="2"
+
+inherit eutils
 
 DESCRIPTION="A fulltext search engine for Tokyo Cabinet"
 HOMEPAGE="http://fallabs.com/tokyodystopia/"
@@ -15,27 +17,28 @@ IUSE="examples"
 DEPEND="dev-db/tokyocabinet"
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/fix_rpath.patch"
-	"${FILESDIR}/fix_ldconfig.patch"
-	"${FILESDIR}/remove_docinst.patch"
-)
+src_prepare() {
+	epatch "${FILESDIR}/fix_rpath.patch"
+	epatch "${FILESDIR}/fix_ldconfig.patch"
+	epatch "${FILESDIR}/remove_docinst.patch"
+}
 
 src_configure() {
-	econf --libexecdir="${EPREFIX}"/usr/libexec/${PN}
+	econf --libexecdir=/usr/libexec/${PN} || die
 }
 
 src_install() {
-	HTML_DOCS=( doc/. )
+	emake DESTDIR="${D}" install || die "Install failed"
 
-	default
+	dohtml doc/* || die
 
 	if use examples; then
 		insinto /usr/share/${PF}/example
-		doins example/.
+		doins example/* || die "Install failed"
 	fi
+
 }
 
 src_test() {
-	emake -j1 check
+	emake -j1 check || die "Tests failed"
 }

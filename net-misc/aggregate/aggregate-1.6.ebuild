@@ -1,9 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-
-inherit toolchain-funcs
+EAPI=2
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Take a list of prefixes and perform two optimisations to reduce the length of the prefix list"
 HOMEPAGE="http://dist.automagic.org/"
@@ -17,7 +16,9 @@ IUSE=""
 RDEPEND="dev-lang/perl"
 DEPEND=""
 
-PATCHES=( "${FILESDIR}/${P}-build-fixup.patch" )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-build-fixup.patch
+}
 
 src_configure() {
 	tc-export CC
@@ -25,7 +26,7 @@ src_configure() {
 }
 
 src_install() {
-	dobin aggregate{,-ios}
+	dobin aggregate aggregate-ios || die
 	doman aggregate{,-ios}.1
-	einstalldocs
+	dodoc HISTORY
 }

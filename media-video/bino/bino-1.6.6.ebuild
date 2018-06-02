@@ -32,15 +32,6 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	use video_cards_nvidia && append-cppflags "-I/usr/include/NVCtrl" \
-		&& append-ldflags "-L/usr/$(get_libdir)/opengl/nvidia/lib \
-		-L/usr/$(get_libdir)" && append-libs "Xext"
-	use lirc && append-cppflags "-I/usr/include/lirc" \
-		&& append-libs "lirc_client"
-
-	# Fix a compilation error because of a multiple definitions in glew
-	append-ldflags "-zmuldefs"
-
 	econf \
 		$(use_with video_cards_nvidia xnvctrl) \
 		$(use_with lirc) \
@@ -49,6 +40,14 @@ src_configure() {
 		--with-qt-version=5 \
 		--htmldir=/usr/share/doc/${PF}/html
 
+	use video_cards_nvidia && append-cppflags "-I/usr/include/NVCtrl" \
+		&& append-ldflags "-L/usr/$(get_libdir)/opengl/nvidia/lib \
+		-L/usr/$(get_libdir)" && append-libs "Xext"
+	use lirc && append-cppflags "-I/usr/include/lirc" \
+		&& append-libs "lirc_client"
+
+	# Fix a compilation error because of a multiple definitions in glew
+	append-ldflags "-zmuldefs"
 }
 
 src_install() {

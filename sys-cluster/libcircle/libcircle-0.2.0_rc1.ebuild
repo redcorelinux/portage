@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -7,7 +7,8 @@ inherit autotools-utils
 
 if [ "${PV}" = "9999" ]; then
 	EGIT_REPO_URI="https://github.com/hpc/${PN}.git"
-	inherit git-r3
+	inherit git-2
+	KEYWORDS=""
 else
 	inherit vcs-snapshot
 	SRC_URI="https://github.com/hpc/${PN}/archive/${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz"

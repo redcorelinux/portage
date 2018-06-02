@@ -1,10 +1,11 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="2"
+
+inherit eutils
 
 MY_P=${P/-ac}
-
 DESCRIPTION="WMACPILoad based dockapp to monitor CPU temp and battery time on ACPI kernels"
 HOMEPAGE="http://wmacpiload.tuxfamily.org/"
 SRC_URI="http://wmacpiload.tuxfamily.org/download/${MY_P}.tar.bz2"
@@ -24,12 +25,21 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-acpi-segfault.patch"
-	"${FILESDIR}/${PN}-acpi-sys-temp-hwmon.patch"
-	"${FILESDIR}/${PN}-acpi-fix-battery-unit.patch"
-)
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-acpi-segfault.patch" || die "epatch failed"
+	epatch "${FILESDIR}/${PN}-acpi-sys-temp-hwmon.patch" || die "epatch failed"
+	epatch "${FILESDIR}/${PN}-acpi-fix-battery-unit.patch" || die "epatch failed"
+}
 
 src_configure() {
 	econf $(use_enable debug)
+}
+
+src_compile() {
+	emake || die "compile failed"
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "install failed"
+	dodoc AUTHORS ChangeLog NEWS README THANKS TODO
 }

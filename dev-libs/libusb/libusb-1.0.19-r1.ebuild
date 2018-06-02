@@ -6,7 +6,7 @@ EAPI=6
 inherit multilib-minimal toolchain-funcs
 
 DESCRIPTION="Userspace access to USB devices"
-HOMEPAGE="https://libusb.info/ https://github.com/libusb/libusb"
+HOMEPAGE="http://libusb.info/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"

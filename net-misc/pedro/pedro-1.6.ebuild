@@ -1,7 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=2
+
+inherit eutils
 
 DESCRIPTION="Pedro is a subscription/notification communications system"
 HOMEPAGE="http://www.itee.uq.edu.au/~pjr/HomePages/PedroHome.html"
@@ -18,23 +20,25 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${P}
 
-PATCHES=( "${FILESDIR}/${P}-portage.patch" )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-portage.patch
+}
 
 src_install() {
-	default
+	emake DESTDIR="${D}" install || die "emake install failed"
+
+	dodoc AUTHORS README || die
 
 	if use doc ; then
-		dodoc "${WORKDIR}"/${PN}.pdf
+		dodoc "${WORKDIR}"/${PN}.pdf || die
 	fi
 
 	if use examples ; then
-		docinto /usr/share/doc/${PF}/examples
-		dodoc src/examples/*.{c,tcl}
-
-		docinto /usr/share/doc/${PF}/examples/java_api
-		dodoc src/java_api/*.java
-
-		docinto /usr/share/doc/${PF}/examples/python_api
-		dodoc src/python_api/*.py
+		insinto /usr/share/doc/${PF}/examples
+		doins src/examples/*.{c,tcl} || die
+		insinto /usr/share/doc/${PF}/examples/java_api
+		doins src/java_api/*.java || die
+		insinto /usr/share/doc/${PF}/examples/python_api
+		doins src/python_api/*.py || die
 	fi
 }

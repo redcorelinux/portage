@@ -33,6 +33,7 @@ DEPEND="${PYTHON_DEPS}
 	)"
 
 PATCHES=(
+	"${FILESDIR}/${P}-Do-not-install-vulkan-headers.patch"
 	"${FILESDIR}/${P}-Use-usr-for-vulkan-headers.patch"
 )
 

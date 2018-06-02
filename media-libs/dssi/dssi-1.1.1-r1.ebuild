@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	default
+	eapply_user
 	sed -i \
 		-e 's:libdir=.*:libdir=@libdir@:' \
 		dssi.pc.in || die

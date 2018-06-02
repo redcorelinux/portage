@@ -1,9 +1,9 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI="2"
 
-inherit toolchain-funcs
+inherit eutils flag-o-matic toolchain-funcs
 
 DESCRIPTION="A tiny vt100 terminal emulator for X"
 HOMEPAGE="ftp://ftp.x.org/R5contrib/xvt-1.0.README"
@@ -21,29 +21,27 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${PN}-1.0
 
-PATCHES=(
+src_prepare() {
 	# this brings the distribution upto version 2.1
-	"${WORKDIR}"/${P}.diff
+	epatch "${WORKDIR}"/${P}.diff
 
 	# fix #61393
-	"${FILESDIR}/${PN}-ttyinit-svr4pty.diff"
+	epatch "${FILESDIR}/${PN}-ttyinit-svr4pty.diff"
 
 	# CFLAGS, CC #241554
-	"${FILESDIR}/${PN}-makefile.patch"
+	epatch "${FILESDIR}/${PN}-makefile.patch"
 
 	# int main, not void main
-	"${FILESDIR}/${PN}-int-main.patch"
+	epatch "${FILESDIR}/${PN}-int-main.patch"
 
 	# fix segfault (bug #363883)
-	"${FILESDIR}/${PN}-pts.patch"
-)
+	epatch "${FILESDIR}/${PN}-pts.patch"
 
-src_configure() {
 	tc-export CC
 }
 
 src_install() {
-	dobin xvt
+	dobin xvt || die "dobin failed"
 	doman xvt.1
-	einstalldocs
+	dodoc README
 }

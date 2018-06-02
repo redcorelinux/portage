@@ -157,13 +157,12 @@ _meson_create_cross_file() {
 	# This may require adjustment based on CFLAGS
 	local cpu=${CHOST%%-*}
 
-	cat > "${T}/meson.${CHOST}.${ABI}" <<-EOF
+	cat > "${T}/meson.${CHOST}" <<-EOF
 	[binaries]
 	ar = $(_meson_env_array "$(tc-getAR)")
 	c = $(_meson_env_array "$(tc-getCC)")
 	cpp = $(_meson_env_array "$(tc-getCXX)")
 	fortran = $(_meson_env_array "$(tc-getFC)")
-	llvm-config = '$(tc-getPROG LLVM_CONFIG llvm-config)'
 	objc = $(_meson_env_array "$(tc-getPROG OBJC cc)")
 	objcpp = $(_meson_env_array "$(tc-getPROG OBJCXX c++)")
 	pkgconfig = '$(tc-getPKG_CONFIG)'
@@ -218,9 +217,9 @@ meson_src_configure() {
 		--wrap-mode nodownload
 		)
 
-	if tc-is-cross-compiler || [[ ${ABI} != ${DEFAULT_ABI-${ABI}} ]]; then
+	if tc-is-cross-compiler; then
 		_meson_create_cross_file || die "unable to write meson cross file"
-		mesonargs+=( --cross-file "${T}/meson.${CHOST}.${ABI}" )
+		mesonargs+=( --cross-file "${T}/meson.${CHOST}" )
 	fi
 
 	# https://bugs.gentoo.org/625396

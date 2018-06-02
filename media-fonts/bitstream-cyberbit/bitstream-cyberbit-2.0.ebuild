@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI="2"
 
 inherit font
 
@@ -18,5 +18,4 @@ DEPEND="app-arch/unzip"
 RDEPEND=""
 RESTRICT="bindist mirror"
 
-S="${WORKDIR}"
 FONT_SUFFIX="ttf"
