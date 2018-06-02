@@ -29,6 +29,24 @@
 
 #--- END OF EXAMPLES ---
 
+# Mike Pagano <mpagano@gentoo.org> (30 May 2018)
+# Masking due to bad commit in the networking stack.
+=sys-kernel/gentoo-sources-4.14.46
+=sys-kernel/gentoo-sources-4.9.104
+=sys-kernel/gentoo-sources-4.4.134
+=sys-kernel/vanilla-sources-4.14.46
+=sys-kernel/vanilla-sources-4.9.104
+=sys-kernel/vanilla-sources-4.4.134
+
+# Michał Górny <mgorny@gentoo.org> (30 May 2018)
+# Gentoo repository mirrors are now running on Gentoo Infastructure,
+# and the key used to sign commits is appropriately part of the regular
+# keyring (>=app-crypt/openpgp-keys-gentoo-release-20180530).  Please
+# upgrade this keyring, and remove the custom sync-openpgp-key-path from
+# your repos.conf to make Portage use the release keys.
+# Removal in 30 days.
+app-crypt/openpgp-keys-gentoo-mirror
+
 # Chema Alonso Josa <nimiux@gentoo.org> (28 May 2018)
 # Upstream is dead.
 # Masked for removal in 30 days. Bug #646118
@@ -169,7 +187,6 @@ games-misc/dont-starve
 games-puzzle/larry
 games-rpg/avadon
 games-rpg/penumbra-collection
-games-rpg/wasteland2
 
 # Michał Górny <mgorny@gentoo.org> (15 May 2018)
 # All current versions are unfetchable.  No maintainer activity
@@ -452,7 +469,7 @@ media-fonts/fontawesome:0/5
 
 # Andreas Sturmlechner <asturm@gentoo.org> (21 Dec 2017)
 # Masked for testing
-=dev-libs/libical-3.0.1
+~dev-libs/libical-3.0.3
 
 # James Le Cuirot <chewi@gentoo.org> (17 Dec 2017)
 # Java 9 is not yet fully supported on Gentoo. Packages cannot depend
