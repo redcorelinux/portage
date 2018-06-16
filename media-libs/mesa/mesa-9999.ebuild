@@ -38,13 +38,13 @@ done
 
 IUSE="${IUSE_VIDEO_CARDS}
 	bindist +classic d3d9 debug +dri3 +egl +gallium +gbm gles1 gles2 +llvm
-	lm_sensors +nptl opencl osmesa pax_kernel openmax pic selinux test unwind
+	lm_sensors opencl osmesa pax_kernel openmax pic selinux test unwind
 	vaapi valgrind vdpau vulkan wayland xvmc xa"
 
 REQUIRED_USE="
 	d3d9?   ( dri3 gallium )
 	llvm?   ( gallium )
-	opencl? ( gallium llvm )
+	opencl? ( gallium llvm || ( video_cards_r600 video_cards_radeonsi ) )
 	openmax? ( gallium )
 	gles1?  ( egl )
 	gles2?  ( egl )
@@ -99,7 +99,7 @@ RDEPEND="
 				virtual/libelf:0=[${MULTILIB_USEDEP}]
 			)
 		)
-		lm_sensors? ( sys-apps/lm_sensors:= )
+		lm_sensors? ( sys-apps/lm_sensors:=[${MULTILIB_USEDEP}] )
 		opencl? (
 					app-eselect/eselect-opencl
 					dev-libs/libclc
@@ -298,7 +298,7 @@ multilib_src_configure() {
 			$(meson_use d3d9 gallium-nine)
 			$(meson_use llvm)
 			-Dgallium-omx=$(usex openmax bellagio disabled)
-			$(meson_use vaapi gallium-vaapi)
+			$(meson_use vaapi gallium-va)
 			$(meson_use vdpau gallium-vdpau)
 			$(meson_use xa gallium-xa)
 			$(meson_use xvmc gallium-xvmc)
@@ -351,16 +351,16 @@ multilib_src_configure() {
 	fi
 
 	if use gallium; then
-		GALLIUM_DRIVERS+="swrast "
+		gallium_enable -- swrast
 		emesonargs+=( -Dosmesa=$(usex osmesa gallium none) )
 	else
-		DRI_DRIVERS+="swrast "
+		dri_driver_enable -- swrast
 		emesonargs+=( -Dosmesa=$(usex osmesa classic none) )
 	fi
 
 	driver_list() {
-		arr=($(printf "%s\n" "$@" | sort -u | tr '\n' ','))
-		echo "${arr: : -1}"
+		local drivers="$(sort -u <<< "${1// /$'\n'}")"
+		echo "${drivers//$'\n'/,}"
 	}
 
 	emesonargs+=(
@@ -368,7 +368,6 @@ multilib_src_configure() {
 		-Dglx=dri
 		-Dshared-glapi=true
 		$(meson_use !bindist texture-float)
-		$(meson_use d3d9 gallium-nine)
 		$(meson_use dri3)
 		$(meson_use egl)
 		$(meson_use gbm)
@@ -377,9 +376,9 @@ multilib_src_configure() {
 		$(meson_use unwind libunwind)
 		$(meson_use lm_sensors lmsensors)
 		-Dvalgrind=$(usex valgrind auto false)
-		-Ddri-drivers=$(driver_list ${DRI_DRIVERS})
-		-Dgallium-drivers=$(driver_list ${GALLIUM_DRIVERS})
-		-Dvulkan-drivers=$(driver_list ${VULKAN_DRIVERS})
+		-Ddri-drivers=$(driver_list "${DRI_DRIVERS[*]}")
+		-Dgallium-drivers=$(driver_list "${GALLIUM_DRIVERS[*]}")
+		-Dvulkan-drivers=$(driver_list "${VULKAN_DRIVERS[*]}")
 	)
 	meson_src_configure
 }
@@ -458,25 +457,25 @@ pkg_prerm() {
 	fi
 }
 
-# $1 - VIDEO_CARDS flag
+# $1 - VIDEO_CARDS flag (check skipped for "--")
 # other args - names of DRI drivers to enable
 dri_driver_enable() {
-	if use $1; then
+	if [[ $1 == -- ]] || use $1; then
 		shift
-		DRI_DRIVERS+="$@ "
+		DRI_DRIVERS+=("$@")
 	fi
 }
 
 gallium_enable() {
-	if use $1; then
+	if [[ $1 == -- ]] || use $1; then
 		shift
-		GALLIUM_DRIVERS+="$@ "
+		GALLIUM_DRIVERS+=("$@")
 	fi
 }
 
 vulkan_enable() {
-	if use $1; then
+	if [[ $1 == -- ]] || use $1; then
 		shift
-		VULKAN_DRIVERS+="$@ "
+		VULKAN_DRIVERS+=("$@")
 	fi
 }
