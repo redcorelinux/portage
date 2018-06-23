@@ -458,6 +458,7 @@ app-emulation/bochs:avx - Enable support for emulating Advanced Vector Extension
 app-emulation/bochs:debugger - Enable debugger (slows down emulation)
 app-emulation/bochs:gdb - Enable support for the remote GDB stub
 app-emulation/bochs:x86-64 - Enable support for emulation of 64-bit CPUs
+app-emulation/buildah:ostree - Enables dependencies for handling of OSTree images.
 app-emulation/containerd:btrfs - Support for BTRFS snapshot driver
 app-emulation/cri-o:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-emulation/cri-o:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
@@ -923,7 +924,47 @@ app-misc/gramps:reports - All external software that is needed for graphical rep
 app-misc/graphlcd-base:g15 - Add support for app-misc/g15daemon driver (e.g. Logitech G15 Keybord)
 app-misc/irtrans-irserver:mono - Enable mono support
 app-misc/jq:oniguruma - Use dev-libs/oniguruma for regular expression support
-app-misc/lcd4linux:mpd - Add support for display of mpd controlled music (media-libs/libmpd)
+app-misc/kryoflux-dtc:demos - Install example floppy game files.
+app-misc/kryoflux-dtc:fast-firmware - Install fast firmware instead of slow firmware.
+app-misc/kryoflux-dtc:gui - Install the Kryoflux GUI
+app-misc/lcd4linux:apm - Enable the APM plugin.
+app-misc/lcd4linux:asterisk - Enable the Asterisk plugin.
+app-misc/lcd4linux:button_exec - Enable the Button plugin, to execute something on keypress.
+app-misc/lcd4linux:cpuinfo - Enable the cpuinfo plugin.
+app-misc/lcd4linux:dbus - Enable the dbus plugin.
+app-misc/lcd4linux:diskstats - Enable the diskstats plugin.
+app-misc/lcd4linux:dmalloc - Enable dmalloc for debugging.
+app-misc/lcd4linux:dvb - Enable support for the DVB plugin.
+app-misc/lcd4linux:event - Enable the event plugin.
+app-misc/lcd4linux:exec - Enable the exec plugin, to read output from external programs.
+app-misc/lcd4linux:fifo - Enable the FIFO (First-In, First-Out) plugin.
+app-misc/lcd4linux:file - Enable the file plugin, to read from input from files.
+app-misc/lcd4linux:gps - Enable the gps plugin, for reading gps coordinates.
+app-misc/lcd4linux:hddtemp - Enable the hddtemp plugin, to read from the hddtemp daemon.
+app-misc/lcd4linux:huawei - Enable the huawei plugin, to read from a huawei device.
+app-misc/lcd4linux:i2c_sensors - Enable the i2c_sensors plugin, to read sensor data.
+app-misc/lcd4linux:iconv - Enable the iconv plugin, to convert between encodings.
+app-misc/lcd4linux:isdn - Enable the isdn plugin, to get information about ISDN.
+app-misc/lcd4linux:kvv - Enable the kvv plugin, to get realtime train schedule from the Karlsruher Verkehrsverbund.
+app-misc/lcd4linux:loadavg - Enable the loadavg plugin, to get stats load
+app-misc/lcd4linux:meminfo - Enable the meminfo plugin, to get memory statistics.
+app-misc/lcd4linux:mpd - Enable the mpd plugin, to read from the Music Player Daemon.
+app-misc/lcd4linux:mpris_dbus - Enable the mpris plugin, to read data via dbus for mpris.
+app-misc/lcd4linux:mysql - Enable the mysql plugin, to get mysql database information.
+app-misc/lcd4linux:netdev - Enable the netdev plugin, to get interface statistics.
+app-misc/lcd4linux:netinfo - Enable the netinfo plugin, to get more interface statistic.
+app-misc/lcd4linux:outb - Enable raw i/o access.
+app-misc/lcd4linux:pop3 - Enable the pop3 plugin, to get notified about new mails.
+app-misc/lcd4linux:proc_stat - Enable the proc_stat plugin, to read data from the proc file system.
+app-misc/lcd4linux:python - Enable support for dev-lang/python and enable the python plugin, to execute own python scripts.
+app-misc/lcd4linux:qnaplog - Enable the qnaplog plugin, to read a log from a QNAP device.
+app-misc/lcd4linux:raspi - Enable the raspi plugin, to read sensor data from a Raspberry Pi.
+app-misc/lcd4linux:sample - Enable the sample plugin.
+app-misc/lcd4linux:statfs - Enable the statfs plugin, to get statistics about the file system.
+app-misc/lcd4linux:uname - Enable the uname plugin, to get the output of uname.
+app-misc/lcd4linux:uptime - Enable the uptime plugin.
+app-misc/lcd4linux:w1retap - Enable the w1retap plugin.
+app-misc/lcd4linux:wireless - Enable the wireless plugin, to get wireless statistics.
 app-misc/lcdproc:ftdi - Enable support for FTDI connections in some selected LCD_DEVICES (currently hd44780)
 app-misc/lcdproc:hid - Enable HID support using libhid
 app-misc/lcdproc:irman - Enable support for IRMan (media-libs/libirman)
@@ -1280,6 +1321,7 @@ dev-ada/asis:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/asis:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/aunit:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aunit:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
+dev-ada/aunit:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/aws:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aws:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnat_util:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
@@ -1293,6 +1335,11 @@ dev-ada/gnatcoll:projects - Adds support for projects
 dev-ada/gnatcoll:pygobject - Adds support for pygobject
 dev-ada/gnatcoll:shared - Build shared library
 dev-ada/gnatcoll:tools - Build associated tools
+dev-ada/gnatcoll-bindings:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
+dev-ada/gnatcoll-bindings:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
+dev-ada/gnatcoll-bindings:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatcoll-bindings:shared - Build shared library
+dev-ada/gnatcoll-bindings:static-pic - Build shared library
 dev-ada/gnatcoll-core:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnatcoll-core:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnatcoll-core:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
@@ -2517,9 +2564,6 @@ dev-python/django-cms:snippet - Install djangocms snippet plugin
 dev-python/django-cms:teaser - Install djangocms teaser plugin
 dev-python/django-cms:video - Install djangocms video plugin
 dev-python/django-tastypie:bip - An optional serialiser dev-python/biplist
-dev-python/django-tastypie:digest - Library to aid in implementing HTTP Digest Authentication
-dev-python/django-tastypie:lxml - An optional serialiser dev-python/lxml
-dev-python/django-tastypie:yaml - An optional serialiser dev-python/yaml
 dev-python/django-two-factor-auth:yubikey - Adds support for Yubikeys via django-otp-yubikey
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/falcon:cython - Build cython-based python modules
@@ -2988,6 +3032,7 @@ dev-util/schroot:lvm - Enable support for chroots using LVM snapshots.
 dev-util/squashdelta:lz4 - Enable support for LZ4 compression using app-arch/lz4
 dev-util/squashmerge:lz4 - Enable support for LZ4 compression using app-arch/lz4
 dev-util/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
+dev-util/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
 dev-util/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
 dev-util/suse-build:symlink - Provide compatibility symlinks with original openSUSE package (might clash with other packages)
 dev-util/sysdig:modules - Build kernel modules needed for tracing local events. Disable this only if you intend to use sysdig purely to work with dumpfiles.
@@ -4155,8 +4200,14 @@ media-libs/grilo:playlist - Enable support for playlists through dev-libs/totem-
 media-libs/gst-plugins-bad:bzip2 - Enable bzip2 encoder/decoder plugin
 media-libs/gst-plugins-bad:egl - Enable EGL support
 media-libs/gst-plugins-bad:gles2 - Enable GLES2 support
+media-libs/gst-plugins-base:X - Enable ximagesink and xvimagesink plugins; build GLX platform support if USE=opengl is enabled; build x11 windowing system support if USE=egl is enabled
+media-libs/gst-plugins-base:egl - Enable EGL platform support
+media-libs/gst-plugins-base:gbm - Enable Graphics Buffer Manager based EGL windowing system support (requires egl and at least one of gles or opengl)
+media-libs/gst-plugins-base:gles2 - Enable OpenGL library and plugin via GLESv2 API (requires egl)
 media-libs/gst-plugins-base:ivorbis - Enable integer based vorbis decoder
+media-libs/gst-plugins-base:opengl - Enable OpenGL library and plugin via desktop OpenGL API
 media-libs/gst-plugins-base:pango - Enable pango GStreamer plugin
+media-libs/gst-plugins-base:wayland - Enable Wayland EGL windowing system support (requires egl and at least one of gles2 or opengl)
 media-libs/gstreamer:orc - Disable some PaX memory protections to allow plugins that use dev-lang/orc for runtime optimization to be used on hardened PaX systems
 media-libs/gstreamer:unwind - Enable sys-libs/libunwind usage for better backtrace support in leaks tracer module
 media-libs/harfbuzz:glib - Compile with GLib Unicode support
@@ -4409,12 +4460,16 @@ media-plugins/grilo-plugins:tracker - Build support for content discovery using 
 media-plugins/grilo-plugins:vimeo - Build support for Vimeo content discovery using net-libs/libsoup and dev-libs/libgcrypt
 media-plugins/grilo-plugins:youtube - Build support for YouTube content discovery using dev-libs/libgdata
 media-plugins/gst-plugins-gl:libvisual - Enable visualization effects via media-libs/libvisual
+media-plugins/gst-plugins-gtk:egl - Enable EGL platform usage
+media-plugins/gst-plugins-gtk:gles2 - Enable gtkglsink OpenGL sink based on GLESv2 API
+media-plugins/gst-plugins-gtk:opengl - Enable gtkglsink OpenGL sink based on desktop OpenGL API
 media-plugins/gst-plugins-meta:http - Enable http streaming via net-libs/libsoup
 media-plugins/gst-plugins-meta:libvisual - Enable visualization effects via media-libs/libvisual
 media-plugins/gst-plugins-meta:opus - Enable Opus audio codec support
 media-plugins/gst-plugins-meta:vpx - Enables vp8 codec support using libvpx, required to play some HTML5 videos
 media-plugins/gst-plugins-vaapi:drm - Enable DRM renderer
 media-plugins/gst-plugins-vaapi:egl - Enable EGL support
+media-plugins/gst-plugins-vaapi:gles2 - Enable GLESv2 and GLESv3 support
 media-plugins/hexter:gtk2 - Enable x11-libs/gtk+:2 based GUI
 media-plugins/imlib2_loaders:eet - Enable Eet image loader
 media-plugins/imlib2_loaders:xcf - Enable XCF image loader
@@ -4671,6 +4726,7 @@ media-sound/pulseaudio:alsa-plugin - Request installing media-plugins/alsa-plugi
 media-sound/pulseaudio:asyncns - Use libasyncns for asynchronous name resolution.
 media-sound/pulseaudio:doc - Build the doxygen-described API documentation.
 media-sound/pulseaudio:equalizer - Enable the equalizer module (requires sci-libs/fftw).
+media-sound/pulseaudio:gconf - Ensure gnome-base/gconf is present for pulseaudio GConf to GSettings module automatic migration (keeping the user configuration)
 media-sound/pulseaudio:gdbm - Use sys-libs/gdbm to store PulseAudio databases. Recommended for desktop usage. This flag causes the whole package to be licensed under GPL-2 or later.
 media-sound/pulseaudio:glib - Add support to dev-libs/glib-based mainloop for the libpulse client library, to allow using libpulse on glib-based programs.
 media-sound/pulseaudio:gnome - Use GConf to store user preferences on streams and so on. Don't enable this flag if you want to use a system wide instance. If unsure, enable this flag.
@@ -5041,12 +5097,13 @@ media-video/mpv:jpeg - Enable support for saving screenshots in JPEG format
 media-video/mpv:libass - Enable OSD (On Screen Display) and subtitles support via media-libs/libass
 media-video/mpv:libmpv - Build mpv shared library
 media-video/mpv:lua - Enable Lua scripting, OSC (On Screen Controller) GUI and net-misc/youtube-dl hook-script
-media-video/mpv:opengl - Enable the recommended 'opengl' video output
+media-video/mpv:opengl - Enable support for various OpenGL-based video backends
 media-video/mpv:raspberry-pi - Enable support for the Raspberry Pi
 media-video/mpv:rubberband - Enable high quality pitch correction via media-libs/rubberband
 media-video/mpv:sdl - Enable media-libs/libsdl2 based video and audio outputs (Note: these outputs exist for compatibility reasons only, avoid if possible)
 media-video/mpv:tools - Install extra tools: mpv_identify.sh, mpv_idet.sh, and umpv
 media-video/mpv:uchardet - Enable subtitles charset discovery via app-i18n/uchardet
+media-video/mpv:vulkan - Enable support for various Vulkan-based video backends
 media-video/noad:libmpeg2 - Support for libmpeg2 library
 media-video/nvidia-settings:gtk3 - Additionally build the GTK 3 library
 media-video/nvidia_video_sdk:tools - Build and install example tools.
@@ -5458,7 +5515,9 @@ net-analyzer/zmap:redis - Add support for storing in a redis DB via dev-libs/hir
 net-dialup/accel-ppp:ipoe - Build IPoE kernel module
 net-dialup/accel-ppp:shaper - Support for traffic shaping
 net-dialup/accel-ppp:valgrind - Compile in valgrind hints
+net-dialup/freeradius:memcached - Include dev-libs/libmemcached in caching drivers
 net-dialup/freeradius:pcap - Build the RADIUS sniffer which requires net-libs/libpcap.
+net-dialup/freeradius:rest - Include support for sending and receiving HTTP requests
 net-dialup/freeradius-client:scp - Add service type hints derived from username prefix
 net-dialup/freeradius-client:shadow - Enable shadow password support
 net-dialup/mgetty:fax - Enables fax support
@@ -5886,7 +5945,7 @@ net-irc/psybnc:multinetwork - Adds support for multiple networks
 net-irc/psybnc:oidentd - Adds support for oidentd
 net-irc/psybnc:scripting - Adds scripting support
 net-irc/quassel:X - Build the Qt5 GUI client for quassel. If this USE flag is disabled, the GUI is not built, and cannot be used. You might want to disable this on the server, but you need it enabled on the client.
-net-irc/quassel:breeze - Support the Breeze and Breeze-Dark icon sets (default for Plasma 5).
+net-irc/quassel:bundled-icons - Use icon themes bundled with Quassel, rather than depending on system packages.
 net-irc/quassel:crypt - Support core->network per-channel and per-query blowfish encryption via app-crypt/qca SLOT 2.
 net-irc/quassel:dbus - Support desktop notifications via the StatusNotifier D-Bus service (used by most modern desktop environments).
 net-irc/quassel:monolithic - Build standalone client with integrated core, no external quasselcore needed. Only useful if you don't want to use Quassel's client/server model. The server and X flags are not needed in this case but it is possible to enable them too.
@@ -7104,7 +7163,7 @@ sci-chemistry/pymol:web - Install Pymodule needed for web app support
 sci-chemistry/raster3d:gd - libgd support for PNG and JPEG output
 sci-chemistry/vmd:cuda - Use nvidia cuda toolkit for speeding up computations
 sci-chemistry/vmd:gromacs - Add support for TNG file format
-sci-chemistry/vmd:msms - Add support for MSMS SAS calcualtion tool
+sci-chemistry/vmd:msms - Add support for MSMS SES calcualtion tool
 sci-chemistry/vmd:povray - Add support for povray raytracer for HQ images
 sci-chemistry/vmd:tachyon - Add support for tachyon raytracer for HQ images
 sci-chemistry/votca-csg:extras - Pull in extra applications from sci-chemistry/votca-csgapps
@@ -7640,6 +7699,7 @@ sys-apps/lm_sensors:sensord - Enable sensord - a daemon that can be used to peri
 sys-apps/man-db:manpager - Enable manpager wrapper for colorizing output
 sys-apps/mawk:forced-sandbox - Always enable -W sandbox mode for simpler/secure runtime
 sys-apps/memtest86:serial - Compile with serial console support
+sys-apps/memtest86+:boot - Also install to /boot instead of just /usr/share/memtest86+/
 sys-apps/memtest86+:floppy - Install a script to create floppy disks containing memtest86+ binaries.
 sys-apps/memtest86+:iso - Compile an ISO image
 sys-apps/memtest86+:serial - Compile with serial console support
@@ -7690,7 +7750,6 @@ sys-apps/roccat-tools:input_devices_roccat_suora - Enable support for Suora keyb
 sys-apps/s390-tools:fuse - build cmsfs-fuse to read files stored on a z/VM CMS disk
 sys-apps/s390-tools:ncurses - build hyptop monitoring program
 sys-apps/s390-tools:pfm - build the cpacfstats tool
-sys-apps/s390-tools:zfcpdump - build the kernel disk dumping utility
 sys-apps/s390-tools:zlib - build the zgetdump utility
 sys-apps/sed:forced-sandbox - Always enable --sandbox mode for simpler/secure runtime (disables e/r/w commands). Note: This may break many configure scripts, so it should be avoided on dev systems (and generally used on binpkg/final systems only).
 sys-apps/selinux-python:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
@@ -8230,6 +8289,7 @@ sys-libs/libblockdev:dmraid - Support for dmraid devices, also known as ATA-RAID
 sys-libs/libblockdev:escrow - Support for building crypto plugin with escrow device support
 sys-libs/libblockdev:kbd - Enable kernel block device support.
 sys-libs/libblockdev:lvm - Enable support for Logical Volume Management via sys-fs/lvm2.
+sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
 sys-libs/libcxx:libcxxrt - Build on top of sys-libs/libcxxrt instead of gcc's libsupc++ (avoids depending on gcc).
 sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
@@ -8675,8 +8735,6 @@ x11-libs/gtksourceview:glade - Install a glade catalog file
 x11-libs/libQGLViewer:designer - Installs dev-qt/designer plugin.
 x11-libs/libSM:uuid - Use UUID for session identification instead of IP address and system time.
 x11-libs/libXaw:deprecated - Install deprecated Xaw6 library.
-x11-libs/libXfont:bzip2 - Support bzip2 compressed PCF fonts.
-x11-libs/libXfont:truetype - Use media-libs/freetype for font rasterization.
 x11-libs/libXfont2:bzip2 - Support bzip2 compressed PCF fonts.
 x11-libs/libXfont2:truetype - Use media-libs/freetype for font rasterization.
 x11-libs/libaosd:pango - Enable the textual helpers (requires pangocairo).
@@ -8767,6 +8825,7 @@ x11-plugins/pidgin-sipe:ocs2005-message-hack - Disable message timeout for OCS20
 x11-plugins/pidgin-sipe:openssl - Enable crypto support via dev-libs/openssl
 x11-plugins/pidgin-sipe:telepathy - Support use as a telepathy backend
 x11-plugins/pidgin-sipe:voice - Enable experimental voice/video support
+x11-plugins/pidgin-telegram:gcrypt - Use dev-libs/libgcrypt instead of dev-libs/openssl.
 x11-plugins/purple-plugin_pack:talkfilters - Enable support for app-text/talkfilters
 x11-plugins/vicious:contrib - Install extra widgets, some for less common hardware, some contributed by Vicious users.
 x11-plugins/wmfire:session - Enable session management
@@ -8904,9 +8963,7 @@ x11-wm/enlightenment:enlightenment_modules_wl-wl - Wayland-in-Wayland module
 x11-wm/enlightenment:enlightenment_modules_wl-x11 - Wayland-in-X11 module
 x11-wm/enlightenment:enlightenment_modules_xkbswitch - Keyboard layout configuration and switcher
 x11-wm/enlightenment:enlightenment_modules_xwayland - X/Wayland integration
-x11-wm/enlightenment:pango - Enable pango font rendering
 x11-wm/enlightenment:ukit - Use upower/udisks to automount devices
-x11-wm/enlightenment:xrandr - Enable support for the X xrandr extension
 x11-wm/fluxbox:bidi - Enable bidirectional language support with dev-libs/fribidi
 x11-wm/fluxbox:slit - Enables the Fluxbox slit (or dock)
 x11-wm/fluxbox:systray - Enables the system tray in the Fluxbox toolbar

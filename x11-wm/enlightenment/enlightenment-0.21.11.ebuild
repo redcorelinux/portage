@@ -11,7 +11,7 @@ SRC_URI="https://download.enlightenment.org/rel/apps/${PN}/${P}.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0.17/${PV%%_*}"
-KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
 
 E_CONF_MODS=(
 	applications bindings dialogs display
@@ -42,7 +42,7 @@ IUSE_E_MODULES=(
 IUSE="acpi connman doc egl nls pam static-libs systemd udisks wayland ${IUSE_E_MODULES[@]/#/+}"
 
 RDEPEND="
-	>=dev-libs/efl-1.17.0[eet,X]
+	>=dev-libs/efl-1.18.0[eet,X]
 	virtual/udev
 	x11-libs/libXext
 	x11-libs/libxcb
