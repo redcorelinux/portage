@@ -1,19 +1,22 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
 inherit distutils-r1
 
-MY_P="${PN}-${PV/_p/.post}"
-DESCRIPTION="Python module for Ed25519 signatures"
-HOMEPAGE="https://github.com/tgalal/python-axolotl-curve25519"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+MY_PV="${PV/_p/-}"
 
-LICENSE="GPL-3"
+DESCRIPTION="A python wrapper for the curve25519 library with ed25519 signatures"
+HOMEPAGE="https://github.com/tgalal/python-axolotl-curve25519"
+SRC_URI="https://github.com/tgalal/${PN}/archive/${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
+
+LICENSE="BSD GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+
+S="${WORKDIR}/${PN}-${MY_PV}"
