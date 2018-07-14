@@ -34,7 +34,7 @@ RDEPEND="${DEPEND}
 	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-nm-qt-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.13.2-nm-qt-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(

@@ -46,8 +46,6 @@ DEPEND="${RDEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}-5.46.0-CVE-2018-10361.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package editorconfig EditorConfig)
