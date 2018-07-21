@@ -17,7 +17,7 @@ SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc examples imagequant jpeg jpeg2k lcms test tiff tk truetype webp zlib"
 
 REQUIRED_USE="test? ( jpeg tiff )"
@@ -52,10 +52,11 @@ PATCHES=(
 	"${FILESDIR}"/pillow-4.3.0-freetype2.9-test-metrics.patch
 )
 
-python_compile() {
-	# raqm not in portage yet
-	local args=(
-		--disable-raqm
+python_configure_all() {
+	# It's important that these flags are also passed during the install phase
+	# as well. Make sure of that if you change the lines below. See bug 661308.
+	mydistutilsargs=(
+		build_ext
 		--disable-platform-guessing
 		$(use_enable truetype freetype)
 		$(use_enable jpeg)
@@ -67,7 +68,6 @@ python_compile() {
 		$(use_enable webp webpmux)
 		$(use_enable zlib)
 	)
-	distutils-r1_python_compile build_ext "${args[@]}"
 }
 
 python_compile_all() {
