@@ -7,7 +7,7 @@ inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
@@ -48,4 +48,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( CHANGELOG.md README.md TRANSLATORS )
+DOCS=( CHANGELOG.md README.md )
