@@ -226,6 +226,7 @@ app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/pbzip2:symlink - Install symlinks which override app-arch/bzip2 implementation
 app-arch/pigz:symlink - Install symlinks which override app-arch/gzip implementation
 app-arch/rar:all_sfx - Install all SFX (Self-Extracting) files rather than just the native format (allows creation of Windows EXEs on Linux ELF systems)
+app-arch/rpm:zstd - Enable support for ZSTD compression using app-arch/zstd
 app-arch/tar:minimal - just install `tar`
 app-arch/unzip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
 app-arch/wimlib:fuse - Use fuse libraries
@@ -463,7 +464,9 @@ app-emulation/bochs:debugger - Enable debugger (slows down emulation)
 app-emulation/bochs:gdb - Enable support for the remote GDB stub
 app-emulation/bochs:x86-64 - Enable support for emulation of 64-bit CPUs
 app-emulation/buildah:ostree - Enables dependencies for handling of OSTree images.
+app-emulation/containerd:apparmor - Support for AppArmor
 app-emulation/containerd:btrfs - Support for BTRFS snapshot driver
+app-emulation/containerd:cri - Support for Kubernetes CRI
 app-emulation/cri-o:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-emulation/cri-o:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
 app-emulation/cri-o:ostree - Enables dependencies for handling of OSTree images.
@@ -621,6 +624,7 @@ app-emulation/virt-viewer:vnc - Support connecting to VNC-enabled virtual machin
 app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
 app-emulation/virtualbox:headless - Build without any graphic frontend
 app-emulation/virtualbox:lvm - Build VBoxVolInfo that needs devicemapper from sys-fs/lvm2.
+app-emulation/virtualbox:opus - Adds support for the Opus codec via media-libs/opus
 app-emulation/virtualbox:pax_kernel - Apply patch needed for pax enabled kernels.
 app-emulation/virtualbox:sdk - Enable building of SDK
 app-emulation/virtualbox:udev - Controls installation of special USB udev rules.
@@ -638,6 +642,7 @@ app-emulation/wine-any:capi - Enable ISDN support via CAPI
 app-emulation/wine-any:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-any:d3d9 - Apply highly experimental patches for Gallium Nine support. This patch may break some applications.
 app-emulation/wine-any:dos - Pull in games-emulation/dosbox to run DOS applications
+app-emulation/wine-any:ffmpeg - Use media-video/ffmpeg to decode WMA formats
 app-emulation/wine-any:gecko - Add support for the Gecko engine when using iexplore
 app-emulation/wine-any:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-any:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
@@ -683,6 +688,7 @@ app-emulation/wine-d3d9:vulkan - Enable Vulkan drivers
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-staging:dos - Pull in games-emulation/dosbox to run DOS applications
+app-emulation/wine-staging:ffmpeg - Use media-video/ffmpeg to decode WMA formats
 app-emulation/wine-staging:gecko - Add support for the Gecko engine when using iexplore
 app-emulation/wine-staging:gssapi - Use GSSAPI (Kerberos SSP support)
 app-emulation/wine-staging:gstreamer - Use media-libs/gstreamer to provide DirectShow functionality;
@@ -1510,6 +1516,7 @@ dev-db/oracle-instantclient:odbc - Libraries for enabling ODBC applications
 dev-db/oracle-instantclient:sdk - Header files and an example makefile for developing Oracle applications
 dev-db/oracle-instantclient:sqlplus - Libraries and executable for running SQL*Plus
 dev-db/oracle-instantclient:tools - Workload Replay Client
+dev-db/percona-server:client-libs - Build the libmysqlclient libraries
 dev-db/percona-server:embedded - Build embedded server (libmysqld)
 dev-db/percona-server:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
 dev-db/percona-server:jemalloc - Use dev-libs/jemalloc for allocations.
@@ -1518,9 +1525,10 @@ dev-db/percona-server:libressl - Enable SSL connections and crypto functions usi
 dev-db/percona-server:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-db/percona-server:openssl - Enable SSL connections and crypto functions using dev-libs/openssl
 dev-db/percona-server:profiling - Add support for statement profiling (requires USE=community).
+dev-db/percona-server:rocksdb - Add support for RocksDB; a key/value, LSM database optimized for flash storage
 dev-db/percona-server:server - Build the server program
 dev-db/percona-server:systemtap - Build support for profiling and tracing using dev-util/systemtap
-dev-db/percona-server:test - Install upstream testsuites for end use.
+dev-db/percona-server:test-suite - Install upstream testsuites for end use.
 dev-db/percona-server:tokudb - Add support for TokuDB storage engine
 dev-db/percona-server:tokudb-backup-plugin - Builds the TokuDB backup plugin
 dev-db/percona-server:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
@@ -2486,7 +2494,6 @@ dev-perl/Mail-IMAPClient:md5 - Install support for DIGEST-MD5 and CRAM-MD5 Authe
 dev-perl/Mail-IMAPClient:ntlm - Install support for NTLM Authentication
 dev-perl/Mail-IMAPClient:ssl - Install support for SSL Connections
 dev-perl/Mail-IMAPClient:zlib - Install support for COMPRESS DEFLATE connections
-dev-perl/Net-OpenSSH:sftp - Enable SFTP protocol support.
 dev-perl/Net-SSH2:gcrypt - Use libgcrypt instead of openssl
 dev-perl/PDL:badval - Enable bad values support
 dev-perl/PDL:hdf - Enable HDF (version 4) format support
@@ -2638,7 +2645,10 @@ dev-python/mpmath:matplotlib - Add support for dev-python/matplotlib
 dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/nbdime:webtools - Install web-based diff and merge tools.
 dev-python/netaddr:cli - Enable netaddr shell with dev-python/ipython
+dev-python/networkx:extras - Provide graph drawing and graph layout algorithms along with shapefile format reading and writing
+dev-python/networkx:pandas - Provides a DataFrame, which is a tabular data structure with labeled axes
 dev-python/networkx:scipy - Enables scipy backend
+dev-python/networkx:yaml - Provides YAML format reading and writing
 dev-python/nltk:numpy - Use numpy for the saved word tokenizer
 dev-python/numexpr:mkl - Enable support for Intel Vector Math Library, part of sci-libs/mkl.
 dev-python/pandas:full-support - Pull all packages to give pandas full support
@@ -3263,7 +3273,6 @@ games-emulation/ppsspp:system-ffmpeg - Use the system-wide media-video/ffmpeg in
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
 games-emulation/snes9x:xrandr - Enable support for the X xrandr extension
 games-emulation/vbam:link - Enable GBA linking functionality
-games-emulation/yabause:pic - disable optimized assembly code that is not PIC friendly
 games-emulation/zsnes:debug - Enable the builtin debugger
 games-emulation/zsnes:pax_kernel - Triggers a paxmarking of the binary
 games-engines/exult:sdl2 - Use libsdl2 instead of libsdl
@@ -3744,8 +3753,6 @@ mail-client/alpine:onlyalpine - installs only the alpine binary, so it does not 
 mail-client/alpine:passfile - Adds support for caching passwords into a file between sessions
 mail-client/alpine:smime - Enable support for S/MIME
 mail-client/balsa:crypt - Adds support for GnuPG encryption
-mail-client/balsa:gtkhtml - Use gtkhtml for HTML rendering
-mail-client/balsa:gtkspell - Use gtkspell for dictionary support
 mail-client/balsa:rubrica - Adds support for rubrica addressbook
 mail-client/claws-mail:archive - Enable archiving plugin
 mail-client/claws-mail:bogofilter - Build mail-filter/bogofilter plugin
@@ -4125,6 +4132,7 @@ media-gfx/graphviz:gdk-pixbuf - Enables gdk-pixbuf2 plugin
 media-gfx/graphviz:gtk - Enables gtk+ output plugin -Tgtk (needs cairo)
 media-gfx/graphviz:gts - Enables support for gts
 media-gfx/graphviz:lasi - Enables PostScript output via media-libs/lasi, for plugin -Tlasi (needs cairo)
+media-gfx/gthumb:colord - Use x11-misc/colord for color management
 media-gfx/gthumb:http - Enable webservice integration through net-libs/libsoup
 media-gfx/gthumb:json - Compile code that uses the libjson-glib library
 media-gfx/gthumb:slideshow - Enable slideshow plugin
@@ -5608,12 +5616,14 @@ net-dns/bind:fixed-rrset - Enables fixed rrset-order option
 net-dns/bind:gost - Enables gost OpenSSL engine support
 net-dns/bind:gssapi - Enable gssapi support
 net-dns/bind:json - Enable JSON statistics channel
+net-dns/bind:libidn2 - Enables IDN support using net-dns/libidn2 rather than using net-dns/idnkit
 net-dns/bind:lmdb - Enable LMDB support to store configuration for 'addzone' zones
 net-dns/bind:nslint - Build and install the nslint util
 net-dns/bind:rpz - Enable response policy rewriting (rpz)
 net-dns/bind:urandom - Use /dev/urandom instead of /dev/random
 net-dns/bind-tools:gost - Enables gost OpenSSL engine support
 net-dns/bind-tools:gssapi - Enable gssapi support
+net-dns/bind-tools:libidn2 - Enables IDN support using net-dns/libidn2 rather than using net-dns/idnkit
 net-dns/bind-tools:urandom - Use /dev/urandom instead of /dev/random
 net-dns/ddclient:cloudflare - Enable support for updating IP address via CloudFlare
 net-dns/ddclient:hardened - Use iproute2 instead of ifconfig to grab an IP address
@@ -6050,7 +6060,6 @@ net-irc/weechat:relay - Enable relay plugin (experimental)
 net-irc/weechat:scripts - Build infrastructure for scripting
 net-irc/weechat:trigger - Enable trigger plugin
 net-irc/weechat:xfer - Enable xfer plugin support
-net-irc/znc:daemon - Allow znc to run as a system-wide service. Installs an init script and creates a znc user:group.
 net-irc/znc:zlib - Enable mod_deflate-like gzip support for znc's web interface using sys-libs/zlib.
 net-libs/aqbanking:chipcard - Enable support for DDV/RSA-chipcards
 net-libs/aqbanking:ebics - Enable support for Electronic Banking Internet Communication Standard (EBICS)
@@ -6467,6 +6476,7 @@ net-misc/electrum:digitalbitbox - Enable plugin to support Digital Bitbox hardwa
 net-misc/electrum:email - Enable plugin to support emailing invoices
 net-misc/electrum:greenaddress_it - Enable plugin to verify GreenAddress.it instant transactions
 net-misc/electrum:qrcode - Enable QR code scanning with media-gfx/zbar
+net-misc/electrum:revealer - Enable revealer plugin for extra security. https://revealer.cc/
 net-misc/electrum:sync - Enable plugin to sync wallet metadata across multiple Electrum clients
 net-misc/electrum:trustedcoin_com - Enable plugin to use two-factor service by TrustedCoin.com
 net-misc/electrum:vkb - Enable plugin for virtual keyboard
@@ -7489,6 +7499,7 @@ sci-mathematics/cgal:ntl - Enable support for dev-libs/ntl
 sci-mathematics/coq:camlp5 - Build using camlp5. This is required for some plugins like Ssreflect.
 sci-mathematics/cvc3:isabelle - Add integration support for the Isabelle/HOL theorem prover.
 sci-mathematics/cvc3:zchaff - Use the SAT solver zchaff whose copyright is owned by Princeton University and is more restrictive (see zchaff license).
+sci-mathematics/cvc4:cln - Use sci-libs/cln
 sci-mathematics/e:isabelle - Add integration support for the Isabelle/HOL theorem prover.
 sci-mathematics/flint:gc - Enable garbage collection support via dev-libs/boehm-gc
 sci-mathematics/flint:ntl - Build NTL interface
@@ -8031,6 +8042,7 @@ sys-cluster/legion:gasnet - Enable GASNet lib support
 sys-cluster/legion:hwloc - Enable HWLoc lib support
 sys-cluster/maui:pbs - Enable pbs integration
 sys-cluster/maui:slurm - Enable slurm integration
+sys-cluster/minikube:libvirt - Build plugin for kvm
 sys-cluster/moosefs:cgi - Install CGI server and scripts.
 sys-cluster/moosefs:fuse - Install the mfsmount utility.
 sys-cluster/mpich:mpi-threads - Enable MPI_THREAD_MULTIPLE
@@ -8728,6 +8740,8 @@ www-servers/apache:apache2_modules_watchdog - Provides infrastructure for other 
 www-servers/apache:apache2_modules_xml2enc - Enable xml2 encoding module
 www-servers/apache:static - Link in apache2 modules statically rather then plugins
 www-servers/apache:suexec - Install suexec with apache
+www-servers/apache:suexec-caps - Install suexec with capabilities instead of SUID
+www-servers/apache:suexec-syslog - Log suexec to syslog instead of to a separate file
 www-servers/cherokee:admin - Install web based cherokee conf tool
 www-servers/cherokee:rrdtool - Enable rrdtool support
 www-servers/fnord:auth - Enable HTTP authentication support
@@ -8943,6 +8957,7 @@ x11-terms/eterm:escreen - Enable built-in app-misc/screen support
 x11-terms/eterm:utempter - Include libutempter support
 x11-terms/gnome-terminal:gnome-shell - Integrate with gnome-base/gnome-shell search
 x11-terms/gnome-terminal:nautilus - Build gnome-base/nautilus extension
+x11-terms/guake:utempter - Include utmp management support via sys-libs/libutempter
 x11-terms/kitty:imagemagick - Support displaying images in the terminal with icat
 x11-terms/mate-terminal:gtk3 - Build with GTK+3 instead of GTK+2
 x11-terms/mlterm:brltty - Enable support for app-accessibility/brltty
