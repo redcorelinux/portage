@@ -6,7 +6,7 @@ EAPI=6
 inherit systemd toolchain-funcs
 
 SRC_URI="https://download.libreswan.org/${P}.tar.gz"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc ~x86"
 
 DESCRIPTION="IPsec implementation for Linux, fork of Openswan"
 HOMEPAGE="https://libreswan.org/"
@@ -50,6 +50,8 @@ usetf() {
 }
 
 src_prepare() {
+	eapply "${FILESDIR}/${P}-no-curl.patch"
+
 	sed -i -e 's:/sbin/runscript:/sbin/openrc-run:' initsystems/openrc/ipsec.init.in || die
 	sed -i -e '/^install/ s/postcheck//' -e '/^doinstall/ s/oldinitdcheck//' initsystems/systemd/Makefile || die
 	default

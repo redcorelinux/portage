@@ -11,7 +11,7 @@ DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
 HOMEPAGE="https://userbase.kde.org/Kamoso"
 
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
@@ -35,3 +35,5 @@ RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
+
+RESTRICT+=" test" # bug 653674

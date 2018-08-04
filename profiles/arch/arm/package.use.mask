@@ -5,10 +5,6 @@
 # dev-libs/xxhash not keyworded for arm
 app-admin/rsyslog xxhash
 
-# Andreas Sturmlechner <asturm@gentoo.org> (18 May 2018)
-# kde-plasma/plasma-browser-integration not yet keyworded, bug #659936
-kde-plasma/plasma-meta browser-integration
-
 # Tomáš Mózes <hydrapolic@gmail.com> (19 Jun 2018)
 # Needs dev-libs/libmaxminddb which isn't keyworded
 www-servers/nginx nginx_modules_http_geoip2 nginx_modules_stream_geoip2
@@ -355,10 +351,6 @@ net-im/prosody jit
 # Rick Farina <zerochaos@gentoo.org> (09 Jan 2014)
 # rjb doesn't work on arm, so no java hacks for metasploit
 net-analyzer/metasploit java
-
-# Julian Ospald <hasufell@gentoo.org> (04 Jan 2014)
-# no keyword for media-libs/swfdec and media-libs/libtimidity
->=dev-libs/DirectFB-1.7.1 timidity swfdec
 
 # Markus Meier <maekke@gentoo.org> (26 Dec 2013)
 # Unkeyworded deps, bug #488724

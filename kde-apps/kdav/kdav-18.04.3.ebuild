@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="DAV protocol implemention with KJobs"
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
@@ -25,8 +25,9 @@ RDEPEND="${DEPEND}
 
 src_test() {
 	# bug 616808 - DavItemFetchJobTest requires D-Bus
+	# bug 653602 - DavItemsListJobTest mimetypes unsupported
 	local myctestargs=(
-		-E "(kdav-davitemfetchjob)"
+		-E "(kdav-davitemfetchjob|kdav-davitemslistjob)"
 	)
 
 	kde5_src_test

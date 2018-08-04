@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_4 python3_{5,6} )
+PYTHON_COMPAT=( python3_4 python3_{5,6,7} )
 
 inherit eutils flag-o-matic linux-info python-single-r1 systemd xdg-utils
 
@@ -52,6 +52,7 @@ COMMON_DEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	dev-libs/libxslt
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	doc? ( app-doc/doxygen )
 	sys-apps/kmod
 	sys-kernel/linux-headers
@@ -66,8 +67,12 @@ RDEPEND="
 	inputlirc? ( app-misc/inputlircd )
 "
 
+MAKEOPTS+=" -j1"
+
 pkg_setup() {
 	use uinput && CONFIG_CHECK="INPUT_UINPUT"
+	python-single-r1_pkg_setup
+	linux-info_pkg_setup
 }
 
 src_configure() {

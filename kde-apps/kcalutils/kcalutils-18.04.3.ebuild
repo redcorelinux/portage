@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Library providing utility functions for the handling of calendar data"
 LICENSE="GPL-2+ LGPL-2.1+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
@@ -29,3 +29,12 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
+
+src_test() {
+	# bug 653616
+	local myctestargs=(
+		-E "(kcalutils-testincidenceformatter)"
+	)
+
+	kde5_src_test
+}

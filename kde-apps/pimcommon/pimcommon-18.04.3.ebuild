@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 COMMON_DEPEND="
@@ -54,9 +54,9 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_test() {
-	# bug 641730
+	# bugs 641730, 661330
 	local myctestargs=(
-		-E "(autocorrectiontest)"
+		-E "(autocorrectiontest|pimcommon-translator-translatortest)"
 	)
 
 	kde5_src_test

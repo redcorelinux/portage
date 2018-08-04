@@ -1612,10 +1612,6 @@
     <url>https://wiki.gentoo.org/wiki/Project:Haskell</url>
     <description>Support Haskell programming language ecosystem on Gentoo systems.</description>
     <member>
-      <email>bernalex@gentoo.org</email>
-      <name>Alexander Berntsen</name>
-    </member>
-    <member>
       <email>cynede@gentoo.org</email>
       <name>Cynede</name>
     </member>
@@ -1860,11 +1856,6 @@
       <role>Member (Kernel, mm-sources, vanilla-sources)</role>
     </member>
     <member>
-      <email>gregkh@gentoo.org</email>
-      <name>Greg Kroah-Hartman</name>
-      <role>Member (Kernel, gentoo-sources, genpatches)</role>
-    </member>
-    <member>
       <email>mpagano@gentoo.org</email>
       <name>Mike Pagano</name>
       <role>Member (Kernel, gentoo-sources, genpatches)</role>
@@ -1977,6 +1968,11 @@
     <name>LXQt</name>
     <url>https://wiki.gentoo.org/wiki/Project:LXQt</url>
     <description>Maintains LXQt DE related packages.</description>
+    <member>
+      <email>chiitoo@gentoo.org</email>
+      <name>Jimi Huotari</name>
+      <role>Developer</role>
+    </member>
   </project>
   <project>
     <email>layman@gentoo.org</email>
@@ -2034,11 +2030,6 @@
     <name>Gentoo Licenses Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Licenses</url>
     <description>The Gentoo Licenses Project tries to make heads &amp; tails of license terms.</description>
-    <member>
-      <email>bernalex@gentoo.org</email>
-      <name>Alexander Berntsen</name>
-      <role>Member</role>
-    </member>
     <member>
       <email>hanno@gentoo.org</email>
       <name>Hanno Böck</name>
@@ -2623,11 +2614,6 @@ developers and volunteer mentors.</description>
     <subproject ref="tools-portage@gentoo.org"/>
     <subproject ref="sandbox@gentoo.org"/>
     <member>
-      <email>bernalex@gentoo.org</email>
-      <name>Alexander Berntsen</name>
-      <role>Interface developer, Documenter</role>
-    </member>
-    <member>
       <email>blueboar2@gmail.com</email>
       <name>Vladimir Romanov</name>
       <role>Translator (Russian)</role>
@@ -3030,11 +3016,6 @@ developers and volunteer mentors.</description>
       <name>Patrick McLean</name>
       <role>Member</role>
     </member>
-    <member>
-      <email>dev-zero@gentoo.org</email>
-      <name>Tiziano Müller</name>
-      <role>Member</role>
-    </member>
     <member is-lead="1">
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
@@ -3071,11 +3052,6 @@ developers and volunteer mentors.</description>
       <role>Member</role>
     </member>
     <member>
-      <email>rafaelmartins@gentoo.org</email>
-      <name>Rafael Martins</name>
-      <role>Member</role>
-    </member>
-    <member>
       <email>sbraz@gentoo.org</email>
       <name>Louis Sautier</name>
       <role>Member</role>
@@ -3106,6 +3082,11 @@ developers and volunteer mentors.</description>
     <name>Gentoo Qt Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Qt</url>
     <description>The Qt project handles the Qt ebuilds available in Gentoo's portage and the qt overlay. It also maintains various Qt packages and libraries that don't have dedicated maintainers.</description>
+    <member>
+      <email>chiitoo@gentoo.org</email>
+      <name>Jimi Huotari</name>
+      <role>Developer</role>
+    </member>
     <member>
       <email>kensington@gentoo.org</email>
       <name>Michael Palimaka</name>
@@ -3165,7 +3146,7 @@ developers and volunteer mentors.</description>
     <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
-      <role>Developer</role>
+      <role>Deputy lead</role>
     </member>
     <member>
       <email>williamh@gentoo.org</email>
@@ -3180,7 +3161,7 @@ developers and volunteer mentors.</description>
     <member>
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
-      <role>Deputy Lead</role>
+      <role>Developer</role>
     </member>
   </project>
   <project>

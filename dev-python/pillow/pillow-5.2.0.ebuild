@@ -1,12 +1,12 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 PYTHON_REQ_USE='tk?,threads(+)'
 
-inherit distutils-r1 eutils virtualx
+inherit distutils-r1 virtualx
 
 MY_PN=Pillow
 MY_P=${MY_PN}-${PV}
@@ -46,6 +46,10 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-5.2.0-no-usr-lib.patch"
+)
+
 python_configure_all() {
 	# It's important that these flags are also passed during the install phase
 	# as well. Make sure of that if you change the lines below. See bug 661308.
@@ -64,13 +68,23 @@ python_configure_all() {
 	)
 }
 
+python_compile() {
+	# Pillow monkeypatches distutils to achieve parallel compilation. This
+	# conflicts with distutils' builtin parallel computation (since py35)
+	# and make builds hang. To avoid that, we set MAX_CONCURRENCY=1 to
+	# disable monkeypatching. Can be removed when/if
+	# https://github.com/python-pillow/Pillow/pull/3272 is merged.
+	MAX_CONCURRENCY=1 distutils-r1_python_compile
+}
+
 python_compile_all() {
 	use doc && emake -C docs html
 }
 
 python_test() {
 	"${PYTHON}" selftest.py --installed || die "selftest failed with ${EPYTHON}"
-	virtx pytest -vx Tests/test_*.py
+	# no:relaxed: pytest-relaxed plugin make our tests fail. deactivate if installed
+	virtx pytest -vx Tests/test_*.py -p no:relaxed
 }
 
 python_install() {

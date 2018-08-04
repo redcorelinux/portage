@@ -23,7 +23,7 @@ SRC_URI="https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz -
 DESCRIPTION="Kodi is a free and open source media-player and entertainment hub"
 HOMEPAGE="https://kodi.tv/ https://kodi.wiki/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 # use flag is called libusb so that it doesn't fool people in thinking that
 # it is _required_ for USB support. Otherwise they'll disable udev and
@@ -60,6 +60,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-python/pillow[${PYTHON_USEDEP}]
 	>=dev-libs/libcdio-0.94
 	dev-libs/libfmt
+	dev-libs/libfstrcmp
 	gbm? (	media-libs/mesa[gbm] )
 	gles? ( media-libs/mesa[gles2] )
 	lcms? ( media-libs/lcms:2 )
@@ -232,6 +233,7 @@ src_configure() {
 		-DENABLE_DVDCSS=$(usex css)
 		-DENABLE_INTERNAL_CROSSGUID=OFF
 		-DENABLE_INTERNAL_FFMPEG="$(usex !system-ffmpeg)"
+		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_CAP=$(usex caps)
 		-DENABLE_LCMS2=$(usex lcms)
 		-DENABLE_LIRCCLIENT=$(usex lirc)
@@ -295,8 +297,6 @@ src_install() {
 	cmake-utils_src_install
 
 	pax-mark Em "${ED%/}"/usr/$(get_libdir)/${PN}/${PN}.bin
-
-	rm "${ED%/}"/usr/share/doc/*/{LICENSE.md,copying.txt}* || die
 
 	newicon media/icon48x48.png kodi.png
 
