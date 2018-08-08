@@ -525,27 +525,24 @@
     <member>
       <email>ago@gentoo.org</email>
       <name>Agostino Sarubbo</name>
-      <role>Member (stable amd64/x86 liaison)</role>
-    </member>
-    <member>
-      <email>floppym@gentoo.org</email>
-      <name>Mike Gilbert</name>
-      <role>Member</role>
+      <role>stable amd64/x86 liaison</role>
     </member>
     <member is-lead="1">
+      <email>floppym@gentoo.org</email>
+      <name>Mike Gilbert</name>
+    </member>
+    <member>
       <email>phajdan.jr@gentoo.org</email>
       <name>Paweł Hajdan, Jr.</name>
-      <role>Lead</role>
     </member>
     <member>
       <email>rich0@gentoo.org</email>
       <name>Richard Freeman</name>
-      <role>Member (stable amd64 liaison)</role>
+      <role>stable amd64 liaison</role>
     </member>
     <member>
       <email>voyageur@gentoo.org</email>
       <name>Bernard Cafarelli</name>
-      <role>Member</role>
     </member>
   </project>
   <project>
@@ -629,10 +626,6 @@
     <member>
       <email>bircoph@gentoo.org</email>
       <name>Andrew Savchenko</name>
-    </member>
-    <member is-lead="1">
-      <email>dilfridge@gentoo.org</email>
-      <name>Andreas K. Hüttel</name>
     </member>
     <member>
       <email>jmbsvicetto@gentoo.org</email>
@@ -858,7 +851,7 @@
     <description>The Dotnet Project handles the development using the C# language. More specifically, it is often oriented with the mono development environment.</description>
     <member is-lead="1">
       <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
+      <name>Mikhail Pukhlikov</name>
     </member>
   </project>
   <project>
@@ -1432,7 +1425,7 @@
     <description>Support team for the Gentoo organization on GitHub and the related resources (mirrors, pull requests).</description>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
+      <name>Mikhail Pukhlikov</name>
       <role>Member</role>
     </member>
     <member>
@@ -1613,7 +1606,7 @@
     <description>Support Haskell programming language ecosystem on Gentoo systems.</description>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
+      <name>Mikhail Pukhlikov</name>
     </member>
     <member>
       <email>gienah@gentoo.org</email>
@@ -2614,11 +2607,6 @@ developers and volunteer mentors.</description>
     <subproject ref="tools-portage@gentoo.org"/>
     <subproject ref="sandbox@gentoo.org"/>
     <member>
-      <email>blueboar2@gmail.com</email>
-      <name>Vladimir Romanov</name>
-      <role>Translator (Russian)</role>
-    </member>
-    <member>
       <email>dolsen@gentoo.org</email>
       <name>Brian Dolbec</name>
       <role>Tools developer, Release coordinator</role>
@@ -3364,7 +3352,7 @@ developers and volunteer mentors.</description>
     </member>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
+      <name>Mikhail Pukhlikov</name>
     </member>
     <member>
       <email>djc@gentoo.org</email>
