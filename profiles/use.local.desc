@@ -171,6 +171,7 @@ app-admin/sudo:openssl - Use SHA2 from dev-libs/openssl instead of sudo's intern
 app-admin/sudo:sendmail - Allow sudo to send emails with sendmail
 app-admin/sysklogd:logrotate - use app-admin/logrotate for rotating logs rather than custom cron scripts
 app-admin/syslog-ng:amqp - Enable support for AMQP destinations
+app-admin/syslog-ng:geoip2 - Add support for geo lookup based on IPs via dev-libs/libmaxminddb
 app-admin/syslog-ng:http - Enable support for HTTP destinations
 app-admin/syslog-ng:json - Enable support for JSON template formatting via dev-libs/json-c
 app-admin/syslog-ng:mongodb - Enable support for mongodb destinations
@@ -819,6 +820,7 @@ app-i18n/rime-data:extra - Install extra packages
 app-i18n/scim:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/scim-anthy:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/scim-anthy:kasumi - Use Anthy dictionary maintenance tool (app-dicts/kasumi)
+app-i18n/scim-sunpinyin:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/tomoe:hyperestraier - Enable support for app-text/hyperestraier
 app-i18n/translate-shell:tts - Enable text-to-speech support
 app-i18n/uim:anthy - Enable support for app-i18n/anthy
@@ -1432,8 +1434,6 @@ dev-db/firebird:xinetd - Install ClassicServer
 dev-db/maatkit:udf - Build the MySQL UDFs shipped with maatkit, requires non-minimal MySQL
 dev-db/mariadb:backup - Build mariadb-backup which supports SST and hot backup of InnoDB, Aria and MyISAM including compression and encryption
 dev-db/mariadb:client-libs - Build the client libraries from the server package instead of the C Connector packages
-dev-db/mariadb:cluster - Add support for NDB clustering (deprecated)
-dev-db/mariadb:community - Enables the community features from upstream.
 dev-db/mariadb:embedded - Build embedded server (libmysqld)
 dev-db/mariadb:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
 dev-db/mariadb:galera - Enables galera replication
@@ -1444,8 +1444,6 @@ dev-db/mariadb:jdbc - Enable the CONNECT engine to access foreign databases via 
 dev-db/mariadb:jemalloc - Use dev-libs/jemalloc for allocations.
 dev-db/mariadb:latin1 - Use LATIN1 encoding instead of UTF8
 dev-db/mariadb:libressl - Enable SSL connections and crypto functions using dev-libs/libressl
-dev-db/mariadb:max-idx-128 - Raise the max index per table limit from 64 to 128
-dev-db/mariadb:minimal - Install client programs only, no server
 dev-db/mariadb:mroonga - Add support for the Mroonga engine for interfacing with the Groonga text search
 dev-db/mariadb:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-db/mariadb:openssl - Enable SSL connections and crypto functions using dev-libs/openssl
@@ -1549,6 +1547,7 @@ dev-db/postgis:address-standardizer - Normalize US and CA postal addresses
 dev-db/postgis:gtk - Build graphical interface for shp2pgsql (shp2pgsql-gui)
 dev-db/postgis:mapbox - Add capability to transform geometry into Mapbox Vector Tile
 dev-db/postgis:topology - Build topology spatial types and functions
+dev-db/postgresql:llvm - Add support for llvm JIT engine
 dev-db/postgresql:pg_legacytimestamp - Use double precision floating-point numbers instead of 64-bit integers for timestamp storage.
 dev-db/postgresql:server - Disable to build and install the clients and libraries only.
 dev-db/postgresql:uuid - Enable server side UUID generation (via dev-libs/ossp-uuid).
@@ -3636,6 +3635,7 @@ kde-plasma/systemsettings:classic - Enable classic mode plugin, requires kde-fra
 lxde-base/lxdm:consolekit - Enables support for authorization using consolekit
 lxde-base/lxdm:gtk3 - Use GTK+3 instead of 2
 lxde-base/lxterminal:gtk3 - Use GTK+3 instead of GTK+2
+lxqt-base/lxqt-config:monitor - Build monitor settings tool
 lxqt-base/lxqt-meta:about - Install lxqt-base/lxqt-about
 lxqt-base/lxqt-meta:admin - Install lxqt-base/lxqt-admin
 lxqt-base/lxqt-meta:filemanager - Install x11-misc/pcmanfm-qt file manager
@@ -3645,13 +3645,17 @@ lxqt-base/lxqt-meta:lximage - Install media-gfx/lximage-qt image viewer
 lxqt-base/lxqt-meta:minimal - Do not install x11-wm/openbox window manager
 lxqt-base/lxqt-meta:oxygen - Prefer kde-frameworks/oxygen-icons (default)
 lxqt-base/lxqt-meta:powermanagement - Install lxqt-base/lxqt-powermanagement package
+lxqt-base/lxqt-meta:processviewer - Install x11-misc/qps package
+lxqt-base/lxqt-meta:screenshot - Install x11-misc/screengrab package
 lxqt-base/lxqt-meta:sddm - Install x11-misc/sddm display manager
 lxqt-base/lxqt-meta:ssh-askpass - Install lxqt-base/lxqt-openssh-askpass user password prompt tool
 lxqt-base/lxqt-meta:sudo - Install lxqt-base/lxqt-sudo
+lxqt-base/lxqt-meta:terminal - Install x11-terms/qterminal package
 lxqt-base/lxqt-panel:clock - Build clock plugin
 lxqt-base/lxqt-panel:colorpicker - Build colorpicker plugin
 lxqt-base/lxqt-panel:cpuload - Build cpuload plugin
 lxqt-base/lxqt-panel:desktopswitch - Build desktopswitch plugin
+lxqt-base/lxqt-panel:directorymenu - Build directorymenu plugin
 lxqt-base/lxqt-panel:dom - Build dom plugin
 lxqt-base/lxqt-panel:kbindicator - Build kbindicator plugin
 lxqt-base/lxqt-panel:mainmenu - Build mainmenu plugin
@@ -3660,12 +3664,14 @@ lxqt-base/lxqt-panel:networkmonitor - Build networkmonitor plugin
 lxqt-base/lxqt-panel:quicklaunch - Build quicklaunch plugin
 lxqt-base/lxqt-panel:sensors - Build sensors plugin
 lxqt-base/lxqt-panel:showdesktop - Build showdesktop plugin
+lxqt-base/lxqt-panel:spacer - Build spacer plugin
 lxqt-base/lxqt-panel:statusnotifier - Build statusnotifier plugin
 lxqt-base/lxqt-panel:sysstat - Build sysstat plugin
 lxqt-base/lxqt-panel:taskbar - Build taskbar plugin
 lxqt-base/lxqt-panel:tray - Build tray plugin
 lxqt-base/lxqt-panel:volume - Build volume plugin
 lxqt-base/lxqt-panel:worldclock - Build worldclock plugin
+lxqt-base/lxqt-session:themes - Install LXQt themes and graphics
 mail-client/alot:doc - Install user manual and API documentation
 mail-client/alpine:chappa - enhance alpine by applying Eduardo Chappa's patches
 mail-client/alpine:onlyalpine - installs only the alpine binary, so it does not collied with pico and/or pine
@@ -3829,7 +3835,6 @@ mail-filter/rspamd:fann - Enable neural network plugin (requires sci-mathematics
 mail-filter/rspamd:jemalloc - Use dev-libs/jemalloc for allocations
 mail-filter/rspamd:pcre2 - Use dev-libs/libpcre2
 mail-filter/rspamd:torch - Enable torch support. This is required for the neural module
-mail-filter/spamassassin:bayes - Require a database (MySQL, SQLite, Postgres, or BerkDB) backend to enable the Bayesian filtering database. If you use the Redis backend, you do not need to enable this flag (Redis support is enabled automatically, and has no external dependencies).
 mail-filter/spamassassin:cron - Install a cron job to update SpamAssassin's rules daily.
 mail-filter/spamassassin:qmail - Build qmail functionality and docs
 mail-filter/spamdyke:ssl - Enables TLS protocol for spamdyke
@@ -4243,7 +4248,6 @@ media-libs/libsdl:joystick - Control joystick support (disable at your own risk)
 media-libs/libsdl:sound - Control audio support (disable at your own risk)
 media-libs/libsdl:tslib - Build with tslib support for touchscreen devices
 media-libs/libsdl:video - Control video support (disable at your own risk)
-media-libs/libsdl2:fusionsound - use FusionSound audio driver
 media-libs/libsdl2:gles - include OpenGL ES support
 media-libs/libsdl2:haptic - Enable the haptic (force feedback) subsystem
 media-libs/libsdl2:joystick - Control joystick support (disable at your own risk)
@@ -5142,6 +5146,7 @@ media-video/vdr:yaepg - Enables support for the vdr-yaepg plugin
 media-video/vlc:X - Enable support for, e.g., fullscreen mode via the X Window System. By itself, this flag does not build a graphical interface
 media-video/vlc:aom - Enable experimental support for AV1 codec
 media-video/vlc:archive - Enable support for libarchive stream extractor
+media-video/vlc:aribsub - Enable support for decoding ARIB STD-B24 subtitles
 media-video/vlc:atmo - Enable support for AtmoLight (homebrew Ambient Lighting Technology)
 media-video/vlc:audioqueue - Enable AudioQueue audio module for Mac OS X
 media-video/vlc:avcodec - Enable libavcodec support for video/audio encoding/decoding. libavcodec is part of FFmpeg
@@ -5164,6 +5169,7 @@ media-video/vlc:growl - Enable growl notification support (over UDP for remote a
 media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently supports only video decoding)
 media-video/vlc:httpd - Enable a web based interface for vlc
 media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
+media-video/vlc:kms - Enable kernel mode setting video output plugin via x11-libs/libdrm
 media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins
 media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
 media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
@@ -6053,8 +6059,9 @@ net-libs/libsrtp:aesicm - Use AES ICM cryptographic algorithm
 net-libs/libsrtp:console - Use /dev/console instead of stdout for error messages
 net-libs/libsrtp:openssl - Use OpenSSL crypto primitives
 net-libs/libsrtp:syslog - Use syslog for error messages
-net-libs/libssh:gcrypt - Prefer dev-libs/libgcrypt over dev-libs/openssl for encryption
+net-libs/libssh:gcrypt - Use dev-libs/libgcrypt as TLS provider
 net-libs/libssh:gssapi - Enable gssapi support
+net-libs/libssh:mbedtls - Use net-libs/mbedtls as TLS provider
 net-libs/libssh:pcap - Build with PCAP output support
 net-libs/libssh:server - Build with SSH server support
 net-libs/libssh:sftp - Build with SFTP support
@@ -6519,7 +6526,6 @@ net-misc/networkmanager:wifi - Enable support for wifi and 802.1x security using
 net-misc/networkmanager-strongswan:glib - Enable libnm-glib compatibility.
 net-misc/nextcloud-client:dolphin - Install the kde-apps/dolphin extension
 net-misc/nextcloud-client:nautilus - Install the gnome-base/nautilus extension
-net-misc/nextcloud-client:sftp - Enable sftp transfer support via net-libs/libssh
 net-misc/nextcloud-client:shibboleth - Build support for Shibboleth single sign-on
 net-misc/ntp:openntpd - Allow ntp to be installed alongside openntpd
 net-misc/ntp:parse-clocks - Add support for PARSE clocks
@@ -6571,7 +6577,6 @@ net-misc/openssh:ssl - Enable additional crypto algorithms via OpenSSL
 net-misc/openvswitch:monitor - Build the Python and GUI dependent monitor applications
 net-misc/owncloud-client:dolphin - Install the kde-apps/dolphin extension
 net-misc/owncloud-client:nautilus - Install the gnome-base/nautilus extension
-net-misc/owncloud-client:sftp - Enable sftp transfer support via net-libs/libssh
 net-misc/owncloud-client:shibboleth - Build support for Shibboleth single sign-on
 net-misc/plowshare:view-captcha - View captcha with aview
 net-misc/ps3mediaserver:multiuser - Allow renderer customization per-user.
@@ -7292,6 +7297,7 @@ sci-libs/gdal:ogdi - Enable support for the open geographic datastore interface 
 sci-libs/gdal:opencl - Enable OpenCL support
 sci-libs/gdal:spatialite - Enable Spatial DBMS over sqlite dev-db/spatialite
 sci-libs/gdal:xls - Add the dev-libs/freexl library for xls import support
+sci-libs/gdal:zstd - Enable support for ZSTD compression using app-arch/zstd
 sci-libs/grib_api:aec - Build with Adaptive Entropy Coding compression, needs sci-libs/libaec
 sci-libs/grib_api:jasper - Use media-libs/jasper instead of media-libs/openjpeg for JPEG 2000 support
 sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/cblas) instead of shipped internal version
