@@ -380,6 +380,7 @@ app-editors/emacs:games - Support shared score files for games
 app-editors/emacs:gconf - Use gnome-base/gconf to read the system font name
 app-editors/emacs:gfile - Use gfile (dev-libs/glib) for file notification
 app-editors/emacs:gsettings - Use gsettings (dev-libs/glib) to read the system font name
+app-editors/emacs:gtk2 - Prefer version 2 of the GIMP Toolkit to version 3 (x11-libs/gtk+)
 app-editors/emacs:gtk3 - Prefer version 3 of the GIMP Toolkit to version 2 (x11-libs/gtk+)
 app-editors/emacs:gzip-el - Compress bundled Emacs Lisp source
 app-editors/emacs:imagemagick - Use media-gfx/imagemagick for image processing
@@ -395,7 +396,7 @@ app-editors/emacs-vcs:games - Support shared score files for games
 app-editors/emacs-vcs:gconf - Use gnome-base/gconf to read the system font name
 app-editors/emacs-vcs:gfile - Use gfile (dev-libs/glib) for file notification
 app-editors/emacs-vcs:gsettings - Use gsettings (dev-libs/glib) to read the system font name
-app-editors/emacs-vcs:gtk3 - Prefer version 3 of the GIMP Toolkit to version 2 (x11-libs/gtk+)
+app-editors/emacs-vcs:gtk2 - Prefer version 2 of the GIMP Toolkit to version 3 (x11-libs/gtk+)
 app-editors/emacs-vcs:gzip-el - Compress bundled Emacs Lisp source
 app-editors/emacs-vcs:imagemagick - Use media-gfx/imagemagick for image processing
 app-editors/emacs-vcs:json - Compile with native JSON support using dev-libs/jansson
@@ -470,6 +471,7 @@ app-emulation/buildah:ostree - Enables dependencies for handling of OSTree image
 app-emulation/containerd:apparmor - Support for AppArmor
 app-emulation/containerd:btrfs - Support for BTRFS snapshot driver
 app-emulation/containerd:cri - Support for Kubernetes CRI
+app-emulation/containers-storage:ostree - Enables dependencies for handling of OSTree images.
 app-emulation/cri-o:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-emulation/cri-o:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
 app-emulation/cri-o:ostree - Enables dependencies for handling of OSTree images.
@@ -506,6 +508,7 @@ app-emulation/ganeti:restricted-commands - Enable restricted commands in the nod
 app-emulation/ganeti:xen - Enable Xen support
 app-emulation/hyperd:libvirt - Enable support for KVM via libvirt
 app-emulation/hyperd:xen - Enable support for the Xen Hypervisor
+app-emulation/libcacard:passthrough - Enable smartcard passthrough support via sys-apps/pcsc-lite
 app-emulation/libguestfs:erlang - Build Erlang bindings
 app-emulation/libguestfs:fuse - Enable image mount support via fuse
 app-emulation/libguestfs:inspect-icons - Use media-gfx/icoutilsfor acces icon file in image and inspect it
@@ -536,10 +539,12 @@ app-emulation/libvirt:virtualbox - Support management of VirtualBox virtualisati
 app-emulation/libvirt:wireshark-plugins - Build the net-analyzer/wireshark plugin for the Libvirt RPC protocol
 app-emulation/libvirt:xen - Support management of Xen virtualisation (app-emulation/xen)
 app-emulation/libvirt:zfs - Enable ZFS backend storage sys-fs/zfs
+app-emulation/lxc:apparmor - Enable AppArmor support
 app-emulation/lxc:cgmanager - Enable support for cgroup management using app-admin/cgmanager
 app-emulation/lxc:templates - Install old style templates through app-emulation/lxc-templates
 app-emulation/lxd:daemon - Build the system daemon, not just the client tool
-app-emulation/lxd:dnsmasq - Depend on dnsmasq to provide DHCP and DNS.
+app-emulation/lxd:dnsmasq - Depend on dnsmasq to provide DHCP and DNS
+app-emulation/lxd:tools - Build and install optional tools
 app-emulation/nemu:ovf - Adds support for OVA/OVF import
 app-emulation/nemu:savevm - Adds support for QEMU savevm snapshots (experimental, QEMU must be patched)
 app-emulation/nemu:vnc-client - Adds support for external VNC client
@@ -1934,7 +1939,6 @@ dev-java/logback:tomcat - Builds Apache Tomcat support
 dev-java/lucene:contrib - Include extra functionality from contrib/
 dev-java/miglayout:swt - Add support for the SWT toolkit.
 dev-java/oracle-jdk-bin:commercial - Install features requiring a commercial license for production use
-dev-java/oracle-jdk-bin:derby - Install bundled Derby (Java database)
 dev-java/oracle-jdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/oracle-jdk-bin:gtk2 - Enable GTK+ 2 support in JavaFX
 dev-java/oracle-jdk-bin:gtk3 - Enable GTK+ 3 support in JavaFX
@@ -2100,6 +2104,157 @@ dev-libs/apr-util:libressl - Use dev-libs/libressl instead of dev-libs/openssl f
 dev-libs/apr-util:nss - Install apr_crypto_nss module
 dev-libs/apr-util:openssl - Install apr_crypto_openssl module
 dev-libs/atcore:gui - Build test GUI
+dev-libs/aws-sdk-cpp:aws_targets_AWSMigrationHub - SDK Support for AWS AWSMigrationHub
+dev-libs/aws-sdk-cpp:aws_targets_access-management - SDK Support for AWS access-management
+dev-libs/aws-sdk-cpp:aws_targets_acm - SDK Support for AWS acm
+dev-libs/aws-sdk-cpp:aws_targets_acm-pca - SDK Support for AWS acm-pca
+dev-libs/aws-sdk-cpp:aws_targets_alexaforbusiness - SDK Support for AWS alexaforbusiness
+dev-libs/aws-sdk-cpp:aws_targets_apigateway - SDK Support for AWS apigateway
+dev-libs/aws-sdk-cpp:aws_targets_application-autoscaling - SDK Support for AWS application-autoscaling
+dev-libs/aws-sdk-cpp:aws_targets_appstream - SDK Support for AWS appstream
+dev-libs/aws-sdk-cpp:aws_targets_appsync - SDK Support for AWS appsync
+dev-libs/aws-sdk-cpp:aws_targets_athena - SDK Support for AWS athena
+dev-libs/aws-sdk-cpp:aws_targets_autoscaling - SDK Support for AWS autoscaling
+dev-libs/aws-sdk-cpp:aws_targets_autoscaling-plans - SDK Support for AWS autoscaling-plans
+dev-libs/aws-sdk-cpp:aws_targets_batch - SDK Support for AWS batch
+dev-libs/aws-sdk-cpp:aws_targets_budgets - SDK Support for AWS budgets
+dev-libs/aws-sdk-cpp:aws_targets_ce - SDK Support for AWS ce
+dev-libs/aws-sdk-cpp:aws_targets_cloud9 - SDK Support for AWS cloud9
+dev-libs/aws-sdk-cpp:aws_targets_clouddirectory - SDK Support for AWS clouddirectory
+dev-libs/aws-sdk-cpp:aws_targets_cloudformation - SDK Support for AWS cloudformation
+dev-libs/aws-sdk-cpp:aws_targets_cloudfront - SDK Support for AWS cloudfront
+dev-libs/aws-sdk-cpp:aws_targets_cloudhsm - SDK Support for AWS cloudhsm
+dev-libs/aws-sdk-cpp:aws_targets_cloudhsmv2 - SDK Support for AWS cloudhsmv2
+dev-libs/aws-sdk-cpp:aws_targets_cloudsearch - SDK Support for AWS cloudsearch
+dev-libs/aws-sdk-cpp:aws_targets_cloudsearchdomain - SDK Support for AWS cloudsearchdomain
+dev-libs/aws-sdk-cpp:aws_targets_cloudtrail - SDK Support for AWS cloudtrail
+dev-libs/aws-sdk-cpp:aws_targets_codebuild - SDK Support for AWS codebuild
+dev-libs/aws-sdk-cpp:aws_targets_codecommit - SDK Support for AWS codecommit
+dev-libs/aws-sdk-cpp:aws_targets_codedeploy - SDK Support for AWS codedeploy
+dev-libs/aws-sdk-cpp:aws_targets_codepipeline - SDK Support for AWS codepipeline
+dev-libs/aws-sdk-cpp:aws_targets_codestar - SDK Support for AWS codestar
+dev-libs/aws-sdk-cpp:aws_targets_cognito-identity - SDK Support for AWS cognito-identity
+dev-libs/aws-sdk-cpp:aws_targets_cognito-idp - SDK Support for AWS cognito-idp
+dev-libs/aws-sdk-cpp:aws_targets_cognito-sync - SDK Support for AWS cognito-sync
+dev-libs/aws-sdk-cpp:aws_targets_comprehend - SDK Support for AWS comprehend
+dev-libs/aws-sdk-cpp:aws_targets_config - SDK Support for AWS config
+dev-libs/aws-sdk-cpp:aws_targets_connect - SDK Support for AWS connect
+dev-libs/aws-sdk-cpp:aws_targets_core - SDK Support for AWS core
+dev-libs/aws-sdk-cpp:aws_targets_cur - SDK Support for AWS cur
+dev-libs/aws-sdk-cpp:aws_targets_datapipeline - SDK Support for AWS datapipeline
+dev-libs/aws-sdk-cpp:aws_targets_dax - SDK Support for AWS dax
+dev-libs/aws-sdk-cpp:aws_targets_devicefarm - SDK Support for AWS devicefarm
+dev-libs/aws-sdk-cpp:aws_targets_directconnect - SDK Support for AWS directconnect
+dev-libs/aws-sdk-cpp:aws_targets_discovery - SDK Support for AWS discovery
+dev-libs/aws-sdk-cpp:aws_targets_dms - SDK Support for AWS dms
+dev-libs/aws-sdk-cpp:aws_targets_ds - SDK Support for AWS ds
+dev-libs/aws-sdk-cpp:aws_targets_dynamodb - SDK Support for AWS dynamodb
+dev-libs/aws-sdk-cpp:aws_targets_dynamodbstreams - SDK Support for AWS dynamodbstreams
+dev-libs/aws-sdk-cpp:aws_targets_ec2 - SDK Support for AWS ec2
+dev-libs/aws-sdk-cpp:aws_targets_ecr - SDK Support for AWS ecr
+dev-libs/aws-sdk-cpp:aws_targets_ecs - SDK Support for AWS ecs
+dev-libs/aws-sdk-cpp:aws_targets_eks - SDK Support for AWS eks
+dev-libs/aws-sdk-cpp:aws_targets_elasticache - SDK Support for AWS elasticache
+dev-libs/aws-sdk-cpp:aws_targets_elasticbeanstalk - SDK Support for AWS elasticbeanstalk
+dev-libs/aws-sdk-cpp:aws_targets_elasticfilesystem - SDK Support for AWS elasticfilesystem
+dev-libs/aws-sdk-cpp:aws_targets_elasticloadbalancing - SDK Support for AWS elasticloadbalancing
+dev-libs/aws-sdk-cpp:aws_targets_elasticloadbalancingv2 - SDK Support for AWS elasticloadbalancingv2
+dev-libs/aws-sdk-cpp:aws_targets_elasticmapreduce - SDK Support for AWS elasticmapreduce
+dev-libs/aws-sdk-cpp:aws_targets_elastictranscoder - SDK Support for AWS elastictranscoder
+dev-libs/aws-sdk-cpp:aws_targets_email - SDK Support for AWS email
+dev-libs/aws-sdk-cpp:aws_targets_es - SDK Support for AWS es
+dev-libs/aws-sdk-cpp:aws_targets_events - SDK Support for AWS events
+dev-libs/aws-sdk-cpp:aws_targets_firehose - SDK Support for AWS firehose
+dev-libs/aws-sdk-cpp:aws_targets_fms - SDK Support for AWS fms
+dev-libs/aws-sdk-cpp:aws_targets_gamelift - SDK Support for AWS gamelift
+dev-libs/aws-sdk-cpp:aws_targets_glacier - SDK Support for AWS glacier
+dev-libs/aws-sdk-cpp:aws_targets_glue - SDK Support for AWS glue
+dev-libs/aws-sdk-cpp:aws_targets_greengrass - SDK Support for AWS greengrass
+dev-libs/aws-sdk-cpp:aws_targets_guardduty - SDK Support for AWS guardduty
+dev-libs/aws-sdk-cpp:aws_targets_health - SDK Support for AWS health
+dev-libs/aws-sdk-cpp:aws_targets_iam - SDK Support for AWS iam
+dev-libs/aws-sdk-cpp:aws_targets_identity-management - SDK Support for AWS identity-management
+dev-libs/aws-sdk-cpp:aws_targets_importexport - SDK Support for AWS importexport
+dev-libs/aws-sdk-cpp:aws_targets_inspector - SDK Support for AWS inspector
+dev-libs/aws-sdk-cpp:aws_targets_iot - SDK Support for AWS iot
+dev-libs/aws-sdk-cpp:aws_targets_iot-data - SDK Support for AWS iot-data
+dev-libs/aws-sdk-cpp:aws_targets_iot-jobs-data - SDK Support for AWS iot-jobs-data
+dev-libs/aws-sdk-cpp:aws_targets_iot1click-devices - SDK Support for AWS iot1click-devices
+dev-libs/aws-sdk-cpp:aws_targets_iot1click-projects - SDK Support for AWS iot1click-projects
+dev-libs/aws-sdk-cpp:aws_targets_iotanalytics - SDK Support for AWS iotanalytics
+dev-libs/aws-sdk-cpp:aws_targets_kinesis - SDK Support for AWS kinesis
+dev-libs/aws-sdk-cpp:aws_targets_kinesis-video-archived-media - SDK Support for AWS kinesis-video-archived-media
+dev-libs/aws-sdk-cpp:aws_targets_kinesis-video-media - SDK Support for AWS kinesis-video-media
+dev-libs/aws-sdk-cpp:aws_targets_kinesisanalytics - SDK Support for AWS kinesisanalytics
+dev-libs/aws-sdk-cpp:aws_targets_kinesisvideo - SDK Support for AWS kinesisvideo
+dev-libs/aws-sdk-cpp:aws_targets_kms - SDK Support for AWS kms
+dev-libs/aws-sdk-cpp:aws_targets_lambda - SDK Support for AWS lambda
+dev-libs/aws-sdk-cpp:aws_targets_lex - SDK Support for AWS lex
+dev-libs/aws-sdk-cpp:aws_targets_lex-models - SDK Support for AWS lex-models
+dev-libs/aws-sdk-cpp:aws_targets_lightsail - SDK Support for AWS lightsail
+dev-libs/aws-sdk-cpp:aws_targets_logs - SDK Support for AWS logs
+dev-libs/aws-sdk-cpp:aws_targets_machinelearning - SDK Support for AWS machinelearning
+dev-libs/aws-sdk-cpp:aws_targets_macie - SDK Support for AWS macie
+dev-libs/aws-sdk-cpp:aws_targets_marketplace-entitlement - SDK Support for AWS marketplace-entitlement
+dev-libs/aws-sdk-cpp:aws_targets_marketplacecommerceanalytics - SDK Support for AWS marketplacecommerceanalytics
+dev-libs/aws-sdk-cpp:aws_targets_mediaconvert - SDK Support for AWS mediaconvert
+dev-libs/aws-sdk-cpp:aws_targets_medialive - SDK Support for AWS medialive
+dev-libs/aws-sdk-cpp:aws_targets_mediapackage - SDK Support for AWS mediapackage
+dev-libs/aws-sdk-cpp:aws_targets_mediastore - SDK Support for AWS mediastore
+dev-libs/aws-sdk-cpp:aws_targets_mediastore-data - SDK Support for AWS mediastore-data
+dev-libs/aws-sdk-cpp:aws_targets_mediatailor - SDK Support for AWS mediatailor
+dev-libs/aws-sdk-cpp:aws_targets_meteringmarketplace - SDK Support for AWS meteringmarketplace
+dev-libs/aws-sdk-cpp:aws_targets_mobile - SDK Support for AWS mobile
+dev-libs/aws-sdk-cpp:aws_targets_mobileanalytics - SDK Support for AWS mobileanalytics
+dev-libs/aws-sdk-cpp:aws_targets_monitoring - SDK Support for AWS monitoring
+dev-libs/aws-sdk-cpp:aws_targets_mq - SDK Support for AWS mq
+dev-libs/aws-sdk-cpp:aws_targets_mturk-requester - SDK Support for AWS mturk-requester
+dev-libs/aws-sdk-cpp:aws_targets_neptune - SDK Support for AWS neptune
+dev-libs/aws-sdk-cpp:aws_targets_opsworks - SDK Support for AWS opsworks
+dev-libs/aws-sdk-cpp:aws_targets_opsworkscm - SDK Support for AWS opsworkscm
+dev-libs/aws-sdk-cpp:aws_targets_organizations - SDK Support for AWS organizations
+dev-libs/aws-sdk-cpp:aws_targets_pi - SDK Support for AWS pi
+dev-libs/aws-sdk-cpp:aws_targets_pinpoint - SDK Support for AWS pinpoint
+dev-libs/aws-sdk-cpp:aws_targets_polly - SDK Support for AWS polly
+dev-libs/aws-sdk-cpp:aws_targets_pricing - SDK Support for AWS pricing
+dev-libs/aws-sdk-cpp:aws_targets_queues - SDK Support for AWS queues
+dev-libs/aws-sdk-cpp:aws_targets_rds - SDK Support for AWS rds
+dev-libs/aws-sdk-cpp:aws_targets_redshift - SDK Support for AWS redshift
+dev-libs/aws-sdk-cpp:aws_targets_rekognition - SDK Support for AWS rekognition
+dev-libs/aws-sdk-cpp:aws_targets_resource-groups - SDK Support for AWS resource-groups
+dev-libs/aws-sdk-cpp:aws_targets_resourcegroupstaggingapi - SDK Support for AWS resourcegroupstaggingapi
+dev-libs/aws-sdk-cpp:aws_targets_route53 - SDK Support for AWS route53
+dev-libs/aws-sdk-cpp:aws_targets_route53domains - SDK Support for AWS route53domains
+dev-libs/aws-sdk-cpp:aws_targets_s3 - SDK Support for AWS s3
+dev-libs/aws-sdk-cpp:aws_targets_s3-encryption - SDK Support for AWS s3-encryption
+dev-libs/aws-sdk-cpp:aws_targets_sagemaker - SDK Support for AWS sagemaker
+dev-libs/aws-sdk-cpp:aws_targets_sagemaker-runtime - SDK Support for AWS sagemaker-runtime
+dev-libs/aws-sdk-cpp:aws_targets_sdb - SDK Support for AWS sdb
+dev-libs/aws-sdk-cpp:aws_targets_secretsmanager - SDK Support for AWS secretsmanager
+dev-libs/aws-sdk-cpp:aws_targets_serverlessrepo - SDK Support for AWS serverlessrepo
+dev-libs/aws-sdk-cpp:aws_targets_servicecatalog - SDK Support for AWS servicecatalog
+dev-libs/aws-sdk-cpp:aws_targets_servicediscovery - SDK Support for AWS servicediscovery
+dev-libs/aws-sdk-cpp:aws_targets_shield - SDK Support for AWS shield
+dev-libs/aws-sdk-cpp:aws_targets_sms - SDK Support for AWS sms
+dev-libs/aws-sdk-cpp:aws_targets_snowball - SDK Support for AWS snowball
+dev-libs/aws-sdk-cpp:aws_targets_sns - SDK Support for AWS sns
+dev-libs/aws-sdk-cpp:aws_targets_sqs - SDK Support for AWS sqs
+dev-libs/aws-sdk-cpp:aws_targets_ssm - SDK Support for AWS ssm
+dev-libs/aws-sdk-cpp:aws_targets_states - SDK Support for AWS states
+dev-libs/aws-sdk-cpp:aws_targets_storagegateway - SDK Support for AWS storagegateway
+dev-libs/aws-sdk-cpp:aws_targets_sts - SDK Support for AWS sts
+dev-libs/aws-sdk-cpp:aws_targets_support - SDK Support for AWS support
+dev-libs/aws-sdk-cpp:aws_targets_swf - SDK Support for AWS swf
+dev-libs/aws-sdk-cpp:aws_targets_text-to-speech - SDK Support for AWS text-to-speech
+dev-libs/aws-sdk-cpp:aws_targets_transcribe - SDK Support for AWS transcribe
+dev-libs/aws-sdk-cpp:aws_targets_transfer - SDK Support for AWS transfer
+dev-libs/aws-sdk-cpp:aws_targets_translate - SDK Support for AWS translate
+dev-libs/aws-sdk-cpp:aws_targets_waf - SDK Support for AWS waf
+dev-libs/aws-sdk-cpp:aws_targets_waf-regional - SDK Support for AWS waf-regional
+dev-libs/aws-sdk-cpp:aws_targets_workdocs - SDK Support for AWS workdocs
+dev-libs/aws-sdk-cpp:aws_targets_workmail - SDK Support for AWS workmail
+dev-libs/aws-sdk-cpp:aws_targets_workspaces - SDK Support for AWS workspaces
+dev-libs/aws-sdk-cpp:aws_targets_xray - SDK Support for AWS xray
 dev-libs/beignet:ocl-icd - Enable compatibility with the dev-libs/ocl-icd OpenCL ICD loader
 dev-libs/beignet:ocl20 - Enable experimental OpenCL 2.0 support on Skylake and newer architectures
 dev-libs/bitset:jemalloc - Use dev-libs/jemalloc for allocations
@@ -2142,13 +2297,14 @@ dev-libs/efl:ibus - Enable Intelligent Input Bus
 dev-libs/efl:ico - Enable Ico image loader
 dev-libs/efl:ivi - Enable ivi-shell support
 dev-libs/efl:libuv - Enable dev-libs/libuv support
-dev-libs/efl:luajit - USE dev-lang/lua instead of dev-lang/luajit
+dev-libs/efl:luajit - USE dev-lang/luajit instead of dev-lang/lua
 dev-libs/efl:oldlua - USE dev-lang/lua instead of dev-lang/luajit
 dev-libs/efl:physics - Enable Bullet physics effects and support
 dev-libs/efl:pixman - Enable PixMan for software rendering
 dev-libs/efl:ppm - Enable PMAPS image loader
 dev-libs/efl:psd - Enable PSD image loader
 dev-libs/efl:scim - Enable Smart Common Input Method
+dev-libs/efl:system-lz4 - Use system liblz4 instead of bundled one
 dev-libs/efl:tga - Enable Tga image loader
 dev-libs/efl:tslib - Enable x11-libs/tslib for touchscreen events
 dev-libs/efl:unwind - Enable debug support via sys-libs/libunwind
@@ -2449,6 +2605,7 @@ dev-ml/zarith:mpir - Use MPIR library instead of GMP.
 dev-perl/App-Nopaste:browser - Spawn browser with pasted page
 dev-perl/App-Nopaste:clipboard - copying of URLs with -x/--copy
 dev-perl/App-Nopaste:github - Github authentication
+dev-perl/App-Nopaste:gitlab - Ensure git is installed for reading/passing GitLab authentication
 dev-perl/App-Nopaste:pastebin - pastebin.com support
 dev-perl/Business-ISBN:barcode - Install dev-perl/GD-Barcode for rendering ISBN numbers as barcodes
 dev-perl/Config-Any:conf - Install dev-perl/Config-General to support decoding .conf/.cnf files
@@ -2687,7 +2844,6 @@ dev-python/twisted-core:serial - include serial port support
 dev-python/vatnumber:vies - Enable VIES
 dev-python/ws4py:client - Install client modules
 dev-python/ws4py:server - Install server modules
-dev-python/wxpython:doc - Install HTML wxWidgets docs and wxpython API reference.
 dev-python/wxpython:examples - Install interactive demo module browser and sample applets.
 dev-python/zeep:async - Add async support
 dev-python/zeep:tornado - Add tornado support
@@ -3681,6 +3837,7 @@ mail-client/balsa:crypt - Adds support for GnuPG encryption
 mail-client/balsa:rubrica - Adds support for rubrica addressbook
 mail-client/claws-mail:archive - Enable archiving plugin
 mail-client/claws-mail:bogofilter - Build mail-filter/bogofilter plugin
+mail-client/claws-mail:dillo - Enable dillo html viewer plugin
 mail-client/claws-mail:gdata - Enable plugin for access to Google data providers
 mail-client/claws-mail:gtk3 - Build support for GTK+3
 mail-client/claws-mail:libcanberra - Enable sound notification in connection with USE=notification
@@ -4097,7 +4254,7 @@ media-gfx/nvidia-texture-tools:cuda - Enable NVIDIA CUDA toolkit support
 media-gfx/nvidia-texture-tools:glew - Enable support for The OpenGL Extension Wrangler Library (media-libs/glew)
 media-gfx/openclipart:gzip - Compresses clip art using gzip
 media-gfx/openexr_viewers:cg - Add support for nvidia's cg shaders
-media-gfx/openvdb:abi3-compat - Enables compatibility with the old 3.x ABI. enabled by dfault.
+media-gfx/openvdb:abi3-compat - Disables newer features to maintain compatibility with ABI3. Enabled by default.
 media-gfx/photoqt:devil - Support additional image formats using media-libs/devil
 media-gfx/photoqt:exiv2 - Use media-gfx/exiv2 as optional dependency
 media-gfx/photoqt:freeimage - Support additional iamge formats using media-libs/freeimage
@@ -4109,6 +4266,7 @@ media-gfx/pqiv:archive - Enable support for images in archives and cbX comic boo
 media-gfx/pstoedit:emf - Enable media-libs/libemf support
 media-gfx/pstoedit:flash - Enable media-libs/ming SWF support
 media-gfx/pstoedit:pptx - Enable support for generating PowerPoint pptx files
+media-gfx/qimgv:video - Add support for gif/webm playback via libmpv
 media-gfx/qiv:magic - Use libmagic to determine mimetypes
 media-gfx/sigal:s3 - Enables support for the Amazon S3 service.
 media-gfx/simple-scan:colord - Support color management using x11-misc/colord
@@ -4125,6 +4283,7 @@ media-gfx/yafaray:fasttrig - Enable trigonometric approximations to make code fa
 media-gfx/yafaray:opencv - Use media-libs/opencv
 media-libs/a52dec:djbfft - Prefer D.J. Bernstein's library for fourier transforms
 media-libs/allegro:dumb - Enable media-libs/dumb module library support
+media-libs/allegro:opus - Enable Opus codec support
 media-libs/allegro:physfs - Enable physfs support
 media-libs/allegro:vga - Enables the VGA graphics driver
 media-libs/alsa-lib:alisp - Enable support for ALISP (ALSA LISP) interpreter for advanced features.
@@ -4326,7 +4485,6 @@ media-libs/opencv:eigen - Enable usage of dev-cpp/eigen for computations
 media-libs/opencv:gdal - Enable support for sci-libs/gdal library
 media-libs/opencv:gflags - Use Google's C++ argument parsing library
 media-libs/opencv:glog - Use Google's C++ loggin library
-media-libs/opencv:ipp - Enable Intel Integrated Primitive support
 media-libs/opencv:opencl - Add support for OpenCL
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
@@ -4384,6 +4542,7 @@ media-libs/speex:vbr - Enable VBR support.
 media-libs/svgalib:kernel-helper - Build the helper kernel module
 media-libs/taglib:boost - Use dev-libs/boost instead of GCC built-ins
 media-libs/tremor:low-accuracy - enable 32bit only multiply operations
+media-libs/urt:tools - Install tools
 media-libs/vigra:valgrind - Enable valgrind in make check
 media-libs/vulkan-loader:demos - Build vulkan demos and vulkaninfo
 media-libs/vulkan-loader:layers - Build the vulkan layers
@@ -4402,7 +4561,6 @@ media-libs/x265:power8 - Enable support for Power 8 assembly optimizations.
 media-libs/xine-lib:bluray - Enable playback of Blu-ray filesystems using media-libs/libbluray
 media-libs/xine-lib:dxr3 - Enable support for DXR3 mpeg acceleration cards.
 media-libs/xine-lib:flac - Build the media-libs/flac based FLAC demuxer and decoder. This flag is not needed for playing FLAC content, neither standalone nor in Ogg container (OggFLAC), but might have better support for exotic features like 24-bit samples or 96kHz sample rates.
-media-libs/xine-lib:fusionsound - Enable support for the Fusion audio sub system
 media-libs/xine-lib:gtk - Build the gdkpixbuf-based image decoder plugin.
 media-libs/xine-lib:imagemagick - Build the ImageMagick-based image decoder plugin.
 media-libs/xine-lib:mad - Build the media-libs/libmad based mp3 decoder. This mp3 decoder has superior support compared to the one coming from FFmpeg that is used as a fallback. If you experience any bad behaviour with mp3 files (skipping, distorted sound) make sure you enabled this USE flag.
@@ -4678,6 +4836,8 @@ media-sound/mumble:rnnoise - Enable alternative noise suppression option based o
 media-sound/mumble:speech - Enable text-to-speech support in Mumble.
 media-sound/murmur:ice - Use dev-libs/Ice to enable remote control capabilities.
 media-sound/musescore:portmidi - Enable support for building against media-libs/portmidi
+media-sound/musescore:vorbis - Enable SoundFont support using media-libs/libvorbis
+media-sound/musescore:webengine - Use dev-qt/qtwebengine for embedded web browser
 media-sound/ncmpc:artist-screen - Enable artist screen
 media-sound/ncmpc:chat-screen - Enable the chat screen
 media-sound/ncmpc:colors - Enable color support
@@ -4777,7 +4937,7 @@ media-sound/supercollider:gedit - Enable the SCED user interface
 media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
-media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service.
+media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
 media-sound/tomahawk:hatchet - Enable support for the synchronisation through Hatchet
 media-sound/tomahawk:telepathy - Enable support for the real-time communication framework telepathy
 media-sound/traverso:lv2 - Add support for Ladspa V2
@@ -5143,31 +5303,23 @@ media-video/vdr:ttxtsubs - support for media-plugins/vdr-ttxtsubs
 media-video/vdr:vasarajanauloja - replacement for the liemikuutio patch, adds some nice must haves features
 media-video/vdr:wareagleicon - Replace original icon set in menu
 media-video/vdr:yaepg - Enables support for the vdr-yaepg plugin
-media-video/vlc:X - Enable support for, e.g., fullscreen mode via the X Window System. By itself, this flag does not build a graphical interface
+media-video/vlc:X - Enable support for e.g. fullscreen mode via X and the X C-language binding. It does not build a graphical interface
 media-video/vlc:aom - Enable experimental support for AV1 codec
 media-video/vlc:archive - Enable support for libarchive stream extractor
 media-video/vlc:aribsub - Enable support for decoding ARIB STD-B24 subtitles
-media-video/vlc:atmo - Enable support for AtmoLight (homebrew Ambient Lighting Technology)
-media-video/vlc:audioqueue - Enable AudioQueue audio module for Mac OS X
-media-video/vlc:avcodec - Enable libavcodec support for video/audio encoding/decoding. libavcodec is part of FFmpeg
-media-video/vlc:avformat - Enable libformat support for reading and writing various media containers. libavformat is part of FFmpeg
 media-video/vlc:bluray - Enable libbluray for Blu-ray disc support
 media-video/vlc:chromaprint - Enable libchromaprint for Chromaprint based audio fingerprinter support
 media-video/vlc:chromecast - Enable experimental support for Google Chromecast
 media-video/vlc:dc1394 - Enable IIDC cameras support
-media-video/vlc:directx - Enable Win32 DirectX support
+media-video/vlc:directx - Enable Win32 DirectX, D3D11va and DxVA2 support
 media-video/vlc:dvbpsi - Enable support for Mpeg-TS files (.ts, .m2ts, .mts) via media-libs/libdvbpsi
-media-video/vlc:dxva2 - Enable Win32 DxVA2 support
 media-video/vlc:encode - Enable streaming-output support and videolan manager to control multiple streams from within one instance
 media-video/vlc:faad - Enable AAC audio decoding library support via media-libs/faad2
 media-video/vlc:fdk - Enable the Fraunhofer AAC codec library
 media-video/vlc:fluidsynth - Enable Fluidsynth MIDI software synthesis (with external sound fonts)
 media-video/vlc:gcrypt - Enable cryptography support via libgcrypt
 media-video/vlc:gme - Enable support for media-libs/game-music-emu for playing various video game music formats
-media-video/vlc:gnome - Adds support for GNOME's filesystem abstraction layer, gnome-base/gnome-vfs. This flag is not GUI-related
-media-video/vlc:growl - Enable growl notification support (over UDP for remote access and native on OSX)
 media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently supports only video decoding)
-media-video/vlc:httpd - Enable a web based interface for vlc
 media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
 media-video/vlc:kms - Enable kernel mode setting video output plugin via x11-libs/libdrm
 media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins
@@ -5175,11 +5327,8 @@ media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
 media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
 media-video/vlc:live - Enable live555 streaming media support (client support for rtsp)
 media-video/vlc:lua - Enable Lua scripting support, needed for including support for Jamendo (online music platform) and similar things
-media-video/vlc:macosx-dialog-provider - Enable Mac OS X dialog module
-media-video/vlc:macosx-eyetv - Enable Mac OS X EyeTV (TNT Tuner) module
 media-video/vlc:macosx-notifications - Enable Mac OS X notifications module (formerly growl)
 media-video/vlc:macosx-qtkit - Enable Mac OS X qtkit module: qtcapture (video) and qtsound (audio) module
-media-video/vlc:macosx-quartztext - Enable Mac OS X quartz text module
 media-video/vlc:matroska - Enable matroska support using reference libraries (fallback on other existing matroska support if disabled, i.e., matroska enabled FFmpeg)
 media-video/vlc:mpeg - Add libmpeg2 support for mpeg-1 and mpeg-2 video streams
 media-video/vlc:nfs - Enable support for nfs protocol via net-fs/libnfs
@@ -5199,16 +5348,12 @@ media-video/vlc:sid - Adds support for playing C64 SID files through media-libs/
 media-video/vlc:skins - Enable support for the skins2 interface
 media-video/vlc:soxr - Enable SoX Resampler support via media-libs/soxr
 media-video/vlc:srt - Enable support for Secure Reliable Transport (SRT) via net-libs/srt
-media-video/vlc:swscale - Enable image scaling and conversion via libswscale (part of FFmpeg)
 media-video/vlc:tremor - Enable tremor, a fixed-point version of the Ogg Vorbis decoder
 media-video/vlc:twolame - Enable twolame support (MPEG Audio Layer 2 encoder)
 media-video/vlc:upnp - Enable support for the Intel SDK stack based UPnP discovery module instead of CyberLink
-media-video/vlc:vcdx - Enable VCD with navigation via libvcdinfo (depends on cdio)
-media-video/vlc:vlm - New videolan (media) manager (vlm), a little manager designed to launch and manage multiple streams from within one instance of VLC
 media-video/vlc:vpx - Enable the decoder(s) from the WebM VP8 / VP9 Codec SDK
 media-video/vlc:wma-fixed - Enable fixed point WMA decoder
 media-video/vlc:x265 - Support X265 Encoder
-media-video/vlc:xcb - Support the X C-language Binding, a replacement for Xlib; !!! you will need this option to be able to integrate video in the Qt interface, see bug #500678
 media-video/vlc:zeroconf - Enable support for zero-configuration networking via avahi
 media-video/vlc:zvbi - Enable support for teletext subtitles via the zvbi library
 media-video/webcamoid:headers - Install development headers
@@ -5527,7 +5672,6 @@ net-dialup/ppp:ipv6 - Enables support for IP version 6
 net-dialup/ppp:pam - Enables PAM (Pluggable Authentication Modules) support
 net-dialup/ppp:radius - Enables RADIUS support
 net-dialup/xl2tpd:dnsretry - Patch for host lookup retries, activated by redial feature
-net-dialup/xl2tpd:kernel - Enable kernel interface for PPPoL2TP
 net-dns/avahi:autoipd - Build and install the IPv4LL (RFC3927) network address configuration daemon
 net-dns/avahi:bookmarks - Install the avahi-bookmarks application (requires dev-python/twisted-core and dev-python/twisted-web)
 net-dns/avahi:gtk3 - Build the avahi-ui-gtk3 library, and use gtk3 for the avahi utilities under USE=utils
@@ -5776,6 +5920,9 @@ net-im/corebird:glade - Install glade catalogs for corebird
 net-im/corebird:spellcheck - Support spell checking
 net-im/coturn:mongodb - Enable support for the mongodb database
 net-im/coturn:redis - Enable support for the redis database
+net-im/dino:gnupg - Enable OpenPGP encryption plugin
+net-im/dino:http - Enable HTTP file upload plugin
+net-im/dino:omemo - Enable OMEMO encryption plugin
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
 net-im/ejabberd:full-xml - Use XML features in XMPP stream (ex: CDATA), requires XML compliant clients
 net-im/ejabberd:hipe - Compile natively with HiPE, not recommended
@@ -5802,7 +5949,6 @@ net-im/ekg2:ssl - Enable the complete SSL/TLS support through OpenSSL. This also
 net-im/empathy:gnome-online-accounts - Enable using net-libs/gnome-online-accounts for authorization (e.g. for Google Talk)
 net-im/empathy:map - Enable world map support through media-libs/libchamplain
 net-im/err:irc - Pull optional dependencies, needed for IRC backend
-net-im/err:plugins - Enable support for installing plugins with dev-vcs/git
 net-im/gajim:idle - Enable idle module
 net-im/gajim:srv - SRV capabilities
 net-im/gajim:xhtml - Enable XHTML support
@@ -5841,7 +5987,7 @@ net-im/psi:webkit - Enable themed, html-based chatlogs
 net-im/psi:whiteboarding - Enable experimental interactive SVG drawing
 net-im/pyicq-t:webinterface - Install dependencies needed for the web interface
 net-im/qtox:X - Adds support for X11
-net-im/qtox:gtk - Adds support for GTK and Status Notifier tray backends
+net-im/qtox:notification - Adds support for GTK Status Notifier tray backends
 net-im/skypeforlinux:pax_kernel - Triggers a paxmarking of the main skype binary
 net-im/slack-bin:pax_kernel - Triggers a paxmarking of the binary
 net-im/telepathy-connection-managers:gadu - Enable Gadu Gadu protocol support.
@@ -5855,8 +6001,10 @@ net-im/telepathy-connection-managers:yahoo - Enable Yahoo! messaging support.
 net-im/telepathy-connection-managers:zeroconf - Enable Link-Local Messaging via the zeroconf or Bonjour protocol.
 net-im/tkabber:plugins - Enables installation the extra plugins
 net-im/toxic:audio - Enables audio calling
+net-im/toxic:notification - Enables desktop notifications with libnotify, with sound support.
 net-im/toxic:notifications - Enables desktop notifications with libnotify, with sound support.
 net-im/toxic:qrcode - Enables QR code support
+net-im/toxic:sound - Enables audio calling
 net-im/toxic:video - Enables video calling
 net-im/vacuum:adiummessagestyle - Use UI styles created for Adium
 net-im/vacuum:annotations - Enable adding comments to the contacts in the roster
@@ -6360,6 +6508,7 @@ net-misc/chrony:refclock - Support for reference clocks
 net-misc/chrony:rtc - Support for the Linux Real Time Clock interface
 net-misc/connman:ethernet - Enable ethernet support.
 net-misc/connman:iptables - Use net-firewall/iptables as firewall.
+net-misc/connman:iwd - Enable wifi support via net-wireless/iwd
 net-misc/connman:l2tp - Use net-dialup/xl2tpd for L2TP VPN support.
 net-misc/connman:nftables - Use net-firewall/nftables as firewall.
 net-misc/connman:ofono - Use net-misc/ofono for telephony support.
@@ -6438,8 +6587,6 @@ net-misc/gerbera:taglib - Use media-libs/taglib for reading files' metadata
 net-misc/gnome-online-miners:flickr - Enable Flickr support
 net-misc/gsasl:gcrypt - Use dev-libs/libgcrypt for low-level crypto
 net-misc/gsasl:ntlm - Add support for Microsoft's NTLM mechanism using net-libs/libntlm
-net-misc/guacamole-server:ssh - enable support for ssh connections
-net-misc/guacamole-server:telnet - enable support for telnet connections
 net-misc/gwget:epiphany - Build epiphany extensions
 net-misc/hotot:chrome - Build chrome browser extension
 net-misc/htbinit:esfq - Add support for Enhanced Stochastic Fairness queueing discipline.
@@ -6969,8 +7116,10 @@ net-wireless/aircrack-ng:experimental - Build the "experimental" tools which may
 net-wireless/aircrack-ng:netlink - Use netlink for channel control instead of WEXT
 net-wireless/aircrack-ng:unstable - Build the "unstable" tools which may randomly fail to run properly
 net-wireless/bladerf:tecla - use libtecla for command line editing, tab completion, and history
-net-wireless/bladerf-fpga:x115 - bitstream for the x115KLE Cyclone IV FPGA bladerf model"
-net-wireless/bladerf-fpga:x40 - bitstream for the x40KLE Cyclone IV FPGA bladerf model"
+net-wireless/bladerf-fpga:x115 - bitstream for the x115 kLE Cyclone IV FPGA bladerf model"
+net-wireless/bladerf-fpga:x40 - bitstream for the x40 kLE Cyclone IV FPGA bladerf model"
+net-wireless/bladerf-fpga:xA4 - bitstream for the xA4 49 kLE Cyclone V FPGA bladerf 2.0 micro model"
+net-wireless/bladerf-fpga:xA9 - bitstream for the xA9 301 kLE Cyclone V FPGA bladerf 2.0 micro model"
 net-wireless/blueman:appindicator - Enable usage of dev-libs/libappindicator to export menu options
 net-wireless/blueman:network - Add functionality to setup (host) PAN connections using either net-dns/dnsmasq or net-misc/dhcp
 net-wireless/bluez:btpclient - Enable BTP client
@@ -7513,6 +7662,10 @@ sci-physics/geant:geant3 - Add compatibility for geant321 to geant4
 sci-physics/geant:inventor - Add support for Open Inventor SGI toolkit via Coin3D
 sci-physics/geant:raytracerx - Enable raytracing for physics events
 sci-physics/geant:vrml - Enable output of geant4 in vrml formats
+sci-physics/geant-vmc:g4root - Build G4Root (interface for GEANT4 simulation with a ROOT geometry)
+sci-physics/geant-vmc:geant3 - Build with Geant4 G3toG4 library
+sci-physics/geant-vmc:mtroot - Build MTRoot (provides ROOT IO manager classes with multi-threading support)
+sci-physics/geant-vmc:vgm - Enable the Virtual Geometry Model (sci-physics/vgm)
 sci-physics/hepmc:cm - Build with cm instead of default mm for length units
 sci-physics/hepmc:gev - Build with GeV instead of default MeV for momentum units
 sci-physics/herwig++:c++11 - Build Herwig++ using the C++11 standard. Experimental feature, not for production use.
@@ -7526,6 +7679,7 @@ sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
+sci-physics/root:cuda - Enable support for nVidia CUDA
 sci-physics/root:davix - Enable support for DAVIX Data Management Client (https://cern.ch/davix)
 sci-physics/root:fits - Enable support for images and data from FITS files with sci-libs/cfitsio
 sci-physics/root:fortran - Compile included Fortran programs
@@ -7533,7 +7687,6 @@ sci-physics/root:gdml - Enable GDML writer and reader
 sci-physics/root:http - Enable http server support including but not limited to fastcgi support
 sci-physics/root:jemalloc - Enable support for dev-libs/jemalloc
 sci-physics/root:libcxx - Build ROOT against sys-libs/libcxx
-sci-physics/root:math - Build all math related libraries plugins, needs sci-libs/gsl
 sci-physics/root:memstat - Build memory statistics library, helps to detect memory leaks
 sci-physics/root:minuit - Build ROOT's internal versions of minuit (fortran) and minuit2 (C++)
 sci-physics/root:pythia6 - Build the interface for sci-physics/pythia version 6.x
@@ -7761,6 +7914,7 @@ sys-apps/roccat-tools:input_devices_roccat_ryosmkfx - Enable support for Ryos Mk
 sys-apps/roccat-tools:input_devices_roccat_skeltr - Enable support for Skeltr keyboard.
 sys-apps/roccat-tools:input_devices_roccat_sova - Enable support for Sova keyboard.
 sys-apps/roccat-tools:input_devices_roccat_suora - Enable support for Suora keyboard.
+sys-apps/rtl-entropy:bladerf - Build with Nuand BladeRF support
 sys-apps/s390-tools:fuse - build cmsfs-fuse to read files stored on a z/VM CMS disk
 sys-apps/s390-tools:ncurses - build hyptop monitoring program
 sys-apps/s390-tools:pfm - build the cpacfstats tool
@@ -8237,6 +8391,7 @@ sys-fs/udisks:gptfdisk - Pull in sys-apps/gptfdisk for sgdisk command as used by
 sys-fs/udisks:lvm - Add support for Logical Volume Management via sys-fs/lvm2.
 sys-fs/udisks:remote-access - Control whether connections from other clients over LAN are allowed
 sys-fs/udisks:systemd - Support sys-apps/systemd's logind
+sys-fs/udisks:vdo - Enable Virtual Data Optimizer support.
 sys-fs/zfs:kernel-builtin - Disable dependency on sys-fs/zfs-kmod under the assumption that ZFS is part of the kernel source tree
 sys-fs/zfs:rootfs - Enable dependencies required for booting off a pool containing a rootfs
 sys-fs/zfs:test-suite - Install regression test suite
@@ -8449,7 +8604,6 @@ www-apps/drupal:accelerator - Add dependency on a php accelerator
 www-apps/drupal:uploadprogress - Install dev-php/pecl-uploadprogress package
 www-apps/gitit:network-uri - Get Network.URI from the network-uri package.
 www-apps/gitit:plugins - enables optional plugin runtime loader
-www-apps/guacamole:noauth - enable support for leaving out any authentication on the webinterface
 www-apps/hugo:sass - Enable SASS/SCSS support
 www-apps/icingaweb2:nginx - Adds support for nginx
 www-apps/ikiwiki:extras - Installs additional modules used by ikiwiki plugins
@@ -8787,7 +8941,6 @@ x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-libs/qwt:designer - Installs dev-qt/designer plugin.
 x11-libs/qwt:mathml - Use the MathML renderer of the Qt solutions package.
 x11-libs/vte:glade - Provide integration with dev-util/glade.
-x11-libs/wxGTK:gnome - Use gnome-base/libgnomeprintui for printing tasks.
 x11-libs/wxGTK:gstreamer - Enable the wxMediaCtrl class for playing audio and video through gstreamer.
 x11-libs/wxGTK:sdl - Use Simple Directmedia Layer (media-libs/libsdl) for audio.
 x11-misc/alock:doc - Build and install manpage with app-text/asciidoc.
@@ -8816,7 +8969,6 @@ x11-misc/mate-notification-daemon:gtk3 - Build with GTK+3 instead of GTK+2
 x11-misc/mozo:gtk3 - Build with GTK+3 instead of GTK+2
 x11-misc/mugshot:gnome - Add support for gnome-base/gnome-control-center
 x11-misc/mugshot:libreoffice - Add support for app-office/libreoffice and app-office/libreoffice-bin
-x11-misc/mugshot:pidgin - Add support for setting the avatar in net-im/pidgin
 x11-misc/mugshot:webcam - Add support for setting a profile photo in media-video/cheese
 x11-misc/openbox-menu:icons - Enable support for icons in menus
 x11-misc/openbox-menu:svg - Support SVG icons

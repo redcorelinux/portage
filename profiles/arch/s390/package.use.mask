@@ -17,6 +17,13 @@ dev-util/ninja zsh-completion
 net-analyzer/nmap zenmap
 # no lua support for vim
 app-editors/vim luajit lua
+# not keyworded yet
+media-gfx/imagemagick raw
+dev-db/mariadb numa
+# ipython is not really tested
+dev-python/restkit cli
+# not tested yet
+app-misc/mc samba
 
 
 # Michał Górny <mgorny@gentoo.org> (08 Aug 2017)

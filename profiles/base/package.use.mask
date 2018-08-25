@@ -35,7 +35,6 @@ net-wireless/gnuradio qt4
 
 # Pacho Ramos <pacho@gentoo.org> (17 Jun 2018)
 # dev-libs/DirectFB is being removed (#606194)
-media-libs/xine-lib fusionsound
 www-plugins/gnash directfb
 
 # Michał Górny <mgorny@gentoo.org> (13 Jun 2018)
@@ -101,7 +100,8 @@ media-plugins/vdr-music graphtft
 # Lars Wendler <polynomial-c@gentoo.org> (14 Mar 2018)
 # Broken on all 32bit arches. Globally masked because of sys-apps/dmapi having
 # no active upstream anymore.
-net-fs/samba dmapi
+# sys-cluster/ceph is only available on amd64 & x86, unmask per arch
+net-fs/samba dmapi ceph
 
 # Jan Ziak <0xe2.0x9a.0x9b@gmail.com> (14 Mar 2018)
 # Mask local USE flag to satisfy repoman
@@ -173,6 +173,7 @@ sci-physics/root qt4
 # Depends on >=icu-59, still masked.
 >=www-client/chromium-62.0.3202.9 system-icu
 >=www-client/firefox-56.0 system-icu
+>=mail-client/thunderbird-60.0 system-icu
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (9 Sep 2017)
 # Potentially destructive. Use it only if you know what you're doing.
@@ -608,10 +609,6 @@ net-analyzer/net-snmp pci
 # The prevent-removal USE flag is only implemented for Linux.
 sys-auth/pam_mktemp prevent-removal
 
-# Andreas K. Huettel <dilfridge@gentoo.org> (25 Mai 2012)
-# Requires icc which does not emerge (distfile unavailable)
-media-libs/opencv ipp
-
 # Samuli Suominen <ssuominen@gentoo.org> (20 Mar 2012)
 # This is for udev-acl. Unmasked in default/linux/package.use.mask.
 sys-auth/consolekit acl
@@ -671,7 +668,7 @@ media-sound/pulseaudio system-wide
 net-proxy/squid ipf-transparent pf-transparent
 
 # Alexis Ballier <aballier@gentoo.org> <16 Feb 2011>
-# Win32 specific useflags for vlc. Can be used for cross-compiling.
-media-video/vlc directx dxva2
+# Win32 specific useflag for vlc. Can be used for cross-compiling.
+media-video/vlc directx
 # Mac OSX / iPhone OS specific useflags
-media-video/vlc audioqueue macosx-dialog-provider macosx-eyetv macosx-quartztext macosx-qtkit
+media-video/vlc macosx-qtkit

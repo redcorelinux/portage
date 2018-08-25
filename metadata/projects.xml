@@ -89,6 +89,11 @@
       <role>Member (Gentoo/ARM)</role>
     </member>
     <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
+      <role>Member (Gentoo/ARM)</role>
+    </member>
+    <member>
       <email>maekke@gentoo.org</email>
       <name>Markus Meier</name>
       <role>Member (Gentoo/ARM)</role>
@@ -571,6 +576,11 @@
       <role>Member</role>
     </member>
     <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
+      <role>Member</role>
+    </member>
+    <member>
       <email>hattya@gentoo.org</email>
       <name>Akinori Hattori</name>
       <role>Member (Japanese Support)</role>
@@ -648,6 +658,10 @@
       <name>Pacho Ramos</name>
     </member>
     <member>
+      <email>polynomial-c@gentoo.org</email>
+      <name>Lars Wendler</name>
+    </member>
+    <member is-lead="1">
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
     </member>
@@ -902,6 +916,11 @@
     <member>
       <email>dlan@gentoo.org</email>
       <name>Yixun Lan</name>
+      <role>member</role>
+    </member>
+    <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
       <role>member</role>
     </member>
     <member>
@@ -1961,15 +1980,15 @@
     <name>LXQt</name>
     <url>https://wiki.gentoo.org/wiki/Project:LXQt</url>
     <description>Maintains LXQt DE related packages.</description>
-    <member>
+    <member is-lead="1">
       <email>chiitoo@gentoo.org</email>
       <name>Jimi Huotari</name>
-      <role>Developer</role>
+      <role>Non-Technical Lead</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>dracwyrm@gentoo.org</email>
       <name>Jonathan Scruggs</name>
-      <role>Developer</role>
+      <role>Technical Lead</role>
     </member>
   </project>
   <project>
@@ -2246,7 +2265,7 @@ developers and volunteer mentors.</description>
     <name>MySQL</name>
     <url>https://wiki.gentoo.org/wiki/Project:MySQL</url>
     <description>This project maintains MySQL and its derivatives</description>
-    <member is-lead="1">
+    <member>
       <email>grknight@gentoo.org</email>
       <name>Brian Evans</name>
     </member>
@@ -2883,6 +2902,11 @@ developers and volunteer mentors.</description>
       <role>Member</role>
     </member>
     <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
+      <role>Member</role>
+    </member>
+    <member>
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
       <role>Member</role>
@@ -2943,6 +2967,11 @@ developers and volunteer mentors.</description>
       <role>Member</role>
     </member>
     <member>
+      <email>vdupras@gentoo.org</email>
+      <name>Virgil Dupras</name>
+      <role>Member</role>
+    </member>
+    <member>
       <email>wraeth@gentoo.org</email>
       <name>Sam Jorna</name>
       <role>Member</role>
@@ -2969,7 +2998,12 @@ developers and volunteer mentors.</description>
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
-      <role>Facebook (admin), G+ (owner), Twitter, Events, Telegram (admin), Slack (admin)</role>
+      <role>Facebook (admin), G+ (owner), Twitter, Events, Telegram (admin), Slack (admin), Discord (admin)</role>
+    </member>
+    <member>
+      <email>cynede@gentoo.org</email>
+      <name>Mikhail Pukhlikov</name>
+      <role>Discord (admin)</role>
     </member>
     <member>
       <email>dabbott@gentoo.org</email>
@@ -4006,6 +4040,10 @@ developers and volunteer mentors.</description>
       <name>Yixun Lan</name>
     </member>
     <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
+    </member>
+    <member>
       <email>lu_zero@gentoo.org</email>
       <name>Luca Barbato</name>
     </member>
@@ -4239,6 +4277,10 @@ developers and volunteer mentors.</description>
     <member>
       <email>dlan@gentoo.org</email>
       <name>Yixun Lan</name>
+    </member>
+    <member>
+      <email>dlan@gentoo.org</email>
+      <name>Lan Yixun</name>
     </member>
   </project>
   <project>

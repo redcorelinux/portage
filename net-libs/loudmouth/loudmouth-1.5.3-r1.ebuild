@@ -27,11 +27,12 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-libs/check )
 	virtual/pkgconfig
-	>=dev-util/gtk-doc-1
-	>=dev-util/gtk-doc-am-1
 "
 
-PATCHES=( "${FILESDIR}"/${P}-gcc7.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc7.patch
+	"${FILESDIR}"/${P}-skip-gtk-doc.patch
+)
 
 src_prepare() {
 	default

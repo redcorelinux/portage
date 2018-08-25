@@ -29,6 +29,33 @@
 
 #--- END OF EXAMPLES ---
 
+# Virgil Dupras <vdupras@gentoo.org> (23 Aug 2018)
+# Vulnerable and can't be removed yet because of alpha. Bug #664346
+<dev-python/paramiko-2.4.1
+
+# Bernard Cafarelli <voyageur@gentoo.org> (20 Aug 2018)
+# Requires >=dev-libs/openssl-1.1.0
+>=net-misc/nextcloud-client-2.5.0_beta1
+
+# Michael Orlitzky <mjo@gentoo.org> (16 Aug 2018)
+# Obsolete! Use net-analyzer/nagios-icinga-openvpn instead.
+# Will be removed in 30 days (bug 663774).
+net-analyzer/nagios-check_openvpn-simple
+
+# Sergey Popov <pinkbyte@gentoo.org> (16 Aug 2018)
+# Upstream is dead, no consumers in tree
+# Masked for removal in 30 days
+dev-python/pyfire
+
+# Bernard Cafarelli <voyageur@gentoo.org> (13 Aug 2018)
+# Beta release with new features, masked for testing
+=app-text/tesseract-4.0.0_beta*
+
+# Virgil Dupras <vdupras@gentoo.org> (12 Aug 2018)
+# django-pipeline hasn't been maintained and has been broken for a while.
+# No revdep. Removal in 30 days. Bug #649838
+dev-python/django-pipeline
+
 # Ulrich Müller <ulm@gentoo.org> (07 Aug 2018)
 # Fails to build with emacs-26.1. Last release in 2003, last commit
 # to upstream CVS in 2010. Masked for removal in 30 days. Bug #663030.
@@ -73,41 +100,14 @@ media-plugins/emotion_generic_players
 media-plugins/evas_generic_loaders
 x11-themes/ethemes
 
-# Virgil Dupras <vdupras@gentoo.org> (22 Jul 2018)
-# Depends on an unsupported version of django (1.8, will be removed soon) and
-# is rendered obsolete by the direct inclusion of django support in
-# >=dev-python/celery-4.0. Removal in 30 days. Bug #661804
-dev-python/django-celery
-
-# Mart Raudsepp <leio@gentoo.org> (16 Jul 2018)
-# Obsolete early GNOME 2 era print libraries. Applications
-# use printing support found directly in x11-libs/gtk+ now.
-# Removal in 30 days. Bug #352952
-gnome-base/libgnomeprintui
-gnome-base/libgnomeprint
-
 # Mart Raudsepp <leio@gentoo.org> (16 Jul 2018)
 # Parallel-installable old versions with no remaining consumers
 # in main tree. Use applications ported to wxGTK:3.0 and
-# wxpython:3.0 instead. Bug #661284
+# wxpython:3.0 instead.
+# Please keep this package.mask entry until at least 16th Oct 2018
+# for extra notification of the unmerge need. Bug #661284
 x11-libs/wxGTK:2.8
 dev-python/wxpython:2.8
-
-# Corentin Pazdera <nado@troglodyte.be> (12 Jul 2018)
-# Pulseeffects depends on atoms only found in gnome overlay
->=media-sound/pulseeffects-4.0.0
-
-# Michał Górny <mgorny@gentoo.org> (12 Jul 2018)
-# Abandoned upstream, no reverse dependencies.  Collides with
-# dev-python/promises (that has revdeps).
-# Removal in 30 days.  Bug #651156.
-dev-python/promise
-
-# Jonas Stein <jstein@gentoo.org> (10 Jul 2018)
-# Package is not maintained, has a broken SRC_URI and 
-# we may not mirror the files.
-# Removal on (10 Aug 2018) Bug #660750
-media-sound/neroaac
 
 # Kent Fredric <kentnl@gentoo.org> (10 Jul 2018)
 # Perl 5.28 Staging block
@@ -160,24 +160,6 @@ media-sound/neroaac
 =virtual/perl-threads-2.220.0
 =virtual/perl-version-0.992.300
 
-# Andreas Schuerch <nativemad@gentoo.org> (10 Jul 2018)
-# Packages have open bugs and mayor component is not working since years
-# Removal in 30 days. Bug 608540
-net-misc/guacamole-server
-www-apps/guacamole
-
-# Aaron W. Swenson <titanofold@gentoo.org> (9 Jul 2018)
-# Hasn’t been updated in years, upstream’s download source is blank, and depends
-# on an outdated twisted-core (Bug 660668). Removal after 2018-08-08.
-dev-python/pgasync
-
-# Louis Sautier <sbraz@gentoo.org> (8 July 2018)
-# Superseded, respectively by dev-python/setuptools_scm
-# and dev-python/jaraco-* + dev-python/tempora.
-# Removal in a month. See https://bugs.gentoo.org/582728
-dev-python/hgtools
-dev-python/jaraco-utils
-
 # Brian Dolbec <dolsen@gentoo.org> (4 July 2018)
 # No longer needed, newer gpg-2 versions have simple cli options
 # for generating new keys and doing key maintenance. Removal in a month
@@ -199,10 +181,6 @@ sys-apps/paludis
 # Dead since 2013, not compatible with latest profiles (#642568). Removal in
 # a month
 net-vpn/miredo
-
-# Pacho Ramos <pacho@gentoo.org> (17 Jun 2018)
-# Doesn't run, cannot bump it (#651146). Removal in a month.
-games-emulation/hatari
 
 # Mart Raudsepp <leio@gentoo.org> (16 Jun 2018)
 # No upstream (website disappeared), no upstream plugin maintainer,
@@ -246,10 +224,6 @@ media-libs/libglvnd
 # Masked for testing
 =dev-libs/libressl-2.7*
 =dev-libs/libressl-2.8*
-
-# Andreas Sturmlechner <asturm@gentoo.org> (26 Apr 2018)
-# Package version depends on Qt-5.10 that was/is/will not be in tree.
->=sci-misc/mendeleydesktop-1.18
 
 # Alexis Ballier <aballier@gentoo.org> (21 Apr 2018)
 # Needs porting of revdeps
@@ -498,10 +472,6 @@ media-plugins/gst-plugins-ffmpeg
 # Alon Bar-Lev <alonbl@gentoo.org> (06 Feb 2017)
 # Needs openssl-1.1
 >=dev-libs/opencryptoki-3.6
-
-# Bernard Cafarelli <voyageur@gentoo.org> (30 Jan 2017)
-# Alpha release with new features, masked for testing
-=app-text/tesseract-4.00.00_alpha*
 
 # Jeroen Roovers <jer@gentoo.org> (12 Jan 2017)
 # Use x11-drivers/nvidia-drivers[tools] instead.

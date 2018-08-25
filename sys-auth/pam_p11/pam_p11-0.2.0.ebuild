@@ -11,7 +11,7 @@ SRC_URI="https://github.com/OpenSC/${PN}/releases/download/${P}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~hppa ia64 ~ppc ppc64 ~sparc x86"
 IUSE=""
 
 RDEPEND="virtual/pam
@@ -19,6 +19,10 @@ RDEPEND="virtual/pam
 		dev-libs/openssl:0="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-build.patch"
+)
 
 src_configure() {
 	econf --with-pamdir="$(getpam_mod_dir)"
