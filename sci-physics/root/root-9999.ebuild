@@ -117,6 +117,7 @@ RDEPEND="${CDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.12.04-no-ocaml.patch
+	"${FILESDIR}"/${PN}-6.12.06_cling-runtime-sysroot.patch
 	"${FILESDIR}"/${PN}-6.13.02-hsimple.patch
 )
 
@@ -320,5 +321,5 @@ src_install() {
 	fi
 
 	# clean up unnecessary files from installation
-	rm -r bin/clang* config emacs etc/vmc || die
+	rm -r bin/clang* emacs || die
 }
