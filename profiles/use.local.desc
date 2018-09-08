@@ -223,7 +223,6 @@ app-arch/libarchive:e2fsprogs - Use file flags from sys-fs/e2fsprogs headers ins
 app-arch/libarchive:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-arch/libarchive:nettle - Use dev-libs/nettle as crypto backend
 app-arch/libarchive:zlib - Allow accessing gzip-compressed archives through sys-libs/zlib. This only affects libarchive's native support: bsdtar will keep using gunzip as a filter if that's not built-in. It's also needed for supporting extraction of ZIP files.
-app-arch/lz4:valgrind - Enable usage of dev-util/valgrind in tests
 app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/pbzip2:symlink - Install symlinks which override app-arch/bzip2 implementation
 app-arch/pigz:symlink - Install symlinks which override app-arch/gzip implementation
@@ -666,7 +665,6 @@ app-emulation/wine-any:pipelight - Apply Wine-Staging patches for Pipelight/Silv
 app-emulation/wine-any:prelink - Run prelink on DLLs during build; For versions before wine-1.7.55 or hardened, do not disable if you do not know what this means as it can break things at runtime
 app-emulation/wine-any:realtime - Pull in sys-auth/rtkit for low-latency pulseaudio support
 app-emulation/wine-any:run-exes - Use Wine to open and run .EXE and .MSI files
-app-emulation/wine-any:s3tc - Pull in media-libs/libtxc_dxtn for DXTn texture compression, needed for many games
 app-emulation/wine-any:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
 app-emulation/wine-any:sdl - Add support for gamepad detection using SDL
 app-emulation/wine-any:staging - Apply Wine-Staging patches for advanced feature support that haven't made it into upstream Wine yet
@@ -712,7 +710,6 @@ app-emulation/wine-staging:pipelight - Apply Wine-Staging patches for Pipelight/
 app-emulation/wine-staging:prelink - Run prelink on DLLs during build; For versions before wine-1.7.55 or hardened, do not disable if you do not know what this means as it can break things at runtime
 app-emulation/wine-staging:realtime - Pull in sys-auth/rtkit for low-latency pulseaudio support
 app-emulation/wine-staging:run-exes - Use Wine to open and run .EXE and .MSI files
-app-emulation/wine-staging:s3tc - Pull in media-libs/libtxc_dxtn for DXTn texture compression, needed for many games
 app-emulation/wine-staging:samba - Add support for NTLM auth. see http://wiki.winehq.org/NtlmAuthSetupGuide and http://wiki.winehq.org/NtlmSigningAndSealing
 app-emulation/wine-staging:sdl - Add support for gamepad detection using SDL
 app-emulation/wine-staging:staging - Apply Wine-Staging patches for advanced feature support that haven't made it into upstream Wine yet
@@ -1625,18 +1622,23 @@ dev-games/mygui:samples - Install MyGUI demos (needs ogre USE flag)
 dev-games/mygui:tools - Build the tools for development
 dev-games/ode:double-precision - more precise calculations at the expense of speed
 dev-games/ode:gyroscopic - enable gyroscopic term (may cause instability)
-dev-games/ogre:boost - enable boost support
+dev-games/ogre:boost - Enable boost support
+dev-games/ogre:cache - Enable GL state cache support
 dev-games/ogre:cg - NVIDIA toolkit plugin
-dev-games/ogre:double-precision - more precise calculations at the expense of speed
-dev-games/ogre:freeimage - support images via freeimage
+dev-games/ogre:double-precision - More precise calculations at the expense of speed
+dev-games/ogre:egl - Use egl instead of glx
+dev-games/ogre:experimental - Build experimental BETA components 'Bites' and 'HLMS'
+dev-games/ogre:freeimage - Support images via media-libs/freeimage
 dev-games/ogre:gl3plus - Build OpenGL 3+ RenderSystem (EXPERIMENTAL)
-dev-games/ogre:gles2 - build OpenGL ES 2.x RenderSystem
+dev-games/ogre:gles2 - Build OpenGL ES 2.x RenderSystem
 dev-games/ogre:gles3 - Enable OpenGL ES 3.x Features
-dev-games/ogre:ois - pull in Object-oriented Input System library for samples
-dev-games/ogre:poco - when USE=threads, use poco for threading
-dev-games/ogre:tbb - when USE=threads, use tbb for threading
-dev-games/ogre:tools - build+install helper tools
-dev-games/ogre:zip - support zip archives
+dev-games/ogre:ois - Pull in Object-oriented Input System library dev-games/ois for samples
+dev-games/ogre:poco - When USE=threads, use poco for threading
+dev-games/ogre:resman-pedantic - Resource Manager PEDANTIC : require an explicit resource group. Case sensitive lookup. Some demos might not work with this setting. (default: case-insensitive + sensitive lookup in all groups)
+dev-games/ogre:resman-strict - Resource Manager STRICT : search in default group if not specified otherwise. Case sensitive lookup. Some demos might not work with this setting. (default: case-insensitive + sensitive lookup in all groups)
+dev-games/ogre:tbb - When USE=threads, use tbb for threading
+dev-games/ogre:tools - Build and install helper tools
+dev-games/ogre:zip - Support zip archives
 dev-games/openscenegraph:asio - Enable support for dev-cpp/asio library
 dev-games/openscenegraph:fox - Build examples using x11-libs/fox library
 dev-games/openscenegraph:gdal - Enable support for sci-libs/gdal library
@@ -2719,7 +2721,6 @@ dev-python/anyvc:mercurial - Add support for Mercurial
 dev-python/celery:redis - Enables redis support
 dev-python/celery:sqs - Enables Amazon SQS transport module for celery
 dev-python/celery:yaml - Enable support of yaml as a configuration file format
-dev-python/celery:zeromq - Enable logging and deployment via ZeroMQ
 dev-python/cgkit:3ds - Enable support for importing 3D Studio models
 dev-python/cvxopt:dsdp - Use interior point library sci-libs/dsdp
 dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
@@ -2735,7 +2736,6 @@ dev-python/django-cms:picture - Install djangocms picture plugin
 dev-python/django-cms:snippet - Install djangocms snippet plugin
 dev-python/django-cms:teaser - Install djangocms teaser plugin
 dev-python/django-cms:video - Install djangocms video plugin
-dev-python/django-tastypie:bip - An optional serialiser dev-python/biplist
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/fabric:fab2 - Install as "fab2", allowing side-by-side install with fabric 1.x
 dev-python/falcon:cython - Build cython-based python modules
@@ -2762,7 +2762,6 @@ dev-python/jira:oauth - Support OAuth authentication
 dev-python/kaa-base:tls - SSL/TLS support via dev-python/tlslite
 dev-python/kafka-python:snappy - Install snappy compression/decompression support
 dev-python/kazoo:gevent - Enable support for the gevent based handler
-dev-python/kombu:amqplib - Enable amqplib support
 dev-python/kombu:mongodb - Enables MongoDB backend
 dev-python/kombu:msgpack - Enables MessagePack (de)serializer for Python
 dev-python/kombu:redis - Enables Redis backend
@@ -3114,6 +3113,7 @@ dev-util/geany-plugins:scope - Enable the scope plugin which is a graphical GDB 
 dev-util/geany-plugins:soup - Enable updatechecker and geniuspaste plugins which require net-libs/libsoup
 dev-util/global:vim - Integrate the GNU GLOBAL source code tag system with Vim
 dev-util/gnome-builder:clang - Provide integration with sys-devel/clang for best possible C/C++ autocompletion, semantic highlighting, symbol resolving, and diagnostics support
+dev-util/gnome-builder:devhelp - Provide API docs browsing and integration via dev-util/devhelp
 dev-util/gnome-builder:git - Provide support for the Git version control system via dev-libs/libgit2-glib (such as setup of Git for New Project, direct cloning for Open Project and changed lines indicators in the editor gutter)
 dev-util/gnome-builder:sysprof - Provide an integrated profiler via dev-util/sysprof
 dev-util/gnome-builder:vala - Provide an autoindenter, autocompletion, diagnostics, and symbol resolver for Vala
@@ -3476,6 +3476,7 @@ games-rpg/manaplus:pugixml - Use dev-libs/pugixml for XML parsing isntead of dev
 games-rpg/manaplus:sdl2 - Use libsdl2 instead of libsdl
 games-rpg/sumwars:tools - Builds editor tools
 games-rpg/to-the-moon:bundled-libs - Use bundled libraries
+games-simulation/corsix-th:midi - Adds support for background MIDI music via SDL_mixer
 games-simulation/flightgear:dbus - Enable screensaver DBus interaction
 games-simulation/flightgear:gdal - Enable alternative terrain engine based on pagedLOD using sci-libs/gdal
 games-simulation/flightgear:qt5 - Build Qt5 launcher application
@@ -4021,7 +4022,7 @@ mail-mta/exim:redis - Adds support for querying dev-db/redis
 mail-mta/exim:spf - Adds support for Sender Policy Framework
 mail-mta/exim:srs - Adds support for Sender Rewriting Scheme
 mail-mta/exim:tpda - Adds support for Transport Post-Delivery Actions
-mail-mta/msmtp:libsecret - Enable libsecret support to store login credentials
+mail-mta/msmtp:daemon - Build/install msmtpd MTA daemon
 mail-mta/msmtp:mta - Enable this to install as system-wide MTA
 mail-mta/netqmail:authcram - Enable AUTHCRAM support
 mail-mta/netqmail:gencertdaily - Generate SSL certificates daily instead of hourly
@@ -4320,7 +4321,6 @@ media-libs/coin:qthelp - Build API documentation in QtHelp format
 media-libs/coin:simage - Texture loading via media-libs/simage library
 media-libs/devil:allegro - Add support for Allegro
 media-libs/devil:nvtt - Add support for media-gfx/nvidia-texture-tools
-media-libs/elementary:quicklaunch - Enable quick-launch support
 media-libs/esdl:image - Enable image support
 media-libs/faad2:digitalradio - Digital Radio Mondiale (warning: disables other decoders)
 media-libs/flickcurl:raptor - Use media-libs/raptor for proper RDF serializing
@@ -4473,7 +4473,6 @@ media-libs/mlt:opencv - Build motion tracking module using media-libs/opencv
 media-libs/mlt:python - Build SWIG bindings for Python
 media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms.
 media-libs/mlt:ruby - Build SWIG bindings for Ruby
-media-libs/mlt:sdl2 - Build media-libs/libsdl2 module
 media-libs/netpbm:rle - Build converters for the RLE format (utah raster toolkit)
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
 media-libs/opencv:contrib_cvv - CVV module requires Qt5
@@ -4696,17 +4695,14 @@ media-sound/audacity:twolame - Enables twolame support (MPEG Audio Layer 2 encod
 media-sound/audacity:vamp - Enables vamp plugins support (Audio analysing plugins)
 media-sound/audacity:vst - Enable VST plugin support
 media-sound/beets:badfiles - Validate MP3 & FLAC files
-media-sound/beets:bpd - Enable support for media-sound/mpd server emulation
-media-sound/beets:chroma - Enable support for acoustic fingerprinting plugin using media-libs/chromaprint
-media-sound/beets:convert - Enable support for the convert plugin which makes it possible to transcode files
+media-sound/beets:chromaprint - Enable support for acoustic fingerprinting plugin using media-libs/chromaprint
 media-sound/beets:discogs - Enable support for the discogs API plugin
-media-sound/beets:lastgenre - Enable support for importing music genres from last.fm tags
-media-sound/beets:lastimport - Enable support for importing your last.fm playcounts
-media-sound/beets:mpdstats - Enable support for collecting statistic about listening habits from media-sound/mpd
-media-sound/beets:opus - Enable opus support in gstreamer-based replaygain
+media-sound/beets:ffmpeg - Enable support for the convert plugin to transcode files via media-video/ffmpeg
+media-sound/beets:lastfm - Enable support for importing personal last.fm playcounts and music genres from last.fm tags
+media-sound/beets:mpd - Enable support for media-sound/mpd server emulation and statistic gathered from media-sound/mpd
 media-sound/beets:replaygain - Enable support for Replay Gain metadata calculation during import
-media-sound/beets:thumbnails - Generate thumbnails for albums
-media-sound/beets:web - Enable embedded webserver support through dev-python/flask
+media-sound/beets:thumbnail - Enable album thumbnails generation
+media-sound/beets:webserver - Enable embedded webserver support through dev-python/flask
 media-sound/bluez-alsa:hcitop - Enable top-like monitoring tool for HCI
 media-sound/cantata:cdio - Use dev-libs/libcdio-paranoia for CD support (instead of cdparanoia)
 media-sound/cantata:http-server - Enable internal HTTP server to play non-MPD files
@@ -5694,7 +5690,9 @@ net-dns/bind-tools:gssapi - Enable gssapi support
 net-dns/bind-tools:libidn2 - Enables IDN support using net-dns/libidn2 rather than using net-dns/idnkit
 net-dns/bind-tools:urandom - Use /dev/urandom instead of /dev/random
 net-dns/ddclient:cloudflare - Enable support for updating IP address via CloudFlare
+net-dns/ddclient:examples - Install various example files, like for cron.
 net-dns/ddclient:hardened - Use iproute2 instead of ifconfig to grab an IP address
+net-dns/ddclient:iproute2 - Use sys-apps/iproute2 instead of sys-apps/net-tools for interaction.
 net-dns/dnsdist:dnscrypt - Enable the ability to act as a DNSCrypt server
 net-dns/dnsdist:regex - Enable support for regular expression matching via dev-libs/re2
 net-dns/dnsdist:remote-logging - Enable support for remote logging via dev-libs/protobuf
@@ -5720,9 +5718,11 @@ net-dns/hash-slinger:ipsec - Enable support for IPSECKEY records (ipseckey)
 net-dns/hash-slinger:openpgp - Enable support for OPENPGPKEY records (openpgpkey)
 net-dns/hash-slinger:ssh - Enable support for SSHFP records (sshfp)
 net-dns/idnkit:liteonly - Compile and install lite library only
+net-dns/knot:cookies - Enable the DNS cookie module (RFC 7873)
 net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
 net-dns/knot:fastparser - Use a zone file parser that is faster, but requires more memory and CPU time to compile
+net-dns/knot:geoip - Enable the Geography-based responses module
 net-dns/knot:libidn2 - If IDN support is enabled, use net-dns/libidn2 instead of net-dns/libidn
 net-dns/knot:noudp - Enable the module which can send empty truncated responses to UDP queries
 net-dns/knot:onlinesign - Enable the module that sign zones on the fly instead of pre-signing zone
@@ -6176,6 +6176,7 @@ net-libs/libesmtp:ntlm - Enable support for NTLM authentication
 net-libs/libetpan:liblockfile - Enable support for liblockfile library
 net-libs/libgsasl:gcrypt - Use dev-libs/libgcrypt for low-level crypto
 net-libs/libgsasl:ntlm - Add support for Microsoft's NTLM mechanism using net-libs/libntlm
+net-libs/libiio:aio - Enable asynchronous IO support
 net-libs/libinfinity:server - Build and install the server binary including init.d/conf.d-scripts. Needed if you want to host an infinote server for gobby.
 net-libs/libisds:openssl - Use dev-libs/openssl as crypto backend instead of app-crypt/gpgme and dev-libs/libgcrypt
 net-libs/libmicrohttpd:epoll - use epoll() system call
@@ -6593,6 +6594,7 @@ net-misc/icaclient:l10n_zh_CN - Install Chinese translation
 net-misc/icecast:kate - Add karaoke and text encapsulation support for Ogg files
 net-misc/icecast:logrotate - Install support files for app-admin/logrotate?
 net-misc/icecast:yp - Build support for yp public directory listings
+net-misc/iperf:profiling - Create a profiled iperf3 binary
 net-misc/iputils:SECURITY_HAZARD - Allow non-root users to flood (ping -f). This is generally a very bad idea.
 net-misc/iputils:arping - Build and install arping -- tool for sending ARP requests to peers (see also net-analyzer/arping)
 net-misc/iputils:clockdiff - Build and install clockdiff -- tool for comparing clocks via ICMP packets
@@ -6655,6 +6657,7 @@ net-misc/networkmanager:consolekit - Use sys-auth/consolekit for session trackin
 net-misc/networkmanager:dhclient - Use dhclient from net-misc/dhcp for getting ip
 net-misc/networkmanager:dhcpcd - Use net-misc/dhcpcd for getting ip
 net-misc/networkmanager:elogind - Use sys-auth/elogind for session tracking
+net-misc/networkmanager:iwd - Use net-wireless/iwd instead of net-wireless/wpa_supplicant for wifi support by default
 net-misc/networkmanager:json - Enable JSON validation via dev-libs/jansson in libnm.
 net-misc/networkmanager:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 net-misc/networkmanager:nss - Use dev-libs/nss for cryptography
@@ -6664,7 +6667,7 @@ net-misc/networkmanager:ppp - Enable support for mobile broadband and PPPoE conn
 net-misc/networkmanager:resolvconf - Use net-dns/openresolv for managing DNS information
 net-misc/networkmanager:teamd - Enable Teamd control support
 net-misc/networkmanager:wext - Enable support for the deprecated Wext (Wireless Extensions) API; needed for some older drivers (e.g. ipw2200, ndiswrapper)
-net-misc/networkmanager:wifi - Enable support for wifi and 802.1x security using net-wireless/wpa_supplicant
+net-misc/networkmanager:wifi - Enable support for wifi and 802.1x security
 net-misc/networkmanager-strongswan:glib - Enable libnm-glib compatibility.
 net-misc/nextcloud-client:dolphin - Install the kde-apps/dolphin extension
 net-misc/nextcloud-client:nautilus - Install the gnome-base/nautilus extension
@@ -7077,23 +7080,27 @@ net-vpn/strongswan:gcrypt - Enable dev-libs/libgcrypt plugin which provides 3DES
 net-vpn/strongswan:non-root - Force IKEv1/IKEv2 daemons to normal user privileges. This might impose some restrictions mainly to the IKEv1 daemon. Disable only if you really require superuser privileges.
 net-vpn/strongswan:openssl - Enable dev-libs/openssl plugin which is required for Elliptic Curve Cryptography (DH groups 19-21,25,26) and ECDSA. Also provides 3DES, AES, Blowfish, Camellia, CAST, DES, IDEA and RC5 ciphers along with MD2, MD4, MD5 and SHA1/2 hash algorithms, RSA and DH groups 1,2,5,14-18 and 22-24(4.4+) dev-libs/openssl has to be compiled with USE="-bindist".
 net-vpn/strongswan:pkcs11 - Enable pkcs11 support
+net-vpn/strongswan:strongswan_plugins_aesni - Enable support for Intel AES-NI crypto plugin
 net-vpn/strongswan:strongswan_plugins_blowfish - Enable support for the blowfish plugin
 net-vpn/strongswan:strongswan_plugins_ccm - Enable support for the ccm plugin
+net-vpn/strongswan:strongswan_plugins_chapoly - Enable ChaCha20/Poly1305 AEAD implementation and ChaCha20 XOF plugin
 net-vpn/strongswan:strongswan_plugins_ctr - Enable support for the ctr plugin
+net-vpn/strongswan:strongswan_plugins_forecast - Enable multicast and broadcast forwarding plugin
 net-vpn/strongswan:strongswan_plugins_gcm - Enable support for the gcm plugin
 net-vpn/strongswan:strongswan_plugins_ha - Enable support for the ha plugin
 net-vpn/strongswan:strongswan_plugins_ipseckey - Enable support for the ipseckey plugin
 net-vpn/strongswan:strongswan_plugins_led - Enable support for the led plugin
 net-vpn/strongswan:strongswan_plugins_lookip - Enable support for the lookip plugin
+net-vpn/strongswan:strongswan_plugins_newhope - Enable plugin that allows key exchange based on post-quantum computer New Hope algorithm
 net-vpn/strongswan:strongswan_plugins_ntru - Enable support for the ntru plugin
 net-vpn/strongswan:strongswan_plugins_padlock - Enable support for the padlock plugin
 net-vpn/strongswan:strongswan_plugins_rdrand - Enable support for the rdrand plugin
+net-vpn/strongswan:strongswan_plugins_save-keys - Enable plugin that saves IKE and/or ESP keys to files compatible with Wireshark (for debugging)
 net-vpn/strongswan:strongswan_plugins_systime-fix - Enable support for the systime-fix plugin
 net-vpn/strongswan:strongswan_plugins_unbound - Enable support for the unbound plugin
 net-vpn/strongswan:strongswan_plugins_unity - Enable support for the unity plugin
 net-vpn/strongswan:strongswan_plugins_vici - Enable support for the vici plugin
 net-vpn/strongswan:strongswan_plugins_whitelist - Enable support for the whitelist plugin
-net-vpn/tinc:gui - Add GUI support, using dev-python/wxpython
 net-vpn/tinc:uml - Enable support for User Mode Linux Sockets
 net-vpn/tinc:vde - Enable Virtual Distributed Ethernet (VDE) based networking
 net-vpn/tor:scrypt - Use app-crypt/libscrypt for the scrypt algorithm
@@ -7157,6 +7164,7 @@ net-wireless/gr-baz:uhd - install UHD aware blocks
 net-wireless/gr-osmosdr:bladerf - Build with Nuand BladeRF support
 net-wireless/gr-osmosdr:fcd - Build with Funcube Dongle support
 net-wireless/gr-osmosdr:hackrf - Build with Great Scott Gadgets HackRF support
+net-wireless/gr-osmosdr:iio - Build with Industrial IO support for devices such as Analog Devices Pluto
 net-wireless/gr-osmosdr:iqbalance - Enable support for I/Q balancing using gr-iqbal
 net-wireless/gr-osmosdr:mirisdr - Build with Mirics MSi2500 + MSi001 SDR support
 net-wireless/gr-osmosdr:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
@@ -7192,6 +7200,7 @@ net-wireless/soapy_power:faster - Use sci-libs/scipy to speed up drawing
 net-wireless/soapy_power:fastest - Use dev-python/pyFFTW to speed up drawing to the max
 net-wireless/soapysdr:bladerf - Add support for bladerf hardware
 net-wireless/soapysdr:hackrf - Add support for hackrf hardware
+net-wireless/soapysdr:plutosdr - Add support for Analog Devices ADALM-PLUTO hardware
 net-wireless/soapysdr:rtlsdr - Add support for rtlsdr hardware
 net-wireless/soapysdr:uhd - Add support for Ettus USRP hardware
 net-wireless/spectools:debug - Build the raw output client for spectools. (for developers)
@@ -7326,6 +7335,8 @@ sci-electronics/gtkwave:packed - Enables '#pragma pack' for data arrays (saves m
 sci-electronics/kicad:github - Add github support into PCB editor
 sci-electronics/kicad:i18n - Allow GUI internationalization through l10n_* use flags
 sci-electronics/kicad:minimal - Build only binaries without parts library and examples
+sci-electronics/kicad:ngspice - Enable circuit simulation
+sci-electronics/kicad:oce - Enable viewing 3D rendering of designs via OCE
 sci-electronics/kicad:python - Enable python scripting support
 sci-electronics/ngspice:shared - Build ngspice as a shared library
 sci-electronics/pcb:gcode - gcode file export
@@ -7485,6 +7496,10 @@ sci-libs/netcdf:tools - Build the utilities nccopy, ncgen and ncdump
 sci-libs/nlopt:octave - Add plugin for sci-mathematics/octave
 sci-libs/o2scl:armadillo - Build matrix manipulation with sci-libs/armadillo
 sci-libs/o2scl:eigen - Build matrix manipulation with dev-cpp/eigen
+sci-libs/oce:freeimage - Enable support for image i/o via media-libs/freeimage
+sci-libs/oce:gl2ps - Use gl2ps PostScript printing library
+sci-libs/oce:tbb - Enable parallel meshing
+sci-libs/oce:vtk - Enable Virtualisation Toolkit
 sci-libs/octomap:dynamicEDT3D - Build and install dynamicEDT3D library: A library for incrementally updatable Euclidean distance transforms in 3D.
 sci-libs/opencascade:freeimage - Enable support for image i/o via media-libs/freeimage
 sci-libs/opencascade:gl2ps - Use gl2ps PostScript printing library
@@ -7648,7 +7663,6 @@ sci-physics/bullet:extras - Build additional libraries
 sci-physics/cernlib-montecarlo:herwig - Build Herwig internal event generator, newer version available in sci-physics/herwig
 sci-physics/espresso:cuda - Enable cuda support
 sci-physics/espresso:examples - Installs the examples
-sci-physics/espresso:packages - Installs extra TCL subpackages
 sci-physics/fastjet:cgal - Use sci-mathematics/cgal instead of bundled algorithms
 sci-physics/fastjet:plugins - Build all standard and C++ plugins
 sci-physics/geant:data - Add a lot of standard physics data files for geant4
@@ -7714,6 +7728,8 @@ sci-visualization/gwyddion:fits - Enable FITS image import via sci-libs/cfitsio
 sci-visualization/gwyddion:sourceview - Enable support for x11-libs/gtksourceview
 sci-visualization/labplot:cantor - Enable support for different open-source computer algebra systems via kde-apps/cantor
 sci-visualization/labplot:fits - Enable support for NASA's sci-libs/cfitsio library
+sci-visualization/labplot:libcerf - Enable special functions from sci-libs/libcerf
+sci-visualization/labplot:root - Enable support for CERN's ROOT file type
 sci-visualization/opendx:cdf - Add support for sci-libs/cdf data exchange format
 sci-visualization/opendx:hdf - Add support for the Hierarchical Data Format (sci-libs/hdf)
 sci-visualization/paraview:boost - Enable the usage of dev-libs/boost
@@ -7963,7 +7979,6 @@ sys-auth/fingerprint-gui:upekbsapi - Add UPEK BSAPI drivers for identify functio
 sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
 sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/munge:gcrypt - Use libgcrypt instead of openssl
-sys-auth/nss-mdns:search-domains - Honour search domains from /etc/resolv.conf (see bug #201948 for possible side effects)
 sys-auth/nss-pam-ldapd:pynslcd - Install the python implementation along with the standard implementation
 sys-auth/nss-pam-ldapd:utils - Install the command-line utilities
 sys-auth/oath-toolkit:pam - Build PAM module for pluggable login authentication for OATH
@@ -8167,8 +8182,14 @@ sys-cluster/pmix:pmi - Build PMI1 and PMI2 interface
 sys-cluster/resource-agents:libnet - Force use of net-libs/libnet
 sys-cluster/resource-agents:rgmanager - Install resources for sys-cluster/rgmanager
 sys-cluster/singularity:slurm - Compile spank plugin for sys-cluster/slurm
+sys-cluster/slurm:html - Build html documentation
+sys-cluster/slurm:ipmi - Build support for collecting some ipmi stats
+sys-cluster/slurm:json - Add support for json-persing via json-c
 sys-cluster/slurm:multiple-slurmd - Allow multiple slurmd to run
 sys-cluster/slurm:munge - Enable authentication via munge
+sys-cluster/slurm:netloc - Add support for netloc (amd64 only)
+sys-cluster/slurm:numa - Add NUMA awareness
+sys-cluster/slurm:ofed - Add Infiniband support via ofed
 sys-cluster/slurm:torque - Enable perl scripts that emulates pbs (qstat, qsub etc.)
 sys-cluster/swift:account - adds swift account support
 sys-cluster/swift:container - adds swift container support
