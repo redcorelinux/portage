@@ -198,12 +198,6 @@
     </member>
   </project>
   <project>
-    <email>alt@gentoo.org</email>
-    <name>Alt</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Alt</url>
-    <description>Provide Gentoo solutions for non-GNU/Linux platforms.</description>
-  </project>
-  <project>
     <email>antivirus@gentoo.org</email>
     <name>Gentoo Antivirus Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Antivirus</url>
@@ -1690,7 +1684,7 @@
     <member>
       <email>antarus@gentoo.org</email>
       <name>Alec Warner</name>
-      <role>General wrangling / Packages site</role>
+      <role>General wrangling, packages site</role>
     </member>
     <member>
       <email>blueknight@gentoo.org</email>
@@ -1714,7 +1708,7 @@
     <member>
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
-      <role>General system administration, Wiki</role>
+      <role>General system administration, wiki, documentation editor</role>
     </member>
     <member>
       <email>mgorny@gentoo.org</email>
@@ -1724,7 +1718,7 @@
     <member>
       <email>prometheanfire@gentoo.org</email>
       <name>Matthew Thode</name>
-      <role>General system administration, Automation, Virtualization</role>
+      <role>General sys admin, Automation, Virtualization</role>
     </member>
     <member is-lead="1">
       <email>robbat2@gentoo.org</email>
@@ -3106,11 +3100,6 @@ developers and volunteer mentors.</description>
       <role>Lead</role>
     </member>
     <member>
-      <email>creffett@gentoo.org</email>
-      <name>Chris Reffett</name>
-      <role>Developer</role>
-    </member>
-    <member>
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Developer</role>
@@ -3118,11 +3107,6 @@ developers and volunteer mentors.</description>
     <member>
       <email>mrueg@gentoo.org</email>
       <name>Manuel Rüger</name>
-      <role>Developer</role>
-    </member>
-    <member>
-      <email>patrick@gentoo.org</email>
-      <name>Patrick Lauer</name>
       <role>Developer</role>
     </member>
     <member>
@@ -3143,11 +3127,6 @@ developers and volunteer mentors.</description>
     <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
-      <role>Developer</role>
-    </member>
-    <member>
-      <email>zerochaos@gentoo.org</email>
-      <name>Rick Farina</name>
       <role>Developer</role>
     </member>
     <member>
@@ -3476,15 +3455,15 @@ developers and volunteer mentors.</description>
       <name>Fabian Groffen</name>
       <role>Member</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
-      <role>Member</role>
+      <role>Lead</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
-      <role>Lead</role>
+      <role>Member</role>
     </member>
   </project>
   <project>

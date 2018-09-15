@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-
 inherit toolchain-funcs
 
 DESCRIPTION="Extremely fast non-cryptographic hash algorithm"
@@ -11,12 +10,13 @@ SRC_URI="https://github.com/Cyan4973/xxHash/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="BSD-2 GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ia64 ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x64-macos"
+KEYWORDS="~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x64-macos"
 IUSE="static-libs"
 
-DEPEND=""
-
 S="${WORKDIR}/xxHash-${PV}"
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.6.5-compile-xxhash.o-once.patch
+)
 
 src_compile() {
 	PREFIX="${EPREFIX}/usr" \

@@ -125,7 +125,7 @@ wincolor-0.1.6
 wincolor-1.0.0
 "
 
-inherit cargo bash-completion-r1 versionator
+inherit cargo bash-completion-r1 multiprocessing versionator
 
 BOOTSTRAP_VERSION="0.$(($(get_version_component_range 2) - 1)).0"
 
@@ -151,7 +151,7 @@ SRC_URI="https://github.com/rust-lang/cargo/archive/${PV}.tar.gz -> ${P}.tar.gz
 RESTRICT="mirror"
 LICENSE="|| ( MIT Apache-2.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 
 IUSE="doc libressl"
 
@@ -173,12 +173,12 @@ COMMON_DEPEND="sys-libs/zlib
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
 	net-libs/libssh2
-	net-libs/http-parser"
+	net-libs/http-parser:="
 RDEPEND="${COMMON_DEPEND}
 	!dev-util/cargo-bin
 	net-misc/curl[ssl]"
 DEPEND="${COMMON_DEPEND}
-	>=virtual/rust-1.19.0
+	>=virtual/rust-1.27.0
 	dev-util/cmake
 	sys-apps/coreutils
 	sys-apps/diffutils
@@ -195,7 +195,7 @@ src_configure() {
 src_compile() {
 	export CARGO_HOME="${ECARGO_HOME}"
 	local cargo="${WORKDIR}/cargo-${BOOTSTRAP_VERSION}-${TRIPLE}/cargo/bin/cargo"
-	${cargo} build --release
+	${cargo} build -j$(makeopts_jobs) --release || die
 
 	# Building HTML documentation
 	use doc && ${cargo} doc

@@ -113,6 +113,7 @@ app-admin/puppet-agent:experimental - Add patches for things in testing
 app-admin/puppet-agent:puppetdb - Adds puppetdb support
 app-admin/puppetserver:puppetdb - Adds support for connecting to puppetdb
 app-admin/pwgen:livecd - Install init script for root password scrambling on boot
+app-admin/pwman3:mongodb - Add support for MongoDB
 app-admin/rsyslog:curl - Enable http_request() function in RainerScript (requires net-misc/curl)
 app-admin/rsyslog:dbi - Build the general database output module (requires dev-db/libdbi)
 app-admin/rsyslog:elasticsearch - Build the Elasticsearch output module (requires net-misc/curl)
@@ -343,6 +344,7 @@ app-crypt/qca:pkcs11 - Enable PKCS#11 plugin
 app-crypt/qca:sasl - Enable SASL plugin
 app-crypt/qca:softstore - Enable softstore plugin
 app-crypt/seahorse:ldap - Enable seahorse to manipulate GPG keys on a LDAP server.
+app-crypt/tpm-emulator:mtm-emulator - Build the MTM emulator
 app-crypt/tpm-tools:pkcs11 - Build Token data management utilities based on OpenCryptoki's (dev-libs/opencryptoki) PKCS#11 implementation.
 app-crypt/veracrypt:asm - Enable assembly for optimization
 app-crypt/zulucrypt:gnome - Enable support for the freedesktop.org Secret Service API via app-crypt/libsecret
@@ -927,6 +929,7 @@ app-misc/freemind:groovy - Build plugin for scripting via Groovy
 app-misc/freemind:latex - Build plugin for inserting mathematical formulas in LaTeX syntax
 app-misc/freemind:pdf - Build plugin for exporting mindmaps to SVG and PDF
 app-misc/freemind:svg - Build plugin for exporting mindmaps to SVG and PDF
+app-misc/g810-led:hidapi - Use dev-libs/hidapi instead of virtual/libusb for talking to the device (advertised to be faster)
 app-misc/gcstar:stats - Enable statistics reporting
 app-misc/gcstar:tellico - Enable support for kde-misc/tellico files
 app-misc/geoclue:geonames - Install geonames.org provider
@@ -1419,6 +1422,7 @@ dev-cpp/libjson-rpc-cpp:http-server - Build support for HTTP server using net-li
 dev-cpp/libjson-rpc-cpp:redis-client - Build support for Redis client using dev-libs/hiredis
 dev-cpp/libjson-rpc-cpp:redis-server - Build support for Redis server using dev-libs/hiredis
 dev-cpp/libjson-rpc-cpp:stubgen - Build header stub code generator (needed for development and when pregenerated headers are not bundled)
+dev-cpp/sourcetrail:examples - Install example projects.
 dev-cpp/websocketpp:boost - Use dev-libs/boost instead of C++11
 dev-cpp/xsd:ace - Enable support for serializing to/from an ACE CDR stream
 dev-db/aerospike-server-community:tools - Install extra tools
@@ -2472,6 +2476,7 @@ dev-libs/openct:pcsc-lite - Build a driver library for sys-apps/pcsc-lite, provi
 dev-libs/openct:udev - Install rules for sys-fs/udev to auto-start openct.
 dev-libs/openobex:irda - Enable IrDA support
 dev-libs/opensc:ctapi - Use CT-API for accessing Smartcard hardware
+dev-libs/opensc:notify - Enable notifications
 dev-libs/opensc:openct - Use dev-libs/openct (and CT-API) for accessing Smartcard hardware
 dev-libs/opensc:pcsc-lite - Use sys-apps/pcsc-lite (and PC/SC API) for accessing Smartcard hardware
 dev-libs/opensc:secure-messaging - Enable secure messaging
@@ -3633,8 +3638,10 @@ kde-apps/dolphin-plugins:bazaar - Enable support for the bazaar VCS
 kde-apps/dolphin-plugins:dropbox - Enable support for the dropbox fileviewer plugin
 kde-apps/dolphin-plugins:git - Enable support for the git VCS
 kde-apps/dolphin-plugins:mercurial - Enable support for the mercurial VCS
+kde-apps/gwenview:activities - Enable kactivities support
 kde-apps/gwenview:fits - Enable support for NASA's sci-libs/cfitsio library
-kde-apps/gwenview:kipi - Support for the KDE Image Plugin Interface
+kde-apps/gwenview:kipi - Enable support for the KDE Image Plugin Interface
+kde-apps/gwenview:mpris - Enable support for MPRIS2 interface, requiring dev-qt/qtdbus as dependency.
 kde-apps/k3b:emovix - Enable burning support for eMoviX images
 kde-apps/kalzium:editor - Enable the embedded molecule editor/viewer
 kde-apps/kalzium:solver - Enable the equation solver
@@ -3650,6 +3657,7 @@ kde-apps/kdenetwork-meta:telepathy - Enable support for Plasma Telepathy (instan
 kde-apps/kdenlive:freesound - Enable freesound.org credentials support via dev-qt/qtwebkit to download files
 kde-apps/kdenlive:gles2 - Use GLES 2.0 or later instead of full OpenGL
 kde-apps/kdenlive:jogshuttle - Enable support for Jog-Shuttle devices
+kde-apps/kdenlive:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/kdepim-addons:importwizard - Enable additional import plugins for kde-apps/akonadi-import-wizard
 kde-apps/kdepim-runtime:speech - Enable text-to-speech support
 kde-apps/kdeutils-meta:floppy - Install kde-apps/kfloppy to format and create DOS or ext2fs filesystems in a floppy.
@@ -3729,6 +3737,7 @@ kde-frameworks/kimageformats:eps - Support the EPS graphics file format
 kde-frameworks/kinit:caps - Capabilities support for improved security and better OOM handling
 kde-frameworks/kinit:man - Build and install man pages
 kde-frameworks/kio:kwallet - Enable permanent storage of passwords for kpasswdserver with kde-frameworks/kwallet
+kde-frameworks/knotifications:phonon - Play notification sounds via media-libs/phonon instead of media-libs/libcanberra
 kde-frameworks/knotifications:speech - Enable text-to-speech notification support
 kde-frameworks/knotifyconfig:phonon - Add sound support via media-libs/phonon
 kde-frameworks/kpackage:man - Build and install man pages
@@ -4224,7 +4233,8 @@ media-gfx/gthumb:webp - Enable support for webp image format
 media-gfx/hugin:sift - automatically align images with media-gfx/autopano-sift-C
 media-gfx/imagemagick:corefonts - Use media-fonts/corefonts which is required by some commands
 media-gfx/imagemagick:fpx - Enable media-libs/libfpx support
-media-gfx/imagemagick:hdri - enable High Dynamic Range Images formats
+media-gfx/imagemagick:hdri - Enable High Dynamic Range Images formats
+media-gfx/imagemagick:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/imagemagick:lqr - Enable experimental liquid rescale support using media-libs/liblqr
 media-gfx/imagemagick:opencl - Enable OpenCL support
 media-gfx/imagemagick:pango - Enable Pango support using x11-libs/pango
@@ -4293,7 +4303,6 @@ media-libs/alsa-lib:alisp - Enable support for ALISP (ALSA LISP) interpreter for
 media-libs/alsa-lib:thread-safety - thread-safe API functions
 media-libs/alure:dumb - Enable media-libs/dumb module library support
 media-libs/alure:fluidsynth - Enables Fluidsynth MIDI software synthesis
-media-libs/assimp:boost - Build assimp with boost support
 media-libs/assimp:samples - Build viewer library
 media-libs/assimp:tools - Build assimp tool binary
 media-libs/aubio:double-precision - Compile in double precision mode.
@@ -4836,14 +4845,17 @@ media-sound/musescore:portmidi - Enable support for building against media-libs/
 media-sound/musescore:vorbis - Enable SoundFont support using media-libs/libvorbis
 media-sound/musescore:webengine - Use dev-qt/qtwebengine for embedded web browser
 media-sound/ncmpc:artist-screen - Enable artist screen
+media-sound/ncmpc:async-connect - Enable asynchronous connect
 media-sound/ncmpc:chat-screen - Enable the chat screen
 media-sound/ncmpc:colors - Enable color support
 media-sound/ncmpc:help-screen - Enable the help screen
 media-sound/ncmpc:key-screen - Enable key editor screen
 media-sound/ncmpc:lyrics-screen - Enable lyrics screen
 media-sound/ncmpc:mouse - Enable curses getmouse support
+media-sound/ncmpc:outputs-screen - Enable the outputs screen
 media-sound/ncmpc:search-screen - Enable search screen
 media-sound/ncmpc:song-screen - Enable song viewer screen
+media-sound/ncmpc:tcp - Enable TCP support
 media-sound/ncmpcpp:clock - Enable clock screen
 media-sound/ncmpcpp:outputs - Enable outputs screen
 media-sound/ncmpcpp:visualizer - Enable visualizer screen with sound wave/frequency spectrum modes
@@ -4980,6 +4992,7 @@ media-tv/kodi:gbm - Use the Graphics Buffer Manager for EGL on KMS.
 media-tv/kodi:gles - Enable support for GLES
 media-tv/kodi:libusb - Use virtual/libusb for usb device hotplug support. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use sys-fs/udev.
 media-tv/kodi:lirc - Enable support for controlling Totem with a remote control using app-misc/lirc
+media-tv/kodi:mariadb - Add MariaDB support
 media-tv/kodi:nfs - Enable NFS client support
 media-tv/kodi:nonfree - Enable non-free components
 media-tv/kodi:sftp - Support browsing files over SFTP
@@ -5432,6 +5445,7 @@ net-analyzer/icinga2:classicui - Adds support for the old interface
 net-analyzer/icinga2:console - Adds support for line-editing in the console
 net-analyzer/icinga2:lto - Adds support for link time optimization
 net-analyzer/icinga2:mail - Allows for mailing of alerts
+net-analyzer/icinga2:mariadb - Enable support for the mariadb database backend
 net-analyzer/icinga2:nano-syntax - Adds support for syntax used in the nano editor
 net-analyzer/icinga2:plugins - Adds support for nagios plugins
 net-analyzer/icinga2:studio - Adds support for Icinga-studio
@@ -5768,7 +5782,9 @@ net-dns/resolvconf-symlink:symlink - Actually replace /etc/resolv.conf with a sy
 net-dns/unbound:dnscrypt - Enable DNSCrypt support
 net-dns/unbound:dnstap - Enable dnstap support
 net-dns/unbound:ecdsa - Enable ECDSA support
+net-dns/unbound:ecs - Enable EDNS client subnet support
 net-dns/unbound:gost - Enable GOST support
+net-dns/unbound:redis - Enable cache db backend which uses dev-libs/hiredis
 net-firewall/arno-iptables-firewall:plugins - Install optional plugins
 net-firewall/conntrack-tools:cthelper - Use net-libs/libnetfilter_cthelper for userspace conntrack helper support
 net-firewall/conntrack-tools:cttimeout - Use net-libs/libnetfilter_cttimeout for conntrack timeout support
@@ -5846,7 +5862,6 @@ net-fs/s3ql:contrib - Install additional contributed scripts
 net-fs/samba:addc - Enable Active Directory Domain Controller support
 net-fs/samba:addns - Enable AD DNS integration
 net-fs/samba:ads - Enable Active Directory support
-net-fs/samba:aio - Enable asynchronous IO support
 net-fs/samba:ceph - Enable support for Ceph distributed filesystem via sys-cluster/ceph
 net-fs/samba:client - Enables the client part
 net-fs/samba:cluster - Enable support for clustering
@@ -7832,10 +7847,11 @@ sys-apps/fwupd:colorhug - Enable ColorHug support through x11-misc/colord packag
 sys-apps/fwupd:dell - Enable Dell-specific support.
 sys-apps/fwupd:gpg - Enable GPG support.
 sys-apps/fwupd:man - Build and install man pages
+sys-apps/fwupd:nvme - Build and install nvme plugin
 sys-apps/fwupd:pkcs7 - Enable PKCS7 verification support via net-libs/gnutls.
 sys-apps/fwupd:redfish - Install redfish plugin
+sys-apps/fwupd:thunderbolt - Install thunderbolt plugin
 sys-apps/fwupd:uefi - Enable UEFI support
-sys-apps/fwupd:uefi_labels - Enable UEFI labels support
 sys-apps/gawk:forced-sandbox - Always enable --sandbox mode for simpler/secure runtime (disables e/r/w commands)
 sys-apps/gawk:mpfr - use mpfr for high precision arithmetic (-M / --bignum)
 sys-apps/gnome-disk-utility:fat - Include FAT16/FAT32 support (sys-fs/dosfstools)
@@ -7976,6 +7992,7 @@ sys-auth/consolekit:pm-utils - Adds support for suspend/resume using sys-power/p
 sys-auth/consolekit:policykit - Use the PolicyKit framework (sys-auth/polkit) to get authorization for suspend/shutdown.
 sys-auth/consolekit:systemd-units - Install systemd unit files to replace the modern functionality of logind in sys-apps/systemd. Not recommended.
 sys-auth/fingerprint-gui:upekbsapi - Add UPEK BSAPI drivers for identify functions on some readers
+sys-auth/google-authenticator-libpam-hardened:qrcode - Display QRcode after setup to accomodate automatic setup of OTP client apps.
 sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
 sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/munge:gcrypt - Use libgcrypt instead of openssl
@@ -8284,6 +8301,7 @@ sys-devel/parity:vc_x86 - Enable support for 32bit Visual Studio compilers
 sys-devel/sparse:gtk - Build the test-inspect utility (requires x11-libs/gtk+ version 2)
 sys-devel/sparse:llvm - Build the sparse-llvm utility
 sys-devel/sparse:xml - Build the c2xml utility (requires dev-libs/libxml2)
+sys-fabric/mstflint:inband - Enable firmware updates for Mellanox SwitchX and ConnectIB devices
 sys-fabric/ofed:dapl - Add support for DAPL abstraction layer
 sys-fabric/ofed:diags - Add dignostic tools for infiniband
 sys-fabric/ofed:ibacm - Add support for userspace pre-connection services
@@ -8333,6 +8351,7 @@ sys-freebsd/freebsd-usbin:audit - Build auditing tools.
 sys-freebsd/freebsd-usbin:floppy - Enable floppy disk utilities (fdcontrol, fdformat, fdread, fdwrite).
 sys-freebsd/freebsd-usbin:netware - Build libraries and tools to work with NetWare protocols (IPX and NCP).
 sys-freebsd/freebsd-usbin:zfs - Enable ZFS support.
+sys-fs/android-file-transfer-linux:fuse - Add FUSE mount helper
 sys-fs/btrfs-progs:convert - Build ext2 conversion utility (btrfs-convert)
 sys-fs/btrfs-progs:reiserfs - Enable reiserfs support in btrfs-convert tool.
 sys-fs/btrfs-progs:static - Build static binaries in addition to the dynamic ones
