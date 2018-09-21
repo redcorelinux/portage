@@ -10,7 +10,7 @@ SRC_URI="mirror://sourceforge/wmpower/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc x86"
 
 RDEPEND="x11-libs/libX11
 	x11-libs/libXext
@@ -20,8 +20,11 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS BUGS ChangeLog LEGGIMI NEWS README README.compal THANKS TODO )
 
-src_compile() {
+src_configure() {
 	# override wmpower self-calculated cflags
 	econf MY_CFLAGS="${CFLAGS}"
+}
+
+src_compile() {
 	emake prefix="/usr/"
 }

@@ -29,6 +29,38 @@
 
 #--- END OF EXAMPLES ---
 
+# Ulrich Müller <ulm@gentoo.org> (17 Sep 2018)
+# ebuild-mode-1.46 supports GLEP 76 copyright policy, bug 666358.
+# Masked for testing until other tools like repoman support it too.
+~app-emacs/ebuild-mode-1.46
+~app-xemacs/ebuild-mode-1.46
+
+# Michał Górny <mgorny@gentoo.org> (17 Sep 2018)
+# Obsolete LogiLab packages that are full of issues and were never
+# maintained properly.  Recently dev-python/logilab-common started
+# colliding with dev-python/pytest, making it practically non-
+# installable.  The only revdep left is app-vim/python-mode where
+# the dep looks completely mistaken.  Bug #666152.
+app-vim/python-mode
+dev-python/astng
+dev-python/logilab-common
+dev-python/logilab-constraint
+
+# Andreas Sturmlechner <asturm@gentoo.org> (16 Sep 2018)
+# was merged into the IETF Opus codec and is now obsolete
+# Removal in 30 days, bug #664154
+media-libs/celt
+
+# Mike Gilbert <floppym@gentoo.org> (16 Sep 2018)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-71
+
+# Brian Evans <grknight@gentoo.org> (16 Sep 2018)
+# Broken build on modern clients. Please update to latest slot.
+# Slot to be removed in 30 days
+dev-db/myodbc:5.2
+
 # Michał Górny <mgorny@gentoo.org> (13 Sep 2018)
 # Depends on old version of dev-libs/jsoncpp, blocking its pruning.
 # Downstream maintainer is inactive to bump it.  Removal in 30 days.
@@ -207,19 +239,9 @@ app-crypt/simp_le
 # Will be removed in 30 days (bug 663774).
 net-analyzer/nagios-check_openvpn-simple
 
-# Sergey Popov <pinkbyte@gentoo.org> (16 Aug 2018)
-# Upstream is dead, no consumers in tree
-# Masked for removal in 30 days
-dev-python/pyfire
-
 # Bernard Cafarelli <voyageur@gentoo.org> (13 Aug 2018)
 # Beta release with new features, masked for testing
 =app-text/tesseract-4.0.0_beta*
-
-# Mike Gilbert <floppym@gentoo.org> (04 Aug 2018)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-70
 
 # Michał Górny <mgorny@gentoo.org> (01 Aug 2018)
 # Multiprocessing versions of gemato.  They are known to hang on some
@@ -292,14 +314,6 @@ dev-python/wxpython:2.8
 # Doesn't pass QA full boot test
 =sys-kernel/ck-sources-4.16.17
 
-# Michał Górny <mgorny@gentoo.org> (20 Jun 2018)
-# Multiple serious bugs.  Upstream does not support Gentoo, and getting
-# any fixes applied is very difficult.  Regularly fails to build.
-# Does not support modern EAPIs, Manifests, news items...  Most severe
-# issues are tracked in bug #658278.  Somebody really needs to step up
-# and start actively maintaining it.  Otherwise -- removal in 90 days.
-sys-apps/paludis
-
 # Mart Raudsepp <leio@gentoo.org> (16 Jun 2018)
 # No upstream (website disappeared), no upstream plugin maintainer,
 # and pretty much a fringe format anyway.
@@ -354,19 +368,8 @@ media-libs/libglvnd
 >=dev-db/mysql-connector-c++-8.0.0
 
 # Jeroen Roovers <jer@gentoo.org> (6 Apr 2018)
-# Requires >=dev-libs/icu-61.1
-# https://bugs.gentoo.org/651698
-=net-libs/nodejs-9.11*
-
-# Jeroen Roovers <jer@gentoo.org> (6 Apr 2018)
 # Requires >=dev-libs/openssl-1.1.0
 =net-libs/nodejs-10*
-
-# Lars Wendler <polynomial-c@gentoo.org> (27 Mar 2018)
-# Breaks a couple of revdeps. See tracker bug at
-# https://bugs.gentoo.org/651698
->=dev-libs/icu-61.1
->=dev-libs/icu-layoutex-61.1
 
 # Tony Vroon <chainsaw@gentoo.org> (24 Mar 2018)
 # This is a vulnerable version of Asterisk and should not be used except
@@ -541,7 +544,7 @@ dev-ruby/poltergeist
 >=sys-firmware/b43-firmware-6.30.163.46
 
 # Michał Górny <mgorny@gentoo.org>, Andreas K. Hüttel <dilfridge@gentoo.org>,
-# Matthias Maier <tamiko@gentoo.org> (21 May 2017)
+# Matthias Maier <tamiko@gentoo.org> (21 May 2017 and later updates)
 # These old versions of toolchain packages (binutils, gcc, glibc) are no
 # longer officially supported and are not suitable for general use. Using
 # these packages can result in build failures (and possible breakage) for
@@ -550,10 +553,10 @@ dev-ruby/poltergeist
 # If you still use one of these old toolchain packages, please upgrade (and
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
-# (updated 27 Dec 2017 with gcc < 5.4)
 <sys-devel/gcc-5.4
 <sys-libs/glibc-2.26
-<sys-devel/binutils-2.29.1-r1
+<sys-devel/binutils-2.30-r2
+<sys-libs/binutils-libs-2.30-r2
 
 # Michał Górny <mgorny@gentoo.org> (20 May 2017)
 # Old versions of CUDA and their reverse dependencies. They do not
