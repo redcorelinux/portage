@@ -1990,10 +1990,6 @@
       <name>Brian Dolbec</name>
       <role>Lead</role>
     </member>
-    <member>
-      <email>twitch153@gentoo.org</email>
-      <name>Devan Franchini</name>
-    </member>
   </project>
   <project>
     <email>gentoo-yeeloong@gentoo.org</email>
@@ -2217,6 +2213,10 @@ developers and volunteer mentors.</description>
       <email>polynomial-c@gentoo.org</email>
       <name>Lars Wendler</name>
       <role>Package Maintainer</role>
+    </member>
+    <member>
+      <email>whissi@gentoo.org</email>
+      <name>Thomas Deutschmann</name>
     </member>
     <member>
       <email>zerochaos@gentoo.org</email>
@@ -2675,11 +2675,6 @@ developers and volunteer mentors.</description>
       <email>slis@gentoo.org</email>
       <name>Sławek Lis</name>
       <role>Gentoolkit's python revdep-rebuild</role>
-    </member>
-    <member>
-      <email>twitch153@gentoo.org</email>
-      <name>Devan Franchini</name>
-      <role>Layman</role>
     </member>
     <member>
       <email>zmedico@gentoo.org</email>
@@ -4033,11 +4028,6 @@ developers and volunteer mentors.</description>
     <member>
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
-      <role>Member</role>
-    </member>
-    <member>
-      <email>twitch153@gentoo.org</email>
-      <name>Devan Franchini</name>
       <role>Member</role>
     </member>
   </project>
