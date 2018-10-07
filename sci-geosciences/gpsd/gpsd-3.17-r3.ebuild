@@ -14,7 +14,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
 else
 	SRC_URI="mirror://nongnu/${PN}/${P}.tar.gz"
-	KEYWORDS="amd64 arm ~ppc ~ppc64 x86"
+	KEYWORDS="amd64 arm ~ppc ~ppc64 ~sparc x86"
 fi
 
 DESCRIPTION="GPS daemon and library for USB/serial GPS devices and GPS/mapping clients"
@@ -37,6 +37,7 @@ REQUIRED_USE="X? ( python )
 	qt5? ( cxx )"
 
 RDEPEND="
+	>=net-misc/pps-tools-0.0.20120407
 	bluetooth? ( net-wireless/bluez )
 	dbus? (
 		sys-apps/dbus

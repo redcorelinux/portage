@@ -29,6 +29,39 @@
 
 #--- END OF EXAMPLES ---
 
+# Mart Raudsepp <leio@gentoo.org> (06 Oct 2018)
+# Netspeed applet moved into mate-base/mate-applets since v1.14,
+# use that instead. Bug #667910
+net-analyzer/mate-netspeed
+
+# Mart Raudsepp <leio@gentoo.org> (06 Oct 2018)
+# Crashes on Youtube MSE videos, while older versions lack support
+# for higher resolution MSE videos. Pending further investigation.
+=www-client/epiphany-3.30.1
+
+# Thomas Deutschmann <whissi@gentoo.org> (06 Oct 2018)
+# Outdated and vulnerable snapshot; libav-12.3 is the better
+# version for now
+=media-video/libav-13_pre20171219
+
+# Virgil Dupras <vdupras@gentoo.org> (30 Sep 2018)
+# Dead upstream, unmaintained, no revdeps.
+# Removal in 30 days, bug #611614
+dev-python/recaptcha-client
+
+# Michał Górny <mgorny@gentoo.org> (30 Sep 2018)
+# Poor quality NIH ebuilds with multiple issues and lack of test suites.
+# They do not support Python 3 (even if somebody claimed otherwise,
+# completely ignoring all the errors during install phase), depend
+# on old Twisted packages and have no reverse dependencies in ::gentoo.
+# Removal in 30 days.  Bug #667354.
+dev-python/python-application
+dev-python/python-cjson
+dev-python/python-eventlib
+dev-python/python-gnutls
+dev-python/python-msrplib
+dev-python/python-xcaplib
+
 # Matt Turner <mattst88@gentoo.org> (29 Sep 2018)
 # Removal in 30 days, bug #576334
 app-eselect/eselect-mesa
@@ -37,11 +70,6 @@ app-eselect/eselect-mesa
 # Outdated, unmaintained, no revdeps.
 # Removal in 30 days, bug #623292
 dev-python/tinydb
-
-# Mike Gilbert <floppym@gentoo.org> (24 Sep 2018)
-# Breaks multilib builds.
-# https://bugs.gentoo.org/666968
-=dev-util/meson-0.48.0
 
 # Michał Górny <mgorny@gentoo.org> (24 Sep 2018)
 # Apparently breaks sys-devel/gcc.  Bug #666954.
@@ -149,10 +177,10 @@ media-plugins/vdr-xvdr
 media-plugins/vdr-autosort
 
 # Matthias Maier <tamiko@gentoo.org> (1 Sep 2018)
-# Mask 0.7.0 and  1.0.0 for the time being until a compatible LLVM version
+# Mask 0.7.0 and  1.0.1 for the time being until a compatible LLVM version
 # made it into the tree, bug #665192
 ~dev-lang/julia-0.7.0
-~dev-lang/julia-1.0.0
+~dev-lang/julia-1.0.1
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (29 Aug 2018)
 # Masked for removal in 30 days. Multiple build failures. Upstream inactive.
@@ -274,11 +302,6 @@ virtual/httpd-php:7.3
 # New package. Needs to interact with media-libs/mesa and
 # x11-drivers/nvidia-drivers. Work in progress.
 media-libs/libglvnd
-
-# Maciej Mrozowski <reavertm@gentoo.org> (6 May 2018)
-# SoQt does not build yet
->=media-libs/coin-4.0.0
->=media-libs/simage-1.7.1
 
 # Aaron Bauman <bman@gentoo.org> (30 Apr 2018)
 # Masked for testing
