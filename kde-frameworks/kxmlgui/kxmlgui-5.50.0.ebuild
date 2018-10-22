@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,7 +7,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 LICENSE="LGPL-2+"
 IUSE="attica"
 
@@ -43,9 +43,9 @@ src_configure() {
 }
 
 src_test() {
-	# Files are missing; whatever. Bug: 650290
+	# Files are missing; whatever. Bugs 650290, 668198
 	local myctestargs=(
-		-E "(kxmlgui_unittest)"
+		-E "(ktoolbar_unittest|kxmlgui_unittest)"
 	)
 
 	kde5_src_test

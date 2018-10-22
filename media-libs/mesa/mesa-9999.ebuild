@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -67,7 +67,7 @@ REQUIRED_USE="
 	video_cards_vmware? ( gallium )
 "
 
-LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.93"
+LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.96"
 RDEPEND="
 	!app-eselect/eselect-mesa
 	>=app-eselect/eselect-opengl-1.3.0
@@ -95,7 +95,7 @@ RDEPEND="
 		)
 		lm_sensors? ( sys-apps/lm_sensors:=[${MULTILIB_USEDEP}] )
 		opencl? (
-					app-eselect/eselect-opencl
+					dev-libs/ocl-icd[khronos-headers]
 					dev-libs/libclc
 					virtual/libelf:0=[${MULTILIB_USEDEP}]
 				)
@@ -424,14 +424,12 @@ multilib_src_configure() {
 		fi
 
 		gallium_enable video_cards_freedreno freedreno
-		# opencl stuff
-		if use opencl; then
-			emesonargs+=(
-				-Dgallium-opencl="$(usex opencl standalone disabled)"
-			)
-		fi
-
 		gallium_enable video_cards_virgl virgl
+
+		# opencl stuff
+		emesonargs+=(
+			-Dgallium-opencl="$(usex opencl icd disabled)"
+		)
 	fi
 
 	if use vulkan; then
@@ -488,21 +486,6 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	meson_src_install
-
-	if use opencl; then
-		ebegin "Moving Gallium/Clover OpenCL implementation for dynamic switching"
-		local cl_dir="/usr/$(get_libdir)/OpenCL/vendors/mesa"
-		dodir ${cl_dir}/{lib,include}
-		if [ -f "${ED}/usr/$(get_libdir)/libOpenCL.so" ]; then
-			mv -f "${ED}"/usr/$(get_libdir)/libOpenCL.so* \
-			"${ED}"${cl_dir}
-		fi
-		if [ -f "${ED}/usr/include/CL/opencl.h" ]; then
-			mv -f "${ED}"/usr/include/CL \
-			"${ED}"${cl_dir}/include
-		fi
-		eend $?
-	fi
 }
 
 multilib_src_install_all() {
@@ -517,11 +500,6 @@ pkg_postinst() {
 	# Switch to the xorg implementation.
 	echo
 	eselect opengl set --use-old ${OPENGL_DIR}
-
-	# Switch to mesa opencl
-	if use opencl; then
-		eselect opencl set --use-old ${PN}
-	fi
 }
 
 # $1 - VIDEO_CARDS flag (check skipped for "--")

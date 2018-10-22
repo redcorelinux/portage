@@ -6,7 +6,7 @@ EAPI="6"
 inherit flag-o-matic multilib multilib-minimal toolchain-funcs
 
 if [[ ${PV} == *9999 ]] ; then
-	: ${EGIT_REPO_URI:="git://git.libav.org/libav.git"}
+	: ${EGIT_REPO_URI:="https://git.libav.org/libav.git"}
 	if [[ ${PV%9999} != "" ]] ; then
 		: ${EGIT_BRANCH:="release/${PV%.9999}"}
 	fi
@@ -30,7 +30,7 @@ fi
 
 LICENSE="LGPL-2.1  gpl? ( GPL-3 )"
 SLOT="0/12"
-[[ ${PV} == *9999 ]] || KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+[[ ${PV} == *9999 ]] || KEYWORDS="alpha amd64 ~arm ~arm64 ~hppa ia64 ~mips ppc ppc64 ~sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 IUSE="aac alsa amr bs2b +bzip2 cdio cpudetection custom-cflags debug doc +encode faac fdk
 	frei0r fontconfig +gpl gsm +hardcoded-tables ieee1394 jack jpeg2k libressl mp3
 	+network nvidia openssl opus oss pic pulseaudio rtmp schroedinger sdl speex ssl
@@ -345,5 +345,5 @@ multilib_src_install_all() {
 multilib_src_test() {
 	local _libs="$(for i in lib*/;do echo -n "${BUILD_DIR}/${i%/}:";done)"
 	einfo "LD_LIBRARY_PATH is set to \"${_libs}\""
-	LD_LIBRARY_PATH="${_libs}" make -j1 fate V=1
+	LD_LIBRARY_PATH="${_libs}" emake -j1 fate V=1
 }

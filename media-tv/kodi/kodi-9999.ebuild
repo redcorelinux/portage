@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -33,6 +33,7 @@ REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	|| ( gles opengl )
 	^^ ( gbm wayland X )
+	?? ( mariadb mysql )
 	udev? ( !libusb )
 	udisks? ( dbus )
 	upower? ( dbus )
@@ -40,7 +41,7 @@ REQUIRED_USE="
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	airplay? (
-		>=app-pda/libplist-2.0.0[python,${PYTHON_USEDEP}]
+		>=app-pda/libplist-2.0.0
 		net-libs/shairplay
 	)
 	alsa? ( >=media-libs/alsa-lib-1.1.4.1 )
@@ -77,10 +78,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		libressl? ( media-video/ffmpeg[libressl,-openssl] )
 		!libressl? ( media-video/ffmpeg[-libressl,openssl] )
 	)
-	mysql? (
-		!mariadb? ( dev-db/mysql-connector-c:= )
-		mariadb? ( dev-db/mariadb-connector-c:= )
-	)
+	mysql? ( dev-db/mysql-connector-c:= )
+	mariadb? ( dev-db/mariadb-connector-c:= )
 	>=net-misc/curl-7.56.1
 	nfs? ( >=net-fs/libnfs-2.0.0:= )
 	opengl? ( media-libs/glu )
@@ -121,9 +120,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	zeroconf? ( net-dns/avahi[dbus] )
 "
 RDEPEND="${COMMON_DEPEND}
-	lirc? (
-		|| ( app-misc/lirc app-misc/inputlircd )
-	)
+	lirc? ( app-misc/lirc )
 	!media-tv/xbmc
 	udisks? ( sys-fs/udisks:2 )
 	upower? (
@@ -240,6 +237,8 @@ src_configure() {
 		-DENABLE_CAP=$(usex caps)
 		-DENABLE_LCMS2=$(usex lcms)
 		-DENABLE_LIRCCLIENT=$(usex lirc)
+		-DENABLE_MARIADBCLIENT=$(usex mariadb)
+		-DENABLE_MYSQLCLIENT=$(usex mysql)
 		-DENABLE_MICROHTTPD=$(usex webserver)
 		-DENABLE_MYSQLCLIENT=$(usex mysql)
 		-DENABLE_NFS=$(usex nfs)

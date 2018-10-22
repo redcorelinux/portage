@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,12 +6,12 @@ EAPI=6
 inherit perl-module
 
 DESCRIPTION="pgBadger is a PostgreSQL log analyzer."
-HOMEPAGE="http://dalibo.github.io/pgbadger/"
+HOMEPAGE="https://pgbadger.darold.net/"
 SRC_URI="https://github.com/darold/pgbadger/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE=""
 
 DEPEND="

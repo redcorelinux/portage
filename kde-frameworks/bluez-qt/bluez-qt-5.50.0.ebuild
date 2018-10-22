@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,7 +8,7 @@ inherit kde5 udev
 
 DESCRIPTION="Qt wrapper for Bluez 5 DBus API"
 LICENSE="LGPL-2"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE=""
 
 DEPEND="
@@ -27,8 +27,11 @@ src_configure() {
 }
 
 src_test() {
-	# bug: 609248
-	local myctestargs=( -j1 )
+	# parallel tests fail, bug 609248; managertest hangs, bug 668196
+	local myctestargs=(
+		-j1
+		-E "(managertest)"
+	)
 
 	kde5_src_test
 }
