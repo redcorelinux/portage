@@ -75,7 +75,6 @@ app-admin/hddtemp:network-cron - Monthly cronjob to update hddtemp.db.
 app-admin/keepass:aot - Generate native code at build time, rather than runtime.
 app-admin/keepassxc:autotype - Add support to autotype the passwords into other applications
 app-admin/keepassxc:browser - Enables browser plugin support
-app-admin/keepassxc:http - Add http support
 app-admin/keepassxc:network - Enable network support
 app-admin/keepassxc:yubikey - Enable database unlocking via YubiKey.
 app-admin/lastpass-cli:X - Use x11-misc/xclip or x11-misc/xsel to copy passwords to the clipboard.
@@ -1865,6 +1864,7 @@ dev-haskell/zip-archive:executable - Build the Zip executable.
 dev-haskell/zlib:non-blocking-ffi - Execute FFI calls in the context of haskell thread.
 dev-java/ant:antlr - Enable ANTLR Ant tasks
 dev-java/ant:bcel - Enable bcel (bytecode manipulation) Ant tasks
+dev-java/ant:bsf - Enable support for Apache Bean Scripting Framework (dev-java/bsf)
 dev-java/ant:commonslogging - Enable commons-logging Ant tasks
 dev-java/ant:commonsnet - Enable commons-net Ant tasks
 dev-java/ant:jai - Enable JAI (Java Imaging) Ant task
@@ -2015,28 +2015,39 @@ dev-lang/ocaml:spacetime - Enables the Spacetime memory profiler. See https://ca
 dev-lang/orc:pax_kernel - Apply patch needed for pax enabled kernels.
 dev-lang/perl:ithreads - Enable Perl threads, has some compatibility problems
 dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
+dev-lang/php:bcmath - Add support for libbcmath
 dev-lang/php:cli - Enable CLI SAPI
 dev-lang/php:coverage - Include gcov symbols for test coverage and lcov reports. Only useful for extension developers, and requires GCC.
+dev-lang/php:ctype - Enable ctype functions
 dev-lang/php:embed - Enable embed SAPI
 dev-lang/php:enchant - Add supports Enchant spelling library.
 dev-lang/php:fileinfo - Add fileinfo extension support
 dev-lang/php:filter - Add filter extension support
+dev-lang/php:flatfile - Add dbm support for flat files
 dev-lang/php:fpm - Enable the FastCGI Process Manager SAPI
 dev-lang/php:gd - Adds support for gd (bundled with PHP)
 dev-lang/php:hash - Enable the hash extension
+dev-lang/php:inifile - Add dbm support for .ini files
 dev-lang/php:intl - Enables the intl extension for extended internalization support
 dev-lang/php:json - Enable JSON support
 dev-lang/php:ldap-sasl - Add SASL support for the PHP LDAP extension
 dev-lang/php:libmysqlclient - Use libmyslclient driver for mysql, mysqli, PDO_Mysql (not recommended)
 dev-lang/php:lmdb - Enable support for dev-db/lmdb db backend
 dev-lang/php:opcache - Enables built-in opcode cache, replacing pecl-apc et al.
+dev-lang/php:pcntl - Add support for process creation functions
 dev-lang/php:pdo - Enable the bundled PDO extensions
 dev-lang/php:phar - Enables the phar extension to provide phar archive support
 dev-lang/php:phpdbg - Enable the PHP Debug Command Line SAPI (like gdb for php)
 dev-lang/php:session-mm - Include dev-libs/mm support for session storage
+dev-lang/php:sharedmem - Add support for shared memory use
+dev-lang/php:simplexml - Support for SimpleXML
 dev-lang/php:sodium - Enable support for crypto through dev-libs/libsodium
+dev-lang/php:sybase-ct - Add support for Sybase-CT
+dev-lang/php:sysvipc - Support for System V-compatible inter-process communication
+dev-lang/php:tokenizer - Add support for the PHP file parser
 dev-lang/php:tokyocabinet - Enable support for dev-db/tokyocabinet db backend
 dev-lang/php:vpx - Enable webp support for GD in php-5.x
+dev-lang/php:wddx - Add support for Web Distributed Data eXchange
 dev-lang/php:webp - Enable webp support for GD in php-7.x
 dev-lang/php:xmlreader - Enable XMLReader support
 dev-lang/php:xmlwriter - Enable XMLWriter support
@@ -4866,12 +4877,9 @@ media-sound/qtractor:rubberband - Enable support for in-place audio clip pitch-s
 media-sound/rhythmbox:daap - Build the local network music sharing plugin which uses the DAAP protocol using net-libs/libdmapsharing
 media-sound/shntool:alac - Add support for Apple Lossless Audio Codec files
 media-sound/shntool:mac - Add support for Monkey's Audio files
-media-sound/snapcast:avahi - Build with avahi support
 media-sound/snapcast:client - Build and install Snapcast client component
-media-sound/snapcast:flac - Build with FLAC compression support
 media-sound/snapcast:server - Build and install Snapcast server component
 media-sound/snapcast:tremor - Build with TREMOR version of vorbis
-media-sound/snapcast:vorbis - Build with libvorbis support
 media-sound/snd:s7 - Enable the s7 extension language (a version of Scheme)
 media-sound/sonata:lyrics - Support for lyrics fetching
 media-sound/sonata:trayicon - Enable support for trayicon
@@ -6822,11 +6830,9 @@ net-p2p/bitcoin-cli:knots - Build enhanced Bitcoin Knots version, rather than Bi
 net-p2p/bitcoin-qt:asm - Enable assembly for optimization
 net-p2p/bitcoin-qt:bip70 - Enable support for the BIP70 payment protocol
 net-p2p/bitcoin-qt:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
-net-p2p/bitcoin-qt:http - Enable support for the JSON-RPC and REST HTTP server (builtin net-p2p/bitcoind)
 net-p2p/bitcoin-qt:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
 net-p2p/bitcoin-qt:libevent - Use dev-libs/libevent (needed for JSON-RPC, REST, and Tor auto-configuration
 net-p2p/bitcoin-qt:qrcode - Enable generation of QR Codes for receiving payments
-net-p2p/bitcoin-qt:tor - Enable automatic configuration of a Tor hidden service
 net-p2p/bitcoin-qt:upnp - Enable Universal Plug and Play
 net-p2p/bitcoin-qt:wallet - Enable wallet support
 net-p2p/bitcoin-qt:zeromq - Report blocks and transactions via zeromq
@@ -7247,7 +7253,9 @@ sci-chemistry/ghemical:openbabel - Use sci-chemistry/openbabel for file conversi
 sci-chemistry/gromacs:boost - Enable external boost library
 sci-chemistry/gromacs:cuda - Enable cuda non-bonded kernels
 sci-chemistry/gromacs:double-precision - More precise calculations at the expense of speed
+sci-chemistry/gromacs:gmxapi - Add support for gmxapi library
 sci-chemistry/gromacs:hwloc - Enable HWLoc lib support
+sci-chemistry/gromacs:lmfit - Use external sci-libs/lmfit
 sci-chemistry/gromacs:make-symlinks - Create symbolic links for pre-5.0 binary names
 sci-chemistry/gromacs:mkl - Use sci-libs/mkl for fft, blas, lapack routines
 sci-chemistry/gromacs:offensive - Enable gromacs partly offensive quotes
@@ -7450,6 +7458,7 @@ sci-libs/oce:vtk - Enable Virtualisation Toolkit
 sci-libs/octomap:dynamicEDT3D - Build and install dynamicEDT3D library: A library for incrementally updatable Euclidean distance transforms in 3D.
 sci-libs/opencascade:freeimage - Enable support for image i/o via media-libs/freeimage
 sci-libs/opencascade:gl2ps - Use gl2ps PostScript printing library
+sci-libs/opencascade:gles2 - Use OpenGL ES 2.0
 sci-libs/opencascade:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 sci-libs/opencascade:vtk - Enable Virtualisation Toolkit
 sci-libs/openfoam:opendx - Install opendx visualisation tool
@@ -8175,6 +8184,7 @@ sys-devel/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) su
 sys-devel/distcc:crossdev - Enable support for sys-devel/crossdev
 sys-devel/distcc:gssapi - Enable support for net-libs/libgssglue
 sys-devel/gcc:awt - Useful only when building GCJ, this enables Abstract Window Toolkit (AWT) peer support on top of GTK+
+sys-devel/gcc:boundschecking - Add the bounds checking patch by Haj Ten Brugge, this will DISABLE the hardened PIE+SSP patches
 sys-devel/gcc:cilk - Support the Cilk Plus language (C/C++ based languages for parallel programming)
 sys-devel/gcc:d - Enable support for the D programming language
 sys-devel/gcc:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
@@ -8398,7 +8408,7 @@ sys-libs/glibc:cet - Enable Intel Control-flow Enforcement Technology (needs bin
 sys-libs/glibc:compile-locales - build *all* locales in src_install; this is generally meant for stage building only as it ignores /etc/locale.gen file and can be pretty slow
 sys-libs/glibc:debug - When USE=hardened, allow fortify/stack violations to dump core (SIGABRT) and not kill self (SIGKILL)
 sys-libs/glibc:gd - build memusage and memusagestat tools
-sys-libs/glibc:multiarch - enable single DSO with optimizations for multiple architectures
+sys-libs/glibc:multiarch - enable optimizations for multiple CPU architectures (detected at runtime)
 sys-libs/glibc:nscd - Build, and enable support for, the Name Service Cache Daemon
 sys-libs/glibc:rpc - Enable obsolete RPC/NIS layers
 sys-libs/glibc:suid - Make internal pt_chown helper setuid -- not needed if using Linux and have /dev/pts mounted with gid=5
@@ -9007,6 +9017,7 @@ x11-themes/arc-theme:gnome-shell - Install theme for gnome-base/gnome-shell
 x11-themes/arc-theme:gtk2 - Install GTK+2 theme
 x11-themes/arc-theme:gtk3 - Install GTK+3 theme
 x11-themes/arc-theme:mate - Install Metacity theme for mate-base/mate
+x11-themes/arc-theme:pre-rendered - Avoid media-gfx/inkscape and media-gfx/optipng dependencies by using pre-rendered PNGs
 x11-themes/arc-theme:xfce - Install theme for xfce-base/xfwm4
 x11-themes/comix-xcursors:lefthanded - Install lefthanded version of theme in addition to default one
 x11-themes/comix-xcursors:opaque - Install non-transparent version of theme in addition to default one

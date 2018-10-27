@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -38,7 +38,6 @@ CDEPEND="${PYTHON_DEPS}
 		>=dev-cpp/ctemplate-0.95
 		>=dev-libs/libxml2-2.6.2:2
 		dev-libs/libzip
-		>=virtual/mysql-5.6
 		dev-libs/libpcre[cxx]
 		>=sci-libs/gdal-1.11.1-r1[-mdb]
 		virtual/opengl
@@ -66,6 +65,7 @@ S="${WORKDIR}"/"${MY_P}"
 PATCHES=(
 	"${FILESDIR}/${PN}-6.2.5-wbcopytables.patch"
 	"${FILESDIR}/${PN}-6.3.9-mariadb-json.patch"
+	"${FILESDIR}/${PN}-6.3.10-i386-json.patch"
 )
 
 src_unpack() {
