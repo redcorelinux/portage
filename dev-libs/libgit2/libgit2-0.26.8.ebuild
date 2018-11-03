@@ -11,7 +11,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86 ~ppc-macos"
+	KEYWORDS="amd64 ~arm ~arm64 ~ppc x86 ~ppc-macos"
 fi
 
 DESCRIPTION="A linkable library for Git"
@@ -39,6 +39,13 @@ DEPEND="${RDEPEND}
 "
 
 DOCS=( AUTHORS CONTRIBUTING.md CONVENTIONS.md README.md )
+
+PATCHES=(
+	# skip OOM tests on 32-bit systems
+	# https://bugs.gentoo.org/669892
+	# https://github.com/libgit2/libgit2/commit/415a8ae9c9b6ac18f0524b6af8e58408b426457d
+	"${FILESDIR}"/libgit2-0.26.8-disable-oom-tests-on-32bit.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
