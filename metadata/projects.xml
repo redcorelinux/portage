@@ -531,10 +531,6 @@
       <name>Mike Gilbert</name>
     </member>
     <member>
-      <email>phajdan.jr@gentoo.org</email>
-      <name>Paweł Hajdan, Jr.</name>
-    </member>
-    <member>
       <email>rich0@gentoo.org</email>
       <name>Richard Freeman</name>
       <role>stable amd64 liaison</role>
@@ -664,7 +660,7 @@
     <email>comres@gentoo.org</email>
     <name>Community Resources</name>
     <url>https://wiki.gentoo.org/wiki/Project:ComRes</url>
-    <description>Community Resources is an umbrella project comprising the Recruiters, Retirement and Comminity Relations subprojects. It acts as a central place for all the human-resources related projects.</description>
+    <description>Community Resources is an umbrella project comprising the Recruiters, Retirement and Community Relations subprojects. It acts as a central place for all the human-resources related projects.</description>
     <subproject ref="comrel@gentoo.org" inherit-members="1"/>
     <subproject ref="mentors@gentoo.org" inherit-members="1"/>
     <subproject ref="proctors@gentoo.org"/>
@@ -1627,10 +1623,6 @@
       <email>slyfox@gentoo.org</email>
       <name>Sergei Trofimovich</name>
     </member>
-    <member>
-      <email>vikraman@gentoo.org</email>
-      <name>Vikraman Choudhury</name>
-    </member>
   </project>
   <project>
     <email>ia64@gentoo.org</email>
@@ -1767,17 +1759,12 @@
     <name>Java</name>
     <url>https://wiki.gentoo.org/wiki/Project:Java</url>
     <description>We maintain everything Java-related in Gentoo, that is, most of dev-java/* and also packages in categories like dev-util, www-servers etc.</description>
-    <member is-lead="1">
-      <email>chewi@gentoo.org</email>
-      <name>James Le Cuirot</name>
-      <role>Developer</role>
-    </member>
     <member>
       <email>fordfrog@gentoo.org</email>
       <name>Miroslav Šulc</name>
       <role>Developer</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>monsieurp@gentoo.org</email>
       <name>Patrice Clement</name>
       <role>Developer</role>
@@ -3002,6 +2989,11 @@ developers and volunteer mentors.</description>
       <role>Lead</role>
     </member>
     <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
+      <role>Member</role>
+    </member>
+    <member>
       <email>maksbotan@gentoo.org</email>
       <name>Maxim Koltsov</name>
       <role>Member</role>
@@ -4063,6 +4055,11 @@ developers and volunteer mentors.</description>
       <email>creffett@gentoo.org</email>
       <name>Chris Reffett</name>
       <role>Administrator</role>
+    </member>
+    <member>
+      <email>grknight@gentoo.org</email>
+      <name>Brian Evans</name>
+      <role>Administrator / Contributor</role>
     </member>
     <member is-lead="1">
       <email>maffblaster@gentoo.org</email>

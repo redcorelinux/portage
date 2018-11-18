@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_PN}-${PV}-Source.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="aot"
 
 COMMON_DEPEND="dev-lang/mono"
@@ -41,6 +41,8 @@ src_prepare() {
 }
 
 src_compile() {
+	export MONO_REGISTRY_PATH=/dev/null # bug 659808
+
 	# Build with Release target
 	xbuild /target:KeePass /property:Configuration=Release || die
 

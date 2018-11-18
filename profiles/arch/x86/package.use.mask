@@ -3,9 +3,19 @@
 
 # This file requires >=portage-2.1.1
 
+# Thomas Deutschmann <whissi@gentoo.org> (15 Nov 2018)
+# - rdrand plugin is supported on x86
+# - padlock plugin is supported on x86
+net-vpn/strongswan -strongswan_plugins_rdrand -strongswan_plugins_padlock
+
+# Alexys Jacob <ultrabug@gentoo.org> (05 Nov 2018)
+# Requires dev-db/mongodb which has dropped x86 support
+net-analyzer/zmap mongo
+
 # Thomas Deutschmann <whissi@gentoo.org> (12 Oct 2018)
-# www-client/firefox is available on x86
-app-misc/tracker -firefox-bookmarks
+# www-client/firefox and mail-client/thunderbird is
+# available on x86
+app-misc/tracker -firefox-bookmarks -thunderbird
 
 # Michael Palimaka <kensington@gentoo.org> (12 Oct 2018)
 # Unmask arch-specific USE flag available on x86

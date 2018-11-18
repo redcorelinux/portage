@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -28,10 +28,11 @@ RDEPEND="!app-emulation/virtualbox-bin
 	dev-libs/libxml2
 	media-libs/libpng:0=
 	media-libs/libvpx:0=
-	sys-libs/zlib
+	sys-libs/zlib:=
 	!headless? (
 		media-libs/libsdl:0[X,video]
 		x11-libs/libX11
+		x11-libs/libxcb:=
 		x11-libs/libXcursor
 		x11-libs/libXext
 		x11-libs/libXmu
@@ -154,9 +155,6 @@ src_prepare() {
 	sed -e 's@^check_gcc$@cc_maj="$(gcc -dumpversion | cut -d. -f1)" ; cc_min="$(gcc -dumpversion | cut -d. -f2)"@' \
 		-i configure || die
 
-	# Don't use "echo -n"
-	sed 's@ECHO_N="echo -n"@ECHO_N="printf"@' -i configure || die
-
 	# Disable things unused or split into separate ebuilds
 	sed -e "s@MY_LIBDIR@$(get_libdir)@" \
 		"${FILESDIR}"/${PN}-5-localconfig > LocalConfig.kmk || die
@@ -199,6 +197,11 @@ src_prepare() {
 	eapply_user
 }
 
+doecho() {
+	echo "$@"
+	"$@" || die
+}
+
 src_configure() {
 	local myconf=(
 		--with-gcc="$(tc-getCC)"
@@ -230,7 +233,7 @@ src_configure() {
 		myconf+=( --disable-vmmraw )
 	fi
 	# not an autoconf script
-	./configure ${myconf[@]} || die "configure failed"
+	doecho ./configure ${myconf[@]}
 }
 
 src_compile() {
