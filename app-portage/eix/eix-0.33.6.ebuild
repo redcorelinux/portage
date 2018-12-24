@@ -86,15 +86,10 @@ src_install() {
 
 	rm -r "${ED%/}"/usr/bin/eix-functions.sh || die
 
-	keepdir /var/cache/eix
 }
 
 pkg_postinst() {
-	if ! use prefix; then
-		# note: if this is done in src_install(), portage:portage
-		# ownership may be reset to root
 		tmpfiles_process eix.conf
-	fi
 
 	local obs=${EROOT%/}/var/cache/eix.previous
 	if [[ -f ${obs} ]]; then

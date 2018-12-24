@@ -9,7 +9,7 @@ SRC_URI="https://www.spice-space.org/download/libcacard/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm ~arm64 ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="+passthrough static-libs"
 
 RDEPEND=">=dev-libs/nss-3.13
@@ -17,6 +17,19 @@ RDEPEND=">=dev-libs/nss-3.13
 	passthrough? ( >=sys-apps/pcsc-lite-1.8 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-simpletlv-test-fix.patch"
+	)
+
+src_prepare() {
+	default
+
+	# remove test requiring SoftHSMv2 which is not in the tree atm
+	sed -i \
+		-e 's|tests/hwtests$(EXEEXT) \($(am__EXEEXT_1)\)|\1|' \
+		Makefile.in || die
+}
 
 src_configure() {
 	econf \

@@ -73,6 +73,7 @@ hardened
 pdfannotextractor
 prelude
 mssql
+gajim
 
 # havent tested yet
 gphoto2
@@ -139,11 +140,6 @@ audit
 # Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
 # media-libs/xine-lib is not keyworded
 xine
-
-# Samuli Suominen <ssuominen@gentoo.org> (18 Jan 2013)
-# libdlm and cman are not keyworded
-cman
-clvm
 
 # Michał Górny <mgorny@gentoo.org> (4 May 2013)
 # Unmask systemd since it is keyworded here.

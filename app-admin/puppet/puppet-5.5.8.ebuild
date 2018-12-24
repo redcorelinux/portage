@@ -19,7 +19,7 @@ SRC_URI="http://downloads.puppetlabs.com/puppet/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~hppa ~ppc ~ppc64 x86"
 IUSE="augeas diff doc emacs ldap rrdtool selinux shadow sqlite vim-syntax"
 RESTRICT="test"
 
@@ -134,8 +134,7 @@ pkg_postinst() {
 	elog
 
 	for v in ${REPLACING_VERSIONS}; do
-		v=$(ver_cut "4.0.0" "$v")
-		if [ ver_test "$v" -eq "4" ]; then
+		if [ "$(ver_cut 1 "$v")" -eq "4" ]; then
 			elog
 			elog "Please see the following url for the release notes for puppet-5"
 			elog "https://docs.puppet.com/puppet/5.0/release_notes.html#if-youre-upgrading-from-puppet-4x"

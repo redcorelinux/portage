@@ -17,6 +17,7 @@ FFMPEG_KODI_VERSION="17.5"
 CODENAME="Krypton"
 PATCHES=(
 	"${FILESDIR}/${P}-nmblookup.patch"
+	"${FILESDIR}/${P}-wrapper.patch"
 )
 SRC_URI="https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_COMMIT}.tar.gz -> libdvdcss-${LIBDVDCSS_COMMIT}.tar.gz
 	https://github.com/xbmc/libdvdread/archive/${LIBDVDREAD_COMMIT}.tar.gz -> libdvdread-${LIBDVDREAD_COMMIT}.tar.gz
@@ -104,13 +105,8 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	!media-tv/xbmc
 	udisks? ( sys-fs/udisks:0 )
-	upower? (
-		systemd? ( sys-power/upower )
-		!systemd? (
-			|| ( sys-power/upower-pm-utils sys-power/upower )
-		)
-	)
-"
+	upower? ( sys-power/upower )"
+
 DEPEND="${COMMON_DEPEND}
 	app-arch/bzip2
 	app-arch/unzip

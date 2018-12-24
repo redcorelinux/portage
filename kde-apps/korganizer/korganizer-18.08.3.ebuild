@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Organizational assistant, providing calendars and other similar functionality"
 HOMEPAGE="https://www.kde.org/applications/office/korganizer/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="X"
 
 COMMON_DEPEND="
@@ -76,6 +76,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
 "
+
+# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

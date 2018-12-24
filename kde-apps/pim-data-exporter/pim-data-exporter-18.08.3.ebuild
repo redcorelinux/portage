@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Assistant to backup and archive PIM data and configuration"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Backup_Options"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
@@ -43,3 +43,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kmail:4
 "
+
+src_test() {
+	# selectiontypetreewidgettest is broken, bug #665690
+	local myctestargs=(
+		-E "(selectiontypetreewidgettest)"
+	)
+
+	kde5_src_test
+}

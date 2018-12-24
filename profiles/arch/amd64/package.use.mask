@@ -19,8 +19,7 @@
 
 # Thomas Deutschmann <whissi@gentoo.org> (15 Nov 2018)
 # - rdrand plugin is supported on amd64
-# - padlock plugin is supported on amd64
-net-vpn/strongswan -strongswan_plugins_rdrand -strongswan_plugins_padlock
+net-vpn/strongswan -strongswan_plugins_rdrand
 
 # James Le Cuirot <chewi@gentoo.org> (02 Nov 2018)
 # Vulkan is only available on amd64 at present.
@@ -80,10 +79,6 @@ sys-boot/grub -libzfs
 # Amy Liffey <amynka@gentoo.org> (19 Sep 2017)
 # [cuda] is unmasked in this profiles.
 media-libs/opencv -contrib_xfeatures2d
-
-# Brian Evans <grknight@gentoo.org> (21 Jul 2017)
-# app-crypt/argon2 is keyworded on amd64
-dev-lang/php -argon2
 
 # David Seifert <soap@gentoo.org> (20 May 2017)
 # cpyrit-cuda does not support GCC 4.9 or later

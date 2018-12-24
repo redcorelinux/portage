@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 ARCH="s390"
-ACCEPT_KEYWORDS="s390 ~s390"
+ACCEPT_KEYWORDS="s390"
 
 MULTILIB_ABIS="s390"
 DEFAULT_ABI="s390"
@@ -31,7 +31,3 @@ ABI_S390="32"
 # While multilib is available, we don't default it to on.
 BOOTSTRAP_USE="${BOOTSTRAP_USE} -multilib"
 USE="-multilib"
-
-# Hans de Graaff <graaff@gentoo.org> (12 Nov 2018)
-# Temporary entry to support stable bug 661262
-RUBY_TARGETS="ruby23 -ruby24"

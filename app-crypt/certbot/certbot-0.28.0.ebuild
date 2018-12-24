@@ -9,7 +9,7 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm ~ppc64 x86"
 fi
 
 inherit distutils-r1
@@ -38,16 +38,9 @@ RDEPEND="
 DEPEND="
 	${CDEPEND}
 	test? (
-		>=dev-python/astroid-1.3.5[${PYTHON_USEDEP}]
-		dev-python/coverage[${PYTHON_USEDEP}]
-		dev-python/ipdb[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-		>=dev-python/pylint-1.4.2[${PYTHON_USEDEP}]
-		dev-python/wheel[${PYTHON_USEDEP}]
 	)"
 
 python_test() {
-	nosetests -v ${PN} || die
+	pytest -vv ${PN} || die
 }

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
 
 inherit epatch eutils flag-o-matic python-single-r1
 
@@ -90,6 +90,11 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${PN}-${MY_PV}
 
+PATCHES=(
+	"${FILESDIR}"/${P}-tinfow.patch
+	"${FILESDIR}"/${P}-sparc-fix-syntax.patch
+)
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
@@ -101,7 +106,6 @@ src_prepare() {
 	EPATCH_EXCLUDE+=" 01_all_ia64-TRAP_HWBKPT.patch"
 	EPATCH_EXCLUDE+=" 02_all_solaris-no-uuidsys.patch"
 	! use vanilla && [[ -n ${PATCH_VER} ]] && EPATCH_SUFFIX="patch" epatch "${WORKDIR}"/patch
-	eapply "${FILESDIR}"/${P}-tinfow.patch
 
 	default
 

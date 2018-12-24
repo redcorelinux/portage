@@ -1,15 +1,13 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
-
-inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal \
-	python-single-r1 virtualx
+inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal python-single-r1 virtualx
 
 DESCRIPTION="Library and tools for reading barcodes from images or video"
-HOMEPAGE="http://zbar.sourceforge.net/"
+HOMEPAGE="https://github.com/mchehab/zbar"
 SRC_URI="https://dev.gentoo.org/~xmw/zbar-0.10_p20121015.zip"
 
 LICENSE="LGPL-2.1"
@@ -65,7 +63,7 @@ src_prepare() {
 		-i "${S}"/include/zbar/QZBarImage.h || die
 
 	if has_version '>=media-gfx/imagemagick-7.0.1.0' ; then
-		eapply "${FILESDIR}/${P}-ImageMagick-7.diff"
+		eapply "${FILESDIR}/${P}-ImageMagick-7.patch"
 	fi
 
 	use python && python_fix_shebang examples/upcrpc.py test/*.py

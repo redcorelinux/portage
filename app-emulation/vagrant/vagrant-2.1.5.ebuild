@@ -36,7 +36,7 @@ ruby_add_rdepend "
 	>=dev-ruby/net-ssh-5.0.0:*
 	>=dev-ruby/net-sftp-2.1
 	>=dev-ruby/net-scp-1.2.0
-	|| ( dev-ruby/rest-client:2 >=dev-ruby/rest-client-1.6.0:0 )
+	dev-ruby/rest-client:2
 	<dev-ruby/mime-types-3:*
 "
 
@@ -66,7 +66,7 @@ all_ruby_prepare() {
 	sed -e '/rb-kqueue/d' \
 		-i ${PN}.gemspec || die
 
-	sed -e "s/@VAGRANT_VERSION@/${PV}/g" "${FILESDIR}/${PN}-r1.in" > "${PN}" || die
+	sed -e "s/@VAGRANT_VERSION@/${PV}/g" "${FILESDIR}/${PN}.in" > "${PN}" || die
 }
 
 all_ruby_install() {

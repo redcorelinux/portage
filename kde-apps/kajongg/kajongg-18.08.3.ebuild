@@ -5,12 +5,12 @@ EAPI=6
 
 KDE_AUTODEPS="false"
 KDE_HANDBOOK="forceoptional"
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 inherit python-single-r1 kde5
 
 DESCRIPTION="Classical Mah Jongg for four players"
 HOMEPAGE="https://www.kde.org/applications/games/kajongg/"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

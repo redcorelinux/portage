@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit cmake-utils eutils fcaps flag-o-matic git-r3 gnome2-utils ltprune multilib qmake-utils user xdg-utils
+PYTHON_COMPAT=( python3_{4,5,6,7} )
+inherit cmake-utils eutils fcaps flag-o-matic git-r3 gnome2-utils ltprune multilib python-r1 qmake-utils user xdg-utils
 
 DESCRIPTION="A network protocol analyzer formerly known as ethereal"
 HOMEPAGE="https://www.wireshark.org/"
@@ -21,19 +22,18 @@ IUSE="
 S=${WORKDIR}/${P/_/}
 
 CDEPEND="
-	>=dev-libs/glib-2.14:2
+	>=dev-libs/glib-2.32:2
 	dev-libs/libgcrypt:0
-	netlink? ( dev-libs/libnl:3 )
 	adns? ( >=net-dns/c-ares-1.5 )
 	bcg729? ( media-libs/bcg729 )
+	ciscodump? ( >=net-libs/libssh-0.6 )
 	filecaps? ( sys-libs/libcap )
 	kerberos? ( virtual/krb5 )
-	sshdump? ( >=net-libs/libssh-0.6 )
-	ciscodump? ( >=net-libs/libssh-0.6 )
 	libxml2? ( dev-libs/libxml2 )
 	lua? ( >=dev-lang/lua-5.1:* )
 	lz4? ( app-arch/lz4 )
 	maxminddb? ( dev-libs/libmaxminddb )
+	netlink? ( dev-libs/libnl:3 )
 	nghttp2? ( net-libs/nghttp2 )
 	pcap? ( net-libs/libpcap )
 	qt5? (
@@ -48,6 +48,7 @@ CDEPEND="
 	smi? ( net-libs/libsmi )
 	snappy? ( app-arch/snappy )
 	spandsp? ( media-libs/spandsp )
+	sshdump? ( >=net-libs/libssh-0.6 )
 	ssl? ( net-libs/gnutls:= )
 	zlib? ( sys-libs/zlib )
 "
@@ -55,9 +56,13 @@ CDEPEND="
 # and broken installs. #455122
 DEPEND="
 	${CDEPEND}
-	dev-lang/perl
-	!<virtual/perl-Pod-Simple-3.170
+	${PYTHON_DEPS}
 	!<perl-core/Pod-Simple-3.170
+	!<virtual/perl-Pod-Simple-3.170
+	dev-lang/perl
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
 	doc? (
 		app-doc/doxygen
 		dev-ruby/asciidoctor
@@ -65,18 +70,17 @@ DEPEND="
 	qt5? (
 		dev-qt/linguist-tools:5
 	)
-	sys-devel/bison
-	sys-devel/flex
-	virtual/pkgconfig
 "
 RDEPEND="
 	${CDEPEND}
 	qt5? ( virtual/freedesktop-icon-theme )
 	selinux? ( sec-policy/selinux-wireshark )
 "
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.4-androiddump.patch
 	"${FILESDIR}"/${PN}-2.6.0-redhat.patch
+	"${FILESDIR}"/${PN}-2.9.0-tfshark-libm.patch
 	"${FILESDIR}"/${PN}-99999999-androiddump-wsutil.patch
 	"${FILESDIR}"/${PN}-99999999-qtsvg.patch
 	"${FILESDIR}"/${PN}-99999999-ui-needs-wiretap.patch
@@ -106,6 +110,8 @@ src_configure() {
 		export QT_MIN_VERSION=5.3.0
 		append-cxxflags -fPIC -DPIC
 	fi
+
+	python_setup 'python3*'
 
 	mycmakeargs+=(
 		$(use androiddump && use pcap && echo -DEXTCAP_ANDROIDDUMP_LIBPCAP=yes)
@@ -161,31 +167,24 @@ src_install() {
 	dodoc AUTHORS ChangeLog NEWS README* doc/randpkt.txt doc/README*
 
 	# install headers
-	local wsheader
-	for wsheader in \
-		epan/*.h \
-		epan/crypt/*.h \
-		epan/dfilter/*.h \
-		epan/dissectors/*.h \
-		epan/ftypes/*.h \
-		epan/wmem/*.h \
-		wiretap/*.h \
-		ws_diag_control.h \
-		ws_symbol_export.h \
-		wsutil/*.h
-	do
-		echo "Installing ${wsheader}"
-		insinto /usr/include/wireshark/$( dirname ${wsheader} )
-		doins ${wsheader}
-	done
+	insinto /usr/include/wireshark
+	doins ws_diag_control.h ws_symbol_export.h \
+		"${BUILD_DIR}"/config.h "${BUILD_DIR}"/version.h
 
-	for wsheader in \
-		../${P}_build/config.h \
-		../${P}_build/version.h
+	local dir dirs=(
+		epan
+		epan/crypt
+		epan/dfilter
+		epan/dissectors
+		epan/ftypes
+		epan/wmem
+		wiretap
+		wsutil
+	)
+	for dir in "${dirs[@]}"
 	do
-		echo "Installing ${wsheader}"
-		insinto /usr/include/wireshark
-		doins ${wsheader}
+		insinto /usr/include/wireshark/${dir}
+		doins ${dir}/*.h
 	done
 
 	#with the above this really shouldn't be needed, but things may be looking
@@ -215,6 +214,7 @@ pkg_postinst() {
 
 	# Add group for users allowed to sniff.
 	enewgroup wireshark
+	chgrp wireshark "${EROOT}"/usr/bin/dumpcap
 
 	if use dumpcap && use pcap; then
 		fcaps -o 0 -g wireshark -m 4710 -M 0710 \

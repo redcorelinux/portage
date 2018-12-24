@@ -55,7 +55,7 @@ RDEPEND="${DEPEND}
 	"
 PATCHES=(
 	"${FILESDIR}"/gentoo-layout-3.0.patch
-	"${FILESDIR}"/${PN}-3.0.6-provide-pkconfig-file.patch
+	"${FILESDIR}"/${PN}-3.0.7-fix-pkconfig-file.patch
 )
 
 src_configure() {
@@ -72,6 +72,7 @@ multilib_src_configure() {
 		-DCLIENT_PLUGIN_AUTH_GSSAPI_CLIENT:STRING=$(usex kerberos DYNAMIC OFF)
 		-DMARIADB_UNIX_ADDR="${EPREFIX%/}/var/run/mysqld/mysqld.sock"
 		-DINSTALL_LIBDIR="$(get_libdir)"
+		-DINSTALL_PCDIR="$(get_libdir)/pkgconfig"
 		-DINSTALL_PLUGINDIR="$(get_libdir)/mariadb/plugin"
 		-DINSTALL_BINDIR=bin
 		-DWITH_UNIT_TESTS=$(usex test ON OFF)

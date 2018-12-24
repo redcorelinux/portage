@@ -14,7 +14,7 @@ SRC_URI="https://github.com/pygobject/${PN}/releases/download/v${PV}/${P}.tar.gz
 
 LICENSE="|| ( LGPL-2.1 MPL-1.1 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc examples test"
 
 RDEPEND="
@@ -42,7 +42,7 @@ python_test() {
 
 python_install() {
 	distutils-r1_python_install \
-		install_pkgconfig --pkgconfigdir="/usr/$(get_libdir)/pkgconfig"
+		install_pkgconfig --pkgconfigdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig"
 }
 
 python_install_all() {

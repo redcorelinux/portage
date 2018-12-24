@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Address book API based on KDE Frameworks"
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
@@ -23,17 +23,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
 
-src_prepare() {
-	kde5_src_prepare
-
-	# FIXME: Fails test because access to /dev/dri/card0 is denied
-	sed -i \
-		-e "/ecm_add_tests/ s/picturetest\.cpp //" \
-		autotests/CMakeLists.txt || die
-}
-
 src_test() {
 	mkdir -p "${HOME}/.local/share/kf5/kcontacts" || die
 	cp "${S}/src/countrytransl.map" "${HOME}/.local/share/kf5/kcontacts/" || die
+	# bug #566648 (access to /dev/dri/card0 denied)
+	local myctestargs=(
+		-E "(kcontacts-picturetest)"
+	)
 	kde5_src_test
 }

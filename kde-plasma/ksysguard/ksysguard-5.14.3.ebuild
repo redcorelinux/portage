@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Network-enabled task manager and system monitor"
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE="lm_sensors"
 
 DEPEND="
@@ -32,7 +32,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	lm_sensors? ( sys-apps/lm_sensors )
+	lm_sensors? ( sys-apps/lm_sensors:= )
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/ksysguard:4

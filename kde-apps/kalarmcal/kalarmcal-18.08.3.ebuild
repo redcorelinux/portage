@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Client library to access and handling of KAlarm calendar data"
 LICENSE="GPL-2+ LGPL-2.1+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 COMMON_DEPEND="
@@ -28,3 +28,5 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "
+
+RESTRICT+=" test" # broken within Plasma session, bug 665626

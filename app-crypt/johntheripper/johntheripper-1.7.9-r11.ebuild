@@ -27,7 +27,8 @@ REQUIRED_USE="openmp? ( !minimal )
 	opencl? ( !minimal )
 	mozilla? ( !minimal )"
 
-RDEPEND="sys-libs/zlib
+RDEPEND="!app-crypt/johntheripper-jumbo
+	sys-libs/zlib
 	!minimal? (
 		!libressl? ( dev-libs/openssl:0= )
 		libressl? ( dev-libs/libressl:0= )
@@ -234,7 +235,7 @@ src_install() {
 	dosbin run/john
 	newsbin run/mailer john-mailer
 
-	pax-mark -mr "${ED}usr/sbin/john" || die
+	pax-mark -mr "${ED}/usr/sbin/john" || die
 
 	dosym john /usr/sbin/unafs
 	dosym john /usr/sbin/unique

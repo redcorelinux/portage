@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{3_4,3_5,3_6,3_7} )
 
 inherit cmake-utils gnome2-utils python-single-r1
 
@@ -67,7 +67,10 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-21.1.2-use-less-automagic.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-21.1.2-use-less-automagic.patch"
+	"${FILESDIR}/${PN}-22.0.3-fdk-build-fix.patch" # bug 672430
+)
 
 CMAKE_REMOVE_MODULES_LIST=( FindFreetype )
 
