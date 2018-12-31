@@ -107,7 +107,7 @@ nvidia_drivers_versions_check() {
 	nvidia-driver-check-warning
 
 	# Kernel features/options to check for
-	CONFIG_CHECK="!DEBUG_MUTEXES ~!LOCKDEP ~MTRR ~SYSVIPC ~ZONE_DMA"
+	CONFIG_CHECK="!DEBUG_MUTEXES ~!LOCKDEP ~MTRR ~PM ~SYSVIPC ~ZONE_DMA"
 
 	# Now do the above checks
 	use kernel_linux && check_extra_config
@@ -208,7 +208,9 @@ src_compile() {
 		MAKE="$(get_bmake)" CFLAGS="-Wno-sign-compare" emake CC="$(tc-getCC)" \
 			LD="$(tc-getLD)" LDFLAGS="$(raw-ldflags)" || die
 	elif use driver && use kernel_linux; then
-		linux-mod_src_compile src="${KERNEL_DIR}" KERNELRELEASE="${KV_FULL}"
+		BUILD_TARGETS=module linux-mod_src_compile \
+			KERNELRELEASE="${KV_FULL}" \
+			src="${KERNEL_DIR}"
 	fi
 
 	if use tools; then

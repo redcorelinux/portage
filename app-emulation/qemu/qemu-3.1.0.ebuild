@@ -94,7 +94,7 @@ SOFTMMU_TOOLS_DEPEND="
 	aio? ( dev-libs/libaio[static-libs(+)] )
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bzip2? ( app-arch/bzip2[static-libs(+)] )
-	capstone? ( dev-libs/capstone )
+	capstone? ( dev-libs/capstone:= )
 	caps? ( sys-libs/libcap-ng[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
 	fdt? ( >=sys-apps/dtc-1.4.2[static-libs(+)] )
@@ -676,7 +676,10 @@ src_install() {
 		emake DESTDIR="${ED}" install
 
 		# This might not exist if the test failed. #512010
-		[[ -e check-report.html ]] && dohtml check-report.html
+		if [[ -e check-report.html ]]; then
+			docinto html
+			dodoc check-report.html
+		fi
 
 		if use kernel_linux; then
 			udev_newrules "${FILESDIR}"/65-kvm.rules-r1 65-kvm.rules
