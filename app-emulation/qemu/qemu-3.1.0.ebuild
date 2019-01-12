@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -19,7 +19,7 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 else
 	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 x86 ~x86-fbsd"
 
 	# Gentoo specific patchsets:
 	#SRC_URI+=" https://dev.gentoo.org/~tamiko/distfiles/${P}-patches-r1.tar.xz"
@@ -185,7 +185,6 @@ CDEPEND="
 DEPEND="${CDEPEND}
 	${PYTHON_DEPS}
 	dev-lang/perl
-	=dev-lang/python-2*
 	sys-apps/texinfo
 	virtual/pkgconfig
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
@@ -757,7 +756,7 @@ src_install() {
 firmware_abi_change() {
 	local pv
 	for pv in ${REPLACING_VERSIONS}; do
-		if ! version_is_at_least ${FIRMWARE_ABI_VERSION} ${pv}; then
+		if ver_test $pv -lt ${FIRMWARE_ABI_VERSION}; then
 			return 0
 		fi
 	done

@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/tpm2-software/${PN}/releases/download/${PV}/${P}.tar
 LICENSE="BSD-2"
 SLOT="0/0"	# sublot is libtss2-sys number
 KEYWORDS="~amd64"
-IUSE="doc +gcrypt libressl openssl static-libs test"
+IUSE="doc +gcrypt openssl static-libs test"
 
 REQUIRED_USE="
 	gcrypt? ( !openssl )
@@ -20,11 +20,11 @@ REQUIRED_USE="
 	|| ( gcrypt openssl )"
 
 RDEPEND="gcrypt? ( dev-libs/libgcrypt:0= )
-	!libressl? ( dev-libs/openssl:0= )
-	libressl? ( dev-libs/libressl:0= )"
+	openssl? ( dev-libs/openssl:0= )"
 DEPEND="${DEPEND}
 	test? ( dev-util/cmocka )"
 BDEPEND="virtual/pkgconfig
+	~sys-devel/autoconf-archive-2018.03.13
 	doc? ( app-doc/doxygen )"
 
 PATCHES=(
@@ -54,4 +54,9 @@ src_configure() {
 		--with-crypto="$(usex gcrypt gcrypt ossl)" \
 		--with-udevrulesdir="$(get_udevdir)/rules.d" \
 		--with-udevrulesprefix=60-
+}
+
+src_install() {
+	default
+	find "${D}" -name '*.la' -delete || die
 }

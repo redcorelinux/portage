@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,7 +16,7 @@ USE_PHP="php5-6 php7-0 php7-1 php7-2" # deps must be registered separately below
 
 MY_P="${P/_/-}"
 
-inherit eutils flag-o-matic multilib pax-utils php-ext-source-r3 python-r1 ruby-ng versionator
+inherit eapi7-ver eutils flag-o-matic multilib pax-utils php-ext-source-r3 python-r1 ruby-ng
 
 DESCRIPTION="uWSGI server for Python web applications"
 HOMEPAGE="http://projects.unbit.it/uwsgi/"
@@ -24,7 +24,7 @@ SRC_URI="https://github.com/unbit/uwsgi/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux"
+KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux"
 
 UWSGI_PLUGINS_STD=( ping cache carbon nagios rpc rrdtool
 	http ugreen signal syslog rsyslog
@@ -79,17 +79,22 @@ REQUIRED_USE="|| ( ${LANG_SUPPORT_SIMPLE[@]} ${LANG_SUPPORT_EXTENDED[@]} )
 # 2. General features
 # 3. Plugins
 # 4. Language/app support
-CDEPEND="sys-libs/zlib
+CDEPEND="
+	sys-libs/zlib
 	caps? ( sys-libs/libcap )
-	json? ( !yajl? ( dev-libs/jansson )
-		yajl? ( dev-libs/yajl ) )
+	json? (
+		!yajl? ( dev-libs/jansson )
+		yajl? ( dev-libs/yajl )
+	)
 	pcre? ( dev-libs/libpcre:3 )
 	ssl? (
-		!libressl? ( dev-libs/openssl:0 )
+		!libressl? ( dev-libs/openssl:0= )
 		libressl? ( dev-libs/libressl )
 	)
-	xml? ( !expat? ( dev-libs/libxml2 )
-		expat? ( dev-libs/expat ) )
+	xml? (
+		!expat? ( dev-libs/libxml2 )
+		expat? ( dev-libs/expat )
+	)
 	yaml? ( dev-libs/libyaml )
 	zeromq? ( net-libs/zeromq sys-apps/util-linux )
 	uwsgi_plugins_alarm_curl? ( net-misc/curl )
@@ -219,7 +224,7 @@ src_configure() {
 
 	if use uwsgi_plugins_emperor_pg ; then
 		PGPV="$(best_version dev-db/postgresql)"
-		PGSLOT="$(get_version_component_range 1-2 ${PGPV##dev-db/postgresql-})"
+		PGSLOT="$(ver_cut 1-2 ${PGPV##dev-db/postgresql-})"
 		sed -i \
 			-e "s|pg_config|pg_config${PGSLOT/.}|" \
 			plugins/emperor_pg/uwsgiplugin.py || die "sed failed"

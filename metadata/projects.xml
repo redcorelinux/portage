@@ -651,6 +651,10 @@
       <email>polynomial-c@gentoo.org</email>
       <name>Lars Wendler</name>
     </member>
+    <member>
+      <email>soap@gentoo.org</email>
+      <name>David Seifert</name>
+    </member>
     <member is-lead="1">
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
@@ -1184,6 +1188,10 @@
     <member>
       <email>eva@gentoo.org</email>
       <name>Gilles Dartiguelongue</name>
+    </member>
+    <member>
+      <email>floppym@gentoo.org</email>
+      <name>Mike Gilbert</name>
     </member>
     <member>
       <email>pacho@gentoo.org</email>
@@ -2186,11 +2194,6 @@
       <name>Ian Stakenvicius</name>
     </member>
     <member>
-      <email>bircoph@gentoo.org</email>
-      <name>Andrew Savchenko</name>
-      <role>pgo</role>
-    </member>
-    <member>
       <email>polynomial-c@gentoo.org</email>
       <name>Lars Wendler</name>
       <role>Package Maintainer</role>
@@ -2932,7 +2935,7 @@
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
-      <role>Facebook (admin), G+ (owner), Twitter, Events, Telegram (admin), Slack (admin), Discord (admin)</role>
+      <role>Mastodon (Admin), Twitter (Admin), Events, Slack (admin), Discord (admin)</role>
     </member>
     <member>
       <email>cynede@gentoo.org</email>
