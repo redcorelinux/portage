@@ -1,6 +1,10 @@
 # Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Bernard Cafarelli <voyageur@gentoo.org> (14 Jan 2019)
+# Requires dev-php/pecl-imagick which is not keyworded on arm
+www-apps/nextcloud imagemagick
+
 # Corentin Pazdera <nado@troglodyte.be> (28 Dec 2018)
 # Requires virtual/pypy which isn't keyworded for ARM.
 www-servers/uwsgi pypy
@@ -31,11 +35,6 @@ dev-ruby/capybara test
 # dev-libs/libpfm not keyworded here (and unclear if it supports ARM).
 # Bug #666651.
 sys-devel/llvm exegesis
-
-# Andreas Sturmlechner <asturm@gentoo.org> (01 Sep 2018)
-# media-libs/libaom not yet keyworded
-# projectm not yet keyworded, bug #314969
-media-video/vlc aom chromaprint opencv projectm
 
 # Christian Ruppert <idl0r@gentoo.org> (25 Aug 2018)
 # pre-built, no ARM support
@@ -102,11 +101,7 @@ app-doc/doxygen clang
 >=app-admin/rsyslog-8.31 mongodb
 
 # Andreas Sturmlechner <asturm@gentoo.org> (11 Oct 2017)
-# Required dependency dev-qt/qtspeech is not keyworded.
-kde-apps/konqueror speech
-kde-apps/kpimtextedit speech
-kde-apps/ktp-text-ui speech
-kde-apps/okular speech
+# Required dependency dev-qt/qtspeech is not keyworded, bug #675340
 kde-frameworks/knotifications speech
 kde-frameworks/ktextwidgets speech
 

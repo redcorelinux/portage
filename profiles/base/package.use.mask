@@ -7,6 +7,24 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Georgy Yakovlev <gyakovlev@gentoo.org> (19 Jan 2019)
+# currently broken, segfaults, bug #675752
+>=dev-lang/rust-1.32.0 system-llvm
+
+# Sven Wegener <swegener@gentoo.org> (18 Jan 2019)
+# Waiting for >=dev-libs/libressl-2.7 to be unmasked.
+>=net-libs/libvncserver-0.9.12 libressl
+
+# William Hubbs <williamh@gentoo.org> (13 Jan 2019)
+# For memtest86+ mask the floppy use flag since it requires grub:0 which
+# is being removed
+# (bug #674364)
+sys-apps/memtest86+ floppy
+
+# Andreas Sturmlechner <asturm@gentoo.org> (12 Jan 2019)
+# Not keyworded on most arches
+media-video/vlc dav1d
+
 # Brian Evans <grknight@gentoo.org> (11 Jan 2019)
 # Depend on the EOL PHP 7.0
 dev-libs/Ice php
@@ -79,11 +97,6 @@ dev-python/paramiko server
 # warned. (Also, works only on x86_64 and with certain CPUs
 # and compiler/binutils combinations.)
 sys-libs/glibc cet
-
-# Nick Sarnie <sarnex@gentoo.org> (15 Jul 2018)
-# Requires media-video/ffmpeg-4 which is masked
-app-emulation/wine-any ffmpeg
-app-emulation/wine-staging ffmpeg
 
 # Göktürk Yüksek <gokturk@gentoo.org> (6 Jul 2018)
 # Dependency app-crypt/jitterentropy is keyworded for
@@ -162,6 +175,7 @@ media-video/ffmpeg appkit
 # packages. Those who wish to experiment with it as a fully recognised
 # Gentoo JVM can unmask the flag.
 dev-java/oracle-jdk-bin:9 gentoo-vm
+dev-java/oracle-jdk-bin:11 gentoo-vm
 dev-java/oracle-jre-bin:9 gentoo-vm
 dev-java/openjdk-bin:11 gentoo-vm
 dev-java/openjdk:11 gentoo-vm

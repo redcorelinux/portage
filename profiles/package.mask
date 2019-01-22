@@ -29,6 +29,28 @@
 
 #--- END OF EXAMPLES ---
 
+# Ulrich Müller <ulm@gentoo.org> (19 Jan 2019)
+# Last release in 1999, last visible upstream activity in 2011.
+# Byte-compilation fails. Masked for removal in 30 days, bug #675814.
+app-emacs/tdtd
+
+# Zac Medico <zmedico@gentoo.org> (13 Jan 2019)
+# Deprecated upstream. Use hack/tls-setup from the etcd source tree
+# instead. Masked for removal in 30 days.
+app-crypt/etcd-ca
+
+# William Hubbs <williamh@gentoo.org> (13 Jan 2019)
+# Multiple open bugs including build failures, dead upstream.
+# Please see the following URL for instructions for migrating to grub 2.
+# https://wiki.gentoo.org/wiki/GRUB2_Migration
+# Removal on 1 Feb 2019 (bug #674364)
+sys-boot/grub:0
+
+# Sergei Trofimovich <slyfox@gentoo.org> (13 Jan 2019)
+# Deprecated upstream. Use app-emulation/ganeti[htools] instead.
+# Removal in 30 days, bug #675220.
+app-emulation/ganeti-htools
+
 # Brian Evans <grknight@gentoo.org> (11 Jan 2019)
 # Mask PHP 7.0 for removal; EOL and known security issues
 # Removal in 30 days
@@ -99,12 +121,6 @@ dev-tex/revtex
 <x11-base/xorg-server-1.20.3
 <x11-base/xorg-drivers-1.20
 
-# Hans de Graaff <graaff@gentoo.org> (12 Dec 2018)
-# Old ruby23 only slots without any reverse dependencies.
-# Use the newer slots instead. Removal in 30 days.
-dev-ruby/net-ssh:2.6
-dev-ruby/rest-client:0
-
 # Zac Medico <zmedico@gentoo.org> (11 Dec 2018)
 # A Go library which has no consumers except those that include
 # it via EGO_VENDOR. Masked for removal in 30 days.
@@ -113,32 +129,6 @@ dev-go/sarama
 # Thomas Deutschmann <whissi@gentoo.org> (10 Dec 2018)
 # Requires >=dev-lang/lua-5.2 which is masked
 >=app-admin/lsyncd-2.2.3
-
-# Hans de Graaff <graaff@gentoo.org> (9 Dec 2018)
-# Old component for Rails that is no longer used and no longer
-# maintained upstream. Masked for removal in 30 days.
-dev-ruby/hike
-
-# Hans de Graaff <graaff@gentoo.org> (9 Dec 2018)
-# No longer provides tests and no tagged upstream releases. No reverse
-# dependencies. Use classifier-reborn instead. Masked for removal
-# in 30 days.
-dev-ruby/classifier
-
-# Hans de Graaff <graaff@gentoo.org> (1 Dec 2018)
-# Old Rails 5.0 version. This version is no longer maintained
-# upstream. Please update to Rails 5.1 or newer.
-# Masked for removal in 30 days.
-dev-ruby/rails:5.0
-dev-ruby/railties:5.0
-dev-ruby/activerecord:5.0
-dev-ruby/actionmailer:5.0
-dev-ruby/actionpack:5.0
-dev-ruby/actionview:5.0
-dev-ruby/activejob:5.0
-dev-ruby/actioncable:5.0
-dev-ruby/activemodel:5.0
-dev-ruby/activesupport:5.0
 
 # Andreas Sturmlechner <asturm@gentoo.org> (25 Nov 2018)
 # Masked per security vulnerability CVE-2018-14345, bug #661510

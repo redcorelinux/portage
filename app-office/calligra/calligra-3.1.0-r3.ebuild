@@ -14,7 +14,7 @@ HOMEPAGE="https://www.calligra.org/"
 SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 CAL_FTS=( karbon sheets stage words )
 
@@ -121,6 +121,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-poppler-0.69.patch
 	"${FILESDIR}"/${P}-poppler-0.71.patch
 	"${FILESDIR}"/${P}-poppler-0.72.patch # not upstreamable
+	"${FILESDIR}"/${P}-poppler-0.73.patch
 	"${FILESDIR}"/${P}-no-webkit.patch
 )
 

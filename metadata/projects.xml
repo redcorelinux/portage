@@ -129,6 +129,11 @@
     <name>Gentoo Linux ARM64 development</name>
     <url>https://wiki.gentoo.org/wiki/Project-3AARM64</url>
     <description>The ARM64 project is devoted to getting and keeping Gentoo in good shape on the ARM AArch64 architecture.</description>
+    <member>
+      <email>kentnl@gentoo.org</email>
+      <name>Kent Fredric</name>
+      <role>Minion</role>
+    </member>
     <member is-lead="1">
       <email>leio@gentoo.org</email>
       <name>Mart Raudsepp</name>
@@ -402,6 +407,27 @@
     </member>
   </project>
   <project>
+    <email>bug-wranglers@gentoo.org</email>
+    <name>Bug Wranglers</name>
+    <url>https://wiki.gentoo.org/wiki/Project-3ABug-2Dwranglers</url>
+    <description>The Gentoo Bug Wranglers project controls, describes the tasks to be carried out and goals to be achieved for everyone who wrangles bugs on Gentoo's bug tracker.</description>
+    <member is-lead="1">
+      <email>jer@gentoo.org</email>
+      <name>Jeroen Roovers</name>
+      <role>Developer</role>
+    </member>
+    <member>
+      <email>jstein@gentoo.org</email>
+      <name>Jonas Stein</name>
+      <role>Developer</role>
+    </member>
+    <member>
+      <email>polynomial-c@gentoo.org</email>
+      <name>Lars Wendler</name>
+      <role>Developer</role>
+    </member>
+  </project>
+  <project>
     <email>maintainer-wanted@gentoo.org</email>
     <name>Bug cleaners</name>
     <url>https://wiki.gentoo.org/wiki/Project-3ABug-2Dcleaners</url>
@@ -425,27 +451,6 @@
       <email>wraeth@gentoo.org</email>
       <name>Sam Jorna</name>
       <role>Lead</role>
-    </member>
-  </project>
-  <project>
-    <email>bug-wranglers@gentoo.org</email>
-    <name>Bug Wranglers</name>
-    <url>https://wiki.gentoo.org/wiki/Project-3ABug-2Dwranglers</url>
-    <description>The Gentoo Bug Wranglers project controls, describes the tasks to be carried out and goals to be achieved for everyone who wrangles bugs on Gentoo's bug tracker.</description>
-    <member is-lead="1">
-      <email>jer@gentoo.org</email>
-      <name>Jeroen Roovers</name>
-      <role>Developer</role>
-    </member>
-    <member>
-      <email>jstein@gentoo.org</email>
-      <name>Jonas Stein</name>
-      <role>Developer</role>
-    </member>
-    <member>
-      <email>polynomial-c@gentoo.org</email>
-      <name>Lars Wendler</name>
-      <role>Developer</role>
     </member>
   </project>
   <project>
@@ -2102,7 +2107,7 @@
   </project>
   <project>
     <email>mips@gentoo.org</email>
-    <name>Gentoo/MIPS Development</name>
+    <name>Gentoo Linux MIPS Development</name>
     <url>https://wiki.gentoo.org/wiki/Project-3AMIPS</url>
     <description>Gentoo/MIPS is a port of the Gentoo GNU/Linux and the Gentoo Portage package management system to mips-based platforms.</description>
     <subproject ref="gentoo-yeeloong@gentoo.org"/>
@@ -2579,6 +2584,11 @@
     <name>Planet Gentoo</name>
     <url>https://wiki.gentoo.org/wiki/Project-3APlanet</url>
     <description>Planet Gentoo provides a central aggregation of developers' blogs, to keep users and other developers informed of what they are working on.</description>
+    <member>
+      <email>alicef@gentoo.org</email>
+      <name>Alice Ferrazzi</name>
+      <role>Administrator</role>
+    </member>
     <member>
       <email>blueknight@gentoo.org</email>
       <name>Yury German</name>
@@ -3072,8 +3082,8 @@
     <name>Quality Assurance</name>
     <url>https://wiki.gentoo.org/wiki/Project-3AQuality_Assurance</url>
     <description>The Gentoo Quality Assurance team</description>
-    <subproject ref="maintainer-wanted@gentoo.org"/>
     <subproject ref="bug-wranglers@gentoo.org"/>
+    <subproject ref="maintainer-wanted@gentoo.org"/>
     <subproject ref="devmanual@gentoo.org"/>
     <subproject ref="pms@gentoo.org"/>
     <subproject ref="treecleaner@gentoo.org"/>
@@ -3318,6 +3328,10 @@
     <member>
       <email>djc@gentoo.org</email>
       <name>Dirkjan Ochtman</name>
+    </member>
+    <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
     </member>
     <member>
       <email>williamh@gentoo.org</email>
