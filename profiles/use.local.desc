@@ -226,6 +226,7 @@ app-arch/libarchive:e2fsprogs - Use file flags from sys-fs/e2fsprogs headers ins
 app-arch/libarchive:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-arch/libarchive:nettle - Use dev-libs/nettle as crypto backend
 app-arch/libarchive:zlib - Allow accessing gzip-compressed archives through sys-libs/zlib. This only affects libarchive's native support: bsdtar will keep using gunzip as a filter if that's not built-in. It's also needed for supporting extraction of ZIP files.
+app-arch/libarchive:zstd - Enable support for zstd compression using app-arch/zstd
 app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/pbzip2:symlink - Install symlinks which override app-arch/bzip2 implementation
 app-arch/pigz:symlink - Install symlinks which override app-arch/gzip implementation
@@ -1115,6 +1116,7 @@ app-office/abiword:redland - Enables support redland and raptor libs.
 app-office/abiword:thesaurus - Enable thesaurus support
 app-office/abiword:wordperfect - Enable wordperfect file support via app-text/libwpd
 app-office/calligra:activities - Enable kactivities support
+app-office/calligra:charts - Build chartshape plugin for creating business charts with dev-libs/kreport
 app-office/calligra:gemini - Enable tablet and 2:1 devices support
 app-office/calligra:import-filter - Enable support for various import filter file formats like WordPerfect, Visio and Apple Keynote
 app-office/calligra:lcms - Build colorengine plugins using media-libs/lcms
@@ -1149,6 +1151,7 @@ app-office/kraft:pim - Enable support for KDE PIM resources integration
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:googledrive - Enable support for remote files on Google Drive
 app-office/libreoffice:gtk2 - Enable legacy gtk2 frontend
+app-office/libreoffice:mariadb - Prefer mariadb connector over mysql connector
 app-office/libreoffice:odk - Build the Office Development Kit
 app-office/libreoffice:pdfimport - Enable PDF import via the Poppler library
 app-office/libreoffice:vlc - Use media-video/vlc for video embedding
@@ -1508,6 +1511,7 @@ dev-db/mariadb-galera:tokudb - Add support for TokuDB storage engine
 dev-db/mariadb-galera:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
 dev-db/mongodb:mms-agent - Install the MongoDB Monitoring Service agent
 dev-db/mongodb:tools - Install the MongoDB tools (mongoimport, mongodump...) from app-admin/mongo-tools
+dev-db/mycli:ssh - Add support for connection over SSH tunnel
 dev-db/mysql:cjk - Add CJK support for InnoDB fulltext search using app-text/mecab
 dev-db/mysql:client-libs - Build the client libraries from the server package instead of the C Connector packages (not recommended)
 dev-db/mysql:experimental - Build experimental features aka "rapid" plugins
@@ -1902,6 +1906,7 @@ dev-java/ant:jmf - Enable JMF (Java Media Framework) Ant tasks
 dev-java/ant:jsch - Disable Jsch (ssh, scp and related) Ant tasks
 dev-java/ant:junit - Enable JUnit Ant tasks
 dev-java/ant:junit4 - Enable JUnit4 Ant tasks
+dev-java/ant:junitlauncher - Enable JUnit5 Ant tasks
 dev-java/ant:log4j - Enable Apache log4j Ant tasks
 dev-java/ant:oro - Enable Apache Oro Ant tasks
 dev-java/ant:regexp - Enable Apache Regexp Ant tasks
@@ -6848,8 +6853,6 @@ net-nds/389-ds-base:dna - Enable dna (distributed numeric assignment ) plugin - 
 net-nds/389-ds-base:ldapi - Enable LDAP over unix domain socket (LDAPI) support
 net-nds/389-ds-base:pam-passthru - Enable pam-passthru plugin - for simple and fast system services used in ldap
 net-nds/389-ds-base:presence - Enable presence plugin - non-standard syntax validation
-net-nds/gosa-core:mail - Manage mail accounts and servers with gosa.
-net-nds/gosa-core:samba - Manage samba accounts with gosa.
 net-nds/ldapvi:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
 net-nds/nsscache:nsscache - Depend on sys-auth/libnss-cache to handle flat files
 net-nds/openldap:experimental - Enable experimental backend options
@@ -7408,6 +7411,7 @@ sci-geosciences/qgis:grass - Add support for sci-geosciences/grass
 sci-geosciences/qgis:mapserver - Determines whether mapserver should be built
 sci-geosciences/qgis:polar - Enable support for the polar coordinate system via x11-libs/qwtpolar
 sci-geosciences/qgis:qml - Enable support Qml-based plugins using dev-qt/qtdeclarative
+sci-geosciences/viking:geoclue - Use app-misc/geoclue to determine current location
 sci-geosciences/viking:libexif - Use media-libs/libexif for EXIF support
 sci-geosciences/viking:magic - Use libmagic to determine mimetypes
 sci-geosciences/viking:mapnik - Enable a layer based on sci-geosciences/mapnik
