@@ -29,6 +29,38 @@
 
 #--- END OF EXAMPLES ---
 
+# Jeroen Roovers <jer@gentoo.org> (31 Jan 2019)
+# Depends on =dev-libs/openssl-1.1.1*
+# bug #670574
+=net-libs/nodejs-11.9*
+
+# Andreas Sturmlechner <asturm@gentoo.org> (30 Jan 2019)
+# Dead upstream, breaks every other poppler release due to private
+# interface use, blocks poppler security cleanup(s), bugs #656108, #674808
+# Masked for removal in 30 days.
+app-text/pdf2htmlEX
+
+# Dennis Lamm <expeditioneer@gentoo.org> (29 Jan 2019)
+# Depends on >=app-text/enchant-2.0.0 which is masked
+=gnome-extra/gtkhtml-4.10.0-r1
+
+# Dennis Lamm <expeditioneer@gentoo.org> (28 Jan 2019)
+# Depends on >=app-text/enchant-2.0.0 which is masked
+>=app-text/gtkspell-3.0.10
+
+# Dennis Lamm <expeditioneer@gentoo.org> (28 Jan 2019)
+# Depends on >=app-text/enchant-2.1.3 which is masked
+>=app-text/gspell-1.8.1
+
+# Virgil Dupras <vdupras@gentoo.org> (27 Jan 2019)
+# Dead upstream, no revdep. bug #618744
+dev-python/fusil
+
+# Virgil Dupras <vdupras@gentoo.org> (27 Jan 2019)
+# Obsolete upstream. See bug #610466 and bug #645170
+dev-python/python-social-auth
+dev-python/python3-openid
+
 # Miroslav Šulc <fordfrog@gentoo.org> (23 Jan 2019)
 # Depends on >=virtual/{jdk,jre}-11 which is masked
 =dev-java/ant-eclipse-ecj-4.10
@@ -70,26 +102,6 @@ sci-electronics/librepcb
 # Craig Andrews <candrews@gentoo.org> (1 Jan 2019)
 # Requires dev-libs/openssl-1.1.1, Bug 674148
 dev-libs/gost-engine
-
-# Andreas Sturmlechner <asturm@gentoo.org> (31 Dec 2018)
-# Superseded by www-client/falkon. Masked for removal in 30 days.
-www-client/qupzilla
-
-# Andreas Sturmlechner <asturm@gentoo.org> (31 Dec 2018)
-# Package outdated for years, build errors, unable to trade with.
-# Bugs 544800, 592946, 610736. Masked for removal in 30 days.
-app-office/QtBitcoinTrader
-
-# Andreas Sturmlechner <asturm@gentoo.org> (31 Dec 2018)
-# Dead upstream since 2014-02-09, does not build.
-# Bugs 463928, 476890, 623172, 662270. Masked for removal in 30 days.
-net-misc/hotot
-
-# Alon Bar-Lev <alonbl@gentoo.org> (30 Dec 2018)
-# Upstream is dead.
-# Package does not support openssl-1.1, significant change to package.
-# Removal in 30 days
-app-crypt/openssl-tpm-engine
 
 # Lars Wendler <polynomial-c@gentoo.org> (28 Dec 2018)
 # Masked while being tested and reverse deps aren't fully compatible
@@ -444,8 +456,11 @@ dev-java/jcs
 # FAIL:07:02:35 (00:00:00) db_dump/db_load(./TESTDIR.3/recd001.db:child killed: kill signal): expected 0, got 1
 # FAIL:07:02:35 (00:00:00) Dump/load of ./TESTDIR.3/recd001.db failed.
 # FAIL:07:02:35 (00:00:00) db_verify_preop: expected 0, got 1
+# Lars Wendler <polynomial-c@gentoo.org> (25 Jan 2019)
+# Also masked because of mostly incompatible license (AGPL-3)
 =sys-libs/db-6.1*
 =sys-libs/db-6.2*
+=sys-libs/db-18.1*
 
 # Ulrich Müller <ulm@gentoo.org> (15 Jul 2014)
 # Permanently mask sys-libs/lib-compat and its reverse dependencies,

@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="System settings utility"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="classic gtk"
 
 DEPEND="
@@ -43,6 +43,14 @@ RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
 	gtk? ( $(add_plasma_dep kde-gtk-config) )
 "
+
+src_prepare() {
+	kde5_src_prepare
+
+	# FIXME: hangs in chroot; similar to bug #640432
+	sed -e "s/^ecm_find_qmlmodule.*org\.kde\.kcm/#&/" \
+		-i CMakeLists.txt || die
+}
 
 src_configure() {
 	local mycmakeargs=(
