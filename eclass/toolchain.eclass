@@ -128,12 +128,18 @@ else
 	LICENSE="GPL-2+ LGPL-2.1+ FDL-1.1+"
 fi
 
-IUSE="regression-test vanilla"
-IUSE_DEF=( nls nptl )
+if tc_version_is_at_least 8.3; then
+	GCC_EBUILD_TEST_FLAG='test'
+else
+	# Don't force USE regression-test->test change on every
+	# gcc ebuild just yet. Let's do the change when >=gcc-8.3
+	# is commonly used as a main compiler.
+	GCC_EBUILD_TEST_FLAG='regression-test'
+fi
+IUSE="${GCC_EBUILD_TEST_FLAG} vanilla +nls +nptl"
 
 if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
-	IUSE+=" altivec debug"
-	IUSE_DEF+=( cxx fortran )
+	IUSE+=" altivec debug +cxx +fortran"
 	[[ -n ${PIE_VER} ]] && IUSE+=" nopie"
 	[[ -n ${HTB_VER} ]] && IUSE+=" boundschecking"
 	[[ -n ${D_VER}   ]] && IUSE+=" d"
@@ -144,13 +150,13 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	tc_version_is_at_least 4.0 && IUSE+=" objc-gc"
 	tc_version_is_between 4.0 4.9 && IUSE+=" mudflap"
 	tc_version_is_at_least 4.1 && IUSE+=" libssp objc++"
-	tc_version_is_at_least 4.2 && IUSE_DEF+=( openmp )
+	tc_version_is_at_least 4.2 && IUSE+=" +openmp"
 	tc_version_is_at_least 4.3 && IUSE+=" fixed-point"
 	tc_version_is_at_least 4.7 && IUSE+=" go"
 	# Note: while <=gcc-4.7 also supported graphite, it required forked ppl
 	# versions which we dropped.  Since graphite was also experimental in
 	# the older versions, we don't want to bother supporting it.  #448024
-	tc_version_is_at_least 4.8 && IUSE+=" graphite" IUSE_DEF+=( sanitize )
+	tc_version_is_at_least 4.8 && IUSE+=" graphite +sanitize"
 	tc_version_is_between 4.9 8 && IUSE+=" cilk"
 	tc_version_is_at_least 4.9 && IUSE+=" +vtv"
 	tc_version_is_at_least 5.0 && IUSE+=" jit mpx"
@@ -158,8 +164,6 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	# systemtap is a gentoo-specific switch: bug #654748
 	tc_version_is_at_least 8.0 && IUSE+=" systemtap"
 fi
-
-IUSE+=" ${IUSE_DEF[*]/#/+}"
 
 SLOT="${GCC_CONFIG_VER}"
 
@@ -203,7 +207,7 @@ DEPEND="${RDEPEND}
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
 	nls? ( sys-devel/gettext )
-	regression-test? (
+	${GCC_EBUILD_TEST_FLAG}? (
 		>=dev-util/dejagnu-1.4.4
 		>=sys-devel/autogen-5.5.4
 	)"
@@ -1303,7 +1307,8 @@ toolchain_src_configure() {
 	fi
 
 	if tc_version_is_at_least 4.8 && in_iuse sanitize ; then
-		confgcc+=( $(use_enable sanitize libsanitizer) )
+		# See Note [implicitly enabled flags]
+		confgcc+=( $(usex sanitize '' --disable-libsanitizer) )
 	fi
 
 	if tc_version_is_at_least 6.0 && in_iuse pie ; then
@@ -1723,7 +1728,7 @@ gcc_do_make() {
 #---->> src_test <<----
 
 toolchain_src_test() {
-	if use regression-test ; then
+	if use ${GCC_EBUILD_TEST_FLAG} ; then
 		cd "${WORKDIR}"/build
 		emake -k check
 	fi
@@ -1863,7 +1868,7 @@ toolchain_src_install() {
 	find "${ED}" -depth -type d -delete 2>/dev/null
 
 	# install testsuite results
-	if use regression-test; then
+	if use ${GCC_EBUILD_TEST_FLAG}; then
 		docinto testsuite
 		find "${WORKDIR}"/build -type f -name "*.sum" -exec dodoc {} +
 		find "${WORKDIR}"/build -type f -path "*/testsuite/*.log" -exec dodoc {} +
@@ -2191,7 +2196,7 @@ toolchain_pkg_postinst() {
 		cp "${ROOT%/}${DATAPATH}"/c{89,99} "${EROOT%/}"/usr/bin/ 2>/dev/null
 	fi
 
-	if use regression-test ; then
+	if use ${GCC_EBUILD_TEST_FLAG} ; then
 		elog "Testsuite results have been installed into /usr/share/doc/${PF}/testsuite"
 		echo
 	fi
@@ -2498,3 +2503,19 @@ toolchain_death_notice() {
 		popd >/dev/null
 	fi
 }
+
+# Note [implicitly enabled flags]
+# -------------------------------
+# Usually configure-based packages handle explicit feature requests
+# like
+#     ./configure --enable-foo
+# as explicit request to check for support of 'foo' and bail out at
+# configure time.
+#
+# GCC does not follow this pattern and instead overrides autodetection
+# of the feature and enables it unconditionally.
+# See https://gcc.gnu.org/PR85663
+#
+# Thus safer way to enable/disable the feature is to rely on implicit
+# enabled-by-default state:
+#    econf $(usex foo '' --disable-foo)

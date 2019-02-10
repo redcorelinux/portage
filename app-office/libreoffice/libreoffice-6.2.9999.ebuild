@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6,7} )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 PYTHON_REQ_USE="threads(+),xml"
 
 MY_PV="${PV/_alpha/.alpha}"
@@ -247,15 +247,9 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	# master branch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/009-kde5-allow-multiple-mimetypes-clipboard.patch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/010-kde5-fix-selection-clipboard.patch
 	"${WORKDIR}"/${PATCHSET/.tar.xz/}/011-qt5-change-salgraphics-gettextlayout-def.patch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/012-qt5-initialize-glyphcache-for-psp-graphics.patch
 	"${WORKDIR}"/${PATCHSET/.tar.xz/}/013-qt5-assert-missing-salgraphics-font-on-gettextlayout.patch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/014-qt5kde5-use-logicaldotsperinch-to-report-dpi.patch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/015-kde5-no-images-to-clipboard.patch
 	"${WORKDIR}"/${PATCHSET/.tar.xz/}/019-drop-kde4-desktop-detection.patch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}/020-qt5-filemanager-drag-and-drop.patch
 
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-5.4-system-pyuno.patch"

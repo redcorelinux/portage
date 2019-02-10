@@ -1297,6 +1297,7 @@ app-text/poppler:utils - Install command-line PDF converters and various utiliti
 app-text/qpdf:perl - Install fix-qdf tool (for reverting PDF edits) written in perl
 app-text/qpdfview:fitz - Use experimental fitz rendering, provided by app-text/mupdf, instead of poppler
 app-text/qpdfview:synctex - Add support for searching TeX sources
+app-text/robodoc:examples - Installs usage examples in /usr/share for Perl
 app-text/sdcv:darkterm - Improve readability of color output on terminals with dark background.
 app-text/sgmltools-lite:jadetex - Add support for app-text/jadetex (for processing tex files produced by the TeX backend of Jade)
 app-text/stardict:advertisement - Enable stardict advertisements plugin
@@ -2330,9 +2331,8 @@ dev-libs/efl:bmp - Enable WBMP image loader
 dev-libs/efl:dds - Enable DDS image loader
 dev-libs/efl:drm - Enable DRM engine
 dev-libs/efl:eet - Enable Eet image loader
-dev-libs/efl:egl - Enable EGL rendering
 dev-libs/efl:fribidi - Enable bidirectional text support
-dev-libs/efl:gles - Enable the OpenGL ES GL implementation
+dev-libs/efl:gles2 - Enable the OpenGL ES GL implementation
 dev-libs/efl:glib - Enable dev-libs/glib support
 dev-libs/efl:harfbuzz - Enable complex text shaping and layout support
 dev-libs/efl:hyphen - Enable text hyphenation support
@@ -2375,7 +2375,6 @@ dev-libs/glib:systemtap - Build support for profiling and tracing using dev-util
 dev-libs/glib:utils - Install gtester-report utility to generate test report files for your software; build gresource utility with ELF support.
 dev-libs/gmime:smime - Enable experimental S/MIME support
 dev-libs/gmp:asm - Enable use of hand optimized assembly routines (faster execution)
-dev-libs/gmp:pgo - After building gmp, run some tests against to produce faster libraries -- this option will double the compile time
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
 dev-libs/granite:demo - Build the Granite demo application (to present all available UI features provided by the library)
 dev-libs/hidapi:fox - Build a x11-libs/fox GUI
@@ -2527,6 +2526,7 @@ dev-libs/poco:crypto - Encryption and digital signing classes
 dev-libs/poco:data - Database abstraction layer to easily send/retrieve data to/from various databases
 dev-libs/poco:file2pagecompiler - Utility to convert ordinary files to Page Compiler source files
 dev-libs/poco:json - Add JSON support
+dev-libs/poco:mariadb - Prefer dev-db/mariadb-connector-c over dev-db/mysql-connector-c
 dev-libs/poco:mongodb - Add dev-db/mongodb support
 dev-libs/poco:net - Classes to write network clients & servers
 dev-libs/poco:pagecompiler - Simple compiler translating HTML pages containing embedded C++ code into HTTPRequestHandler classes
@@ -2543,6 +2543,7 @@ dev-libs/starpu:opencl - Enable OpenCL support
 dev-libs/starpu:spinlock-check - Enable spinlock check
 dev-libs/starpu:valgrind - Enable dev-util/valgrind support
 dev-libs/sway:X - Enable support for X11 applications (XWayland)
+dev-libs/sway:clipboard - Install 'wl-clipboard': clipboard management
 dev-libs/sway:elogind - Enable support for rootless session via elogind
 dev-libs/sway:filecaps - Use Linux capability SYS_CAP_ADMIN rather than set*id for sway binary
 dev-libs/sway:fish-completion - Enable fish completion support
@@ -2556,6 +2557,10 @@ dev-libs/sway:swaymsg - Install 'swaymsg': tool for communicating with a running
 dev-libs/sway:swaynag - Install 'swaynag': shows a message with buttons
 dev-libs/sway:tray - Enable support for StatusNotifierItem tray specification
 dev-libs/sway:wallpapers - Install sway's default wallpaper image
+dev-libs/swayidle:elogind - Enable support for rootless session via elogind
+dev-libs/swayidle:fish-completion - Enable fish completion support
+dev-libs/swaylock:fish-completion - Enable fish completion support
+dev-libs/swaylock:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 dev-libs/tinyxml:stl - Compile with TIXML_USE_STL support
 dev-libs/tntnet:server - Enable tntnet server daemon
 dev-libs/totem-pl-parser:archive - Enables ISO detection with app-arch/libarchive
@@ -3368,6 +3373,11 @@ games-board/stockfish:general-32 - Generic unoptimized 32-bits build
 games-board/stockfish:general-64 - Generic unoptimized 64-bits build
 games-board/stockfish:optimize - Enable upstream -O3 optimizations (default enabled)
 games-board/tablebase-syzygy:6-pieces - Install tablebases for 6 pieces (huge!)
+games-board/teg:client - Compile the client
+games-board/teg:debug - Turn on debugging
+games-board/teg:ggz - Enable GGZ Gaming Zone support
+games-board/teg:robot - Compile the robot
+games-board/teg:server - Compile the server
 games-board/xboard:default-font - Install the default font that xboard uses
 games-board/xboard:zippy - Enable experimental zippy client
 games-emulation/dolphin:discord-presence - Enables Discord Rich Presence, show the current game on Discord
@@ -4786,6 +4796,7 @@ media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
 media-sound/elisa:mpris - Enable MPRIS support
+media-sound/exaile:scrobbler - Enable audioscrobbler/last.fm support
 media-sound/fapg:xspf - Enable support for saving XSPF playlists.
 media-sound/forked-daapd:itunes - Enable support for iTunes library XML
 media-sound/forked-daapd:lastfm - Enable LastFM scrobbling support
@@ -4872,6 +4883,7 @@ media-sound/ncmpc:async-connect - Enable asynchronous connect
 media-sound/ncmpc:chat-screen - Enable the chat screen
 media-sound/ncmpc:help-screen - Enable the help screen
 media-sound/ncmpc:key-screen - Enable key editor screen
+media-sound/ncmpc:library-screen - Enable library screen
 media-sound/ncmpc:lyrics-screen - Enable lyrics screen
 media-sound/ncmpc:mouse - Enable curses getmouse support
 media-sound/ncmpc:outputs-screen - Enable the outputs screen
@@ -5004,6 +5016,7 @@ media-sound/xwax:mp3 - Sets runtime dependencies to support decoding MP3 audio.
 media-sound/xwax:oss - Adds support for OSS (open sound system) audio input/output.
 media-sound/yarock:phonon - Use media-libs/phonon backend instead of media-video/vlc
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
+media-sound/zynaddsubfx:dssi - Enable support for DSSI Soft Synth Interface
 media-tv/gentoo-vdr-scripts:nvram - Add support for using nvram-wakeup to set wakeup time in bios
 media-tv/kodi:airplay - enable AirPlay support
 media-tv/kodi:bluray - Enable playback of Blu-ray filesystems
@@ -5896,6 +5909,7 @@ net-ftp/proftpd:rewrite - Enable support for the rewrite module
 net-ftp/proftpd:sftp - Enable support for the mod_sftp module and optionally mod_sftp_sql and mod_sftp_pam if matching USE flags are enabled
 net-ftp/proftpd:shaper - Enable support for the mod_shaper module
 net-ftp/proftpd:sitemisc - Enable support for the sitemisc module
+net-ftp/proftpd:sodium - Use dev-libs/libsodium for password encryption an key exchange
 net-ftp/proftpd:softquota - Enable support for the quotatab module
 net-ftp/proftpd:trace - Build with trace support. Should not be enabled on production servers
 net-ftp/proftpd:unique_id - Enable support for the mod_unique_id module, every connection gets unique ID.
@@ -6064,6 +6078,18 @@ net-im/vacuum:socksstreams - Enable initiating SOCKS5 data streams between two X
 net-im/vacuum:urlprocessor - Allows other plugins to load data from custom types of URLs
 net-im/vacuum:vcard - Enable obtaining peer's personal contact information
 net-im/vacuum:xmppuriqueries - Allow other plugins to handle XMPP URI queries
+net-irc/anope:anope_modules_chanstats - Channel Statistics
+net-irc/anope:anope_modules_cs_fantasy_stats - Enables the STATS and GSTATS commands
+net-irc/anope:anope_modules_cs_fantasy_top - Enables the (G)TOP and (G)TOP10 commands
+net-irc/anope:anope_modules_irc2sql - Stores channel statistics in a mysql database
+net-irc/anope:anope_modules_ldap_auth - Authorize through LDAP
+net-irc/anope:anope_modules_ldap_oper - Dynamically ties users to Anope opertypes via LDAP
+net-irc/anope:anope_modules_sql_auth - Authorize through SQL
+net-irc/anope:anope_modules_sql_log - Additional log target in SQL
+net-irc/anope:anope_modules_sql_oper - Allows granting users services operator privileges from SQL
+net-irc/anope:posix - Add support for POSIX Compatible Regular Expressions
+net-irc/anope:ssl - Provide SSL services using OpenSSL
+net-irc/anope:tre - Use dev-libs/tre for regular expressions
 net-irc/atheme-services:cracklib - Enable nickserv/cracklib module for enforcing strong account passwords
 net-irc/atheme-services:largenet - Enable support/tweaks for large networks
 net-irc/atheme-services:ldap - Enable ldap-backed authentication module
@@ -7096,7 +7122,7 @@ net-vpn/openvpn:lz4 - Enable LZ4 support
 net-vpn/openvpn:mbedtls - Use mbed TLS instead of OpenSSL
 net-vpn/openvpn:pkcs11 - Enable PKCS#11 smartcard support
 net-vpn/openvpn:plugins - Enable the OpenVPN plugin system
-net-vpn/pptpd:gre-extreme-debug - Log all GRE accepted packages when in debug mode (required if you want upstream support)
+net-vpn/pptpd:gre-extreme-debug - Log all GRE accepted packets when in debug mode (required if you want upstream support)
 net-vpn/strongswan:constraints - Enable advanced X.509 constraint checking plugin
 net-vpn/strongswan:dhcp - Enable server support for querying virtual IP addresses for clients from a DHCP server. (IKEv2 only)
 net-vpn/strongswan:eap - Enable support for the different EAP modules that are supported
@@ -7423,6 +7449,7 @@ sci-geosciences/viking:geoclue - Use app-misc/geoclue to determine current locat
 sci-geosciences/viking:libexif - Use media-libs/libexif for EXIF support
 sci-geosciences/viking:magic - Use libmagic to determine mimetypes
 sci-geosciences/viking:mapnik - Enable a layer based on sci-geosciences/mapnik
+sci-geosciences/viking:oauth - Enable OAuth authentication for OSM
 sci-geosciences/viking:sqlite - Enable MBTiles support based on dev-db/sqlite
 sci-geosciences/xtide:gps - Use sci-geosciences/gpsd
 sci-libs/ViSP:coin - Enables Coin3D support.
@@ -8099,7 +8126,6 @@ sys-boot/grub:fonts - Build and install fonts for the gfxterm module
 sys-boot/grub:libzfs - Enable support for sys-fs/zfs
 sys-boot/grub:mount - Build and install the grub-mount utility
 sys-boot/grub:multislot - Allow concurrent installation of sys-boot/grub SLOT 0 and sys-boot/grub SLOT 2 by renaming all programs.
-sys-boot/grub:netboot - Enable network booting
 sys-boot/grub:themes - Build and install GRUB themes (starfield)
 sys-boot/grub:truetype - Build and install grub-mkfont conversion utility
 sys-boot/lilo:device-mapper - Enable support for device-mapper from sys-fs/lvm2
@@ -9127,6 +9153,7 @@ x11-themes/gentoo-artwork:grub - Install extra sys-boot/grub themes
 x11-themes/gentoo-artwork:icons - Install icons
 x11-themes/gentoo-artwork:lilo - Install extra sys-boot/lilo themes
 x11-themes/gentoo-artwork:pixmaps - Install pixmaps
+x11-themes/greybird:xfce - Install theme for xfce-base/xfwm4
 x11-themes/gtk-engines-murrine:animation-rtl - Progressbar animation from right to left
 x11-themes/gtk-engines-murrine:themes - Pull in themes via x11-themes/murrine-themes
 x11-themes/gtk-engines-nodoka:animation-rtl - Progressbar animation from right to left
