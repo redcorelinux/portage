@@ -863,7 +863,7 @@
     <description>The Dotnet Project handles the development using the C# language. More specifically, it is often oriented with the mono development environment.</description>
     <member is-lead="1">
       <email>cynede@gentoo.org</email>
-      <name>Misha Pukhlikov</name>
+      <name>Cynede</name>
     </member>
   </project>
   <project>
@@ -1441,7 +1441,7 @@
     <description>Support team for the Gentoo organization on GitHub and the related resources (mirrors, pull requests).</description>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Misha Pukhlikov</name>
+      <name>Cynede</name>
       <role>Member</role>
     </member>
     <member>
@@ -1622,7 +1622,7 @@
     <description>Support Haskell programming language ecosystem on Gentoo systems.</description>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Misha Pukhlikov</name>
+      <name>Cynede</name>
     </member>
     <member>
       <email>gienah@gentoo.org</email>
@@ -1881,6 +1881,11 @@
     <name>Gentoo Linux Kernel Security Project</name>
     <url>https://wiki.gentoo.org/wiki/Project-3AKernel_Security</url>
     <description>The Gentoo Linux Kernel Security Project handles patching our many kernel sources and informing our users about global kernel security status.</description>
+    <member>
+      <email>alicef@gentoo.org</email>
+      <name>Alice Ferrazzi</name>
+      <role>Member</role>
+    </member>
     <member>
       <email>blueknight@gentoo.org</email>
       <name>Yury German</name>
@@ -2949,7 +2954,7 @@
     </member>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Misha Pukhlikov</name>
+      <name>Cynede</name>
       <role>Discord (admin)</role>
     </member>
     <member>
@@ -3121,6 +3126,24 @@
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
       <role>Developer</role>
+    </member>
+  </project>
+  <project>
+    <email>riscv@gentoo.org</email>
+    <name>RISC-V project</name>
+    <url>https://wiki.gentoo.org/wiki/Project-3ARISC-2DV</url>
+    <description>RISC-V architecture support project</description>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+    </member>
+    <member>
+      <email>gokturk@gentoo.org</email>
+      <name>Göktürk Yüksek</name>
+    </member>
+    <member>
+      <email>zlogene@gentoo.org</email>
+      <name>Mikle Kolyada</name>
     </member>
   </project>
   <project>
@@ -3323,7 +3346,7 @@
     </member>
     <member>
       <email>cynede@gentoo.org</email>
-      <name>Misha Pukhlikov</name>
+      <name>Cynede</name>
     </member>
     <member>
       <email>djc@gentoo.org</email>
