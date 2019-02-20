@@ -38,12 +38,11 @@ sci-electronics/kicad occ oce ngspice
 <app-editors/emacs-26.1-r3:26 imagemagick
 
 # Andreas Sturmlechner <asturm@gentoo.org> (01 Sep 2018)
-# media-libs/libaom not yet keyworded
 # media-libs/aribb24 not yet keyworded, bug #665048
 # net-libs/srt not yet keyworded
 # net-libs/libmicrodns not yet keyworded, bug #653800
 # net-misc/freerdp not yet keyworded
-media-video/vlc aom aribsub chromecast rdp srt
+media-video/vlc aribsub chromecast rdp srt
 
 # Matthew Thode <prometheanfire@gentoo.org> (30 Aug 2018)
 # Needs pillow and it's deps to build docs
@@ -137,7 +136,6 @@ mate-base/mate help
 mate-base/mate-applets-meta appindicator sensors
 mate-extra/caja-extensions gajim
 net-fs/samba dmapi
-net-im/pidgin gadu
 net-misc/ntpsec rclock_oncore rclock_pps
 sci-libs/gdal armadillo netcdf
 sys-fs/btrfs-progs reiserfs
@@ -383,7 +381,7 @@ www-client/chromium tcmalloc
 # Mart Raudsepp <leio@gentoo.org> (04 Feb 2017)
 # Needs deps tested.
 dev-python/pycurl curl_ssl_libressl
-net-misc/curl curl_ssl_axtls curl_ssl_libressl metalink
+net-misc/curl curl_ssl_libressl metalink
 
 # Mike Frysinger <vapier@gentoo.org> (16 Mar 2015)
 # Needs sci-physics/bullet tested #499974

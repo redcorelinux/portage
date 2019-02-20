@@ -3,15 +3,13 @@
 
 EAPI=7
 
-inherit multilib
-
 DESCRIPTION="An RVP (Microsoft Exchange Instant Messaging) plugin for Pidgin"
 HOMEPAGE="https://www.waider.ie/hacks/workshop/c/rvp/"
 SRC_URI="https://www.waider.ie/hacks/workshop/c/rvp/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="net-im/pidgin[gtk]"

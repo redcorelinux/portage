@@ -3,6 +3,7 @@
 
 EAPI=7
 
+CMAKE_MAKEFILE_GENERATOR="emake" # keep until CMAKE_MIN_VERSION=3.13.4
 inherit kde5 toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -11,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_BRANCH=stable
 	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
 	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${PV}/${MY_P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	S="${WORKDIR}/${MY_P}"
 fi
 
@@ -103,6 +104,8 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT+=" test"
 # bug 366505
+
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
