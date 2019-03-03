@@ -4,13 +4,13 @@
 EAPI=7
 
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="optional"
+KDE_TEST="true"
 PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Interactive Geometry tool"
 HOMEPAGE="https://www.kde.org/applications/education/kig https://edu.kde.org/kig/"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="geogebra scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
