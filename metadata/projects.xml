@@ -1248,11 +1248,6 @@
       <role>Member</role>
     </member>
     <member>
-      <email>tetromino@gentoo.org</email>
-      <name>Alexandre Rostovtsev</name>
-      <role>Member</role>
-    </member>
-    <member>
       <email>tranquility@gentoo.org</email>
       <name>Ole Reifschneider</name>
       <role>Member</role>
@@ -3131,6 +3126,10 @@
       <name>Göktürk Yüksek</name>
     </member>
     <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+    </member>
+    <member>
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
     </member>
@@ -4119,10 +4118,6 @@
       <name>Nick Sarnie</name>
     </member>
     <member>
-      <email>tetromino@gentoo.org</email>
-      <name>Alexandre Rostovtsev</name>
-    </member>
-    <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
     </member>
@@ -4166,6 +4161,10 @@
     <member>
       <email>sarnex@gentoo.org</email>
       <name>Nick Sarnie</name>
+    </member>
+    <member>
+      <email>slashbeast@gentoo.org</email>
+      <name>Piotr Karbowski</name>
     </member>
   </project>
   <project>

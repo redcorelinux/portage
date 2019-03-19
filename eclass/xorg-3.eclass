@@ -34,8 +34,7 @@ fi
 : ${XORG_MULTILIB:="no"}
 
 # we need to inherit autotools first to get the deps
-inherit autotools eutils libtool multilib toolchain-funcs \
-	flag-o-matic ${GIT_ECLASS}
+inherit autotools libtool multilib toolchain-funcs flag-o-matic ${GIT_ECLASS}
 
 if [[ ${XORG_MULTILIB} == yes ]]; then
 	inherit multilib-minimal
@@ -51,7 +50,6 @@ esac
 EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
 
 IUSE=""
-HOMEPAGE="https://www.x.org/wiki/ https://cgit.freedesktop.org/"
 
 # @ECLASS-VARIABLE: XORG_EAUTORECONF
 # @DESCRIPTION:
@@ -89,8 +87,10 @@ fi
 # This variable can be used for proper directory specification
 : ${XORG_PACKAGE_NAME:=${PN}}
 
+HOMEPAGE="https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/${XORG_MODULE}${XORG_PACKAGE_NAME}"
+
 if [[ -n ${GIT_ECLASS} ]]; then
-	: ${EGIT_REPO_URI:="https://anongit.freedesktop.org/git/xorg/${XORG_MODULE}${XORG_PACKAGE_NAME}.git"}
+	: ${EGIT_REPO_URI:="https://gitlab.freedesktop.org/xorg/${XORG_MODULE}${XORG_PACKAGE_NAME}.git"}
 elif [[ -n ${XORG_BASE_INDIVIDUAL_URI} ]]; then
 	SRC_URI="${XORG_BASE_INDIVIDUAL_URI}/${XORG_MODULE}${P}.tar.bz2"
 fi
