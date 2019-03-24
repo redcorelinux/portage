@@ -1,9 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-
-inherit autotools
+inherit eutils
 
 DESCRIPTION="Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures"
 HOMEPAGE="http://www.tads.org/frobtads.htm"
@@ -17,28 +16,17 @@ IUSE="debug tads2compiler tads3compiler"
 RESTRICT="!tads3compiler? ( test )"
 
 RDEPEND="net-misc/curl
-	sys-libs/ncurses:0="
-DEPEND="${RDEPEND}"
+	sys-libs/ncurses:0"
+DEPEND=${RDEPEND}
 
 DOCS=( doc/{AUTHORS,BUGS,ChangeLog.old,NEWS,README,SRC_GUIDELINES,THANKS} )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.2.4-tinfo.patch #602446
-)
-
-src_prepare() {
-	default
-	eautoreconf #602446
-}
-
 src_configure() {
-	local myeconfargs=(
-		$(use_enable debug error-checking)
-		$(use_enable debug t3debug)
-		$(use_enable tads2compiler t2-compiler)
+	econf \
+		$(use_enable debug error-checking) \
+		$(use_enable debug t3debug) \
+		$(use_enable tads2compiler t2-compiler) \
 		$(use_enable tads3compiler t3-compiler)
-	)
-	econf "${myeconfargs[@]}"
 }
 
 src_test() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 inherit desktop toolchain-funcs xdg-utils
 
 DESCRIPTION="Program for improving image files made with a digital camera"
-HOMEPAGE="https://www.kornelix.net/fotoxx/fotoxx.html"
+HOMEPAGE="http://www.kornelix.com/fotoxx.html"
 SRC_URI="http://www.kornelix.com/uploads/1/3/0/3/13035936/${P}.tar.gz"
 
 LICENSE="GPL-3"

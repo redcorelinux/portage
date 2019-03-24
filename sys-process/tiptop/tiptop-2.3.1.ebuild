@@ -1,9 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit autotools
+EAPI=5
 
 DESCRIPTION="top for performance counters"
 HOMEPAGE="http://tiptop.gforge.inria.fr/"
@@ -14,17 +12,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="
-	sys-libs/ncurses:0=
-	dev-libs/libxml2:=
-"
+RDEPEND="sys-libs/ncurses
+	dev-libs/libxml2"
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.3.1-tinfo.patch #618124
-)
-
-src_prepare() {
-	default
-	eautoreconf #618124
-}

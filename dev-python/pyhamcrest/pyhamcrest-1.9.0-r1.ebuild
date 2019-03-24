@@ -14,7 +14,7 @@ SRC_URI="https://github.com/hamcrest/PyHamcrest/archive/V${PV}.tar.gz -> ${MY_PN
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~sh ~amd64-fbsd ~amd64-linux"
+KEYWORDS="~amd64 ~arm ~sh ~amd64-fbsd"
 IUSE="doc examples test"
 
 RDEPEND=">=dev-python/six-1.4[${PYTHON_USEDEP}]"

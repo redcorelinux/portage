@@ -11,11 +11,13 @@ SRC_URI="https://github.com/rockdaboot/${PN}/releases/download/${P}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 
-KEYWORDS="~amd64 ~hppa ~sparc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="icu +idn +man"
 
+REQUIRED_USE="^^ ( icu idn )"
+
 RDEPEND="
-	icu? ( !idn? ( dev-libs/icu:=[${MULTILIB_USEDEP}] ) )
+	icu? ( dev-libs/icu:=[${MULTILIB_USEDEP}] )
 	idn? (
 		dev-libs/libunistring[${MULTILIB_USEDEP}]
 		net-dns/libidn2:=[${MULTILIB_USEDEP}]
@@ -32,32 +34,27 @@ BDEPEND="
 	man? ( dev-libs/libxslt )
 "
 
-pkg_pretend() {
-	if use icu && use idn ; then
-		ewarn "\"icu\" and \"idn\" USE flags are enabled."
-		ewarn "Using \"idn\"."
-	fi
-}
-
 multilib_src_configure() {
 	local myeconfargs=(
 		--disable-asan
 		--disable-cfi
-		--disable-ubsan
+		--didable-ubsan
 		$(use_enable man)
 	)
 
-	# Prefer idn even if icu is in USE as well
-	if use idn ; then
-		myeconfargs+=(
-			--enable-builtin=libidn2
-			--enable-runtime=libidn2
-		)
-	elif use icu ; then
-		myeconfargs+=(
-			--enable-builtin=libicu
-			--enable-runtime=libicu
-		)
+	if use icu || use idn ; then
+		if use icu ; then
+			myeconfargs+=(
+				--enable-builtin=libicu
+				--enable-runtime=libicu
+			)
+		fi
+		if use idn ; then
+			myeconfargs+=(
+				--enable-builtin=libidn2
+				--enable-runtime=libidn2
+			)
+		fi
 	else
 		myeconfargs+=( --disable-runtime )
 	fi

@@ -33,9 +33,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
-	media-gfx/qrencode:=
 	sys-libs/zlib
 	autotype? (
 		dev-qt/qtx11extras:5
@@ -72,11 +70,12 @@ src_configure() {
 		-DWITH_TESTS="$(usex test)"
 		-DWITH_XC_AUTOTYPE="$(usex autotype)"
 		-DWITH_XC_BROWSER="$(usex browser)"
+		-DWITH_XC_HTTP=OFF
 		-DWITH_XC_NETWORKING="$(usex network)"
 		-DWITH_XC_SSHAGENT=ON
 		-DWITH_XC_YUBIKEY="$(usex yubikey)"
 	)
-	if [[ "${PV}" != 9999 ]] ; then
+	if [[ "${PV}" == *_beta* ]] ; then
 		mycmakeargs+=( -DOVERRIDE_VERSION="${PV/_/-}" )
 	fi
 	cmake-utils_src_configure

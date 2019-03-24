@@ -15,7 +15,7 @@ if [[ ${PV} != 9999* ]]; then
 fi
 
 IUSE_SERVERS="dmx kdrive wayland xephyr xnest xorg xvfb"
-IUSE="${IUSE_SERVERS} debug elogind +glamor ipv6 libressl minimal selinux +suid systemd +udev unwind xcsecurity"
+IUSE="${IUSE_SERVERS} debug +glamor ipv6 libressl minimal selinux +suid systemd +udev unwind xcsecurity"
 
 CDEPEND=">=app-eselect/eselect-opengl-1.3.0
 	!libressl? ( dev-libs/openssl:0= )
@@ -81,13 +81,7 @@ CDEPEND=">=app-eselect/eselect-opengl-1.3.0
 	systemd? (
 		sys-apps/dbus
 		sys-apps/systemd
-	)
-	elogind? (
-		sys-apps/dbus
-		sys-auth/elogind
-		sys-auth/pambase[elogind]
-	)
-	"
+	)"
 
 DEPEND="${CDEPEND}
 	sys-devel/flex
@@ -113,8 +107,6 @@ PDEPEND="
 REQUIRED_USE="!minimal? (
 		|| ( ${IUSE_SERVERS} )
 	)
-	elogind? ( udev )
-	?? ( elogind systemd )
 	minimal? ( !glamor !wayland )
 	xephyr? ( kdrive )"
 
@@ -164,8 +156,8 @@ pkg_setup() {
 		$(use_enable udev config-udev)
 		$(use_with doc doxygen)
 		$(use_with doc xmlto)
-		$(usex !elogind $(use_enable systemd systemd-logind) '--enable-systemd-logind')
 		$(use_with systemd systemd-daemon)
+		$(use_enable systemd systemd-logind)
 		$(usex suid $(use_enable systemd suid-wrapper) '--disable-suid-wrapper')
 		$(usex suid $(use_enable !systemd install-setuid) '--disable-install-setuid')
 		--enable-libdrm

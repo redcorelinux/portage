@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=0
 
-inherit autotools toolchain-funcs
+inherit autotools eutils multilib toolchain-funcs
 
 DESCRIPTION="Applications to monitor on a beowulf- or GRID-style clusters"
 HOMEPAGE="http://www.phy.duke.edu/~rgb/Beowulf/wulfware.php"
@@ -14,34 +14,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="
-	dev-libs/libxml2:=
-	sys-libs/ncurses:0=
-	sys-libs/zlib:=
-"
-DEPEND="
-	${RDEPEND}
+RDEPEND="dev-libs/libxml2
+	sys-libs/ncurses
+	sys-libs/zlib"
+DEPEND="${RDEPEND}
 	!sys-cluster/wulfstat
-	!sys-cluster/xmlsysd
-"
+	!sys-cluster/xmlsysd"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-opts_and_strip.patch
-	"${FILESDIR}"/${P}-tinfo.patch #528588
-)
-
-src_prepare() {
-	default
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}"/${P}-opts_and_strip.patch
 	eautoreconf
 }
 
-src_configure() {
+src_compile() {
 	tc-export CC
 	econf --disable-dependency-tracking
-}
-
-src_compile() {
-	emake -j1
+	emake -j1 || die "emake failed."
 }
 
 src_install() {
@@ -52,7 +42,7 @@ src_install() {
 	dodoc AUTHORS ChangeLog NEWS NOTES README xmlsysd/DESIGN
 
 	# FIXME: Update to Gentoo style init script.
-	rm -r "${ED}"/etc/init.d/wulf2html || die
+	rm -rf "${D}"/etc/init.d/wulf2html
 }
 
 pkg_postinst() {
