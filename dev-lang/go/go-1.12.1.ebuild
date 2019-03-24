@@ -10,8 +10,8 @@ MY_PV=${PV/_/}
 
 inherit toolchain-funcs
 
-BOOTSTRAP_DIST="https://dev.gentoo.org/~williamh/dist"
 BOOTSTRAP_VERSION="bootstrap-1.8"
+BOOTSTRAP_DIST="https://dev.gentoo.org/~williamh/dist"
 BOOTSTRAP_URI="
 	${BOOTSTRAP_DIST}/go-linux-amd64-${BOOTSTRAP_VERSION}.tbz
 	${BOOTSTRAP_DIST}/go-linux-arm-${BOOTSTRAP_VERSION}.tbz
@@ -37,7 +37,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* amd64 ~arm ~arm64 ~ppc64 ~s390 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* amd64 arm ~arm64 ~ppc64 ~s390 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x64-macos ~x64-solaris"
 		# The upstream tests fail under portage but pass if the build is
 		# run according to their documentation [1].
 		# I am restricting the tests on released versions until this is
@@ -47,6 +47,13 @@ case ${PV}  in
 		;;
 	esac
 esac
+
+# If gccgo is not being used to build Go, there is no way to know the
+# architecture or operating system of the build machine, so we need to
+# download all of our bootstrap archives to allow this ebuild to work
+# under crossdev.
+#
+# https://bugs.gentoo.org/671394
 SRC_URI+="!gccgo? ( ${BOOTSTRAP_URI} )"
 
 DESCRIPTION="A concurrent garbage collected and typesafe programming language"
