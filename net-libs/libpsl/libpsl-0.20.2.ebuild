@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+PYTHON_COMPAT=(python{2_7,3_{5,6,7}})
 
-inherit multilib-minimal
+inherit multilib-minimal python-any-r1
 
 DESCRIPTION="C library for the Public Suffix List"
 HOMEPAGE="https://github.com/rockdaboot/libpsl"
@@ -11,13 +12,11 @@ SRC_URI="https://github.com/rockdaboot/${PN}/releases/download/${P}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~hppa ~ia64 ~s390 ~sparc ~x86"
 IUSE="icu +idn +man"
 
-REQUIRED_USE="^^ ( icu idn )"
-
 RDEPEND="
-	icu? ( dev-libs/icu:=[${MULTILIB_USEDEP}] )
+	icu? ( !idn? ( dev-libs/icu:=[${MULTILIB_USEDEP}] ) )
 	idn? (
 		dev-libs/libunistring[${MULTILIB_USEDEP}]
 		net-dns/libidn2:=[${MULTILIB_USEDEP}]
@@ -28,33 +27,39 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/gtk-doc-am
 	sys-devel/gettext
 	virtual/pkgconfig
 	man? ( dev-libs/libxslt )
 "
 
+pkg_pretend() {
+	if use icu && use idn ; then
+		ewarn "\"icu\" and \"idn\" USE flags are enabled."
+		ewarn "Using \"idn\"."
+	fi
+}
+
 multilib_src_configure() {
 	local myeconfargs=(
 		--disable-asan
 		--disable-cfi
-		--didable-ubsan
+		--disable-ubsan
 		$(use_enable man)
 	)
 
-	if use icu || use idn ; then
-		if use icu ; then
-			myeconfargs+=(
-				--enable-builtin=libicu
-				--enable-runtime=libicu
-			)
-		fi
-		if use idn ; then
-			myeconfargs+=(
-				--enable-builtin=libidn2
-				--enable-runtime=libidn2
-			)
-		fi
+	# Prefer idn even if icu is in USE as well
+	if use idn ; then
+		myeconfargs+=(
+			--enable-builtin=libidn2
+			--enable-runtime=libidn2
+		)
+	elif use icu ; then
+		myeconfargs+=(
+			--enable-builtin=libicu
+			--enable-runtime=libicu
+		)
 	else
 		myeconfargs+=( --disable-runtime )
 	fi

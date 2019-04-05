@@ -234,6 +234,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-git-autodetect.patch"
 	"${FILESDIR}/${P}-fix-build-with-va.patch" # bug https://bugs.gentoo.org/656576
 	"${FILESDIR}/${P}-popcnt.patch" # https://bugs.gentoo.org/633900
+	"${FILESDIR}/${P}-fix-on-x86.patch" # https://bugs.gentoo.org/682104
 )
 
 pkg_pretend() {
@@ -472,10 +473,9 @@ python_module_compile() {
 
 	# Set all python variables to load the correct Gentoo paths
 	mycmakeargs+=(
-		# cheap trick: python_setup sets one of them as a symlink
-		# to the correct interpreter, and the other to fail-wrapper
-		-DPYTHON2_EXECUTABLE=$(type -P python2)
-		-DPYTHON3_EXECUTABLE=$(type -P python3)
+		# python_setup alters PATH and sets this as wrapper
+		# to the correct interpreter we are building for
+		-DPYTHON_DEFAULT_EXECUTABLE=python
 		-DINSTALL_PYTHON_EXAMPLES=$(usex examples)
 		-DLIBPY_SUFFIX=64
 	)

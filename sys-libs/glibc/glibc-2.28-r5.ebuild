@@ -18,7 +18,7 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://sourceware.org/git/glibc.git"
 	inherit git-r3
 else
-	KEYWORDS="~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 s390 ~sh sparc ~x86"
+	KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 m68k ~mips ~ppc ~ppc64 s390 sh sparc ~x86"
 	SRC_URI="mirror://gnu/glibc/${P}.tar.xz"
 fi
 
@@ -82,7 +82,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=net-dns/libidn2-2.0.5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	>=net-dns/libidn2-2.0.5
 	sys-apps/gentoo-functions
 	!sys-kernel/ps3-sources
 	!sys-libs/nss-db
@@ -100,7 +99,10 @@ else
 		>=sys-devel/gcc-6
 		virtual/os-headers
 	"
-	RDEPEND+=" vanilla? ( !sys-libs/timezone-data )"
+	RDEPEND+="
+		>=net-dns/libidn2-2.0.5
+		vanilla? ( !sys-libs/timezone-data )
+	"
 	PDEPEND+=" !vanilla? ( sys-libs/timezone-data )"
 fi
 

@@ -4,13 +4,6 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
-# Matt Turner <mattst88@gentoo.org> (02 Mar 2019)
-# For ancient hardware. Tired of maintaining. Masked for removal in 30 days.
-# Bug #679256
-video_cards_newport
-video_cards_tdfx
-video_cards_voodoo
-
 # Brian Evans <grknight@gentoo.org> (11 Jan 2019)
 # Mask PHP 7.0 target as EOL
 php_targets_php7-0
@@ -26,10 +19,6 @@ postgres_targets_postgres12
 # Andreas K. Hüttel <dilfridge@gentoo.org> (04 Nov 2017)
 # Unkeyworded on most arches, unmasked in supported arch profiles.
 audacious
-
-# Michael Palimaka <kensington@gentoo.org> (03 Jun 2017)
-# Unkeyworded on most arches, unmasked in supported arch profiles.
-elogind
 
 # CURL_SSL=winssl is for prefix/windows/winnt only
 curl_ssl_winssl
@@ -84,8 +73,8 @@ coreaudio
 # Jeremy Olexa <darkside@gentoo.org>
 # The prefix USE flags should never be used on non prefix profiles
 prefix
-prefix-chain
 prefix-guest
+prefix-stack
 
 # Diego E. Pettenò <flameeyes@gentoo.org> (19 Oct 2010)
 # masking flags that only apply to FreeBSD

@@ -13,7 +13,7 @@ SRC_URI="amd64? ( linuxx64-${PV}.tar.gz )
 
 LICENSE="icaclient"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="nsplugin l10n_de l10n_es l10n_fr l10n_ja l10n_zh_CN"
 RESTRICT="mirror strip userpriv fetch"
 
@@ -64,7 +64,7 @@ DEPEND=""
 pkg_nofetch() {
 	elog "Download the client file ${A} from
 	https://www.citrix.com/downloads/workspace-app/"
-	elog "and place it in ${DISTDIR:-/usr/portage/distfiles}."
+	elog "and place it into your DISTDIR directory."
 }
 
 pkg_setup() {

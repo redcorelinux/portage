@@ -3,7 +3,7 @@
 
 EAPI=6
 WANT_AUTOCONF="2.1"
-inherit autotools toolchain-funcs pax-utils mozcoreconf-v5
+inherit autotools check-reqs toolchain-funcs pax-utils mozcoreconf-v5
 
 MY_PN="mozjs"
 MY_P="${MY_PN}-${PV/_rc/.rc}"
@@ -17,7 +17,7 @@ SRC_URI="https://dev.gentoo.org/~axs/distfiles/${MY_P}.tar.bz2
 
 LICENSE="NPL-1.1"
 SLOT="60"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
 IUSE="debug +jit minimal +system-icu test"
 
 RESTRICT="ia64? ( test )"
@@ -33,6 +33,11 @@ RDEPEND=">=dev-libs/nspr-4.13.1
 	system-icu? ( >=dev-libs/icu-59.1:= )"
 DEPEND="${RDEPEND}"
 
+pkg_pretend() {
+	CHECKREQS_DISK_BUILD="2G"
+
+	check-reqs_pkg_setup
+}
 pkg_setup(){
 	[[ ${MERGE_TYPE} == "binary" ]] || \
 		moz_pkgsetup

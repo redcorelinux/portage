@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -24,10 +24,10 @@ IUSE="debug nls pch test qt5"
 RDEPEND="
 	dev-libs/libfmt:=
 	>=dev-libs/boost-1.49.0:=
-	>=dev-libs/libebml-1.3.5:=
+	>=dev-libs/libebml-1.3.7:=
 	dev-libs/pugixml
 	media-libs/flac
-	>=media-libs/libmatroska-1.4.8:=
+	>=media-libs/libmatroska-1.5.0:=
 	media-libs/libogg
 	media-libs/libvorbis
 	sys-apps/file
@@ -40,7 +40,7 @@ RDEPEND="
 		dev-qt/qtwidgets:5
 		dev-qt/qtconcurrent:5
 		dev-qt/qtmultimedia:5
-		app-text/cmark
+		app-text/cmark:0=
 	)
 "
 DEPEND="${RDEPEND}

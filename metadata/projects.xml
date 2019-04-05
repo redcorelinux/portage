@@ -323,6 +323,7 @@
     <subproject ref="openrc@gentoo.org"/>
     <subproject ref="pam-bugs@gentoo.org"/>
     <subproject ref="ppc@gentoo.org"/>
+    <subproject ref="riscv@gentoo.org"/>
     <subproject ref="s390@gentoo.org"/>
     <subproject ref="sparc@gentoo.org"/>
     <subproject ref="sh@gentoo.org"/>
@@ -1354,6 +1355,10 @@
     <member>
       <email>ryao@gentoo.org</email>
       <name>Richard Yao</name>
+    </member>
+    <member>
+      <email>whissi@gentoo.org</email>
+      <name>Thomas Deutschmann</name>
     </member>
     <member>
       <email>zerochaos@gentoo.org</email>
@@ -2898,11 +2903,6 @@
       <role>Member</role>
     </member>
     <member>
-      <email>perfinion@gentoo.org</email>
-      <name>Jason Zaman</name>
-      <role>Member</role>
-    </member>
-    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Member</role>
@@ -2959,10 +2959,6 @@
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
       <role>Cafepress store, Facebook (admin), G+ (primary owner), Twitter, Telegram (admin), Slack (admin)</role>
-    </member>
-    <member>
-      <email>nightmorph@gentoo.org</email>
-      <name>Joshua Saddler</name>
     </member>
     <member>
       <email>sping@gentoo.org</email>
@@ -3234,11 +3230,6 @@
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
       <role>Documentation Helper</role>
-    </member>
-    <member>
-      <email>nightmorph@gentoo.org</email>
-      <name>Joshua Saddler</name>
-      <role>Documentation Liaison</role>
     </member>
     <member>
       <email>robbat2@gentoo.org</email>
@@ -4057,10 +4048,6 @@
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
       <role>Maintainer</role>
-    </member>
-    <member>
-      <email>nightmorph@gentoo.org</email>
-      <name>Joshua Saddler</name>
     </member>
   </project>
   <project>

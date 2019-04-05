@@ -21,7 +21,7 @@ BRANDING="${PN}-branding-gentoo-0.8.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${MY_PV} == *9999* ]] && inherit git-r3
-inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 multiprocessing pax-utils python-single-r1 qmake-utils toolchain-funcs xdg
+inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 multiprocessing python-single-r1 qmake-utils toolchain-funcs xdg
 
 DESCRIPTION="A full office productivity suite"
 HOMEPAGE="https://www.libreoffice.org"
@@ -424,8 +424,8 @@ src_configure() {
 		--with-x
 		--without-fonts
 		--without-myspell-dicts
-		--without-help
-		--with-helppack-integration
+		--with-help="html"
+		--without-helppack-integration
 		--with-system-gpgmepp
 		--without-system-sane
 		$(use_enable bluetooth sdremote-bluetooth)
@@ -502,24 +502,6 @@ src_compile() {
 	addpredict /dev/ati
 	addpredict /dev/nvidiactl
 
-	# hack for offlinehelp, this needs fixing upstream at some point
-	# it is broken because we send --without-help
-	# https://bugs.freedesktop.org/show_bug.cgi?id=46506
-	(
-		grep "^export" "${S}/config_host.mk" > "${T}/config_host.mk" || die
-		source "${T}/config_host.mk" 2&> /dev/null
-
-		local path="${WORKDIR}/helpcontent2/source/auxiliary/"
-		mkdir -p "${path}" || die
-
-		echo "perl \"${S}/helpcontent2/helpers/create_ilst.pl\" -dir=helpcontent2/source/media/helpimg > \"${path}/helpimg.ilst\""
-		perl "${S}/helpcontent2/helpers/create_ilst.pl" \
-			-dir=helpcontent2/source/media/helpimg \
-			> "${path}/helpimg.ilst"
-		[[ -s "${path}/helpimg.ilst" ]] || \
-			ewarn "The help images list is empty, something is fishy, report a bug."
-	)
-
 	local target
 	use test && target="build" || target="build-nocheck"
 
@@ -553,15 +535,6 @@ src_install() {
 		dodir /etc/env.d
 		echo "CONFIG_PROTECT=/usr/$(get_libdir)/${PN}/program/sofficerc" > "${ED}"/etc/env.d/99${PN} || die
 	fi
-
-	# Hack for offlinehelp, this needs fixing upstream at some point.
-	# It is broken because we send --without-help
-	# https://bugs.freedesktop.org/show_bug.cgi?id=46506
-	insinto /usr/$(get_libdir)/libreoffice/help
-	doins xmlhelp/util/*.xsl
-
-	pax-mark -m "${ED}"/usr/$(get_libdir)/libreoffice/program/soffice.bin
-	pax-mark -m "${ED}"/usr/$(get_libdir)/libreoffice/program/unopkg.bin
 }
 
 pkg_preinst() {
