@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} pypy{,3} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6,3_7} pypy{,3} )
 
 inherit python-r1
 
@@ -14,4 +14,4 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/typing[${PYTHON_USEDEP}]' \
-	'python2*' python3_4 pypy)"
+	'python2*' pypy)"

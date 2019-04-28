@@ -3,7 +3,7 @@
 
 EAPI=6
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python{3_3,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{3_5,3_6} )
 VALA_USE_DEPEND="vapigen"
 
 inherit gnome2 multilib-minimal python-any-r1 vala
@@ -17,7 +17,7 @@ SLOT="2.4"
 IUSE="debug gssapi +introspection samba ssl test +vala"
 REQUIRED_USE="vala? ( introspection )"
 
-KEYWORDS="~amd64 ~hppa ~ia64 ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.34.3:2[${MULTILIB_USEDEP}]

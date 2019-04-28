@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{4,5,6,7} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 
 inherit python-any-r1 prefix eutils eapi7-ver toolchain-funcs flag-o-matic gnuconfig \
 	multilib systemd multiprocessing
@@ -35,7 +35,7 @@ PATCH_VER=11
 SRC_URI+=" https://dev.gentoo.org/~slyfox/distfiles/${P}-patches-${PATCH_VER}.tar.xz"
 SRC_URI+=" multilib? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-multilib-bootstrap-${GCC_BOOTSTRAP_VER}.tar.xz )"
 
-IUSE="audit caps cet compile-locales doc gd headers-only +multiarch multilib nscd profile selinux +ssp suid systemtap test vanilla"
+IUSE="audit caps cet compile-locales doc gd headers-only +multiarch multilib nscd profile selinux +ssp +static-libs suid systemtap test vanilla"
 
 # Minimum kernel version that glibc requires
 MIN_KERN_VER="3.2.0"
@@ -720,6 +720,11 @@ pkg_pretend() {
 	sanity_prechecks
 }
 
+pkg_setup() {
+	# see bug 682570
+	[[ -z ${BOOTSTRAP_RAP} ]] && python-any-r1_pkg_setup
+}
+
 # src_unpack
 
 src_unpack() {
@@ -795,6 +800,17 @@ glibc_do_configure() {
 
 	# Some of the tests are written in C++, so we need to force our multlib abis in, bug 623548
 	export CXX="$(tc-getCXX ${CTARGET}) $(get_abi_CFLAGS) ${CFLAGS}"
+
+	if is_crosscompile; then
+		# Assume worst-case bootstrap: glibc is buil first time
+		# when ${CTARGET}-g++ is not available yet. We avoid
+		# building auxiliary programs that require C++: bug #683074
+		# It should not affect final result.
+		export libc_cv_cxx_link_ok=no
+		# The line above has the same effect. We set CXX explicitly
+		# to make build logs less confusing.
+		export CXX=
+	fi
 	einfo " $(printf '%15s' 'Manual CXX:')   ${CXX}"
 
 	echo
@@ -1165,6 +1181,9 @@ glibc_do_src_install() {
 		# powerpc
 		ppc     /lib/ld.so.1
 		ppc64   /lib64/ld64.so.1
+		# riscv
+		lp64d   /lib/ld-linux-riscv64-lp64d.so.1
+		lp64    /lib/ld-linux-riscv64-lp64.so.1
 		# s390
 		s390    /lib/ld.so.1
 		s390x   /lib/ld64.so.1
@@ -1247,6 +1266,17 @@ glibc_do_src_install() {
 		fi
 	done
 
+	# HACK: If we're building for riscv, we need to additionally make sure that
+	# we can find the locale archive afterwards
+	case ${CTARGET} in
+		riscv*)
+			if [[ ! -e ${ED}/usr/lib/locale ]] ; then
+				dosym ../$(get_libdir)/locale /usr/lib/locale
+			fi
+			;;
+		*) ;;
+	esac
+
 	cd "${S}"
 
 	# Install misc network config files
@@ -1327,6 +1357,12 @@ src_install() {
 	fi
 
 	foreach_abi glibc_do_src_install
+
+	if ! use static-libs ; then
+		elog "Not installing static glibc libraries"
+		find "${ED}" -name "*.a" -and -not -name "*_nonshared.a" -delete
+	fi
+
 	src_strip
 }
 

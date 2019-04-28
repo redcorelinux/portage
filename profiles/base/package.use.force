@@ -1,9 +1,10 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Lars Wendler <polynomial-c@gentoo.org> (20 Mar 2019)
-# USE="-gnutls" is broken (#675694)
->=net-fs/samba-4.10.0_rc1 gnutls
+# Andreas K. Hüttel <dilfridge@gentoo.org> (14 Apr 2019)
+# Make sure glibc static libs are installed for now. Not installing
+# them is an experimental feature and needs testing.
+sys-libs/glibc static-libs
 
 # Mart Raudsepp <leio@gentoo.org> (14 Dec 2018)
 # Security is not optional if available for the architecture/kernel.
@@ -52,10 +53,6 @@ dev-lang/python threads
 # Maciej Mrozowski <reavertm@gentoo.org> (1 Sept 2016)
 # Workaround until resolved upstream (bug #586840)
 >=dev-games/simgear-2016.2.1 dns
-
-# Lars Wendler <polynomial-c@gentoo.org> (11 Sep 2015)
-# Package fails to build with dbus USE flag being disabled (bug #560208)
-=x11-wm/afterstep-2.2.12 dbus
 
 # Justin Lecher <jlec@gentoo.org> (10 Aug 2014)
 # Doesn't work without acl support

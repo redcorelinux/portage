@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6,7} pypy )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} pypy )
 PYTHON_REQ_USE="threads(+)"
 
 RUBY_OPTIONAL="yes"
@@ -116,6 +116,7 @@ CDEPEND="
 	mono? ( dev-lang/mono:= )
 	perl? ( dev-lang/perl:= )
 	php? (
+		net-libs/libnsl
 		php_targets_php5-6? ( dev-lang/php:5.6[embed] )
 		php_targets_php7-1? ( dev-lang/php:7.1[embed] )
 		php_targets_php7-2? ( dev-lang/php:7.2[embed] )

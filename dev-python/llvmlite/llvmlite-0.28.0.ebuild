@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6,3_7} )
 
 inherit distutils-r1 llvm
 
@@ -32,6 +32,7 @@ S=${WORKDIR}/${P/_/}
 
 PATCHES=(
 	"${FILESDIR}"/llvmlite-0.15.0-use-system-six.patch
+	"${FILESDIR}"/llvmlite-0.28.0-llvm710.patch
 )
 
 python_configure_all() {

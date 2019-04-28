@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_{4,5,6,7}} pypy )
+PYTHON_COMPAT=( python{2_7,3_{5,6,7}} pypy )
 PYTHON_REQ_USE='bzip2(+),threads(+)'
 
 inherit distutils-r1
@@ -30,7 +30,7 @@ RDEPEND="
 		>=app-portage/gemato-10[${PYTHON_USEDEP}]
 		app-shells/bash:0[readline]
 		$(python_gen_cond_dep 'dev-python/pyblake2[${PYTHON_USEDEP}]' \
-			python{2_7,3_4,3_5} pypy)
+			python{2_7,3_5} pypy)
 		>=dev-python/lxml-3.6.0[${PYTHON_USEDEP}]
 		>=sys-apps/sed-4.0.5
 	)

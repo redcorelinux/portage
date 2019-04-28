@@ -4,7 +4,7 @@
 EAPI=6
 
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6,3_7} )
 
 inherit bash-completion-r1 elisp-common eutils flag-o-matic pax-utils \
 	distutils-r1 toolchain-funcs
@@ -136,6 +136,8 @@ src_prepare() {
 }
 
 src_configure() {
+	python_setup  # for sphinx
+
 	local myeconfargs=(
 		--bashcompletiondir="$(get_bashcompdir)"
 		--emacslispdir="${EPREFIX}/${SITELISP}/${PN}"
@@ -151,6 +153,8 @@ src_configure() {
 }
 
 src_compile() {
+	python_setup  # for sphinx
+
 	V=1 default
 	bindings python distutils-r1_src_compile
 

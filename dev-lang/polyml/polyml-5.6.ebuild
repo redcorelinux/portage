@@ -20,7 +20,10 @@ RDEPEND="X? ( x11-libs/motif:0 )
 		virtual/libffi"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-configure.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-configure.patch
+	"${FILESDIR}"/${P}-ffi3.patch
+)
 
 src_prepare() {
 	default
@@ -32,6 +35,7 @@ src_configure() {
 		--enable-shared \
 		--disable-static \
 		--with-system-libffi \
+		--with-pic=pic-only \
 		$(use_with X x) \
 		$(use_with gmp) \
 		$(use_with portable) \

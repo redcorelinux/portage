@@ -6,7 +6,7 @@ EAPI=6
 inherit mate
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm ~arm64 x86"
 fi
 
 DESCRIPTION="A session daemon for MATE that makes it easy to manage your laptop or desktop"
@@ -20,7 +20,8 @@ REQUIRED_USE="?? ( elogind systemd )"
 # Interactive testsuite.
 RESTRICT="test"
 
-COMMON_DEPEND=">=dev-libs/dbus-glib-0.70
+COMMON_DEPEND="
+	>=dev-libs/dbus-glib-0.70
 	>=dev-libs/glib-2.50:2
 	>=media-libs/libcanberra-0.10:0[gtk3]
 	>=sys-apps/dbus-1
@@ -50,10 +51,11 @@ DEPEND="${COMMON_DEPEND}
 	app-text/rarian
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools
-	>=dev-util/intltool-0.50.1:*
-	x11-base/xorg-proto
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	dev-util/glib-utils
+	>=dev-util/intltool-0.50.1
+	sys-devel/gettext
+	virtual/pkgconfig
+	x11-base/xorg-proto"
 
 src_configure() {
 	mate_src_configure \

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{4,5,6,7} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 
 inherit autotools bash-completion-r1 eutils linux-info python-any-r1 readme.gentoo-r1 systemd user
 
@@ -187,7 +187,14 @@ pkg_setup() {
 		~NETFILTER_ADVANCED
 		~NETFILTER_XT_CONNMARK
 		~NETFILTER_XT_MARK
-		~NETFILTER_XT_TARGET_CHECKSUM"
+		~NETFILTER_XT_TARGET_CHECKSUM
+		~IP_NF_FILTER
+		~IP_NF_MANGLE
+		~IP_NF_NAT
+		~IP_NF_TARGET_MASQUERADE
+		~IP6_NF_FILTER
+		~IP6_NF_MANGLE
+		~IP6_NF_NAT"
 	# Bandwidth Limiting Support
 	use virt-network && CONFIG_CHECK+="
 		~BRIDGE_EBT_T_NAT

@@ -22,7 +22,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="altivec cpu_flags_arm_iwmmxt loongson2f cpu_flags_x86_mmxext neon cpu_flags_x86_sse2 cpu_flags_x86_ssse3"
+IUSE="altivec cpu_flags_arm_iwmmxt cpu_flags_arm_iwmmxt2 loongson2f cpu_flags_x86_mmxext neon cpu_flags_x86_sse2 cpu_flags_x86_ssse3"
 
 src_unpack() {
 	default
@@ -32,6 +32,7 @@ src_unpack() {
 multilib_src_configure() {
 	local emesonargs=(
 		$(meson_feature cpu_flags_arm_iwmmxt iwmmxt)
+		$(meson_use     cpu_flags_arm_iwmmxt2 iwmmxt2)
 		$(meson_feature cpu_flags_x86_mmxext mmx)
 		$(meson_feature cpu_flags_x86_sse2 sse2)
 		$(meson_feature cpu_flags_x86_ssse3 ssse3)
@@ -50,7 +51,7 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	meson_src_test
+	meson test -v -C "${BUILD_DIR}" -t 100
 }
 
 multilib_src_install() {

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/home-sweet-gnome/${MY_PN}/archive/v${PV}.tar.gz -> $
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE=""
 
 COMMON_DEPEND="dev-libs/glib:2"
@@ -30,8 +30,12 @@ S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default
+
 	# Set correct version
 	export VERSION="${PV}"
+
+	# Don't install README and COPYING in unwanted locations
+	sed -i -e 's/COPYING//g' -e 's/README.md//g' Makefile || die
 }
 
 pkg_preinst() {

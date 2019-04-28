@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6} )
 
 inherit autotools eutils linux-info linux-mod python-r1 systemd
 
@@ -65,6 +65,10 @@ src_configure() {
 	# use monitor || export ovs_cv_python="no"
 	# pyside is staticly disabled
 	export ovs_cv_pyuic4="no"
+
+	# flake8 is primarily a style guide tool, running it as part of the tests
+	# in Gentoo does not make much sense, only breaks them: bug 607280
+	export ovs_cv_flake8="no"
 
 	local linux_config
 	use modules && linux_config="--with-linux=${KV_OUT_DIR}"

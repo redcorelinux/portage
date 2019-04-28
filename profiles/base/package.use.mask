@@ -7,6 +7,26 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Ulrich Müller <ulm@gentoo.org> (25 Apr 2019)
+# Pulls in media-fonts/kochi-substitute as dependency, which allows
+# only non-commercial distribution and can therefore not be included
+# with Gentoo install media. Mask the l10n_ja flag until a better
+# solution is found, e.g., transition to a free font package.
+app-text/ghostscript-gpl l10n_ja
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (17 Apr 2019)
+# Mask jre useflags for use as system java-vm until it's proven to work
+dev-java/openjdk-jre-bin:8 gentoo-vm
+dev-java/openjdk-jre-bin:11 gentoo-vm
+
+# Michał Górny <mgorny@gentoo.org> (13 Apr 2019)
+# net-libs/ftplib is slated for removal.
+app-cdr/xbiso ftp
+
+# Michał Górny <mgorny@gentoo.org> (10 Apr 2019)
+# media-sound/aacplusenc is slated for removal.
+media-video/h264enc aac
+
 # Michał Górny <mgorny@gentoo.org> (31 Mar 2019)
 # dev-libs/grok is slated for removal.
 app-admin/rsyslog grok
@@ -94,12 +114,6 @@ sci-libs/ceres-solver sparse
 # jit brokes build of gnat-gpl
 dev-lang/gnat-gpl jit
 
-# Thomas Deutschmann <whissi@gentoo.org> (12 Oct 2018)
-# Requires www-client/firefox and mail-client/thunderbird
-# which are not available on all architectures
-# yet, unmask per arch
-app-misc/tracker firefox-bookmarks thunderbird
-
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (06 Oct 2018)
 # address user visible breakage due to circular dependency #665008
 =media-fonts/encodings-1.0.4-r3 X
@@ -107,7 +121,7 @@ app-misc/tracker firefox-bookmarks thunderbird
 # Dirkjan Ochtman <djc@gentoo.org> (29 Sep 2018)
 # Clippy is broken for now, can't find libraries (bug 667286)
 <dev-lang/rust-1.29.2 clippy
-dev-lang/rust-bin clippy
+<dev-lang/rust-bin-1.34.1 clippy
 
 # Virgil Dupras <vdupras@gentoo.org> (26 Sep 2018)
 # Server feature in paramiko is patched out for security reasons. It can
@@ -325,10 +339,6 @@ mate-base/mate bluetooth
 # and causes problems with updating the X window, bug #592238
 app-editors/emacs cairo
 app-editors/emacs-vcs cairo
-
-# Gilles Dartiguelongue <eva@gentoo.org> (21 Aug 2016)
-# Needs a Gstreamer plugin from gst-plugins-bad that is not packaged to date
-media-plugins/grilo-plugins chromaprint
 
 # Michał Górny <mgorny@gentoo.org> (05 Jul 2016)
 # Mask system-clang support as it requires llvm-3.4 that is subject

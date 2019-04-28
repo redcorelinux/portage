@@ -5,14 +5,14 @@ EAPI=7
 PYTHON_COMPAT=( python{3_5,3_6} )
 PYTHON_REQ_USE="sqlite"
 
-inherit gnome.org meson python-single-r1 virtualx
+inherit gnome.org meson python-single-r1 virtualx xdg
 
 DESCRIPTION="A non-linear video editor using the GStreamer multimedia framework"
 HOMEPAGE="http://www.pitivi.org"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 
 IUSE="v4l test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

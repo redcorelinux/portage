@@ -5,10 +5,6 @@
 # media-libs/libsdl is not stable yet
 dev-libs/zziplib sdl
 
-# Mart Raudsepp <leio@gentoo.org> (18 Feb 2019)
-# app-text/aspell not stable yet
-app-misc/mc spell
-
 # Andreas Sturmlechner <asturm@gentoo.org> (10 Feb 2019)
 # kde-frameworks/kconfig is not stable for arm64
 net-libs/libproxy kde
@@ -68,8 +64,8 @@ app-portage/layman cvs subversion test
 app-text/xmlto latex
 dev-libs/apr-util freetds odbc
 sys-apps/man-pages l10n_fr
-sys-apps/systemd cryptsetup policykit qrcode
-sys-auth/pambase consolekit pam_krb5 pam_ssh passwdqc
+sys-apps/systemd cryptsetup qrcode
+sys-auth/pambase pam_krb5 pam_ssh passwdqc
 sys-block/thin-provisioning-tools test
 sys-devel/distcc gssapi
 sys-devel/gettext cvs
@@ -101,3 +97,4 @@ dev-libs/libverto tevent
 # systemtap is not yet stable on arm64
 dev-libs/glib systemtap
 sys-libs/glibc systemtap
+sys-devel/gcc systemtap

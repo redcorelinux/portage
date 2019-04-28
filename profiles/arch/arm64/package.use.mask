@@ -1,6 +1,16 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Patrick McLean <chutzpah@gentoo.org> (15 Apr 2019)
+# pending re-keyword request, bug 615400
+net-analyzer/rrdtool rados
+sys-fs/multipath-tools rbd
+www-servers/uwsgi uwsgi_plugins_rados
+
+# Aaron Bauman <bman@gentoo.org> (8 Apr 2019)
+# app-text/dblatex not keyword yet
+net-firewall/nftables doc
+
 # Roy Bamford <neddyseagoon@gentoo.org> (19 Mar 2019)
 # Let kde-apps/akonadi use mysql.
 dev-qt/qtsql -mysql
@@ -55,29 +65,16 @@ virtual/ffmpeg -sdl
 # It builds OK but is not yet in ::gentoo. bug #678404
 kde-apps/cantor lua
 
-# Mart Raudsepp <leio@gentoo.org> (23 Feb 2019)
-# app-text/gspell not keyworded yet
-app-text/evince spell
-
 # Davide Pesavento <pesa@gentoo.org> (27 Dec 2018)
 # The corresponding Qt5 modules are not keyworded on arm64, and we don't want to
 # keyword them solely because of PyQt5 while there are no other in-tree users.
 dev-python/PyQt5 networkauth
-
-# Thomas Deutschmann <whissi@gentoo.org> (12 Oct 2018)
-# Requires www-client/firefox which isn't yet keyworded on ARM64
-dev-ruby/capybara test
 
 # Dirkjan Ochtman <djc@gentoo.org> (29 Sep 2018)
 # Upstream doesn't build docs for tier 2 and lower architectures.
 # Bug #660512.
 dev-lang/rust doc
 dev-lang/rust-bin doc
-
-# Michał Górny <mgorny@gentoo.org> (20 Sep 2018)
-# dev-libs/libpfm not keyworded here (and unclear if it supports ARM64).
-# Bug #666651.
-sys-devel/llvm exegesis
 
 # Virgil Dupras <vdupras@gentoo.org> (06 Sep 2018)
 # sci-electronics/ngspice not yet keyworded, bug #665416
@@ -92,14 +89,8 @@ sci-electronics/kicad occ oce ngspice
 <app-editors/emacs-26.1-r3:26 imagemagick
 
 # Andreas Sturmlechner <asturm@gentoo.org> (01 Sep 2018)
-# media-libs/aribb24 not yet keyworded, bug #665048
-# net-libs/libmicrodns not yet keyworded, bug #653800
 # media-libs/dav1d is not yet keyworded
-media-video/vlc aribsub chromecast dav1d
-
-# Matthew Thode <prometheanfire@gentoo.org> (30 Aug 2018)
-# Needs pillow and it's deps to build docs
->=dev-python/stevedore-1.28.0 doc
+media-video/vlc dav1d
 
 # Tomáš Mózes <hydrapolic@gmail.com> (10 Aug 2018)
 # Needs dev-libs/libmaxminddb which isn't keyworded
@@ -113,10 +104,6 @@ dev-python/networkx pandas test
 # Unkeyworded dependencies.
 dev-python/matplotlib doc
 net-libs/gnome-online-accounts gnome
-
-# Thomas Deutschmann <whissi@gentoo.org> (04 Jul 2018)
-# dev-libs/xxhash not keyworded for arm64
-app-admin/rsyslog xxhash
 
 # Tomáš Mózes <hydrapolic@gmail.com> (19 Jun 2018)
 # Needs dev-libs/libmaxminddb which isn't keyworded
@@ -168,10 +155,6 @@ sys-devel/clang-runtime crt
 # Mart Raudsepp <leio@gentoo.org> (31 Mar 2018)
 # Boost.Context can be built on arm64
 dev-libs/boost -context
-
-# Michał Górny <mgorny@gentoo.org> (12 Mar 2018)
-# Requires masked net-misc/curl with libressl.
-dev-libs/libgit2 libressl
 
 # Michał Górny <mgorny@gentoo.org> (03 Mar 2018)
 # Requires masked dependent flags.
@@ -231,10 +214,6 @@ dev-python/networkx scipy
 # Mart Raudsepp <leio@gentoo.org> (13 Feb 2018)
 # USE=dmraid requires sys-fs/dmraid that is not keyworded yet.
 sys-libs/libblockdev dmraid
-
-# Mart Raudsepp <leio@gentoo.org> (13 Feb 2018)
-# USE=smartcard requires net-libs/gnutls-3[pkcs11] that is use.masked.
-net-libs/glib-networking smartcard
 
 # Mart Raudsepp <leio@gentoo.org> (13 Feb 2018)
 # USE=sofalizer requires sci-libs/netcdf that is not keyworded yet.
@@ -419,10 +398,6 @@ dev-libs/appstream-glib stemmer
 # app-admin/hddtemp not keyworded
 app-admin/gkrellm hddtemp
 
-# Mart Raudsepp <leio@gentoo.org> (28 Jan 2017)
-# media-libs/libcddb not keyworded yet
-dev-libs/libcdio cddb
-
 # Steev Klimaszewski <steev@gentoo.org> (04 March 2016)
 # Chromium uses an internal tcmalloc that doesn't support this arch yet.
 www-client/chromium tcmalloc
@@ -430,8 +405,7 @@ www-client/chromium tcmalloc
 # Mike Frysinger <vapier@gentoo.org> (20 Jul 2015)
 # Mart Raudsepp <leio@gentoo.org> (04 Feb 2017)
 # Needs deps tested.
-dev-python/pycurl curl_ssl_libressl
-net-misc/curl curl_ssl_libressl metalink
+net-misc/curl  metalink
 
 # Mike Frysinger <vapier@gentoo.org> (16 Mar 2015)
 # Needs sci-physics/bullet tested #499974
@@ -495,7 +469,7 @@ net-misc/unison gtk
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (20 Feb 2013)
 # Mask flags of calligra and dependencies due to lack of keywords
-app-office/calligra openexr spacenav
+app-office/calligra spacenav
 media-gfx/pstoedit emf
 
 # Michał Górny <mgorny@gentoo.org> (01 Feb 2013)
@@ -532,19 +506,10 @@ app-accessibility/speech-dispatcher flite
 # mask app-office/libreoffice java extensions
 app-office/libreoffice libreoffice_extensions_scripting-beanshell libreoffice_extensions_scripting-javascript libreoffice_extensions_wiki-publisher
 
-# Markus Meier <maekke@gentoo.org> (25 Jul 2012)
-# no stable media-video/vlc yet, bug #401313
-media-libs/phonon vlc
-
 # Alexandre Rostovtsev <tetromino@gentoo.org> (12 Apr 2012)
 # Temporary mask-in-base, unmask-in-arch for dev-python/mako keywording for
 # gobject-introspection[doctool], bug #411761
 dev-libs/gobject-introspection -doctool
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (09 Jan 2012)
-# jsc JIT compilation is supported only on amd64/arm/x86 and their prefixes, so
-# it's masked in base profile and unmasked here (bug #396313).
-net-libs/webkit-gtk -jit
 
 # Anthony G. Basile <blueness@gentoo.org> (Dec 21, 2011)
 # Mask the vde flag on tinc because net-misc/vde is not
@@ -559,14 +524,6 @@ dev-libs/libpcre jit
 # unkeyworded deps for bug 379657 and bug 379651
 app-admin/packagekit-base entropy
 
-# Robin H. Johnson <robbat2@gentoo.org> (03 Sep 2011)
-# Remove this for your arch after you keyword dev-utils/google-perftools and virtual/gsasl (bug #381737)
-dev-libs/libmemcached sasl
-
-# Sebastian Pipping <sping@gentoo.org> (22 Feb 2011)
-# No media-sound/lilypond here, yet (bug #356069)
-app-text/asciidoc test
-
 # Jim Ramsay <lack@gentoo.org> (5 Nov 2008)
 # app-admin/gkrellm may pull in net-libs/libntlm, which is not keyworded
 app-admin/gkrellm ntlm
@@ -577,10 +534,6 @@ dev-libs/boost mpi
 # missing keywords
 media-sound/sox ladspa
 media-plugins/gst-plugins-meta aac dts dv lame libvisual taglib vcd wavpack
-
-# Ultrabug <ultrabug@gentoo.org> (05 Sept 2011)
-# missing keyword for net-libs/zeromq
-app-admin/rsyslog zeromq
 
 # Ian Whyman <thev00d00@gentoo.org> (05 Sept 2017)
 # missing keywords dev-lang/duktape media-libs/lastfmlib

@@ -11,7 +11,7 @@ else
 	MY_P=${PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/systemd/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ia64 ~mips ppc ppc64 ~sparc x86"
 fi
 
 PYTHON_COMPAT=( python{3_5,3_6,3_7} )
@@ -99,6 +99,7 @@ BDEPEND="
 	>=dev-util/meson-0.46
 	>=dev-util/intltool-0.50
 	>=sys-apps/coreutils-8.16
+	sys-devel/m4
 	virtual/pkgconfig[${MULTILIB_USEDEP}]
 	test? ( sys-apps/dbus )
 	app-text/docbook-xml-dtd:4.2
@@ -110,6 +111,11 @@ BDEPEND="
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != buildonly ]]; then
+		if use test && has pid-sandbox ${FEATURES}; then
+			ewarn "Tests are known to fail with PID sandboxing enabled."
+			ewarn "See https://bugs.gentoo.org/674458."
+		fi
+
 		local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS
 			~CHECKPOINT_RESTORE ~DEVTMPFS ~EPOLL ~FANOTIFY ~FHANDLE
 			~INOTIFY_USER ~IPV6 ~NET ~NET_NS ~PROC_FS ~SIGNALFD ~SYSFS
@@ -162,6 +168,7 @@ src_prepare() {
 	PATCHES+=(
 		"${FILESDIR}"/CVE-2019-6454/0001-Refuse-dbus-message-paths-longer-than-BUS_PATH_SIZE_.patch
 		"${FILESDIR}"/CVE-2019-6454/0002-Allocate-temporary-strings-to-hold-dbus-paths-on-the.patch
+		"${FILESDIR}"/241-version-dep.patch
 	)
 
 	if ! use vanilla; then

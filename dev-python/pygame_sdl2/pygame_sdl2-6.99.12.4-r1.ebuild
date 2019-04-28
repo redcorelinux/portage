@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6} )
 inherit distutils-r1
 
 PYSDL="${PN}-2.1.0"
@@ -14,7 +14,7 @@ SRC_URI="http://www.renpy.org/dl/${PV}/${PYSDL}-for-renpy-${PV}.tar.gz"
 
 LICENSE="LGPL-2.1 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
 BDEPEND="
