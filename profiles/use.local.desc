@@ -121,7 +121,6 @@ app-admin/rsyslog:dbi - Build the general database output module (requires dev-d
 app-admin/rsyslog:elasticsearch - Build the Elasticsearch output module (requires net-misc/curl)
 app-admin/rsyslog:gcrypt - Add support for encrypted log files using dev-libs/libgcrypt
 app-admin/rsyslog:gnutls - Build the GnuTLS network stream driver (requires net-libs/gnutls)
-app-admin/rsyslog:grok - Build the grok modify module (requires dev-libs/grok)
 app-admin/rsyslog:kafka - Build the Apache Kafka input/output module (requires dev-libs/librdkafka)
 app-admin/rsyslog:kerberos - Build the GSSAPI input and output module (requires virtual/krb5)
 app-admin/rsyslog:kubernetes - Build the kubernetes modify plugin (requires net-misc/curl)
@@ -497,6 +496,8 @@ app-emulation/docker:container-init - Makes the a staticly-linked init system ti
 app-emulation/docker:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
 app-emulation/docker:overlay - Enables dependencies for the "overlay" graph driver, including necessary kernel flags.
 app-emulation/docker:pkcs11 - Enables pkcs-11 support.
+app-emulation/docker-credential-helpers:gnome-keyring - Build secretservice helper which works with gnome-keyring or kwallet using D-Bus.
+app-emulation/docker-credential-helpers:pass - Build pass helper for the pass utility.
 app-emulation/docker-runc:ambient - Enable support for ambient capability
 app-emulation/docker-runc:apparmor - Enable AppArmor support
 app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
@@ -2046,7 +2047,8 @@ dev-lang/gnat-gpl:regression-test - Run the testsuite and install the results (r
 dev-lang/gnat-gpl:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...)
 dev-lang/gnat-gpl:ssp - Build packages with stack smashing protector on by default
 dev-lang/gnat-gpl:vtv - Build support for virtual table verification (a C++ hardening feature)
-dev-lang/go:gccgo - Enable bootstrapping using gccgo
+dev-lang/go:gccgo - Bootstrap using sys-devel/gcc[go]
+dev-lang/go:system-bootstrap - Bootstrap using previously installed dev-lang/go
 dev-lang/icon:iplsrc - install the icon programming library source
 dev-lang/lazarus:minimal - Don't build extra packages from the bigide component
 dev-lang/logtalk:fop - Support for generating pdf documentation using fop
@@ -2400,6 +2402,7 @@ dev-libs/granite:demo - Build the Granite demo application (to present all avail
 dev-libs/hidapi:fox - Build a x11-libs/fox GUI
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
+dev-libs/intel-neo:vaapi - Support the sharing of surfaces with Video Acceleration API (OpenCL Extension #36)
 dev-libs/jemalloc:hugepages - Enable transparent huge page support
 dev-libs/jemalloc:lazy-lock - Enable lazy locking (only lock when multi-threaded)
 dev-libs/jemalloc:stats - Enable statistics calculation/reporting
@@ -2408,6 +2411,7 @@ dev-libs/kreport:marble - Enable displaying of maps using kde-apps/marble
 dev-libs/kreport:scripting - Support Qml scripting using dev-qt/qtdeclarative
 dev-libs/leveldb:snappy - support the snappy compression library
 dev-libs/libbase58:tools - Build command line base58 tool
+dev-libs/libbytesize:tools - Build bscalc python CLI tool
 dev-libs/libcdio:minimal - Only build the libcdio library and little more, just to be used to link against from multimedia players. With this USE flag enabled, none of the command-line utilities are built, nor is the CDDA library.
 dev-libs/libcec:cubox - Enable support for enable support for the TDA995x
 dev-libs/libcec:exynos - Enable support for Exynos chipsets
@@ -3614,6 +3618,7 @@ games-strategy/uqm:voice - download and install voice files (large)
 games-strategy/wesnoth:fribidi - Support for right-to-left languages
 games-strategy/wesnoth:server - Enable compilation of server
 games-util/gslist:web - Enable the web interface
+games-util/lgogdownloader:gui - Enable GUI login support for passing reCAPTCHA
 games-util/pyfa:graph - Enable support for graphs
 games-util/wit:fuse - Enable image mount support via fuse
 gnome-base/gconf:ldap - Build backend which enables default mail accounts, addressbooks and calendars for Evolution to be configured using each user's LDAP entry."
@@ -3711,6 +3716,7 @@ gnustep-base/gnustep-make:libobjc2 - Enables use of the GNUstep Objective-C runt
 gnustep-base/gnustep-make:native-exceptions - Enables use of the native Objective-C exception support (@try/@catch/@finally) built-in objective-c exceptions with compilers that support it
 gnustep-base/libobjc2:boehm-gc - Enable Hans Boehm's garbage collector (dev-libs/boehm-gc). Not recommended by upstream
 gui-apps/mako:icons - Enable support for icons
+gui-apps/swaybg:man - Build and install man pages
 gui-apps/swayidle:elogind - Enable support for rootless session via elogind
 gui-apps/swayidle:fish-completion - Enable fish completion support
 gui-apps/swayidle:man - Build and install man pages
@@ -4612,7 +4618,6 @@ media-libs/opensubdiv:cuda - Enable NVIDIA CUDA Toolkit support through dev-util
 media-libs/opensubdiv:opencl - Enable OpenCL support through virtual/opencl.
 media-libs/opensubdiv:ptex - Adds support for faster per-face texture mapping through media-libs/ptex.
 media-libs/opensubdiv:tbb - Enable multithreading with the Intel Threads Building Blocks through dev-cpp/tbb.
-media-libs/opus:ambisonics - Enable ambisonics support (experimental).
 media-libs/opus:custom-modes - Build with custom-modes.
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
@@ -4933,7 +4938,6 @@ media-sound/murmur:ice - Use dev-libs/Ice to enable remote control capabilities.
 media-sound/musescore:portmidi - Enable support for building against media-libs/portmidi
 media-sound/musescore:vorbis - Enable SoundFont support using media-libs/libvorbis
 media-sound/musescore:webengine - Use dev-qt/qtwebengine for embedded web browser
-media-sound/ncmpc:artist-screen - Enable artist screen
 media-sound/ncmpc:async-connect - Enable asynchronous connect
 media-sound/ncmpc:chat-screen - Enable the chat screen
 media-sound/ncmpc:help-screen - Enable the help screen
@@ -4944,7 +4948,6 @@ media-sound/ncmpc:mouse - Enable curses getmouse support
 media-sound/ncmpc:outputs-screen - Enable the outputs screen
 media-sound/ncmpc:search-screen - Enable search screen
 media-sound/ncmpc:song-screen - Enable song viewer screen
-media-sound/ncmpc:tcp - Enable TCP support
 media-sound/ncmpcpp:clock - Enable clock screen
 media-sound/ncmpcpp:outputs - Enable outputs screen
 media-sound/ncmpcpp:visualizer - Enable visualizer screen with sound wave/frequency spectrum modes
@@ -5019,7 +5022,6 @@ media-sound/snapcast:server - Build and install Snapcast server component
 media-sound/snapcast:tremor - Build with TREMOR version of vorbis
 media-sound/snd:s7 - Enable the s7 extension language (a version of Scheme)
 media-sound/sonata:lyrics - Support for lyrics fetching
-media-sound/sonata:trayicon - Enable support for trayicon
 media-sound/sonic-visualiser:id3tag - Enables ID3 tagging with id3tag library
 media-sound/sox:amr - Enables Adaptive Multi-Rate Audio support
 media-sound/sox:id3tag - Enables ID3 tagging with id3tag library
@@ -5042,6 +5044,7 @@ media-sound/tuxguitar:fluidsynth - Enables Fluidsynth MIDI software synthesis (w
 media-sound/tuxguitar:lilypond - Exports the score in a lilypond compatible format.
 media-sound/tuxguitar:pdf - Exports the score as a PDF file using dev-java/itext.
 media-sound/tuxguitar:tray - Adds an icon to the tray that controls midi playback.
+media-sound/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
 media-sound/umurmur:shm - Enable shared memory support
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
 media-sound/vimpc:boost - Use boost instead of C++11 libraries
@@ -6219,7 +6222,6 @@ net-irc/unrealircd:operoverride-verify - Enable requiring opers to invite themse
 net-irc/unrealircd:prefixaq - Enable chanadmin and chanowner prefixes
 net-irc/unrealircd:showlistmodes - Display channel modes in /LIST (only configured at compiletime)
 net-irc/unrealircd:shunnotices - Enable notifying a user when un-shunned
-net-irc/unrealircd:topicisnuhost - Enable displaying nick!user@host as topic setter
 net-irc/unrealircd:usermod - Enable /set* and /chg* commands
 net-irc/weechat:alias - Enable plugin for alias control
 net-irc/weechat:buflist - Enable buflist plugin
@@ -7376,13 +7378,6 @@ sci-chemistry/apbs:iapbs - C/C++/Fortran interface
 sci-chemistry/apbs:tools - Install optional tools
 sci-chemistry/avogadro2:rpc - Enable RPC server
 sci-chemistry/avogadro2:vtk - include vtk support
-sci-chemistry/ball:cuda - Include cuda support
-sci-chemistry/ball:fftw - Build with sci-libs/fftw (switching BALL to GPL3)
-sci-chemistry/ball:gui - Build VIEW library required for visualization and graphical user interfaces
-sci-chemistry/ball:lpsolve - Enable support for the Mixed Integer Linear Programming solver
-sci-chemistry/ball:openbabel - Enable support for sci-chemistry/openbabel (switching BALL to GPL3)
-sci-chemistry/ball:svm - Enable support for the Support Vector Machine module
-sci-chemistry/ball:webengine - Enable QtWebEngine support with Qt5 (requires gui)
 sci-chemistry/chemtool:emf - EMF export support
 sci-chemistry/cns:aria - Support patch for sci-chemistry/aria
 sci-chemistry/eden:double-precision - More precise calculations at the expense of speed
@@ -7476,7 +7471,10 @@ sci-geosciences/merkaartor:webengine - Enable dev-qt/qtwebengine in some plugins
 sci-geosciences/qgis:3d - Build QGIS 3D library using dev-qt/qt3d
 sci-geosciences/qgis:georeferencer - Determines whether georeferencer plugin should be built
 sci-geosciences/qgis:grass - Add support for sci-geosciences/grass
+sci-geosciences/qgis:hdf5 - Enable MDAL support for sci-libs/hdf5
 sci-geosciences/qgis:mapserver - Determines whether mapserver should be built
+sci-geosciences/qgis:netcdf - Enable MDAL support for GRIB and XMDF formats
+sci-geosciences/qgis:opencl - Enable OpenCL support
 sci-geosciences/qgis:polar - Enable support for the polar coordinate system via x11-libs/qwtpolar
 sci-geosciences/qgis:qml - Enable support Qml-based plugins using dev-qt/qtdeclarative
 sci-geosciences/viking:geoclue - Use app-misc/geoclue to determine current location
@@ -7658,7 +7656,6 @@ sci-libs/symengine:mpc - Add support for multiprecision complex arithmetic(dev-l
 sci-libs/symengine:mpfr - Add support for multiprecision floating point rouding(dev-libs/mpfr)
 sci-libs/taucs:cilk - Enable multithreading using dev-lang/cilk
 sci-libs/tensorflow:cuda - Enable support for nVidia CUDA
-sci-libs/tensorflow:system-libs - Link with system instead of bundled libraries
 sci-libs/umfpack:cholmod - Use sci-libs/cholmod for matrix ordering
 sci-libs/vtk:R - Enable support for dev-lang/R
 sci-libs/vtk:all-modules - Build all modules
@@ -8766,21 +8763,6 @@ www-apps/nikola:watchdog - Use dev-python/watchdog to monitor file system events
 www-apps/nikola:webmedia - Use dev-python/micawber to extract metadata from web media links
 www-apps/nikola:websocket - Add websocket support thru dev-python/ws4py
 www-apps/otrs:mod_perl - Provide all dependencies for use of mod_perl instead of cgi
-www-apps/phpsysinfo:apcupsd - Install sys-power/apcupsd to display those stats.
-www-apps/phpsysinfo:dmraid - Install sys-fs/dmraid to display those stats.
-www-apps/phpsysinfo:freeipmi - Install sys-libs/freeipmi to display those stats.
-www-apps/phpsysinfo:hddtemp - Install app-admin/hddtemp to display those stats.
-www-apps/phpsysinfo:ipmitool - Install sys-apps/ipmitool to display those stats.
-www-apps/phpsysinfo:ipmiutil - Install sys-apps/ipmiutil to display those stats.
-www-apps/phpsysinfo:iptables - Install net-firewall/iptables to display those stats.
-www-apps/phpsysinfo:lm_sensors - Install sys-apps/lm_sensors to display those stats.
-www-apps/phpsysinfo:mdadm - Install sys-fs/mdadm to display those stats.
-www-apps/phpsysinfo:megactl - Install sys-block/megactl to display those stats.
-www-apps/phpsysinfo:nut - Install sys-power/nut to display those stats.
-www-apps/phpsysinfo:quota - Install sys-fs/quota to display those stats.
-www-apps/phpsysinfo:smart - Install sys-apps/smartmontools to display those stats.
-www-apps/phpsysinfo:snmp - Install net-analyzer/net-snmp to display those stats.
-www-apps/phpsysinfo:uptime - Install app-misc/uptimed to display those stats.
 www-apps/postfixadmin:vacation - Install vacation.pl script and dependencies
 www-apps/radicale:bcrypt - Depend on passlib to enable bcrypt and md5 authentication methods
 www-apps/redmine:markdown - Enable support for Markdown
@@ -9010,7 +8992,6 @@ x11-apps/igt-gpu-tools:xrandr - Enable support for the X RandR extension
 x11-apps/mesa-progs:egl - Build EGL utilities
 x11-apps/mesa-progs:gles2 - Build OpenGL ES 2 utilities
 x11-apps/xdm:consolekit - Enable native sys-auth/consolekit support
-x11-apps/xdm:xdm-auth - Enable XDM-AUTHENTICATION-1 support
 x11-apps/xdpyinfo:dmx - Builds support for Distributed Multiheaded X x11-base/xorg-server
 x11-apps/xinit:minimal - Control dependencies on legacy apps (xterm, twm, ...). Safe to enable if you use a modern desktop environment.
 x11-apps/xsm:rsh - This allows the use of rsh (remote shell) and rcp (remote copy).

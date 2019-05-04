@@ -1634,13 +1634,13 @@
       <role>General system administration, Blogs, Planet</role>
     </member>
     <member>
-      <email>grknight@gentoo.org</email>
-      <name>Brian Evans</name>
+      <email>bman@gentoo.org</email>
+      <name>Aaron Bauman</name>
+      <role>Minion</role>
     </member>
     <member>
-      <email>idl0r@gentoo.org</email>
-      <name>Christian Ruppert</name>
-      <role>Bugzilla, General system administration</role>
+      <email>grknight@gentoo.org</email>
+      <name>Brian Evans</name>
     </member>
     <member>
       <email>jmbsvicetto@gentoo.org</email>
@@ -1672,11 +1672,6 @@
       <name>Mikle Kolyada</name>
       <role>General system administration</role>
     </member>
-    <member>
-      <email>zx2c4@gentoo.org</email>
-      <name>Jason A. Donenfeld</name>
-      <role>General system administration, git</role>
-    </member>
   </project>
   <project>
     <email>installer@gentoo.org</email>
@@ -1694,7 +1689,7 @@
     <name>Integrity, Compliance, and Reporting</name>
     <url>https://wiki.gentoo.org/wiki/Project:Integrity</url>
     <description>The integrity subproject aims to integrate and maintain technologies related to system integrity within Gentoo Hardened. Although initially focused on Linux IMA/EVM, this will extend towards other integrity, compliance and reporting technologies.</description>
-    <member>
+    <member is-lead="1">
       <email>perfinion@gentoo.org</email>
       <name>Jason Zaman</name>
       <role>Trusted Boot, TPM</role>
@@ -2889,6 +2884,10 @@
       <role>Cafepress store, Facebook (admin), Twitter, Telegram (admin), Slack (admin)</role>
     </member>
     <member>
+      <email>rich0@gentoo.org</email>
+      <name>Richard Freeman</name>
+    </member>
+    <member>
       <email>sping@gentoo.org</email>
       <name>Sebastian Pipping</name>
     </member>
@@ -3146,6 +3145,11 @@
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>Hardened/UCLIBC Release Coordinator</role>
+    </member>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+      <role>RISC-V; autobuilds; qemu</role>
     </member>
     <member>
       <email>dolsen@gentoo.org</email>
@@ -3472,10 +3476,10 @@
       <name>Aaron Bauman</name>
       <role>GLSA Coordinator</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>chrisadr@gentoo.org</email>
       <name>Christopher Díaz Riveros</name>
-      <role>Team lead</role>
+      <role>Minion</role>
     </member>
     <member>
       <email>creffett@gentoo.org</email>
@@ -3485,17 +3489,17 @@
     <member is-lead="1">
       <email>k_f@gentoo.org</email>
       <name>Kristian Fiskerstrand</name>
-      <role>Team lead</role>
+      <role>Co-Lead</role>
     </member>
     <member>
       <email>pinkbyte@gentoo.org</email>
       <name>Sergey Popov</name>
       <role>GLSA Coordinator</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>whissi@gentoo.org</email>
       <name>Thomas Deutschmann</name>
-      <role>GLSA Coordinator</role>
+      <role>Co-Lead</role>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -3974,21 +3978,19 @@
     <name>Wine</name>
     <url>https://wiki.gentoo.org/wiki/Project:Wine</url>
     <description>Maintenance of Wine and Wine-related Packages</description>
-    <member is-lead="1">
+    <member>
       <email>chiitoo@gentoo.org</email>
       <name>Jimi Huotari</name>
-      <role>Non-Technical Lead</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>NP-Hardass@gentoo.org</email>
       <name>NP-Hardass</name>
-      <role>Technical Lead</role>
     </member>
     <member>
       <email>ryao@gentoo.org</email>
       <name>Richard Yao</name>
     </member>
-    <member>
+    <member is-lead="1">
       <email>sarnex@gentoo.org</email>
       <name>Nick Sarnie</name>
     </member>
