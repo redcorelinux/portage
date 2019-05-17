@@ -14,14 +14,17 @@ SLOT="0/${PV}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="X +javascript libressl opengl ssl static-libs vanilla"
 
+# Although we use the bundled, patched version of freeglut in mupdf (because of
+# bug #653298), the best way to ensure that its dependencies are present is to
+# install system's freeglut.
 RDEPEND="
-	>=dev-lang/mujs-1.0.4
 	media-libs/freetype:2=[static-libs?]
 	media-libs/harfbuzz:=[static-libs?,truetype]
 	media-libs/jbig2dec:=[static-libs?]
 	media-libs/libpng:0=[static-libs?]
 	>=media-libs/openjpeg-2.1:2=[static-libs?]
 	virtual/jpeg[static-libs?]
+	opengl? ( >=media-libs/freeglut-3.0.0:= )
 	ssl? (
 		libressl? ( >=dev-libs/libressl-2.8:0=[static-libs?] )
 		!libressl? ( >=dev-libs/openssl-1.1:0=[static-libs?] )
@@ -73,15 +76,20 @@ src_prepare() {
 
 _emake() {
 	# When HAVE_OBJCOPY is yes, we end up with a lot of QA warnings.
+
 	# We don't use system's freeglut because upstream has a special modified
 	# version of it that gives mupdf clipboard support. See bug #653298
+
+	# As of v1.15.0, mupdf started using symbols in mujs that were not part
+	# of any release. We thus go back to using the bundled version of it.
+	# Bug #685244
 	emake \
 		GENTOO_PV=${PV} \
 		HAVE_GLUT=$(usex opengl) \
 		HAVE_LIBCRYPTO=$(usex ssl) \
 		HAVE_X11=$(usex X) \
 		USE_SYSTEM_LIBS=yes \
-		USE_SYSTEM_MUJS=yes \
+		USE_SYSTEM_MUJS=no \
 		USE_SYSTEM_GLUT=no \
 		HAVE_OBJCOPY=no \
 		"$@"

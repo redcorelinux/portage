@@ -11,7 +11,7 @@ else
 	MY_P=${PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/systemd/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="alpha amd64 arm arm64 ~hppa ia64 ~mips ppc ppc64 ~sparc x86"
+	KEYWORDS="alpha amd64 arm arm64 ~hppa ia64 ~mips ppc ppc64 sparc x86"
 fi
 
 PYTHON_COMPAT=( python{3_5,3_6,3_7} )
@@ -169,6 +169,7 @@ src_prepare() {
 		"${FILESDIR}"/CVE-2019-6454/0001-Refuse-dbus-message-paths-longer-than-BUS_PATH_SIZE_.patch
 		"${FILESDIR}"/CVE-2019-6454/0002-Allocate-temporary-strings-to-hold-dbus-paths-on-the.patch
 		"${FILESDIR}"/241-version-dep.patch
+		"${FILESDIR}"/242-gcc-9.patch
 	)
 
 	if ! use vanilla; then

@@ -319,6 +319,7 @@ app-crypt/gnupg-pkcs11-scd:proxy - Build the gnupg-pkcs11-scd-prox
 app-crypt/gpgme:common-lisp - Install common-lisp files
 app-crypt/hashcat:brain - Enable the hashcat brain
 app-crypt/heimdal:hdb-ldap - Adds support for LDAP as a database backend
+app-crypt/heimdal:lmdb - Add support for using dev-db/lmdb for lookup tables
 app-crypt/heimdal:otp - Adds support for one-time passwords
 app-crypt/heimdal:pkinit - Adds support for PKINIT for the initial ticket
 app-crypt/hmaccalc:fips - Enable NSS FIPS mode and support only the FIPS-compliant functions
@@ -1036,7 +1037,6 @@ app-misc/lirc:gtk - Include GTK support which enables the use of lirc-setup
 app-misc/lirc:inputlirc - Add a dependency on app-misc/inputlircd
 app-misc/lirc:uinput - Enable support for uinput
 app-misc/mc:edit - Compile and install the mcedit application
-app-misc/mc:mclib - Compile and install the libmc.so shared library
 app-misc/mc:sftp - Add support for sftp (uses net-libs/libssh2 for it).
 app-misc/mc:slang - Use sys-libs/slang instead of sys-libs/ncurses.
 app-misc/mc:xdg - Toggles mc's config dir location. Enable for $XDG_CONFIG_HOME/mc, disable for $HOME/.mc
@@ -1055,8 +1055,10 @@ app-misc/pip3line:distorm - Compile the Distorm plugin
 app-misc/pip3line:qscintilla - Use QScintilla for more efficient text display
 app-misc/pip3line:ssl - Compile the plugin adding miscellaneous hashes from OpenSSL
 app-misc/recoll:camelcase - Enable indexing for camelCase sentences and words
+app-misc/recoll:chm - Enable CHM file support via dev-python/pychm
 app-misc/recoll:inotify - Use the Linux Kernel notification subsystem for monitoring file alterations in realtime
 app-misc/recoll:session - Stop monitoring file alterations when X11 session terminates
+app-misc/recoll:webengine - Use dev-qt/qtwebengine for fancy result list display
 app-misc/rlwrap:debug - Enable debug
 app-misc/screen:multiuser - Enable multiuser support (by setting correct permissions)
 app-misc/screen:nethack - Express error messages in nethack style
@@ -2006,7 +2008,6 @@ dev-java/oracle-jre-bin:commercial - Install features requiring a commercial lic
 dev-java/oracle-jre-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/oracle-jre-bin:javafx - Install JavaFX libraries
 dev-java/oracle-jre-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files
-dev-java/proguard:ant - Ant task for using ProGuard in build.xml scripts
 dev-java/rxtx:lfd - Installs and uses LockFileServer daemon (lfd)
 dev-java/sbt:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
 dev-lang/bas:lr0 - Use the LR0 parser instead of the recursive descending parser
@@ -2122,7 +2123,6 @@ dev-lang/qu-prolog:pedro - Pedro subscription/notification communications system
 dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
 dev-lang/rakudo:moar - Use the MoarVM as backend
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
-dev-lang/ruby:readline - Use the sys-libs/readline library to provide the readline extension, used for instance by the irb tool. This flag is meaningful only if the libedit USE flag is disabled. If neither libedit nor readline USE flags are enabled, the readline extension will not be built (and irb will lose line editing functionality).
 dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
 dev-lang/rust:cargo - Install cargo component
 dev-lang/rust:clippy - Install clippy component
@@ -2145,8 +2145,6 @@ dev-lang/swi-prolog:yaml - Use libyaml for YAML pack
 dev-lang/swig:ccache - build ccache-swig(a fast compiler cache)
 dev-lang/vala:valadoc - Installs valadoc documentation generation tool
 dev-lang/yap:R - Enable support for connecting R to Prolog
-dev-libs/ace:ciao - Include Component Intergraced Ace ORB into the build of ace
-dev-libs/ace:tao - Include the ACE ORB (CORBA stuff) (called tao) into the build of ace
 dev-libs/actor-framework:benchmarks - Due to the number of out-of-tree deps, these only get installed as docs
 dev-libs/actor-framework:boost - Make use of Boost's ASIO functionality
 dev-libs/actor-framework:cash - Build the C Actor Shell for introspection and debugging
@@ -3081,6 +3079,7 @@ dev-texlive/texlive-basic:luajittex - Add support for LuaJitTeX: LuaTeX based on
 dev-util/android-ndk:legacy-toolchains - Install legacy toolchains
 dev-util/android-ndk:target-32 - Support for 32-bit targets
 dev-util/android-ndk:target-64 - Support for 64-bit targets
+dev-util/android-studio:custom-jdk - Install and use Android Studio's custom JRE.
 dev-util/anjuta:devhelp - Enable devhelp integration
 dev-util/anjuta:glade - Build glade plugin for anjuta
 dev-util/anjuta:packagekit - Use packagekit to search for missing tools
@@ -3099,8 +3098,6 @@ dev-util/bustle:threaded - Build with support for multithreaded execution.
 dev-util/catalyst:ccache - Enables ccache support
 dev-util/catalyst:iso - Pulls in the depends for building iso images
 dev-util/catalyst:system-bootloader - Pulls in the depends needed to setup livecd bootloader from the host system rather than using a cdtar
-dev-util/cccc:apidoc - Build software docs with doxygen/graphviz and metrics with cccc
-dev-util/cccc:mfc - Add patch for MFC dialect options
 dev-util/clion:custom-jdk - Install and use IntelliJ's custom JRE.
 dev-util/cmake:server - Enable cmake-server support.
 dev-util/cmake:system-jsoncpp - Use system copy of dev-libs/jsoncpp instead of bundled one.
@@ -3344,6 +3341,7 @@ games-action/minetest:spatial - Enable SpatialIndex AreaStore backend
 games-action/solar2:bundled-libs - Use the upstream provided bundled libraries.
 games-action/supermariowar:server - Compile and install Super Mario War server files
 games-action/supertuxkart:fribidi - Support for right-to-left languages
+games-action/supertuxkart:nettle - Use dev-libs/nettle crypto backend
 games-action/supertuxkart:recorder - Enable recording with media-libs/libopenglrecorder
 games-action/supertuxkart:wiimote - Support for wiimote input devices
 games-action/swordandsworcery:bundled-libs - Use the upstream provided bundled libraries.
@@ -3953,6 +3951,7 @@ lxqt-base/lxqt-meta:sddm - Install x11-misc/sddm display manager
 lxqt-base/lxqt-meta:ssh-askpass - Install lxqt-base/lxqt-openssh-askpass user password prompt tool
 lxqt-base/lxqt-meta:sudo - Install lxqt-base/lxqt-sudo
 lxqt-base/lxqt-meta:terminal - Install x11-terms/qterminal package
+lxqt-base/lxqt-meta:trash - Install gnome-base/gvfs to enable 'trash' functionality in x11-misc/pcmanfm-qt
 lxqt-base/lxqt-panel:clock - Build clock plugin
 lxqt-base/lxqt-panel:colorpicker - Build colorpicker plugin
 lxqt-base/lxqt-panel:cpuload - Build cpuload plugin
@@ -4189,8 +4188,10 @@ mate-base/mate:notification - Force notification daemon to default to MATE's not
 mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time.
 mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
 mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
+mate-base/mate-control-center:accountsservice - Add support for AccountsService
 mate-base/mate-control-center:appindicator - Add support for AppIndicator
 mate-base/mate-session-manager:xtrans - Build with Xtrans support; WARNING: Disabling this flag will result in ICE binding on all interfaces
+mate-base/mate-settings-daemon:rfkill - build support for rfkill
 mate-extra/caja-extensions:cdr - Add an extension to burn files to cds using app-cdr/brasero.
 mate-extra/caja-extensions:gajim - Add an extension to support net-im/gajim.
 mate-extra/caja-extensions:image-converter - Add image conversion support.
@@ -4618,7 +4619,7 @@ media-libs/opensubdiv:cuda - Enable NVIDIA CUDA Toolkit support through dev-util
 media-libs/opensubdiv:opencl - Enable OpenCL support through virtual/opencl.
 media-libs/opensubdiv:ptex - Adds support for faster per-face texture mapping through media-libs/ptex.
 media-libs/opensubdiv:tbb - Enable multithreading with the Intel Threads Building Blocks through dev-cpp/tbb.
-media-libs/opus:custom-modes - Build with custom-modes.
+media-libs/opus:custom-modes - Enable non-Opus modes, e.g. 44.1 kHz and 2^n frames
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
@@ -5072,7 +5073,9 @@ media-sound/xwax:fallback - Sets runtime dependencies to support decoding "other
 media-sound/xwax:jack - Adds support for audio input/output via the JACK Audio Connection Kit.
 media-sound/xwax:mp3 - Sets runtime dependencies to support decoding MP3 audio.
 media-sound/xwax:oss - Adds support for OSS (open sound system) audio input/output.
-media-sound/yarock:phonon - Use media-libs/phonon backend instead of media-video/vlc
+media-sound/yarock:mpv - Enable media-video/mpv backend
+media-sound/yarock:phonon - Enable media-libs/phonon backend
+media-sound/yarock:vlc - Enable media-video/vlc backend
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
 media-sound/zynaddsubfx:dssi - Enable support for DSSI Soft Synth Interface
 media-tv/gentoo-vdr-scripts:nvram - Add support for using nvram-wakeup to set wakeup time in bios
@@ -5407,6 +5410,7 @@ media-video/vlc:gme - Enable support for media-libs/game-music-emu for playing v
 media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently supports only video decoding)
 media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
 media-video/vlc:kms - Enable kernel mode setting video output plugin via x11-libs/libdrm
+media-video/vlc:libplacebo - Enable support for GPU accelerated video rendering with media-libs/libplacebo
 media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins
 media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
 media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
@@ -5485,6 +5489,9 @@ net-analyzer/greenbone-security-assistant:extras - Pdf results, extra fonts, htm
 net-analyzer/hexinject:experimental - Install experimental packets.tcl
 net-analyzer/hexinject:tools - Install hex2raw and prettypacket tools
 net-analyzer/httping:tfo - Enable support for TCP Fast Open
+net-analyzer/hydra:gcrypt - Enable radmin2 support through dev-libs/libgcrypt
+net-analyzer/hydra:libssh - Enable SSH support through net-libs/libssh
+net-analyzer/hydra:mongodb - MongoDB support through dev-libs/libmongo-client
 net-analyzer/hydra:ncp - NCP protocol (NetWare) support through net-fs/ncpfs
 net-analyzer/icinga:contrib - additional scripts
 net-analyzer/icinga:eventhandler - Adds support for running custom scripts whenever a host or service state change occurs
@@ -7034,10 +7041,12 @@ net-p2p/retroshare:control-socket - Enables API via Unix socket support
 net-p2p/retroshare:feedreader - Enables the Feedreader plugin
 net-p2p/retroshare:gnome-keyring - Enables potentially insecure autologin capability via Gnome Keyring
 net-p2p/retroshare:gui - Enables the GUI version of RetroShare
-net-p2p/retroshare:settings-api - Enables settings control via API
+net-p2p/retroshare:jsonapi - Enables the new RetroShare JSON API
+net-p2p/retroshare:service - Enables the new RetroShare service controllable only through JSON API
 net-p2p/retroshare:sqlcipher - Enables GXS database encryption via SQLCipher
 net-p2p/retroshare:voip - Enables VOIP plugin
 net-p2p/retroshare:webui - Enables Web interface and API support
+net-p2p/retroshare:xapian - Enables GXS content indexing and search through Xapian
 net-p2p/rtorrent:daemon - Uses app-misc/screen to daemonize this application
 net-p2p/syncthing:tools - Install stdiscosrv, strelaysrv and other tools to /usr/libexec/syncthing/.
 net-p2p/transmission:lightweight - Optimize transmission for low-resource systems (smaller cache size, prefer unencrypted peer connections, etc.)
@@ -7268,6 +7277,7 @@ net-wireless/hostapd:logwatch - Install support files for sys-apps/logwatch
 net-wireless/hostapd:netlink - Adding support for using netlink to create VLANs
 net-wireless/hostapd:wps - Add support for Wi-Fi Protected Setup
 net-wireless/iwd:client - Enable iwctl client tool
+net-wireless/iwd:crda - Use net-wireless/crda for regulatory domain loading instead of in-kernel (4.15+) support
 net-wireless/iwd:monitor - Enable iwmon monitor tool
 net-wireless/iwd:ofono - Enable support for oFono SIM authentication
 net-wireless/iwd:wired - Enable ethernet authentication daemon
@@ -7918,6 +7928,7 @@ sys-apps/flashrom:gfxnvidia - Enable NVIDIA programmer
 sys-apps/flashrom:internal - Enable internal/onboard support
 sys-apps/flashrom:internal_dmi - Enable internal DMI decoding rather than use sys-apps/dmidecode
 sys-apps/flashrom:it8212 - Support for ITE IT8212F ATA/RAID controllers
+sys-apps/flashrom:jlink_spi - Support for SEGGER J-Link and compatible devices
 sys-apps/flashrom:linux_mtd - Enable support for Linux mtd SPI flash devices
 sys-apps/flashrom:linux_spi - Enable support for Linux userspace spidev interface
 sys-apps/flashrom:mstarddc_spi - Support for SPI flash ROMs accessible through DDC in MSTAR-equipped displays
@@ -8363,6 +8374,7 @@ sys-devel/gcc:go - Build the GCC Go language frontend.
 sys-devel/gcc:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 sys-devel/gcc:jit - Enable libgccjit so other applications can embed gcc for Just-In-Time compilation. This will slow down the compiler a bit as it forces all of the toolchain to be shared libs.
 sys-devel/gcc:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
+sys-devel/gcc:lto - Build using Link Time Optimizations (LTO)
 sys-devel/gcc:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 sys-devel/gcc:mudflap - Add support for mudflap, a pointer use checking library
 sys-devel/gcc:nopie - Disable PIE support (NOT FOR GENERAL USE)
@@ -8488,6 +8500,7 @@ sys-fs/dmraid:klibc - Compile against dev-libs/klibc
 sys-fs/dmraid:led - Enable LED support
 sys-fs/dmraid:mini - Create a minimal binary suitable for early boot environments
 sys-fs/dosfstools:compat - Install symlinks for legacy names of the tools
+sys-fs/e2fsprogs:cron - Install e2scrub_all cron script
 sys-fs/e2fsprogs:fuse - Build fuse2fs, a FUSE file system client for ext2/ext3/ext4 file systems
 sys-fs/ecryptfs-utils:gpg - Enable app-crypt/gnupg key module
 sys-fs/ecryptfs-utils:openssl - Enable dev-libs/openssl key module
@@ -8806,7 +8819,6 @@ www-client/elinks:gopher - Enable support for the gopher protocol
 www-client/elinks:mouse - Make elinks to grab all mouse events
 www-client/elinks:tre - Enable support for regex searches via dev-libs/tre
 www-client/elinks:xml - Enable support for bookmarks via dev-libs/expat
-www-client/falkon:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 www-client/firefox:bindist - Disable official Firefox branding (icons, name) which are not binary-redistributable according to upstream.
 www-client/firefox:clang - Use Clang compiler instead of GCC
 www-client/firefox:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
@@ -8988,15 +9000,21 @@ www-servers/xsp:net35 - use .NET 3.5 Framework
 www-servers/xsp:net40 - use .NET 4.0 Framework
 www-servers/xsp:net45 - use .NET 4.5 Framework
 x11-apps/copyq:webkit - enables the application to use advanced HTML rendering and fetching remote images and other data
+x11-apps/igt-gpu-tools:X - Enable intel-gpu-overlay xlib/cairo backend
 x11-apps/igt-gpu-tools:chamelium - Enables support for building Chamelium tests
 x11-apps/igt-gpu-tools:glib - Support reading config files via glib helpers
+x11-apps/igt-gpu-tools:man - Build and install man pages
+x11-apps/igt-gpu-tools:overlay - Build the intel-gpu-overlay utility
+x11-apps/igt-gpu-tools:runner - Build the test runner
 x11-apps/igt-gpu-tools:valgrind - Support valgrind annotations
 x11-apps/igt-gpu-tools:xrandr - Enable support for the X RandR extension
+x11-apps/igt-gpu-tools:xv - Enable intel-gpu-overlay xv backend
 x11-apps/mesa-progs:egl - Build EGL utilities
 x11-apps/mesa-progs:gles2 - Build OpenGL ES 2 utilities
 x11-apps/xdm:consolekit - Enable native sys-auth/consolekit support
 x11-apps/xdpyinfo:dmx - Builds support for Distributed Multiheaded X x11-base/xorg-server
 x11-apps/xinit:minimal - Control dependencies on legacy apps (xterm, twm, ...). Safe to enable if you use a modern desktop environment.
+x11-apps/xinit:twm - Control dependencies on legacy apps (xterm, twm, ...). Safe to disable if you use a modern desktop environment.
 x11-apps/xsm:rsh - This allows the use of rsh (remote shell) and rcp (remote copy).
 x11-base/xorg-server:dmx - Build the Distributed Multiheaded X server
 x11-base/xorg-server:elogind - Use elogind to get control over framebuffer when running as regular user
@@ -9124,7 +9142,6 @@ x11-misc/wbar:gtk - Enables the gtk-based wbar-config GUI
 x11-misc/x11vnc:xdamage - Enable support for the Xdamage library
 x11-misc/x11vnc:xfixes - Enable support for the Xfixes library
 x11-misc/x11vnc:xrandr - Enable support for the X xrandr extension
-x11-misc/x11vnc:xtrap - Enable support for the XTrap library
 x11-misc/xkbset:tk - Install the dev-perl/Tk based xkbset-gui utility
 x11-misc/xlockmore:vtlock - Enables support for virtual terminal locking
 x11-misc/xlockmore:xlockrc - Enables xlockrc for people without PAM
@@ -9175,20 +9192,15 @@ x11-terms/mlterm:wayland - Enable support for Wayland
 x11-terms/mrxvt:menubar - Enable mrxvt menubar
 x11-terms/mrxvt:utempter - REcords user logins. Useful on multi-user systems
 x11-terms/rxvt-unicode:256-color - Enable 256 color support
-x11-terms/rxvt-unicode:alt-font-width - Calculate the font width using a different method
 x11-terms/rxvt-unicode:blink - Enable blinking text
-x11-terms/rxvt-unicode:buffer-on-clear - Store visible output to history buffer when clearing the screen with ctrl-l. Read https://bbs.archlinux.org/viewtopic.php?id=129302
 x11-terms/rxvt-unicode:fading-colors - Enable colors fading when off focus
-x11-terms/rxvt-unicode:focused-urgency - Enable the urgent flag when a terminal window is focused
 x11-terms/rxvt-unicode:font-styles - Enable support for bold and italic fonts
 x11-terms/rxvt-unicode:gdk-pixbuf - Enable transparency support using x11-libs/gdk-pixbuf
 x11-terms/rxvt-unicode:iso14755 - Enable ISO-14755 support
 x11-terms/rxvt-unicode:mousewheel - Enable scrolling via mouse wheel or buttons 4 and 5
 x11-terms/rxvt-unicode:perl - Enable perl script support. You can still disable this at runtime with -pe ""
-x11-terms/rxvt-unicode:secondary-wheel - Support for wheel scrolling on secondary screens (like mutt). Read http://lists.schmorp.de/pipermail/rxvt-unicode/2011q4/001491.html
 x11-terms/rxvt-unicode:unicode3 - Use 21 instead of 16 bits to represent unicode characters
 x11-terms/rxvt-unicode:utmp - Enable utmp support
-x11-terms/rxvt-unicode:wcwidth - Enable wide char width support
 x11-terms/rxvt-unicode:wtmp - Enable wtmp support
 x11-terms/terminator:libnotify - Enables desktop notifications viadev-python/notify-python
 x11-terms/terminology:extras - Install additional testing tools
@@ -9244,6 +9256,7 @@ x11-wm/e16:xsync - Enable X Sync support
 x11-wm/e16:zoom - Support resolution change of current window (zoom) usingx11-libs/libXxf86vm (xvidtune)
 x11-wm/echinus:xrandr - Enable support for multihead configuration
 x11-wm/enlightenment:packagekit - Enable module for package manager integration
+x11-wm/enlightenment:xwayland - Enable XWayland application support
 x11-wm/fluxbox:bidi - Enable bidirectional language support with dev-libs/fribidi
 x11-wm/fluxbox:slit - Enables the Fluxbox slit (or dock)
 x11-wm/fluxbox:systray - Enables the system tray in the Fluxbox toolbar
@@ -9300,17 +9313,9 @@ xfce-base/xfwm4:xpresent - Enable the XPresent extension for sync to vblank
 xfce-extra/tumbler:odf - Enable support for .odf thumbnailers by using gnome-extra/libgsf
 xfce-extra/xfce4-clipman-plugin:qrcode - Enable support for media-gfx/qrencode
 xfce-extra/xfce4-mpc-plugin:libmpd - Build using media-libs/libmpd backend, instead of native fallback which is preferred
-xfce-extra/xfce4-playercontrol-plugin:audacious - Enable Audacious support
-xfce-extra/xfce4-playercontrol-plugin:mpd - Enable Music Player Daemon support
 xfce-extra/xfce4-power-manager:panel-plugin - Build the power management plugin for the XFCE panel
 xfce-extra/xfce4-pulseaudio-plugin:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
 xfce-extra/xfce4-pulseaudio-plugin:wnck - Enable experimental support for raising media player windows using x11-libs/libwnck.
 xfce-extra/xfce4-screensaver:consolekit - Enable ConsoleKit support
 xfce-extra/xfce4-screensaver:locking - Enable screen locking support
-xfce-extra/xfce4-soundmenu-plugin:glyr - Enable music metadata searchengine support using media-libs/glyr
-xfce-extra/xfce4-soundmenu-plugin:keybinder - Enable shortcut support using dev-libs/keybinder
-xfce-extra/xfce4-soundmenu-plugin:lastfm - Enable last.fm support using media-libs/libclastfm
 xfce-extra/xfce4-taskmanager:gtk3 - Use GTK+3 instead of GTK+2
-xfce-extra/xfswitch-plugin:gdm - Compatibility with gnome-base/gdm only
-xfce-extra/xfswitch-plugin:lightdm - Compatibility with x11-misc/lightdm only
-xfce-extra/xfswitch-plugin:lxdm - Compatibility with lxde-base/lxdm only
