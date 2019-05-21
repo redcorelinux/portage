@@ -1,6 +1,10 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Aaron Bauman <bman@gentoo.org> (20 May 2019)
+# doc USE ultimately pulls in dev-lang/ocaml[ocamlopt]
+media-gfx/enblend doc
+
 # Patrick McLean <chutzpah@gentoo.org> (15 Apr 2019)
 # pending re-keyword request, bug 615400
 net-analyzer/rrdtool rados
@@ -36,10 +40,6 @@ kde-plasma/discover firmware
 # Jimi Huotari <chiitoo@gentoo.org> (10 Mar 2019)
 # dev-qt/qttranslations is not yet keyworded, bug #680082
 lxqt-base/lxqt-meta nls
-
-# Mart Raudsepp <leio@gentoo.org> (23 Feb 2019)
-# x11-libs/libXTrap not keyworded yet
-x11-misc/x11vnc xtrap
 
 # Roy Bamford <neddyseagoon@gentoo.org> (24 Feb 19)
 # sdl is in use.mask and lots of things remain untested with USE=sdl
@@ -365,7 +365,7 @@ app-portage/g-sorcery bson
 
 # Thomas Deutschmann <whissi@gentoo.org> (01 Mar 2017)
 # Unkeyworded depedencies
-app-admin/rsyslog grok kafka kubernetes mongodb normalize rabbitmq
+app-admin/rsyslog kafka kubernetes mongodb normalize rabbitmq
 
 # Michael Weber <xmw@gentoo.org> (01 Mar 2017)
 # untested dependencies
@@ -489,10 +489,6 @@ dev-util/dbus-test-runner test
 # Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
 # remove mask when >=app-editors/gedit-3.6 is keyworded here
 dev-util/devhelp gedit
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
-# remove mask when app-crypt/libsecret is keyworded here
->=gnome-base/gvfs-1.14 gnome-keyring
 
 # Markus Meier <maekke@gentoo.org> (25 Dez 2012)
 # unkeyworded deps for app-accessibility/speech-dispatcher
