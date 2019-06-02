@@ -501,8 +501,6 @@ app-emulation/docker-credential-helpers:pass - Build pass helper for the pass ut
 app-emulation/docker-runc:ambient - Enable support for ambient capability
 app-emulation/docker-runc:apparmor - Enable AppArmor support
 app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
-app-emulation/e-uae:capslib - Add CAPS library support
-app-emulation/e-uae:sdl-sound - Use media-libs/sdl-sound for audio output
 app-emulation/faudio:ffmpeg - FAudio has optional support for decoding xWMA resources using FFmpeg, requiring: media-video/ffmpeg (note: this feature is not supported by media-video/libav).
 app-emulation/faudio:test - Build and run faudio testsuite.
 app-emulation/faudio:utils - Build all faudio utilities.
@@ -644,7 +642,6 @@ app-emulation/runv:xen - Enable support for the Xen Hypervisor
 app-emulation/spice:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-emulation/spice:smartcard - Enable smartcard remoting using app-emulation/libcacard
 app-emulation/spice-vdagent:consolekit - Use sys-auth/consolekit to determine the master vdagentd in case of multiple running vdagentds (highly recommended)
-app-emulation/uae:scsi - Enable the uaescsi.device
 app-emulation/vagrant:virtualbox - Use VirtualBox provider.
 app-emulation/vice:ethernet - Enable ethernet emulation
 app-emulation/vice:fullscreen - Enable the ability to run fullscreen
@@ -1213,12 +1210,14 @@ app-portage/layman:squashfs - Support mounting squashfs image overlays locally r
 app-portage/layman:subversion - Support dev-vcs/subversion based overlays
 app-portage/layman:sync-plugin-portage - Install the sys-apps/portage sync module
 app-portage/pfl:network-cron - Adds a cron job which does a weekly submit of the package database
+app-portage/portage-utils:qmanifest - Build qmanifest applet, this adds additional dependencies for GPG, OpenSSL and BLAKE2B hashing
 app-portage/tatt:templates - Install template scripts to be used with tatt
 app-shells/autojump:ipython - Add support for dev-python/ipython
 app-shells/bash:bashlogger - Log ALL commands typed into bash; should ONLY be used in restricted environments such as honeypots
 app-shells/bash:mem-scramble - Build with custom malloc/free overwriting allocated/freed memory
 app-shells/bash:net - Enable /dev/tcp/host/port redirection
 app-shells/bash:plugins - Add support for loading builtins at runtime via 'enable'
+app-shells/bash-completion:eselect - Support blacklisting of completions via 'eselect bash-completion'. This enables custom Gentoo patching of upstream completion loader.
 app-shells/dash:vanilla - Support echo -n, and enable echo -e all the time (unsupported)
 app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote copy) for authoring websites. sftp is a much more secure protocol and is preferred.
 app-shells/shish:diet - Use dev-libs/dietlibc
@@ -1389,15 +1388,18 @@ app-xemacs/xemacs-packages-all:mule - Add multi-language support to XEmacs
 dev-ada/asis:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/asis:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/asis:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/asis:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/aunit:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aunit:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/aunit:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/aws:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aws:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/aws:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/aws:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gnat_util:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnat_util:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnat_util:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnat_util:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gnat_util:shared - Build gnat_util shared library
 dev-ada/gnat_util:static-pic - Build gnat_util static library with pic code
 dev-ada/gnatcoll:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
@@ -1409,16 +1411,19 @@ dev-ada/gnatcoll:tools - Build associated tools
 dev-ada/gnatcoll-bindings:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnatcoll-bindings:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnatcoll-bindings:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatcoll-bindings:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gnatcoll-bindings:shared - Build shared library
 dev-ada/gnatcoll-bindings:static-pic - Build shared library
 dev-ada/gnatcoll-core:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnatcoll-core:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnatcoll-core:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatcoll-core:gnat_2019 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/gnatcoll-core:shared - Build shared library
 dev-ada/gnatcoll-core:static-pic - Build static library with pic code
 dev-ada/gnatcoll-db:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnatcoll-db:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnatcoll-db:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatcoll-db:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gnatcoll-db:gnatcoll_db2ada - Build gnatcoll_db2ada
 dev-ada/gnatcoll-db:gnatinspect - Build gnatinspect
 dev-ada/gnatcoll-db:shared - Build shared library
@@ -1431,16 +1436,19 @@ dev-ada/gnatmem:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/gprbuild:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gprbuild:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gprbuild:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gprbuild:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gps:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gps:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gps:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/gtkada:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gtkada:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gtkada:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gtkada:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gtkada:shared - Build gtkada as shared library
 dev-ada/libadalang:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/libadalang:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/libadalang:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/libadalang:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/libadalang:shared - Build shared library
 dev-ada/libadalang-tools:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/libadalang-tools:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
@@ -1448,11 +1456,13 @@ dev-ada/libadalang-tools:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/libgpr:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/libgpr:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/libgpr:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/libgpr:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/libgpr:shared - Build shared library
 dev-ada/libgpr:static-pic - Build static library with pic code
 dev-ada/xmlada:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/xmlada:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
-dev-ada/xmlada:gnat_2018 - Compile with dev-lang/gnat-gpl-2017
+dev-ada/xmlada:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/xmlada:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/eigen:c++11 - Build using the C++11 standard
@@ -1589,7 +1599,6 @@ dev-db/postgresql:server - Disable to build and install the clients and librarie
 dev-db/postgresql:uuid - Enable server side UUID generation (via dev-libs/ossp-uuid).
 dev-db/psqlodbc:iodbc - Use dev-db/libiodbc. Disable to use dev-db/unixODBC.
 dev-db/redis:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
-dev-db/rethinkdb:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
 dev-db/soci:boost - Enable boost support
 dev-db/soci:empty - Build the sample backend called Empty
 dev-db/spatialite:geos - Add the sci-libs/geos library for exact topological tests
@@ -1982,6 +1991,7 @@ dev-java/lucene:contrib - Include extra functionality from contrib/
 dev-java/miglayout:swt - Add support for the SWT toolkit.
 dev-java/openjdk:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk:headless-awt - Don't install the X backend for AWT, needed by some GUIs
+dev-java/openjdk:javafx - Import OpenJFX modules at build time, via dev-java/openjfx
 dev-java/openjdk:jbootstrap - Build OpenJDK twice, the second time using the result of the first
 dev-java/openjdk:source - Install JVM sources
 dev-java/openjdk:systemtap - Enable SystemTAP/DTrace tracing
@@ -1993,6 +2003,8 @@ dev-java/openjdk-bin:webstart - Provide javaws command through symlink to icedte
 dev-java/openjdk-jre-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-jre-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-jre-bin:webstart - Provide javaws command through symlink to icedtea-web
+dev-java/openjfx:media - Compile media module, based on gstreamer-minimal (does not pull gstreamer)
+dev-java/openjfx:source - Install JavaFX sources
 dev-java/oracle-jdk-bin:commercial - Install features requiring a commercial license for production use
 dev-java/oracle-jdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/oracle-jdk-bin:gtk2 - Enable GTK+ 2 support in JavaFX
@@ -2044,6 +2056,7 @@ dev-lang/gnat-gpl:pgo - Build GCC using Profile Guided Optimization (PGO)
 dev-lang/gnat-gpl:regression-test - Run the testsuite and install the results (requires FEATURES=test)
 dev-lang/gnat-gpl:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...)
 dev-lang/gnat-gpl:ssp - Build packages with stack smashing protector on by default
+dev-lang/gnat-gpl:systemtap - enable systemtap static probe points
 dev-lang/gnat-gpl:vtv - Build support for virtual table verification (a C++ hardening feature)
 dev-lang/go:gccgo - Bootstrap using sys-devel/gcc[go]
 dev-lang/go:system-bootstrap - Bootstrap using previously installed dev-lang/go
@@ -2354,11 +2367,9 @@ dev-libs/efl:harfbuzz - Enable complex text shaping and layout support
 dev-libs/efl:hyphen - Enable text hyphenation support
 dev-libs/efl:ibus - Enable Intelligent Input Bus
 dev-libs/efl:ico - Enable Ico image loader
-dev-libs/efl:ivi - Enable ivi-shell support
 dev-libs/efl:libuv - Enable dev-libs/libuv support
 dev-libs/efl:luajit - USE dev-lang/luajit instead of dev-lang/lua
 dev-libs/efl:physics - Enable Bullet physics effects and support
-dev-libs/efl:pixman - Enable PixMan for software rendering
 dev-libs/efl:ppm - Enable PMAPS image loader
 dev-libs/efl:psd - Enable PSD image loader
 dev-libs/efl:scim - Enable Smart Common Input Method
@@ -3092,6 +3103,8 @@ dev-util/bustle:threaded - Build with support for multithreaded execution.
 dev-util/catalyst:ccache - Enables ccache support
 dev-util/catalyst:iso - Pulls in the depends for building iso images
 dev-util/catalyst:system-bootloader - Pulls in the depends needed to setup livecd bootloader from the host system rather than using a cdtar
+dev-util/cccc:apidoc - Build software docs with doxygen/graphviz and metrics with cccc
+dev-util/cccc:mfc - Add patch for MFC dialect options
 dev-util/clion:custom-jdk - Install and use IntelliJ's custom JRE.
 dev-util/cmake:server - Enable cmake-server support.
 dev-util/cmake:system-jsoncpp - Use system copy of dev-libs/jsoncpp instead of bundled one.
@@ -3470,6 +3483,8 @@ games-fps/eduke32:tools - Install the support tools for mapster32.
 games-fps/eduke32:voxels - Install the Duke Nukem 3D Voxels Pack.
 games-fps/eduke32:vpx - Enable support for media-libs/libvpx.
 games-fps/eduke32:xmp - Enable support for media-libs/exempi.
+games-fps/gzdoom:fluidsynth - Use media-sound/fluidsynth for MIDI support
+games-fps/gzdoom:gtk2 - Enable support for GTK+2 instead of GTK+3
 games-fps/nexuiz:maps - Install the community map pack
 games-fps/quake2-icculus:demo - Install the demo files (quake2-demodata) and configure for use
 games-fps/quake2-icculus:qmax - Build the pretty version (quake max)
@@ -4043,6 +4058,7 @@ mail-client/thunderbird:system-libevent - Use the system-wide dev-libs/libevent 
 mail-client/thunderbird:system-libvpx - Use the system-wide media-libs/libvpx instead of bundled.
 mail-client/thunderbird:system-sqlite - Use the system-wide dev-db/sqlite installation with secure-delete enabled
 mail-client/thunderbird-bin:crashreporter - Enable crash reporter for bugs
+mail-client/trojita:addressbook - Build kde-apps/akonadi addressbook plugin
 mail-client/trojita:password - Store passwords securely via dev-libs/qtkeychain
 mail-filter/MailScanner:exim - Set mail-mta/exim to used MTA
 mail-filter/MailScanner:postfix - Set mail-mta/postfix to used MTA
@@ -4121,8 +4137,6 @@ mail-filter/rspamd:torch - Enable torch support. This is required for the neural
 mail-filter/spamassassin:cron - Install a cron job to update SpamAssassin's rules daily.
 mail-filter/spamassassin:qmail - Build qmail functionality and docs
 mail-filter/spamdyke:ssl - Enables TLS protocol for spamdyke
-mail-filter/zdkimfilter:debug - Log process and signal information. Also leave the child process running for gdb examination.
-mail-filter/zdkimfilter:opendbx - An alternate statistics based storage engine.
 mail-mta/courier:fax - Enables fax support in the courier mail server
 mail-mta/courier:norewrite - Prevents courier mail server from mangling virtual user addresses when sending
 mail-mta/courier:web - Enable the web interface
@@ -4209,6 +4223,7 @@ media-fonts/intlfonts:bdf - Installs BDF fonts in addition to PCF
 media-fonts/liberation-fonts:fontforge - Use media-gfx/fontforge to build fonts from source
 media-fonts/montecarlo:bdf - Install BDF fonts in addition to PCF
 media-fonts/mplus-outline-fonts:ipafont - Generates new fonts merged with media-fonts/ja-ipafonts
+media-fonts/noto:extra - Install full upstream font set
 media-fonts/sil-charis:compact - Use more compactly spaced font
 media-fonts/sil-gentium:compact - Also install more compact version of the font.
 media-fonts/terminus-font:a-like-o - Changes view of letter 'a' - a looks like o (see homepage)
@@ -5936,6 +5951,7 @@ net-fs/samba:dmapi - Enable support for DMAPI. This currently works only in comb
 net-fs/samba:gpg - Use app-crypt/gpgme for AD DC
 net-fs/samba:iprint - Enabling iPrint technology by Novell
 net-fs/samba:json - Enable json audit support through dev-libs/jansson
+net-fs/samba:profiling-data - Enables support for collecting profiling data
 net-fs/samba:quota - Enables support for user quotas
 net-fs/samba:system-heimdal - Use app-crypt/heimdal instead of bundled heimdal.
 net-fs/samba:system-mitkrb5 - Use app-crypt/mit-krb5 instead of app-crypt/heimdal.
@@ -6162,16 +6178,19 @@ net-irc/hexchat:plugin-checksum - Build Checksum plugin (needs plugins)
 net-irc/hexchat:plugin-fishlim - Build FiSHLiM plugin (needs plugins )
 net-irc/hexchat:plugin-sysinfo - Build SysInfo plugin (needs plugins)
 net-irc/hexchat:theme-manager - Build the theme manager (mono)
-net-irc/inspircd:geoip - Add geoip support for country and city lookup based on IPs
 net-irc/inspircd:gnutls - Enable TLS support
-net-irc/inspircd:ipv6 - Enable support for IP version 6
 net-irc/inspircd:ldap - Enable LDAP support
+net-irc/inspircd:maxminddb - Add support for geolocation using libMaxMindDB
+net-irc/inspircd:mbedtls - Add support for TLS using the mbedTLS library
 net-irc/inspircd:mysql - Enable MySQL database backend
 net-irc/inspircd:pcre - Adds support for Perl Compatible Regular Expressions
-net-irc/inspircd:posix - Adds support for POSIX-compatible functions
 net-irc/inspircd:postgres - Enable PostgreSQL database backend
+net-irc/inspircd:re2 - Add support for Google RE2 regular expressions library
+net-irc/inspircd:regex-posix - Adds support for POSIX Regular Expressions
+net-irc/inspircd:regex-stdlib - Add support for C++ stdlib regular expressions
 net-irc/inspircd:sqlite - Enable Sqlite database backend
 net-irc/inspircd:ssl - Enable SSL support
+net-irc/inspircd:sslrehashsignal - Enable rehashing SSL module by SIGUSR1
 net-irc/inspircd:tre - Enable support for TRE, a lightweight, robust, and efficient POSIX compliant regexp matching library
 net-irc/iroffer-dinoex:admin - Compile with HTTP Admin
 net-irc/iroffer-dinoex:blowfish - Compile with blowfish encryption support
@@ -6261,6 +6280,7 @@ net-libs/gnutls:test-full - Enable full test mode
 net-libs/gnutls:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
 net-libs/gnutls:tools - Build extra tools
 net-libs/gnutls:valgrind - Enable usage of dev-util/valgrind in debug
+net-libs/grpc:perftools - Enable profiling using dev-util/google-perftools
 net-libs/grpc:systemtap - Enable SystemTAP/DTrace tracing
 net-libs/grpc:tools - Install gRPC python tools
 net-libs/iax:snomhack - Use slower memset for SNOM phoneem
@@ -6378,6 +6398,7 @@ net-libs/shairplay:tools - Build and install a binary shairplay in /usr/bin
 net-libs/telepathy-qt:farstream - Enable support for audio/video calls via farstream
 net-libs/tox:av - Adds support for audio and video.
 net-libs/tox:daemon - Enable the DHT Bootstrap Daemon.
+net-libs/tox:dht-node - Enables DHT Bootstrap Node.
 net-libs/tox:log-debug - Log level: 4
 net-libs/tox:log-error - Log level: 1
 net-libs/tox:log-info - Log level: 3
@@ -7459,6 +7480,7 @@ sci-geosciences/gshhs:data - Add earth data with sci-geosciences/gshhs-data
 sci-geosciences/liblas:gdal - Add support for the sci-libs/gdal geospatial raster library
 sci-geosciences/mapnik:gdal - Enable sci-libs/gdal library support
 sci-geosciences/mapnik:osmfonts - Enable openstreetmaps font styles
+sci-geosciences/mapserver:apache - Enable mapserver to run under apache
 sci-geosciences/mapserver:gdal - Enable sci-libs/gdal library support
 sci-geosciences/mapserver:geos - Enable sci-libs/geos library support
 sci-geosciences/mapserver:postgis - Enable dev-db/postgis support
@@ -8249,8 +8271,6 @@ sys-cluster/legion:hwloc - Enable HWLoc lib support
 sys-cluster/maui:pbs - Enable pbs integration
 sys-cluster/maui:slurm - Enable slurm integration
 sys-cluster/minikube:libvirt - Build plugin for kvm
-sys-cluster/moosefs:cgi - Install CGI server and scripts.
-sys-cluster/moosefs:fuse - Install the mfsmount utility.
 sys-cluster/mpich:mpi-threads - Enable MPI_THREAD_MULTIPLE
 sys-cluster/mpich:romio - Build the ROMIO MPI-IO component
 sys-cluster/mpich2:mpi-threads - Enable MPI_THREAD_MULTIPLE
@@ -8346,7 +8366,6 @@ sys-devel/clang-runtime:crt - Require a package providing crt*.o files to make i
 sys-devel/clang-runtime:libcxx - Install sys-libs/libcxx for -stdlib=libc++
 sys-devel/clang-runtime:openmp - Install sys-libs/libomp for -fopenmp support
 sys-devel/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
-sys-devel/distcc:crossdev - Enable support for sys-devel/crossdev
 sys-devel/distcc:gssapi - Enable support for net-libs/libgssglue
 sys-devel/gcc:awt - Useful only when building GCJ, this enables Abstract Window Toolkit (AWT) peer support on top of GTK+
 sys-devel/gcc:boundschecking - Add the bounds checking patch by Haj Ten Brugge, this will DISABLE the hardened PIE+SSP patches
@@ -8552,6 +8571,10 @@ sys-kernel/genkernel-next:iscsi - Enable support for open-iscsi (include open-is
 sys-kernel/genkernel-next:mdadm - Enable support for mdadm (include mdadm dependency)
 sys-kernel/genkernel-next:plymouth - Enable support for Plymouth (include Plymouth dependency)
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
+sys-kernel/kpatch:contrib - Enable contrib kpatch services files.
+sys-kernel/kpatch:kmod - Enable a kernel module (.ko file) which provides an interface for the patch modules to register new functions for replacement.
+sys-kernel/kpatch:kpatch - Enable a command-line tool which allows a user to manage a collection of patch modules.
+sys-kernel/kpatch:kpatch-build - Enable tools which convert a source diff patch to a patch module.
 sys-kernel/linux-firmware:redistributable - Install also non-free (but redistributable) firmware files
 sys-kernel/linux-firmware:savedconfig - Allows individual selection of firmware files
 sys-kernel/linux-firmware:unknown-license - Install firmware files whose license is unknown

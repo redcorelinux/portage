@@ -46,7 +46,7 @@ SRC_URI="$(cargo_crate_uris ${CRATES})"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 BDEPEND="
@@ -66,6 +66,11 @@ RDEPEND="
 # to be run as part of the installation.
 RESTRICT="test"
 QA_FLAGS_IGNORED="/usr/bin/nitrocli"
+
+src_prepare() {
+	eapply -p2 "${FILESDIR}/${PN}_-_fix-rust-1.35-build.patch"
+	default
+}
 
 src_install() {
 	cargo_src_install --path=.

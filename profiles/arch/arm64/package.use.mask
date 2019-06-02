@@ -1,6 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Georgy Yakovlev <gyakovlev@gentoo.org> (01 June 2019)
+# not yet keyworded
+dev-java/openjdk javafx
+
+# Aaron Bauman <bman@gentoo.org> (27 May 2019)
+# plasma is not stable yet
+kde-frameworks/purpose kaccounts
+
 # Aaron Bauman <bman@gentoo.org> (20 May 2019)
 # doc USE ultimately pulls in dev-lang/ocaml[ocamlopt]
 media-gfx/enblend doc
@@ -14,11 +22,6 @@ www-servers/uwsgi uwsgi_plugins_rados
 # Aaron Bauman <bman@gentoo.org> (8 Apr 2019)
 # app-text/dblatex not keyword yet
 net-firewall/nftables doc
-
-# Roy Bamford <neddyseagoon@gentoo.org> (19 Mar 2019)
-# Let kde-apps/akonadi use mysql.
-dev-qt/qtsql -mysql
-kde-apps/akonadi -mysql
 
 # Mart Raudsepp <leio@gentoo.org> (11 Mar 2019)
 # media-libs/bcg729 not keyworded yet
@@ -65,11 +68,6 @@ virtual/ffmpeg -sdl
 # It builds OK but is not yet in ::gentoo. bug #678404
 kde-apps/cantor lua
 
-# Davide Pesavento <pesa@gentoo.org> (27 Dec 2018)
-# The corresponding Qt5 modules are not keyworded on arm64, and we don't want to
-# keyword them solely because of PyQt5 while there are no other in-tree users.
-dev-python/PyQt5 networkauth
-
 # Dirkjan Ochtman <djc@gentoo.org> (29 Sep 2018)
 # Upstream doesn't build docs for tier 2 and lower architectures.
 # Bug #660512.
@@ -87,10 +85,6 @@ sci-electronics/kicad occ oce ngspice
 <app-editors/emacs-24.5-r7:24 imagemagick
 <app-editors/emacs-25.3-r6:25 imagemagick
 <app-editors/emacs-26.1-r3:26 imagemagick
-
-# Tomáš Mózes <hydrapolic@gmail.com> (10 Aug 2018)
-# Needs dev-libs/libmaxminddb which isn't keyworded
-app-admin/syslog-ng geoip2
 
 # Matthew Thode <prometheanfire@gentoo.org> (18 Jul 2018)
 # dev-python/pandas not keyworded and test uses pandas
