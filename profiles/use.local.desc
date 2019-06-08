@@ -323,9 +323,6 @@ app-crypt/heimdal:lmdb - Add support for using dev-db/lmdb for lookup tables
 app-crypt/heimdal:otp - Adds support for one-time passwords
 app-crypt/heimdal:pkinit - Adds support for PKINIT for the initial ticket
 app-crypt/hmaccalc:fips - Enable NSS FIPS mode and support only the FIPS-compliant functions
-app-crypt/johntheripper:cuda - Use nvidia cuda toolkit for speeding up cracking on capable devices
-app-crypt/johntheripper:mozilla - Support mozilla password cracking
-app-crypt/johntheripper:opencl - Enable opencl support for speeding up cracking on capable devices
 app-crypt/johntheripper-jumbo:opencl - Build with opencl/GPU cracking support
 app-crypt/johntheripper-jumbo:pcap - Build with pcap support
 app-crypt/kbfs:git - Build the Git remote helper for storing repositories in Keybase
@@ -2597,9 +2594,6 @@ dev-libs/weston:screen-sharing - Enable screen-sharing through RDP
 dev-libs/weston:unwind - Enable libunwind usage for backtraces
 dev-libs/weston:wayland-compositor - Enable Wayland compositor support
 dev-libs/weston:xwayland - Enable ability support native X11 applications
-dev-libs/wlc:X - Enable X11 backend.
-dev-libs/wlc:systemd - Enable support for systemd-logind.
-dev-libs/wlc:xwayland - Enable XWayland application support.
 dev-libs/xapian:brass - Enabled brass backend db support
 dev-libs/xapian:chert - Enabled chert backend db support
 dev-libs/xapian:glass - Enabled glass backend db support
@@ -2915,8 +2909,6 @@ dev-qt/qt-creator:autotools - Enable autotools project manager plugin
 dev-qt/qt-creator:baremetal - Build plugin for bare metal devices
 dev-qt/qt-creator:bazaar - Add support for dev-vcs/bzr version control system
 dev-qt/qt-creator:clang - Build clang-based plugins (code model, format, static analysis)
-dev-qt/qt-creator:clangcodemodel - Build clang-based code model and refactoring plugins
-dev-qt/qt-creator:clangstaticanalyzer - Build clang-based static analyzer plugin
 dev-qt/qt-creator:clearcase - Add support for IBM ClearCase version control system (requires manual installation of ClearCase client)
 dev-qt/qt-creator:cmake - Enable cmake project manager plugin
 dev-qt/qt-creator:cppcheck - Enable integration with dev-util/cppcheck
@@ -2964,7 +2956,6 @@ dev-qt/qtdatavis3d:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtdeclarative:gles2 - Use GLES 2.0 or later instead of full OpenGL
 dev-qt/qtdeclarative:localstorage - Build the LocalStorage import for QtQuick (requires QtSql)
 dev-qt/qtdeclarative:widgets - Enable QtWidgets support
-dev-qt/qtdeclarative:xml - Build the XmlListModel import for QtQuick (requires QtXmlPatterns)
 dev-qt/qtdiag:network - Report network information
 dev-qt/qtdiag:widgets - Report widget style information
 dev-qt/qtgui:egl - Enable EGL integration
@@ -4758,6 +4749,7 @@ media-radio/unixcw:ncurses - Enables building the curses based morse code tutor 
 media-radio/xastir:festival - Enable text to speech synthesizer
 media-radio/xastir:gdal - Support for some further map formats
 media-radio/xastir:geotiff - Install geotiff support. Allows using USGS DRG topo maps or other types of geotiff mapes/images
+media-sound/abcde:aiff - Enable support for Audio Interchange File Format (AIFF) output encoding
 media-sound/abcde:id3tag - Support ID3, ID3v2 tagging of audio files
 media-sound/abcde:mac - Enable support for Monkey's Audio files
 media-sound/abcde:normalize - Add support for normalizing audio file volume levels
@@ -4857,6 +4849,7 @@ media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
 media-sound/elisa:mpris - Enable MPRIS support
+media-sound/elisa:vlc - Use media-video/vlc for output rather than dev-qt/qtmultimedia
 media-sound/exaile:scrobbler - Enable audioscrobbler/last.fm support
 media-sound/fapg:xspf - Enable support for saving XSPF playlists.
 media-sound/gimmix:cover - Enable cover art fetching
@@ -5554,6 +5547,7 @@ net-analyzer/nagios-plugins:snmp - Install dev-perl/Net-SNMP required for monito
 net-analyzer/nagios-plugins:ssh - Install net-misc/openssh required for monitoring SSH servers. Disabling the flag does not remove any plugin file.
 net-analyzer/nagios-plugins-flameeyes:smart - Install sys-apps/smartmontools required for S.M.A.R.T. disk monitoring. Disabling the flag removes the plugin file. This plugin also requires the sudo flag to be enable.
 net-analyzer/net-snmp:elf - Enable the use of elf utils to check uptime on some systems
+net-analyzer/net-snmp:kmem - Enable usage of /dev/kmem
 net-analyzer/net-snmp:mfd-rewrites - Use MFD rewrites of mib modules where available
 net-analyzer/net-snmp:netlink - Use dev-libs/libnl to fetch TCP statistics instead of using /proc/net/tcp (Linux only).
 net-analyzer/net-snmp:pci - Use libpci (from sys-apps/pciutils) to look up network interface description. This feature is only available on Linux.
@@ -7444,6 +7438,7 @@ sci-electronics/kicad:ngspice - Enable circuit simulation
 sci-electronics/kicad:occ - Enable viewing 3D rendering of designs via opencascade
 sci-electronics/kicad:oce - Enable viewing 3D rendering of designs via OCE
 sci-electronics/kicad:python - Enable python scripting support
+sci-electronics/kicad-meta:minimal - Do not install extra data like 3D packages and templates.
 sci-electronics/kicad-packages3d:occ - Use sci-libs/opencascade for data exchange
 sci-electronics/kicad-packages3d:oce - Use sci-libs/oce for data exchange
 sci-electronics/ngspice:shared - Build ngspice as a shared library
@@ -8089,6 +8084,7 @@ sys-apps/systemd:sysv-utils - Install sysvinit compatibility symlinks and manpag
 sys-apps/systemd:vanilla - Disable Gentoo-specific behavior and compatibility quirks
 sys-apps/systemd:xkb - Depend on x11-libs/libxkbcommon to allow logind to control the X11 keymap
 sys-apps/tcp-wrappers:netgroups - Support matching NIS (host) netgroup names via the @netgroup syntax (if you don't know what this means, you most likely do not need it)
+sys-apps/texinfo:standalone - Build standalone version that survives all Portage bugs
 sys-apps/timer_entropyd:debug - Enable printf debugging and logging to the syslog at DEBUG level
 sys-apps/ucspi-ssl:bindist - Disable EC/RC5 algorithms in OpenSSL for patent reasons.
 sys-apps/usb_modeswitch:jimtcl - Use dev-lang/jimtcl instead of dev-lang/tcl for smaller memory footprint
@@ -8984,6 +8980,7 @@ www-servers/nginx:ssl - Enable HTTPS module for http. Enable SSL/TLS support for
 www-servers/nginx-unit:php5-6 - Support for PHP 5.6
 www-servers/nginx-unit:php7-1 - Support for PHP 7.1
 www-servers/nginx-unit:php7-2 - Support for PHP 7.2
+www-servers/nginx-unit:php7-3 - Support for PHP 7.3
 www-servers/pshs:magic - Enable automatic detection of Content-Type using libmagic (sys-apps/file)
 www-servers/pshs:netlink - Use libnetlink (sys-apps/iproute2) to get network interface addresses
 www-servers/pshs:qrcode - Enable generating QRCodes for server URL
@@ -9132,6 +9129,7 @@ x11-misc/polybar:network - Enable network support
 x11-misc/py3status:gevent - Install extra requirement dev-python/gevent to enable green threads.
 x11-misc/py3status:udev - Install extra requirement dev-python/pyudev to enable udev events monitoring on modules.
 x11-misc/qt5ct:dbus - Enable system tray and global menu support
+x11-misc/qtfm:shared - Install the libQtFM shared library and headers
 x11-misc/redshift:geoclue - Control dependency on app-misc/geoclue
 x11-misc/rofi:windowmode - Enable normal window mode
 x11-misc/rss-glx:quesoglc - Enable support for OpenGL Character Renderer
