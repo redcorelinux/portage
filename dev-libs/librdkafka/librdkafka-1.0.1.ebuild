@@ -14,7 +14,7 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/edenhill/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 hppa ~ppc x86"
 fi
 
 LICENSE="BSD-2"
@@ -24,17 +24,20 @@ SLOT="0/1"
 
 IUSE="lz4 sasl ssl static-libs zstd"
 
-RDEPEND="
-	lz4? ( app-arch/lz4:=[static-libs(-)?] )
-	sasl? ( dev-libs/cyrus-sasl:= )
-	ssl? ( dev-libs/openssl:0= )
-	zstd? ( app-arch/zstd:= )
-	sys-libs/zlib
+LIB_DEPEND="
+	lz4? ( app-arch/lz4:=[static-libs(+)] )
+	sasl? ( dev-libs/cyrus-sasl:=[static-libs(+)] )
+	ssl? ( dev-libs/openssl:0=[static-libs(+)] )
+	zstd? ( app-arch/zstd:=[static-libs(+)] )
+	sys-libs/zlib:=[static-libs(+)]
 "
+
+RDEPEND="!static-libs? ( ${LIB_DEPEND//\[static-libs(+)]} )"
 
 DEPEND="
 	${RDEPEND}
 	virtual/pkgconfig
+	static-libs? ( ${LIB_DEPEND} )
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-1.0.0-remove-automagic-on-zstd.patch )
