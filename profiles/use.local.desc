@@ -329,10 +329,11 @@ app-crypt/kbfs:git - Build the Git remote helper for storing repositories in Key
 app-crypt/kstart:afs - Enables afs support which means you can acquire an afs token and set PAGs. It's recommended to set this USE if you need authenticated access to an AFS cell for your daemon/app.
 app-crypt/libb2:native-cflags - Use CFLAGS as determined by configure script. These flags will enable all CPU specific features it find available, to further optimise the implementation. This discards any existing CFLAGS set in make.conf or similar.
 app-crypt/libu2f-host:systemd - Use user ACLs rather than plugdev group to give user access to the HIDRAW device.
-app-crypt/mit-krb5:doc - Creates and installs the API and implementation documentation. This is only useful if you want to develop software which depends on kerberos.
-app-crypt/mit-krb5:keyutils - Enable for the keyring ccache using keyutils.
-app-crypt/mit-krb5:openldap - Enable support for ldap as a database backend.
-app-crypt/mit-krb5:pkinit - Enable pkinit support for the initial ticket.
+app-crypt/mit-krb5:doc - Creates and installs the API and implementation documentation. This is only useful if you want to develop software which depends on kerberos
+app-crypt/mit-krb5:keyutils - Enable for the keyring ccache using keyutils
+app-crypt/mit-krb5:lmdb - Add support for using dev-db/lmdb for lookup tables
+app-crypt/mit-krb5:openldap - Enable support for ldap as a database backend
+app-crypt/mit-krb5:pkinit - Enable pkinit support for the initial ticket
 app-crypt/ophcrack:tables - Require the additional tables used to carry out cracking (app-crypt/ophcrack-tables)
 app-crypt/ophcrack-tables:vistafree - Installs the free Vista ophcrack tables
 app-crypt/ophcrack-tables:xpfast - Installs the fast XP ophcrack tables
@@ -1266,7 +1267,6 @@ app-text/groonga:uyield - Build for detecting race conditions
 app-text/groonga:zeromq - Enable net-libs/zeromq used for suggestion
 app-text/hyperestraier:mecab - Enable app-text/mecab support for Estraier
 app-text/kbibtex:webengine - Use dev-qt/qtwebengine for HTML previews
-app-text/kbibtex:webkit - Use dev-qt/qtwebkit for HTML previews
 app-text/kbibtex:zotero - Enable support for synchronisation with zotero.org web service
 app-text/lcdf-typetools:kpathsea - Enable integration with kpathsea search library (TeX related)
 app-text/libebook:tools - Build file conversion tools
@@ -1389,6 +1389,7 @@ dev-ada/asis:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/aunit:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aunit:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/aunit:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/aunit:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/aws:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/aws:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/aws:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
@@ -1430,6 +1431,9 @@ dev-ada/gnatcoll-db:xref - Build xref library
 dev-ada/gnatmem:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gnatmem:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gnatmem:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatmem:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
+dev-ada/gnatsymbolize:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/gnatsymbolize:gnat_2019 - Compile with dev-lang/gnat-gpl-2019
 dev-ada/gprbuild:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/gprbuild:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/gprbuild:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
@@ -1450,6 +1454,7 @@ dev-ada/libadalang:shared - Build shared library
 dev-ada/libadalang-tools:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/libadalang-tools:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/libadalang-tools:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
+dev-ada/libadalang-tools:gnat_2019 - Compile with dev-lang/gnat-gpl-2018
 dev-ada/libgpr:gnat_2016 - Compile with dev-lang/gnat-gpl-2016
 dev-ada/libgpr:gnat_2017 - Compile with dev-lang/gnat-gpl-2017
 dev-ada/libgpr:gnat_2018 - Compile with dev-lang/gnat-gpl-2018
@@ -1563,7 +1568,6 @@ dev-db/percona-server:systemtap - Build support for profiling and tracing using 
 dev-db/percona-server:tokudb - Add support for TokuDB storage engine
 dev-db/percona-server:tokudb-backup-plugin - Builds the TokuDB backup plugin
 dev-db/percona-server:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
-dev-db/pgadmin3:databasedesigner - Enable the Database Designer component
 dev-db/pgbouncer:c-ares - Use c-ares as the DNS backend instead of evdns (libevent).
 dev-db/pgbouncer:udns - Use udns as the DNS backend instead of evdns (libevent). Supports IPv4 only.
 dev-db/pgpool2:memcached - Use memcached for query caching.
@@ -2116,13 +2120,11 @@ dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
 dev-lang/rakudo:moar - Use the MoarVM as backend
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
 dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
-dev-lang/rust:cargo - Install cargo component
 dev-lang/rust:clippy - Install clippy component
 dev-lang/rust:rls - Install rls component
 dev-lang/rust:rustfmt - Install rustfmt component
 dev-lang/rust:system-llvm - Use the system LLVM install
 dev-lang/rust:wasm - Build support for the wasm32-unknown-unknown target
-dev-lang/rust-bin:cargo - Install cargo component
 dev-lang/rust-bin:clippy - Install clippy component
 dev-lang/rust-bin:rustfmt - Install rustfmt component
 dev-lang/scala:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
@@ -3438,7 +3440,6 @@ games-fps/darkplaces:cdsound - Enables using CD audio in the engine
 games-fps/darkplaces:demo - Uses the demo data from quake1 (quake1-demodata)
 games-fps/darkplaces:lights - Install and setup the updated light maps
 games-fps/darkplaces:textures - Install and setup the updated textures
-games-fps/doom-data:doomsday - Add wrapper to run it within doomsday
 games-fps/doom3:dedicated - install only as a dedicated game server
 games-fps/doom3:roe - Adds support for the Resurrection of Evil expansion
 games-fps/doomsday:demo - Install launcher dor doom1.wad from games-fps/doom-data
@@ -3463,7 +3464,6 @@ games-fps/eduke32:tools - Install the support tools for mapster32.
 games-fps/eduke32:voxels - Install the Duke Nukem 3D Voxels Pack.
 games-fps/eduke32:vpx - Enable support for media-libs/libvpx.
 games-fps/eduke32:xmp - Enable support for media-libs/exempi.
-games-fps/gzdoom:fluidsynth - Use media-sound/fluidsynth for MIDI support
 games-fps/gzdoom:gtk2 - Enable support for GTK+2 instead of GTK+3
 games-fps/nexuiz:maps - Install the community map pack
 games-fps/quake2-icculus:demo - Install the demo files (quake2-demodata) and configure for use
@@ -3614,6 +3614,7 @@ gnome-base/gdm:fprint - Enables experimental fingerprint authentication using sy
 gnome-base/gdm:plymouth - Enable support for smooth transition from sys-boot/plymouth
 gnome-base/gnome:classic - Install gnome-extra/gnome-shell-extensions for the Gnome Shell Classic mode
 gnome-base/gnome:extras - Install additional GNOME applications
+gnome-base/gnome-applets:tracker - Build the tracker search bar applet
 gnome-base/gnome-control-center:flickr - Add support for using photos from flickr as desktop background
 gnome-base/gnome-control-center:gnome-online-accounts - Enable configuration panel for net-libs/gnome-online-accounts accounts
 gnome-base/gnome-control-center:ibus - Enable support for enhanced input methods through app-i18n/ibus
@@ -4694,7 +4695,6 @@ media-plugins/grilo-plugins:gnome-online-accounts - Enable net-libs/gnome-online
 media-plugins/grilo-plugins:thetvdb - Build support for thetvdb.com
 media-plugins/grilo-plugins:tracker - Build support for content discovery using the app-misc/tracker indexer
 media-plugins/grilo-plugins:youtube - Build support for YouTube content discovery using dev-libs/libgdata
-media-plugins/gst-plugins-gl:libvisual - Enable visualization effects via media-libs/libvisual
 media-plugins/gst-plugins-gtk:egl - Enable EGL platform usage
 media-plugins/gst-plugins-gtk:gles2 - Enable gtkglsink OpenGL sink based on GLESv2 API
 media-plugins/gst-plugins-gtk:opengl - Enable gtkglsink OpenGL sink based on desktop OpenGL API
@@ -6651,7 +6651,6 @@ net-misc/electrum-ltc:email - Enable plugin to support emailing invoices
 net-misc/electrum-ltc:qrcode - Enable QR code scanning with media-gfx/zbar
 net-misc/electrum-ltc:sync - Enable plugin to sync wallet metadata across multiple Electrum clients
 net-misc/electrum-ltc:vkb - Enable plugin for virtual keyboard
-net-misc/endlessh:tools - Install additional python script which can be used to parse logs and save summary to sqlite database
 net-misc/eventd:libcanberra - Enable plugin for sounds via media-libs/libcanberra
 net-misc/eventd:libnotify - Enable plugin to relay events to notification daemon (Note: not required for local notifications via net-misc/eventd)
 net-misc/eventd:notification - Enable plugin to display on-screen notifications
@@ -8044,6 +8043,7 @@ sys-apps/s390-tools:fuse - build cmsfs-fuse to read files stored on a z/VM CMS d
 sys-apps/s390-tools:ncurses - build hyptop monitoring program
 sys-apps/s390-tools:pfm - build the cpacfstats tool
 sys-apps/s390-tools:zlib - build the zgetdump utility
+sys-apps/s6-linux-init:sysv-utils - Install sysvinit compatibility symlinks for telinit, halt, poweroff, reboot, and shutdown
 sys-apps/sed:forced-sandbox - Always enable --sandbox mode for simpler/secure runtime (disables e/r/w commands). Note: This may break many configure scripts, so it should be avoided on dev systems (and generally used on binpkg/final systems only).
 sys-apps/selinux-python:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
 sys-apps/smartmontools:caps - Build against sys-libs/libcap-ng to allow smartd to drop its privileges.
@@ -8081,6 +8081,7 @@ sys-apps/usermode-utilities:fuse - Build tools (currently umlmount) needing fuse
 sys-apps/util-linux:caps - build setpriv helper (run programs with diff capabilities)
 sys-apps/util-linux:cramfs - build mkfs/fsck helpers for cramfs filesystems
 sys-apps/util-linux:fdformat - build fdformat (floppy disk format)
+sys-apps/util-linux:hardlink - build hardlink program
 sys-apps/util-linux:kill - build the kill program
 sys-apps/util-linux:pam - build runuser helper
 sys-apps/util-linux:suid - install mount/umount as setuid so non-root users may mount/umount devices, and wall/write as setgid so non-root users can notify other users
@@ -9202,6 +9203,7 @@ x11-terms/terminator:libnotify - Enables desktop notifications viadev-python/not
 x11-terms/terminology:extras - Install additional testing tools
 x11-terms/xfce4-terminal:utempter - Include utmp management support via sys-libs/libutempter
 x11-terms/xterm:openpty - Use openpty() in preference to posix_openpt()
+x11-terms/xterm:sixel - Enable sixel graphics support
 x11-terms/xterm:toolbar - Enable the xterm toolbar to be built
 x11-themes/arc-theme:cinnamon - Install theme for gnome-extra/cinnamon
 x11-themes/arc-theme:gnome-shell - Install theme for gnome-base/gnome-shell
@@ -9264,6 +9266,8 @@ x11-wm/fvwm:rplay - Enable rplay support
 x11-wm/fvwm:stroke - Mouse Gesture support
 x11-wm/i3:doc - Build and install the HTML documentation and regenerate the man pages
 x11-wm/lumina:desktop-utils - Build and install lumina's desktop-utils
+x11-wm/metacity:libcanberra - Enable sound event support using media-libs/libcanberra
+x11-wm/metacity:vulkan - Enable Vulkan based compositor support via META_COMPOSITOR=vulkan environment variable
 x11-wm/musca:apis - Optionally install the experimental `apis' window manager
 x11-wm/musca:xlisten - Optionally install the xlisten utility
 x11-wm/mutter:elogind - Rely on sys-auth/elogind as logind provider for Wayland sessions

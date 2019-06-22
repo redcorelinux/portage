@@ -29,6 +29,26 @@
 
 #--- END OF EXAMPLES ---
 
+# Sobhan Mohammadpour <sobhan@gentoo.org> (19 Jun 2019)
+# this is new and it needs testing
+>=app-misc/geoclue-2.5.3
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (17 Jun 2019)
+# this is now provided by dev-lang/rust{-bin}[rustfmt]
+# it's tightly integrated with rust toolchain, eselect-rust
+# and it no longer makes sense ship this as standalone pkg
+dev-util/rustfmt
+
+# James Le Cuirot <chewi@gentoo.org> (18 Jun 2019)
+# Web site and SRC_URI dead. Has required heavy patching. Superseded
+# by games-util/deutex. Removal in 30 days.
+games-misc/yadex
+
+# James Le Cuirot <chewi@gentoo.org> (18 Jun 2019)
+# Web site and SRC_URI dead. Last release in 2007. Removal in 30
+# days. See bug #688134.
+games-kids/pytraffic
+
 # David Seifert <soap@gentoo.org> (15 Jun 2019)
 # Abandoned upstream, last release 8 years ago,
 # multiple bugs, fails with boost 1.70 and
@@ -125,21 +145,6 @@ sys-fs/pytagsfs
 # Unmaintained. Last release in 2005. Does not build with
 # >=dev-libs/bglibs-2.04. Bug #686438.
 net-mail/qmail-qfilter
-
-# Michał Górny <mgorny@gentoo.org> (19 May 2019)
-# Unmaintained.  The program breaks init.d script (#626580).  Homepage
-# and public sources disappeared.  Last release in 2006.
-# Removal in 30 days.  Bug #684094.
-net-proxy/nylon
-
-# Michał Górny <mgorny@gentoo.org> (19 May 2019)
-# Unmaintained crypto library with last release in 2009.  Carries
-# a number of local patches just to build with GCC.  Fails tests
-# (#351373), fails to build with clang (#624192).  Its last reverse
-# dependency is obsolete version of dev-util/debugedit.
-# Removal in 30 days.  Bug #680322.
-dev-libs/beecrypt
-<dev-util/debugedit-4
 
 # Hans de Graaff <graaff@gentoo.org> (18 May 2019)
 # Old, ruby24-only, slots of ruby packages without any reverse
@@ -246,91 +251,6 @@ media-tv/tvbrowser
 # Masked for removal in 30 Days. Bug #684904
 dev-lang/spidermonkey:24
 
-# Mart Raudsepp <leio@gentoo.org> (27 Apr 2019)
-# Old gstreamer 0.10 versions. Use gstreamer:1.0 and co instead.
-# Masked for removal in 30 days. Bug #550648
-media-libs/gstreamer:0.10
-media-libs/gst-plugins-base:0.10
-media-libs/gst-plugins-good:0.10
-media-libs/gst-plugins-ugly:0.10
-media-libs/gst-plugins-bad:0.10
-media-libs/gst-rtsp-server:0.10
-media-plugins/gst-plugins-a52dec:0.10
-media-plugins/gst-plugins-alsa:0.10
-media-plugins/gst-plugins-amr:0.10
-media-plugins/gst-plugins-annodex:0.10
-media-plugins/gst-plugins-assrender:0.10
-media-plugins/gst-plugins-cdio:0.10
-media-plugins/gst-plugins-cdparanoia:0.10
-media-plugins/gst-plugins-dts:0.10
-media-plugins/gst-plugins-dv:0.10
-media-plugins/gst-plugins-dvb:0.10
-media-plugins/gst-plugins-dvdread:0.10
-media-plugins/gst-plugins-faac:0.10
-media-plugins/gst-plugins-faad:0.10
-media-plugins/gst-plugins-flac:0.10
-media-plugins/gst-plugins-gconf:0.10
-media-plugins/gst-plugins-gdkpixbuf:0.10
-media-plugins/gst-plugins-gio:0.10
-media-plugins/gst-plugins-gl
-media-plugins/gst-plugins-gnomevfs:0.10
-media-plugins/gst-plugins-gsm:0.10
-media-plugins/gst-plugins-ivorbis:0.10
-media-plugins/gst-plugins-jack:0.10
-media-plugins/gst-plugins-jpeg:0.10
-media-plugins/gst-plugins-ladspa:0.10
-media-plugins/gst-plugins-lame:0.10
-media-plugins/gst-plugins-libmms:0.10
-media-plugins/gst-plugins-libnice:0.10
-media-plugins/gst-plugins-libpng:0.10
-media-plugins/gst-plugins-libvisual:0.10
-media-plugins/gst-plugins-mad:0.10
-media-plugins/gst-plugins-meta:0.10
-media-plugins/gst-plugins-modplug:0.10
-media-plugins/gst-plugins-mpeg2dec:0.10
-media-plugins/gst-plugins-mpeg2enc:0.10
-media-plugins/gst-plugins-mplex:0.10
-media-plugins/gst-plugins-musepack:0.10
-media-plugins/gst-plugins-neon:0.10
-media-plugins/gst-plugins-ofa:0.10
-media-plugins/gst-plugins-ogg:0.10
-media-plugins/gst-plugins-opus:0.10
-media-plugins/gst-plugins-oss:0.10
-media-plugins/gst-plugins-pango:0.10
-media-plugins/gst-plugins-pulse:0.10
-media-plugins/gst-plugins-raw1394:0.10
-media-plugins/gst-plugins-resindvd:0.10
-media-plugins/gst-plugins-rtmp:0.10
-media-plugins/gst-plugins-schroedinger:0.10
-media-plugins/gst-plugins-shout2:0.10
-media-plugins/gst-plugins-sidplay:0.10
-media-plugins/gst-plugins-soundtouch:0.10
-media-plugins/gst-plugins-soup:0.10
-media-plugins/gst-plugins-speex:0.10
-media-plugins/gst-plugins-taglib:0.10
-media-plugins/gst-plugins-theora:0.10
-media-plugins/gst-plugins-twolame:0.10
-media-plugins/gst-plugins-v4l2:0.10
-media-plugins/gst-plugins-wavpack:0.10
-media-plugins/gst-plugins-vorbis:0.10
-media-plugins/gst-plugins-vp8:0.10
-media-plugins/gst-plugins-x:0.10
-media-plugins/gst-plugins-x264:0.10
-media-plugins/gst-plugins-ximagesrc:0.10
-media-plugins/gst-plugins-xvid:0.10
-media-plugins/gst-plugins-xvideo:0.10
-dev-cpp/gstreamermm:0.10
-dev-python/gst-python:0.10
-media-libs/gnonlin:0.10
-net-libs/farstream:0.1
-
-# Michał Górny <mgorny@gentoo.org> (24 Apr 2019)
-# Unmaintained.  Vulnerable init.d script.  Missing dependencies causing
-# build failures (#514412, #544942).  Insecure format strings (#520574).
-# Last bumped in 2014, pending bump since at least 2015 (#550156).
-# Removal in 30 days.  Bug #629450.
-mail-filter/mimedefang
-
 # Jeroen Roovers <jer@gentoo.org> (24 Apr 2019)
 # Depends on =dev-libs/openssl-1.1.1* due to newly introduced
 # support for EVP_PKEY_ED25519 and EVP_PKEY_ED448 (bug #670574).
@@ -365,6 +285,7 @@ sys-boot/systemrescuecd-x86-grub
 >=net-proxy/trojan-1.12.2
 >=dev-python/graph-tool-2.27
 =dev-python/graph-tool-9999
+=sys-fs/cryfs-0.10*
 
 # Robin H. Johnson <robbat2@gentoo.org> (25 Mar 2019)
 # Requires >=dev-lang/lua-5.3 which is masked
@@ -459,12 +380,6 @@ dev-libs/gost-engine
 # Brian Evans <grknight@gentoo.org> (05 Nov 2018)
 # Causes a dependency loop in the OpenRC script. Bug #651998
 =sys-fs/cryptsetup-2.0.5-r1
-
-# Aaron W. Swenson <titanofold@gentoo.org> (25 Oct 2018)
-# Fails to build against up to date OpenSSL library (Bug 663966). No longer
-# supported upstream. Use dev-db/pgadmin4.
-# Masked for removal on 2018-11-24, bug #669650.
-dev-db/pgadmin3
 
 # Thomas Deutschmann <whissi@gentoo.org> (12 Oct 2018)
 # EOL and has known vulnerabilities. Please move to

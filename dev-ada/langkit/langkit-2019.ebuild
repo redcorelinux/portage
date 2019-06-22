@@ -35,12 +35,6 @@ S="${WORKDIR}"/${MYP}-src
 
 PATCHES=( "${FILESDIR}"/${P}-gentoo.patch )
 
-src_prepare() {
-	default
-	# Can't make this test working
-	rm -r testsuite/tests/misc/link_two_libs || die
-}
-
 src_test() {
 	testsuite/testsuite.py --show-error-output | tee testsuite.log
 	grep -q FAILED testsuite.log && die "Test failed"
