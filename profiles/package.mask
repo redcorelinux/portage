@@ -29,9 +29,63 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas K. Hüttel <dilfridge@gentoo.org> (27 Jun 2019)
+# Badly outdated, EAPI=2. Removal in 30days, ack'ed by
+# cynede for dotnet. Bug 685626.
+dev-dotnet/flickrnet-bin
+
+# Ulrich Müller <ulm@gentoo.org> (24 Jun 2019)
+# Byte-compilation with recent Emacs versions fails.
+# SRC_URI is gone. Last visible upstream activity in 2008.
+# Use app-emacs/flim as replacement.
+# Masked for removal in 30 days, bug #688596.
+app-emacs/limit
+virtual/emacs-flim
+
+# Jonas Stein <jstein@gentoo.org> (24 Jun 2019)
+# Source is broken. Upstream is dead since 2011.
+# Removal after 2019-08-01. (bug #688552)
+media-sound/sfc
+
+# David Seifert <soap@gentoo.org> (23 Jun 2019)
+# QA issues, fails tests, RWX sections, ignores CC/CFLAGS,
+# builds only static libs, fails with GCC 9.
+# Bug #452220, #461288, #623360, #685728
+sci-mathematics/gwnum
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (23 Jun 2019)
+# EAPI2, broken HOMEPAGE, maintainer-needed, lots of QA warnings,
+# for hardware that was EOL'ed <=2007. Removal in 30 days. Bug 681060
+sys-apps/cobalt-panel-utils
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (23 Jun 2019)
+# last release was 2006, EAPI2, maintainer-needed, depends on
+# app-text/htmltidy; removal in 30 days, bug 686324
+www-apache/mod_tidy
+
+# Jimi Huotari <chiitoo@gentoo.org> (22 Jun 2019)
+# Deprecated package with no consumers left.
+# Removal in 30 days.
+lxqt-base/lxqt-l10n
+
+# David Seifert <soap@gentoo.org> (22 Jun 2019)
+# Abandoned upstream, last release 5 years ago,
+# extremely brittle codebase, requires constant
+# patching, removal in 30 days
+# Bug #664700, #685980
+sci-biology/vaal
+
+# David Seifert <soap@gentoo.org> (22 Jun 2019)
+# Abandoned upstream, last release 5 years ago,
+# extremely brittle codebase, requires constant
+# patching, removal in 30 days
+# Bug #664708, #685924
+sci-biology/allpathslg
+
 # Sobhan Mohammadpour <sobhan@gentoo.org> (19 Jun 2019)
 # this is new and it needs testing
 >=app-misc/geoclue-2.5.3
+=sys-apps/xdg-desktop-portal-1.4.2
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (17 Jun 2019)
 # this is now provided by dev-lang/rust{-bin}[rustfmt]
@@ -84,17 +138,6 @@ dev-libs/liblazy
 # Removal in 30 days unless updated.
 dev-util/antlrworks
 
-# Andreas K. Hüttel <dilfridge@gentoo.org> (5 Jun 2019)
-# Fails to build, bug 680252. EAPI=2. Removal in 30 days
-# unless fixed.
-dev-java/glassfish-connector-api
-
-# Hans de Graaff <graaff@gentoo.org> (2 Jun 2019)
-# Test version with all new Gentoo defaults. 
-# Fixes bug 676946 bug may break other things.
-# Masked for testing.
-=dev-ruby/rubygems-3.0.3-r1
-
 # Zac Medico <zmedico@gentoo.org> (31 May 2019)
 # Upstream is dead and there are multiple security vulnerabilities.
 # Removal in 30 days. Bug #687100.
@@ -104,20 +147,6 @@ app-emulation/rkt
 # Obsolete LXDE modules, see #652658, #651964
 lxde-base/lxshortcut
 lxde-base/lxsession-edit
-
-# Virgil Dupras <vdupras@gentoo.org> (24 May 2019)
-# py2 only, dead upstream, removal in 30 days. Bug #686668
-dev-python/drpython
-
-# Aaron Bauman <bman@gentoo.org> (23 May 2019)
-# Upstreami now requires registration to download
-# EAPI2. Removal in 30 days.
-net-misc/mindterm
-
-# Aaron Bauman <bman@gentoo.org> (23 May 2019)
-# Unmaintained, EAPI2, updates available upstream
-# Oh yea, removal in 30 days
-dev-util/pmd
 
 # Patrick Lauer <patrick@gentoo.org> (23 May 2019)
 # PostgreSQL beta and release candidate releases are pre-release testing
@@ -141,29 +170,9 @@ x11-plugins/gkrellflynn
 # Unfixed bug, dead upstream, not relevant enough
 sys-fs/pytagsfs
 
-# Stefan Strogin <steils@gentoo.org> (21 May 2019)
-# Unmaintained. Last release in 2005. Does not build with
-# >=dev-libs/bglibs-2.04. Bug #686438.
-net-mail/qmail-qfilter
-
-# Hans de Graaff <graaff@gentoo.org> (18 May 2019)
-# Old, ruby24-only, slots of ruby packages without any reverse
-# dependencies. Use the newer slot version instead.
-# (originally last-rited on 15 Apr 2019)
-# Masked for removal in 30 days.
-dev-ruby/elasticsearch:0
-dev-ruby/elasticsearch-api:0
-dev-ruby/elasticsearch-transport:0
-dev-ruby/filesize:0.1.1
-
 # Miroslav Šulc <fordfrog@gentoo.org> (15 May 2019)
 # Depends on >=virtual/{jdk,jre}-11 which is masked
 =www-servers/tomcat-9.0.20
-
-# Virgil Dupras <vdupras@gentoo.org> (13 May 2019)
-# detox has been deprecated by the release of tox 3.7.0 which duplicates the
-# feature. Removal in 30 days. Bug #685870
-dev-python/detox
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (11 May 2019)
 # Perl 5.24 will be removed soon. Please upgrade.
@@ -276,16 +285,6 @@ sys-boot/systemrescuecd-x86-grub
 # Bug: https://bugs.gentoo.org/681828
 >dev-java/oracle-jdk-bin-1.8.0.202:1.8
 >dev-java/oracle-jre-bin-1.8.0.202:1.8
-
-# David Seifert <soap@gentoo.org> (15 Apr 2019)
-# Masked for testing, Bug #653878.
->=dev-libs/boost-1.70.0
->=dev-util/boost-build-1.70.0
->=net-mail/libpst-0.6.66-r2
->=net-proxy/trojan-1.12.2
->=dev-python/graph-tool-2.27
-=dev-python/graph-tool-9999
-=sys-fs/cryfs-0.10*
 
 # Robin H. Johnson <robbat2@gentoo.org> (25 Mar 2019)
 # Requires >=dev-lang/lua-5.3 which is masked
