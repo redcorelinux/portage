@@ -697,13 +697,13 @@
       <role>Council member</role>
     </member>
     <member>
-      <email>k_f@gentoo.org</email>
-      <name>Kristian Fiskerstrand</name>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
       <role>Council member</role>
     </member>
     <member>
-      <email>leio@gentoo.org</email>
-      <name>Mart Raudsepp</name>
+      <email>patrick@gentoo.org</email>
+      <name>Patrick Lauer</name>
       <role>Council member</role>
     </member>
     <member>
@@ -2630,6 +2630,11 @@
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>ppc/ppc64 keywording/stabilization</role>
+    </member>
+    <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
+      <role>ppc64 keywording, talos II packages</role>
     </member>
     <member>
       <email>jer@gentoo.org</email>

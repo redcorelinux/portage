@@ -16,7 +16,7 @@ if [[ $PV == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/${REPO}"
 	S="${WORKDIR}/${REPO}"
 else
-	KEYWORDS="amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm ~arm64 x86"
 	UPSTREAM_VER=2
 	SECURITY_VER=
 	# xen-tools's gentoo patches tarball
@@ -83,6 +83,7 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-kernel/linux-headers-4.11
 	dev-python/lxml[${PYTHON_USEDEP}]
 	x86? ( sys-devel/dev86
+		sys-firmware/ipxe[qemu]
 		sys-power/iasl )
 	pam? ( dev-python/pypam[${PYTHON_USEDEP}] )
 	api? ( dev-libs/libxml2
