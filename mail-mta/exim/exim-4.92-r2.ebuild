@@ -14,6 +14,7 @@ REQUIRED_USE="
 	pkcs11? ( ssl )
 	spf? ( exiscan-acl )
 	srs? ( exiscan-acl )
+	!ssl? ( !dkim )
 "
 # NOTE on USE="gnutls dane", gnutls[dane] is masked in base, unmasked
 # for x86 and amd64 only, due to this, repoman won't allow depending on
@@ -33,7 +34,7 @@ HOMEPAGE="http://www.exim.org/"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="alpha amd64 ~arm ~hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-solaris"
 
 COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	( >=sys-libs/db-3.2:= <sys-libs/db-6:= )

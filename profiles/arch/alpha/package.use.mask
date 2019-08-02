@@ -24,10 +24,6 @@ app-admin/sudo sssd
 # Optional dependency blocking security cleanup, bug #627316
 media-sound/mpd wildmidi
 
-# Joonas Niilola <juippis@gmail.com> (2018-09-09)
-# Optional dependency blocking updates.
-media-plugins/imlib2_loaders eet
-
 # Joonas Niilola <juippis@gmail.com> (2018-06-17)
 # Optional dependency not available for this arch
 dev-libs/efl vlc
@@ -38,7 +34,7 @@ app-arch/rpm test
 
 # Tomáš Mózes <hydrapolic@gmail.com> (2018-06-05)
 # Unkeyworded dependencies.
-app-admin/syslog-ng amqp mongodb
+app-admin/syslog-ng amqp kafka mongodb
 
 # Thomas Deutschmann <whissi@gentoo.org> (2018-06-02)
 # Needs dev-ruby/asciidoctor which has a lot of unstable deps

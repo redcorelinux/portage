@@ -16,14 +16,14 @@ fi
 
 PYTHON_COMPAT=( python{3_5,3_6,3_7} )
 
-inherit bash-completion-r1 linux-info meson multilib-minimal ninja-utils pam python-any-r1 systemd toolchain-funcs udev user
+inherit bash-completion-r1 linux-info meson multilib-minimal ninja-utils pam python-any-r1 systemd toolchain-funcs udev
 
 DESCRIPTION="System and service manager for Linux"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/systemd"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
-IUSE="acl apparmor audit build cryptsetup curl dns-over-tls elfutils +gcrypt gnuefi http idn importd +kmod libidn2 +lz4 lzma nat pam pcre policykit qrcode +resolvconf +seccomp selinux split-usr +sysv-utils test vanilla xkb"
+IUSE="acl apparmor audit build cryptsetup curl dns-over-tls elfutils +gcrypt gnuefi http idn importd +kmod +lz4 lzma nat pam pcre policykit qrcode +resolvconf +seccomp selinux split-usr +sysv-utils test vanilla xkb"
 
 REQUIRED_USE="importd? ( curl gcrypt lzma )"
 RESTRICT="!test? ( test )"
@@ -45,10 +45,7 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.30:0=[${MULTILIB_USEDEP}]
 		>=net-libs/libmicrohttpd-0.9.33:0=[epoll(+)]
 		>=net-libs/gnutls-3.1.4:0=
 	)
-	idn? (
-		libidn2? ( net-dns/libidn2:= )
-		!libidn2? ( net-dns/libidn:= )
-	)
+	idn? ( net-dns/libidn2:= )
 	importd? (
 		app-arch/bzip2:0=
 		sys-libs/zlib:0=
@@ -72,6 +69,26 @@ DEPEND="${COMMON_DEPEND}
 
 # baselayout-2.2 has /run
 RDEPEND="${COMMON_DEPEND}
+	acct-group/adm
+	acct-group/wheel
+	acct-group/kmem
+	acct-group/tty
+	acct-group/utmp
+	acct-group/audio
+	acct-group/cdrom
+	acct-group/dialout
+	acct-group/disk
+	acct-group/input
+	acct-group/kvm
+	acct-group/render
+	acct-group/tape
+	acct-group/video
+	acct-group/systemd-journal
+	acct-user/systemd-journal-remote
+	acct-user/systemd-coredump
+	acct-user/systemd-network
+	acct-user/systemd-resolve
+	acct-user/systemd-timesync
 	>=sys-apps/baselayout-2.2
 	selinux? ( sec-policy/selinux-base-policy[systemd] )
 	sysv-utils? ( !sys-apps/sysvinit )
@@ -85,7 +102,8 @@ RDEPEND="${COMMON_DEPEND}
 	!sys-auth/nss-myhostname
 	!<sys-kernel/dracut-044
 	!sys-fs/eudev
-	!sys-fs/udev"
+	!sys-fs/udev
+"
 
 # sys-apps/dbus: the daemon only (+ build-time lib dep for tests)
 PDEPEND=">=sys-apps/dbus-1.9.8[systemd]
@@ -173,7 +191,6 @@ src_prepare() {
 		PATCHES+=(
 			"${FILESDIR}/gentoo-Dont-enable-audit-by-default.patch"
 			"${FILESDIR}/gentoo-systemd-user-pam.patch"
-			"${FILESDIR}/gentoo-uucp-group-r1.patch"
 			"${FILESDIR}/gentoo-generator-path-r1.patch"
 		)
 	fi
@@ -239,6 +256,7 @@ multilib_src_configure() {
 		-Dgnu-efi=$(meson_multilib_native_use gnuefi)
 		-Defi-libdir="${ESYSROOT}/usr/$(get_libdir)"
 		-Dmicrohttpd=$(meson_multilib_native_use http)
+		-Didn=$(meson_multilib_native_use idn)
 		-Dimportd=$(meson_multilib_native_use importd)
 		-Dbzip2=$(meson_multilib_native_use importd)
 		-Dzlib=$(meson_multilib_native_use importd)
@@ -254,11 +272,10 @@ multilib_src_configure() {
 		-Dselinux=$(meson_multilib_native_use selinux)
 		-Ddbus=$(meson_multilib_native_use test)
 		-Dxkbcommon=$(meson_multilib_native_use xkb)
-		# hardcode a few paths to spare some deps
-		-Dkill-path=/bin/kill
 		-Dntp-servers="0.gentoo.pool.ntp.org 1.gentoo.pool.ntp.org 2.gentoo.pool.ntp.org 3.gentoo.pool.ntp.org"
 		# Breaks screen, tmux, etc.
 		-Ddefault-kill-user-processes=false
+		-Dcreate-log-dirs=false
 
 		# multilib options
 		-Dbacklight=$(meson_multilib)
@@ -282,18 +299,6 @@ multilib_src_configure() {
 		-Dtmpfiles=$(meson_multilib)
 		-Dvconsole=$(meson_multilib)
 	)
-
-	if multilib_is_native_abi && use idn; then
-		myconf+=(
-			-Dlibidn2=$(usex libidn2 true false)
-			-Dlibidn=$(usex libidn2 false true)
-		)
-	else
-		myconf+=(
-			-Dlibidn2=false
-			-Dlibidn=false
-		)
-	fi
 
 	meson_src_configure "${myconf[@]}"
 }
@@ -343,7 +348,7 @@ multilib_src_install_all() {
 	keepdir /usr/lib/{binfmt.d,modules-load.d}
 	keepdir /usr/lib/systemd/user-generators
 	keepdir /var/lib/systemd
-	rm -rf "${ED}"/var/log || die
+	keepdir /var/log/journal
 
 	# Symlink /etc/sysctl.conf for easy migration.
 	dosym ../sysctl.conf /etc/sysctl.d/99-sysctl.conf
@@ -419,23 +424,6 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	newusergroup() {
-		enewgroup "$1"
-		enewuser "$1" -1 -1 -1 "$1"
-	}
-
-	enewgroup input
-	enewgroup kvm 78
-	enewgroup render
-	enewgroup systemd-journal
-	newusergroup systemd-coredump
-	newusergroup systemd-journal-gateway
-	newusergroup systemd-journal-remote
-	newusergroup systemd-journal-upload
-	newusergroup systemd-network
-	newusergroup systemd-resolve
-	newusergroup systemd-timesync
-
 	systemd_update_catalog
 
 	# Keep this here in case the database format changes so it gets updated
