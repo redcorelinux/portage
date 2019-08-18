@@ -626,8 +626,8 @@
     <description>Community Relations handles many personnel-related tasks, solving conflicts and also ensuring that the Gentoo Code of Conduct and proper and professional behavior is followed across Gentoo's borders.</description>
     <subproject ref="undertakers@gentoo.org"/>
     <member>
-      <email>bircoph@gentoo.org</email>
-      <name>Andrew Savchenko</name>
+      <email>chewi@gentoo.org</email>
+      <name>James Le Cuirot</name>
     </member>
     <member>
       <email>jmbsvicetto@gentoo.org</email>
@@ -2143,11 +2143,6 @@
       <name>Ian Stakenvicius</name>
       <role>Member</role>
     </member>
-    <member>
-      <email>jcallen@gentoo.org</email>
-      <name>Jonathan Callen</name>
-      <role>Member</role>
-    </member>
     <member is-lead="1">
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
@@ -2324,11 +2319,6 @@
     <name>The #gentoo Operators Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Ops</url>
     <description>The &lt;span style="font-family: monospace; font-size: 95%;"&gt;[irc://irc.gentoo.org/gentoo #gentoo]&lt;/span&gt; Operators project describes the tasks and policies carried out by the operators of the #gentoo channel on the Freenode network.</description>
-    <member>
-      <email>blackace@gentoo.org</email>
-      <name>Matt Kasa</name>
-      <role>Operator</role>
-    </member>
     <member is-lead="1">
       <email>jer@gentoo.org</email>
       <name>Jeroen Roovers</name>
@@ -3461,11 +3451,6 @@
       <role>GLSA Coordinator</role>
     </member>
     <member>
-      <email>chrisadr@gentoo.org</email>
-      <name>Christopher Díaz Riveros</name>
-      <role>Minion</role>
-    </member>
-    <member>
       <email>creffett@gentoo.org</email>
       <name>Chris Reffett</name>
       <role>GLSA Coordinator</role>
@@ -3829,11 +3814,6 @@
       <role>Member ( FFmpeg, x265, etc. )</role>
     </member>
     <member>
-      <email>beandog@gentoo.org</email>
-      <name>Steve Dibb</name>
-      <role>Member ( DVD, Blu-ray, Optical, Video )</role>
-    </member>
-    <member>
       <email>lordvan@gentoo.org</email>
       <name>Thomas Raschbacher</name>
       <role>Member ( DVB )</role>
@@ -3847,6 +3827,11 @@
       <email>radhermit@gentoo.org</email>
       <name>Tim Harder</name>
       <role>Member</role>
+    </member>
+    <member>
+      <email>steils@gentoo.org</email>
+      <name>Stefan Strogin</name>
+      <role>Member ( OpenShot )</role>
     </member>
   </project>
   <project>
