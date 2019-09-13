@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -46,9 +46,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}_configure-lua-flags.patch"
-	epatch "${FILESDIR}/${P}_sockios.patch"
-	sed -ie 's/docdir =.*/docdir = ${datarootdir}\/doc\/'${PF}'\//' "${S}/doc/Makefile.am"
+	epatch "${FILESDIR}"/${P}_configure-lua-flags.patch
 	eautoreconf
 }
 
@@ -126,14 +124,14 @@ src_install() {
 		doins rules/*.rules
 	fi
 
-	keepdir "/var/lib/${PN}"
-	keepdir "/var/log/${PN}"
+	dodir "/var/lib/${PN}"
+	dodir "/var/log/${PN}"
 
 	fowners -R ${PN}: "/var/lib/${PN}" "/var/log/${PN}" "/etc/${PN}"
 	fperms 750 "/var/lib/${PN}" "/var/log/${PN}" "/etc/${PN}"
 
-	newinitd "${FILESDIR}/${P}-init" ${PN}
-	newconfd "${FILESDIR}/${P}-conf" ${PN}
+	newinitd "${FILESDIR}/${PN}-4.0.3-init" ${PN}
+	newconfd "${FILESDIR}/${PN}-4.0.3-conf" ${PN}
 
 	if use logrotate; then
 		insopts -m0644

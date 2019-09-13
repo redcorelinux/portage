@@ -37,7 +37,8 @@ src_compile() {
 src_install() {
 	default
 	use gtk && emake DESTDIR="${D}" install-gui
-	use examples && dodoc -r examples
+	insinto /usr/share/doc/${PF}
+	use examples && doins -r examples
 	mv "${D}"/usr/doc/* "${D}"/usr/share/doc/${PF}/ || die
 	rmdir "${D}"/usr/doc || die
 }

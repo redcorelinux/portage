@@ -29,13 +29,10 @@ IUSE=""
 
 DEPEND="
 	~media-tv/kodi-9999
-	media-libs/libsidplay:2"
+	~media-libs/kodi-platform-9999
+	media-libs/libsidplay:2
+	"
 
 RDEPEND="
 	${DEPEND}
 	"
-
-src_prepare(){
-	[ -d depends ] && rm -rf depends || die
-	cmake-utils_src_prepare
-}

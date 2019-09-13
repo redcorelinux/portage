@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=0
@@ -10,7 +10,7 @@ KEYWORDS="x86"
 DESCRIPTION="An Apache2 module which can do debugging of modules in the Apache2 Filter Chain"
 HOMEPAGE="http://apache.webthing.com/mod_diagnostics/"
 SRC_URI="mirror://gentoo/${P}.c"
-LICENSE="Apache-1.1"
+LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit gnome.org gnome2-utils meson udev xdg
+inherit gnome.org gnome2-utils meson udev user xdg
 
 DESCRIPTION="Bluetooth graphical utilities integrated with GNOME"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeBluetooth"
@@ -21,7 +21,6 @@ COMMON_DEPEND="
 	introspection? ( >=dev-libs/gobject-introspection-0.9.5:= )
 "
 RDEPEND="${COMMON_DEPEND}
-	acct-group/plugdev
 	virtual/udev
 	>=net-wireless/bluez-5
 "
@@ -33,6 +32,10 @@ DEPEND="${COMMON_DEPEND}
 	gtk-doc? ( >=dev-util/gtk-doc-1.9 )
 	virtual/pkgconfig
 "
+
+pkg_setup() {
+	enewgroup plugdev
+}
 
 src_configure() {
 	local emesonargs=(
@@ -50,7 +53,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	if ! has_version 'sys-auth/consolekit[acl]' && ! has_version 'sys-apps/systemd[acl]' ; then
+	if ! has_version sys-auth/consolekit[acl] && ! has_version sys-apps/systemd[acl] ; then
 		elog "Don't forget to add yourself to the plugdev group "
 		elog "if you want to be able to control bluetooth transmitter."
 	fi

@@ -38,8 +38,7 @@
 # @DESCRIPTION:
 # Space separated list of patches to apply after unpacking the sources.
 # Patch files are searched for in the current working dir, WORKDIR, and
-# FILESDIR.  This variable is semi-deprecated, preferably use the
-# PATCHES array instead if the EAPI supports it.
+# FILESDIR.
 
 # @ECLASS-VARIABLE: ELISP_REMOVE
 # @DEFAULT_UNSET
@@ -59,6 +58,12 @@
 # @DESCRIPTION:
 # Space separated list of Texinfo sources.  Respective GNU Info files
 # will be generated in src_compile() and installed in src_install().
+
+# @ECLASS-VARIABLE: DOCS
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# DOCS="blah.txt ChangeLog" is automatically used to install the given
+# files by dodoc in src_install().
 
 inherit elisp-common
 case ${EAPI:-0} in
@@ -96,7 +101,7 @@ elisp_pkg_setup() {
 # WORKDIR for packages distributed that way.
 
 elisp_src_unpack() {
-	default
+	[[ -n ${A} ]] && unpack ${A}
 	if [[ -f ${P}.el ]]; then
 		# the "simple elisp" case with a single *.el file in WORKDIR
 		mv ${P}.el ${PN}.el || die
@@ -127,10 +132,10 @@ elisp_src_prepare() {
 		esac
 	done
 
-	# apply PATCHES (if supported in EAPI), and any user patches
+	# apply any user patches
 	case ${EAPI} in
 		4|5) epatch_user ;;
-		*) default ;;
+		*) eapply_user ;;
 	esac
 
 	if [[ -n ${ELISP_REMOVE} ]]; then
@@ -172,13 +177,11 @@ elisp_src_install() {
 	if [[ -n ${ELISP_TEXINFO} ]]; then
 		set -- ${ELISP_TEXINFO}
 		set -- ${@##*/}
-		doinfo ${@/%.*/.info*}
+		doinfo ${@/%.*/.info*} || die
 	fi
-	# install documentation only when explicitly requested
-	case ${EAPI} in
-		4|5) [[ -n ${DOCS} ]] && dodoc ${DOCS} ;;
-		*) declare -p DOCS &>/dev/null && einstalldocs ;;
-	esac
+	if [[ -n ${DOCS} ]]; then
+		dodoc ${DOCS} || die
+	fi
 	if declare -f readme.gentoo_create_doc >/dev/null; then
 		readme.gentoo_create_doc
 	fi

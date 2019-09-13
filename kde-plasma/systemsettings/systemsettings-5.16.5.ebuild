@@ -6,9 +6,9 @@ EAPI=7
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Control Center to configure KDE Plasma desktop"
+DESCRIPTION="System settings utility"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE=""
+IUSE="classic gtk"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -36,9 +36,11 @@ DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	classic? ( $(add_frameworks_dep khtml) )
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
+	gtk? ( $(add_plasma_dep kde-gtk-config) )
 "
 
 src_prepare() {
@@ -51,7 +53,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5KHtml=ON
+		$(cmake-utils_use_find_package classic KF5KHtml)
 	)
 
 	kde5_src_configure

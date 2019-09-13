@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Network-enabled task manager and system monitor"
 LICENSE="GPL-2+"
 KEYWORDS="amd64 ~arm arm64 x86"
-IUSE="lm-sensors"
+IUSE="lm_sensors"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -32,13 +32,13 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	lm-sensors? ( sys-apps/lm-sensors:= )
+	lm_sensors? ( sys-apps/lm_sensors:= )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package lm-sensors Sensors)
+		$(cmake-utils_use_find_package lm_sensors Sensors)
 	)
 
 	kde5_src_configure

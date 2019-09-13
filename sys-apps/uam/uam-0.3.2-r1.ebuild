@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit udev
+inherit udev user
 
 DESCRIPTION="Simple udev-based automounter for removable USB media"
 HOMEPAGE="https://github.com/mgorny/uam/"
@@ -14,12 +14,16 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND="
-	acct-group/plugdev
-	virtual/udev"
-DEPEND="virtual/pkgconfig"
+RDEPEND="virtual/udev"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 pkg_postinst() {
+	# The plugdev group is created by pam, pmount and many other ebuilds
+	# in gx86. As we don't want to depend on any of them (even pmount is
+	# optional), we create it ourself too.
+	enewgroup plugdev
+
 	elog "To be able to access uam-mounted filesystems, you have to be"
 	elog "a member of the 'plugdev' group."
 	elog

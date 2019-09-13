@@ -14,7 +14,6 @@ HOMEPAGE="http://www.jetbrains.com/go"
 KEYWORDS="~amd64"
 LICENSE="IDEA
 	|| ( IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal )"
-RESTRICT="bindist mirror"
 
 QA_PREBUILT="opt/${P}/*"
 

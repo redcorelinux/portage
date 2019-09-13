@@ -466,9 +466,7 @@ src_configure() {
 
 	# fix unaligned access misdetection
 	# https://rt.perl.org/Public/Bug/Display.html?id=133495
-	# bug #676062
-	use hppa || use sparc || [[ ${CHOST} == sparc*-solaris* ]] && \
-		myconf "-Dd_u32align='define'"
+	[[ ${CHOST} == sparc*-solaris* ]] && myconf "-Dd_u32align='define'"
 
 	# Prefix: the host system needs not to follow Gentoo multilib stuff, and in
 	# Prefix itself we don't do multilib either, so make sure perl can find

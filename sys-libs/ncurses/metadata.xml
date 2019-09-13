@@ -14,7 +14,4 @@
 	</flag>
 	<flag name="trace">Enable test trace() support in ncurses calls</flag>
 </use>
-<upstream>
-	<remote-id type="cpe">cpe:/a:gnu:ncurses</remote-id>
-</upstream>
 </pkgmetadata>

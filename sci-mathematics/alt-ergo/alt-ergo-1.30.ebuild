@@ -29,5 +29,6 @@ src_compile() {
 src_install() {
 	default
 	use gtk && emake DESTDIR="${D}" install-gui
-	use examples && dodoc -r examples
+	insinto /usr/share/doc/${PF}
+	use examples && doins -r examples
 }

@@ -35,7 +35,4 @@
 		Install the wks-server
 		</flag>
 	</use>
-	<upstream>
-		<remote-id type="cpe">cpe:/a:gnupg:gnupg</remote-id>
-	</upstream>
 </pkgmetadata>

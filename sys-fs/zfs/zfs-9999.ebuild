@@ -23,7 +23,7 @@ LICENSE="BSD-2 CDDL MIT"
 SLOT="0"
 IUSE="custom-cflags debug kernel-builtin libressl python +rootfs test-suite static-libs"
 
-DEPEND="
+COMMON_DEPEND="
 	${PYTHON_DEPS}
 	net-libs/libtirpc[static-libs?]
 	sys-apps/util-linux[static-libs?]
@@ -37,14 +37,14 @@ DEPEND="
 	)
 "
 
-BDEPEND="virtual/awk
+BDEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	python? (
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	)
 "
 
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!=sys-apps/grep-2.13*
 	!kernel-builtin? ( ~sys-fs/zfs-kmod-${PV} )
 	!sys-fs/zfs-fuse

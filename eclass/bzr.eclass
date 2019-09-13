@@ -140,17 +140,6 @@ EXPORT_FUNCTIONS src_unpack
 # by users.
 : ${EBZR_OFFLINE=${EVCS_OFFLINE}}
 
-# @ECLASS-VARIABLE: EVCS_UMASK
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Set this variable to a custom umask.  This is intended to be set by
-# users.  By setting this to something like 002, it can make life easier
-# for people who do development as non-root (but are in the portage
-# group), and then switch over to building with FEATURES=userpriv.
-# Or vice-versa.  Shouldn't be a security issue here as anyone who has
-# portage group write access already can screw the system over in more
-# creative ways.
-
 # @ECLASS-VARIABLE: EBZR_WORKDIR_CHECKOUT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -208,7 +197,7 @@ bzr_update() {
 # working copy.
 bzr_fetch() {
 	local repo_dir branch_dir
-	local save_sandbox_write=${SANDBOX_WRITE} save_umask
+	local save_sandbox_write=${SANDBOX_WRITE}
 
 	[[ -n ${EBZR_REPO_URI} ]] || die "${EBZR}: EBZR_REPO_URI is empty"
 
@@ -225,10 +214,6 @@ bzr_fetch() {
 	repo_dir=${EBZR_STORE_DIR}/${EBZR_PROJECT}
 	branch_dir=${repo_dir}${EBZR_BRANCH:+/${EBZR_BRANCH}}
 
-	if [[ -n ${EVCS_UMASK} ]]; then
-		save_umask=$(umask)
-		umask "${EVCS_UMASK}" || die
-	fi
 	addwrite "${EBZR_STORE_DIR}"
 
 	if [[ ! -d ${branch_dir}/.bzr ]]; then
@@ -255,11 +240,8 @@ bzr_fetch() {
 		bzr_update "${EBZR_REPO_URI}" "${branch_dir}"
 	fi
 
-	# Restore sandbox environment and umask
+	# Restore sandbox environment
 	SANDBOX_WRITE=${save_sandbox_write}
-	if [[ -n ${save_umask} ]]; then
-		umask "${save_umask}" || die
-	fi
 
 	cd "${branch_dir}" || die "${EBZR}: can't chdir to ${branch_dir}"
 

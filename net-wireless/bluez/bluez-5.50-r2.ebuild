@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
-inherit autotools python-single-r1 readme.gentoo-r1 systemd udev multilib-minimal
+inherit autotools python-single-r1 readme.gentoo-r1 systemd udev user multilib-minimal
 
 DESCRIPTION="Bluetooth Tools and System Daemons for Linux"
 HOMEPAGE="http://www.bluez.org"
@@ -53,7 +53,6 @@ DEPEND="
 	udev? ( >=virtual/udev-172 )
 "
 RDEPEND="${DEPEND}
-	acct-group/plugdev
 	selinux? ( sec-policy/selinux-bluetooth )
 	test-programs? ( ${TEST_DEPS} )
 "
@@ -87,6 +86,8 @@ PATCHES=(
 )
 
 pkg_setup() {
+	enewgroup plugdev
+
 	if use test || use test-programs; then
 		python-single-r1_pkg_setup
 	fi

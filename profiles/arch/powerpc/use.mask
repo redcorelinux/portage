@@ -69,7 +69,7 @@ klibc
 #
 3dfx
 acpi
-lm-sensors
+lm_sensors
 rar
 hdf
 xvmc

@@ -208,16 +208,14 @@ mozconfig_init() {
 	# Additional ARCH support
 	case "${ARCH}" in
 	arm)
-		if [[ ${PN} != seamonkey ]] ; then
-			# Reduce the memory requirements for linking
-			if use clang ; then
-				# Nothing to do
-				:;
-			elif tc-ld-is-gold || use lto; then
-				append-ldflags -Wl,--no-keep-memory
-			else
-				append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
-			fi
+		# Reduce the memory requirements for linking
+		if use clang ; then
+			# Nothing to do
+			:;
+		elif tc-ld-is-gold || use lto; then
+			append-ldflags -Wl,--no-keep-memory
+		else
+			append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
 		fi
 		;;
 	alpha)
@@ -232,16 +230,14 @@ mozconfig_init() {
 		;;
 	ppc64)
 		append-flags -fPIC
-		if [[ ${PN} != seamonkey ]] ; then
-			# Reduce the memory requirements for linking
-			if use clang ; then
-				# Nothing to do
-				:;
-			elif tc-ld-is-gold || use lto; then
-				append-ldflags -Wl,--no-keep-memory
-			else
-				append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
-			fi
+		# Reduce the memory requirements for linking
+		if use clang ; then
+			# Nothing to do
+			:;
+		elif tc-ld-is-gold || use lto; then
+			append-ldflags -Wl,--no-keep-memory
+		else
+			append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
 		fi
 		;;
 	esac
