@@ -29,6 +29,101 @@
 
 #--- END OF EXAMPLES ---
 
+# Joonas Niilola <juippis@gentoo.org> (2019-09-24)
+# Upstream decided to deprecate this service, and app. Removal in 
+# ~30 days. Bug #695562
+x11-misc/enlightenment-extra
+
+# Hanno Boeck <hanno@gentoo.org> (2019-09-23)
+# Depends on an API by German tax authorities that
+# has been disabled, bug #695434
+app-office/geierlein
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2019-09-21)
+# Depends on >=virtual/{jdk,jre}-11 which is masked
+=www-servers/tomcat-9.0.26
+
+# James Le Cuirot <chewi@gentoo.org> (2019-09-19)
+# Minetest Game is now installed and managed through the Minetest
+# engine in games-action/minetest. Removal in 30 days.
+games-action/minetest_game
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-19)
+# Last bumped in 2010.  Homepage & SRC_URI gone, redistribution
+# is forbidden by license.
+# Removal in 30 days.  Bug #680726.
+sci-chemistry/azara
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-18)
+# Distributing an entire prebuilt distribution as a package turned out
+# to be a bad idea.  All current upstream versions contain vulnerable
+# packages and lack correct license information.  Upstream does not
+# provide a publicly accessible bug tracker, and does not reply to mail.
+# Removal in 30 days.  Bug #683724.
+app-admin/systemrescuecd-x86
+sys-boot/systemrescuecd-x86-grub
+
+# Matt Turner <mattst88@gentoo.org> (2019-09-03)
+# Broken. Bug #694774
+>=media-libs/freeglut-3.2.0
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-17)
+# Unmaintained EAPI 0 Apache modules + mod_access_dnsbl as a revdep.
+# Removal in 30 days.  Bug #694608.
+www-apache/mod_access_dnsbl
+www-apache/mod_authn_sasl
+www-apache/mod_depends
+www-apache/mod_dnsbl_lookup
+www-apache/mod_flvx
+www-apache/mod_geoip2
+www-apache/mod_macro
+www-apache/mod_umask
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-17)
+# Unmaintained libraries with no reverse dependencies.
+# Removal in 30 days.  Bug #694602.
+dev-db/cppdb
+dev-db/odbtp
+dev-db/soci
+dev-db/xbase
+dev-db/xbsql
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-17)
+# Last touched in 2005.  EAPI 0.  No clearly defined license.
+# Removal in 30 days.  Bug #694598.
+sys-fs/wpflash
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-16)
+# Unmaintained.  Fails to build.  Last release in 2004.  EAPI 0.
+# Removal in 30 days.  Bug #592360.
+net-mail/mailsync
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-16)
+# Unmaintained.  Does not work anymore.  Last release in 2007.
+# Our recommended alternative is app-text/wgetpaste.
+# Removal in 30 days.  Bug #678554.
+app-text/gnopaster
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-16)
+# Unmaintained.  Last touched in 2005.  Keyworded ppc only.  Upstream
+# is still alive, so this thing needs a major version bump.
+# Removal in 30 days.  Bug #694562.
+app-emulation/vmips
+app-emulation/vmips-cross-bin
+
+# Michał Górny <mgorny@gentoo.org> (2019-09-15)
+# This was an attempt to provide more reliable package merging mechanism
+# for Portage.  However, it was never finished and with Portage's
+# concept of bug-by-bug neverending backwards compatibility it would
+# never be accepted anyway.
+# Removal in 30 days.  Bug #694514.
+dev-util/atomic-install
+
+# Fabian Groffen <grobian@gentoo.org> (2019-09-15)
+# Incorporated in >=app-portage/portage-utils-0.80 as qmanifest
+# Removal in 30 days.  Bug #694428
+app-portage/hashgen
+
 # Zac Medico <zmedico@gentoo.org> (2019-09-14)
 # No reverse dependencies.
 # Removal in 30 days.  Bug #694390.
@@ -85,7 +180,6 @@ dev-python/maybe
 dev-python/mockredispy
 dev-python/parse
 dev-python/parse-type
-dev-python/pyClamd
 dev-python/pycallgraph
 dev-python/pyroma
 dev-python/pytest-raisesregexp
@@ -266,12 +360,6 @@ dev-libs/ltxml
 dev-libs/log4shib
 
 # Michał Górny <mgorny@gentoo.org> (2019-09-12)
-# Unmaintained.  Last bumped in 2014.  Homepage gone.  No reverse
-# dependencies.
-# Removal in 30 days.  Bug #694210.
-dev-libs/libwbxml
-
-# Michał Górny <mgorny@gentoo.org> (2019-09-12)
 # Unmaintained.  Old GNOME library, last release in 2000.  No reverse
 # dependencies.
 # Removal in 30 days.  Bug #694208.
@@ -444,7 +532,7 @@ sys-freebsd/ubin-wrappers
 # bugs reported.  Last rites were cancelled due to Gentoo/FreeBSD 1 year
 # ago but that project is dead nowadays.  Many alternatives exist,
 # sys-process/cronie is probably the closest one (it's a fork).
-# Removal in 30 days.  Bug #693946.
+# Removal in 30 days.  Bug #694036.
 sys-process/vixie-cron
 
 # Michał Górny <mgorny@gentoo.org> (2019-09-11)
@@ -971,12 +1059,6 @@ mail-filter/opensmtpd-extras
 # in 2006.  Removal in 30 days.  Bug #680412.
 mail-filter/ask
 
-# Ulrich Müller <ulm@gentoo.org> (2019-08-30)
-# Last visible upstream activity in 2013. Doesn't work with Emacs 24.3
-# or newer. Byte-compilation of newest upstream version 1.3.1 fails.
-# Masked for removal in 30 days, bug #693118.
-app-emacs/identica-mode
-
 # David Seifert <soap@gentoo.org> (2019-08-29)
 # Dead upstream, last commit over 10 years ago, no revdeps, EAPI=0,
 # Removal in 30 days.
@@ -1049,46 +1131,6 @@ dev-tcltk/tkTheme
 # Removal in 30 days.  Bug #681044.
 net-misc/tokyotyrant
 
-# Ulrich Müller <ulm@gentoo.org> (2019-08-26)
-# A more recent version of thumbs.el is distributed
-# as part of GNU Emacs proper.
-# Masked for removal in 30 days, bug #692882.
-app-emacs/thumbs
-
-# Brian Evans <grknight@gentoo.org> (2019-08-26)
-# Deprecated virtual as it cannot solve the issue of ABI incompatibility
-# and rebuild consumers when provider changes
-# No revdeps. Removal in 30 days.
-virtual/libmysqlclient
-
-# Michał Górny <mgorny@gentoo.org> (2019-08-25)
-# Discontinued upstream in 2015, and not touched in Gentoo since.
-# Has series of build failures reported due to growing incompatibility
-# with new kernels.  Removal in 30 days.  Bug #677618.
-sys-cluster/open-mx
-
-# Brian Evans <grknight@gentoo.org> (2019-08-23)
-# These packages are incompatible with current versions of PHP (7 or higher)
-# They need a maintainer but no one has volunteered.
-# Removal in 30 days if no one picks them up.
-# Bugs 615472 651166 and 651180 respectively
-www-apps/groupoffice
-www-apps/phpwebsite
-www-apps/sitebar
-
-# Matthias Maier <tamiko@gentoo.org> (2019-08-22)
-# Masked for removal in 30 days. Unmaintained and upstream has released
-# backdoored versions for more than a year due to a compromised development
-# server, http://www.webmin.com/exploit.html
-app-admin/webmin
-
-# Hans de Graaff <graaff@gentoo.org> (2019-08-21)
-# This virtual was useful when jruby was still around but this
-# has not been the case for a long time and there are no
-# reverse dependencies for this package anymore.
-# Removal in 30 days.
-virtual/ruby-ffi
-
 # Miroslav Šulc <fordfrog@gentoo.org> (2019-08-19)
 # Depends on >=virtual/{jdk,jre}-11 which is masked
 =www-servers/tomcat-9.0.24
@@ -1097,32 +1139,11 @@ virtual/ruby-ffi
 # Fails to dbus activate properly for me. Help welcome figuring it out.
 net-misc/gnome-remote-desktop
 
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2019-08-17)
-# Unmaintained both upstream and in gentoo, author retired
-# Removal in 30 days
-sys-kernel/bliss-initramfs
-
-# Aaron Bauman <bman@gentoo.org> (2019-08-17)
-# Relies on vulnerable automake:{1.9,1.10}
-# Removal in 30 days
-media-gfx/pixie
-net-irc/eiwic
-net-misc/openrdate
-
-# Aaron Bauman <bman@gentoo.org> (2019-08-17)
-# Unmaintained, outstanding sec vuln bug #540360
-# Lots of new versions upstream. Removal in 30 days.
-dev-embedded/bitbake
-
 # Mike Gilbert <floppym@gentoo.org> (2019-08-13)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
 # and accept a more unstable release.
 >=www-client/chromium-78
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2019-07-30)
-# Depends on >=virtual/{jdk,jre}-11 which is masked
-=www-servers/tomcat-9.0.22
 
 # Mart Raudsepp <leio@gentoo.org> (2019-07-28)
 # GNOME 3.33 development release packages
@@ -1139,10 +1160,6 @@ dev-lang/vala:0.46
 dev-lang/php:7.4
 ~virtual/httpd-php-7.4
 
-# Sobhan Mohammadpour <sobhan@gentoo.org> (2019-07-14)
-# Masked for testing
->=media-video/totem-3.32.1
-
 # Robin H. Johnson <robbat2@gentoo.org> (2019-07-08)
 # Needs LOTS of testing, broke boot on my laptop in early attempts, maybe needs
 # matching genkernel work?
@@ -1151,10 +1168,6 @@ dev-lang/php:7.4
 # Daniel Pielmeier <billie@gentoo.org> (2019-07-06)
 # Requires >=dev-lang/lua-5.2 which is masked
 >=app-admin/conky-1.11.4
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2019-06-12)
-# Depends on >=virtual/{jdk,jre}-11 which is masked
-=www-servers/tomcat-9.0.21
 
 # Patrick Lauer <patrick@gentoo.org> (2019-05-23)
 # PostgreSQL beta and release candidate releases are pre-release testing
@@ -1228,12 +1241,6 @@ dev-db/postgresql:12
 =virtual/perl-threads-2.70.0-r1
 =virtual/perl-threads-shared-1.510.0-r1
 =virtual/perl-version-0.991.600-r1
-
-# Michał Górny <mgorny@gentoo.org> (2019-04-18)
-# All current versions of SystemRescueCD contain vulnerable packages.
-# Bug #683724.
-app-admin/systemrescuecd-x86
-sys-boot/systemrescuecd-x86-grub
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-04-17)
 # The Oracle JDK License has changed for releases starting 2019-04-16
@@ -1393,6 +1400,7 @@ sys-devel/automake:1.5
 sys-devel/automake:1.6
 sys-devel/automake:1.7
 sys-devel/automake:1.8
+sys-devel/automake:1.9
 
 # Kent Fredric <kentnl@gentoo.org> (2017-10-11)
 # This package should now be provided entirely by dev-lang/perl,
