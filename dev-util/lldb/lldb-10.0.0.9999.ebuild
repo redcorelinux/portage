@@ -21,6 +21,7 @@ LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0"
 KEYWORDS=""
 IUSE="libedit ncurses +python test"
+REQUIRED_USE=${PYTHON_REQUIRED_USE}
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -31,14 +32,13 @@ RDEPEND="
 	~sys-devel/clang-${PV}[xml]
 	~sys-devel/llvm-${PV}
 	!<sys-devel/llvm-4.0"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	python? ( >=dev-lang/swig-3.0.11 )
 	test? (
 		~dev-python/lit-${PV}[${PYTHON_USEDEP}]
 		sys-devel/lld )
 	${PYTHON_DEPS}"
-
-REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
 # least intrusive of all
 CMAKE_BUILD_TYPE=RelWithDebInfo

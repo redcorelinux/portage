@@ -227,7 +227,6 @@ app-arch/innoextract:debug - Enable debug logging and the --debug command-line o
 app-arch/innoextract:lzma - Enable support for extracting lzma-compressed installers using app-arch/xz-utils
 app-arch/libarchive:bzip2 - Allow accessing bzip2-compressed archives through libbz2 (which comes with app-arch/bzip2). This only affects libarchive's native support: bsdtar will keep using bunzip2 as a filter if that's not built-in.
 app-arch/libarchive:e2fsprogs - Use file flags from sys-fs/e2fsprogs headers instead of virtual/os-headers headers
-app-arch/libarchive:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-arch/libarchive:nettle - Use dev-libs/nettle as crypto backend
 app-arch/libarchive:zlib - Allow accessing gzip-compressed archives through sys-libs/zlib. This only affects libarchive's native support: bsdtar will keep using gunzip as a filter if that's not built-in. It's also needed for supporting extraction of ZIP files.
 app-arch/p7zip:rar - Enable support for non-free rar decoder
@@ -243,7 +242,6 @@ app-arch/wimlib:openssl - Use the SHA-1 message digest from libcrypto instead of
 app-arch/wimlib:yasm - Use yasm assembler instead of nasm
 app-arch/xz-utils:extra-filters - Build additional filters that are not used in any of the default xz presets. This includes delta and BCJ coders, additional match finders and SHA256 checks.
 app-arch/zip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
-app-arch/zstd:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-backup/amanda:ndmp - Support for the NDMP protocol
 app-backup/amanda:s3 - Support for backing up to the Amazon S3 system
 app-backup/amanda:xfs - Support for backing up raw XFS filesystems using xfsdump
@@ -276,7 +274,6 @@ app-backup/dar:gcrypt - Enables strong encryption support
 app-backup/dar:gpg - Enables usage of asymetric crypto algorithms
 app-backup/deja-dup:nautilus - Build gnome-base/nautilus extension
 app-backup/duplicity:s3 - Support for backing up to the Amazon S3 system
-app-backup/fsarchiver:lz4 - Enable lz4 compression support
 app-backup/rear:udev - Have ReaR start backup when attaching your USB drive.
 app-backup/snapper:lvm - Enable LVM thinprovisioned snapshots support sys-fs/lvm2
 app-backup/snapper:xattr - Add support for getting and setting POSIX extended attributes, through sys-apps/attr.
@@ -600,6 +597,7 @@ app-emulation/qemu:fdt - Enables firmware device tree support
 app-emulation/qemu:glusterfs - Enables GlusterFS cluster fileystem via sys-cluster/glusterfs
 app-emulation/qemu:gnutls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support. For 2.0 through 2.3 also enables disk quorum support.
 app-emulation/qemu:iscsi - Enable direct iSCSI support via net-libs/libiscsi instead of indirectly via the Linux block layer that sys-block/open-iscsi does.
+app-emulation/qemu:jemalloc - Enable jemalloc allocator support
 app-emulation/qemu:jpeg - Enable jpeg image support for the VNC console server
 app-emulation/qemu:ncurses - Enable the ncurses-based console
 app-emulation/qemu:nfs - Enable NFS support
@@ -609,7 +607,6 @@ app-emulation/qemu:png - Enable png image support for the VNC console server
 app-emulation/qemu:pulseaudio - Enable pulseaudio output for sound emulation
 app-emulation/qemu:rbd - Enable rados block device backend support, see http://ceph.newdream.net/wiki/QEMU-RBD
 app-emulation/qemu:sdl - Enable the SDL-based console
-app-emulation/qemu:snappy - Enable support for snappy compression
 app-emulation/qemu:spice - Enable Spice protocol support via app-emulation/spice
 app-emulation/qemu:ssh - Enable SSH based block device support via net-libs/libssh2
 app-emulation/qemu:static - Build the User and Software MMU (system) targets as well as tools as static binaries
@@ -626,13 +623,13 @@ app-emulation/qemu:vte - Enable terminal support (x11-libs/vte) in the GTK+ inte
 app-emulation/qemu:xattr - Add support for getting and setting POSIX extended attributes, through sys-apps/attr. Requisite for the virtfs backend.
 app-emulation/qemu:xen - Enables support for Xen backends
 app-emulation/qemu:xfs - Support xfsctl() notification and syncing for XFS backed virtual disks.
+app-emulation/qemu:xkb - Depend on x11-libs/libxkbcommon to build qemu-keymap tool for converting xkb keymaps
 app-emulation/qt-virt-manager:smartcard - Enable smartcard remoting using app-emulation/libcacard
 app-emulation/runc:ambient - Enable support for ambient capabilities set (Requires Linux kernel 4.3 or later).
 app-emulation/runc:apparmor - Enable AppArmor support.
 app-emulation/runc:kmem - Enable Kernel Memory Accounting.
 app-emulation/runv:libvirt - Enable support for KVM via libvirt
 app-emulation/runv:xen - Enable support for the Xen Hypervisor
-app-emulation/spice:lz4 - Enable support for LZ4 compression using app-arch/lz4
 app-emulation/spice:smartcard - Enable smartcard remoting using app-emulation/libcacard
 app-emulation/spice-vdagent:consolekit - Use sys-auth/consolekit to determine the master vdagentd in case of multiple running vdagentds (highly recommended)
 app-emulation/vagrant:virtualbox - Use VirtualBox provider.
@@ -642,6 +639,7 @@ app-emulation/vice:sdlsound - Use media-libs/libsdl for sound support
 app-emulation/vice:vte - Enable support for x11-libs/vte in the GTK+ interface
 app-emulation/virt-manager:policykit - Enables sys-auth/polkit authentication support, required when using app-emulation/libvirt with PolicyKit authentication
 app-emulation/virt-manager:sasl - Depend on the proper libraries needed to connect to SASL-enabled libvirtd instances (e.g. Kerberos-protected instances).
+app-emulation/virt-viewer:libvirt - Support connecting to virtual machines managed by libvirt.
 app-emulation/virt-viewer:spice - Support connecting to SPICE-enabled virtual machines.
 app-emulation/virt-viewer:vnc - Support connecting to VNC-enabled virtual machines.
 app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
@@ -849,6 +847,7 @@ app-i18n/uim:gtk2 - Enable support for x11-libs/gtk+:2
 app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
 app-laptop/hdapsd:libconfig - Require dev-libs/libconfig to allow the daemon to read a configuration file at startup
 app-laptop/ibam:gkrellm - Enable building of app-admin/gkrellm module
+app-laptop/laptop-mode-tools:apm - Add APM (Advanced Power Management) support
 app-laptop/pbbuttonsd:ibam - Enable support for Intelligent Battery Monitoring
 app-laptop/pbbuttonsd:macbook - Enable support for the Macbook and Macbook Pro
 app-laptop/thinkfan:atasmart - include libatasmart support to get disc temperature
@@ -1007,14 +1006,10 @@ app-misc/lcd4linux:wireless - Enable the wireless plugin, to get wireless statis
 app-misc/lcdproc:ethlcd - Enable support for ethlcd in the hd44780 driver.
 app-misc/lcdproc:extra-charmaps - Enable extra language specific charmaps.
 app-misc/lcdproc:freetype - Enable support for media-libs/freetype in the glcd driver.
-app-misc/lcdproc:ftdi - Enable support for dev-embedded/libftdi in the glcd,hd44780,i2500vfd,lis and ula200 driver.
-app-misc/lcdproc:hid - Enable support for dev-libs/libhid in the cfontz,cfontzpacket,cwlnx,glcd,lb216,mdm166a,mtc_s16209x and noritakevfd driver.
-app-misc/lcdproc:irman - Enable support for media-libs/libirman in the irman driver.
 app-misc/lcdproc:menu - Enable menu support in the lcdproc client.
 app-misc/lcdproc:nfs - Display NFS filesystem stats in the lcdproc client.
 app-misc/lcdproc:png - Enable support for media-libs/libpng in the glcd driver.
 app-misc/lcdproc:samba - Display SMBFS filesystem stats in the lcdproc client.
-app-misc/lcdproc:seamless-hbars - Don't produce any gaps in horizontal bar graphs, if hardware supports it.
 app-misc/lcdproc:test-menu - Enable test menu support for the lcdproc server.
 app-misc/lirc:audio - Support using an audio device connected to an IR receiver
 app-misc/lirc:devinput - Support the devinput input device
@@ -1384,6 +1379,7 @@ dev-ada/gnatcoll-bindings:shared - Build shared library
 dev-ada/gnatcoll-bindings:static-pic - Build shared library
 dev-ada/gnatcoll-core:shared - Build shared library
 dev-ada/gnatcoll-core:static-pic - Build static library with pic code
+dev-ada/gnatcoll-db:db2ada - Build gnatcoll_db2ada
 dev-ada/gnatcoll-db:gnatcoll_db2ada - Build gnatcoll_db2ada
 dev-ada/gnatcoll-db:gnatinspect - Build gnatinspect
 dev-ada/gnatcoll-db:shared - Build shared library
@@ -1732,7 +1728,7 @@ dev-haskell/lens:trustworthy - Assert that we are trustworthy when we can
 dev-haskell/lifted-async:monad-control-1 - Use moand-control == 1.*
 dev-haskell/linear:template-haskell - You can disable the use of the `template-haskell` package using `-f-template-haskell`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/monad-control:instancest - If enabled this package will export MonadBaseControl instances for the lazy and strict ST monad. If disabled these instances are only exported when base >= 4.4. If enabled it is required that the transformer-base package exports MonadBase instances for ST. It will do this by default.
-dev-haskell/monad-logger:template_haskell - Enable Template Haskell support.
+dev-haskell/monad-logger:template-haskell - Enable Template Haskell support.
 dev-haskell/monad-par:chaselev - Use Chase-Lev Deques for higher-perf work-stealing.
 dev-haskell/nats:hashable - You can disable the use of the `hashable` package using USE=-hashable. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users. If set we will not supply an instance of `Hashable`.
 dev-haskell/network-data:small_base - Build the split-up base package.
@@ -1949,14 +1945,17 @@ dev-lang/ghc:binary - Install the binary version directly, rather than using it 
 dev-lang/ghc:ghcbootstrap - Internal: Bootstrap GHC from an existing GHC installation.
 dev-lang/ghc:ghcmakebinary - Internal: Build binary friendly for redistribution.
 dev-lang/gnat-gpl:awt - Useful only when building GCJ, this enables Abstract Window Toolkit (AWT) peer support on top of GTK+
+dev-lang/gnat-gpl:bootstrap - Used to bootstrap gnat-gpl
 dev-lang/gnat-gpl:cilk - Support the Cilk Plus language (C/C++ based languages for parallel programming)
 dev-lang/gnat-gpl:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
+dev-lang/gnat-gpl:gcj - Build the GCJ Java language frontend.
 dev-lang/gnat-gpl:go - Build the GCC Go language frontend.
 dev-lang/gnat-gpl:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 dev-lang/gnat-gpl:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
 dev-lang/gnat-gpl:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 dev-lang/gnat-gpl:nopie - Disable PIE support (NOT FOR GENERAL USE)
 dev-lang/gnat-gpl:nossp - Disable SSP support (NOT FOR GENERAL USE)
+dev-lang/gnat-gpl:nptl - Enable support for Native POSIX Threads Library, the new threading module (requires linux-2.6 or better usually)
 dev-lang/gnat-gpl:objc - Build support for the Objective C code language
 dev-lang/gnat-gpl:objc++ - Build support for the Objective C++ language
 dev-lang/gnat-gpl:objc-gc - Build support for the Objective C code language Garbage Collector
@@ -1969,6 +1968,7 @@ dev-lang/gnat-gpl:vtv - Build support for virtual table verification (a C++ hard
 dev-lang/go:gccgo - Bootstrap using sys-devel/gcc[go]
 dev-lang/go:system-bootstrap - Bootstrap using previously installed dev-lang/go
 dev-lang/icon:iplsrc - install the icon programming library source
+dev-lang/jsonnet:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 dev-lang/lazarus:minimal - Don't build extra packages from the bigide component
 dev-lang/logtalk:fop - Support for generating pdf documentation using fop
 dev-lang/logtalk:xslt - Support for generating html documentation using xslt
@@ -2086,157 +2086,73 @@ dev-libs/apr-util:libressl - Use dev-libs/libressl instead of dev-libs/openssl f
 dev-libs/apr-util:nss - Install apr_crypto_nss module
 dev-libs/apr-util:openssl - Install apr_crypto_openssl module
 dev-libs/atcore:gui - Build test GUI
-dev-libs/aws-sdk-cpp:aws_targets_AWSMigrationHub - SDK Support for AWS AWSMigrationHub
-dev-libs/aws-sdk-cpp:aws_targets_access-management - SDK Support for AWS access-management
-dev-libs/aws-sdk-cpp:aws_targets_acm - SDK Support for AWS acm
-dev-libs/aws-sdk-cpp:aws_targets_acm-pca - SDK Support for AWS acm-pca
-dev-libs/aws-sdk-cpp:aws_targets_alexaforbusiness - SDK Support for AWS alexaforbusiness
-dev-libs/aws-sdk-cpp:aws_targets_apigateway - SDK Support for AWS apigateway
-dev-libs/aws-sdk-cpp:aws_targets_application-autoscaling - SDK Support for AWS application-autoscaling
-dev-libs/aws-sdk-cpp:aws_targets_appstream - SDK Support for AWS appstream
-dev-libs/aws-sdk-cpp:aws_targets_appsync - SDK Support for AWS appsync
-dev-libs/aws-sdk-cpp:aws_targets_athena - SDK Support for AWS athena
-dev-libs/aws-sdk-cpp:aws_targets_autoscaling - SDK Support for AWS autoscaling
-dev-libs/aws-sdk-cpp:aws_targets_autoscaling-plans - SDK Support for AWS autoscaling-plans
-dev-libs/aws-sdk-cpp:aws_targets_batch - SDK Support for AWS batch
-dev-libs/aws-sdk-cpp:aws_targets_budgets - SDK Support for AWS budgets
-dev-libs/aws-sdk-cpp:aws_targets_ce - SDK Support for AWS ce
-dev-libs/aws-sdk-cpp:aws_targets_cloud9 - SDK Support for AWS cloud9
-dev-libs/aws-sdk-cpp:aws_targets_clouddirectory - SDK Support for AWS clouddirectory
-dev-libs/aws-sdk-cpp:aws_targets_cloudformation - SDK Support for AWS cloudformation
-dev-libs/aws-sdk-cpp:aws_targets_cloudfront - SDK Support for AWS cloudfront
-dev-libs/aws-sdk-cpp:aws_targets_cloudhsm - SDK Support for AWS cloudhsm
-dev-libs/aws-sdk-cpp:aws_targets_cloudhsmv2 - SDK Support for AWS cloudhsmv2
-dev-libs/aws-sdk-cpp:aws_targets_cloudsearch - SDK Support for AWS cloudsearch
-dev-libs/aws-sdk-cpp:aws_targets_cloudsearchdomain - SDK Support for AWS cloudsearchdomain
-dev-libs/aws-sdk-cpp:aws_targets_cloudtrail - SDK Support for AWS cloudtrail
-dev-libs/aws-sdk-cpp:aws_targets_codebuild - SDK Support for AWS codebuild
-dev-libs/aws-sdk-cpp:aws_targets_codecommit - SDK Support for AWS codecommit
-dev-libs/aws-sdk-cpp:aws_targets_codedeploy - SDK Support for AWS codedeploy
-dev-libs/aws-sdk-cpp:aws_targets_codepipeline - SDK Support for AWS codepipeline
-dev-libs/aws-sdk-cpp:aws_targets_codestar - SDK Support for AWS codestar
-dev-libs/aws-sdk-cpp:aws_targets_cognito-identity - SDK Support for AWS cognito-identity
-dev-libs/aws-sdk-cpp:aws_targets_cognito-idp - SDK Support for AWS cognito-idp
-dev-libs/aws-sdk-cpp:aws_targets_cognito-sync - SDK Support for AWS cognito-sync
-dev-libs/aws-sdk-cpp:aws_targets_comprehend - SDK Support for AWS comprehend
-dev-libs/aws-sdk-cpp:aws_targets_config - SDK Support for AWS config
-dev-libs/aws-sdk-cpp:aws_targets_connect - SDK Support for AWS connect
-dev-libs/aws-sdk-cpp:aws_targets_core - SDK Support for AWS core
-dev-libs/aws-sdk-cpp:aws_targets_cur - SDK Support for AWS cur
-dev-libs/aws-sdk-cpp:aws_targets_datapipeline - SDK Support for AWS datapipeline
-dev-libs/aws-sdk-cpp:aws_targets_dax - SDK Support for AWS dax
-dev-libs/aws-sdk-cpp:aws_targets_devicefarm - SDK Support for AWS devicefarm
-dev-libs/aws-sdk-cpp:aws_targets_directconnect - SDK Support for AWS directconnect
-dev-libs/aws-sdk-cpp:aws_targets_discovery - SDK Support for AWS discovery
-dev-libs/aws-sdk-cpp:aws_targets_dms - SDK Support for AWS dms
-dev-libs/aws-sdk-cpp:aws_targets_ds - SDK Support for AWS ds
-dev-libs/aws-sdk-cpp:aws_targets_dynamodb - SDK Support for AWS dynamodb
-dev-libs/aws-sdk-cpp:aws_targets_dynamodbstreams - SDK Support for AWS dynamodbstreams
-dev-libs/aws-sdk-cpp:aws_targets_ec2 - SDK Support for AWS ec2
-dev-libs/aws-sdk-cpp:aws_targets_ecr - SDK Support for AWS ecr
-dev-libs/aws-sdk-cpp:aws_targets_ecs - SDK Support for AWS ecs
-dev-libs/aws-sdk-cpp:aws_targets_eks - SDK Support for AWS eks
-dev-libs/aws-sdk-cpp:aws_targets_elasticache - SDK Support for AWS elasticache
-dev-libs/aws-sdk-cpp:aws_targets_elasticbeanstalk - SDK Support for AWS elasticbeanstalk
-dev-libs/aws-sdk-cpp:aws_targets_elasticfilesystem - SDK Support for AWS elasticfilesystem
-dev-libs/aws-sdk-cpp:aws_targets_elasticloadbalancing - SDK Support for AWS elasticloadbalancing
-dev-libs/aws-sdk-cpp:aws_targets_elasticloadbalancingv2 - SDK Support for AWS elasticloadbalancingv2
-dev-libs/aws-sdk-cpp:aws_targets_elasticmapreduce - SDK Support for AWS elasticmapreduce
-dev-libs/aws-sdk-cpp:aws_targets_elastictranscoder - SDK Support for AWS elastictranscoder
-dev-libs/aws-sdk-cpp:aws_targets_email - SDK Support for AWS email
-dev-libs/aws-sdk-cpp:aws_targets_es - SDK Support for AWS es
-dev-libs/aws-sdk-cpp:aws_targets_events - SDK Support for AWS events
-dev-libs/aws-sdk-cpp:aws_targets_firehose - SDK Support for AWS firehose
-dev-libs/aws-sdk-cpp:aws_targets_fms - SDK Support for AWS fms
-dev-libs/aws-sdk-cpp:aws_targets_gamelift - SDK Support for AWS gamelift
-dev-libs/aws-sdk-cpp:aws_targets_glacier - SDK Support for AWS glacier
-dev-libs/aws-sdk-cpp:aws_targets_glue - SDK Support for AWS glue
-dev-libs/aws-sdk-cpp:aws_targets_greengrass - SDK Support for AWS greengrass
-dev-libs/aws-sdk-cpp:aws_targets_guardduty - SDK Support for AWS guardduty
-dev-libs/aws-sdk-cpp:aws_targets_health - SDK Support for AWS health
-dev-libs/aws-sdk-cpp:aws_targets_iam - SDK Support for AWS iam
-dev-libs/aws-sdk-cpp:aws_targets_identity-management - SDK Support for AWS identity-management
-dev-libs/aws-sdk-cpp:aws_targets_importexport - SDK Support for AWS importexport
-dev-libs/aws-sdk-cpp:aws_targets_inspector - SDK Support for AWS inspector
-dev-libs/aws-sdk-cpp:aws_targets_iot - SDK Support for AWS iot
-dev-libs/aws-sdk-cpp:aws_targets_iot-data - SDK Support for AWS iot-data
-dev-libs/aws-sdk-cpp:aws_targets_iot-jobs-data - SDK Support for AWS iot-jobs-data
-dev-libs/aws-sdk-cpp:aws_targets_iot1click-devices - SDK Support for AWS iot1click-devices
-dev-libs/aws-sdk-cpp:aws_targets_iot1click-projects - SDK Support for AWS iot1click-projects
-dev-libs/aws-sdk-cpp:aws_targets_iotanalytics - SDK Support for AWS iotanalytics
-dev-libs/aws-sdk-cpp:aws_targets_kinesis - SDK Support for AWS kinesis
-dev-libs/aws-sdk-cpp:aws_targets_kinesis-video-archived-media - SDK Support for AWS kinesis-video-archived-media
-dev-libs/aws-sdk-cpp:aws_targets_kinesis-video-media - SDK Support for AWS kinesis-video-media
-dev-libs/aws-sdk-cpp:aws_targets_kinesisanalytics - SDK Support for AWS kinesisanalytics
-dev-libs/aws-sdk-cpp:aws_targets_kinesisvideo - SDK Support for AWS kinesisvideo
-dev-libs/aws-sdk-cpp:aws_targets_kms - SDK Support for AWS kms
-dev-libs/aws-sdk-cpp:aws_targets_lambda - SDK Support for AWS lambda
-dev-libs/aws-sdk-cpp:aws_targets_lex - SDK Support for AWS lex
-dev-libs/aws-sdk-cpp:aws_targets_lex-models - SDK Support for AWS lex-models
-dev-libs/aws-sdk-cpp:aws_targets_lightsail - SDK Support for AWS lightsail
-dev-libs/aws-sdk-cpp:aws_targets_logs - SDK Support for AWS logs
-dev-libs/aws-sdk-cpp:aws_targets_machinelearning - SDK Support for AWS machinelearning
-dev-libs/aws-sdk-cpp:aws_targets_macie - SDK Support for AWS macie
-dev-libs/aws-sdk-cpp:aws_targets_marketplace-entitlement - SDK Support for AWS marketplace-entitlement
-dev-libs/aws-sdk-cpp:aws_targets_marketplacecommerceanalytics - SDK Support for AWS marketplacecommerceanalytics
-dev-libs/aws-sdk-cpp:aws_targets_mediaconvert - SDK Support for AWS mediaconvert
-dev-libs/aws-sdk-cpp:aws_targets_medialive - SDK Support for AWS medialive
-dev-libs/aws-sdk-cpp:aws_targets_mediapackage - SDK Support for AWS mediapackage
-dev-libs/aws-sdk-cpp:aws_targets_mediastore - SDK Support for AWS mediastore
-dev-libs/aws-sdk-cpp:aws_targets_mediastore-data - SDK Support for AWS mediastore-data
-dev-libs/aws-sdk-cpp:aws_targets_mediatailor - SDK Support for AWS mediatailor
-dev-libs/aws-sdk-cpp:aws_targets_meteringmarketplace - SDK Support for AWS meteringmarketplace
-dev-libs/aws-sdk-cpp:aws_targets_mobile - SDK Support for AWS mobile
-dev-libs/aws-sdk-cpp:aws_targets_mobileanalytics - SDK Support for AWS mobileanalytics
-dev-libs/aws-sdk-cpp:aws_targets_monitoring - SDK Support for AWS monitoring
-dev-libs/aws-sdk-cpp:aws_targets_mq - SDK Support for AWS mq
-dev-libs/aws-sdk-cpp:aws_targets_mturk-requester - SDK Support for AWS mturk-requester
-dev-libs/aws-sdk-cpp:aws_targets_neptune - SDK Support for AWS neptune
-dev-libs/aws-sdk-cpp:aws_targets_opsworks - SDK Support for AWS opsworks
-dev-libs/aws-sdk-cpp:aws_targets_opsworkscm - SDK Support for AWS opsworkscm
-dev-libs/aws-sdk-cpp:aws_targets_organizations - SDK Support for AWS organizations
-dev-libs/aws-sdk-cpp:aws_targets_pi - SDK Support for AWS pi
-dev-libs/aws-sdk-cpp:aws_targets_pinpoint - SDK Support for AWS pinpoint
-dev-libs/aws-sdk-cpp:aws_targets_polly - SDK Support for AWS polly
-dev-libs/aws-sdk-cpp:aws_targets_pricing - SDK Support for AWS pricing
-dev-libs/aws-sdk-cpp:aws_targets_queues - SDK Support for AWS queues
-dev-libs/aws-sdk-cpp:aws_targets_rds - SDK Support for AWS rds
-dev-libs/aws-sdk-cpp:aws_targets_redshift - SDK Support for AWS redshift
-dev-libs/aws-sdk-cpp:aws_targets_rekognition - SDK Support for AWS rekognition
-dev-libs/aws-sdk-cpp:aws_targets_resource-groups - SDK Support for AWS resource-groups
-dev-libs/aws-sdk-cpp:aws_targets_resourcegroupstaggingapi - SDK Support for AWS resourcegroupstaggingapi
-dev-libs/aws-sdk-cpp:aws_targets_route53 - SDK Support for AWS route53
-dev-libs/aws-sdk-cpp:aws_targets_route53domains - SDK Support for AWS route53domains
-dev-libs/aws-sdk-cpp:aws_targets_s3 - SDK Support for AWS s3
-dev-libs/aws-sdk-cpp:aws_targets_s3-encryption - SDK Support for AWS s3-encryption
-dev-libs/aws-sdk-cpp:aws_targets_sagemaker - SDK Support for AWS sagemaker
-dev-libs/aws-sdk-cpp:aws_targets_sagemaker-runtime - SDK Support for AWS sagemaker-runtime
-dev-libs/aws-sdk-cpp:aws_targets_sdb - SDK Support for AWS sdb
-dev-libs/aws-sdk-cpp:aws_targets_secretsmanager - SDK Support for AWS secretsmanager
-dev-libs/aws-sdk-cpp:aws_targets_serverlessrepo - SDK Support for AWS serverlessrepo
-dev-libs/aws-sdk-cpp:aws_targets_servicecatalog - SDK Support for AWS servicecatalog
-dev-libs/aws-sdk-cpp:aws_targets_servicediscovery - SDK Support for AWS servicediscovery
-dev-libs/aws-sdk-cpp:aws_targets_shield - SDK Support for AWS shield
-dev-libs/aws-sdk-cpp:aws_targets_sms - SDK Support for AWS sms
-dev-libs/aws-sdk-cpp:aws_targets_snowball - SDK Support for AWS snowball
-dev-libs/aws-sdk-cpp:aws_targets_sns - SDK Support for AWS sns
-dev-libs/aws-sdk-cpp:aws_targets_sqs - SDK Support for AWS sqs
-dev-libs/aws-sdk-cpp:aws_targets_ssm - SDK Support for AWS ssm
-dev-libs/aws-sdk-cpp:aws_targets_states - SDK Support for AWS states
-dev-libs/aws-sdk-cpp:aws_targets_storagegateway - SDK Support for AWS storagegateway
-dev-libs/aws-sdk-cpp:aws_targets_sts - SDK Support for AWS sts
-dev-libs/aws-sdk-cpp:aws_targets_support - SDK Support for AWS support
-dev-libs/aws-sdk-cpp:aws_targets_swf - SDK Support for AWS swf
-dev-libs/aws-sdk-cpp:aws_targets_text-to-speech - SDK Support for AWS text-to-speech
-dev-libs/aws-sdk-cpp:aws_targets_transcribe - SDK Support for AWS transcribe
-dev-libs/aws-sdk-cpp:aws_targets_transfer - SDK Support for AWS transfer
-dev-libs/aws-sdk-cpp:aws_targets_translate - SDK Support for AWS translate
-dev-libs/aws-sdk-cpp:aws_targets_waf - SDK Support for AWS waf
-dev-libs/aws-sdk-cpp:aws_targets_waf-regional - SDK Support for AWS waf-regional
-dev-libs/aws-sdk-cpp:aws_targets_workdocs - SDK Support for AWS workdocs
-dev-libs/aws-sdk-cpp:aws_targets_workmail - SDK Support for AWS workmail
-dev-libs/aws-sdk-cpp:aws_targets_workspaces - SDK Support for AWS workspaces
-dev-libs/aws-sdk-cpp:aws_targets_xray - SDK Support for AWS xray
+dev-libs/aws-sdk-cpp:access-management - AWS Access Management, a meta-flag that enables: AWS Certificate Manager (ACM): Provision, manage, and deploy SSL/TLS certificates on AWS managed resources. Identity and Access Management (IAM): A web service for securely controlling access to AWS services. Resource Access Manager (RAM): Customers who operate multiple accounts can create resources centrally and use AWS RAM to share them with all of their accounts to reduce operational overhead. Also enables acm-pca, identity-management and sts (Security Token Service).
+dev-libs/aws-sdk-cpp:apigateway - Create and deploy your own REST and WebSocket APIs at any scale. Also enables apigatewaymanagementapi and apigatewayv2.
+dev-libs/aws-sdk-cpp:backup - AWS Backup is a fully managed backup service
+dev-libs/aws-sdk-cpp:batch - Run batch computing workloads on the AWS Cloud
+dev-libs/aws-sdk-cpp:budgets - Use AWS Budgets to plan service usage, service costs, and instance reservations. Also enables the following related modules: AWS Cost Explorer (CE) : Programmatically query cost and usage data. Cost and Usage Report (CUR): Programmatically create, query, and delete AWS Cost and Usage report definitions.
+dev-libs/aws-sdk-cpp:chime - Amazon Chime, a secure, real-time, unified communications service.
+dev-libs/aws-sdk-cpp:cloud-desktop - AWS end user computing services. AppStream 2.0: Fully managed, secure application streaming service. WorkDocs : Fully managed, secure enterprise storage and sharing service. WorkLink : Fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile devices. WorkMail : Managed email and calendaring service. WorkSpaces : Cloud-based desktop experience for end users.
+dev-libs/aws-sdk-cpp:cloud-dev - Enables in-cloud developer tools: Cloud9 : Cloud-based integrated development environment IDE to write, run, and debug code. CodeBuild : Managed build service that compiles, runs unit tests and produces artifacts. CodeCommit : Privately store and manage Git repositories in the AWS cloud. CodeDeploy : Automate the deployment and updating of applications. CodePipeline: Continuous delivery service to model, visualize, and automate the steps required to release software. CodeStar : Quickly develop, build, and deploy applications on AWS. Queues : Simple queue class. Allows standard queue operations top, delete, and push. Also has higher level, asynchronous interface with callbacks. X-Ray : Provides request tracing, exception collection, and profiling capabilities.
+dev-libs/aws-sdk-cpp:cloud-media - AWS Media modules for transforming, converting, delivering and streaming media. Elastic Transcoder : Convert media files stored in Amazon S3 into media files in the formats required by consumer playback devices. Elemental Media Connect: Secure and flexible transport service for live video. Elemental Media Convert: Format and compress offline video content for delivery to televisions or connected devices. Elemental Media Live : Video service that allows easy and reliable creation of live outputs for broadcast and streaming delivery. Elemental Media Package: Just-in-time video packaging and origination service. (Includes mediapackage-vod) Elemental Media Store : Video origination and storage service.Manage video assets as objects in containers to build dependable, cloud-based media workflows. (Includes mediastore-data) Elemental Media Tailor : Personalization and monetization service that allows scalable server- side ad insertion.
+dev-libs/aws-sdk-cpp:cloud-mobile - AWS Mobile modules for handling mobile application management and delivery. Amplify : Comprehensive set of SDKs, libraries, tools, and documentation for client app development. AppSync : Enterprise level, fully managed GraphQL service with real-time data synchronization and offline programming features. Device Farm: Test iOS, Android and Fire OS apps on real, physical phones and tablets that are hosted by AWS. PinPoint : Engage customers by sending them email, SMS and voice messages, and push notifications. (Includes pinpoint-email and sms-voice) SNS : Amazon Simple Notification Service, see USE flag sns. Also enables mobile and mobileanalytics.
+dev-libs/aws-sdk-cpp:cloudformation - Create and provision AWS infrastructure deployments predictably and repeatedly. Use a template file to create and delete a collection of resources together as a single unit (a stack).
+dev-libs/aws-sdk-cpp:cloudfront - Delivers static and dynamic web content through a worldwide network of edge locations that provide low latency and high performance.
+dev-libs/aws-sdk-cpp:cloudhsm - Secure cryptographic key storage by providing managed hardware security modules in the AWS Cloud. Also enables cloudhsmv2.
+dev-libs/aws-sdk-cpp:cloudsearch - Fully managed service in the cloud to set up, manage, and scale a search solution for websites. Also enables cloudsearchdomain.
+dev-libs/aws-sdk-cpp:cloudwatch - Amazon CloudWatch monitors Amazon Web Services (AWS) resources and the applications run on AWS in real time. The following modules besides monitoring are also enabled: Application Insights: Monitor .NET and SQL Server applications. App Mesh : Monitor and control microservices running on AWS. CloudTrail : Monitor AWS deployments in the cloud by getting a history of AWS API calls, including API calls made via the AWS Management Console, the AWS SDKs, the command line tools, and higher-level AWS services. GuardDuty : Continuous security monitoring service. Health : Provides personalized information about events that can affect the AWS infrastructure, guides through scheduled changes, and accelerates the troubleshooting of issues that affect AWS resources and accounts. Inspector : A security vulnerability assessment service that helps improve the security and compliance of AWS resources. Logs : Monitor, store, and access log files from Amazon EC2 instances, AWS CloudTrail, or other sources.
+dev-libs/aws-sdk-cpp:cognito - Create unique identities, authenticate these identities with identity providers and save mobile user data in the AWS Cloud. Enables cognito-identity, cognito-idp and cognito-sync
+dev-libs/aws-sdk-cpp:config - Provides a detailed view of the resources associated with your AWS account, including how they are configured, how they are related to one another, and how the configurations and their relationships have changed over time.
+dev-libs/aws-sdk-cpp:dlm - Amazon Data Lifecycle Manager (DLM): Manage the lifecycle of AWS resources. Create lifecycle policies to automate operations on specified resources.
+dev-libs/aws-sdk-cpp:ec2 - Amazon Elastic Compute Cloud (EC2) is a web service that provides resizeable computing capacity. This flag also enables the following modules: Auto Scaling : Set up dynamic and predictive scaling for scalable AWS resources. Also enables autoscaling-plans and application-autoscaling. Elastic File System: EFS provides file storage for Amazon EC2 instances.
+dev-libs/aws-sdk-cpp:ecr - Amazon Elastic Container Registry (ECR) is a fully managed Docker container registry.
+dev-libs/aws-sdk-cpp:ecs - Amazon Elastic Container Service (ECS) is a highly scalable, fast, container management service.
+dev-libs/aws-sdk-cpp:eks - Amazon Elastic Kubernetes Service (EKS) is a managed service to run Kubernetes on AWS without own Kubernetes clusters.
+dev-libs/aws-sdk-cpp:elasticache - Set up, manage, and scale distributed in-memory cache environments in the AWS Cloud
+dev-libs/aws-sdk-cpp:elasticbeanstalk - Quickly deploy and manage applications in the AWS Cloud.
+dev-libs/aws-sdk-cpp:elasticloadbalancing - Automatically distribute incoming application traffic across multiple targets, such as EC2 instances. Also enables elasticloadbalancingv2.
+dev-libs/aws-sdk-cpp:elasticmapreduce - Amazon Elastic MapReduce (EMR) processes large amounts of data efficiently using Hadoop processing combined with several AWS products.
+dev-libs/aws-sdk-cpp:email - Amazon Simple Email Service (Amazon SES): An email platform to send and receive email using ones own email addresses and domains. See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html
+dev-libs/aws-sdk-cpp:es - Amazon Elasticsearch Configuration Service (ES) is an API to create, configure, and manage Elasticsearch domains.
+dev-libs/aws-sdk-cpp:events - Serverless event bus service to connect applications with data from a variety of sources. Also enables eventbridge.
+dev-libs/aws-sdk-cpp:fsx - Amazon FSx is a fully managed service to launch and use shared file storage.
+dev-libs/aws-sdk-cpp:globalaccelerator - AWS Global Accelerator is a network layer service for accelerators to improve availability and performance for internet applications used by a global audience.
+dev-libs/aws-sdk-cpp:http - Enable http support via curl
+dev-libs/aws-sdk-cpp:iot - AWS IoT This is a meta-flag for all Internet of Things modules provided by the SDK: iot : enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS Cloud over MQTT and HTTP. greengrass : Extends AWS onto physical devices so they can act locally on the data they generate. iot1click : A service for simple devices to trigger AWS Lambda functions that execute a specific action. iotanalytics : Provides advanced data analysis for AWS IoT. iotevents : Monitor equipment or device fleets for failures or changes in operation, and trigger actions when such events occur. iotthingsgraph: Integrated set of tools that enable developers to build IoT applications using devices and services that use different data representation standards and communication protocols. Also enables iot1click-devices, iot1click-projects, iot-data, iotevents-data and iot-jobs-data.
+dev-libs/aws-sdk-cpp:kinesis - Amazon Kinesis Collect, process, and analyze video and data streams in real time. The following modules besides kinesis are enabled: firehose : Load data streams into AWS data stores. kinesisanalytics : Process and analyze streaming data using SQL or Java. (Also enables kinesisanalyticsv2) kinesisvideo : Capture, process, and store video streams for analytics and machine learning. Additionally kinesis-video-archived-media and kinesis-video-media are enabled.
+dev-libs/aws-sdk-cpp:kms - AWS Key Management Service (KMS) An encryption and key management service scaled for the cloud.
+dev-libs/aws-sdk-cpp:lambda - AWS Lambda: Run code without provisioning or managing servers.
+dev-libs/aws-sdk-cpp:lex - Amazon Lex is an AWS service for building conversational interfaces into applications using voice and text. Also enables lex-models.
+dev-libs/aws-sdk-cpp:license-manager - Streamlines the process of bringing software vendor licenses to the cloud.
+dev-libs/aws-sdk-cpp:lightsail - The easiest way to get started with AWS for developers who just need virtual private servers
+dev-libs/aws-sdk-cpp:machinelearning - The algorithms of Amazon Machine Learning create machine learning (ML) models by finding patterns in existing data. The service uses these models to process new data and generate predictions for application.
+dev-libs/aws-sdk-cpp:macie - A security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS.
+dev-libs/aws-sdk-cpp:managedblockchain - Create and manage scalable blockchain networks using popular open source frameworks. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework.
+dev-libs/aws-sdk-cpp:marketplace - AWS Marketplace is an online store where you can buy or sell software that runs on Amazon Web Services (AWS). Marketplace support consists of the marketplacecommerceanalytics module plus: Marketplace Entitlement Service: A contract verification feature that AWS Marketplace sellers can use to verify the amount of the sellers product (for example, end user licenses or storage, data, or compute capacity) the customer has purchased. Marketplace Metering Service : A pricing and metering feature that AWS Marketplace sellers can use to directly charge for their software along one of four dimensions: users, data, bandwidth, or hosts. Also enables pricing.
+dev-libs/aws-sdk-cpp:opsworks - AWS OpsWorks is a simple and flexible way to create and manage stacks and applications. Also enables opsworkscm.
+dev-libs/aws-sdk-cpp:organizations - Account management service that to consolidate multiple AWS accounts into an organization to be centrally managed.
+dev-libs/aws-sdk-cpp:other - This is a meta-flag for rarely needed modules that in themselves need not much build time. If you would like to have any of the following modules to have their own USE flag, please open a bug report and it will most probably get one. The modules are: AWSMigrationHub, alexaforbusiness, clouddirectory, comprehend, comprehendmedical, connect, datapipeline, datasync, directconnect, discovery, dms, docdb, ds, dynamodb, gamelift, glue, groundstation, importexport, kafka, lakeformation, mq, mturk-requester, neptune, quicksight, redshift, robomaker, sdb, service-quotas, servicecatalog, servicediscovery, signer, sms, snowball, ssm, states, storagegateway, support and swf.
+dev-libs/aws-sdk-cpp:personalize - Real-time personalization and recommendations, based on the same technology used at Amazon.com. Also enables personalize-events and personalize-runtime.
+dev-libs/aws-sdk-cpp:polly - Amazon Polly A Text-to-Speech (TTS) cloud service that converts text into lifelike speech. Also enables text-to-speech.
+dev-libs/aws-sdk-cpp:queues - AWS Queues is a simple queue class. Allows standard queue operations top, delete, and push. Also has higher level, asynchronous interface with callbacks.
+dev-libs/aws-sdk-cpp:rds - Amazon Relational Database Service (RDS) is a web service to set up, operate, and scale a relational database in the cloud. Also enables pi (Performance Insights) and rds-data.
+dev-libs/aws-sdk-cpp:rekognition - Add image and video analysis to applications.
+dev-libs/aws-sdk-cpp:resource-groups - AWS Resource Groups and Tag Editor Organize AWS resources into groups, tag resources using virtually any criteria, and manage, monitor, and automate tasks on grouped resources. Also enables resourcegroupstaggingapi. (Resource Groups Tagging API)
+dev-libs/aws-sdk-cpp:route53 - AWS Route 53 is a highly available and scalable Domain Name System (DNS) web service. Also enables route53domains and route53resolver.
+dev-libs/aws-sdk-cpp:rtti - Flag to enable/disable rtti within the library
+dev-libs/aws-sdk-cpp:s3 - Amazon Simple Storage Service Storage for the internet. Additionally to the s3 module, the following modules are activated: Athena : Interactive query service to analyze data in Amazon S3 using standard SQL. Glacier : Storage solution for cold data. Transfer for SFTP: Transfer files directly into and out of Amazon S3 using SFTP. Also enables s3-encryption, s3control and transfer.
+dev-libs/aws-sdk-cpp:sagemaker - Amazon SageMaker Fully managed machine learning service. With Amazon SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. Also enables sagemaker-runtime.
+dev-libs/aws-sdk-cpp:secretsmanager - Encrypt, store, and retrieve credentials for databases and other services.
+dev-libs/aws-sdk-cpp:securityhub - Provides a comprehensive view of the security state of AWS resources.
+dev-libs/aws-sdk-cpp:serverlessrepo - AWS Serverless Application Repository Enables teams, organizations, and individual developers to find, deploy, publish, share, store, and easily assemble serverless architectures.
+dev-libs/aws-sdk-cpp:shield - AWS Shield, protection against DDoS attacks
+dev-libs/aws-sdk-cpp:sns - Amazon Simple Notification Service (SNS) is a web service that enables applications, end-users, and devices to instantly send and receive notifications from the cloud.
+dev-libs/aws-sdk-cpp:sqs - Amazon Simple Queue Service (SQS): Fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications.
+dev-libs/aws-sdk-cpp:textract - Amazon Textract to add document text detection and analysis to applications.
+dev-libs/aws-sdk-cpp:transcribe - A transcription services for audio files. It uses advanced machine learning technologies to recognize spoken words and transcribe them into text. Also enables transcribestreaming.
+dev-libs/aws-sdk-cpp:translate - A neural machine translation service for translating text to and from English across a breadth of supported languages.
+dev-libs/aws-sdk-cpp:unity-build - Build using a single unified .cpp file for each service library. Reduces the size of static library binaries
+dev-libs/aws-sdk-cpp:waf - The Web Application Firewall (WAF) can monitor web requests that are forwarded to Amazon CloudFront distributions or an Application Load Balancer. Can also be used to block or allow requests based on conditions such as the IP addresses that requests originate from or values in the requests. Also enables fms and waf-regional.
 dev-libs/beignet:ocl-icd - Enable compatibility with the dev-libs/ocl-icd OpenCL ICD loader
 dev-libs/beignet:ocl20 - Enable experimental OpenCL 2.0 support on Skylake and newer architectures
 dev-libs/bitset:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations
@@ -2248,8 +2164,6 @@ dev-libs/boost:numpy - Optionally build NumPy extensions when Boost.Python is en
 dev-libs/boost:threads - Build multi-thread-compatible libraries instead of single-threaded only.
 dev-libs/boost:tools - Build and install the boost tools (bcp, quickbook, inspect, wave)
 dev-libs/botan:boost - use dev-libs/boost
-dev-libs/c-blosc:lz4 - Enable lz4 compression
-dev-libs/c-blosc:snappy - Enable snappy compression
 dev-libs/check:subunit - Enable support for the subunit unit test protocol
 dev-libs/crypto++:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
 dev-libs/cyberjack:tools - Build and install optional management tools.
@@ -2324,7 +2238,6 @@ dev-libs/jemalloc:stats - Enable statistics calculation/reporting
 dev-libs/jemalloc:xmalloc - Add support for xmalloc (abort-on-out-of-memory)
 dev-libs/kreport:marble - Enable displaying of maps using kde-apps/marble
 dev-libs/kreport:scripting - Support Qml scripting using dev-qt/qtdeclarative
-dev-libs/leveldb:snappy - support the snappy compression library
 dev-libs/libbase58:tools - Build command line base58 tool
 dev-libs/libbytesize:tools - Build bscalc python CLI tool
 dev-libs/libcdio:minimal - Only build the libcdio library and little more, just to be used to link against from multimedia players. With this USE flag enabled, none of the command-line utilities are built, nor is the CDDA library.
@@ -2609,6 +2522,7 @@ dev-perl/DBD-mysql:mariadb - Use dev-db/mariadb-connector-c as the client librar
 dev-perl/DBD-mysql:mysql - Use dev-db/mysql-connector-c as the client library
 dev-perl/DBD-mysql:ssl - Compile in support for SSL connections via libmysqlclient
 dev-perl/DBIx-Class:admin - Modules required for the DBIx::Class administrative library
+dev-perl/DBIx-Class:admin-script - Modules required for the CLI DBIx::Class interface dbicadmin
 dev-perl/DBIx-Class:admin_script - Modules required for the CLI DBIx::Class interface dbicadmin
 dev-perl/DBIx-Class:deploy - Modules required for "deploy" in DBIx::Class::Storage::DBI and "deploymen_statements" in DBIx::Class::Storage::DBI
 dev-perl/DBIx-Class:replicated - Modules required for DBIx::Class::Storage::DBI::Replicated
@@ -2717,8 +2631,6 @@ dev-python/editorconfig-core-py:cli - Install command line interface as well as 
 dev-python/fabric:fab2 - Install as "fab2", allowing side-by-side install with fabric 1.x
 dev-python/falcon:cython - Build cython-based python modules
 dev-python/fastparquet:brotli - Enable support for brotli compression
-dev-python/fastparquet:lz4 - Enable support for lz4 compression
-dev-python/fastparquet:snappy - Enable support for snappy compression
 dev-python/flask-restful:paging - Enable resource paging support
 dev-python/geopy:timezone - Enables localized date support
 dev-python/geopy:yahoo - Enables use of YahooPlaceFinder
@@ -2736,7 +2648,6 @@ dev-python/jira:jirashell - Include dependencies for jirashell (ipython, oauthli
 dev-python/jira:kerberos - Support Kerberos authentication
 dev-python/jira:oauth - Support OAuth authentication
 dev-python/kaa-base:tls - SSL/TLS support via dev-python/tlslite
-dev-python/kafka-python:snappy - Install snappy compression/decompression support
 dev-python/kazoo:gevent - Enable support for the gevent based handler
 dev-python/kombu:mongodb - Enables MongoDB backend
 dev-python/kombu:msgpack - Enables MessagePack (de)serializer for Python
@@ -3183,6 +3094,7 @@ dev-util/perf:numa - Enable NUMA support
 dev-util/perf:perl - Add support for Perl as a scripting language for perf tools.
 dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
+dev-util/pkgcheck:network - Enable support for network checks using dev-python/requests
 dev-util/pkgconf:pkg-config - Install as a replacement for dev-util/pkgconfig
 dev-util/pkgconfig:internal-glib - Use internal copy of dev-libs/glib
 dev-util/pkgconfig-openbsd:pkg-config - Install as a replacement for dev-util/pkgconfig
@@ -3197,8 +3109,6 @@ dev-util/schroot:btrfs - Enable support for chroots using btrfs snapshots
 dev-util/schroot:dchroot - Enables the building of a wrapper named "dchroot", replacing sys-apps/dchroot
 dev-util/schroot:lvm - Enable support for chroots using LVM snapshots
 dev-util/spirv-llvm-translator:tools - Install the command-line translator llvm-spirv
-dev-util/squashdelta:lz4 - Enable support for LZ4 compression using app-arch/lz4
-dev-util/squashmerge:lz4 - Enable support for LZ4 compression using app-arch/lz4
 dev-util/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
 dev-util/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
 dev-util/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
@@ -3295,7 +3205,6 @@ games-action/dxx-rebirth:textures - Include high resolution (640x480) background
 games-action/hotline-miami:bundled-libs - Use bundled libraries.
 games-action/hotline-miami:launcher - Install qt launcher
 games-action/minetest:client - Build Minetest client
-games-action/minetest:jsoncpp - Enable using a system-wide JSONCPP
 games-action/minetest:leveldb - Enable LevelDB backend
 games-action/minetest:redis - Enable redis backend via dev-libs/hiredis
 games-action/minetest:server - Build Minetest server
@@ -3380,6 +3289,7 @@ games-emulation/mupen64plus:video-rice - Enable Rice video plugin.
 games-emulation/mupen64plus-core:debugger - Build the debugger
 games-emulation/mupen64plus-core:gles2 - Use GLES2 instead of OpenGL
 games-emulation/mupen64plus-core:new-dynarec - Enable new experimental dynamic recompiler implementation (only for x86 and arm)
+games-emulation/mupen64plus-core:opencv - Support video capture via media-libs/opencv
 games-emulation/mupen64plus-core:osd - Overlay emulator messages using on-screen-display
 games-emulation/mupen64plus-video-glide64mk2:gles2 - Use GLES2 instead of OpenGL
 games-emulation/mupen64plus-video-glide64mk2:hires - Support hi-resolution textures (requires dev-libs/boost)
@@ -3547,8 +3457,8 @@ games-strategy/0ad:nvtt - Support for some uncompressed data formats via media-g
 games-strategy/colobot:devbuild - TODO
 games-strategy/colobot:tools - Build tools
 games-strategy/colobot-data:music - Enable music support
-games-strategy/colobot-data:music_flac_convert - Fetch flac music and convert it to ogg
-games-strategy/colobot-data:music_ogg - Fetch ogg music
+games-strategy/colobot-data:music-flac-convert - Fetch flac music and convert it to ogg
+games-strategy/colobot-data:music-ogg - Fetch ogg music
 games-strategy/defcon-demo:system-libs - Use system libraries instead of the ones included in the upstream distribution.
 games-strategy/freeciv:aimodules - Support for dynamically loadable AI modules (server-side)
 games-strategy/freeciv:auth - Add authentication capability via mysql, postgres or sqlite3
@@ -3578,6 +3488,7 @@ games-strategy/megaglest:tools - Build model import/export tools
 games-strategy/megaglest:unicode - Use unicode strings for wxwidgets
 games-strategy/megaglest:wxuniversal - Use the wxUniversal port which implements the various GUI controls by drawing them itself
 games-strategy/naev:mixer - Enables media-libs/sdl-mixer sound backend in addition to media-libs/openal one.
+games-strategy/satellite-reign:gui - Install the GUI for configuring screen resolution and input
 games-strategy/ufoai:client - Build the main game client
 games-strategy/ufoai:editor - Build the map editor and compiler
 games-strategy/ufoai:server - Build the dedicated server
@@ -3630,6 +3541,7 @@ gnome-base/gvfs:udev - Enable udev base replacement code for cdda feature
 gnome-base/libglade:tools - Install libglade-convert Python script.
 gnome-base/libgnomecanvas:glade - Enable glade support
 gnome-base/librsvg:tools - Build svg viewer tool
+gnome-base/nautilus:gstreamer - Enable the Audio/Video file properties page
 gnome-base/nautilus:packagekit - Use packagekit to search for programs to open unknown file types
 gnome-base/nautilus:previewer - Use gnome-extra/sushi to preview files from the file mananger
 gnome-base/nautilus:sendto - Enable the nautilus-sendto extension to send files to various locations/devices
@@ -3789,9 +3701,11 @@ kde-apps/kopete:gadu - Enable the Gadu protocol handler.
 kde-apps/kopete:groupwise - Enable the Groupwise protocol handler.
 kde-apps/kopete:highlight - Allows you to specify highlights on specific events.
 kde-apps/kopete:history - Enables saving chat history.
+kde-apps/kopete:jingle - Enable voice calls for jabber
 kde-apps/kopete:latex - Embed latex formatted text into messages.
 kde-apps/kopete:meanwhile - Enable the Sametime protocol handler.
 kde-apps/kopete:nowlistening - Shows song you currently listen to in your status/etc. Bindings for many players.
+kde-apps/kopete:oscar - Enable Oscar (AIM/ICQ) IM protocol support
 kde-apps/kopete:otr - Allows crypting your chat (drugs and talking nonsense are considered as good alternatives ;]).
 kde-apps/kopete:pipes - Send messages to external pipe.
 kde-apps/kopete:privacy - Filter for incoming messages
@@ -3918,12 +3832,10 @@ kde-plasma/plasma-nm:openconnect - Build support for the OpenConnect VPN client
 kde-plasma/plasma-nm:teamd - Enable Teamd control support
 kde-plasma/plasma-workspace:appstream - Enable AppStream software metadata support
 kde-plasma/plasma-workspace:geolocation - Enables dataengine providing location information
-kde-plasma/plasma-workspace:prison - Enable support for barcodes/QRcodes
 kde-plasma/plasma-workspace:qalculate - Enable Qalculate runner using sci-libs/libqalculate
 kde-plasma/plasma-workspace:qrcode - Enable support for creating QR codes from clipboard data using kde-frameworks/prison
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
 kde-plasma/powerdevil:wireless - Enable wireless energy saving actions via kde-frameworks/bluez-qt and kde-frameworks/networkmanager-qt
-kde-plasma/systemsettings:classic - Enable classic mode plugin, requires kde-frameworks/khtml
 kde-plasma/xdg-desktop-portal-kde:screencast - Enable screencast portal using media-video/pipewire
 lxde-base/lxdm:consolekit - Enables support for authorization using consolekit
 lxde-base/lxdm:gtk3 - Use GTK+3 instead of 2
@@ -4714,6 +4626,7 @@ media-plugins/imlib2_loaders:eet - Enable Eet image loader
 media-plugins/imlib2_loaders:xcf - Enable XCF image loader
 media-plugins/mediastreamer-ilbc:20ms-frames - enable 20ms frame size (default is 30ms). Some VOIP providers such as Gizmo5 (aka Sipphone) require the codec to be compiled with the 30ms setting.
 media-plugins/vdr-burn:dvdarchive - DMH DVD - Archive
+media-plugins/vdr-cdplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-plugins/vdr-dvbapi:dvbcsa - use media-libs/libdvbcsa free implementation of the DVB Common Scrambling Algorithm
 media-plugins/vdr-epgsearch:conflictcheckonly - install the "conflictcheckonly" vdr-plugin
 media-plugins/vdr-epgsearch:epgsearchonly - install the "epgsearchonly" vdr-plugin
@@ -5076,24 +4989,32 @@ media-tv/kodi:udev - Use sys-fs/udev rules to handle devices' permissions and ho
 media-tv/kodi:webserver - Enable internal webserver
 media-tv/kodi:xslt - Enable XSLT support using dev-libs/libxslt
 media-tv/linuxtv-dvb-apps:alevt - Build videotext decoder
-media-tv/mythtv:alsa - Allows MythTV to directly output sound to ALSA devices, this is needed if you are using ALSA dmix or SPDIF. Note, you will have to physically type your device into the MythTV configuration since it will only give you /dev/dsp devices in the drop down.
-media-tv/mythtv:altivec - Builds ffmpeg's codec libraries with altivec support.
-media-tv/mythtv:autostart - Uses a custom autostart configuration gleaned from experience with MythTV since its early versions and discussed with other MythTV maintainers and users. Does not rely on KDE being installed like most methods do.
-media-tv/mythtv:bluray - Pulls in libbluray for BluRay support.
-media-tv/mythtv:cec - Allows you to control CEC enabled TVs via HDMI. Currently requires a USB based CEC -> HDMI injector between your TV and video card since no graphics drivers support CEC natively.
-media-tv/mythtv:crystalhd - Allows you to utilize a Broadcom CrystalHD hardware based video decoder to improve the performance of video decode.
-media-tv/mythtv:debug - Instructs Qt to use the 'debug' target instead of 'release' target. If your MythTV is crashing or you need a backtrace, you need to compile it with this option otherwise the debugging data is useless.
-media-tv/mythtv:egl - Support EGL video output.
+media-tv/mythtv:alsa - Allows MythTV to directly output sound to ALSA devices
+media-tv/mythtv:asi - Support for DVEO ASI recorder
+media-tv/mythtv:autostart - Use a custom autostart configuration
+media-tv/mythtv:bluray - Use the system libbluray for BluRay support
+media-tv/mythtv:cec - Allows control of CEC enabled TVs via HDMI
+media-tv/mythtv:ceton - Ceton InfiniTV 4 a CableCARD-enabled tuner support
+media-tv/mythtv:crystalhd - Broadcom CrystalHD hardware support
+media-tv/mythtv:debug - Instructs Qt to use the 'debug' target
+media-tv/mythtv:egl - EGL video output support
 media-tv/mythtv:fftw - Support visualizations via sci-libs/fftw
+media-tv/mythtv:hdhomerun - Silicondust USA Inc.network-attached tuner support
+media-tv/mythtv:hdpvr - Hauppauge HD-PVR?
 media-tv/mythtv:hls - HTTP Live Streaming support
-media-tv/mythtv:ieee1394 - Allows MythTV to communicate and use Firewire enabled Cable boxes. These are typically found in the United States, where such support is required by law. This will also install Firewire test programs and external channel changers if the internal changer does not work.
-media-tv/mythtv:jack - Allows MythTV to use JACK as your sound output device. You will have to manually configure the path to your JACK settings.
-media-tv/mythtv:lcd - Tells MythTV that you have an instance of app-misc/lcdproc configured on your machine and it should output information such as current time, show name, episode name, etc to that LCD.
-media-tv/mythtv:lirc - Adds LIRC support directly to MythTV allowing for built in control via a LIRC device.
-media-tv/mythtv:mythlogserver - Enable support for syslog and file logging. Not used with systemd.
-media-tv/mythtv:perl - Builds the perl bindings for MythTV. Allows you to write scripts in Perl to control your MythTV setup or communicate with it.
-media-tv/mythtv:wrapper - Use Ubuntu mythtfrontend wrapper.
-media-tv/mythtv:xmltv - Pulls in the media-tv/xmltv TV listing grabbers for users not using Schedules Direct.
+media-tv/mythtv:ieee1394 - Firewire enabled Cable boxe support
+media-tv/mythtv:ivtv - Support kernel driver for the iTVC15 family of MPEG codecs
+media-tv/mythtv:jack - Allows MythTV to use JACK as your sound output device
+media-tv/mythtv:java - BD-J support for Blu-ray discs
+media-tv/mythtv:lcd - Enable use of app-misc/lcdproc data display
+media-tv/mythtv:lirc - LIRC remote control device support
+media-tv/mythtv:mythlogserver - Enable support for syslog and file logging
+media-tv/mythtv:perl - Build the perl bindings for MythTV
+media-tv/mythtv:vbox - V@Box Communications network-attached tuner devices support
+media-tv/mythtv:vpx - Enable VP8/VP9 support for media-libs/libvpx
+media-tv/mythtv:wrapper - Use Ubuntu mythtfrontend wrapper
+media-tv/mythtv:x265 - Enable h265 encoding using x265
+media-tv/mythtv:xmltv - Support media-tv/xmltv TV listing - not used by Schedules Direct]
 media-tv/tvheadend:capmt - Enable support for capmt (dvbapi) protocol
 media-tv/tvheadend:constcw - Enable support for the constcw protocol
 media-tv/tvheadend:cwc - Enable support for the cwc (newcamd) protocol
@@ -5113,40 +5034,40 @@ media-tv/tvheadend:xmltv - Use media-tv/xmltv
 media-tv/v4l-dvb-saa716x:firmware - Install firmware
 media-tv/v4l-utils:bpf - Enables support for IR BPF decoders.
 media-tv/xmltv:ar - Argentina tv listing grabber
-media-tv/xmltv:ch_search - Grabber for Switzerland
+media-tv/xmltv:ch-search - Grabber for Switzerland
 media-tv/xmltv:dk - Denmark tv listing grabber
 media-tv/xmltv:dtvla - Latin America digital tv listing grabber
-media-tv/xmltv:es_laguiatv - Spain alternative grabber
-media-tv/xmltv:eu_dotmedia - Grabber for Europe (xmltv.se / dotmedia)
-media-tv/xmltv:eu_epg - EPG grabber for some European countries.
+media-tv/xmltv:es-laguiatv - Spain alternative grabber
+media-tv/xmltv:eu-dotmedia - Grabber for Europe (xmltv.se / dotmedia)
+media-tv/xmltv:eu-epg - EPG grabber for some European countries.
 media-tv/xmltv:fi - Finland tv listing grabber
-media-tv/xmltv:fi_sv - Grabber for Finland (Swedish)
+media-tv/xmltv:fi-sv - Grabber for Finland (Swedish)
 media-tv/xmltv:fr - France tv listing grabber
-media-tv/xmltv:fr_kazer - France (Kazer) tv listing grabber
+media-tv/xmltv:fr-kazer - France (Kazer) tv listing grabber
 media-tv/xmltv:huro - Hungarian tv listing grabber
 media-tv/xmltv:il - Israel tv listing grabber
 media-tv/xmltv:is - Iceland tv listing grabber
 media-tv/xmltv:it - Italy tv listing grabber
-media-tv/xmltv:na_dd - North America tv listing grabber
-media-tv/xmltv:na_dtv - North America Direct TV grabber
-media-tv/xmltv:na_tvmedia - Grabber for North America (TVMedia)
+media-tv/xmltv:na-dd - North America tv listing grabber
+media-tv/xmltv:na-dtv - North America Direct TV grabber
+media-tv/xmltv:na-tvmedia - Grabber for North America (TVMedia)
 media-tv/xmltv:nl - Netherlands tv listing grabber
-media-tv/xmltv:no_gf - Norway Gfeed tv listing grabber
-media-tv/xmltv:pt_meo - Grabber for Portugal (MEO)
-media-tv/xmltv:se_swedb - Sweden tv listing grabber
-media-tv/xmltv:se_tvzon - Sweden (tvzon.se) tv listing grabber
+media-tv/xmltv:no-gf - Norway Gfeed tv listing grabber
+media-tv/xmltv:pt-meo - Grabber for Portugal (MEO)
+media-tv/xmltv:se-swedb - Sweden tv listing grabber
+media-tv/xmltv:se-tvzon - Sweden (tvzon.se) tv listing grabber
 media-tv/xmltv:tr - Turkey (Digiturk) tv listing grabber
-media-tv/xmltv:tv_check - enable GUI checking
-media-tv/xmltv:tv_combiner - enable grabbers combiner
-media-tv/xmltv:tv_pick_cgi - enable CGI support
-media-tv/xmltv:uk_bleb - Britain tv listing grabber
-media-tv/xmltv:uk_tvguide - UK and Ireland tv listing grabber using TV Guide website
-media-tv/xmltv:zz_sdjson - Grabber for schedulesDirect.org SD-JSON service (many countries)
+media-tv/xmltv:tv-check - enable GUI checking
+media-tv/xmltv:tv-combiner - enable grabbers combiner
+media-tv/xmltv:tv-pick-cgi - enable CGI support
+media-tv/xmltv:uk-bleb - Britain tv listing grabber
+media-tv/xmltv:uk-tvguide - UK and Ireland tv listing grabber using TV Guide website
+media-tv/xmltv:zz-sdjson - Grabber for schedulesDirect.org SD-JSON service (many countries)
 media-video/aegisub:uchardet - Enable charset discovery via app-i18n/uchardet
-media-video/aravis:X - Build the GTK+-based video viewer.
 media-video/aravis:fast-heartbeat - Enable faster heartbeat rate.
 media-video/aravis:gstreamer - Build the GStreamer plugin.
 media-video/aravis:packet-socket - Enable packet socket support.
+media-video/aravis:viewer - Build the GTK+-based video viewer.
 media-video/avidemux:nvenc - Adds support for NVIDIA Encoder (NVENC) API for hardware accelerated encoding on NVIDIA cards.
 media-video/chaplin:transcode - Enable DVD ripping and transcoding
 media-video/clive:clipboard - Support reading from X clipboard
@@ -5269,6 +5190,7 @@ media-video/mplayer:bl - Blinkenlights video output
 media-video/mplayer:bluray - Enable playback of Blu-ray filesystems
 media-video/mplayer:bs2b - Enable Bauer stereophonic-to-binaural headphone filter
 media-video/mplayer:cdio - Use libcdio for CD support (instead of cdparanoia)
+media-video/mplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-video/mplayer:cpudetection - Enables runtime CPU detection (useful for binpkgs, compatibility on other CPUs)
 media-video/mplayer:dvdnav - Use forked libdvdnav, navigate menus in GUIs
 media-video/mplayer:enca - Enables support for charset discovery and conversion
@@ -5670,7 +5592,6 @@ net-analyzer/wireshark:dpauxmon - Install dpauxmon, an external capture interfac
 net-analyzer/wireshark:dumpcap - Install dumpcap, to dump network traffic from inside wireshark
 net-analyzer/wireshark:editcap - Install editcap, to edit and/or translate the format of capture files
 net-analyzer/wireshark:libxml2 - Use dev-libs/libxml2 for handling XML configuration in dissectors
-net-analyzer/wireshark:lz4 - Use app-arch/lz4 for compression/decompression
 net-analyzer/wireshark:maxminddb - Use dev-libs/libmaxminddb for IP address geolocation
 net-analyzer/wireshark:mergecap - Install mergecap, to merge two or more capture files into one
 net-analyzer/wireshark:minizip - Build with zip file compression support
@@ -5686,7 +5607,6 @@ net-analyzer/wireshark:sbc - Use media-libs/sbc for playing back SBC encoded pac
 net-analyzer/wireshark:sdjournal - Install sdjournal, an extcap that captures systemd journal entries
 net-analyzer/wireshark:sharkd - Install sharkd, the daemon variant of wireshark
 net-analyzer/wireshark:smi - Use net-libs/libsmi to resolve numeric OIDs into human readable format
-net-analyzer/wireshark:snappy - Use app-arch/snappy for snappy compression and decompression
 net-analyzer/wireshark:spandsp - Use media-libs/spandsp for for G.722 and G.726 codec support in the RTP Player
 net-analyzer/wireshark:sshdump - Install sshdump, an extcap interface to capture from a remote host through SSH
 net-analyzer/wireshark:text2pcap - Install text2pcap, to generate a capture file from an ASCII hexdump of packets
@@ -5797,6 +5717,8 @@ net-dns/knot:utils - Install Knot utilities, such as kdig, kzonecheck, ...
 net-dns/knot:whoami - Enable the whoami response module
 net-dns/ldns-utils:dane - Enable DNS-based Authentication of Named Entities (DANE) support
 net-dns/ldns-utils:ecdsa - Enable ECDSA support
+net-dns/ldns-utils:ed25519 - Enable ED25519 support
+net-dns/ldns-utils:ed448 - Enable ED448 support
 net-dns/ldns-utils:gost - Enable GOST support
 net-dns/maradns:authonly - Allows one to build only authoritative DNS server
 net-dns/mydns:alias - Enable David Phillips aliasing
@@ -5865,6 +5787,7 @@ net-firewall/nufw:nfconntrack - Use netfilter_conntrack
 net-firewall/nufw:nfqueue - Use NFQUEUE instead of QUEUE
 net-firewall/nufw:pam_nuauth - Add support for pam nufw from PAM
 net-firewall/nufw:plaintext - Add support for authentication with plaintext files
+net-firewall/nufw:prelude - Add support/bindings for the Prelude Intrusion Detection System
 net-firewall/pftop:altq - Enable altq(4) support — alternate queuing of network packets.
 net-firewall/pglinux:cron - Install cron script
 net-firewall/pglinux:logrotate - Install logrotate.d file
@@ -5952,7 +5875,7 @@ net-ftp/proftpd:exec - Enable support for the mod_exec module. WARNING: this cou
 net-ftp/proftpd:ident - Enable support for the mod_ident module
 net-ftp/proftpd:ifsession - Enable support for the ifsession module
 net-ftp/proftpd:ifversion - Enable support for the mod_ifversion module
-net-ftp/proftpd:log_forensic - Enable support for the mod_log_forensic module, log only suspicious actions.
+net-ftp/proftpd:log-forensic - Enable support for the mod_log_forensic module, log only suspicious actions.
 net-ftp/proftpd:memcache - Enable support for the mod_memcache module, for using memcached servers
 net-ftp/proftpd:msg - Enable support for the mod_msg module, allows system users to send messages to connected clients via the ftpdctl program.
 net-ftp/proftpd:qos - Enable support for the mod_qos module
@@ -5964,7 +5887,7 @@ net-ftp/proftpd:shaper - Enable support for the mod_shaper module
 net-ftp/proftpd:sitemisc - Enable support for the sitemisc module
 net-ftp/proftpd:sodium - Use dev-libs/libsodium for password encryption an key exchange
 net-ftp/proftpd:softquota - Enable support for the quotatab module
-net-ftp/proftpd:unique_id - Enable support for the mod_unique_id module, every connection gets unique ID.
+net-ftp/proftpd:unique-id - Enable support for the mod_unique_id module, every connection gets unique ID.
 net-ftp/proftpd:vroot - Enable support for the virtual root module
 net-ftp/pure-ftpd:anondel - Permit anonymous to delete files
 net-ftp/pure-ftpd:anonperm - Permit anonymous to change file permissions
@@ -5979,7 +5902,9 @@ net-ftp/pure-ftpd:sysquota - Enables system quota support (needs sys-fs/quota)
 net-ftp/pure-ftpd:vchroot - Enable support for virtual chroot (possible security risk)
 net-ftp/yafc:ssh - Build with SFTP support
 net-im/bitlbee:libevent - Use libevent for event handling
+net-im/bitlbee:msn - Enable MSN Messenger IM protocol support.
 net-im/bitlbee:nss - Use NSS for SSL support in MSN and Jabber
+net-im/bitlbee:oscar - Enable Oscar (AIM/ICQ) IM protocol support
 net-im/bitlbee:otr - Enable support for encrypted conversations
 net-im/bitlbee:plugins - Enable support for plugins
 net-im/bitlbee:purple - Use libpurple instead of the built-in IM protocol support
@@ -6074,8 +5999,10 @@ net-im/spectrum2:whatsapp - Enables the WhatsApp backend, based on net-im/transw
 net-im/swift:client - Build the full graphical XMPP client.
 net-im/swift:gconf - Enable configuration through gnome-base/gconf.
 net-im/telepathy-connection-managers:gadu - Enable Gadu Gadu protocol support.
+net-im/telepathy-connection-managers:icq - Enable ICQ IM protocol support.
 net-im/telepathy-connection-managers:irc - Enable Internet Relay Chat (IRC) support.
 net-im/telepathy-connection-managers:meanwhile - Enable meanwhile support for Sametime protocol.
+net-im/telepathy-connection-managers:msn - Enable MSN Messenger IM protocol support.
 net-im/telepathy-connection-managers:sip - Enable SIP/SIMPLE messaging and calling.
 net-im/telepathy-connection-managers:sipe - Enable Sip Exchange Protocol.
 net-im/telepathy-connection-managers:steam - Enable Steam Chat support.
@@ -6132,16 +6059,16 @@ net-im/vacuum:socksstreams - Enable initiating SOCKS5 data streams between two X
 net-im/vacuum:urlprocessor - Allows other plugins to load data from custom types of URLs
 net-im/vacuum:vcard - Enable obtaining peer's personal contact information
 net-im/vacuum:xmppuriqueries - Allow other plugins to handle XMPP URI queries
-net-irc/anope:anope_modules_chanstats - Channel Statistics
-net-irc/anope:anope_modules_cs_fantasy_stats - Enables the STATS and GSTATS commands
-net-irc/anope:anope_modules_cs_fantasy_top - Enables the (G)TOP and (G)TOP10 commands
-net-irc/anope:anope_modules_irc2sql - Stores channel statistics in a mysql database
-net-irc/anope:anope_modules_ldap_auth - Authorize through LDAP
-net-irc/anope:anope_modules_ldap_oper - Dynamically ties users to Anope opertypes via LDAP
-net-irc/anope:anope_modules_sql_auth - Authorize through SQL
-net-irc/anope:anope_modules_sql_log - Additional log target in SQL
-net-irc/anope:anope_modules_sql_oper - Allows granting users services operator privileges from SQL
+net-irc/anope:chanstats - Channel Statistics
+net-irc/anope:cs-fantasy-stats - Enables the STATS and GSTATS commands
+net-irc/anope:cs-fantasy-top - Enables the (G)TOP and (G)TOP10 commands
+net-irc/anope:irc2sql - Stores channel statistics in a mysql database
+net-irc/anope:ldap-auth - Authorize through LDAP
+net-irc/anope:ldap-oper - Dynamically ties users to Anope opertypes via LDAP
 net-irc/anope:posix - Add support for POSIX Compatible Regular Expressions
+net-irc/anope:sql-auth - Authorize through SQL
+net-irc/anope:sql-log - Additional log target in SQL
+net-irc/anope:sql-oper - Allows granting users services operator privileges from SQL
 net-irc/anope:ssl - Provide SSL services using OpenSSL
 net-irc/anope:tre - Use dev-libs/tre for regular expressions
 net-irc/atheme-services:cracklib - Enable nickserv/cracklib module for enforcing strong account passwords
@@ -6263,6 +6190,8 @@ net-libs/grpc:systemtap - Enable SystemTAP/DTrace tracing
 net-libs/iax:snomhack - Use slower memset for SNOM phoneem
 net-libs/ldns:dane - Enable DNS-based Authentication of Named Entities (DANE) support
 net-libs/ldns:ecdsa - Enable ECDSA support
+net-libs/ldns:ed25519 - Enable ED25519 support
+net-libs/ldns:ed448 - Enable ED448 support
 net-libs/ldns:gost - Enable GOST support
 net-libs/libbitcoinconsensus:asm - Enable assembly for optimization
 net-libs/libbitcoinconsensus:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
@@ -6412,7 +6341,6 @@ net-mail/cyrus-imapd:xapian - Enable Xapian search engine support
 net-mail/dbmail:sieve - Enable sieve filter support
 net-mail/dovecot:argon2 - Add support for ARGON2 password schemes
 net-mail/dovecot:lucene - Add lucene full text search (FTS) support using dev-cpp/clucene
-net-mail/dovecot:lz4 - Add support for lz4 (de)compression
 net-mail/dovecot:lzma - Add support for lzma (de)compression
 net-mail/dovecot:managesieve - Add managesieve protocol support
 net-mail/dovecot:sieve - Add sieve support
@@ -6796,6 +6724,7 @@ net-misc/openssh:ldns - Use LDNS for DNSSEC/SSHFP validation.
 net-misc/openssh:livecd - Enable root password logins for live-cd environment.
 net-misc/openssh:ssh1 - Support the legacy/weak SSH1 protocol
 net-misc/openssh:ssl - Enable additional crypto algorithms via OpenSSL
+net-misc/openssh:xmss - Enable XMSS post-quantum authentication algorithm
 net-misc/openvswitch:monitor - Build the Python and GUI dependent monitor applications
 net-misc/owncloud-client:dolphin - Install the kde-apps/dolphin extension
 net-misc/owncloud-client:nautilus - Install the gnome-base/nautilus extension
@@ -6852,7 +6781,6 @@ net-misc/spice-gtk:dbus - Support for desktop integration such as automounting a
 net-misc/spice-gtk:gstaudio - Using gstreamer backend as audio decodec support
 net-misc/spice-gtk:gstvideo - Using gstreamer backend as video decodec support
 net-misc/spice-gtk:gtk3 - Build the spice client (spicy), requires x11-libs/gtk+:3
-net-misc/spice-gtk:lz4 - Enable support for LZ4 compression using app-arch/lz4
 net-misc/spice-gtk:mjpeg - Enable builtin mjpeg video decoder
 net-misc/spice-gtk:policykit - Enable sys-auth/polkit support for the usbredir acl helper
 net-misc/spice-gtk:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
@@ -6971,7 +6899,7 @@ net-p2p/bitcoind:system-leveldb - Use the system-wide dev-libs/leveldb instead o
 net-p2p/bitcoind:upnp - Enable Universal Plug and Play
 net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
-net-p2p/dbhub:switch_user - Enable support for switching user
+net-p2p/dbhub:switch-user - Enable support for switching user
 net-p2p/deluge:console - Enable default console UI
 net-p2p/deluge:webinterface - Install dependencies needed for the web interface
 net-p2p/eiskaltdcpp:cli - Enable sample cli based on readline
@@ -7106,6 +7034,7 @@ net-proxy/tsocks:dns - Force DNS queries to use SOCKS server via tcp
 net-proxy/tsocks:envconf - Allow TSOCKS_CONF_FILE to specify configuration file
 net-proxy/tsocks:server-lookups - Allow hostname resolution _for_ SOCKS servers
 net-proxy/tsocks:tordns - Apply tordns patch which allows transparent TORification of the DNS queries
+net-voip/telepathy-gabble:jingle - Enable voice calls for jabber
 net-voip/telepathy-gabble:plugins - Enable plugin loader
 net-voip/yate:amrnb - use AMR-NB
 net-voip/yate:dahdi - Enable Dahdi driver
@@ -7137,14 +7066,13 @@ net-vpn/ipsec-tools:rc5 - Enable support for the patented RC5 algorithm
 net-vpn/ipsec-tools:stats - Enable statistics reporting
 net-vpn/libreswan:dnssec - Use DNSSEC resolver (requires net-dns/unbound)
 net-vpn/networkmanager-strongswan:glib - Enable libnm-glib compatibility.
+net-vpn/networkmanager-wireguard:glib - Enable libnm-glib compatibility.
 net-vpn/openconnect:gssapi - Build GSSAPI support
 net-vpn/openconnect:java - Build JNI bindings using jni.h
 net-vpn/openconnect:libproxy - Enable proxy support
-net-vpn/openconnect:lz4 - Enable support for lz4 compression
 net-vpn/openconnect:stoken - Enable stoken support
 net-vpn/openvpn:down-root - Enable the down-root plugin
 net-vpn/openvpn:iproute2 - Enabled iproute2 support instead of net-tools
-net-vpn/openvpn:lz4 - Enable LZ4 support
 net-vpn/openvpn:mbedtls - Use mbed TLS instead of OpenSSL
 net-vpn/openvpn:pkcs11 - Enable PKCS#11 smartcard support
 net-vpn/openvpn:plugins - Enable the OpenVPN plugin system
@@ -7363,7 +7291,8 @@ sci-biology/seqan:tools - Build and install SeqAn commandline tools, such as the
 sci-biology/ucsc-genome-browser:server - Install genome browser Web application. If this flag is off, only libraries and utilities from the suite are installed.
 sci-biology/yass:dmalloc - Enable debugging with the dmalloc library
 sci-biology/yass:lowmem - Build for environments with low amounts of memory
-sci-calculators/datamash:openssl - Use dev-libs/openssl for cryptographic features
+sci-calculators/datamash:linux-crypto - Use Linux kernel cryptographic API
+sci-calculators/datamash:openssl - Use dev-libs/openssl for hash routines instead of internal gnulib
 sci-calculators/units:units_cur - Install the units_cur python script that updates currencies
 sci-chemistry/apbs:fast - APBS fast mode (experimental)
 sci-chemistry/apbs:fetk - Include support for FeTK
@@ -8063,7 +7992,7 @@ sys-apps/net-tools:arp - build the arp and rarp tools (for manipulating the ARP 
 sys-apps/net-tools:hostname - build the hostname and dnsdomainname tools
 sys-apps/net-tools:plipconfig - build the plipconfig tool (for working with old PLIP hardware)
 sys-apps/net-tools:slattach - build the slattach tool (for working with old serial ports)
-sys-apps/nix:etc_profile - Install /etc/profile.d/ entry to inject nix support for all users.
+sys-apps/nix:etc-profile - Install /etc/profile.d/ entry to inject nix support for all users.
 sys-apps/nix:gc - Enable garbage collection in the Nix expression evaluator (use dev-libs/boehm-gc).
 sys-apps/nix:s3 - Enable Amazon S3 bucket to load and store packages (use dev-libs/aws-sdk-cpp).
 sys-apps/nix:sodium - Use dev-libs/libsodium for cryptography
@@ -8424,6 +8353,7 @@ sys-devel/gcc:boundschecking - Add the bounds checking patch by Haj Ten Brugge, 
 sys-devel/gcc:cilk - Support the Cilk Plus language (C/C++ based languages for parallel programming)
 sys-devel/gcc:d - Enable support for the D programming language
 sys-devel/gcc:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
+sys-devel/gcc:gcj - Build the GCJ Java language frontend.
 sys-devel/gcc:go - Build the GCC Go language frontend.
 sys-devel/gcc:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 sys-devel/gcc:jit - Enable libgccjit so other applications can embed gcc for Just-In-Time compilation. This will slow down the compiler a bit as it forces all of the toolchain to be shared libs.
@@ -8433,6 +8363,7 @@ sys-devel/gcc:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 sys-devel/gcc:mudflap - Add support for mudflap, a pointer use checking library
 sys-devel/gcc:nopie - Disable PIE support (NOT FOR GENERAL USE)
 sys-devel/gcc:nossp - Disable SSP support (NOT FOR GENERAL USE)
+sys-devel/gcc:nptl - Enable support for Native POSIX Threads Library, the new threading module (requires linux-2.6 or better usually)
 sys-devel/gcc:objc - Build support for the Objective C code language
 sys-devel/gcc:objc++ - Build support for the Objective C++ language
 sys-devel/gcc:objc-gc - Build support for the Objective C code language Garbage Collector
@@ -8442,6 +8373,7 @@ sys-devel/gcc:sanitize - Build support for various sanitizer functions (ASAN/TSA
 sys-devel/gcc:ssp - Build packages with stack smashing protector on by default
 sys-devel/gcc:systemtap - enable systemtap static probe points
 sys-devel/gcc:vtv - Build support for virtual table verification (a C++ hardening feature)
+sys-devel/gcc-apple:bootstrap - !DO NOT SET THIS FLAG YOURSELF! avoids need for autoconf during bootstrap stage2
 sys-devel/gcc-apple:objc - Build support for the Objective C code language
 sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
 sys-devel/gcc-apple:regression-test - Run the testsuite and install the results (requires FEATURES=test)
@@ -8573,7 +8505,6 @@ sys-fs/ext4magic:expert-mode - Builds ext4magic with expert mode. Highly useful 
 sys-fs/ext4magic:file-attr - Enable the recovery of file attributes (append, immutable, nodump etc)
 sys-fs/lessfs:filelog - Enable the ability to log to a file instead of syslog
 sys-fs/lessfs:memtrace - Enable leefs to create a report regarding the memory allocation. This feature should be used for debugging purposes to avoid performance degradation
-sys-fs/lessfs:snappy - Enable snappy compression using the app-arch/snappy library
 sys-fs/loop-aes:extra-ciphers - Enable extra ciphers
 sys-fs/loop-aes:keyscrub - Protects the encryption key in memory but takes more cpu resources
 sys-fs/lvm2:device-mapper-only - Build only device-mapper and not the rest of LVM2 (UNSUPPORTED)
@@ -8594,11 +8525,8 @@ sys-fs/owfs:parport - Enable support for the DS1410E parallel port adapter
 sys-fs/owfs:zeroconf - Enables support for zero-configuration networking via net-dns/avahi
 sys-fs/quota:netlink - Compile daemon receiving quota messages via netlink
 sys-fs/quota:rpc - Enable quota interaction via RPC
-sys-fs/squashfs-tools:lz4 - Enable support for LZ4 compression using app-arch/lz4
 sys-fs/squashfs-tools:xz - Enable support for XZ ("LZMA2") compression using app-arch/xz-utils
-sys-fs/squashfs-tools-ng:lz4 - Enable support for LZ4 compression using app-arch/lz4
 sys-fs/squashfs-tools-ng:xz - Enable support for XZ ("LZMA2") compression using app-arch/xz-utils
-sys-fs/squashfuse:lz4 - Enable support for lz4 compression
 sys-fs/udev:kmod - Enable kernel module loading/unloading support using sys-apps/kmod
 sys-fs/udisks:elogind - Use sys-auth/elogind for session tracking
 sys-fs/udisks:lvm - Add support for Logical Volume Management via sys-fs/lvm2.
@@ -8700,7 +8628,7 @@ sys-libs/pam:berkdb - Build the pam_userdb module, that allows to authenticate u
 sys-libs/pam:cracklib - Build the pam_cracklib module, that allows to verify the chosen passwords' strength through the use of sys-libs/cracklib. Please note that simply enabling the USE flag on this package will not make use of pam_cracklib by default, you should also enable it in sys-auth/pambase as well as update your configuration files.
 sys-libs/readline:utils - Install rlfe (ReadLine Front-End) helper tool -- a wrapper program for making any stdin use readline
 sys-libs/talloc:compat - Enable extra compatibility stuff
-sys-libs/timezone-data:leaps_timezone - Install the set of "right" timezones; these timezones include leap seconds when counting seconds since the epoch (while POSIX does not) as they are based on the TAI (International Atomic Time) clock
+sys-libs/timezone-data:leaps-timezone - Install the set of "right" timezones; these timezones include leap seconds when counting seconds since the epoch (while POSIX does not) as they are based on the TAI (International Atomic Time) clock
 sys-libs/uclibc-ng:rpc - Enable sun nis/rpc support (you should use libtirpc though)
 sys-libs/uclibc-ng:symlink-compat - Explicitly add sym links for libdl.so.0, libm.so.0, and friends for backward compatibility with sys-libs/uclibc-ng-1.0.17 and earlier
 sys-libs/zlib:minizip - include the minizip library for quick and dirty zip extraction
@@ -8802,7 +8730,7 @@ virtual/ssh:minimal - Prefer net-misc/dropbear over net-misc/openssh
 virtual/wine:d3d9 - Enable Ixit's Gallium Nine Patchset
 virtual/wine:staging - Enable Wine-Staging's Patchset
 www-apache/mod_backtrace:unwind - Use sys-libs/libunwind to provide better resolution of function names.
-www-apache/mod_extract_forwarded:mod_proxy - Enable support for Apache's internal proxy
+www-apache/mod_extract_forwarded:mod-proxy - Enable support for Apache's internal proxy
 www-apache/mod_musicindex:archive - Add archive support
 www-apache/mod_musicindex:cache - Add File cache support
 www-apache/mod_musicindex:mysql - Add MySQL cache support
@@ -8854,7 +8782,6 @@ www-apps/roundup:tz - Enable full support of timezone
 www-apps/roundup:whoosh - Enable Whoosh full-text indexer
 www-apps/roundup:xapian - Enable Xapian full-text indexer
 www-apps/rt:lighttpd - Add www-servers/lighttpd support
-www-apps/sitebar:plugins - Install optional plugins
 www-apps/trac:highlight - Enable syntax highlighting
 www-apps/trac:i18n - Enable support for i18n with dev-python/Babel
 www-apps/trac:restructuredtext - Enable support for reStructuredText for wiki formatting
@@ -8917,9 +8844,6 @@ www-client/lynx:gnutls - Use gnutls library for HTTPS support (openssl is the de
 www-client/lynx:ssl - Enable HTTPS support.
 www-client/netsurf:bmp - BMP bitmap image support (media-libs/libnsbmp)
 www-client/netsurf:duktape - Use duktape.org javascript engine
-www-client/netsurf:fbcon_frontend_sdl - Use framebuffer frontend sdl
-www-client/netsurf:fbcon_frontend_vnc - Use framebuffer frontend vnc
-www-client/netsurf:fbcon_frontend_x - Use framebuffer frontend X
 www-client/netsurf:gtk - Build GTK3 GUI
 www-client/netsurf:gtk2 - Build GTK2 GUI
 www-client/netsurf:pdf-writer - PDF output support (media-libs/libharu)
@@ -8930,7 +8854,6 @@ www-client/otter:webengine - Use dev-qt/qtwebengine as backend instead of dev-qt
 www-client/qutebrowser:scripts - Installs userscripts from the misc/userscripts directory to /usr/share/qutebrowser/userscripts.
 www-client/seamonkey:calendar - Build Mozilla's calendar
 www-client/seamonkey:chatzilla - Build Mozilla's IRC client (default on)
-www-client/seamonkey:clang - Use Clang compiler instead of GCC
 www-client/seamonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 www-client/seamonkey:force-gtk3 - Use the cairo-gtk3 rendering engine
 www-client/seamonkey:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
@@ -9054,6 +8977,7 @@ x11-base/xorg-server:dmx - Build the Distributed Multiheaded X server
 x11-base/xorg-server:elogind - Use elogind to get control over framebuffer when running as regular user
 x11-base/xorg-server:glamor - Enable Glamor OpenGL 2D acceleration
 x11-base/xorg-server:kdrive - Build the kdrive X servers
+x11-base/xorg-server:libglvnd - Use libglvnd for dispatch.
 x11-base/xorg-server:unwind - Enable libunwind usage for backtraces
 x11-base/xorg-server:xcsecurity - Build Security extension
 x11-base/xorg-server:xephyr - Build the Xephyr server
@@ -9201,6 +9125,7 @@ x11-plugins/pidgin-sipe:voice - Enable experimental voice/video support
 x11-plugins/pidgin-telegram:gcrypt - Use dev-libs/libgcrypt instead of dev-libs/openssl.
 x11-plugins/purple-plugin_pack:talkfilters - Enable support for app-text/talkfilters
 x11-plugins/vicious:contrib - Install extra widgets, some for less common hardware, some contributed by Vicious users.
+x11-plugins/wmbattery:apm - Add APM (Advanced Power Management) support
 x11-plugins/wmfire:session - Enable session management
 x11-plugins/wmudmount:gcr - Enable support for secure memory with app-crypt/gcr
 x11-plugins/wmudmount:secret - Enable support for secret service with app-crypt/libsecret
@@ -9336,7 +9261,6 @@ x11-wm/xpra:dec_avcodec2 - Enable avcodec2 decoder support
 x11-wm/xpra:enc_ffmpeg - Enable advanced ffmpeg/libav encoder support
 x11-wm/xpra:enc_x264 - Enable x264 encoder support
 x11-wm/xpra:enc_x265 - Enable x265 encoder support
-x11-wm/xpra:lz4 - Enable support for lz4 compression
 x11-wm/xpra:pillow - Enable pillow support
 x11-wm/xpra:server - Build server-side code
 x11-wm/xpra:vpx - Enable vpx image format support

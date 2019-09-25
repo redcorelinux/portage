@@ -9,6 +9,8 @@ inherit distutils-r1 git-r3 multiprocessing
 DESCRIPTION="A stand-alone install of the LLVM suite testing tool"
 HOMEPAGE="https://llvm.org/"
 SRC_URI=""
+S=${WORKDIR}/${P}/utils/lit
+
 EGIT_REPO_URI="https://git.llvm.org/git/llvm.git
 	https://github.com/llvm-mirror/llvm.git"
 
@@ -18,10 +20,8 @@ KEYWORDS=""
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-S=${WORKDIR}/${P}/utils/lit
-
 # Tests require 'FileCheck' and 'not' utilities (from llvm)
-DEPEND="
+BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/psutil[${PYTHON_USEDEP}]

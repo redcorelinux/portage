@@ -28,6 +28,7 @@ LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0/${PV}"
 KEYWORDS=""
 IUSE="debug test ${ALL_LLVM_TARGETS[*]}"
+REQUIRED_USE="|| ( ${ALL_LLVM_TARGETS[*]} )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -35,15 +36,14 @@ RDEPEND="
 	dev-ml/ocaml-ctypes:=
 	~sys-devel/llvm-${PV}:=[${LLVM_TARGET_USEDEPS// /,},debug?]
 	!sys-devel/llvm[ocaml(-)]"
+DEPEND="${RDEPEND}"
 # configparser-3.2 breaks the build (3.3 or none at all are fine)
-DEPEND="${RDEPEND}
+BDEPEND="
 	dev-lang/perl
 	dev-ml/findlib
 	test? ( dev-ml/ounit )
 	!!<dev-python/configparser-3.3.0.2
 	${PYTHON_DEPS}"
-
-REQUIRED_USE="|| ( ${ALL_LLVM_TARGETS[*]} )"
 
 # least intrusive of all
 CMAKE_BUILD_TYPE=RelWithDebInfo
