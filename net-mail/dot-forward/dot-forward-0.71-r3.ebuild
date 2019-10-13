@@ -3,7 +3,7 @@
 
 EAPI=0
 
-inherit eutils fixheadtails
+inherit eutils fixheadtails qmail
 
 DESCRIPTION="reads sendmail's .forward files under qmail"
 HOMEPAGE="http://cr.yp.to/dot-forward.html"
@@ -11,7 +11,7 @@ SRC_URI="http://cr.yp.to/software/${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE=""
 
 # See bug 97850
