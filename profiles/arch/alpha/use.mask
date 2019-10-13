@@ -87,7 +87,6 @@ valgrind
 vaapi
 librtmp
 rtmp
-v4l
 vpx
 kde
 quvi
@@ -175,7 +174,7 @@ curl_ssl_axtls
 # media-libs/xine-lib is not keyworded
 xine
 
-template-haskell
+template_haskell
 
 # nvidia cg toolkit for binary drivers
 cg

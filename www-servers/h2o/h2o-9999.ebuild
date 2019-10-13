@@ -1,10 +1,10 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
 CMAKE_MAKEFILE_GENERATOR="emake"
 SSL_DEPS_SKIP=1
-USE_RUBY="ruby24 ruby25 ruby26"
+USE_RUBY="ruby23 ruby24"
 
 inherit cmake-utils git-r3 ruby-single ssl-cert systemd toolchain-funcs user
 

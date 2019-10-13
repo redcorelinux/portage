@@ -178,7 +178,7 @@ connman
 # media-libs/xine-lib is not keyworded
 xine
 
-template-haskell
+template_haskell
 
 # toolkit for nvidia binary drivers
 cg

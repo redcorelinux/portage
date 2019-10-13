@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="audit debug pam selinux l10n_fr +mta +system-crontab readline"
 
 DEPEND="audit? ( sys-process/audit )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	readline? ( sys-libs/readline:= )
 	selinux? ( sys-libs/libselinux )"
 

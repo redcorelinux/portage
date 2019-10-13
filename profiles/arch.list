@@ -1,5 +1,6 @@
 alpha
 amd64
+amd64-fbsd
 arm
 arm64
 hppa
@@ -13,6 +14,7 @@ s390
 sh
 sparc
 x86
+x86-fbsd
 
 # Prefix keywords
 ppc-aix

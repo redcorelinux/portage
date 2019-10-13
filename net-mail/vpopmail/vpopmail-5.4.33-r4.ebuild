@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools eutils fixheadtails qmail
+inherit autotools eutils fixheadtails qmail user
 
 HOMEPAGE="http://www.inter7.com/index.php?page=vpopmail"
 DESCRIPTION="Collection of programs to manage virtual email on Qmail servers"
@@ -38,7 +38,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.4.33-unistd.patch
 )
 DOCS=(
-	ChangeLog
 	doc/.
 )
 HTML_DOCS=(
@@ -46,9 +45,23 @@ HTML_DOCS=(
 	man_html/.
 )
 
-VPOP_HOME="/var/vpopmail"
+# This makes sure the variable is set, and that it isn't null.
+VPOP_DEFAULT_HOME="/var/vpopmail"
+
+vpopmail_set_homedir() {
+	VPOP_HOME=$(egethome vpopmail)
+	if [[ -z "${VPOP_HOME}" ]]; then
+		eerror "vpopmail's home directory is null in passwd data!"
+		eerror "You probably want to check that out."
+		eerror "Continuing with default."
+		VPOP_HOME="${VPOP_DEFAULT_HOME}"
+	else
+		einfo "Setting VPOP_HOME to: $VPOP_HOME"
+	fi
+}
 
 pkg_setup() {
+	enewuser vpopmail 89 -1 ${VPOP_DEFAULT_HOME} vpopmail
 	upgradewarning
 }
 
@@ -83,6 +96,8 @@ src_prepare() {
 }
 
 src_configure() {
+	vpopmail_set_homedir
+
 	local authopts
 	if use mysql; then
 		incdir=$(mysql_config --variable=pkgincludedir || die)
@@ -133,6 +148,8 @@ src_configure() {
 }
 
 src_install() {
+	vpopmail_set_homedir
+
 	emake DESTDIR="${D}" install
 	keepdir "${VPOP_HOME}"/domains
 
@@ -212,6 +229,8 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	vpopmail_set_homedir
+
 	elog "The vpopmail DATA will NOT be removed automatically."
 	elog "You can delete them manually by removing the ${VPOP_HOME} directory."
 }

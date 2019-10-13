@@ -3,9 +3,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+PYTHON_COMPAT=( python2_7 python3_{5,6} )
 
-inherit meson python-r1 vala
+inherit meson python-r1 vala xdg-utils
 
 DESCRIPTION="GObject-based wrapper around the Exiv2 library"
 HOMEPAGE="https://wiki.gnome.org/Projects/gexiv2"
@@ -15,19 +15,25 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="mirror://gnome/sources/${PN}/$(ver_cut 1-2)/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd"
 fi
 
-LICENSE="LGPL-2.1+ GPL-2"
+LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="gtk-doc +introspection python static-libs test +vala"
+IUSE="gtk-doc +introspection python static-libs test vala"
+
 REQUIRED_USE="
 	python? ( introspection ${PYTHON_REQUIRED_USE} )
 	test? ( python introspection )
 	vala? ( introspection )
 "
-RESTRICT="!test? ( test )"
 
+RDEPEND="${PYTHON_DEPS}
+	>=dev-libs/glib-2.38.0:2
+	>=media-gfx/exiv2-0.21:=
+	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
+"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/glib-utils
 	virtual/pkgconfig
@@ -38,16 +44,11 @@ BDEPEND="
 	)
 	vala? ( $(vala_depend) )
 "
-RDEPEND="${PYTHON_DEPS}
-	>=dev-libs/glib-2.38.0:2
-	>=media-gfx/exiv2-0.21:=
-	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
-"
-DEPEND="${RDEPEND}"
 
 src_prepare() {
-	default
+	xdg_environment_reset
 	use vala && vala_src_prepare
+	default
 }
 
 src_configure() {
@@ -55,8 +56,8 @@ src_configure() {
 		$(meson_use introspection)
 		$(meson_use vala vapi)
 		$(meson_use gtk-doc gtk_doc)
-		# Prevents installation of python modules (uses install_data from meson
-		# which does not optimize the modules)
+		# prevents installation of python modules (uses install_data from meson
+		# which does not optimize the modules
 		-Dpython2_girdir=no
 		-Dpython3_girdir=no
 	)

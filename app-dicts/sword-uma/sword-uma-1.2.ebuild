@@ -9,4 +9,4 @@ inherit sword-module
 DESCRIPTION="Uma New Testament"
 HOMEPAGE="http://crosswire.org/sword/modules/ModInfo.jsp?modName=Uma"
 LICENSE="free-noncomm"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"

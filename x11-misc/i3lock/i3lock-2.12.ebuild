@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="
 	>=x11-libs/libxkbcommon-0.5.0[X]
 	dev-libs/libev
-	sys-libs/pam
+	virtual/pam
 	x11-libs/cairo[xcb]
 	x11-libs/libxcb[xkb]
 	x11-libs/xcb-util

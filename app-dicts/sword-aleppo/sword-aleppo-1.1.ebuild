@@ -9,4 +9,4 @@ inherit sword-module
 DESCRIPTION="Aleppo Codex"
 HOMEPAGE="http://crosswire.org/sword/modules/ModInfo.jsp?modName=Aleppo"
 LICENSE="freedist"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"

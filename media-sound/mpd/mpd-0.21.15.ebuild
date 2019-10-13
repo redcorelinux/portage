@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic linux-info meson systemd user xdg-utils
+inherit flag-o-matic linux-info meson systemd user
 
 DESCRIPTION="The Music Player Daemon (mpd)"
 HOMEPAGE="https://www.musicpd.org https://github.com/MusicPlayerDaemon/MPD"
@@ -11,7 +11,7 @@ SRC_URI="https://www.musicpd.org/download/${PN}/${PV%.*}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sh ~x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sh ~x86 ~x86-fbsd ~x64-macos"
 IUSE="adplug +alsa ao audiofile bzip2 cdio chromaprint +cue +curl +dbus debug
 	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify
 	+ipv6 jack lame libav libmpdclient libsamplerate libsoxr +mad mikmod mms
@@ -291,9 +291,4 @@ src_install() {
 pkg_postinst() {
 	# also change the homedir if the user has existed before
 	usermod -d "/var/lib/mpd" mpd || die "usermod failed"
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }

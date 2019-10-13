@@ -26,13 +26,11 @@ DEPEND=">=net-libs/ldns-${PV}[dane?,ecdsa?,ed25519?,ed448?,gost?]
 	examples? ( net-libs/libpcap )"
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
-
 S=${WORKDIR}/${MY_P}
 
 src_configure() {
 	# >=openssl-1.1.0 required for dane-ta
-	if has_version "<dev-libs/openssl-1.1.0" || has_version dev-libs/libressl; then
+	if has_version "<dev-libs/openssl-1.1.0"; then
 		local dane_ta_usage="--disable-dane-ta-usage"
 	else
 		local dane_ta_usage=""

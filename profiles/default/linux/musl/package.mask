@@ -17,7 +17,6 @@ dev-games/gtkradiant
 dev-games/ps2-packer
 games-action/beathazardultra
 games-action/brutal-legend
-games-action/crimsonland
 games-action/descent3
 games-action/descent3-demo
 games-action/guacamelee
@@ -28,6 +27,7 @@ games-action/rune
 games-action/shadowgrounds-bin
 games-action/shadowgrounds-survivor-bin
 games-action/solar2
+games-action/spacetripper-demo
 games-action/swordandsworcery
 games-action/trine
 games-action/trine-enchanted-edition
@@ -81,7 +81,6 @@ games-misc/papers-please
 games-puzzle/world-of-goo
 games-puzzle/world-of-goo-demo
 games-roguelike/adom
-games-roguelike/neon-chrome
 games-rpg/costume-quest
 games-rpg/dear-esther
 games-rpg/dungeon-defenders

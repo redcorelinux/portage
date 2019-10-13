@@ -40,7 +40,7 @@ COMMON_DEPEND="
 
 	${PYTHON_DEPS}
 
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	systemd? ( >=sys-apps/systemd-31:0= )
 	xinerama? ( x11-libs/libXinerama )
 "

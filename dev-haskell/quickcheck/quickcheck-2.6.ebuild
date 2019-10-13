@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -17,8 +17,8 @@ SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="2/${PV}"
-KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~amd64-linux"
-IUSE="+template-haskell"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux"
+IUSE="+template_haskell"
 
 RDEPEND="dev-haskell/extensible-exceptions:=[profile?]
 		dev-haskell/random:=[profile?]
@@ -30,5 +30,5 @@ S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	haskell-cabal_src_configure \
-		$(cabal_flag template-haskell templatehaskell)
+		$(cabal_flag template_haskell templatehaskell)
 }

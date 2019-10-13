@@ -98,7 +98,7 @@ COMMON_DEPEND="net-misc/curl:=
 			net-libs/libtirpc:=
 		)
 		numa? ( sys-process/numactl )
-		pam? ( sys-libs/pam:0= )
+		pam? ( virtual/pam:0= )
 		rocksdb? (
 			app-arch/zstd:=
 			dev-libs/protobuf:=

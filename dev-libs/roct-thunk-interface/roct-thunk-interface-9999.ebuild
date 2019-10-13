@@ -16,7 +16,7 @@ fi
 
 DESCRIPTION="Radeon Open Compute Thunk Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface"
-CONFIG_CHECK="~NUMA ~HSA_AMD ~HMM_MIRROR ~ZONE_DEVICE"
+CONFIG_CHECK="~HSA_AMD ~HMM_MIRROR ~ZONE_DEVICE"
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 
@@ -30,8 +30,7 @@ src_prepare() {
 }
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
-		-DCPACK_PACKAGING_INSTALL_PREFIX="${EPREFIX}/usr"
+		-DCPACK_PACKAGING_INSTALL_PREFIX=/usr
 	)
 	cmake-utils_src_configure
 }

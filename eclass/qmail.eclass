@@ -6,7 +6,7 @@
 # qmail-bugs@gentoo.org
 # @BLURB: common qmail functions
 
-inherit flag-o-matic toolchain-funcs fixheadtails
+inherit flag-o-matic toolchain-funcs fixheadtails user
 
 # hardcoded paths
 QMAIL_HOME="/var/qmail"
@@ -206,7 +206,8 @@ qmail_man_install() {
 	into /usr
 	doman *.[1578]
 	dodoc BLURB* CHANGES FAQ INSTALL* PIC* README* REMOVE* SECURITY \
-		SENDMAIL* TEST* THANKS* THOUGHTS UPGRADE VERSION*
+		SENDMAIL SYSDEPS TEST* THANKS* THOUGHTS TODO* \
+		UPGRADE VERSION*
 
 	declare -F qmail_man_install_hook >/dev/null && \
 		qmail_man_install_hook

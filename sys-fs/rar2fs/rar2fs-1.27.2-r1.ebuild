@@ -23,7 +23,7 @@ src_configure() {
 	export USER_CFLAGS="${CFLAGS}"
 
 	econf \
-		--with-unrar="${ESYSROOT}"/usr/include/libunrar \
+		--with-unrar=/usr/include/libunrar \
 		--disable-static-unrar \
 		$(use_enable debug)
 }

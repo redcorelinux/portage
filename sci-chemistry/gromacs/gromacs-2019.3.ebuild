@@ -73,8 +73,6 @@ REQUIRED_USE="
 
 DOCS=( AUTHORS README )
 
-RESTRICT="!test? ( test )"
-
 if [[ ${PV} != *9999 ]]; then
 	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
@@ -235,11 +233,9 @@ src_configure() {
 		mycmakeargs=(
 			${mycmakeargs_pre[@]} ${p}
 			-DGMX_THREAD_MPI=OFF
-			-DGMX_MPI=ON
+			-DGMX_MPI=ON ${cuda}
 			-DGMX_OPENMM=OFF
 			-DGMXAPI=OFF
-			"${opencl[@]}"
-			"${cuda[@]}"
 			-DGMX_BUILD_MDRUN_ONLY=ON
 			-DBUILD_SHARED_LIBS=OFF
 			-DGMX_BUILD_MANUAL=OFF

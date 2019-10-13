@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 inherit autotools
 
@@ -12,14 +12,13 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/projectM-visualizer/projectm.git"
 	inherit git-r3
 else
-	MY_PV="${PV/_/-}"
-	SRC_URI="https://github.com/projectM-visualizer/projectm/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~sparc ~x86"
-	S=${WORKDIR}/projectm-${MY_PV}/
+	SRC_URI="https://github.com/projectM-visualizer/projectm/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+	S=${WORKDIR}/projectm-${PV}/
 fi
 
 LICENSE="LGPL-2"
-SLOT="0/2"
+SLOT="0"
 IUSE="gles2 qt5 sdl"
 
 RDEPEND="gles2? ( media-libs/mesa[gles2] )
@@ -35,10 +34,8 @@ RDEPEND="gles2? ( media-libs/mesa[gles2] )
 	sdl? ( >=media-libs/libsdl2-2.0.5 )
 	sys-libs/zlib"
 
-DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
-"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	default
@@ -46,11 +43,9 @@ src_prepare() {
 }
 
 src_configure() {
-	local myeconfargs=(
-		$(use_enable gles2 gles)
-		$(use_enable qt5 qt)
-		$(use_enable sdl)
+	econf \
+		$(use_enable gles2 gles ) \
+		$(use_enable qt5 qt ) \
+		$(use_enable sdl ) \
 		--enable-emscripten=no
-	)
-	econf "${myeconfargs[@]}"
 }

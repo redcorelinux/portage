@@ -13,7 +13,7 @@ SRC_URI="https://launchpad.net/poppler-python/trunk/development/+download/pypopp
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 x86 ~x86-fbsd"
 IUSE="examples"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

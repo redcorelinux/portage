@@ -6,11 +6,11 @@ inherit sgml-catalog-r1
 
 DESCRIPTION="DTDs for the eXtensible HyperText Markup Language 1.0"
 HOMEPAGE="http://www.w3.org/TR/xhtml1/"
-SRC_URI="mirror://gentoo/${P}.tgz"
+SRC_URI="mirror://gentoo/xhtml1.tgz -> ${P}.tgz"
 
 LICENSE="W3C"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE=""
 
 DEPEND="app-text/sgml-common

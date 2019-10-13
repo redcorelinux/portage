@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-portage/gentoolkit
-	dev-perl/URI
 	dev-vcs/git
 	net-misc/wget
 	sys-apps/portage

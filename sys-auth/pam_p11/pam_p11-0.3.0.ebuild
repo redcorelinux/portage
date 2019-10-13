@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="alpha amd64 ~hppa ia64 ppc ppc64 ~sparc x86"
 
-RDEPEND="sys-libs/pam
+RDEPEND="virtual/pam
 	dev-libs/libp11:=
 	dev-libs/openssl:0="
 

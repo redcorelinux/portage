@@ -17,9 +17,8 @@ case ${PV} in
 	;;
 *)
 	KEYWORDS="~amd64 ~x86"
-	CODENAME="Leia"
-	SRC_URI="https://github.com/xbmc/visualization.projectm/archive/${PV}-${CODENAME}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/visualization.projectm-${PV}-${CODENAME}"
+	SRC_URI="https://github.com/xbmc/visualization.projectm/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/visualization.projectm-${PV}"
 	;;
 esac
 
@@ -30,8 +29,7 @@ IUSE=""
 DEPEND="
 	~media-tv/kodi-9999
 	~media-libs/kodi-platform-9999
-	>=media-libs/libprojectm-3.1.1_rc4:=
-	>=media-libs/glm-0.9.9.5
+	>=media-libs/libprojectm-3.1.0
 	virtual/opengl
 	"
 
@@ -39,7 +37,8 @@ RDEPEND="
 	${DEPEND}
 	"
 
-src_prepare(){
-	[ -d depends ] && rm -rf depends || die
+src_prepare() {
+	# Delete bundled libprojectM
+	rm src/libprojectM -rf || die
 	cmake-utils_src_prepare
 }

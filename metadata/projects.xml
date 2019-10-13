@@ -606,6 +606,11 @@
       <role>developer</role>
     </member>
     <member>
+      <email>jsbronder@gentoo.org</email>
+      <name>Justin Bronder</name>
+      <role>developer</role>
+    </member>
+    <member>
       <email>mschiff@gentoo.org</email>
       <name>Marc Schiffbauer</name>
       <role>developer</role>
@@ -619,11 +624,6 @@
       <email>ultrabug@gentoo.org</email>
       <name>Ultrabug</name>
       <role>developer</role>
-    </member>
-    <member>
-      <email>zlogene@gentoo.org</email>
-      <name>Mikle Kolyada</name>
-      <role>developer (OpenMPI/Slurm)</role>
     </member>
   </project>
   <project>
@@ -2234,7 +2234,7 @@
   </project>
   <project>
     <email>office@gentoo.org</email>
-    <name>Office project</name>
+    <name>Gentoo Office project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Office</url>
     <description>The Office project manages the office implementations and related packages in Gentoo.</description>
     <member>
@@ -2378,7 +2378,7 @@
   </project>
   <project>
     <email>perl@gentoo.org</email>
-    <name>Perl Project</name>
+    <name>Gentoo Perl Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Perl</url>
     <description>We maintain everything perlish in Gentoo.</description>
     <member>
@@ -2391,15 +2391,15 @@
       <name>Aaron Bauman</name>
       <role>Developer</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
-      <role>Lead</role>
+      <role>Developer</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>kentnl@gentoo.org</email>
       <name>Kent Fredric</name>
-      <role>Lead</role>
+      <role>Developer</role>
     </member>
     <member>
       <email>monsieurp@gentoo.org</email>
@@ -2416,10 +2416,10 @@
       <name>Aaron W. Swenson</name>
       <role>Developer</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
-      <role>Developer</role>
+      <role>Lead</role>
     </member>
   </project>
   <project>
@@ -2653,9 +2653,9 @@
   </project>
   <project>
     <email>printing@gentoo.org</email>
-    <name>Printing Project</name>
+    <name>Gentoo Printing Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Printing</url>
-    <description>Printing related stuff in Gentoo, namely the net-print category and some extra stuff</description>
+    <description>Printing related stuff, net-print category (+ some extra stuff).</description>
     <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
@@ -2978,9 +2978,9 @@
   </project>
   <project>
     <email>riscv@gentoo.org</email>
-    <name>RISC-V development project</name>
+    <name>Gentoo Linux RISC-V development</name>
     <url>https://wiki.gentoo.org/wiki/Project:RISC-V</url>
-    <description>Gentoo RISC-V architecture support project</description>
+    <description>RISC-V architecture support project</description>
     <member>
       <email>alexxy@gentoo.org</email>
       <name>Alexey Shvetsov</name>
@@ -3580,9 +3580,9 @@
   </project>
   <project>
     <email>tex@gentoo.org</email>
-    <name>TeX Project</name>
+    <name>Gentoo TeX Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:TeX</url>
-    <description>The Gentoo TeX project maintains ebuilds for TeXLive and TeX related packages. This includes [https://packages.gentoo.org/packages/app-text/texlive app-text/texlive], the [https://packages.gentoo.org/categories/dev-texlive dev-texlive] category, most of [https://packages.gentoo.org/categories/dev-tex dev-tex] and a few others.</description>
+    <description>The TeX project maintains ebuilds for TeXLive and TeX related packages. This includes [https://packages.gentoo.org/packages/app-text/texlive app-text/texlive], the [https://packages.gentoo.org/categories/dev-texlive dev-texlive] category, most of [https://packages.gentoo.org/categories/dev-tex dev-tex] and a few others.</description>
     <member is-lead="1">
       <email>aballier@gentoo.org</email>
       <name>Alexis Ballier</name>

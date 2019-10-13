@@ -29,7 +29,7 @@ COMMON_DEPEND="
 	ldap? ( net-nds/openldap )
 	mysql? ( dev-db/mysql-connector-c:0= )
 	nls? ( virtual/libintl )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	php? ( || (
 		dev-lang/php:*[fpm]
 		dev-lang/php:*[cgi]

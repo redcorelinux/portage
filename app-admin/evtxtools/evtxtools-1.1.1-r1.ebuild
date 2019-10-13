@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
-inherit perl-module
+inherit perl-app perl-module
 
 MY_PN="Parse-Evtx"
 DESCRIPTION="Read, decode and dump Windows Vista/2008/7 event log file "

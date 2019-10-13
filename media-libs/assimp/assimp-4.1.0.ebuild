@@ -38,7 +38,6 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/${P}-disabletest.patch" # bug 659122
 	"${FILESDIR}/${P}-unzip-of.patch"
-	"${FILESDIR}/${P}-findassimp.patch"
 )
 
 src_configure() {

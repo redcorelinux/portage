@@ -32,12 +32,12 @@ src_compile() {
 		-o restic ${EGO_PN}/cmd/restic
 	)
 
-	GO111MODULE=off GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
 		go build "${mygoargs[@]}" || die
 }
 
 src_test() {
-	GO111MODULE=off GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
 		go test -timeout 30m -v -work -x ${EGO_PN}/cmd/... ${EGO_PN}/internal/... || die
 }
 

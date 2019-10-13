@@ -73,6 +73,7 @@ media-gfx/imagemagick -heif
 
 # Ben Kohler <bkohler@gentoo.org> (2018-08-23)
 # Unmask iwd support where net-wireless/iwd is keyworded
+net-misc/connman -iwd
 net-misc/networkmanager -iwd
 
 # Thomas Deutschmann <whissi@gentoo.org> (2018-08-23)
@@ -199,7 +200,7 @@ net-im/telepathy-connection-managers -steam
 
 # Mike Frysinger <vapier@gentoo.org> (2014-08-04)
 # Unmask flashrom drivers that only work on x86 due to in/out asm insns #454024
-sys-apps/flashrom -atahpt -nic3com -nicnatsemi -nicrealtek -rayer-spi -satamv
+sys-apps/flashrom -atahpt -nic3com -nicnatsemi -nicrealtek -rayer_spi -satamv
 
 # Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> (2014-04-24)
 # It's only supported on amd64

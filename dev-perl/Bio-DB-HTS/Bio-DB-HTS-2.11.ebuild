@@ -15,8 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-RESTRICT="!test? ( test )"
-
 RDEPEND="sci-biology/bioperl
 	sci-libs/htslib:="
 DEPEND="${RDEPEND}

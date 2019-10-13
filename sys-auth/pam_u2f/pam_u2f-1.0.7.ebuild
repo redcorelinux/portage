@@ -17,7 +17,7 @@ IUSE="debug"
 RDEPEND="
 	app-crypt/libu2f-host
 	app-crypt/libu2f-server:=
-	sys-libs/pam"
+	virtual/pam"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"

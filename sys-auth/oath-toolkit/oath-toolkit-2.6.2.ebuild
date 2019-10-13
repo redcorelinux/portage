@@ -14,7 +14,7 @@ KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 IUSE="pam pskc test"
 
 RDEPEND="
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	pskc? ( dev-libs/xmlsec )"
 DEPEND="${RDEPEND}
 	test? ( dev-libs/libxml2 )

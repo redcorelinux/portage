@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/project/gxemul/GXemul/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~mips ~ppc ~sparc ~x86"
+KEYWORDS="~amd64 ~mips ~ppc ~sparc ~x86 ~x86-fbsd"
 IUSE="debug X"
 
 RDEPEND="X? ( x11-libs/libX11 )"

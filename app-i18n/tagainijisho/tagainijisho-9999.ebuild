@@ -1,9 +1,9 @@
-# Copyright 2014-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="6"
 
-inherit cmake-utils xdg-utils
+inherit cmake-utils gnome2-utils
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
@@ -14,15 +14,9 @@ elif [[ "${PV}" == *_pre* ]]; then
 
 	TAGAINIJISHO_GIT_REVISION=""
 fi
-if [[ "${PV}" != 9999 ]]; then
-	TAGAINIJISHO_VERSION="${PV%_p*_p*}"
-	JMDICT_DATE="${PV#${TAGAINIJISHO_VERSION}_p}"
-	JMDICT_DATE="${JMDICT_DATE%_p*}"
-	JMDICT_DATE="${JMDICT_DATE:0:4}-${JMDICT_DATE:4:2}-${JMDICT_DATE:6}"
-	KANJIDIC2_DATE="${PV#${TAGAINIJISHO_VERSION}_p*_p}"
-	KANJIDIC2_DATE="${KANJIDIC2_DATE:0:4}-${KANJIDIC2_DATE:4:2}-${KANJIDIC2_DATE:6}"
-fi
 if [[ "${PV}" == 9999 || "${PV}" == *_pre* ]]; then
+	JMDICT_DATE=""
+	KANJIDIC2_DATE=""
 	KANJIVG_VERSION="20160426"
 fi
 
@@ -31,13 +25,15 @@ HOMEPAGE="https://www.tagaini.net/ https://github.com/Gnurou/tagainijisho"
 if [[ "${PV}" == 9999 ]]; then
 	SRC_URI=""
 elif [[ "${PV}" == *_pre* ]]; then
-	SRC_URI="https://github.com/Gnurou/${PN}/archive/${TAGAINIJISHO_GIT_REVISION}.tar.gz -> ${PN}-${TAGAINIJISHO_VERSION}.tar.gz"
+	SRC_URI="https://github.com/Gnurou/${PN}/archive/${TAGAINIJISHO_GIT_REVISION}.tar.gz -> ${P}.tar.gz"
 else
-	SRC_URI="https://github.com/Gnurou/${PN}/releases/download/${PV}/${PN}-${TAGAINIJISHO_VERSION}.tar.gz"
+	SRC_URI="https://github.com/Gnurou/${PN}/releases/download/${PV}/${P}.tar.gz"
 fi
-if [[ "${PV}" != 9999 ]]; then
+if [[ "${PV}" == *_pre* ]]; then
 	# Upstream: http://ftp.monash.edu.au/pub/nihongo/JMdict.gz
 	SRC_URI+=" https://home.apache.org/~arfrever/distfiles/JMdict-${JMDICT_DATE}.gz"
+fi
+if [[ "${PV}" == *_pre* ]]; then
 	# Upstream: http://www.edrdg.org/kanjidic/kanjidic2.xml.gz
 	SRC_URI+=" https://home.apache.org/~arfrever/distfiles/kanjidic2-${KANJIDIC2_DATE}.xml.gz"
 fi
@@ -49,34 +45,27 @@ LICENSE="GPL-3+ public-domain"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-if [[ "${PV}" == 9999 ]]; then
-	PROPERTIES="live"
-fi
 
-BDEPEND="dev-qt/linguist-tools:5"
-DEPEND=">=dev-db/sqlite-3.12:3
+RDEPEND=">=dev-db/sqlite-3.12:3
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-qt/linguist-tools:5"
 
 pkg_langs=(ar cs de es fa fi fr hu id it nb nl pl pt ru sv th tr uk vi zh)
 IUSE+=" ${pkg_langs[@]/#/l10n_}"
 unset pkg_langs
 
-if [[ "${PV}" != 9999 ]]; then
-	S="${WORKDIR}/${PN}-${TAGAINIJISHO_VERSION}"
-fi
-
 src_unpack() {
 	if [[ "${PV}" == 9999 ]]; then
 		git-r3_src_unpack
 	elif [[ "${PV}" == *_pre* ]]; then
-		unpack ${PN}-${TAGAINIJISHO_VERSION}.tar.gz
-		mv ${PN}-${TAGAINIJISHO_GIT_REVISION} ${PN}-${TAGAINIJISHO_VERSION} || die
+		unpack ${P}.tar.gz
+		mv tagainijisho-${TAGAINIJISHO_GIT_REVISION} ${P} || die
 	else
-		unpack ${PN}-${TAGAINIJISHO_VERSION}.tar.gz
+		unpack ${P}.tar.gz
 	fi
 
 	if [[ "${PV}" == 9999 ]]; then
@@ -129,7 +118,7 @@ src_unpack() {
 		mkdir "${S}/3rdparty" || die
 		gzip -cd "${distdir}/JMdict-${JMDICT_DATE}.gz" > "${S}/3rdparty/JMdict" || die
 		gzip -cd "${distdir}/kanjidic2-${KANJIDIC2_DATE}.xml.gz" > "${S}/3rdparty/kanjidic2.xml" || die
-	else
+	elif [[ "${PV}" == *_pre* ]]; then
 		mkdir "${S}/3rdparty" || die
 		pushd "${S}/3rdparty" > /dev/null || die
 
@@ -192,9 +181,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
+	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
+	gnome2_icon_cache_update
 }

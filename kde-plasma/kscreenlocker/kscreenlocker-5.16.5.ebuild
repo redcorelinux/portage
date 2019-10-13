@@ -42,7 +42,7 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 	consolekit? ( sys-auth/consolekit )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
 "
 DEPEND="${RDEPEND}

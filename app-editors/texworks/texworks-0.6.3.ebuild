@@ -41,7 +41,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-Wno-dev
-		-DPREFER_BUNDLED_SYNCTEX=ON
+		-DPREFER_BUNDLED_SYNCTEX=OFF
 		-DWITH_LUA=$(usex lua ON OFF)
 		-DWITH_PYTHON=$(usex python ON OFF)
 		-DTeXworks_PLUGIN_DIR="/usr/$(get_libdir)/texworks"

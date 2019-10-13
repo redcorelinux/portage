@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -34,7 +34,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.40:2=[dbus]
 		virtual/libudev
 		x11-libs/libdrm:=
 	)
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	policykit? ( >=sys-auth/polkit-0.110 )
 	selinux? ( sys-libs/libselinux )"
 # pm-utils: bug 557432

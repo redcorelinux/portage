@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,7 +14,7 @@ SLOT="0"
 IUSE="+qrcode"
 
 DEPEND="sys-auth/oath-toolkit:=
-	sys-libs/pam
+	virtual/pam
 	qrcode? ( media-gfx/qrencode:= )"
 RDEPEND="${DEPEND}
 	!sys-auth/google-authenticator"

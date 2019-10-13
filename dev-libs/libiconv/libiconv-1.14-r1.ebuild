@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/libiconv/${P}.tar.gz"
 
 LICENSE="LGPL-2+ GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm ~mips ppc x86"
+KEYWORDS="amd64 arm ~mips ppc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="+static-libs"
 
 DEPEND="!sys-libs/glibc

@@ -18,7 +18,7 @@ IUSE="apparmor examples pam seccomp selinux +templates"
 RDEPEND="
 	net-libs/gnutls
 	sys-libs/libcap
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
 	selinux? ( sys-libs/libselinux )"
 

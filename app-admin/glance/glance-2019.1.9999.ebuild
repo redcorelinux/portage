@@ -121,9 +121,7 @@ python_prepare_all() {
 }
 
 python_compile_all() {
-	if [ ! -z ${EGIT_BRANCH+x} ]; then
-		use doc && "${PYTHON}" setup.py build_sphinx
-	fi
+	use doc && "${PYTHON}" setup.py build_sphinx
 }
 
 python_install_all() {

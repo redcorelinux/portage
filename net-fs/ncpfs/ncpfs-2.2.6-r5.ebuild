@@ -16,7 +16,7 @@ IUSE="nls pam"
 
 DEPEND="
 	nls? ( sys-devel/gettext )
-	pam? ( sys-libs/pam )"
+	pam? ( virtual/pam )"
 
 RDEPEND="${DEPEND}"
 

@@ -15,13 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="libsamplerate oss speex"
 
-RDEPEND=">=games-emulation/mupen64plus-core-${PV}:=
+RDEPEND=">=games-emulation/mupen64plus-core-${PV}:0=
 	media-libs/libsdl2:0=[sound]
-	libsamplerate? ( media-libs/libsamplerate:= )
-	speex? (
-		media-libs/speex:=
-		media-libs/speexdsp:=
-	)"
+	libsamplerate? ( media-libs/libsamplerate:0= )
+	speex? ( media-libs/speex:0= )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 

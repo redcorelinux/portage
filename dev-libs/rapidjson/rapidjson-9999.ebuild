@@ -1,12 +1,12 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 inherit cmake-utils
 
 DESCRIPTION="A fast JSON parser/generator for C++ with both SAX/DOM style API"
-HOMEPAGE="https://rapidjson.org/"
+HOMEPAGE="http://rapidjson.org/"
 
 LICENSE="MIT"
 IUSE="doc examples test"
@@ -39,8 +39,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DDOC_INSTALL_DIR="${EPREFIX}/usr/share/doc/${PF}"
-		-DLIB_INSTALL_DIR="${EPREFIX}/usr/$(get_libdir)"
 		-DRAPIDJSON_BUILD_DOC=$(usex doc)
 		-DRAPIDJSON_BUILD_EXAMPLES=$(usex examples)
 		-DRAPIDJSON_BUILD_TESTS=$(usex test)

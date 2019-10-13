@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="pam pskc test"
 
 RDEPEND="
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	pskc? ( dev-libs/xmlsec )"
 DEPEND="${RDEPEND}
 	test? ( dev-libs/libxml2 )

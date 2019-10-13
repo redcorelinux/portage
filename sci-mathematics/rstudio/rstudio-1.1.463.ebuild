@@ -78,9 +78,9 @@ RDEPEND="
 		>=dev-qt/qtwidgets-${QT_VER}:${QT_SLOT}
 		>=dev-qt/qtxml-${QT_VER}:${QT_SLOT}
 		>=dev-qt/qtxmlpatterns-${QT_VER}:${QT_SLOT}
-		server? ( sys-libs/pam )
+		server? ( virtual/pam )
 	)
-	dedicated? ( sys-libs/pam )
+	dedicated? ( virtual/pam )
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )"
 DEPEND="${RDEPEND}

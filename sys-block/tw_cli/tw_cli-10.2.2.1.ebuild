@@ -50,10 +50,10 @@ SLOT="0"
 
 # This package can never enter stable, it can't be mirrored and upstream
 # can remove the distfiles from their mirror anytime.
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* ~amd64 ~x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
-RESTRICT="strip"
+RESTRICT="strip primaryuri"
 QA_PREBUILT="/opt/tw_cli/tw_cli"
 
 # binary packages

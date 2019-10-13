@@ -1,6 +1,8 @@
 # Copyright 2008-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# True Authors: Arfrever Frehtes Taifersar Arahesis and others
+
 EAPI="7"
 
 inherit autotools elisp-common flag-o-matic multilib-minimal toolchain-funcs
@@ -21,7 +23,7 @@ else
 fi
 
 LICENSE="BSD"
-SLOT="0/21"
+SLOT="0/20"
 KEYWORDS=""
 IUSE="emacs examples static-libs test zlib"
 RESTRICT="!test? ( test )"
@@ -89,7 +91,7 @@ multilib_src_test() {
 }
 
 multilib_src_install_all() {
-	find "${D}" -name "*.la" -type f -delete || die
+	find "${D}" -name "*.la" -delete || die
 
 	insinto /usr/share/vim/vimfiles/syntax
 	doins editors/proto.vim

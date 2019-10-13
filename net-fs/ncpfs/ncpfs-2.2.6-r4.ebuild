@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,7 +16,7 @@ IUSE="nls pam php"
 
 DEPEND="
 	nls? ( sys-devel/gettext )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	php? ( || ( dev-lang/php:* virtual/httpd-php:* ) )"
 
 RDEPEND="${DEPEND}"

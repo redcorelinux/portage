@@ -40,7 +40,6 @@ SRC_URI+="
 LICENSE+=" GPL-2 GPL-3"
 KEYWORDS="amd64 x86"
 IUSE="+bootstrap"
-RESTRICT="!test? ( test )"
 
 RDEPEND="!sys-devel/gcc:${GCC_CONFIG_VER}"
 DEPEND="${RDEPEND}

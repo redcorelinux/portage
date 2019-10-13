@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -32,7 +32,7 @@ IUSE="
 
 RDEPEND="
 	gnutls? ( net-libs/gnutls dev-libs/libgcrypt:0= )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	png? ( media-libs/libpng:0= x11-libs/cairo )
 	jpeg? ( virtual/jpeg:0 )
 	xml? ( dev-libs/libxml2:2 sys-libs/zlib )

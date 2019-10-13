@@ -1,5 +1,5 @@
---- a/teco.el
-+++ b/teco.el
+--- teco.el
++++ teco.el
 @@ -2213,9 +2213,11 @@
  (define-key teco:command-keymap "/" 'teco:command-slash)
  (define-key teco:command-keymap "*" 'teco:command-star)

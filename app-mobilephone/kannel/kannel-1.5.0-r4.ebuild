@@ -29,7 +29,7 @@ RDEPEND="
 	sqlite? ( dev-db/sqlite:3 )
 	postgres? ( dev-db/postgresql:=[server] )
 	pcre? ( dev-libs/libpcre:3 )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/bison-2.2

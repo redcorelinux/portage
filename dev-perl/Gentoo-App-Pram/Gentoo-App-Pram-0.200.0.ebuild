@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Official tool to merge PRs from the Gentoo Github repository"
 HOMEPAGE="https://github.com/monsieurp/Gentoo-App-Pram"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="amd64 ~arm x86 ~amd64-fbsd"
 IUSE="test"
 
 RDEPEND="

@@ -24,7 +24,7 @@ CDEPEND="
 	introspection? ( dev-libs/gobject-introspection )
 	pam? (
 		sys-auth/pambase
-		sys-libs/pam
+		virtual/pam
 	)
 	systemd? ( sys-apps/systemd:0=[policykit] )
 "

@@ -10,7 +10,7 @@ SRC_URI="http://joewing.net/projects/${PN}/releases/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~x86 ~x86-fbsd"
 IUSE="bidi cairo debug iconv jpeg nls png truetype xinerama xpm"
 
 RDEPEND="dev-libs/expat

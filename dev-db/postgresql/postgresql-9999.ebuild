@@ -43,7 +43,7 @@ llvm? (
 	sys-devel/llvm:=
 	sys-devel/clang:=
 )
-pam? ( sys-libs/pam )
+pam? ( virtual/pam )
 perl? ( >=dev-lang/perl-5.8:= )
 python? ( ${PYTHON_DEPS} )
 readline? ( sys-libs/readline:0= )

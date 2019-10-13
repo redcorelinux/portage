@@ -15,7 +15,7 @@ S="${WORKDIR}/fuse4bsd-498acaef33b0"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86-fbsd"
 IUSE=""
 
 DEPEND=">=sys-freebsd/freebsd-sources-9.1

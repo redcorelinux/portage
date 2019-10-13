@@ -1,9 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-GENTOO_DEPEND_ON_PERL_SUBSLOT=no
-inherit perl-module
+inherit perl-app
 
 DESCRIPTION="Command line tool for extracting videos from various websites"
 HOMEPAGE="http://clive.sourceforge.net/"

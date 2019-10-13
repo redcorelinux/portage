@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 arm64 hppa ~mips s390 x86 ~amd64-linux ~x86-linux"
-IUSE="test"
+IUSE="doc test"
 
 CDEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	!~dev-python/pbr-2.1.0"
@@ -30,6 +30,9 @@ DEPEND="
 		>=dev-python/coverage-4.0[${PYTHON_USEDEP}]
 		!~dev-python/coverage-4.4[${PYTHON_USEDEP}]
 	)
+	doc? (
+		>=dev-python/sphinx-1.6.2[${PYTHON_USEDEP}]
+	)
 "
 # source files stipulate <sphinx-1.3 however build effected perfectly with sphinx-1.3.1
 RDEPEND="
@@ -44,6 +47,15 @@ RDEPEND="
 	>=dev-python/pyyaml-3.10.0[${PYTHON_USEDEP}]
 	"
 
+python_compile() {
+	use doc && esetup.py build_sphinx
+}
+
 python_test() {
 	nosetests ${PN}/tests || die "Tests fail with ${EPYTHON}"
+}
+
+python_install_all() {
+	use doc && local HTML_DOCS=( doc/build/html/. )
+	distutils-r1_python_install_all
 }

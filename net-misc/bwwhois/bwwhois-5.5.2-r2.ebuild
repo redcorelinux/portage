@@ -1,9 +1,10 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
-inherit perl-module
+GENTOO_DEPEND_ON_PERL_SUBSLOT=yes
+inherit perl-app
 
 MY_P="${P/bw/}"
 
@@ -16,7 +17,7 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-lang/perl"
 RDEPEND="${DEPEND}
 	virtual/perl-Getopt-Long"
 
@@ -25,7 +26,6 @@ S="${WORKDIR}/${MY_P}"
 src_prepare() {
 	# bug #440390
 	sed -i -e '/^\.ru/s/ripn.ru/ripn.net/' tld.conf || die 'sed on tld.conf failed'
-	perl-module_src_prepare
 }
 
 src_install() {

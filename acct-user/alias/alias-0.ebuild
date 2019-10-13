@@ -13,6 +13,3 @@ ACCT_USER_HOME_PERMS=02755
 ACCT_USER_GROUPS=( nofiles )
 
 acct-user_add_deps
-
-DEPEND+=" acct-group/qmail "
-RDEPEND+=" acct-group/qmail "

@@ -6,16 +6,16 @@ inherit autotools flag-o-matic toolchain-funcs user
 
 DESCRIPTION="A Tool for network monitoring and data acquisition"
 HOMEPAGE="
-	https://www.tcpdump.org/
+	http://www.tcpdump.org/
 	https://github.com/the-tcpdump-group/tcpdump
 "
 SRC_URI="
-	https://www.tcpdump.org/release/${P}.tar.gz
+	http://www.tcpdump.org/release/${P}.tar.gz
 "
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="+drop-root libressl smi ssl samba suid test"
 
 RDEPEND="

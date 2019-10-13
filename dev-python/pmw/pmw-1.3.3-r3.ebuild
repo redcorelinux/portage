@@ -44,7 +44,7 @@ python_install_all() {
 	local DIR="Pmw/Pmw_1_3_3"
 
 	if use doc; then
-		dodoc -r ${DIR}/doc/*
+		dohtml -a html,gif,py ${DIR}/doc/*
 	fi
 
 	if use examples; then

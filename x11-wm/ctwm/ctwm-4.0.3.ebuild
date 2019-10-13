@@ -10,7 +10,7 @@ SRC_URI="${HOMEPAGE}dist/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
 
 RDEPEND="
 	x11-libs/libICE

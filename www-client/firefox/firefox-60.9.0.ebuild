@@ -37,8 +37,7 @@ MOZCONFIG_OPTIONAL_WIFI=1
 LLVM_MAX_SLOT=9
 
 inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils llvm \
-		mozconfig-v6.60 pax-utils xdg-utils autotools mozlinguas-v2 \
-		multiprocessing
+		mozconfig-v6.60 pax-utils xdg-utils autotools mozlinguas-v2
 
 DESCRIPTION="Firefox Web Browser"
 HOMEPAGE="https://www.mozilla.com/firefox"
@@ -140,7 +139,6 @@ src_unpack() {
 
 src_prepare() {
 	eapply "${WORKDIR}/firefox"
-	eapply "${FILESDIR}"/firefox-60.9.0-rust-1.38-compat.patch
 
 	# Enable gnomebreakpad
 	if use debug ; then
@@ -185,12 +183,6 @@ src_prepare() {
 
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
-
-	local n_jobs=$(makeopts_jobs)
-	if [[ ${n_jobs} == 1 ]]; then
-		einfo "Building with MAKEOPTS=-j1 is known to fail (bug #687028); Forcing MAKEOPTS=-j2 ..."
-		export MAKEOPTS=-j2
-	fi
 
 	# Autotools configure is now called old-configure.in
 	# This works because there is still a configure.in that happens to be for the

@@ -25,7 +25,7 @@ DEPEND="
 	x11-libs/cairo
 	x11-libs/libxkbcommon
 	gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 "
 RDEPEND="
 	${DEPEND}

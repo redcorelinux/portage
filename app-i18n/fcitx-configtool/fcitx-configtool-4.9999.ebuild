@@ -1,7 +1,7 @@
-# Copyright 2010-2019 Gentoo Authors
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="6"
 
 inherit cmake-utils
 
@@ -24,12 +24,12 @@ SLOT="4"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="virtual/pkgconfig"
-DEPEND=">=app-i18n/fcitx-4.2.9:4
+RDEPEND=">=app-i18n/fcitx-4.2.9:4
 	app-text/iso-codes
 	dev-libs/glib:2
 	x11-libs/gtk+:3"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 DOCS=()
 

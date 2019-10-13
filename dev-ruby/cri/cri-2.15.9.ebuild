@@ -14,7 +14,7 @@ DESCRIPTION="Cri is a library for building easy-to-use commandline tools"
 HOMEPAGE="https://rubygems.org/gems/cri"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~x86-fbsd"
 SLOT="0"
 IUSE=""
 

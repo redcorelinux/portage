@@ -28,7 +28,6 @@ BDEPEND="
 "
 
 DEPEND="
-	dev-libs/libutf8proc:=
 	dev-libs/libuv:0=
 	>=dev-libs/libvterm-0.1
 	dev-libs/msgpack:0=

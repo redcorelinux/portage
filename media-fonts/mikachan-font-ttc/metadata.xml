@@ -9,4 +9,8 @@
 	<email>cjk@gentoo.org</email>
 	<name>Cjk</name>
 </maintainer>
+<maintainer type="project">
+	<email>x11@gentoo.org</email>
+	<name>X11</name>
+</maintainer>
 </pkgmetadata>
