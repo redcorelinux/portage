@@ -13,7 +13,7 @@ SRC_URI="https://launchpad.net/vm/${PV%.*}.x/${MY_PV}/+download/${MY_P}.tgz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 ppc ~ppc64 x86"
+KEYWORDS="~alpha amd64 ~ia64 ppc ~ppc64 x86"
 IUSE="bbdb ssl"
 
 DEPEND="bbdb? ( app-emacs/bbdb )"
@@ -23,13 +23,15 @@ BDEPEND="sys-apps/texinfo"
 
 S="${WORKDIR}/${MY_P}"
 SITEFILE="50${PN}-gentoo.el"
+PATCHES=(
+	"${FILESDIR}"/${P}-datadir.patch
+	"${FILESDIR}"/${P}-texinfo-5.patch
+	"${FILESDIR}"/${P}-optional-args.patch
+	"${FILESDIR}"/${P}-texinfo-encoding.patch
+)
 
 src_prepare() {
-	eapply "${FILESDIR}/${P}-datadir.patch"
-	eapply "${FILESDIR}/${P}-texinfo-5.patch"
-	eapply "${FILESDIR}/${P}-optional-args.patch"
-	eapply_user
-
+	elisp_src_prepare
 	if ! use bbdb; then
 		elog "Excluding vm-pcrisis.el since the \"bbdb\" USE flag is not set."
 		eapply "${FILESDIR}/${PN}-8.0-no-pcrisis.patch"

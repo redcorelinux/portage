@@ -17,6 +17,7 @@ dev-libs/elfutils
 app-arch/rar
 dev-games/gtkradiant
 dev-games/ps2-packer
+games-action/crimsonland
 games-action/descent3
 games-action/descent3-demo
 games-action/guacamelee
@@ -56,6 +57,7 @@ games-fps/ut2004-troopers
 games-fps/ut2004-unwheel
 games-puzzle/world-of-goo
 games-puzzle/world-of-goo-demo
+games-roguelike/neon-chrome
 games-rpg/costume-quest
 games-rpg/wasteland2
 games-server/etqw-ded

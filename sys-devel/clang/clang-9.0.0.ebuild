@@ -35,7 +35,7 @@ LLVM_TARGET_USEDEPS=${ALL_LLVM_TARGETS[@]/%/?}
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-fbsd ~amd64-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux"
 IUSE="debug default-compiler-rt default-libcxx doc +static-analyzer
 	test xml kernel_FreeBSD ${ALL_LLVM_TARGETS[*]}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -73,6 +73,9 @@ PATCHES=(
 	# fix build with gcc-9.0.0
 	# https://bugs.llvm.org/show_bug.cgi?id=40547
 	"${FILESDIR}"/9.0.0/0002-Initialize-all-fields-in-ABIArgInfo.patch
+	# fix silly test failure due to '.src' in path
+	# https://bugs.llvm.org/show_bug.cgi?id=42979
+	"${FILESDIR}"/9.0.0/0003-Fix-Driver-modules.cpp-test-to-work-when-build-direc.patch
 )
 
 # Multilib notes:
