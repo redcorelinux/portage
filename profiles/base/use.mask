@@ -4,6 +4,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Brian Evans <grknight@gentoo.org> (2019-10-01)
+# Mask PHP 5.6 target for EOL
+php_targets_php5-6
+
 # Matt Turner <mattst88@gentoo.org> (2019-03-03)
 # Mask for testing. Bug 606924
 libglvnd
@@ -27,10 +31,6 @@ php_targets_php7-0
 # Matt Turner <mattst88@gentoo.org> (2018-11-11)
 # d3d9 only works on amd64/x86.
 d3d9
-
-# Aaron W. Swenson <titanofold@gentoo.org> (2018-09-09)
-# Mask PostgreSQL 12 while in (pre-)alpha.
-postgres_targets_postgres12
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2017-11-04)
 # Unkeyworded on most arches, unmasked in supported arch profiles.

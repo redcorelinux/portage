@@ -16,7 +16,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="+closure-compile component-build cups cpu_flags_arm_neon gnome-keyring +hangouts jumbo-build kerberos pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc widevine"
 RESTRICT="!system-ffmpeg? ( proprietary-codecs? ( bindist ) )"
 REQUIRED_USE="component-build? ( !suid )"
@@ -154,6 +154,7 @@ PATCHES=(
 	"${FILESDIR}/chromium-77-no-cups.patch"
 	"${FILESDIR}/chromium-77-gcc-abstract.patch"
 	"${FILESDIR}/chromium-77-gcc-include.patch"
+	"${FILESDIR}/chromium-77-gcc-alignas.patch"
 )
 
 pre_build_checks() {
@@ -161,6 +162,10 @@ pre_build_checks() {
 		local -x CPP="$(tc-getCXX) -E"
 		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge 8.0; then
 			die "At least gcc 8.0 is required"
+		fi
+		# component build hangs with tcmalloc enabled due to sandbox issue, bug #695976.
+		if has usersandbox ${FEATURES} && use tcmalloc && use component-build; then
+			die "Component build with tcmalloc requires FEATURES=-usersandbox."
 		fi
 	fi
 
