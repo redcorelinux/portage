@@ -13,7 +13,11 @@ SRC_URI="https://github.com/Samsung/rlottie/archive/${MY_COMMIT}.tar.gz -> ${P}.
 
 LICENSE="BSD FTL LGPL-2.1 MIT"
 SLOT="0"
+<<<<<<< HEAD
 KEYWORDS="~amd64 ~x86"
+=======
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+>>>>>>> next
 IUSE="test"
 
 RESTRICT="!test? ( test )"

@@ -172,7 +172,6 @@ app-admin/salt:zeromq - Add support for the zeromq transport.
 app-admin/sudo:gcrypt - Use message digest functions from dev-libs/libgcrypt instead of sudo's
 app-admin/sudo:libressl - Use message digest functions from dev-libs/libressl instead of sudo's
 app-admin/sudo:offensive - Let sudo print insults when the user types the wrong password
-app-admin/sudo:openssl - Use message digest functions from dev-libs/openssl instead of sudo's
 app-admin/sudo:secure-path - Replace PATH variable with compile time secure paths
 app-admin/sudo:sendmail - Allow sudo to send emails with sendmail
 app-admin/sudo:sssd - Add System Security Services Daemon support
@@ -1262,7 +1261,7 @@ app-text/mathtex:png - Generate png images by default instead of gif
 app-text/msort:heap - Use heap instead of alloca()
 app-text/msort:icu - Use dev-libs/icu instead of dev-libs/libutf8proc.
 app-text/msort:libuninum - Use dev-libs/libuninum for conversion.
-app-text/pandoc:embed_data_files - Embed data files in binary for relocatable executable.
+app-text/pandoc:embed-data-files - Embed data files in binary for relocatable executable.
 app-text/pandoc:http-conduit - Enable downloading of resources over https.
 app-text/pandoc:https - Enable support for downloading of resources over https.
 app-text/pandoc:make-pandoc-man-pages - Build program to regenerate pandoc man pages from README.
@@ -1652,7 +1651,7 @@ dev-haskell/contravariant:semigroups - You can disable the use of the `semigroup
 dev-haskell/contravariant:statevar - You can disable the use of the `StateVar` package using `-f-StateVar`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/contravariant:tagged - You can disable the use of the `tagged` package on older versons of GHC using `-f-tagged`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/cpu:executable - build 'cpuid' tool
-dev-haskell/crypto-api:all_cpolys - Build all the CMAC polynomes up to 10000 bits instead of just the usual ones
+dev-haskell/crypto-api:all-cpolys - Build all the CMAC polynomes up to 10000 bits instead of just the usual ones
 dev-haskell/crypto-conduit:conduit11 - Use conduit >= 1.1.
 dev-haskell/cryptohash:cryptoapi - Defines crypto-api instances
 dev-haskell/cryptonite:integer-gmp - Whether or not to use GMP for some functions
@@ -1666,7 +1665,7 @@ dev-haskell/distributive:lib-werror - Compile with the ghc -Werror option
 dev-haskell/encoding:systemencoding - Provide the getSystemEncoding action to query the locale.
 dev-haskell/entropy:halvm - Build for the HaLVM.
 dev-haskell/filestore:maxcount - Make use of a recent (>= 2.3.0) Darcs feature which vastly improves the performance of 'latest'. You should disable this flag if you plan to use gitit with an older version of Darcs, or 'latest' will raise an error.
-dev-haskell/glib:closure_signals - Use the the GClosure-based signals implementation.
+dev-haskell/glib:closure-signals - Use the the GClosure-based signals implementation.
 dev-haskell/gtk:deprecated - Include definitions in this library that are considered obsolete.
 dev-haskell/gtk:fmode-binary - Set the default file translation mode for file I/O operations to _O_BINARY.
 dev-haskell/gtk:gio - Depend on GIO package, thereby enabling certain features.
@@ -1731,7 +1730,7 @@ dev-haskell/monad-control:instancest - If enabled this package will export Monad
 dev-haskell/monad-logger:template-haskell - Enable Template Haskell support.
 dev-haskell/monad-par:chaselev - Use Chase-Lev Deques for higher-perf work-stealing.
 dev-haskell/nats:hashable - You can disable the use of the `hashable` package using USE=-hashable. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users. If set we will not supply an instance of `Hashable`.
-dev-haskell/network-data:small_base - Build the split-up base package.
+dev-haskell/network-data:small-base - Build the split-up base package.
 dev-haskell/pandoc-citeproc:bibutils - use Chris Putnam's app-text/bibutils
 dev-haskell/pandoc-citeproc:embed_data_files - Embed locale files into the library (needed for windows packaging)
 dev-haskell/pandoc-citeproc:hexpat - use dev-haskell/hexpat instead of dev-haskell/xml for XML parsing
@@ -1774,12 +1773,12 @@ dev-haskell/semigroups:transformers - provide instances for transformers package
 dev-haskell/semigroups:unordered-containers - You can disable the use of the `unordered-containers` package using USE=-unordered-containers. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/sendfile:portable - Explicitly enable portable sendfile support (implemented in Haskell)
 dev-haskell/sha:exe - Build a sha1 and a sha384 executable similar to 'md5sum'.
-dev-haskell/shakespeare:test_coffee - Render tests through coffeescript render function.
-dev-haskell/shakespeare:test_export - Test export.
-dev-haskell/shakespeare:test_roy - Render tests through roy render function.
-dev-haskell/shakespeare-js:test_coffee - Test coffee.
-dev-haskell/shakespeare-js:test_export - Test export.
-dev-haskell/shakespeare-js:test_roy - Test roy.
+dev-haskell/shakespeare:test-coffee - Render tests through coffeescript render function.
+dev-haskell/shakespeare:test-export - Test export.
+dev-haskell/shakespeare:test-roy - Render tests through roy render function.
+dev-haskell/shakespeare-js:test-coffee - Test coffee.
+dev-haskell/shakespeare-js:test-export - Test export.
+dev-haskell/shakespeare-js:test-roy - Test roy.
 dev-haskell/shelly:lifted - run the tests against Shelly.Lifted
 dev-haskell/shuffle:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/simple-sendfile:allow-bsd - Allow use of BSD sendfile (disable on GNU/kFreeBSD)
@@ -1936,7 +1935,6 @@ dev-lang/erlang:kpoll - Enable kernel polling support
 dev-lang/erlang:pgo - Build erts with profile-guided optimizations
 dev-lang/fpc:ide - Build and install the Free Pascal Compiler IDE
 dev-lang/gdl:eigen - Build matrix manipulation with dev-cpp/eigen
-dev-lang/gdl:grib - Add support for the meteorological GRIB format with sci-libs/grib_api
 dev-lang/gdl:gshhs - Add support for projection adn continent maps with sci-geosciences/gshhs-data
 dev-lang/gdl:hdf - Add support for the Hierarchical Data Format v.4
 dev-lang/gdl:proj - Add support for sci-libs/proj (geographic projections)
@@ -5689,8 +5687,8 @@ net-dns/dnsmasq:script - Enable support for calling scripts when leases change.
 net-dns/dnsmasq:tftp - Enables built in TFTP server for netbooting.
 net-dns/dnssec-validator:dlv - Enable support for the DNSSEC look-aside validation
 net-dns/dnssec-validator:nsec3 - Enable support for the NSEC3 Resource Record
-net-dns/getdns:getdns_query - Add getdns_query tool
-net-dns/getdns:getdns_server_mon - Add getdns_server_mon tool
+net-dns/getdns:getdns-query - Add getdns_query tool
+net-dns/getdns:getdns-server-mon - Add getdns_server_mon tool
 net-dns/getdns:libev - Enable dev-libs/libev support
 net-dns/getdns:libevent - Enable dev-libs/libevent support
 net-dns/getdns:libuv - Enable dev-libs/libuv support
@@ -6649,6 +6647,7 @@ net-misc/mosh:mosh-hardening - Enable compiler and linker options to frustrate m
 net-misc/mosh:server - Build network server
 net-misc/mosh:ufw - Install net-firewall/ufw rule set
 net-misc/mosh:utempter - Include libutempter support
+net-misc/mrouted:rsrr - Enable Routing Support for Resource Reservations, for RSVP
 net-misc/mulk:checksum - Enable checksum verification for Metalink from dev-libs/openssl
 net-misc/mulk:metalink - Enable support for media-libs/libmetalink
 net-misc/ncp:diet - Compile against dev-libs/dietlibc
@@ -7497,7 +7496,6 @@ sci-libs/gmsh:metis - Enables metis support
 sci-libs/gmsh:netgen - Enable 3D Frontal triangulation using netgen lib
 sci-libs/gmsh:opencascade - Enable OpenCASCADE support
 sci-libs/gmsh:petsc - Enable sci-mathematics/petsc support
-sci-libs/grib_api:aec - Build with Adaptive Entropy Coding compression, needs sci-libs/libaec
 sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/cblas) instead of shipped internal version
 sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)

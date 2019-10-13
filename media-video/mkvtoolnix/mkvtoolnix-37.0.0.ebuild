@@ -11,7 +11,11 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit autotools git-r3
 else
 	SRC_URI="https://mkvtoolnix.download/sources/${P}.tar.xz"
+<<<<<<< HEAD
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+=======
+	KEYWORDS="~amd64 ~ppc ppc64 ~x86"
+>>>>>>> next
 fi
 
 DESCRIPTION="Tools to create, alter, and inspect Matroska files"

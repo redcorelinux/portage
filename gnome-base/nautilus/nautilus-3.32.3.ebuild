@@ -35,7 +35,12 @@ RDEPEND="${COMMON_DEPEND}
 	seccomp? ( >=sys-apps/bubblewrap-0.3.1 )
 	sendto? ( !<gnome-extra/nautilus-sendto-3.0.1 )
 	gstreamer? ( !<media-video/totem-3.31.91[nautilus] )
+<<<<<<< HEAD
 "
+=======
+	>=app-misc/tracker-miners-2.0:=
+" # uses org.freedesktop.Tracker.Miner.Files gsettings schema from tracker-miners
+>>>>>>> next
 DEPEND="${COMMON_DEPEND}
 	media-libs/fontconfig
 "
