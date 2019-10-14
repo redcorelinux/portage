@@ -29,8 +29,6 @@
 
 #--- END OF EXAMPLES ---
 
-<<<<<<< HEAD
-=======
 # Michał Górny <mgorny@gentoo.org> (2019-10-13)
 # Last release in 2008.  Declared dead upstream, apparently broken
 # on newer systems.  EAPI 0.
@@ -334,7 +332,6 @@ games-fps/ut2004-troopers
 games-fps/ut2004-unwheel
 games-server/ut2004-ded
 
->>>>>>> gentoo resync : 13.10.2019
 # Stefan Strogin <steils@gentoo.org> (2019-09-27)
 # Requires >=dev-lang/lua-5.3 which is masked
 >=dev-util/bam-0.5.0
