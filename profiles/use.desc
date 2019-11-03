@@ -30,7 +30,6 @@ big-endian - Big-endian toolchain support
 bindist - Flag to enable or disable options for prebuilt (GRP) packages (eg. due to licensing issues)
 blas - Add support for the virtual/blas numerical library
 bluetooth - Enable Bluetooth Support
-bootstrap - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used during original system bootstrapping [make stage2]
 branding - Enable Gentoo specific branding
 build - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used for creating build images and the first half of bootstrapping [make stage1]
 bzip2 - Use the bzlib compression library
@@ -296,7 +295,7 @@ source - Zip the sources and install them
 sox - Add support for Sound eXchange (SoX)
 speex - Add support for the speex audio codec (used for speech)
 spell - Add dictionary support
-split-usr - Enable behavior to support maintaining /bin and /lib separately from /usr/bin and /usr/lib
+split-usr - Enable behavior to support maintaining /bin, /lib*, /sbin and /usr/sbin  separately from /usr/bin and /usr/lib*
 sqlite - Add support for sqlite - embedded sql database
 ssl - Add support for SSL/TLS connections (Secure Socket Layer / Transport Layer Security)
 startup-notification - Enable application startup event feedback mechanism

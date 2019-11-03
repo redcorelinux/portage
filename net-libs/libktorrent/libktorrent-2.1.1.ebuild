@@ -12,7 +12,7 @@ HOMEPAGE="https://kde.org/applications/internet/ktorrent/"
 SRC_URI="mirror://kde/stable/ktorrent/5.1.2/${P}.tar.xz"
 
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 BDEPEND="sys-devel/gettext"
@@ -51,7 +51,7 @@ src_prepare() {
 src_test() {
 	# failing network tests
 	local myctestargs=(
-		-E "(fin|packetloss|send|transmit)"
+		-E "(fin|packetloss|send|superseedtest|transmit|utppolltest)"
 	)
 
 	kde5_src_test

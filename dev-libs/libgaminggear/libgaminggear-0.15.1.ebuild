@@ -26,7 +26,8 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	virtual/libgudev
+	dev-libs/libgudev
+	media-libs/harfbuzz
 "
 BDEPEND="
 	dev-util/glib-utils
@@ -35,6 +36,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.10.0-doc.patch
+	"${FILESDIR}"/${P}-cmake-3.13.patch
 )
 
 # Required because xdg.eclass overrides src_prepare() from cmake-utils.eclass

@@ -6,7 +6,7 @@ EAPI=6
 inherit eutils alternatives flag-o-matic toolchain-funcs multilib multiprocessing
 
 PATCH_VER=1
-CROSS_VER=1.2.2
+CROSS_VER=1.3
 PATCH_BASE="perl-5.30.0-patches-${PATCH_VER}"
 PATCH_DEV=dilfridge
 
@@ -464,9 +464,11 @@ src_configure() {
 
 	# fix unaligned access misdetection
 	# https://rt.perl.org/Public/Bug/Display.html?id=133495
-	# bug #676062
-	use hppa || use sparc || [[ ${CHOST} == sparc*-solaris* ]] && \
-		myconf "-Dd_u32align='define'"
+	# https://rt.perl.org/Public/Bug/Display.html?id=133803
+	# bug #676062, bug #688432
+	use hppa || use sparc || [[ ${CHOST} == sparc*-solaris* ]] || \
+		[[ ${CHOST} == armv5tel* ]] \
+			&& myconf "-Dd_u32align='define'"
 
 	# Prefix: the host system needs not to follow Gentoo multilib stuff, and in
 	# Prefix itself we don't do multilib either, so make sure perl can find

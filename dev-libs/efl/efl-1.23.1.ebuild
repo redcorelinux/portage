@@ -11,7 +11,7 @@ SRC_URI="https://download.enlightenment.org/rel/libs/${PN}/${P}.tar.xz"
 
 LICENSE="BSD-2 GPL-2 LGPL-2.1 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="~amd64 ~arm ~hppa ~x86"
 IUSE="X bmp connman dds debug doc +drm +eet elogind examples fbcon fontconfig
 	fribidi gif gles2 gnutls glib +gstreamer harfbuzz hyphen ibus ico libressl
 	lua +luajit jpeg2k json nls mono opengl +pdf physics pmaps postscript psd
@@ -37,6 +37,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-libs/check
 	net-misc/curl
+	media-libs/giflib:=
 	media-libs/libpng:0=
 	sys-apps/dbus
 	sys-libs/zlib
@@ -72,7 +73,6 @@ RDEPEND="
 	)
 	fontconfig? ( media-libs/fontconfig )
 	fribidi? ( dev-libs/fribidi )
-	gif? ( media-libs/giflib:= )
 	gles2? (
 		media-libs/mesa[egl,gles2]
 		virtual/opengl
@@ -85,7 +85,7 @@ RDEPEND="
 	hyphen? ( dev-libs/hyphen )
 	ibus? ( app-i18n/ibus )
 	jpeg2k? ( media-libs/openjpeg:= )
-	json? ( dev-libs/rlottie )
+	json? ( media-libs/rlottie )
 	lua? ( dev-lang/lua:* )
 	luajit? ( dev-lang/luajit:* )
 	mono? ( dev-lang/mono )
@@ -152,6 +152,7 @@ src_configure() {
 		-D xinput22=true
 
 		$(meson_use X x11)
+		$(meson_use debug debug-threads)
 		$(meson_use drm)
 		$(meson_use elogind)
 		$(meson_use examples build-examples)
@@ -209,7 +210,6 @@ src_configure() {
 	! use bmp && disabledEvasLoaders+="bmp,wbmp,"
 	! use dds && disabledEvasLoaders+="dds,"
 	! use eet && disabledEvasLoaders+="eet,"
-	! use gif && disabledEvasLoaders+="gif,"
 	! use gstreamer && disabledEvasLoaders+="gst,"
 	! use ico && disabledEvasLoaders+="ico,"
 	! use jpeg2k && disabledEvasLoaders+="jp2k,"

@@ -12,7 +12,7 @@ SRC_URI="https://www.kernel.org/pub/linux/bluetooth/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0/3"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~mips ppc ppc64 x86"
+KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 x86"
 IUSE="btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex +readline selinux systemd test test-programs +udev user-session"
 
 # Since this release all remaining extra-tools need readline support, but this could
@@ -68,6 +68,11 @@ PATCHES=(
 	# build: Quote systemd variable names, bug #527432
 	# http://article.gmane.org/gmane.linux.bluez.kernel/67230
 	"${FILESDIR}"/${PN}-5.39-systemd-quote.patch
+
+	# Include limits.h for PATH_MAX
+	# https://marc.info/?l=linux-bluetooth&m=157156119320950&w=2
+	# https://bugs.gentoo.org/695940
+	"${FILESDIR}"/${PN}-5.51-include-limits-h.patch
 
 	# Fedora patches
 	# http://www.spinics.net/lists/linux-bluetooth/msg40136.html

@@ -3,18 +3,14 @@
 
 EAPI=7
 
-: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
-# (needed due to CMAKE_BUILD_TYPE != Gentoo)
-CMAKE_MIN_VERSION=3.7.0-r1
 PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
-
-inherit cmake-multilib git-r3 llvm multiprocessing python-any-r1
+inherit cmake-multilib llvm llvm.org multiprocessing python-any-r1
 
 DESCRIPTION="Low level support for a standard C++ library"
 HOMEPAGE="https://libcxxabi.llvm.org/"
-SRC_URI=""
-EGIT_REPO_URI="https://git.llvm.org/git/libcxxabi.git
-	https://github.com/llvm-mirror/libcxxabi.git"
+# libcxx is needed uncondtionally for the headers
+LLVM_COMPONENTS=( libcxx{abi,} )
+llvm.org_set_globals
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
@@ -46,17 +42,6 @@ python_check_deps() {
 pkg_setup() {
 	llvm_pkg_setup
 	use test && python-any-r1_pkg_setup
-}
-
-src_unpack() {
-	# we need the headers
-	git-r3_fetch "https://git.llvm.org/git/libcxx.git
-		https://github.com/llvm-mirror/libcxx.git"
-	git-r3_fetch
-
-	git-r3_checkout https://llvm.org/git/libcxx.git \
-		"${WORKDIR}"/libcxx ''
-	git-r3_checkout
 }
 
 multilib_src_configure() {

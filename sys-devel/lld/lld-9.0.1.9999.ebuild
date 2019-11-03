@@ -3,19 +3,14 @@
 
 EAPI=7
 
-: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
-# (needed due to CMAKE_BUILD_TYPE != Gentoo)
-CMAKE_MIN_VERSION=3.7.0-r1
 PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
-
-inherit cmake-utils git-r3 llvm multiprocessing python-any-r1
+inherit cmake-utils llvm llvm.org multiprocessing python-any-r1
 
 DESCRIPTION="The LLVM linker (link editor)"
 HOMEPAGE="https://llvm.org/"
-SRC_URI=""
-EGIT_REPO_URI="https://git.llvm.org/git/lld.git
-	https://github.com/llvm-mirror/lld.git"
-EGIT_BRANCH="release_90"
+LLVM_COMPONENTS=( lld )
+LLVM_TEST_COMPONENTS=( llvm/utils/{lit,unittest} )
+llvm.org_set_globals
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0"
@@ -37,21 +32,6 @@ python_check_deps() {
 pkg_setup() {
 	LLVM_MAX_SLOT=${PV%%.*} llvm_pkg_setup
 	use test && python-any-r1_pkg_setup
-}
-
-src_unpack() {
-	if use test; then
-		# needed for patched gtest
-		git-r3_fetch "https://git.llvm.org/git/llvm.git
-			https://github.com/llvm-mirror/llvm.git"
-	fi
-	git-r3_fetch
-
-	if use test; then
-		git-r3_checkout https://llvm.org/git/llvm.git \
-			"${WORKDIR}"/llvm '' utils/{lit,unittest}
-	fi
-	git-r3_checkout
 }
 
 src_configure() {

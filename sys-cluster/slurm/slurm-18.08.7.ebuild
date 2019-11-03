@@ -67,7 +67,7 @@ REQUIRED_USE="torque? ( perl )"
 LIBSLURM_PERL_S="${WORKDIR}/${MY_P}/contribs/perlapi/libslurm/perl"
 LIBSLURMDB_PERL_S="${WORKDIR}/${MY_P}/contribs/perlapi/libslurmdb/perl"
 
-RESTRICT="primaryuri test"
+RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-disable-sview.patch
@@ -107,6 +107,7 @@ src_prepare() {
 	sed \
 		-e 's:sysconfig/.*:conf.d/slurm:g' \
 		-e 's:var/run/:run/slurm/:g' \
+		-e '/^EnvironmentFile=.*/d' \
 		-i "${S}/etc"/*.service.in \
 		|| die "Can't sed systemd services for sysconfig or var/run/"
 
@@ -115,7 +116,6 @@ src_prepare() {
 }
 
 src_configure() {
-	use debug || myconf+=( --disable-debug )
 	local myconf=(
 		--sysconfdir="${EPREFIX}/etc/${PN}"
 		--with-hwloc="${EPREFIX}/usr"
@@ -126,6 +126,7 @@ src_configure() {
 	use mysql || myconf+=( --without-mysql_config )
 	use amd64 && myconf+=( $(use_with netloc) )
 	econf "${myconf[@]}" \
+		$(use_enable debug) \
 		$(use_enable pam) \
 		$(use_enable X x11) \
 		$(use_with ssl) \

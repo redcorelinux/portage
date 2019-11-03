@@ -46,7 +46,7 @@ net-analyzer/icinga2 mariadb
 
 # Luca Barbato <lu_zero@gentoo.org> (2018-08-12)
 # grub pc is not supported on powerpc
-sys-boot/grub:2 grub_platforms_pc grub_platforms_efi-32 grub_platforms_efi-64 grub_platforms_xen
+sys-boot/grub:2 grub_platforms_pc grub_platforms_efi-32 grub_platforms_efi-64 grub_platforms_xen grub_platforms_xen-pvh
 
 # Luke Dashjr <luke-jr+gentoobugs@utopios.org> (2018-06-08)
 # Requires unported sys-libs/netbsd-csu
@@ -115,10 +115,6 @@ media-libs/mesa vulkan vulkan-overlay
 # Michał Górny <mgorny@gentoo.org> (2017-08-08)
 # Requires USE=opencl that is masked in this profile.
 net-misc/bfgminer adl lm-sensors
-
-# Jason Zaman <perfinion@gentoo.org> (2017-05-09)
-# x11-libs/libXpresent is not keyworded on ppc
-xfce-base/xfwm4 xpresent
 
 # Michael Weber <xmw@gentoo.org> (2017-04-06)
 # mask unkeyworded dep pymongo -> mongodb
@@ -295,7 +291,7 @@ net-vpn/tor tor-hardening
 
 # Pacho Ramos <pacho@gentoo.org> (2012-05-07)
 # libhid is not keyworded
-app-misc/lcdproc hid lcd_devices_mdm166a
+app-misc/lcdproc lcd_devices_mdm166a
 
 # Brent Baude <ranger@gentoo.org> (2012-03-06)
 # masking wimax use flag
