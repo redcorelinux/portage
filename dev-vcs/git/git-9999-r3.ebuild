@@ -54,7 +54,7 @@ SLOT="0"
 IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg highlight +iconv libressl mediawiki mediawiki-experimental +nls +pcre +pcre-jit perforce +perl ppcsha1 tk +threads +webdav xinetd cvs subversion test"
 
 # Common to both DEPEND and RDEPEND
-CDEPEND="
+DEPEND="
 	gnome-keyring? ( app-crypt/libsecret )
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:= )
@@ -73,7 +73,7 @@ CDEPEND="
 	iconv? ( virtual/libiconv )
 "
 
-RDEPEND="${CDEPEND}
+RDEPEND="${DEPEND}
 	gpg? ( app-crypt/gnupg )
 	perl? (
 		dev-perl/Error
@@ -106,9 +106,6 @@ RDEPEND="${CDEPEND}
 #   .txt/asciidoc --(asciidoc)---------> .xml/docbook
 #   .xml/docbook  --(docbook2texi.pl)--> .texi
 #   .texi         --(makeinfo)---------> .info
-DEPEND="${CDEPEND}
-	test? (	app-crypt/gnupg	)"
-
 BDEPEND="
 	doc? (
 		app-text/asciidoc
@@ -117,6 +114,7 @@ BDEPEND="
 		sys-apps/texinfo
 	)
 	nls? ( sys-devel/gettext )
+	test? (	app-crypt/gnupg	)
 "
 
 # Live ebuild builds man pages and HTML docs, additionally
@@ -138,6 +136,8 @@ REQUIRED_USE="
 	pcre-jit? ( pcre )
 	perforce? ( ${PYTHON_REQUIRED_USE} )
 "
+
+RESTRICT="!test? ( test )"
 
 PATCHES=(
 	# bug #350330 - automagic CVS when we don't want it is bad.
@@ -548,7 +548,7 @@ src_install() {
 		# but upstream installs in /usr/share/gitweb
 		# so we will install a symlink and use their location for compat with other
 		# distros
-		dosym /usr/share/gitweb /usr/share/${PN}/gitweb
+		dosym ../gitweb /usr/share/${PN}/gitweb
 
 		# INSTALL discusses configuration issues, not just installation
 		docinto /
