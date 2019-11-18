@@ -21,6 +21,8 @@ LICENSE="MIT GPL-2"
 SLOT="0"
 IUSE="dbus +foomatic ipp_autosetup jpeg ldap pclm pdf perl png +postscript static-libs test tiff zeroconf"
 
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	>=app-text/poppler-0.32:=[cxx,jpeg?,lcms,tiff?,utils]
 	>=app-text/qpdf-8.3.0:=
@@ -43,8 +45,11 @@ RDEPEND="
 	tiff? ( media-libs/tiff:0 )
 	zeroconf? ( net-dns/avahi[dbus] )
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/gdbus-codegen
+	>=sys-devel/gettext-0.18.3
+	virtual/pkgconfig
 	test? ( media-fonts/dejavu )
 "
 

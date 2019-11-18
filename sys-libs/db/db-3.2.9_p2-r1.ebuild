@@ -30,6 +30,7 @@ SLOT="3"
 # in the tree.
 KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="doc"
+RESTRICT="!test? ( test )"
 
 DEPEND="${RDEPEND}
 	=sys-libs/db-1.85*"
@@ -140,7 +141,7 @@ src_compile() {
 
 src_install() {
 	pushd build-shared &>/dev/null || die
-	# build system does not support DESTDIR 
+	# build system does not support DESTDIR
 	emake \
 		libdb=libdb-3.2.a \
 		libcxx=libcxx_3.2.a \

@@ -10,7 +10,7 @@
 # This eclass contains functions shared by the other KDE eclasses and forms
 # part of their public API.
 #
-# This eclass should (almost) never be inherited directly by an ebuild.
+# This eclass must not be inherited directly by an ebuild.
 
 if [[ -z ${_KDE5_FUNCTIONS_ECLASS} ]]; then
 _KDE5_FUNCTIONS_ECLASS=1
@@ -31,16 +31,6 @@ if [[ ${PV} = *9999* ]]; then
 	KDE_BUILD_TYPE="live"
 fi
 export KDE_BUILD_TYPE
-
-case ${CATEGORY} in
-	kde-frameworks)
-		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		;;
-	kde-plasma)
-		[[ ${PV} = 5.17* ]] && : ${FRAMEWORKS_MINIMAL:=5.63.0}
-		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		;;
-esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
@@ -140,6 +130,7 @@ _add_category_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
+# PORTING: no replacement
 add_frameworks_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -172,6 +163,7 @@ add_frameworks_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
+# PORTING: no replacement
 add_plasma_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -204,6 +196,7 @@ add_plasma_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
+# PORTING: no replacement
 add_kdeapps_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -236,6 +229,7 @@ add_kdeapps_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
+# PORTING: no replacement
 add_qt_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -260,6 +254,7 @@ add_qt_dep() {
 # @USAGE: <prefix> <dependency>
 # @DESCRIPTION:
 # Removes a specified dependency from a find_package call with multiple components.
+# PORTING: Use ecm_punt_bogus_dep from ecm.eclass instead.
 punt_bogus_dep() {
 	local prefix=${1}
 	local dep=${2}

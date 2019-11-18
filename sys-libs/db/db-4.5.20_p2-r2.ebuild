@@ -29,6 +29,7 @@ LICENSE="Sleepycat"
 SLOT="$(ver_cut 1-2)"
 KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="tcl java doc cxx rpc"
+RESTRICT="!test? ( test )"
 
 DEPEND="tcl? ( >=dev-lang/tcl-8.4 )
 	java? ( >=virtual/jdk-1.4 )
@@ -37,11 +38,11 @@ RDEPEND="tcl? ( dev-lang/tcl )
 	java? ( >=virtual/jre-1.4 )"
 
 PATCHES=(
-	"${FILESDIR}"/"${PN}"-"${SLOT}"-libtool.patch
+	"${FILESDIR}"/"${PN}"-4.4-libtool.patch
 
 	# use the includes from the prefix
-	"${FILESDIR}"/"${PN}"-4.3-jni-check-prefix-first.patch
-	"${FILESDIR}"/"${PN}"-4.3-listen-to-java-options.patch
+	"${FILESDIR}"/"${PN}"-4.2-jni-check-prefix-first.patch
+	"${FILESDIR}"/"${PN}"-4.2-listen-to-java-options.patch
 )
 
 # Required to avoid unpack attempt of patches

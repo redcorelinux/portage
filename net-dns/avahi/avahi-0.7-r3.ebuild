@@ -16,6 +16,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="autoipd bookmarks dbus doc gdbm gtk gtk3 howl-compat +introspection ipv6 kernel_linux mdnsresponder-compat mono nls python qt5 selinux systemd test"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	python? ( dbus gdbm ${PYTHON_REQUIRED_USE} )
@@ -25,7 +26,7 @@ REQUIRED_USE="
 	systemd? ( dbus )
 "
 
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/libdaemon
 	dev-libs/expat
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
@@ -50,21 +51,17 @@ COMMON_DEPEND="
 		>=dev-python/twisted-16.0.0[${PYTHON_USEDEP}]
 	)
 "
-
-DEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${DEPEND}
+	howl-compat? ( !net-misc/howl )
+	mdnsresponder-compat? ( !net-misc/mDNSResponder )
+	selinux? ( sec-policy/selinux-avahi )
+"
+BDEPEND="
 	dev-util/glib-utils
 	doc? ( app-doc/doxygen )
 	app-doc/xmltoman
 	dev-util/intltool
 	virtual/pkgconfig[${MULTILIB_USEDEP}]
-"
-
-RDEPEND="
-	${COMMON_DEPEND}
-	howl-compat? ( !net-misc/howl )
-	mdnsresponder-compat? ( !net-misc/mDNSResponder )
-	selinux? ( sec-policy/selinux-avahi )
 "
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/avahi-qt5/qt-watch.h )
@@ -194,7 +191,7 @@ multilib_src_install() {
 	fi
 
 	# The build system creates an empty "/run" directory, so we clean it up here
-	rmdir "${ED}"/run
+	rmdir "${ED}"/run || die
 }
 
 multilib_src_install_all() {
@@ -208,7 +205,7 @@ multilib_src_install_all() {
 
 	dodoc docs/{AUTHORS,NEWS,README,TODO}
 
-	prune_libtool_files --all
+	find "${ED}" -name '*.la' -type f -delete || die
 }
 
 pkg_postinst() {

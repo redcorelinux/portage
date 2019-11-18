@@ -29,6 +29,54 @@
 
 #--- END OF EXAMPLES ---
 
+# Alfredo Tupone <tupone@gentoo.org> (2019-11-18)
+# No more needed.
+# Removal in 30 days.
+media-libs/skstream
+
+# Mart Raudsepp <leio@gentoo.org> (2019-11-17)
+# Obsolete library with no remaining consumers.
+# Only older dev-libs/libreport versions used it.
+# Removal in 30 days.  Bug #700380.
+dev-libs/btparser
+
+# Mart Raudsepp <leio@gentoo.org> (2019-11-17)
+# Obsolete library with no consumers.
+# Removal in 30 days.  Bug #700332.
+dev-libs/qof
+
+# Aaron Bauman <bman@gentoo.org> (2019-11-16)
+# EAPI=4 and fails to build
+dev-util/ccglue
+
+# Aaron Bauman <bman@gentoo.org> (2019-11-16)
+# EAPI=4. If anyone has this hardware then speak up.
+# Removal in 15 days
+app-misc/rioutil
+
+# Lars Wendler <polynomial-c@gentoo.org> (2019-11-14)
+# Breaks archives containing relative paths
+# when being called with --no-absolute-filenames
+# https://bugs.gentoo.org/700020
+=app-arch/cpio-2.13
+
+# Stephan Hartmann <stha09@googlemail.com> (2019-11-11)
+# Dev channel releases are only for people who
+# are developers or want more experimental features
+# and accept a more unstable release.
+>=www-client/chromium-80
+
+# Aaron Bauman <bman@gentoo.org> (2019-11-10)
+# Maintainer-needed, EAPI=0, Removal in 15 days
+# Upstream is dead and can't locate a new home
+net-p2p/createtorrent
+
+# Michał Górny <mgorny@gentoo.org> (2019-11-10)
+# Added in 2008 and not updated since.  Multiple releases behind
+# upstream.  Still at EAPI 0.
+# Removal in 30 days.  Bug #697344.
+dev-libs/cygwin
+
 # Michał Górny <mgorny@gentoo.org> (2019-11-10)
 # Those packages are at EAPI 0.  Their respective maintainers
 # are unresponsive and they require specific hardware to build.
@@ -37,16 +85,12 @@
 # sys-apps/ibm-powerpc-utils-papr (ppc*): bug #697210
 # sys-apps/lkcdutils (s390): bug #697212
 # sys-block/nwutil (arm): bug #697198
-# sys-boot/aboot (alpha): bug #697182
-# sys-boot/milo (alpha): bug #697180
 # sys-libs/libspe2 & sys-libs/mars (ppc64): bug #697158
 #
 # Removal in 30 days.
 sys-apps/ibm-powerpc-utils-papr
 sys-apps/lkcdutils
 sys-block/nwutil
-sys-boot/aboot
-sys-boot/milo
 sys-libs/libspe2
 sys-libs/mars
 
@@ -94,11 +138,6 @@ sys-cluster/dlm-lib
 # with modern media is doubtful.
 # Removal in 30 days.  Bug #699694.
 media-video/emovix
-
-# Aaron Bauman <bman@gentoo.org> (2019-11-09)
-# upstream moved to Github. not bumped in years
-# EAPI=4 and maintainer-needed. Removal in 30 days
-app-laptop/hdaps-gl
 
 # Aaron Bauman <bman@gentoo.org> (2019-11-09)
 # homepage dead, maintainer-needed
@@ -186,10 +225,6 @@ media-gfx/opcion
 media-gfx/aoi
 media-gfx/exiftags
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2019-11-05)
-# Ships broken libssh-config module breaking build of revdeps, bug #698940
-=net-libs/libssh-0.9.1
-
 # Michał Górny <mgorny@gentoo.org> (2019-11-05)
 # The following packages are unmaintained and have incorrect LICENSE
 # entries.  All of them have additional bugs reported.
@@ -209,11 +244,6 @@ dev-tex/xcolor
 # No more needed. Substituted by dev-ada/gnatcoll-core and others
 # Removal in 30 days.
 dev-ada/gnatcoll
-
-# Thomas Deutschmann <whissi@gentoo.org> (2019-11-03)
-# Infinite loop in TAILQ_FOREACH_SAFE when running for some time
-# Bug #698856
-=net-misc/dhcpcd-8.1.1
 
 # Michał Górny <mgorny@gentoo.org> (2019-11-03)
 # Discontinued upstream.  Relies on app-portage/flaggie make.conf
@@ -236,11 +266,6 @@ dev-ada/gps-bin
 # Removal in 14 days.  Bug #699072.
 dev-embedded/gnap-dev
 dev-embedded/gnap-ext
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2019-10-30)
-# In preparation...
-=dev-lang/perl-5.30.1*
-~virtual/perl-Module-CoreList-5.201.910.270
 
 # Hasan ÇALIŞIR <hasan.calisir@psauxit.com> (2019-10-28)
 # OpenVAS project name has been renamed in
@@ -442,32 +467,6 @@ dev-perl/NetxAP
 # Please use app-emulation/gallium-nine-standalone instead
 # Removal in 30 days
 app-emulation/wine-any
-
-# Michał Górny <mgorny@gentoo.org> (2019-10-13)
-# Last release in 2008.  Declared dead upstream, apparently broken
-# on newer systems.  EAPI 0.
-# Removal in 30 days.  Bug #697384.
-app-office/eqe
-
-# Michał Górny <mgorny@gentoo.org> (2019-10-12)
-# Utility library that is used only by net-analyzer/bsnmp
-# (to be removed).
-# Removal in 30 days.  Bug #683284.
-dev-libs/libbegemot
-
-# Michał Górny <mgorny@gentoo.org> (2019-10-12)
-# Bad quality package.  Last commit in 2016 (unpackaged in Gentoo).
-# GTK+2 only.  Most of the settings provided are also found in xfwm4
-# settings dialog.
-# Removal in 30 days.  Bug #697546.
-xfce-extra/xfce4-composite-editor
-
-# David Seifert <soap@gentoo.org> (2019-10-12)
-# Last release over 6.5 years ago, no code activity.
-# Scons build system very brittle, python 3 impl bumps
-# painful, no python 3.7, No reverse dependencies.
-# Removal in 30 days.  Bug #683140, #690800.
-dev-python/cgkit
 
 # Mike Gilbert <floppym@gentoo.org> (2019-10-11)
 # Inactive upstream for many years.

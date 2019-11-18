@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-USE_RUBY="ruby23 ruby24 ruby25"
+USE_RUBY="ruby23 ruby24 ruby25 ruby26"
 
 inherit ruby-ng
 
@@ -15,7 +15,7 @@ S="${WORKDIR}/all/marionette-collective-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc +client"
 
 DEPEND=""
