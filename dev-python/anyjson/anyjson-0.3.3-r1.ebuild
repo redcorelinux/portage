@@ -15,6 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 # please keep all supported implementations in 'test?'
 # to make sure the package is used in the widest way
@@ -22,7 +23,7 @@ DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/nose[${PYTHON_USEDEP}]
-		dev-python/simplejson[$(python_gen_usedep 'python2*' python3_3 'pypy*')]
+		dev-python/simplejson[$(python_gen_usedep 'python2*' 'pypy*')]
 	)"
 
 python_test() {

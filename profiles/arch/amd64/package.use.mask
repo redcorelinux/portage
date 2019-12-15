@@ -17,6 +17,10 @@
 
 #--- END OF EXAMPLES ---
 
+# James Le Cuirot <chewi@gentoo.org> (2019-12-10)
+# The JIT feature only works on amd64 and x86.
+app-emulation/aranym -jit
+
 # Thomas Deutschmann <whissi@gentoo.org> (2019-11-11)
 # dev-python/pandas is keyworded for amd64
 sys-block/fio -gnuplot
@@ -114,7 +118,7 @@ sys-boot/grub -libzfs
 
 # Amy Liffey <amynka@gentoo.org> (2017-09-19)
 # [cuda] is unmasked in this profiles.
-media-libs/opencv -contrib_xfeatures2d
+media-libs/opencv -contribxfeatures2d
 
 # David Seifert <soap@gentoo.org> (2017-05-20)
 # cpyrit-cuda does not support GCC 4.9 or later
@@ -285,8 +289,8 @@ dev-qt/qtdeclarative -jit
 dev-qt/qtscript -jit
 dev-qt/qtwebkit -jit
 
-# Robin H. Johnson <robbat2@gentoo.org> (2011-07-10)
-# PPS should work on all arches, but only keyworded on amd64/x86
+# Robin H. Johnson <robbat2@gentoo.org> (2011-07-10), updated 2019-12-06
+# PPS should work on all arches, but only keyworded on some arches
 >=net-misc/ntp-4.2.6_p3-r1 -parse-clocks
 
 # Tim Harder <radhermit@gentoo.org> (2011-02-13)

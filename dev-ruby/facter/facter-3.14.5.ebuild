@@ -23,9 +23,11 @@ else
 	SRC_URI="https://github.com/puppetlabs/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
+RESTRICT="!test? ( test )"
+
 BDEPEND="
 	>=sys-devel/gcc-4.8:*
-	dev-cpp/cpp-hocon"
+	>=dev-cpp/cpp-hocon-0.1.4-r1"
 COMMON_DEPEND="
 	>=dev-libs/leatherman-1.0.0:=
 	dev-libs/openssl:0=

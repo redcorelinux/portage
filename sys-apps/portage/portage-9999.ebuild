@@ -3,9 +3,10 @@
 
 EAPI=6
 
+DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=(
 	pypy
-	python3_5 python3_6 python3_7
+	python3_5 python3_6 python3_7 python3_8
 	python2_7
 )
 PYTHON_REQ_USE='bzip2(+),threads(+)'

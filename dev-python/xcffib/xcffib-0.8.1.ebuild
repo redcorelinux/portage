@@ -15,6 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="x11-libs/libxcb"
 RDEPEND="
@@ -34,5 +35,5 @@ DEPEND="
 PATCHES=( "${FILESDIR}"/${PN}-0.4.2-test-imports.patch )
 
 python_test() {
-	virtx nosetests -d -v || die
+	virtx nosetests -d -v
 }

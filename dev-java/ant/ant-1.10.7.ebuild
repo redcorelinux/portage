@@ -8,7 +8,7 @@ HOMEPAGE="https://ant.apache.org/"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 IUSE="X +antlr +bcel +bsf +commonslogging +commonsnet jai +javamail +jdepend jmf
 	+jsch +junit +junit4 +junitlauncher +log4j +oro +regexp +resolver swing testutil xz"
@@ -18,8 +18,6 @@ DEPEND="~dev-java/ant-core-${PV}"
 RDEPEND="${DEPEND}
 	~dev-java/ant-core-${PV}
 	~dev-java/ant-junit-${PV}
-	!dev-java/ant-optional
-	!dev-java/ant-tasks
 	~dev-java/ant-apache-xalan2-${PV}
 	antlr? ( ~dev-java/ant-antlr-${PV} )
 	bcel? ( ~dev-java/ant-apache-bcel-${PV} )

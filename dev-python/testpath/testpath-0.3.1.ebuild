@@ -13,8 +13,9 @@ SRC_URI="https://github.com/jupyter/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ppc64 x86"
+KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc ppc64 ~sparc x86"
 IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	test? (

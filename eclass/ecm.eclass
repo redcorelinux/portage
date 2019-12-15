@@ -27,8 +27,8 @@
 # - Rename vars and function names as needed, see kde5.eclass PORTING comments
 # - Instead of FRAMEWORKS_MINIMAL, define KFMIN in ebuilds and use it for deps
 
-if [[ -z ${_ECM_UTILS_ECLASS} ]]; then
-_ECM_UTILS_ECLASS=1
+if [[ -z ${_ECM_ECLASS} ]]; then
+_ECM_ECLASS=1
 
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
@@ -152,10 +152,15 @@ fi
 : ${ECM_TEST:=false}
 
 # @ECLASS-VARIABLE: KFMIN
+# @DEFAULT_UNSET
 # @DESCRIPTION:
-# Minimum version of Frameworks to require. The default value is not going to
-# be changed unless we also bump EAPI, which usually implies (rev-)bumping.
+# Minimum version of Frameworks to require. Default value for kde-frameworks
+# is ${PV} and 5.64.0 baseline for everything else. This is not going to be
+# changed unless we also bump EAPI, which usually implies (rev-)bumping.
 # Version will later be used to differentiate between KF5/Qt5 and KF6/Qt6.
+if [[ ${CATEGORY} = kde-frameworks ]]; then
+	: ${KFMIN:=$(ver_cut 1-2)}
+fi
 : ${KFMIN:=5.64.0}
 
 # @ECLASS-VARIABLE: KFSLOT
@@ -524,7 +529,7 @@ ecm_src_configure() {
 
 	# TODO: drop after KDE Applications 19.08.3 removal
 	if in_iuse designer && [[ ${KDE_DESIGNERPLUGIN} != false ]] ; then
-		cmakeargs+=( $(cmake-utils_use_find_package designer KF5DesignerPlugin) )
+		cmakeargs+=( $(cmake_use_find_package designer KF5DesignerPlugin) )
 	fi
 
 	if [[ ${ECM_QTHELP} = true ]]; then

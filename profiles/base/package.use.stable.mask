@@ -4,6 +4,14 @@
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in package.use.mask
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2019-12-09)
+# Declared experimental, and dev-cpp/websocketpp not stable yet
+sci-libs/indilib websocket
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2019-11-28)
+# sci-libs/vtk is not stable anymore
+media-libs/opencv vtk
+
 # Kent Fredric <kentnl@gentoo.org> (2019-08-29)
 # Support for DBD-mysql to use mariadb is sketchy. Use DBD-MariaDB
 # instead if you can.
@@ -55,7 +63,7 @@ media-gfx/alembic arnold maya
 media-plugins/grilo-plugins chromaprint
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-02-16)
-# media-libs/opencv[contrib,contrib_dnn], net-libs/libmediawiki,
+# media-libs/opencv[contrib,contribdnn], net-libs/libmediawiki,
 # net-libs/libkvkontakte all not stable anywhere.
 kde-apps/kipi-plugins mediawiki vkontakte
 media-gfx/digikam dnn vkontakte
@@ -75,10 +83,6 @@ sys-devel/clang-runtime crt
 # Thomas Deutschmann <whissi@gentoo.org> (2018-06-01)
 # Needs dev-ruby/asciidoctor which has a lot of unstable deps
 net-analyzer/wireshark doc
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2018-05-29)
-# Depends on unstable media-libs/libaom
-media-video/vlc aom
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2018-05-21)
 # Depends on lots of unstable dependencies
@@ -115,6 +119,10 @@ app-backup/backup-manager s3
 # Brian Evans <grknight@gentoo.org (2017-11-06)
 # Requires stable phpunit
 dev-php/PEAR-Text_Password test
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2017-11-04)
+# Requires audacious, which is masked. Bug 632513
+media-libs/freeverb3 audacious jack
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2017-10-22)
 # Requires unmaintained unstable dependency net-libs/gloox.

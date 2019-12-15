@@ -15,6 +15,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc examples test"
+RESTRICT="!test? ( test )"
 
 CDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
@@ -56,7 +57,7 @@ python_compile_all() {
 
 python_test() {
 	cd "${BUILD_DIR}" || die
-	virtx nosetests -v || die
+	virtx nosetests -v
 }
 
 python_install_all() {

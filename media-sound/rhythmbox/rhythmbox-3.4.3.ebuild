@@ -3,7 +3,7 @@
 
 EAPI=6
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{5,6,7,8} )
 PYTHON_REQ_USE="xml"
 
 inherit eutils gnome2 python-single-r1 multilib virtualx
@@ -15,6 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 IUSE="cdr daap dbus gnome-keyring ipod libnotify lirc mtp nsplugin +python test +udev upnp-av"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	ipod? ( udev )
 	mtp? ( udev )

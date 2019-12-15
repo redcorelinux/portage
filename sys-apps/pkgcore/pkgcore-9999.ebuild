@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 DISTUTILS_IN_SOURCE_BUILD=1
 inherit distutils-r1
 
@@ -19,35 +19,26 @@ HOMEPAGE="https://github.com/pkgcore/pkgcore"
 
 LICENSE="BSD MIT"
 SLOT="0"
-IUSE="doc test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="dev-python/lxml[${PYTHON_USEDEP}]"
 if [[ ${PV} == *9999 ]]; then
 	RDEPEND+=" ~dev-python/snakeoil-9999[${PYTHON_USEDEP}]"
 else
-	RDEPEND+=" >=dev-python/snakeoil-0.8.3[${PYTHON_USEDEP}]"
+	RDEPEND+=" >=dev-python/snakeoil-0.8.4[${PYTHON_USEDEP}]"
 fi
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 "
-
-python_compile_all() {
-	local esetup_args=( $(usex doc "--enable-html-docs" "") )
-	# only build man pages for live ebuilds if doc USE flag is enabled
-	[[ ${PV} == *9999 ]] && esetup_args+=( $(usex doc "--enable-man-pages" "") )
-	esetup.py build "${esetup_args[@]}"
-}
 
 python_test() {
 	esetup.py test
 }
 
 python_install_all() {
-	esetup.py install_docs \
-		--docdir="${ED%/}/usr/share/doc/${PF}" \
-		--mandir="${ED%/}/usr/share/man"
+	local DOCS=( AUTHORS NEWS.rst )
+	[[ ${PV} == *9999 ]] || doman man/*
 	distutils-r1_python_install_all
 }

@@ -15,6 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~hppa ~mips ~s390 ~x86 ~amd64-linux ~x86-linux"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 CDEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	!~dev-python/pbr-2.1.0"
@@ -49,5 +50,5 @@ RDEPEND="
 python_test() {
 	stestr init || die "stestr init failed under ${EPYTHON}"
 	# needs outside access, so blacklist the test
-	virtx stestr run --black-regex cliff.tests.test_app.TestIO.test_writer_encoding || die "stestr run failed under ${EPYTHON}"
+	virtx stestr run --black-regex cliff.tests.test_app.TestIO.test_writer_encoding
 }

@@ -12,8 +12,9 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="doc examples mongodb msgpack redis sqs test yaml"
+RESTRICT="!test? ( test )"
 
 # zookeeper backend support possible via dev-python/kazoo
 RDEPEND="
@@ -59,7 +60,7 @@ python_prepare_all() {
 python_compile_all() {
 	# Doc build misses and skips only content re librabbitmq which is not in portage
 	if use doc; then
-		emake -C docs html || die "kombu docs failed installation"
+		emake -C docs html
 	fi
 }
 

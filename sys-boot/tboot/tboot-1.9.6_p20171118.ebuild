@@ -51,7 +51,7 @@ src_install() {
 	emake DISTDIR="${D}" install
 
 	dodoc "${DOCS[@]}"
-	dodoc docs/*.txt lcptools/*.{txt,pdf} || die "docs failed"
+	dodoc docs/*.txt lcptools/*.{txt,pdf}
 
 	cd "${D}"
 	mkdir -p usr/lib/tboot/ || die
@@ -59,11 +59,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	mount-boot_mount_boot_partition
-
 	cp ${ROOT%/}/usr/lib/tboot/boot/* ${ROOT%/}/boot/
-
-	mount-boot_pkg_postinst
 
 	ewarn "Please remember to download the SINIT AC Module relevant"
 	ewarn "for your platform from:"

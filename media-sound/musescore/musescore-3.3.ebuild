@@ -5,7 +5,7 @@ EAPI=7
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 CHECKREQS_DISK_BUILD=3500M
-inherit cmake-utils xdg-utils check-reqs
+inherit cmake-utils xdg check-reqs
 
 DESCRIPTION="WYSIWYG Music Score Typesetter"
 HOMEPAGE="https://musescore.org/"
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/musescore/MuseScore/archive/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="alsa debug jack mp3 portaudio portmidi pulseaudio vorbis webengine"
 REQUIRED_USE="portmidi? ( portaudio )"
 
@@ -33,6 +33,7 @@ DEPEND="
 	dev-qt/qthelp:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
+	dev-qt/qtquickcontrols2:5
 	>=dev-qt/qtsingleapplication-2.6.1_p20171024
 	dev-qt/qtsvg:5
 	dev-qt/qtxml:5
@@ -87,16 +88,4 @@ src_compile() {
 	cd "${BUILD_DIR}" || die
 	cmake-utils_src_make -j1 lrelease manpages
 	cmake-utils_src_compile
-}
-
-pkg_postinst() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit distutils-r1
@@ -20,6 +20,7 @@ LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 sparc x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/dbus-python[${PYTHON_USEDEP}]

@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_5,3_6} )
+PYTHON_COMPAT=( python{3_5,3_6} )
 
 inherit distutils-r1 virtualx xdg-utils
 
@@ -19,6 +19,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="AFL-3.0"
 
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	<=dev-python/commonmark-0.5.4[${PYTHON_USEDEP}]

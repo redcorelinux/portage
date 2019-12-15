@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 
 inherit distutils-r1 eapi7-ver
 
@@ -24,6 +24,7 @@ fi
 LICENSE="BSD"
 SLOT="0"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND=">=sci-libs/geos-3.3
 	dev-python/numpy[${PYTHON_USEDEP}]"
@@ -31,6 +32,9 @@ DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/cython[${PYTHON_USEDEP}]
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )"
+
+PATCHES=( "${FILESDIR}/${P}-test_operations.patch" ) # bug 701624
+
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 python_prepare_all() {

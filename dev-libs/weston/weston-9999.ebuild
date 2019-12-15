@@ -26,6 +26,7 @@ LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
 
 IUSE="colord +desktop +drm editor examples fbdev fullscreen +gles2 headless ivi jpeg +launch lcms pipewire rdp remoting +resize-optimization screen-sharing +suid systemd test wayland-compositor webp +X xwayland"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	colord? ( lcms )
@@ -120,7 +121,7 @@ src_configure() {
 		-Dtools=debug,info,terminal
 		-Dsimple-dmabuf-drm=auto
 		$(meson_use examples demo-clients)
-		$(usex examples -Dsimple-clients=damage,dmabuf-v4l,im,shm,touch$(usex gles2 ,dmabuf-egl,egl "") "")
+		-Dsimple-clients=$(usex examples damage,dmabuf-v4l,im,shm,touch$(usex gles2 ,dmabuf-egl,egl "") "")
 		$(meson_use resize-optimization resize-pool)
 		-Dtest-junit-xml=false
 		"${myconf[@]}"

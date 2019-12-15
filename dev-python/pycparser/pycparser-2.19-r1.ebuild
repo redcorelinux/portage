@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -30,6 +30,17 @@ python_prepare_all() {
 	sed -i -e '/sys\.path/d' tests/*.py || die
 
 	distutils-r1_python_prepare_all
+}
+
+python_compile() {
+	distutils-r1_python_compile
+
+	# note: tables built by py3.5+ are incompatible with older versions
+	# because of 100 group limit of 're' module -- just generate them
+	# separately optimized for each target instead
+	pushd "${BUILD_DIR}"/lib/pycparser > /dev/null || die
+	"${PYTHON}" _build_tables.py || die
+	popd > /dev/null || die
 }
 
 python_test() {

@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	gdbm? ( >=sys-libs/gdbm-1.8.0:0= )
 	gmp? ( dev-libs/gmp:0= )
 	iconv? ( virtual/libiconv )
-	imap? ( virtual/imap-c-client[kerberos=,ssl=] )
+	imap? ( >=virtual/imap-c-client-2[kerberos=,ssl=] )
 	intl? ( dev-libs/icu:= )
 	iodbc? ( dev-db/libiodbc )
 	kerberos? ( virtual/krb5 )
@@ -151,11 +151,14 @@ REQUIRED_USE="
 	mysqli? ( hash )
 	zip-encryption? ( zip )
 "
+
+RESTRICT="!test? ( test )"
+
 PATCHES=(
 	"${FILESDIR}/php-freetype-2.9.1.patch"
 	"${FILESDIR}/php-7.2.13-intl-use-icu-namespace.patch"
 )
-RESTRICT="!test? ( test )"
+
 PHP_MV="$(ver_cut 1)"
 
 php_install_ini() {

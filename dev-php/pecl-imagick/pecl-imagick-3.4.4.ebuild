@@ -4,7 +4,7 @@
 EAPI="7"
 
 PHP_EXT_NAME="imagick"
-USE_PHP="php5-6 php7-1 php7-2 php7-3"
+USE_PHP="php5-6 php7-1 php7-2 php7-3 php7-4"
 
 inherit php-ext-pecl-r3
 
@@ -15,6 +15,7 @@ HOMEPAGE="https://pecl.php.net/imagick https://github.com/mkoppanen/imagick"
 LICENSE="PHP-3.01"
 SLOT="0"
 IUSE="examples test"
+RESTRICT="!test? ( test )"
 
 # imagemagick[-openmp] is needed wrt bug 547922 and upstream
 # https://github.com/mkoppanen/imagick#openmp

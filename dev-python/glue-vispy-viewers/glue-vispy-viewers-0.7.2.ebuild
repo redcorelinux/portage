@@ -15,6 +15,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="BSD"
 SLOT="0"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 DOCS=( README.rst CHANGES.md )
 
@@ -40,5 +41,5 @@ DEPEND="
 python_test() {
 	cd "${BUILD_DIR}"/lib || die
 	echo "backend: Agg" > matplotlibrc
-	virtx py.test || die
+	virtx py.test
 }

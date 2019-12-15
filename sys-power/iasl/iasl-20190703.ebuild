@@ -15,8 +15,9 @@ SRC_URI="http://www.acpica.org/sites/acpica/files/${MY_P}.tar.gz
 
 LICENSE="iASL"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
+KEYWORDS="amd64 ~arm64 ppc x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 DEPEND="sys-devel/bison
 	sys-devel/flex"
@@ -44,7 +45,8 @@ src_prepare() {
 
 	find "${S}" -type f -name 'Makefile*' -print0 | \
 		xargs -0 -I '{}' \
-		sed -r -e 's:-\<Werror\>::g' -i '{}' \
+		sed -r -e 's:-\<Werror\>::g' -e "s:/usr:${EPREFIX}/usr:g" \
+		-i '{}' \
 		|| die
 
 	# BITS is tied to ARCH - please set appropriately if you add new keywords

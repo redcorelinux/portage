@@ -14,6 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/xdis-3.3.1
@@ -38,5 +39,5 @@ python_test() {
 	distutils_install_for_testing
 
 	PYTHONPATH="${S}/test:${BUILD_DIR}/lib" \
-		emake check || die "Tests failed under ${EPYTHON}"
+		emake check
 }

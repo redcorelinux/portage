@@ -12,8 +12,10 @@ SRC_URI="https://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm arm64 x86"
 IUSE="debug farstream test"
+
+REQUIRED_USE="test? ( farstream )"
 
 RDEPEND="
 	dev-qt/qtcore:5
@@ -44,11 +46,12 @@ BDEPEND="${PYTHON_DEPS}
 RESTRICT="!test? ( test )"
 
 python_check_deps() {
+	use test || return 0
 	has_version "dev-python/dbus-python[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
-	use test && python-any-r1_pkg_setup
+	python-any-r1_pkg_setup
 }
 
 src_configure() {

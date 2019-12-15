@@ -9,7 +9,7 @@ sys-firmware/seabios -debug
 # Missing keyword on dev-embedded/libjaylink
 sys-apps/flashrom jlink-spi
 
-# Conrad Kostecki <ck+gentoo@bl4ckb0x.de> (2019-08-17)
+# Conrad Kostecki <conikost@gentoo.org> (2019-08-17)
 # app-misc/graphlcd-base won't work on PowerPC/PowerPC64
 app-misc/lcdproc freetype lcd_devices_glcd png
 
@@ -79,7 +79,7 @@ app-emulation/qemu capstone
 
 # Amy Liffey <amynka@gentoo.org (2018-01-21)
 # dev-libs/cereal not keyworded for ppc
-media-libs/opencv contrib_dnn
+media-libs/opencv contribdnn
 
 # Robin H. Johnson <robbat2@gentoo.org> (2017-11-10)
 # Masked for dependencies:

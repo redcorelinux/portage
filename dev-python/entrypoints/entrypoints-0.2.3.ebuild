@@ -15,8 +15,10 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '>=dev-python/configparser-3.5.0[${PYTHON_USEDEP}]' 'python2*')
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]

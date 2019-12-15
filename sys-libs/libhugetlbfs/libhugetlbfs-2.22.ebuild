@@ -15,6 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~s390 ~x86"
 IUSE="static-libs test"
+RESTRICT="!test? ( test )"
 
 DEPEND="test? ( ${PYTHON_DEPS} )"
 
@@ -72,7 +73,7 @@ src_test_alloc_one() {
 src_test() {
 	[[ $UID -eq 0 ]] || die "Need FEATURES=-userpriv to run this testsuite"
 	einfo "Building testsuite"
-	emake -j1 tests || die "Failed to build tests"
+	emake -j1 tests
 
 	local hugeadm='obj/hugeadm'
 	local allocated=''

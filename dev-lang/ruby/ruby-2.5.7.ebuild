@@ -17,7 +17,7 @@ HOMEPAGE="https://www.ruby-lang.org/"
 SRC_URI="https://cache.ruby-lang.org/pub/ruby/${SLOT}/${MY_P}.tar.xz"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-KEYWORDS="alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh sparc x86"
+KEYWORDS="alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 s390 ~sh sparc x86"
 IUSE="berkdb debug doc examples gdbm ipv6 jemalloc libressl +rdoc rubytests socks5 +ssl static-libs tk xemacs"
 
 RDEPEND="
@@ -138,16 +138,15 @@ src_configure() {
 		$(use_with static-libs static-linked-ext) \
 		$(use_enable debug) \
 		${myconf} \
-		--enable-option-checking=no \
-		|| die "econf failed"
+		--enable-option-checking=no
 }
 
 src_compile() {
-	emake V=1 EXTLDFLAGS="${LDFLAGS}" || die "emake failed"
+	emake V=1 EXTLDFLAGS="${LDFLAGS}"
 }
 
 src_test() {
-	emake -j1 V=1 test || die "make test failed"
+	emake -j1 V=1 test
 
 	elog "Ruby's make test has been run. Ruby also ships with a make check"
 	elog "that cannot be run until after ruby has been installed."
@@ -182,7 +181,7 @@ src_install() {
 	done
 	export LD_LIBRARY_PATH RUBYLIB
 
-	emake V=1 DESTDIR="${D}" install || die "make install failed"
+	emake V=1 DESTDIR="${D}" install
 
 	# Remove installed rubygems and rdoc copy
 	rm -rf "${ED}/usr/$(get_libdir)/ruby/${RUBYVERSION}/rubygems" || die "rm rubygems failed"
@@ -199,7 +198,7 @@ src_install() {
 		doins -r sample
 	fi
 
-	dodoc ChangeLog NEWS doc/NEWS* README* || die
+	dodoc ChangeLog NEWS doc/NEWS* README*
 
 	if use rubytests; then
 		pushd test

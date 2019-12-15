@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools xdg-utils
+inherit autotools xdg
 
 DESCRIPTION="A lightweight GTK image viewer forked from GQview"
 HOMEPAGE="http://www.geeqie.org"
@@ -11,7 +11,7 @@ SRC_URI="http://www.geeqie.org/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="debug doc exif ffmpegthumbnailer gpu-accel gtk3 jpeg lcms lirc lua map nls pdf tiff xmp"
 
 RDEPEND="
@@ -83,13 +83,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 
 	elog "Some plugins may require additional packages"
 	elog "- Image rotate plugin: media-gfx/fbida (JPEG), media-gfx/imagemagick (TIFF/PNG)"
 	elog "- RAW images plugin: media-gfx/ufraw"
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
 }

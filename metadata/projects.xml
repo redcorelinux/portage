@@ -838,6 +838,16 @@
     </member>
   </project>
   <project>
+    <email>ejabberd@gentoo.org</email>
+    <name>ejabberd Project</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Ejabberd</url>
+    <description>The ejabberd project maintains the ejabberd xmpp server software and its dependencies.</description>
+    <member>
+      <email>hanno@gentoo.org</email>
+      <name>Hanno Böck</name>
+    </member>
+  </project>
+  <project>
     <email>elections@gentoo.org</email>
     <name>Elections</name>
     <url>https://wiki.gentoo.org/wiki/Project:Elections</url>
@@ -1122,19 +1132,14 @@
     <url>https://wiki.gentoo.org/wiki/Project:GLEP</url>
     <description>The GLEP project manages Gentoo Linux Enhancement Proposals.</description>
     <member>
-      <email>creffett@gentoo.org</email>
-      <name>Chris Reffett</name>
-      <role>GLEP Editor</role>
-    </member>
-    <member>
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
-      <role>Member</role>
+      <role>GLEP editor</role>
     </member>
     <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
-      <role>Member</role>
+      <role>GLEP editor</role>
     </member>
   </project>
   <project>
@@ -1236,6 +1241,11 @@
       <email>chewi@gentoo.org</email>
       <name>James Le Cuirot</name>
       <role>Lead ( Team Lead )</role>
+    </member>
+    <member>
+      <email>conikost@gentoo.org</email>
+      <name>Conrad Kostecki</name>
+      <role>Member ( general )</role>
     </member>
     <member>
       <email>soap@gentoo.org</email>
@@ -2027,21 +2037,6 @@
     </member>
   </project>
   <project>
-    <email>ml@gentoo.org</email>
-    <name>ML Project</name>
-    <url>https://wiki.gentoo.org/wiki/Project:ML</url>
-    <description>The ML Project maintains packages related to the ML programming language family.</description>
-    <member is-lead="1">
-      <email>aballier@gentoo.org</email>
-      <name>Alexis Ballier</name>
-      <role>Ocaml</role>
-    </member>
-    <member>
-      <email>heroxbd@gentoo.org</email>
-      <name>Benda Xu</name>
-    </member>
-  </project>
-  <project>
     <email>sci-mathematics@gentoo.org</email>
     <name>Mathematics Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Mathematics</url>
@@ -2308,6 +2303,11 @@
     <url>https://wiki.gentoo.org/wiki/Project:Overlays</url>
     <description>The Overlays project is responsible for the administration of the overlays and the overlays.gentoo.org / repos.gentoo.org websites.</description>
     <subproject ref="repo-qa-checks@gentoo.org"/>
+    <member>
+      <email>gokturk@gentoo.org</email>
+      <name>Göktürk Yüksek</name>
+      <role>Git</role>
+    </member>
     <member>
       <email>kensington@gentoo.org</email>
       <name>Michael Palimaka</name>
@@ -2664,6 +2664,10 @@
       <name>Alexis Ballier</name>
     </member>
     <member>
+      <email>fordfrog@gentoo.org</email>
+      <name>Miroslav Šulc</name>
+    </member>
+    <member>
       <email>nativemad@gentoo.org</email>
       <name>Andreas Schuerch</name>
     </member>
@@ -2736,6 +2740,11 @@
     <member>
       <email>candrews@gentoo.org</email>
       <name>Craig Andrews</name>
+      <role>Member</role>
+    </member>
+    <member>
+      <email>conikost@gentoo.org</email>
+      <name>Conrad Kostecki</name>
       <role>Member</role>
     </member>
     <member>
@@ -2831,14 +2840,18 @@
     <url>https://wiki.gentoo.org/wiki/Project:Python</url>
     <description>The Python project maintains dev-lang/python and most of dev-python/*.</description>
     <member>
+      <email>bman@gentoo.org</email>
+      <name>Aaron Bauman</name>
+      <role>Minion</role>
+    </member>
+    <member>
       <email>chutzpah@gentoo.org</email>
       <name>Patrick McLean</name>
       <role>Member</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
-      <role>Lead</role>
     </member>
     <member>
       <email>gyakovlev@gentoo.org</email>
@@ -2850,7 +2863,7 @@
       <name>Maxim Koltsov</name>
       <role>Member</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Member</role>
@@ -3188,6 +3201,10 @@
       <name>Georgy Yakovlev</name>
     </member>
     <member>
+      <email>kentnl@gentoo.org</email>
+      <name>Kent Fredric</name>
+    </member>
+    <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
     </member>
@@ -3467,6 +3484,11 @@
       <role>Member ( misc )</role>
     </member>
     <member>
+      <email>fordfrog@gentoo.org</email>
+      <name>Miroslav Šulc</name>
+      <role>Member ( misc )</role>
+    </member>
+    <member>
       <email>radhermit@gentoo.org</email>
       <name>Tim Harder</name>
       <role>Member ( misc )</role>
@@ -3688,6 +3710,10 @@
       <email>pacho@gentoo.org</email>
       <name>Pacho Ramos</name>
       <role>Member</role>
+    </member>
+    <member>
+      <email>soap@gentoo.org</email>
+      <name>David Seifert</name>
     </member>
   </project>
   <project>

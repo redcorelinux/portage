@@ -3,7 +3,7 @@
 
 EAPI=6
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python{3_5,3_6} )
+PYTHON_COMPAT=( python3_{5,6,7,8} )
 
 inherit gnome2 python-single-r1
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://wiki.gnome.org/Apps/EyeOfGnome/Plugins"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="+exif map picasa +python"
 REQUIRED_USE="

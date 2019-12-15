@@ -3,7 +3,7 @@
 
 EAPI=7
 PYTHON_COMPAT=( python2_7 )
-ADA_COMPAT=( gnat_2018 )
+ADA_COMPAT=( gnat_201{8,9} )
 inherit ada python-single-r1 autotools desktop llvm multilib
 
 MYP=${PN}-gpl-${PV}-src
@@ -34,10 +34,7 @@ RDEPEND="${PYTHON_DEPS}
 	~dev-ada/libadalang-2019[${ADA_USEDEP}]
 	dev-libs/gobject-introspection
 	dev-libs/libffi
-	|| (
-		sys-devel/llvm:6
-		sys-devel/llvm:7
-	)
+	sys-devel/llvm:7
 	sys-devel/clang:=
 	x11-themes/adwaita-icon-theme
 	x11-themes/hicolor-icon-theme

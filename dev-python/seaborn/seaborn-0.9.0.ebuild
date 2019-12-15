@@ -15,6 +15,7 @@ SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/matplotlib[${PYTHON_USEDEP}]
@@ -34,5 +35,5 @@ python_test() {
 	cat > matplotlibrc <<- EOF || die
 	backend : Agg
 	EOF
-	virtx nosetests --verbosity=3 || die
+	virtx nosetests --verbosity=3
 }

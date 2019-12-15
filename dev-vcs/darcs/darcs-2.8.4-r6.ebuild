@@ -16,6 +16,7 @@ LICENSE="GPL-2"
 SLOT="0/${PV}"
 KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="=dev-haskell/extensible-exceptions-0.1*:=[profile?]
 		>=dev-haskell/hashed-storage-0.5.6:=[profile?]
@@ -120,7 +121,7 @@ src_install() {
 
 	# fixup perms in such an an awkward way
 	mv "${ED}/usr/share/man/man1/darcs.1" "${S}/darcs.1" || die "darcs.1 not found"
-	doman "${S}/darcs.1" || die "failed to register darcs.1 as a manpage"
+	doman "${S}/darcs.1"
 }
 
 pkg_postinst() {

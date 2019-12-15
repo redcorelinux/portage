@@ -1,19 +1,18 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 
-inherit versionator webapp
+inherit webapp
 
-AVC=( $(get_version_components) )
-MY_BRANCH="stable${AVC[0]}${AVC[1]}"
+MY_BRANCH="stable$(ver_cut 1)$(ver_cut 2)"
 
 DESCRIPTION="The Moodle Course Management System"
 HOMEPAGE="https://moodle.org"
 SRC_URI="https://download.moodle.org/${MY_BRANCH}/${P}.tgz"
 S="${WORKDIR}/${PN}"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 #SLOT empty due to webapp
 
@@ -30,7 +29,6 @@ PHP_OPTIONAL_FLAGS="gd,intl,soap,ssl,tokenizer,xmlrpc"
 PHP_FLAGS="${PHP_REQUIRED_FLAGS},${PHP_OPTIONAL_FLAGS}"
 
 IUSE="${DB_TYPES} ${AUTHENTICATION_MODES} vhosts"
-REQUIRED_USE="|| ( ${DB_TYPES} )"
 
 # No forced dependency on
 #  mssql? - lives on a windows server
@@ -58,14 +56,13 @@ pkg_setup() {
 		fi
 	done
 
-	# REQUIRED_USE above guarantees that ${DB_COUNT} cannot be zero
-	#if [[ ${DB_COUNT} -eq 0 ]]; then
-	#	eerror
-	#	eerror "No database selected in your USE flags,"
-	#	eerror "You must select at least one."
-	#	eerror
-	#	die
-	#fi
+	if [[ ${DB_COUNT} -eq 0 ]]; then
+		eerror
+		eerror "No database selected in your USE flags,"
+		eerror "You must select at least one."
+		eerror
+		die
+	fi
 
 	if [[ ${DB_COUNT} -gt 1 ]]; then
 		MYDB=""

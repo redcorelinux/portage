@@ -12,12 +12,14 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="test"
 
 DEPEND="test? ( dev-python/pytest[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/characteristic[${PYTHON_USEDEP}] )"
+
+RESTRICT="!test? ( test )"
 
 python_prepare_all() {
 	sed -i -e "/--benchmark-disable/d" setup.cfg || die

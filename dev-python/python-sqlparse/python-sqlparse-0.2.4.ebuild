@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{5,6} pypy )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} pypy )
 
 inherit distutils-r1
 
@@ -18,6 +18,7 @@ SLOT="0"
 KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux"
 LICENSE="BSD-2"
 IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="doc? ( || ( $(python_gen_useflags 'python2*') ) )"
 

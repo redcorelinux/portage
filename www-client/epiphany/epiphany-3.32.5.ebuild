@@ -11,7 +11,8 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Web"
 LICENSE="GPL-3+"
 SLOT="0"
 IUSE="test"
-KEYWORDS="~amd64 ~arm64 ~x86"
+RESTRICT="!test? ( test )"
+KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 x86"
 
 DEPEND="
 	>=dev-libs/glib-2.56.0:2

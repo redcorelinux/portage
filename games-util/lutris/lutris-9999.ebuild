@@ -23,6 +23,8 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+RESTRICT="!test? ( test )"
+
 BDEPEND="
 	test? ( dev-python/nose[${PYTHON_USEDEP}] )
 "
@@ -53,7 +55,7 @@ python_install_all() {
 }
 
 python_test() {
-	virtx nosetests -v || die
+	virtx nosetests -v
 }
 
 pkg_preinst() {

@@ -17,7 +17,7 @@ else
 	https://dev.gentoo.org/~blueness/musl-misc/getconf.c
 	https://dev.gentoo.org/~blueness/musl-misc/getent.c
 	https://dev.gentoo.org/~blueness/musl-misc/iconv.c"
-	KEYWORDS="-* amd64 ~arm ~arm64 ~mips ~ppc x86"
+	KEYWORDS="-* amd64 ~arm arm64 ~mips ~ppc x86"
 fi
 
 export CBUILD=${CBUILD:-${CHOST}}
@@ -109,7 +109,7 @@ src_install() {
 		dobin "${T}"/getent
 		dobin "${T}"/iconv
 		echo 'LDPATH="include ld.so.conf.d/*.conf"' > "${T}"/00musl || die
-		doenvd "${T}"/00musl || die
+		doenvd "${T}"/00musl
 	fi
 }
 

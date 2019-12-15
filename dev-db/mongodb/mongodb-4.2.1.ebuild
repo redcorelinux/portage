@@ -22,6 +22,7 @@ LICENSE="Apache-2.0 SSPL-1"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug kerberos libressl lto ssl test +tools"
+RESTRICT="!test? ( test )"
 
 RDEPEND="acct-group/mongodb
 	acct-user/mongodb
@@ -101,6 +102,7 @@ src_configure() {
 		--use-system-zstd
 	)
 
+	use arm64 && scons_opts+=( --use-hardware-crc32=off ) # Bug 701300
 	use debug && scons_opts+=( --dbg=on )
 	use kerberos && scons_opts+=( --use-sasl-client )
 	use lto && scons_opts+=( --lto=on )

@@ -31,6 +31,7 @@ GPSD_PROTOCOLS=(
 )
 IUSE_GPSD_PROTOCOLS=${GPSD_PROTOCOLS[@]/#/gpsd_protocols_}
 IUSE="${IUSE_GPSD_PROTOCOLS} bluetooth +cxx dbus debug ipv6 latency-timing ncurses ntp python qt5 +shm +sockets static test udev usb X"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="X? ( python )
 	gpsd_protocols_nmea2000? ( gpsd_protocols_aivdm )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -89,7 +90,7 @@ src_prepare() {
 }
 
 python_prepare_all() {
-	python_export_best
+	python_setup
 	# Extract python info out of SConstruct so we can use saner distribute
 	pyvar() { sed -n "/^ *$1 *=/s:.*= *::p" SConstruct ; }
 	local pybins=$(pyvar python_progs | tail -1)

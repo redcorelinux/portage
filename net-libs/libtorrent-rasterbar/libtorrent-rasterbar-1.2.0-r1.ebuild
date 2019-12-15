@@ -8,7 +8,7 @@ PYTHON_REQ_USE="threads"
 DISTUTILS_OPTIONAL=true
 DISTUTILS_IN_SOURCE_BUILD=true
 
-inherit autotools distutils-r1 flag-o-matic
+inherit autotools distutils-r1
 
 MY_PV=$(ver_rs 1-2 '_')
 MY_P=${PN/-rasterbar}_${MY_PV}
@@ -23,6 +23,8 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +dht doc examples libressl python +ssl static-libs test"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/boost:=[threads]
@@ -63,7 +65,6 @@ src_prepare() {
 }
 
 src_configure() {
-	append-cxxflags -std=c++11 # bug 634506
 
 	local myeconfargs=(
 		$(use_enable debug)

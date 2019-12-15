@@ -18,6 +18,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc freeimage pyamg test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/matplotlib[${PYTHON_USEDEP}]
@@ -44,7 +45,7 @@ python_test() {
 	echo "backend : Agg" > matplotlibrc || die
 	#echo "backend.qt4 : PyQt4" >> matplotlibrc || die
 	#echo "backend.qt4 : PySide" >> matplotlibrc || die
-	MPLCONFIGDIR=. virtx nosetests --exe -v skimage || die
+	MPLCONFIGDIR=. virtx nosetests --exe -v skimage
 }
 
 pkg_postinst() {

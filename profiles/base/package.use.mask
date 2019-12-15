@@ -1,11 +1,56 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# This file requires >=portage-2.1.1
 # New entries go on top.
 
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
+
+# Ulrich Müller <ulm@gentoo.org> (2019-12-11)
+# Depends on last-rited app-i18n/man-pages-da.
+sys-apps/man-pages l10n_da
+
+# James Le Cuirot <chewi@gentoo.org> (2019-12-10)
+# The JIT feature only works on amd64 and x86.
+app-emulation/aranym jit
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2019-12-07)
+# dev-python/flask-cors is PMASKED.
+media-sound/beets webserver
+
+# Michał Górny <mgorny@gentoo.org> (2019-12-04)
+# Python 2.7 only packages optionally needing dev-python/ipython.
+app-misc/gourmet ipython
+dev-python/restkit cli
+
+# Michał Górny <mgorny@gentoo.org> (2019-12-04)
+# Packages requiring dev-python/ipython to build the docs and still
+# supporting Python 2.7.  This can be resolved long term via either
+# using any-r1 API to build docs or cond-deps.
+dev-python/matplotlib doc
+dev-python/pandas doc
+<dev-python/pandas-0.24.2 full-support test
+dev-python/pandas-datareader doc
+dev-python/patsy doc
+dev-python/statsmodels doc
+
+# Haelwenn (lanodan) Monnier <contact@hacktivis.me> (2019-12-01)
+# broken static-linking in glibc and maybe others
+>app-shells/mksh-57-r1 static
+
+# Michał Górny <mgorny@gentoo.org> (2019-11-29)
+# Requires dev-python/astropy that's being removed.
+sci-visualization/veusz fits
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2019-11-28)
+# sci-visualization/visit is on the way out, bug #657952
+sci-libs/libgeodecomp visit
+
+# Michał Górny <mgorny@gentoo.org> (2019-11-25)
+# Requires old version of dev-python/sphinx that's being removed.
+~dev-python/fabric-2.3.1 doc
+<dev-python/hacking-1.1.0 doc
+<dev-python/pycadf-2.7.0 doc
 
 # Michał Górny <mgorny@gentoo.org> (2019-11-09)
 # eMovix is being removed.
@@ -148,15 +193,6 @@ sys-apps/memtest86+ floppy
 # Depend on the EOL PHP 7.0
 dev-libs/Ice php
 
-# Michał Górny <mgorny@gentoo.org> (2018-12-01)
-# Moved from use.mask to specific packages.
-# Andreas Sturmlechner <asturm@gentoo.org> (2018-05-10)
-# media-sound/mumble is masked/not keyworded at this point, bug #656826.
-games-fps/quake3 mumble
-games-fps/turtlearena mumble
-games-fps/urbanterror mumble
-games-rpg/manaplus mumble
-
 # Michał Górny <mgorny@gentoo.org> (2018-11-28)
 # Requires last-rited games-server/ut2003-ded.
 games-fps/ut2003 dedicated
@@ -257,10 +293,6 @@ dev-java/openjdk-jre-bin:11 gentoo-vm
 dev-java/oracle-jdk-bin:11 gentoo-vm
 dev-java/openjdk-bin:11 gentoo-vm
 dev-java/openjdk:11 gentoo-vm
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2017-11-04)
-# Requires audacious, which is masked. Bug 632513
-media-libs/freeverb3 jack
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (2017-09-09)
 # Potentially destructive. Use it only if you know what you're doing.
