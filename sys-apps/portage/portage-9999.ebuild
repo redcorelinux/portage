@@ -1,12 +1,12 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=(
-	pypy
-	python3_5 python3_6 python3_7 python3_8
+	pypy3
+	python3_6 python3_7 python3_8
 	python2_7
 )
 PYTHON_REQ_USE='bzip2(+),threads(+)'
@@ -26,7 +26,11 @@ DEPEND="!build? ( $(python_gen_impl_dep 'ssl(+)') )
 	dev-lang/python-exec:2
 	>=sys-apps/sed-4.0.5 sys-devel/patch
 	doc? ( app-text/xmlto ~app-text/docbook-xml-dtd-4.4 )
-	epydoc? ( >=dev-python/epydoc-2.0[$(python_gen_usedep 'python2*')] )"
+	epydoc? (
+		$(python_gen_cond_dep '
+			>=dev-python/epydoc-2.0[${PYTHON_USEDEP}]
+		' 'python2*')
+	)"
 # Require sandbox-2.2 for bug #288863.
 # For xattr, we can spawn getfattr and setfattr from sys-apps/attr, but that's
 # quite slow, so it's not considered in the dependencies as an alternative to

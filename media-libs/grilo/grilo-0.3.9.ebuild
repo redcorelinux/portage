@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python{2_7,3_5,3_6,3_7} )
+PYTHON_COMPAT=( python{2_7,3_6,3_7} )
 VALA_USE_DEPEND="vapigen"
 
 inherit gnome.org meson python-any-r1 vala xdg
@@ -42,6 +42,12 @@ BDEPEND="
 	test? ( sys-apps/dbus )
 	vala? ( $(vala_depend) )
 "
+
+PATCHES=(
+	# Will be fixed in 0.3.11
+	# https://gitlab.gnome.org/GNOME/grilo/commit/60d135ef64f16671bb0ab4079ecbc59bdc32cbc7
+	"${FILESDIR}"/${PN}-0.3.9-totem-pl-parser.patch
+)
 
 src_prepare() {
 	sed -i -e "s:'GETTEXT_PACKAGE', meson.project_name():'GETTEXT_PACKAGE', 'grilo-${SLOT%/*}':" meson.build || die

@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
-PYTHON_COMPAT=( python{3_5,3_6,3_7} )
+PYTHON_COMPAT=( python{3_6,3_7} )
 PYTHON_REQ_USE="xml"
 
 inherit multilib python-r1 toolchain-funcs bash-completion-r1
@@ -15,7 +15,7 @@ SEMNG_VER="${PV}"
 SELNX_VER="${PV}"
 SEPOL_VER="${PV}"
 
-IUSE="audit pam dbus"
+IUSE="audit dbus pam split-usr"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DESCRIPTION="SELinux core utilities"
@@ -61,8 +61,7 @@ DEPEND=">=sys-libs/libselinux-${SELNX_VER}:=[python,${PYTHON_USEDEP}]
 
 # pax-utils for scanelf used by rlpkg
 RDEPEND="${DEPEND}
-	app-misc/pax-utils
-	!<sys-apps/openrc-0.14"
+	app-misc/pax-utils"
 
 PDEPEND="sys-apps/semodule-utils
 	sys-apps/selinux-python"
@@ -153,7 +152,8 @@ src_install() {
 	rm -fR "${D}/etc/rc.d" || die
 
 	# compatibility symlinks
-	dosym /sbin/setfiles /usr/sbin/setfiles
+	use split-usr && dosym ../../sbin/setfiles /usr/sbin/setfiles
+
 	bashcomp_alias setsebool getsebool
 
 	# location for policy definitions

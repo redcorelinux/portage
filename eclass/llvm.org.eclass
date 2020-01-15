@@ -126,7 +126,7 @@ llvm.org_set_globals() {
 	elif [[ ${_LLVM_SOURCE_TYPE} == tar ]]; then
 		if ver_test -ge 9.0.1_rc1; then
 			# 9.0.1 RCs as GitHub archive
-			SRC_URI="
+			SRC_URI+="
 				https://github.com/llvm/llvm-project/archive/llvmorg-${PV/_/-}.tar.gz"
 		else
 			local a archives=()
@@ -198,7 +198,7 @@ llvm.org_src_unpack() {
 			tar -x -z -o --strip-components 1 \
 				-f "${DISTDIR}/${archive}" \
 				"${components[@]/#/llvm-project-${archive%.tar*}/}" || die
-			eend
+			eend ${?}
 		else
 			local c archives
 			# TODO: optimize this
@@ -212,7 +212,7 @@ llvm.org_src_unpack() {
 				mkdir -p "${top_dir}" || die
 				tar -C "${top_dir}" -x -J -o --strip-components 1 \
 					-f "${DISTDIR}/${archives[0]}" "${sub_path}" || die
-				eend
+				eend ${?}
 			done
 		fi
 	fi

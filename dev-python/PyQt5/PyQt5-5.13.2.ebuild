@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7,8} )
+PYTHON_COMPAT=( python2_7 python3_{6,7,8} )
 inherit multibuild python-r1 qmake-utils
 
 DESCRIPTION="Python bindings for the Qt framework"
@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
 
 # TODO: QtNfc, QtRemoteObjects (Qt >= 5.12)
 IUSE="bluetooth dbus debug declarative designer examples gles2 gui help location multimedia
@@ -154,7 +154,13 @@ src_configure() {
 		"${myconf[@]}" || die
 
 		# Fix parallel install failure
-		sed -i -e '/INSTALLS += distinfo/i distinfo.depends = install_subtargets' ${PN}.pro || die
+		if python_is_python3; then
+			sed -i -e '/INSTALLS += distinfo/i distinfo.depends = install_subtargets install_pep484_stubs install_qscintilla_api' \
+				${PN}.pro || die
+		else
+			sed -i -e '/INSTALLS += distinfo/i distinfo.depends = install_subtargets install_qscintilla_api' \
+				${PN}.pro || die
+		fi
 
 		# Run eqmake to respect toolchain and build flags
 		eqmake5 -recursive ${PN}.pro

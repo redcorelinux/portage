@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-PYTHON_COMPAT=( python{2_7,3_5,3_6,3_7} )
+PYTHON_COMPAT=( python{2_7,3_6,3_7} )
 PYTHON_REQ_USE="ncurses,readline"
 
 PLOCALES="bg de_DE fr_FR hu it tr zh_CN"
@@ -64,9 +64,12 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	qemu_softmmu_targets_ppc? ( fdt )
 	qemu_softmmu_targets_riscv32? ( fdt )
 	qemu_softmmu_targets_riscv64? ( fdt )
-	static? ( static-user !alsa !gtk !opengl !pulseaudio !snappy )
+	static? ( static-user !alsa !gtk !opengl !pulseaudio !snappy !plugins )
+	static-user? ( !plugins )
 	virtfs? ( xattr )
-	vte? ( gtk )"
+	vte? ( gtk )
+	plugins? ( !static !static-user )
+"
 
 # Dependencies required for qemu tools (qemu-nbd, qemu-img, qemu-io, ...)
 # and user/softmmu targets (qemu-*, qemu-system-*).
@@ -432,7 +435,6 @@ qemu_src_configure() {
 		fi
 	}
 	conf_opts+=(
-		--disable-bluez
 		$(conf_notuser accessibility brlapi)
 		$(conf_notuser aio linux-aio)
 		$(conf_notuser bzip2)
@@ -606,7 +608,7 @@ src_test() {
 }
 
 qemu_python_install() {
-	python_domodule "${S}/python/qemu/qmp.py"
+	python_domodule "${S}/python/qemu"
 
 	python_doscript "${S}/scripts/kvm/vmxcap"
 	python_doscript "${S}/scripts/qmp/qmp-shell"

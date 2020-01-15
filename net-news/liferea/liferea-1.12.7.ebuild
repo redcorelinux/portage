@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{5,6,7} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit gnome2 python-single-r1
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/lwindolf/${PN}/releases/download/v${PV}/${P}.tar.bz2
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86"
+KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -33,6 +33,13 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	virtual/pkgconfig"
+
+src_compile() {
+	# Workaround crash in libwebkit2gtk-4.0.so
+	# https://bugs.gentoo.org/704594
+	WEBKIT_DISABLE_COMPOSITING_MODE=1 \
+		gnome2_src_compile
+}
 
 pkg_postinst() {
 	gnome2_pkg_postinst

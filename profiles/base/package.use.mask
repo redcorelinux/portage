@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # New entries go on top.
@@ -6,9 +6,22 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
-# Ulrich Müller <ulm@gentoo.org> (2019-12-11)
-# Depends on last-rited app-i18n/man-pages-da.
-sys-apps/man-pages l10n_da
+# Michał Górny <mgorny@gentoo.org> (2020-01-12)
+# libcxxrt is unmaintained and it's going to be removed.
+sys-libs/libcxx libcxxrt
+
+# Brian Evans <grknight@gentoo.org> (2019-12-19)
+# PHP 7.1 is end of life and has security issues Bug 703326
+# Associated packages are not ready for new versions tracked in bug 702110
+dev-libs/ossp-uuid php
+www-servers/nginx-unit php7-1
+
+# Michał Górny <mgorny@gentoo.org> (2019-12-16)
+# Requires old x11-libs/fox:1.6 slot.
+dev-games/openscenegraph fox
+dev-libs/hidapi fox
+sci-mathematics/gsl-shell fox
+sys-libs/gwenhywfar fox
 
 # James Le Cuirot <chewi@gentoo.org> (2019-12-10)
 # The JIT feature only works on amd64 and x86.
@@ -43,7 +56,7 @@ dev-python/statsmodels doc
 sci-visualization/veusz fits
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-11-28)
-# sci-visualization/visit is on the way out, bug #657952
+# sci-visualization/visit was last-rited, bug #657952
 sci-libs/libgeodecomp visit
 
 # Michał Górny <mgorny@gentoo.org> (2019-11-25)
@@ -66,11 +79,6 @@ net-nds/openldap slp
 sys-block/open-iscsi slp
 sys-block/open-isns slp
 
-# Ben Kohler <bkohler@gentoo.org> (2019-10-03)
-# iwd backend for connman hasn't kept up with iwd releases/API, mask 
-# until it catches up.
-net-misc/connman iwd
-
 # Brian Evans <grknight@gentoo.org> (2019-10-01)
 # PHP support is broken with current version
 # Mask USE until they are fixed
@@ -88,10 +96,6 @@ app-i18n/xcin unicode
 # see https://github.com/openssl/openssl/pull/8797
 net-libs/ngtcp2 ssl
 net-misc/curl nghttp3
-
-# Michał Górny <mgorny@gentoo.org> (2019-09-08)
-# LLVM 5 is being removed.
-~dev-ada/gps-2018 gnat_2017
 
 # Michał Górny <mgorny@gentoo.org> (2019-09-07)
 # media-libs/libnut is slated for removal.
@@ -206,12 +210,6 @@ dev-lang/gnat-gpl go
 net-misc/wicd pm-utils
 sys-apps/razercfg pm-utils
 sys-power/powermgmt-base pm-utils
-
-# Pacho Ramos <pacho@gentoo.org> (2018-11-11)
-# sci-libs/spqr is going to be removed
-dev-cpp/eigen test
-kde-apps/cantor julia
-sci-libs/ceres-solver sparse
 
 # Alfredo Tupone <tupone@gentoo.org> (2018-10-24)
 # jit brokes build of gnat-gpl
@@ -395,7 +393,6 @@ mate-base/mate bluetooth
 # and causes problems with updating the X window, bug #592238
 app-editors/emacs:25 cairo
 app-editors/emacs:26 cairo
-app-editors/emacs-vcs:26 cairo
 
 # Michał Górny <mgorny@gentoo.org> (2016-07-05)
 # Mask system-clang support as it requires llvm-3.4 that is subject
@@ -539,7 +536,7 @@ media-libs/libsdl2 custom-cflags
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (2013-07-13)
 # GL/GLES support in cairo is mutually exclusive, bug #428770.
-x11-libs/cairo gles2
+x11-libs/cairo gles2-only
 
 # Kacper Kowalik <xarthisius@gentoo.org> (2013-05-19)
 # Fails to build, haven't had time to debug

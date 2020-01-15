@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 # ninja does not work due to fortran
 CMAKE_MAKEFILE_GENERATOR=emake
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_6 )
 
 inherit cmake-utils eapi7-ver elisp-common eutils fortran-2 \
 	prefix python-single-r1 toolchain-funcs
@@ -66,7 +66,7 @@ CDEPEND="
 	asimage? ( media-libs/libafterimage[gif,jpeg,png,tiff?] )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 	davix? ( net-libs/davix )
-	emacs? ( virtual/emacs )
+	emacs? ( >=app-editors/emacs-23.1:* )
 	fftw? ( sci-libs/fftw:3.0= )
 	fits? ( sci-libs/cfitsio:0= )
 	graphviz? ( media-gfx/graphviz:0= )

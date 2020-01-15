@@ -22,11 +22,6 @@
 # not yet ready for everyone.
 net-misc/curl quiche
 
-# Nick Sarnie <sarnex@gentoo.org> (2019-10-14)
-# Allow on stable for now
-app-emulation/wine-d3d9 -d3d9
-virtual/wine -d3d9
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-08-18)
 # media-video/pipewire is not stable yet
 dev-libs/weston pipewire
@@ -52,10 +47,6 @@ media-libs/opencv contrib contribcvv contribdnn contribhdf contribsfm contribxfe
 # unmask sssd for sudo
 app-admin/sudo -sssd
 
-# Mart Raudsepp <leio@gentoo.org> (2018-11-01)
-# net-wireless/iwd not stable yet
-net-misc/networkmanager iwd
-
 # Mikle Kolyada <zlogene@gentoo.org> (2018-09-15)
 # the dependency is unstable
 media-video/libav nvidia
@@ -77,7 +68,7 @@ sci-libs/gdal oracle
 
 # NP-Hardass <NP-Hardass@gentoo.org> (2017-09-27)
 # patchset variants are not stable
-virtual/wine d3d9 staging
+virtual/wine staging
 
 # Tim Harder <radhermit@gentoo.org> (2017-09-11)
 # Pulls in dev-ruby/asciidoctor which has too large of a ruby testing
@@ -105,5 +96,4 @@ gnustep-base/gnustep-make libobjc2
 # Michał Górny <mgorny@gentoo.org> (2014-03-30)
 # Don't apply stable masks to python-exec since we're forcing every
 # impl there anyway. Please keep this in sync with use.stable.mask.
-dev-lang/python-exec -python_targets_pypy
 dev-lang/python-exec -python_targets_pypy3

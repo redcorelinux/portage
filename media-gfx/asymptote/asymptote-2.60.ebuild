@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{5,6,7} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit autotools elisp-common latex-package multilib python-r1
 
@@ -45,7 +45,7 @@ RDEPEND="
 		virtual/latex-base
 		>=dev-texlive/texlive-latexextra-2013
 		)
-	emacs? ( virtual/emacs )
+	emacs? ( >=app-editors/emacs-23.1:* )
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )"
 DEPEND="${RDEPEND}
 	doc? (

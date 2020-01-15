@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ HOMEPAGE="https://tellico-project.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="https://tellico-project.org/files/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
@@ -74,15 +74,15 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Csv=ON
-		$(cmake-utils_use_find_package cddb KF5Cddb)
-		$(cmake-utils_use_find_package discid CDIO)
-		$(cmake-utils_use_find_package pdf Poppler)
-		$(cmake-utils_use_find_package scanner KF5Sane)
-		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
-		$(cmake-utils_use_find_package taglib Taglib)
+		$(cmake_use_find_package cddb KF5Cddb)
+		$(cmake_use_find_package discid CDIO)
+		$(cmake_use_find_package pdf Poppler)
+		$(cmake_use_find_package scanner KF5Sane)
+		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
+		$(cmake_use_find_package taglib Taglib)
 		-DENABLE_WEBCAM=$(usex v4l)
-		$(cmake-utils_use_find_package xmp Exempi)
-		$(cmake-utils_use_find_package yaz Yaz)
+		$(cmake_use_find_package xmp Exempi)
+		$(cmake_use_find_package yaz Yaz)
 	)
 
 	ecm_src_configure

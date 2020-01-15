@@ -4,6 +4,15 @@
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in package.use.mask
 
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2019-12-21)
+# For bleeding edge features and testing, not generally suitable
+# for stable systems
+dev-lang/rust nightly parallel-compiler system-bootstrap
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2019-12-18)
+# Neither sys-apps/bolt nor kde-plasma/plasma-thunderbolt are stable
+kde-plasma/plasma-meta thunderbolt
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-12-09)
 # Declared experimental, and dev-cpp/websocketpp not stable yet
 sci-libs/indilib websocket
@@ -37,7 +46,6 @@ dev-perl/Business-ISBN barcode
 dev-perl/Template-Toolkit gd
 media-fonts/unifont utils fontforge
 media-video/vdrsync dvdr
-net-analyzer/openvas-manager extras
 www-apps/bugzilla extras
 www-apps/otrs gd
 

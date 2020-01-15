@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -29,7 +29,7 @@ DEPEND="!dev-libs/mpatrol
 	doc? ( sys-apps/texinfo )"
 
 RDEPEND="${DEPEND}
-	emacs? ( virtual/emacs )"
+	emacs? ( >=app-editors/emacs-23.1:* )"
 
 S="${WORKDIR}"/${MY_P}
 
@@ -47,7 +47,7 @@ src_prepare() {
 		"${S}"/scripts/Mmake.vars.in \
 		|| die "sed libdir failed"
 
-	cd "${S}" || die
+	cd "${S}" || die
 	eautoconf
 
 	xdg_environment_reset

@@ -1,11 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_6 )
 
-inherit cmake-utils python-single-r1
+inherit cmake python-single-r1
 
 MY_PN="libArcus"
 
@@ -38,7 +38,7 @@ src_prepare() {
 	sed -i "s/find_package(Python3 3.4 REQUIRED/find_package(Python3 ${EPYTHON##python} EXACT REQUIRED/g" CMakeLists.txt || die
 	sed -i "s/find_package(Python3 3.4 REQUIRED/find_package(Python3 ${EPYTHON##python} EXACT REQUIRED/g" cmake/FindSIP.cmake || die
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -48,5 +48,5 @@ src_configure() {
 		-DBUILD_STATIC=$(usex static-libs ON OFF)
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

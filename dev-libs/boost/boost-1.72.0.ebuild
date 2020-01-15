@@ -54,6 +54,12 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.71.0-disable_icu_rpath.patch
 	"${FILESDIR}"/${PN}-1.71.0-context-x32.patch
 	"${FILESDIR}"/${PN}-1.71.0-build-auto_index-tool.patch
+	# Bug 703294, incomplete Boost.Serialization refactoring
+	"${FILESDIR}"/${PN}-1.72.0-missing-serialization-split_member-include.patch
+	# Bug 703036, per python-impl Boost.MPI
+	"${FILESDIR}"/${PN}-1.72.0-boost-mpi-python.patch
+	# Bug 704128, missing include on Boost.Ranges
+	"${FILESDIR}"/${PN}-1.72.0-revert-cease-dependence-on-range.patch
 )
 
 python_bindings_needed() {
@@ -215,7 +221,24 @@ multilib_src_install_all() {
 		rm -r "${ED}"/usr/include/boost/python/numpy* || die
 	fi
 
-	if ! use python; then
+	if use python; then
+		if use mpi; then
+			move_mpi_py_into_sitedir() {
+				local pyver="${EPYTHON#python}"
+				python_moduleinto boost
+				python_domodule "${ED}"/usr/$(get_libdir)/mpi${pyver/./}.so
+				rm "${ED}"/usr/$(get_libdir)/mpi${pyver/./}* || die
+				dosym mpi${pyver/./}.so $(python_get_sitedir)/boost/mpi.so
+
+				# create a proper python package
+				touch "${D}"/$(python_get_sitedir)/boost/__init__.py || die
+				python_optimize
+			}
+			python_foreach_impl move_mpi_py_into_sitedir
+		else
+			rm -r "${ED}"/usr/include/boost/mpi/python* || die
+		fi
+	else
 		rm -r "${ED}"/usr/include/boost/{python*,mpi/python*,parameter/aux_/python,parameter/python*} || die
 	fi
 
@@ -329,7 +352,7 @@ pkg_postinst() {
 	elog "  undefined reference to \`boost::re_detail_$(ver_cut 1)0$(ver_cut 2)00::cpp_regex_traits_implementation"
 	elog "    <char>::transform_primary[abi:cxx11](char const*, char const*) const'"
 	elog
-	elog "Then you need you need to recompile Boost and all its reverse dependencies"
+	elog "Then you need to recompile Boost and all its reverse dependencies"
 	elog "using the same toolchain. In general, *every* change of the C++ toolchain"
 	elog "requires a complete rebuild of the boost-dependent ecosystem."
 	elog

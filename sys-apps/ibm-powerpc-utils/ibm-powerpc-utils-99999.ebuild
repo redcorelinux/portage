@@ -6,11 +6,11 @@ inherit autotools git-r3
 
 DESCRIPTION="Utilities for the maintainance of the IBM and Apple PowerPC platforms"
 HOMEPAGE="https://github.com/ibm-power-utilities/powerpc-utils"
-EGIT_REPO_URI="${HOMEPAGE}"
+EGIT_REPO_URI="https://github.com/ibm-power-utilities/powerpc-utils"
 IUSE="+rtas"
 
 SLOT="0"
-LICENSE="IBM"
+LICENSE="GPL-2+"
 KEYWORDS=""
 
 DEPEND="

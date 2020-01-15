@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} pypy )
+PYTHON_COMPAT=( python2_7 python3_{6,7} )
 
 inherit check-reqs estack flag-o-matic llvm multiprocessing multilib-build python-any-r1 rust-toolchain toolchain-funcs
 
@@ -312,7 +312,7 @@ pkg_postinst() {
 	ewarn "This might have resulted in a dangling symlink for /usr/bin/cargo on some"
 	ewarn "systems. This can be resolved by calling 'sudo eselect rust set ${P}'."
 
-	if has_version app-editors/emacs || has_version app-editors/emacs-vcs; then
+	if has_version app-editors/emacs; then
 		elog "install app-emacs/rust-mode to get emacs support for rust."
 	fi
 

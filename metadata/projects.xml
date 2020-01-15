@@ -239,7 +239,7 @@
     <email>artwork@gentoo.org</email>
     <name>Artwork</name>
     <url>https://wiki.gentoo.org/wiki/Project:Artwork</url>
-    <description>The Artwork project manages Gentoo artwork and related assets. This includes wallpapers, logos, themes, icons sets, etc.</description>
+    <description>The Artwork project manages Gentoo artwork and related assets. This includes wallpapers, logos, themes, icons sets.</description>
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
@@ -248,6 +248,11 @@
     <member>
       <email>dabbott@gentoo.org</email>
       <name>David Abbott</name>
+      <role>Developer</role>
+    </member>
+    <member>
+      <email>jstein@gentoo.org</email>
+      <name>Jonas Stein</name>
       <role>Developer</role>
     </member>
     <member>
@@ -296,27 +301,6 @@
       <email>zx2c4@gentoo.org</email>
       <name>Jason A. Donenfeld</name>
       <role>Lead</role>
-    </member>
-  </project>
-  <project>
-    <email>bsd@gentoo.org</email>
-    <name>BSD Project</name>
-    <url>https://wiki.gentoo.org/wiki/Project:BSD</url>
-    <description>Maintains BSD userspace and some BSD-origin packages</description>
-    <member is-lead="1">
-      <email>aballier@gentoo.org</email>
-      <name>Alexis Ballier</name>
-      <role>Bearded one. Helping out reviewing mostly.</role>
-    </member>
-    <member>
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>Ebuild janitor, amd64-fbsd arch tester</role>
-    </member>
-    <member>
-      <email>monsieurp@gentoo.org</email>
-      <name>Patrice Clement</name>
-      <role>amd64-fbsd arch tester</role>
     </member>
   </project>
   <project>
@@ -750,33 +734,6 @@
     </member>
   </project>
   <project>
-    <email>crypto@gentoo.org</email>
-    <name>Crypto</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Crypto</url>
-    <description>Project for maintaining crypto related packages</description>
-    <member>
-      <email>alonbl@gentoo.org</email>
-      <name>Alon Bar-Lev</name>
-    </member>
-    <member>
-      <email>k_f@gentoo.org</email>
-      <name>Kristian Fiskerstrand</name>
-      <role>GnuPG, libgcrypt and related packages</role>
-    </member>
-    <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
-      <email>robbat2@gentoo.org</email>
-      <name>Robin Johnson</name>
-    </member>
-    <member>
-      <email>zerochaos@gentoo.org</email>
-      <name>Rick Farina</name>
-    </member>
-  </project>
-  <project>
     <email>deb-tools@gentoo.org</email>
     <name>Debian Tools Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Debian_Tools</url>
@@ -825,6 +782,22 @@
     <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
+    </member>
+  </project>
+  <project>
+    <email>dist-kernel@gentoo.org</email>
+    <name>Distribution Kernel</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Distribution_Kernel</url>
+    <description>Dist-kernel project maintains packages providing for zero-effort kernel install and upgrades</description>
+    <member is-lead="1">
+      <email>mgorny@gentoo.org</email>
+      <name>Michał Górny</name>
+      <role>Self-appointed lead</role>
+    </member>
+    <member>
+      <email>zlogene@gentoo.org</email>
+      <name>Mikle Kolyada</name>
+      <role>Minion</role>
     </member>
   </project>
   <project>
@@ -915,11 +888,6 @@
     <member>
       <email>rafaelmartins@gentoo.org</email>
       <name>Rafael Martins</name>
-      <role>member</role>
-    </member>
-    <member>
-      <email>slis@gentoo.org</email>
-      <name>Sławek Lis</name>
       <role>member</role>
     </member>
     <member>
@@ -1255,11 +1223,6 @@
     <member>
       <email>steils@gentoo.org</email>
       <name>Stefan Strogin</name>
-      <role>Member ( general )</role>
-    </member>
-    <member>
-      <email>vapier@gentoo.org</email>
-      <name>Mike Frysinger</name>
       <role>Member ( general )</role>
     </member>
   </project>
@@ -1680,7 +1643,7 @@
     <member>
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
-      <role>Developer</role>
+      <role>JDK maintainer</role>
     </member>
     <member is-lead="1">
       <email>monsieurp@gentoo.org</email>
@@ -1743,7 +1706,7 @@
     <member is-lead="1">
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
-      <role>Leader (Kernel, gentoo-sources, genpatches)</role>
+      <role>Leader (Kernel, gentoo-sources, genpatches, rt-sources)</role>
     </member>
     <member>
       <email>blueness@gentoo.org</email>
@@ -1978,6 +1941,20 @@
     <member>
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
+    </member>
+  </project>
+  <project>
+    <email>lua@gentoo.org</email>
+    <name>Lua Project</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Lua</url>
+    <description>Lua language and library maintenace</description>
+    <member>
+      <email>robbat2@gentoo.org</email>
+      <name>Robin Johnson</name>
+    </member>
+    <member>
+      <email>williamh@gentoo.org</email>
+      <name>William Hubbs</name>
     </member>
   </project>
   <project>
@@ -2489,11 +2466,6 @@
       <role>Prefix liaison</role>
     </member>
     <member>
-      <email>mrueg@gentoo.org</email>
-      <name>Manuel Rüger</name>
-      <role>Member</role>
-    </member>
-    <member>
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
       <role>Infra Liaison</role>
@@ -2529,11 +2501,6 @@
       <email>idl0r@gentoo.org</email>
       <name>Christian Ruppert</name>
       <role>Gentoolkit-dev</role>
-    </member>
-    <member>
-      <email>slis@gentoo.org</email>
-      <name>Sławek Lis</name>
-      <role>Gentoolkit's python revdep-rebuild</role>
     </member>
     <member>
       <email>zmedico@gentoo.org</email>
@@ -2852,15 +2819,11 @@
     <member>
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
+      <role>Member</role>
     </member>
     <member>
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
-      <role>Member</role>
-    </member>
-    <member>
-      <email>maksbotan@gentoo.org</email>
-      <name>Maxim Koltsov</name>
       <role>Member</role>
     </member>
     <member is-lead="1">
@@ -2869,13 +2832,8 @@
       <role>Member</role>
     </member>
     <member>
-      <email>monsieurp@gentoo.org</email>
-      <name>Patrice Clement</name>
-      <role>Member</role>
-    </member>
-    <member>
-      <email>mrueg@gentoo.org</email>
-      <name>Manuel Rüger</name>
+      <email>pacho@gentoo.org</email>
+      <name>Pacho Ramos</name>
       <role>Member</role>
     </member>
     <member>
@@ -2894,6 +2852,11 @@
       <role>Member</role>
     </member>
     <member>
+      <email>slashbeast@gentoo.org</email>
+      <name>Piotr Karbowski</name>
+      <role>Member</role>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Member</role>
@@ -2901,6 +2864,11 @@
     <member>
       <email>sping@gentoo.org</email>
       <name>Sebastian Pipping</name>
+      <role>Member</role>
+    </member>
+    <member>
+      <email>zlogene@gentoo.org</email>
+      <name>Mikle Kolyada</name>
       <role>Member</role>
     </member>
   </project>
@@ -2949,11 +2917,6 @@
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Deputy Lead</role>
-    </member>
-    <member>
-      <email>pinkbyte@gentoo.org</email>
-      <name>Sergey Popov</name>
-      <role>Developer</role>
     </member>
     <member is-lead="1">
       <email>soap@gentoo.org</email>
@@ -3223,11 +3186,6 @@
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
     </member>
-    <member>
-      <email>pinkbyte@gentoo.org</email>
-      <name>Sergey Popov</name>
-      <role>Member ( Gentoo/s390 )</role>
-    </member>
     <member is-lead="1">
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
@@ -3294,6 +3252,11 @@
       <email>axs@gentoo.org</email>
       <name>Ian Stakenvicius</name>
       <role>multilib</role>
+    </member>
+    <member>
+      <email>bkohler@gentoo.org</email>
+      <name>Ben Kohler</name>
+      <role>Member</role>
     </member>
     <member>
       <email>polynomial-c@gentoo.org</email>
@@ -3386,6 +3349,11 @@
       <role>Chemistry, Physics, *</role>
     </member>
     <member>
+      <email>pacho@gentoo.org</email>
+      <name>Pacho Ramos</name>
+      <role>Biology, Chemistry</role>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Mathematics, Biology, *</role>
@@ -3427,11 +3395,6 @@
       <email>k_f@gentoo.org</email>
       <name>Kristian Fiskerstrand</name>
       <role>Co-Lead</role>
-    </member>
-    <member>
-      <email>pinkbyte@gentoo.org</email>
-      <name>Sergey Popov</name>
-      <role>GLSA Coordinator</role>
     </member>
     <member is-lead="1">
       <email>whissi@gentoo.org</email>
@@ -3763,6 +3726,11 @@
     <name>VDR project</name>
     <url>https://wiki.gentoo.org/wiki/Project:VDR</url>
     <description>The VDR Project maintains and updates the VDR packages in the portage tree. It integrates them with Gentoo as tight as possible. VDR is the abbreviation for Video Disk Recorder.</description>
+    <member>
+      <email>hd_brummy@gentoo.org</email>
+      <name>Joerg Bornkessel</name>
+      <role>Member</role>
+    </member>
     <member>
       <email>idl0r@gentoo.org</email>
       <name>Christian Ruppert</name>

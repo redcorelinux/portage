@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils kodi-addon
+inherit cmake kodi-addon
 
 DESCRIPTION="Goom visualizer for Kodi"
 HOMEPAGE="https://github.com/notspiff/visualization.goom"
@@ -17,8 +17,9 @@ case ${PV} in
 	;;
 *)
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="https://github.com/notspiff/visualization.goom/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/visualization.goom-${PV}"
+	CODENAME="Leia"
+	SRC_URI="https://github.com/notspiff/visualization.goom/archive/${PV}-${CODENAME}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/visualization.goom-${PV}-${CODENAME}"
 	;;
 esac
 

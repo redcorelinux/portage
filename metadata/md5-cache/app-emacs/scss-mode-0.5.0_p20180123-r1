@@ -1,12 +1,12 @@
-BDEPEND=>=virtual/emacs-23
+BDEPEND=>=app-editors/emacs-23.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Major mode for editing SCSS files in Emacs
 EAPI=7
 HOMEPAGE=https://github.com/antonj/scss-mode
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-ruby/sass >=virtual/emacs-23
+RDEPEND=dev-ruby/sass >=app-editors/emacs-23.1:*
 SLOT=0
 SRC_URI=https://github.com/antonj/scss-mode/archive/cf58dbec5394280503eb5502938f3b5445d1b53d.tar.gz -> scss-mode-0.5.0_p20180123.tar.gz
-_eclasses_=elisp	11f1230b542918f2de1aef02bfbb3539	elisp-common	23f47b2e1de7abf387105eddd1318738
+_eclasses_=elisp	17bb0076b1e93d2dba84995228871c99	elisp-common	a1054cff648e1c6a806e17001d052176
 _md5_=f21b6da45eb524b1fa5e5a33f95afd56

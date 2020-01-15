@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
+PYTHON_COMPAT=( python{2_7,3_{6,7}} )
 CMAKE_MAKEFILE_GENERATOR=emake
 
 DISTUTILS_OPTIONAL=1
@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	app-arch/bzip2:=[static-libs?]
 	app-arch/lz4:=[static-libs?]
-	app-arch/snappy:=[static-libs?]
+	app-arch/snappy:=[static-libs(-)?]
 	app-arch/zstd:=[static-libs?]
 	app-shells/bash:0
 	app-misc/jq:=[static-libs?]
