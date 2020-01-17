@@ -14,7 +14,7 @@ else
 	DOCKER_GITCOMMIT="633a0ea"
 	MY_PV=${PV/_/-}
 	SRC_URI="https://${EGO_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64"
+	KEYWORDS="amd64 ~arm ~arm64 ~ppc64"
 	[ "$DOCKER_GITCOMMIT" ] || die "DOCKER_GITCOMMIT must be added manually for each bump!"
 	inherit golang-vcs-snapshot
 fi
@@ -51,6 +51,7 @@ DEPEND="
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#optional-dependencies
 RDEPEND="
 	${COMMON_DEPEND}
+	!sys-apps/systemd[-cgroup-hybrid(+)]
 	>=net-firewall/iptables-1.4
 	sys-process/procps
 	>=dev-vcs/git-1.7
