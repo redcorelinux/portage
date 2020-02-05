@@ -1,6 +1,10 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-26)
+# media-libs/libheif is not keyworded
+media-gfx/gimp heif
+
 # Georgy Yakovlev <gyakovlev@gentoo.org (2020-01-04)
 # zfs is not keyworded on arm
 dev-util/schroot zfs
@@ -142,10 +146,6 @@ media-tv/tvheadend hdhomerun
 # Michał Górny <mgorny@gentoo.org> (2017-11-29)
 # All current clang versions are broken on ARM.
 app-doc/doxygen clang
-
-# Thomas Deutschmann <whissi@gentoo.org> (2017-11-28)
-# Requires dev-libs/mongo-c-driver which isn't keyworded
->=app-admin/rsyslog-8.31 mongodb
 
 # Patrice Clement <monsieurp@gentoo.org> (2017-09-24)
 # Unmask Raspberry Pi support on arm.
@@ -500,7 +500,7 @@ media-libs/phonon vlc
 
 # Michael Sterrett <mr_bones_@gentoo.org> (2012-03-04)
 # arm is missing keywords for >=dev-libs/json-glib-0.12
-app-admin/syslog-ng json mongodb
+app-admin/syslog-ng json
 
 # Anthony G. Basile <blueness@gentoo.org> (2011-12-21)
 # Mask the vde flag on tinc because net-misc/vde is not
