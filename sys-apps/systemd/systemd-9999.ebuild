@@ -7,14 +7,19 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/systemd/systemd.git"
 	inherit git-r3
 else
+	if [[ ${PV} == *.* ]]; then
+		MY_PN=systemd-stable
+	else
+		MY_PN=systemd
+	fi
 	MY_PV=${PV/_/-}
-	MY_P=${PN}-${MY_PV}
+	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
-	SRC_URI="https://github.com/systemd/systemd/archive/v${MY_PV}/${MY_P}.tar.gz"
+	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 fi
 
-PYTHON_COMPAT=( python{3_6,3_7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit bash-completion-r1 linux-info meson multilib-minimal ninja-utils pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
 
@@ -127,6 +132,10 @@ BDEPEND="
 	dev-libs/libxslt:0
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
 "
+
+python_check_deps() {
+	has_version -b "dev-python/lxml[${PYTHON_USEDEP}]"
+}
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != buildonly ]]; then

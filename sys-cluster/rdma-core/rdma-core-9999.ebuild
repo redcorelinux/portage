@@ -31,7 +31,11 @@ COMMON_DEPEND="
 	python? ( ${PYTHON_DEPS} )"
 
 DEPEND="${COMMON_DEPEND}
-	python? ( dev-python/cython[${PYTHON_USEDEP}] )"
+	python? (
+		$(python_gen_cond_dep '
+			dev-python/cython[${PYTHON_MULTI_USEDEP}]
+		')
+	)"
 
 RDEPEND="${COMMON_DEPEND}
 	!!sys-fabric/infiniband-diags
@@ -90,4 +94,6 @@ src_install() {
 	newinitd "${FILESDIR}"/ibacm.init ibacm
 	newinitd "${FILESDIR}"/iwpmd.init iwpmd
 	newinitd "${FILESDIR}"/srpd.init srpd
+
+	use python && python_optimize
 }

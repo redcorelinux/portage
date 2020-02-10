@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-PYTHON_COMPAT=( python{2_7,3_6} )
+PYTHON_COMPAT=( python3_6 )
 
 inherit eutils flag-o-matic python-any-r1 toolchain-funcs
 
@@ -53,6 +53,10 @@ RDEPEND+="
 	!sys-apps/mktemp
 	!<app-forensics/tct-1.18-r1
 	!<net-fs/netatalk-2.0.3-r4"
+
+python_check_deps() {
+	has_version --host-root "dev-python/pyinotify[${PYTHON_USEDEP}]"
+}
 
 pkg_setup() {
 	if use test ; then

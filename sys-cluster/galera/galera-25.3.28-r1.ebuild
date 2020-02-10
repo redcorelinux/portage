@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_6,3_7} )
+PYTHON_COMPAT=( python{3_6,3_7} )
 
 inherit python-any-r1 scons-utils toolchain-funcs flag-o-matic
 
@@ -14,7 +14,7 @@ LICENSE="GPL-2 BSD"
 
 SLOT="0"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ppc ppc64 x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ia64 ppc ppc64 x86"
 IUSE="cpu_flags_x86_sse4_2 garbd test"
 RESTRICT="!test? ( test )"
 
