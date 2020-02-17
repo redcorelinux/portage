@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 VALA_MIN_API_VERSION="0.36"
 DISABLE_AUTOFORMATTING=1
 FORCE_PRINT_ELOG=1
@@ -73,6 +73,8 @@ DEPEND="${RDEPEND}"
 # appstream-glib needed for validation with appstream-util with FEATURES=test
 BDEPEND="
 	doc? ( dev-python/sphinx )
+	gtk-doc? ( dev-util/gtk-doc
+		app-text/docbook-xml-dtd:4.3 )
 	test? (
 		dev-libs/appstream-glib
 		sys-apps/dbus )

@@ -32,6 +32,57 @@
 
 #--- END OF EXAMPLES ---
 
+# Rich Freeman <rich0@gentoo.org> (2020-02-16)
+# Dead upstream, obsolete deps.
+app-misc/sleepyhead
+
+# Mart Raudsepp <leio@gentoo.org> (2020-02-16)
+# Fails to automatically launch pipewire for me. Help welcome figuring it out.
+net-misc/gnome-remote-desktop
+
+# Stephan Hartmann <stha09@googlemail.com> (2020-02-16)
+# Dev channel releases are only for people who
+# are developers or want more experimental features
+# and accept a more unstable release.
+>=www-client/chromium-82
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-02-16)
+# No more revdeps, abandoned upstream, depends on deprecated dev-qt/qtwebkit.
+# Masked for removal in 30 days.
+kde-misc/kwebkitpart
+
+# Michał Górny <mgorny@gentoo.org> (2020-02-15)
+# To reduce duplication of effort, prebuilt vanilla kernel packages
+# are discontinued.  Since Gentoo patchset is really minimal,
+# sys-kernel/gentoo-kernel-bin can be used as a replacement.  Vanilla
+# kernels can still be built using sys-kernel/vanilla-kernel.
+# Removal in 30 days.
+sys-kernel/vanilla-kernel-bin
+
+# Mart Raudsepp <leio@gentoo.org> (2020-02-12)
+# GNOME 3.35 development release packages
+>=dev-libs/vala-common-0.47
+dev-lang/vala:0.48
+
+# Stefan Strogin <steils@gentoo.org> (2020-02-12)
+# Mask for testing revdeps.
+>=dev-games/mygui-3.4.0
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-02-11)
+# Upstream "unable to port away from" dev-python/pygtk, bug #708156
+# Masked for removal in 30 days.
+sci-calculators/gonvert
+
+# David Seifert <soap@gentoo.org> (2020-02-11)
+# Unmaintained, EAPI 4, last release over 9 years ago, no revdeps.
+# Removal in 30 days.
+app-vim/cream
+
+# David Seifert <soap@gentoo.org> (2020-02-11)
+# Unmaintained, EAPI 4, last release over 9 years ago, ebuild has QA
+# issues, no revdeps.  Removal in 30 days.  Bug #558354.
+net-im/coccinella
+
 # David Seifert <soap@gentoo.org> (2020-02-10)
 # Unmaintained, only live ebuild, doesn't build, last release over 7
 # years ago, EAPI 4. Removal in 15 days. Bug #593008.
@@ -321,11 +372,6 @@ media-gfx/pycam
 # Removal in 30 days.  Bug #578234, #685928.
 app-i18n/zhcon
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-26)
-# No revdeps, blocks dev-python/pygtk cleanup, bug #706476
-# Masked for removal in 30 days.
-dev-python/pygtkhelpers
-
 # Michał Górny <mgorny@gentoo.org> (2020-01-26)
 # Unmaintained.  Not bumped since Mar 2018.  No py3.7 compat.  Forces
 # old version of dev-python/idna.
@@ -431,12 +477,6 @@ app-text/sary
 # maintain. Take this over if wanted, otherwise I will remove it in 30 days.
 app-admin/cli53
 
-# Stephan Hartmann <stha09@googlemail.com> (2020-01-20)
-# Dev channel releases are only for people who
-# are developers or want more experimental features
-# and accept a more unstable release.
->=www-client/chromium-81
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-01-19)
 # Ancient, last release in 2006, blocks x11-libs/gtkglext cleanup
 # Masked for removal in 30 days.
@@ -540,17 +580,6 @@ net-dns/validns
 net-analyzer/pchar
 
 # Michał Górny <mgorny@gentoo.org> (2020-01-16)
-# Python 2 only.  Last release in 2006.  No reverse dependencies.
-# Removal in 30 days.  Bug #705522.
-dev-python/pyemf
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-16)
-# Abandoned upstream.  Python 2 only.  No reverse dependencies.
-# Removal in 30 days.  Bug #705518.
-dev-python/milk
-dev-python/milksets
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-16)
 # The new version loses Python 2 support but does not introduce any real
 # changes.  Let's mask it to reduce the noise, and hopefully try to get
 # python2_7 out of default PYTHON_TARGETS first.
@@ -562,16 +591,6 @@ dev-python/milksets
 # Please DOWNGRADE to dev-python/nototools-0_pre20200113
 =dev-python/nototools-20190320
 
-# Mike Gilbert <floppym@gentoo.org> (2020-01-12)
-# No upstream activity since 2014, no reverse deps.
-# Remove in 30 days.
-dev-python/transmissionrpc
-
-# Ulrich Müller <ulm@gentoo.org> (2020-01-12)
-# Runtime errors. Last upstream release in 2003. No license.
-# Masked for removal in 30 days. Bug #703548.
-games-board/cgoban2
-
 # Joerg Bornkessel <hd_brummy@gentoo.org> (2020-01-12)
 # upstream has give up this project,
 # upstream is not interressted on any patches to fix this
@@ -581,59 +600,10 @@ games-board/cgoban2
 # masked for removal ~12 Feb 2020
 media-plugins/vdr-mailbox
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-12)
-# Unmaintained upstream and redundant. Use kde-apps/kamera instead.
-# Only revdep of ancient media-libs/qimageblitz. Removal in 30 days.
-media-video/kamerka
-media-libs/qimageblitz
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-12)
-# Ancient, blocks x11-libs/gtkglext cleanup, open bug #649066
-# Masked for removal in 30 days.
-dev-cpp/gtkglextmm
-sci-misc/repsnapper
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-12)
-# Python 2 only, depends on OpenStack which is Py3 now.  No release
-# since 2005.
-# Removal in 30 days.
-app-admin/supernova
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-12)
-# libcxxrt is no longer maintained upstream.  It used to be needed to
-# maintain ABI in Gentoo/FreeBSD but that is no longer supported.  Plus,
-# FreeBSD maintains their own fork anyway.  sys-libs/libcxxabi (from
-# LLVM upstream) is the suggested replacement (but it's not ABI
-# compatible!).
-# Removal in 30 days.  Bug #705268.
-sys-libs/libcxxrt
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-12)
-# Backport to Python 2.4 - 2.6.  Not needed by anything.
-# Removal in 30 days.  Bug #705256.
-dev-python/ordereddict
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-12)
-# Unmaintained upstream and redundant. Use media-sound/audex instead.
-# Removal in 30 days.
-media-sound/kaudiocreator
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-12)
-# Unmaintained upstream and redundant. Use Night Color functionality built into
-# Plasma 5.17 instead, without needing x11-misc/redshift. Removal in 30 days.
-kde-misc/plasma-redshift-control
-
 # Mart Raudsepp <leio@gentoo.org> (2020-01-11)
 # End of life vala:0.42 series, please depclean.
 # This message shall be kept until 2020-02-11.
 dev-lang/vala:0.42
-
-# Mart Raudsepp <leio@gentoo.org> (2020-01-11)
-# Upstream considers this too broken to the point of thinking to
-# even deleting the tarballs and downgrading in pip.
-# https://github.com/mesonbuild/meson/issues/6442
-# https://bugs.gentoo.org/705144
-=dev-util/meson-0.53.0
 
 # Ulrich Müller <ulm@gentoo.org> (2020-01-06)
 # Snapshots from Git, masked for testing.
@@ -729,15 +699,6 @@ sys-apps/man
 app-office/texmacs
 <dev-scheme/guile-2
 
-# Mart Raudsepp <leio@gentoo.org> (2019-08-18)
-# Fails to dbus activate properly for me. Help welcome figuring it out.
-net-misc/gnome-remote-desktop
-
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2019-07-26)
-# Mask 5.x version
-# It breaks hundreds of py2 ebuilds and not all deps are keyworded
->=dev-python/pytest-5.0.1
-
 # Robin H. Johnson <robbat2@gentoo.org> (2019-07-08)
 # Needs LOTS of testing, broke boot on my laptop in early attempts, maybe needs
 # matching genkernel work?
@@ -746,67 +707,6 @@ net-misc/gnome-remote-desktop
 # Daniel Pielmeier <billie@gentoo.org> (2019-07-06)
 # Requires >=dev-lang/lua-5.2 which is masked
 >=app-admin/conky-1.11.4
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2019-05-11)
-# Perl 5.24 will be removed soon. Please upgrade.
-<dev-lang/perl-5.26.2
-=virtual/perl-Archive-Tar-2.40.100_rc-r6
-=virtual/perl-B-Debug-1.230.0-r3
-=virtual/perl-CPAN-2.110.100_rc-r6
-=virtual/perl-CPAN-Meta-2.150.5-r1
-=virtual/perl-Carp-1.400.0-r1
-=virtual/perl-Compress-Raw-Bzip2-2.69.0-r1
-=virtual/perl-Compress-Raw-Zlib-2.69.0-r1
-=virtual/perl-DB_File-1.835.0-r3
-=virtual/perl-Data-Dumper-2.160.0-r1
-=virtual/perl-Devel-PPPort-3.320.0-r1
-=virtual/perl-Digest-MD5-2.540.0-r3
-=virtual/perl-Digest-SHA-5.950.100_rc-r6
-=virtual/perl-Encode-2.800.100_rc-r4
-=virtual/perl-ExtUtils-MakeMaker-7.100.200_rc-r4
-=virtual/perl-ExtUtils-ParseXS-3.310.0-r1
-=virtual/perl-File-Spec-3.630.100_rc-r4
-=virtual/perl-Filter-Simple-0.920.0-r3
-=virtual/perl-Getopt-Long-2.480.0-r1
-=virtual/perl-HTTP-Tiny-0.56.1_rc-r4
-=virtual/perl-I18N-LangTags-0.400.0-r5
-=virtual/perl-IO-1.360.100_rc-r4
-=virtual/perl-IO-Compress-2.69.1_rc-r4
-=virtual/perl-IO-Socket-IP-0.370.0-r3
-=virtual/perl-IPC-Cmd-0.920.100_rc-r6
-=virtual/perl-JSON-PP-2.273.0.100_rc-r6
-=virtual/perl-Locale-Maketext-1.260.100_rc-r6
-=virtual/perl-Math-BigInt-1.999.715-r2
-=virtual/perl-Math-BigInt-FastCalc-0.400.0-r1
-=virtual/perl-Math-BigRat-0.260.802-r1
-=virtual/perl-Math-Complex-1.590.0-r9
-=virtual/perl-Module-CoreList-5.201.709.220-r2
-=virtual/perl-Module-Load-Conditional-0.640.0-r3
-=virtual/perl-Module-Metadata-1.0.31-r1
-=virtual/perl-Net-Ping-2.430.100_rc-r6
-=virtual/perl-Parse-CPAN-Meta-1.441.700.100_rc-r4
-=virtual/perl-Perl-OSType-1.9.0-r1
-=virtual/perl-Pod-Simple-3.320.0-r1
-=virtual/perl-Safe-2.390.0-r3
-=virtual/perl-Scalar-List-Utils-1.420.200_rc-r1
-=virtual/perl-Storable-2.560.100_rc-r4
-=virtual/perl-Sys-Syslog-0.330.100_rc-r6
-=virtual/perl-Term-ANSIColor-4.40.0-r1
-=virtual/perl-Term-ReadLine-1.150.0-r3
-=virtual/perl-Test-1.280.100_rc-r4
-=virtual/perl-Test-Harness-3.360.100_rc-r3
-=virtual/perl-Test-Simple-1.1.14_p522-r2
-=virtual/perl-Thread-Queue-3.90.0-r1
-=virtual/perl-Thread-Semaphore-2.120.0-r9
-=virtual/perl-Unicode-Collate-1.140.0-r2
-=virtual/perl-XSLoader-0.220.0-r4
-=virtual/perl-bignum-0.420.100_rc-r4
-=virtual/perl-libnet-3.80.100_rc-r4
-=virtual/perl-parent-0.234.0-r1
-=virtual/perl-podlators-4.70.0-r1
-=virtual/perl-threads-2.70.0-r1
-=virtual/perl-threads-shared-1.510.0-r1
-=virtual/perl-version-0.991.600-r1
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-04-17)
 # The Oracle JDK License has changed for releases starting 2019-04-16

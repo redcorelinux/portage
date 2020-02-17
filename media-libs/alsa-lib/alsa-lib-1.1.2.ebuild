@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 # no support for python3_2 or above yet wrt #471326
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools eutils multilib multilib-minimal python-single-r1
+inherit autotools eutils ltprune multilib multilib-minimal python-single-r1
 
 DESCRIPTION="Advanced Linux Sound Architecture Library"
 HOMEPAGE="https://alsa-project.org/"
