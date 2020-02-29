@@ -11,7 +11,7 @@ SRC_URI+=" https://dev.gentoo.org/~leio/distfiles/${P}-patchset.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="crypt debug gnome-keyring ipv6 jpeg ssl systemd +telepathy zeroconf +zlib"
 # bug #394611; tight encoding requires zlib encoding
 REQUIRED_USE="jpeg? ( zlib )"
@@ -50,9 +50,11 @@ DEPEND="${RDEPEND}
 	app-crypt/libsecret
 	dev-util/glib-utils
 	>=dev-util/intltool-0.50
+	gnome-base/gnome-common
 	virtual/pkgconfig
 "
 # libsecret is always required at build time per bug 322763
+# eautoreconf needs gnome-common
 
 PATCHES=(
 	"${WORKDIR}"/patches/ # Patches from master branch at 2020-02-15 state; needs autoreconf

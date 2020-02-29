@@ -184,7 +184,7 @@ src_configure() {
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 	)
 
-	use gps && mycmakeargs+=( $(cmake_use_find_package gps libgps) )
+	use geolocation && mycmakeargs+=( $(cmake_use_find_package gps libgps) )
 
 	ecm_src_configure
 }
@@ -201,7 +201,7 @@ src_install() {
 	fperms +x /etc/xdg/plasma-workspace/shutdown/10-agent-shutdown.sh
 }
 
-pkg_postinst () {
+pkg_postinst() {
 	ecm_pkg_postinst
 
 	# Clean up pre-5.17.4 scripts
