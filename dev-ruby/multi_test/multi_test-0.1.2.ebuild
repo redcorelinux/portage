@@ -3,7 +3,7 @@
 
 EAPI=5
 
-USE_RUBY="ruby23 ruby24 ruby25 ruby26"
+USE_RUBY="ruby24 ruby25 ruby26 ruby27"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 
@@ -15,7 +15,7 @@ DESCRIPTION="A uniform interface for Ruby testing libraries"
 HOMEPAGE="http://cukes.info/"
 LICENSE="MIT"
 
-KEYWORDS="~alpha amd64 arm ~arm64 hppa ia64 ppc ppc64 s390 sparc x86"
+KEYWORDS="amd64 arm ~arm64 hppa ~ia64 ppc ppc64 s390 sparc x86"
 SLOT="0"
 IUSE=""
 

@@ -17,20 +17,26 @@ SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
 IUSE="doc examples +sqlite test"
 
 REQUIRED_USE="test? ( sqlite )"
 
-DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	test? ( dev-python/mock[${PYTHON_USEDEP}] )"
+BDEPEND="
+	test? (
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+	)
+"
 
 S="${WORKDIR}/${MY_P}"
 
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	local PATCHES=(
+		"${FILESDIR}"/sqlalchemy-pytest-deprecation.patch
+	)
 	# Disable tests hardcoding function call counts specific to Python versions.
 	rm -r test/aaa_profiling || die
 	distutils-r1_python_prepare_all

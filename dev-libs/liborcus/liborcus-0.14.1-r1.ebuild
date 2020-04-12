@@ -25,10 +25,10 @@ RDEPEND="
 	dev-libs/boost:=[zlib(+)]
 	sys-libs/zlib
 	python? ( ${PYTHON_DEPS} )
-	spreadsheet-model? ( >=dev-libs/libixion-0.14.0:= )
+	spreadsheet-model? ( dev-libs/libixion:${SLOT} )
 "
 DEPEND="${RDEPEND}
-	>=dev-util/mdds-1.4.1:1
+	=dev-util/mdds-1.4*:1
 "
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"

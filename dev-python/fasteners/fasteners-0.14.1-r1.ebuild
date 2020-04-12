@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python2_7 python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -25,7 +25,10 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		${RDEPEND}
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/testtools[${PYTHON_USEDEP}]
-		virtual/python-futures[${PYTHON_USEDEP}] )"
+		$(python_gen_cond_dep '
+			dev-python/futures[${PYTHON_USEDEP}]
+		' -2)
+	)"
 
 python_test() {
 	nosetests -v || die

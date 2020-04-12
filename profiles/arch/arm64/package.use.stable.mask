@@ -1,10 +1,9 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Joonas Niilola <juippis@gentoo.org> (2020-02-08)
-# Dependency not stabilized on this arch.
-media-libs/libcaca imlib
-
+# Mikle Kolyada <zlogene@gentoo,org> (2020-03-19)
+# deps not yet stable
+kde-apps/umbrello php
 # Craig Andrews <candrews@gentoo.org> (2019-11-26)
 # net-libs/quiche is an early HTTP/3 implementation
 # not yet ready for everyone.
@@ -108,11 +107,8 @@ net-fs/samba ads
 # Masked due to unstable deps.
 dev-db/redis tcmalloc
 dev-python/hgdistver test
-dev-python/pycurl test
-dev-python/pyopenssl test
 dev-python/setuptools_scm mercurial test
 dev-python/sphinx latex test
-dev-python/twisted-core gtk serial
 net-analyzer/netcat crypt
 
 # Michał Górny <mgorny@gentoo.org> (2018-02-07)

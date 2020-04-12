@@ -12,18 +12,12 @@ SRC_URI="mirror://pypi/${TWISTED_PN:0:1}/${TWISTED_PN}/${TWISTED_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-linux"
+KEYWORDS="~alpha amd64 ~ia64 ppc ppc64 sparc x86 ~x86-linux"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	|| (
-		dev-python/twisted[${PYTHON_USEDEP}]
-		(
-			dev-python/twisted-core[${PYTHON_USEDEP}]
-			dev-python/twisted-web[${PYTHON_USEDEP}]
-		)
-	)
+	dev-python/twisted[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]"
 # JS tests require a JavaScript interpreter ('smjs' or 'js' in PATH)
 # and the subunit library

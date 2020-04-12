@@ -44,6 +44,12 @@ unset DEV_URI
 # These are bundles that can't be removed for now due to huge patchsets.
 # If you want them gone, patches are welcome.
 ADDONS_SRC=(
+	# not packaged in Gentoo, https://www.netlib.org/fp/dtoa.c
+	"${ADDONS_URI}/dtoa-20180411.tgz"
+	# not packaged in Gentoo, https://skia.org/
+	"${ADDONS_URI}/skia-m83-8ce842d38d0b32149e874d6855c91e8c68ba65a7.tar.xz"
+	# QR code generating library for >=libreoffice-6.4
+	"${ADDONS_URI}/QR-Code-generator-1.4.0.tar.gz"
 	"java? ( ${ADDONS_URI}/17410483b5b5f267aa18b7e00b65e6e0-hsqldb_1_8_0.zip )"
 	# no release for 8 years, should we package it?
 	"libreoffice_extensions_wiki-publisher? ( ${ADDONS_URI}/a7983f859eafb2677d7ff386a023bc40-xsltml_2.1.2.zip )"
@@ -78,6 +84,7 @@ RESTRICT="!test? ( test )"
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
+
 [[ ${MY_PV} == *9999* ]] || \
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
@@ -120,7 +127,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/icu:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
-	>=dev-libs/liborcus-0.14.0
+	>=dev-libs/liborcus-0.15.0
 	dev-libs/librevenge
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -153,9 +160,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	x11-libs/libXrandr
 	x11-libs/libXrender
 	accessibility? (
-		$(python_gen_cond_dep '
-			dev-python/lxml[${PYTHON_MULTI_USEDEP}]
-		')
+		$(python_gen_cond_dep 'dev-python/lxml[${PYTHON_MULTI_USEDEP}]')
 	)
 	bluetooth? (
 		dev-libs/glib:2
@@ -210,7 +215,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-perl/Archive-Zip
 	>=dev-util/cppunit-1.14.0
 	>=dev-util/gperf-3.1
-	>=dev-util/mdds-1.4.1:1=
+	dev-util/mdds:1/1.5
 	media-libs/glm
 	sys-devel/ucpp
 	x11-base/xorg-proto
@@ -271,12 +276,6 @@ pkg_pretend() {
 	fi
 
 	use java || ewarn "Without java, several wizards are not going to be available."
-
-	if has_version "<app-office/libreoffice-5.3.0[firebird]"; then
-		ewarn "Firebird has been upgraded to version 3. It is unable to read back Firebird 2.5 data, so"
-		ewarn "embedded firebird odb files created in LibreOffice pre-5.3 can't be opened with this version."
-		ewarn "See also: https://wiki.documentfoundation.org/ReleaseNotes/5.3#Base"
-	fi
 
 	[[ ${MERGE_TYPE} != binary ]] && _check_reqs pkg_pretend
 }
@@ -389,6 +388,7 @@ src_configure() {
 	# --without-system-sane: just sane.h header that is used for scan in writer,
 	#   not linked or anything else, worthless to depend on
 	# --disable-pdfium: not yet packaged
+	# --without-system-qrencode: has no real build system and LO is the only user
 	local myeconfargs=(
 		--with-system-dicts
 		--with-system-epoxy
@@ -408,8 +408,6 @@ src_configure() {
 		--disable-ccache
 		--disable-epm
 		--disable-fetch-external
-		--disable-gstreamer-0-10
-		--disable-gtk
 		--disable-gtk3-kde5
 		--disable-online-update
 		--disable-openssl
@@ -434,6 +432,7 @@ src_configure() {
 		--without-helppack-integration
 		--with-system-gpgmepp
 		--without-system-sane
+		--without-system-qrcodegen
 		$(use_enable bluetooth sdremote-bluetooth)
 		$(use_enable coinmp)
 		$(use_enable cups)
@@ -516,7 +515,7 @@ src_test() {
 
 src_install() {
 	# This is not Makefile so no buildserver
-	make DESTDIR="${D}" distro-pack-install -o build -o check || die
+	emake DESTDIR="${D}" distro-pack-install -o build -o check
 
 	# bug 593514
 	if use gtk; then

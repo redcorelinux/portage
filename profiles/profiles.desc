@@ -178,7 +178,11 @@ ppc64		default/linux/powerpc/ppc64/17.0/64bit-userland/little-endian/systemd	sta
 #ppc64           default/linux/ppc64/17.0/musl                     exp
 #ppc64           default/linux/ppc64/17.0/musl/hardened            exp
 ppc64           default/linux/ppc64le/17.0                        exp
+ppc64           default/linux/ppc64le/17.0/desktop                exp
+ppc64           default/linux/ppc64le/17.0/desktop/plasma         exp
+ppc64           default/linux/ppc64le/17.0/desktop/plasma/systemd exp
 ppc64           default/linux/ppc64le/17.0/systemd                exp
+ppc64           default/linux/ppc64le/17.0/developer              exp
 ppc64           default/linux/ppc64le/17.0/musl                   exp
 ppc64           default/linux/ppc64le/17.0/musl/hardened          exp
 
@@ -192,10 +196,6 @@ riscv		default/linux/riscv/17.0/rv64gc/lp64		exp
 # @MAINTAINER: s390@gentoo.org
 s390            default/linux/s390/17.0                         exp
 s390            default/linux/s390/17.0/s390x                   exp
-
-# SH Profiles
-# @MAINTAINER: sh@gentoo.org
-sh              default/linux/sh/17.0                           exp
 
 # SPARC Profiles
 # @MAINTAINER: sparc@gentoo.org
@@ -323,6 +323,7 @@ ppc-aix			prefix/aix/7.2.0.0/ppc				exp
 
 # Windows Profiles
 x86-winnt		prefix/windows/winnt/x86			exp
+x64-winnt		prefix/windows/winnt/x64			exp
 
 # Cygwin Profiles
 x86-cygwin		prefix/windows/cygwin/x86			exp

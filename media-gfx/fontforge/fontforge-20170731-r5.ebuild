@@ -13,7 +13,7 @@ SRC_URI="https://github.com/fontforge/fontforge/releases/download/${PV}/fontforg
 
 LICENSE="BSD GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="cairo truetype-debugger gif gtk jpeg png +python readline test tiff svg unicode X"
 
 RESTRICT="!test? ( test )"
@@ -47,7 +47,6 @@ RDEPEND="
 		x11-libs/libXi:0=
 		>=x11-libs/pango-1.10:0=[X]
 	)
-	!media-gfx/pfaedit
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

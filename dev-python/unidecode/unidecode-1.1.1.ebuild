@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python{2_7,3_{6,7}} )
+PYTHON_COMPAT=( pypy3 python3_{6,7} )
 PYTHON_REQ_USE="wide-unicode(+)"
 
 MY_PN=Unidecode
@@ -17,7 +17,7 @@ SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ppc ppc64 sparc x86"
 
 S=${WORKDIR}/${MY_P}
 

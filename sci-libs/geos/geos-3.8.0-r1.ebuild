@@ -11,7 +11,7 @@ SRC_URI="http://download.osgeo.org/geos/${PN}-${MY_PV}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ia64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris"
+KEYWORDS="amd64 arm arm64 ~ia64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris"
 IUSE="doc ruby static-libs"
 
 BDEPEND="
@@ -33,10 +33,14 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		--disable-python \
-		$(use_enable ruby) \
+	local myeconfargs=(
+		--disable-python
+		$(use_enable ruby)
 		$(use_enable static-libs static)
+	)
+	use arm && myeconfargs+=( --disable-inline ) # bug 709368
+
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {

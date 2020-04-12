@@ -331,7 +331,6 @@
     <subproject ref="riscv@gentoo.org"/>
     <subproject ref="s390@gentoo.org"/>
     <subproject ref="sparc@gentoo.org"/>
-    <subproject ref="sh@gentoo.org"/>
     <subproject ref="toolchain@gentoo.org"/>
     <subproject ref="x86@gentoo.org"/>
     <member>
@@ -411,6 +410,11 @@
       <role>Biology</role>
     </member>
     <member>
+      <email>pacho@gentoo.org</email>
+      <name>Pacho Ramos</name>
+      <role>Biology</role>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Biology</role>
@@ -467,26 +471,22 @@
     <email>catalyst@gentoo.org</email>
     <name>Catalyst Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Catalyst</url>
-    <description>The Gentoo Catalyst Project develops and supports the Catalyst release building tool. Catalyst has been designed to be easy to use, customize, and maintain. It is also used in other Gentoo projects, such as GNAP.</description>
+    <description>The Gentoo Catalyst Project develops and supports the [[Catalyst|Catalyst]] release building tool.</description>
     <member>
       <email>bkohler@gentoo.org</email>
       <name>Ben Kohler</name>
-      <role>Member</role>
     </member>
     <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
-      <role>Member</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>dolsen@gentoo.org</email>
       <name>Brian Dolbec</name>
-      <role>Developer</role>
     </member>
     <member>
       <email>jmbsvicetto@gentoo.org</email>
       <name>Jorge Manuel B. S. Vicetto</name>
-      <role>Member</role>
     </member>
     <member>
       <email>mattst88@gentoo.org</email>
@@ -495,7 +495,6 @@
     <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
-      <role>Developer</role>
     </member>
   </project>
   <project>
@@ -516,6 +515,11 @@
     <member>
       <email>nicolasbock@gentoo.org</email>
       <name>Nicolas Bock</name>
+      <role>Chemistry</role>
+    </member>
+    <member>
+      <email>pacho@gentoo.org</email>
+      <name>Pacho Ramos</name>
       <role>Chemistry</role>
     </member>
   </project>
@@ -1231,6 +1235,11 @@
       <role>Member ( general )</role>
     </member>
     <member>
+      <email>jstein@gentoo.org</email>
+      <name>Jonas Stein</name>
+      <role>Member ( mostly cleaning up bugs and QA )</role>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Member ( general )</role>
@@ -1522,10 +1531,6 @@
       <email>gienah@gentoo.org</email>
       <name>Mark Wright</name>
     </member>
-    <member>
-      <email>mjo@gentoo.org</email>
-      <name>Michael Orlitzky</name>
-    </member>
     <member is-lead="1">
       <email>slyfox@gentoo.org</email>
       <name>Sergei Trofimovich</name>
@@ -1626,6 +1631,11 @@
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
       <role>Operations manager</role>
+    </member>
+    <member>
+      <email>slashbeast@gentoo.org</email>
+      <name>Piotr Karbowski</name>
+      <role>General system administration</role>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -1841,10 +1851,6 @@
     <name>LXDE Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:LXDE</url>
     <description>The LXDE project manages ebuilds in Gentoo for [http://lxde.org/ LXDE], the Lightweight X11 Desktop Environment, and handles related issues.</description>
-    <member is-lead="1">
-      <email>hanno@gentoo.org</email>
-      <name>Hanno Böck</name>
-    </member>
   </project>
   <project>
     <email>lxqt@gentoo.org</email>
@@ -2069,11 +2075,6 @@
     <name>Mozilla Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Mozilla</url>
     <description>Mozilla and related applications</description>
-    <member is-lead="1">
-      <email>anarchy@gentoo.org</email>
-      <name>Jory A. Pratt</name>
-      <role>Team Lead</role>
-    </member>
     <member>
       <email>axs@gentoo.org</email>
       <name>Ian Stakenvicius</name>
@@ -2534,11 +2535,6 @@
     <name>PostgreSQL</name>
     <url>https://wiki.gentoo.org/wiki/Project:PostgreSQL</url>
     <description>This project is focused on maintaining ebuilds and utilities that are closely tied to PostgreSQL including PostgreSQL itself.</description>
-    <member>
-      <email>mjo@gentoo.org</email>
-      <name>Michael Orlitzky</name>
-      <role>Member</role>
-    </member>
     <member>
       <email>patrick@gentoo.org</email>
       <name>Patrick Lauer</name>
@@ -3481,20 +3477,6 @@
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
       <role>Member ( misc )</role>
-    </member>
-  </project>
-  <project>
-    <email>sh@gentoo.org</email>
-    <name>SuperH (sh) Development</name>
-    <url>https://wiki.gentoo.org/wiki/Project:SuperH</url>
-    <description>The SuperH Development Project is devoted to keeping Gentoo in good shape on the SuperH architecture.</description>
-    <member>
-      <email>ago@gentoo.org</email>
-      <name>Agostino Sarubbo</name>
-    </member>
-    <member is-lead="1">
-      <email>vapier@gentoo.org</email>
-      <name>Mike Frysinger</name>
     </member>
   </project>
   <project>

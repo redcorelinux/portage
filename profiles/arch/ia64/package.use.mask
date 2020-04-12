@@ -1,6 +1,20 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-04-11)
+# git useflag requires dev-libs/libgit2
+dev-util/geany-plugins git
+
+# Thomas Deutschmann <whissi@gentoo.org> (2020-03-15)
+# Mask USE=libtesseract, app-text/tesseract is not keyworded
+# Mask USE=dav1d, media-libs/dav1d is not keyworded
+# Mask USE=libaribb24, media-libs/aribb24 is not keyworded
+media-video/ffmpeg dav1d libaribb24 libtesseract
+
+# Mart Raudsepp <leio@gentoo.org> (2020-03-01)
+# Mask until app-text/gspell is keyworded
+mail-client/evolution spell
+
 # Patrick McLean <chutzpah@gentoo.org> (2020-02-15)
 # Mask until dev-libs/libfido2 is keyworded
 net-misc/openssh security-key
@@ -126,12 +140,12 @@ app-shells/bash-completion test
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2017-06-17)
 # Pulls in dev-db/redis which is not keyworded on ia64.
-dev-python/pyzor test
+mail-filter/pyzor test
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2017-06-17)
 # dev-python/gevent requires dev-python/greenlet which has not been ported to
 # ia64 (bug #538510)
-dev-python/pyzor gevent
+mail-filter/pyzor gevent
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2017-06-10)
 # media-libs/libilbc has not been ported to ia64, bug #610546

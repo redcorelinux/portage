@@ -17,8 +17,6 @@ SRC_URI="test? ( mirror://sourceforge/matroska/test_files/matroska_test_w1_1.zip
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/appdirs-1.3[${PYTHON_USEDEP}]
@@ -37,19 +35,16 @@ RDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/six-1.9.0[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-1.0.0[${PYTHON_USEDEP}]
-	virtual/python-futures[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}
+DEPEND="
 	test? (
 		app-arch/unzip
-		$(python_gen_cond_dep 'dev-python/mock[${PYTHON_USEDEP}]' python2_7)
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		dev-python/pytest-runner[${PYTHON_USEDEP}]
-		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/sympy[${PYTHON_USEDEP}]
 		>=dev-python/vcrpy-1.6.1[${PYTHON_USEDEP}]
 	)
 "
+
+distutils_enable_tests pytest
 
 src_unpack() {
 	default_src_unpack
@@ -70,8 +65,4 @@ python_prepare_all() {
 	fi
 
 	distutils-r1_python_prepare_all
-}
-
-python_test() {
-	esetup.py test
 }

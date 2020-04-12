@@ -17,11 +17,10 @@ SRC_URI="http://www.quivira-font.com/files/${MY_PN}.otf -> ${P}.otf
 LICENSE="public-domain"
 
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86"
+KEYWORDS="amd64 arm ppc x86"
 IUSE="doc"
 
 S="${WORKDIR}"
-FONT_S="${S}"
 FONT_SUFFIX="otf"
 
 src_prepare() {

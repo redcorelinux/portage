@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://${EGO_PN}.git"
 else
 	SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm ~ppc64 ~x86"
 fi
 
 DESCRIPTION="A flexible DNS proxy, with support for encrypted DNS protocols"
@@ -34,7 +34,7 @@ PATCHES=( "${FILESDIR}"/config-full-paths-r10.patch )
 
 src_compile() {
 	pushd "${PN}" >/dev/null || die
-	go build -buildmode="$(usex pie pie default)" || die
+	go build -v -x -mod=readonly -mod=vendor -buildmode="$(usex pie pie default)" || die
 	popd >/dev/null || die
 }
 

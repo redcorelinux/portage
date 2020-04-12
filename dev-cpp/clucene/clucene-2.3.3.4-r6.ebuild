@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/clucene/${MY_P}.tar.gz"
 
 LICENSE="|| ( Apache-2.0 LGPL-2.1 )"
 SLOT="1"
-KEYWORDS="~alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 
 IUSE="debug doc static-libs"
 
@@ -33,6 +33,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-contrib.patch"
 	"${FILESDIR}/${P}-pkgconfig.patch"
 	"${FILESDIR}/${P}-gcc6.patch"
+	"${FILESDIR}/${P}-gmtime.patch"
 )
 
 src_prepare() {

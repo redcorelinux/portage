@@ -14,14 +14,14 @@ else
 	# Change this when you update the ebuild
 	RUNC_COMMIT=dc9208a3303feef5b3839f4323d9beb36df0a9dd
 	SRC_URI="https://${EGO_PN}/archive/${RUNC_COMMIT}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
+	KEYWORDS="amd64 ~arm ~arm64 ~ppc64"
 	inherit golang-build golang-vcs-snapshot
 fi
 
 DESCRIPTION="runc container cli tools"
 HOMEPAGE="http://runc.io"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 BSD-2 BSD MIT"
 SLOT="0"
 IUSE="+ambient apparmor hardened +kmem +seccomp"
 
@@ -30,17 +30,6 @@ RDEPEND="
 	seccomp? ( sys-libs/libseccomp )
 	!app-emulation/docker-runc
 "
-
-src_prepare() {
-	pushd src/${EGO_PN}
-	default
-	sed -i -e "/^GIT_BRANCH/d"\
-		-e "/^GIT_BRANCH_CLEAN/d"\
-		-e "/^COMMIT_NO/d"\
-		-e "s/COMMIT :=.*/COMMIT := ${RUNC_COMMIT}/"\
-		Makefile || die
-	popd || die
-}
 
 src_compile() {
 	# Taken from app-emulation/docker-1.7.0-r1
@@ -56,7 +45,8 @@ src_compile() {
 		$(usex kmem '' 'nokmem')
 	)
 
-	GOPATH="${S}" emake BUILDTAGS="${options[*]}" -C src/${EGO_PN}
+	COMMIT=${RUNC_COMMIT} GOPATH="${S}" emake BUILDTAGS="${options[*]}" \
+		-C src/${EGO_PN}
 }
 
 src_install() {

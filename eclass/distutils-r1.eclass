@@ -40,8 +40,8 @@
 # as well. Thus, all the variables defined and documented there are
 # relevant to the packages using distutils-r1.
 #
-# For more information, please see the wiki:
-# https://wiki.gentoo.org/wiki/Project:Python/distutils-r1
+# For more information, please see the Python Guide:
+# https://dev.gentoo.org/~mgorny/python-guide/
 
 case "${EAPI:-0}" in
 	0|1|2|3|4)
@@ -120,10 +120,10 @@ _distutils_set_globals() {
 	local bdep=${rdep}
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
-		local sdep="dev-python/setuptools[${PYTHON_USEDEP}]"
+		local sdep=">=dev-python/setuptools-42.0.2[${PYTHON_USEDEP}]"
 	else
 		local sdep="$(python_gen_cond_dep '
-			dev-python/setuptools[${PYTHON_MULTI_USEDEP}]
+			>=dev-python/setuptools-42.0.2[${PYTHON_MULTI_USEDEP}]
 		')"
 	fi
 
@@ -355,7 +355,7 @@ distutils_enable_sphinx() {
 			if grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
 				die "distutils_enable_sphinx: --no-autodoc passed but sphinx.ext.autodoc found in ${confpy}"
 			fi
-		else
+		elif [[ -z ${_DISTUTILS_SPHINX_PLUGINS[@]} ]]; then
 			if ! grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
 				die "distutils_enable_sphinx: sphinx.ext.autodoc not found in ${confpy}, pass --no-autodoc"
 			fi
@@ -771,13 +771,11 @@ _distutils-r1_wrap_scripts() {
 	local path=${1}
 	local bindir=${2}
 
-	local PYTHON_SCRIPTDIR
-	python_export PYTHON_SCRIPTDIR
-
+	local scriptdir=$(python_get_scriptdir)
 	local f python_files=() non_python_files=()
 
-	if [[ -d ${path}${PYTHON_SCRIPTDIR} ]]; then
-		for f in "${path}${PYTHON_SCRIPTDIR}"/*; do
+	if [[ -d ${path}${scriptdir} ]]; then
+		for f in "${path}${scriptdir}"/*; do
 			[[ -d ${f} ]] && die "Unexpected directory: ${f}"
 			debug-print "${FUNCNAME}: found executable at ${f#${path}/}"
 
@@ -894,9 +892,7 @@ distutils-r1_python_install() {
 	${shopt_save}
 
 	if [[ -n ${pypy_dirs} ]]; then
-		local cmd=die
-		[[ ${EAPI} == [45] ]] && cmd=eqawarn
-		"${cmd}" "Package installs 'share' in PyPy prefix, see bug #465546."
+		die "Package installs 'share' in PyPy prefix, see bug #465546."
 	fi
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
@@ -922,8 +918,6 @@ distutils-r1_python_install_all() {
 		)
 		docompress -x "/usr/share/doc/${PF}/examples"
 	fi
-
-	_DISTUTILS_DEFAULT_CALLED=1
 }
 
 # @FUNCTION: distutils-r1_run_phase
@@ -1146,19 +1140,10 @@ distutils-r1_src_install() {
 		_distutils-r1_run_foreach_impl distutils-r1_python_install
 	fi
 
-	local _DISTUTILS_DEFAULT_CALLED
-
 	if declare -f python_install_all >/dev/null; then
 		_distutils-r1_run_common_phase python_install_all
 	else
 		_distutils-r1_run_common_phase distutils-r1_python_install_all
-	fi
-
-	if [[ ! ${_DISTUTILS_DEFAULT_CALLED} ]]; then
-		local cmd=die
-		[[ ${EAPI} == [45] ]] && cmd=eqawarn
-
-		"${cmd}" "QA: python_install_all() didn't call distutils-r1_python_install_all"
 	fi
 
 	_distutils-r1_check_namespace_pth

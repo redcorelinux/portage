@@ -14,7 +14,7 @@ tc_is_live() {
 }
 
 if tc_is_live ; then
-	EGIT_REPO_URI="git://gcc.gnu.org/git/gcc.git"
+	EGIT_REPO_URI="https://gcc.gnu.org/git/gcc.git"
 	# naming style:
 	# gcc-10.1.0_pre9999 -> gcc-10-branch
 	#  Note that the micro version is required or lots of stuff will break.
@@ -172,8 +172,9 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	tc_version_is_at_least 4.2 && IUSE+=" +openmp"
 	tc_version_is_at_least 4.3 && IUSE+=" fixed-point"
 	tc_version_is_at_least 4.7 && IUSE+=" go"
-	tc_version_is_at_least 4.8 &&
-		IUSE+=" +sanitize"
+	# sanitizer support appeared in gcc-4.8, but <gcc-5 does not
+	# support modern glibc.
+	tc_version_is_at_least 5 && IUSE+=" +sanitize"
 	# Note:
 	#   <gcc-4.8 supported graphite, it required forked ppl
 	#     versions which we dropped.  Since graphite was also experimental in
@@ -183,7 +184,7 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	tc_version_is_at_least 6.5 &&
 		IUSE+=" graphite" TC_FEATURES+=(graphite)
 	tc_version_is_between 4.9 8 && IUSE+=" cilk"
-	tc_version_is_at_least 4.9 && IUSE+=" +vtv"
+	tc_version_is_at_least 4.9 && IUSE+=" ada +vtv"
 	tc_version_is_at_least 5.0 && IUSE+=" jit"
 	tc_version_is_between 5.0 9 && IUSE+=" mpx"
 	tc_version_is_at_least 6.0 && IUSE+=" +pie +ssp +pch"
@@ -231,7 +232,7 @@ if tc_has_feature graphite ; then
 	RDEPEND+=" graphite? ( >=dev-libs/isl-0.14:0= )"
 fi
 
-DEPEND="${RDEPEND}
+BDEPEND="
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
 	nls? ( sys-devel/gettext )
@@ -239,6 +240,7 @@ DEPEND="${RDEPEND}
 		>=dev-util/dejagnu-1.4.4
 		>=sys-devel/autogen-5.5.4
 	)"
+DEPEND="${RDEPEND}"
 
 if tc_has_feature gcj ; then
 	GCJ_DEPS=">=media-libs/libart_lgpl-2.1"
@@ -263,6 +265,10 @@ fi
 if tc_has_feature zstd ; then
 	DEPEND+=" zstd? ( app-arch/zstd )"
 fi
+
+case ${EAPI:-0} in
+	5*|6) DEPEND+=" ${BDEPEND}" ;;
+esac
 
 PDEPEND=">=sys-devel/gcc-config-1.7"
 
@@ -420,17 +426,7 @@ SRC_URI=$(get_gcc_src_uri)
 
 #---->> pkg_pretend <<----
 
-toolchain_is_unsupported() {
-	[[ -n ${SNAPSHOT} ]] || tc_is_live
-}
-
 toolchain_pkg_pretend() {
-	if toolchain_is_unsupported &&
-	   [[ -z ${I_PROMISE_TO_SUPPLY_PATCHES_WITH_BUGS} ]] ; then
-		die "Please \`export I_PROMISE_TO_SUPPLY_PATCHES_WITH_BUGS=1\` or define it" \
-			"in your make.conf if you want to use this version."
-	fi
-
 	if ! use_if_iuse cxx ; then
 		use_if_iuse go && ewarn 'Go requires a C++ compiler, disabled due to USE="-cxx"'
 		use_if_iuse objc++ && ewarn 'Obj-C++ requires a C++ compiler, disabled due to USE="-cxx"'
@@ -593,7 +589,7 @@ toolchain_src_prepare() {
 
 	# Prevent new texinfo from breaking old versions (see #198182, #464008)
 	if tc_version_is_at_least 4.1; then
-		tc_apply_patches "Remove texinfo (bug #198182, bug ##464008)" "${FILESDIR}"/gcc-configure-texinfo.patch
+		tc_apply_patches "Remove texinfo (bug #198182, bug #464008)" "${FILESDIR}"/gcc-configure-texinfo.patch
 	fi
 
 	# >=gcc-4
@@ -641,7 +637,13 @@ do_gcc_CYGWINPORTS_patches() {
 
 	local p d="${WORKDIR}/gcc-${CYGWINPORTS_GITREV}"
 	# readarray -t is available since bash-4.4 only, #690686
-	local patches=( $(sed -e '1,/PATCH_URI="/d;/"/,$d' < "${d}"/gcc.cygport) )
+	local patches=( $(
+		for p in $(
+			sed -e '1,/PATCH_URI="/d;/"/,$d' < "${d}"/gcc.cygport
+		); do
+			echo "${d}/${p}"
+		done
+	) )
 	tc_apply_patches "Applying cygwin port patches ..." ${patches[*]}
 }
 
@@ -897,8 +899,7 @@ toolchain_src_configure() {
 	is_f77 && GCC_LANG+=",f77"
 	is_f95 && GCC_LANG+=",f95"
 
-	# We do NOT want 'ADA support' in here!
-	# is_ada && GCC_LANG+=",ada"
+	is_ada && GCC_LANG+=",ada"
 
 	confgcc+=( --enable-languages=${GCC_LANG} )
 
@@ -1258,6 +1259,10 @@ toolchain_src_configure() {
 		fi
 	fi
 
+	if in_iuse ada ; then
+		confgcc+=( --disable-libada )
+	fi
+
 	if in_iuse cilk ; then
 		confgcc+=( $(use_enable cilk libcilkrts) )
 	fi
@@ -1307,9 +1312,13 @@ toolchain_src_configure() {
 		confgcc+=( --without-{cloog,ppl} )
 	fi
 
-	if tc_version_is_at_least 4.8 && in_iuse sanitize ; then
-		# See Note [implicitly enabled flags]
-		confgcc+=( $(usex sanitize '' --disable-libsanitizer) )
+	if tc_version_is_at_least 4.8; then
+		if in_iuse sanitize ; then
+			# See Note [implicitly enabled flags]
+			confgcc+=( $(usex sanitize '' --disable-libsanitizer) )
+		else
+			confgcc+=( --disable-libsanitizer )
+		fi
 	fi
 
 	if tc_version_is_at_least 6.0 && in_iuse pie ; then
@@ -1494,8 +1503,12 @@ downgrade_arch_flags() {
 }
 
 gcc_do_filter_flags() {
+	# Be conservative here:
+	# - don't allow -O3 and like to over-optimize libgcc # 701786
+	# - don't allow -O0 to generate potentially invalid startup code
 	strip-flags
-	replace-flags -O? -O2
+	filter-flags '-O?'
+	append-flags -O2
 
 	# dont want to funk ourselves
 	filter-flags '-mabi*' -m31 -m32 -m64
@@ -1643,6 +1656,11 @@ toolchain_src_compile() {
 	[[ ! -x /usr/bin/perl ]] \
 		&& find "${WORKDIR}"/build -name '*.[17]' -exec touch {} +
 
+	# To compile ada library standard files special compiler options are passed
+	# via ADAFLAGS in the Makefile.
+	# Unset ADAFLAGS as setting this override the options
+	unset ADAFLAGS
+
 	# Older gcc versions did not detect bash and re-exec itself, so force the
 	# use of bash.  Newer ones will auto-detect, but this is not harmful.
 	# This needs to be set for compile as well, as it's used in libtool
@@ -1710,6 +1728,17 @@ gcc_do_make() {
 		BOOT_CFLAGS="${BOOT_CFLAGS}" \
 		${GCC_MAKE_TARGET} \
 		|| die "emake failed with ${GCC_MAKE_TARGET}"
+
+	if is_ada; then
+		# Without these links it is not getting the good compiler
+		# Need to check why
+		ln -s gcc ../build/prev-gcc || die
+		ln -s ${CHOST} ../build/prev-${CHOST} || die
+		# Building standard ada library
+		emake -C gcc gnatlib-shared
+		# Building gnat toold
+		emake -C gcc gnattools
+	fi
 
 	if ! is_crosscompile && use_if_iuse cxx && use_if_iuse doc ; then
 		if type -p doxygen > /dev/null ; then
@@ -2213,12 +2242,6 @@ toolchain_pkg_postinst() {
 		# Since these aren't critical files and portage sucks with
 		# handling of binpkgs, don't require these to be found
 		cp "${ROOT%/}${DATAPATH}"/c{89,99} "${EROOT%/}"/usr/bin/ 2>/dev/null
-	fi
-
-	if toolchain_is_unsupported ; then
-		einfo "This GCC ebuild is provided for your convenience, and the use"
-		einfo "of this compiler is not supported by the Gentoo Developers."
-		einfo "Please report bugs to upstream at http://gcc.gnu.org/bugzilla/"
 	fi
 }
 

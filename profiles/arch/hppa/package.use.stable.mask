@@ -17,6 +17,26 @@
 
 #--- END OF EXAMPLES ---
 
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-11)
+# No stable app-arch/rpm on hppa, bug #471456
+dev-util/patchutils test
+
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-11)
+# no stable app-editors/{,g}vim
+dev-util/gtk-doc vim
+
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-11)
+# no stable libsdl
+media-libs/libtheora examples
+
+# Matt Turner <mattst88@gentoo.org> (2020-04-01)
+# net-libs/mbedtls has no stable keywords
+net-misc/curl curl_ssl_mbedtls
+dev-libs/libzip mbedtls
+net-libs/libssh mbedtls
+net-libs/libssh2 mbedtls
+net-vpn/openvpn mbedtls
+
 # Mart Raudsepp <leio@gentoo.org> (2020-02-12)
 # No stable media-fonts/cantarell on hppa.
 x11-libs/pango test
@@ -42,11 +62,6 @@ dev-lang/php enchant
 # sys-auth/polkit stable timeout, bug #661470
 sys-apps/pcsc-lite policykit
 x11-misc/colord policykit
-
-# Sergei Trofimovich <slyfox@gentoo.org> (2019-05-03)
-# net-wireless/bluez has no stable keywords, bug #676430
-app-pda/pilot-link bluetooth
-dev-lang/python bluetooth
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2019-03-17)
 # net-analyzer/nagios (or icinga) has no stable keywords, bug #676222

@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -14,7 +14,7 @@ SRC_URI="http://download.gna.org/songwrite/${MY_P}.tar.gz"
 HOMEPAGE="http://home.gna.org/oomadness/en/editobj/index.html"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ia64 ppc x86"
+KEYWORDS="amd64 ~ia64 ppc x86"
 SLOT="0"
 IUSE="+examples"
 
@@ -24,6 +24,11 @@ RDEPEND=""
 S="${WORKDIR}/${MY_P}"
 
 python_install_all() {
-	use examples && local EXAMPLES=( demo/. )
+	if use examples; then
+		docinto examples
+		dodoc -r demo/.
+		docompress -x /usr/share/doc/${PF}/examples
+	fi
+
 	distutils-r1_python_install_all
 }

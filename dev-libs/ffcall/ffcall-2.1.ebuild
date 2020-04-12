@@ -16,7 +16,7 @@ SRC_URI="mirror://gnu/libffcall/${MY_PV}.tar.gz"
 # under GNU LGPL." -ffcall author
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm64 ~hppa ia64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm64 ~hppa ~ia64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE=""
 
 S=${WORKDIR}/${MY_PV}
@@ -32,7 +32,7 @@ src_prepare() {
 
 	for mfi in {,*/,*/*/,}Makefile.in
 	do
-		elog "Patching '${mfi}'"
+		einfo "Patching '${mfi}'"
 		# usually uses only assembler here, but -march=
 		# and -Wa, are a must to pass here.
 		sed -e 's/$(CC) /&$(CFLAGS) /g' \

@@ -24,7 +24,7 @@ SRC_URI="https://github.com/AdaCore/${PN}/archive/${commitId}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="${PYTHON_DEPS}
@@ -34,10 +34,11 @@ RDEPEND="${PYTHON_DEPS}
 	~dev-ada/libadalang-2019[${ADA_USEDEP}]
 	dev-libs/gobject-introspection
 	dev-libs/libffi
-	sys-devel/llvm:7
+	sys-devel/llvm:8
 	sys-devel/clang:=
 	x11-themes/adwaita-icon-theme
 	x11-themes/hicolor-icon-theme
+	dev-python/pygobject:3
 	$(python_gen_cond_dep '
 		dev-python/pep8[${PYTHON_MULTI_USEDEP}]
 		dev-python/jedi[${PYTHON_MULTI_USEDEP}]
@@ -55,7 +56,7 @@ S="${WORKDIR}"/${PN}-${commitId}
 PATCHES=( "${FILESDIR}"/${P}-gentoo.patch )
 
 pkg_setup() {
-	LLVM_MAX_SLOT=7
+	LLVM_MAX_SLOT=8
 	llvm_pkg_setup
 	python-single-r1_pkg_setup
 	ada_pkg_setup

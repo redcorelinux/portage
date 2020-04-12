@@ -18,7 +18,7 @@ else
 	SLOT="stable/${ABI_VER}"
 	MY_P="rustc-${PV}"
 	SRC="${MY_P}-src.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 fi
 
 RUST_STAGE0_VERSION="1.$(($(ver_cut 2) - 1)).0"
@@ -51,9 +51,9 @@ IUSE="clippy cpu_flags_x86_sse2 debug doc libressl nightly parallel-compiler rls
 LLVM_DEPEND="
 	|| (
 		sys-devel/llvm:9[llvm_targets_WebAssembly?]
-		wasm? ( =sys-devel/lld-9* )
 	)
 	<sys-devel/llvm-10:=
+	wasm? ( sys-devel/lld )
 "
 LLVM_MAX_SLOT=9
 
@@ -79,7 +79,7 @@ DEPEND="${COMMON_DEPEND}
 		>=sys-devel/clang-3.5
 	)
 	system-bootstrap? ( ${BOOTSTRAP_DEPEND}	)
-	system-llvm? (
+	!system-llvm? (
 		dev-util/cmake
 		dev-util/ninja
 	)

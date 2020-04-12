@@ -11,7 +11,7 @@ DEFAULTVT=vt7
 
 DESCRIPTION="X.Org xdm application"
 
-KEYWORDS="~alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
+KEYWORDS="~alpha amd64 arm ~arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
 IUSE="consolekit ipv6 pam systemd truetype xinerama xpm"
 
 RDEPEND="
@@ -36,8 +36,7 @@ RDEPEND="
 	xpm? ( x11-libs/libXpm )
 	elibc_glibc? ( dev-libs/libbsd )"
 DEPEND="${RDEPEND}
-	x11-base/xorg-proto
-	consolekit? ( !=sys-auth/pambase-20101024-r1 )"
+	x11-base/xorg-proto"
 
 pkg_setup() {
 	PATCHES=(

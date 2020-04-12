@@ -17,6 +17,19 @@
 
 #--- END OF EXAMPLES ---
 
+# Guilherme Amadio <amadio@gentoo.org> (2020-03-16)
+# media-libs/cudnn is keyworded on amd64
+sci-physics/root -cudnn
+
+# Thomas Deutschmann <whissi@gentoo.org> (2020-03-11)
+# Encrypted Media Extensions (eme-free) can be disabled on amd64
+www-client/firefox -eme-free
+
+# Mart Raudsepp <leio@gentoo.org> (2020-03-01)
+# dev-util/sysprof-capture is keyworded on amd64
+x11-wm/mutter -sysprof
+dev-libs/gjs -sysprof
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-02-26)
 # Vulkan is available on amd64.
 dev-qt/qtdeclarative -vulkan
@@ -183,10 +196,6 @@ dev-java/icedtea -shenandoah
 # Mike Gilbert <floppym@gentoo.org> (2016-06-23)
 # This flag only has meaning on amd64
 sys-boot/grub:2 -grub_platforms_xen-32
-
-# Nathan Phillip Brink <binki@gentoo.org> (2015-09-26)
-# git useflag requires dev-libs/libgit2 which few arches support
-dev-util/geany-plugins -git
 
 # Brian Evans <grknight@gentoo.org (2015-09-14)
 # Unmask new USE flags for mariadb on supported arches

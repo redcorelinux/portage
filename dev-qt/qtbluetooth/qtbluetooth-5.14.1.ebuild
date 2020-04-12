@@ -8,7 +8,7 @@ inherit qt5-build
 DESCRIPTION="Bluetooth support library for the Qt5 framework"
 
 if [[ ${QT5_BUILD_TYPE} == release ]]; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 x86"
 fi
 
 IUSE="qml"
@@ -23,6 +23,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	~dev-qt/qtnetwork-${PV}
 "
+
+PATCHES=( "${FILESDIR}/${P}-errno.patch" )
 
 src_prepare() {
 	sed -i -e 's/nfc//' src/src.pro || die

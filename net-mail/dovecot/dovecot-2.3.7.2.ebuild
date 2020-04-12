@@ -28,7 +28,7 @@ HOMEPAGE="https://www.dovecot.org/"
 
 SLOT="0"
 LICENSE="LGPL-2.1 MIT"
-KEYWORDS="~alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 ~sparc x86"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ~mips ppc ppc64 s390 ~sparc x86"
 
 IUSE_DOVECOT_AUTH="kerberos ldap lua mysql pam postgres sqlite vpopmail"
 IUSE_DOVECOT_COMPRESS="bzip2 lzma lz4 zlib"
@@ -287,5 +287,5 @@ pkg_postinst() {
 		install_cert /etc/ssl/dovecot/server
 	fi
 
-	elog "Please read https://wiki2.dovecot.org/Upgrading/ for upgrade notes."
+	elog "Please read https://doc.dovecot.org/installation_guide/upgrading/ for upgrade notes."
 }

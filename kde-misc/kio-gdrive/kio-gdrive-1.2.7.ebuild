@@ -44,6 +44,12 @@ DOCS=( README.md )
 
 PATCHES=( "${FILESDIR}"/${PN}-1.2.6-refresh-credentials.patch )
 
+src_prepare() {
+	has_version ">=kde-apps/kaccounts-providers-20.03.80" &&
+		PATCHES+=( "${FILESDIR}"/${P}-kaccounts-integration-20.04.patch )
+	ecm_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kaccounts KAccounts)

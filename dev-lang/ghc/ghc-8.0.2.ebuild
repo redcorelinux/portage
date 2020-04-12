@@ -71,7 +71,7 @@ BUMP_LIBRARIES=(
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 ia64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ia64 x86 ~amd64-linux ~x86-linux"
 IUSE="doc ghcbootstrap ghcmakebinary +gmp +profile"
 IUSE+=" binary"
 
@@ -79,7 +79,7 @@ RDEPEND="
 	>=dev-lang/perl-5.6.1
 	dev-libs/gmp:0=
 	sys-libs/ncurses:0=[unicode]
-	!ghcmakebinary? ( virtual/libffi:= )
+	!ghcmakebinary? ( dev-libs/libffi:= )
 "
 
 # This set of dependencies is needed to run
