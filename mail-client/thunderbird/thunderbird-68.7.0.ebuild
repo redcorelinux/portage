@@ -8,7 +8,7 @@ MOZ_ESR=""
 MOZ_LIGHTNING_VER="6.2.5"
 MOZ_LIGHTNING_GDATA_VER="4.4.1"
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 PYTHON_REQ_USE='ncurses,sqlite,ssl,threads(+)'
 
 # This list can be updated using scripts/get_langs.sh from the mozilla overlay
@@ -36,7 +36,7 @@ LLVM_MAX_SLOT=10
 DESCRIPTION="Thunderbird Mail Client"
 HOMEPAGE="https://www.mozilla.org/thunderbird"
 
-KEYWORDS="~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc64 x86 ~amd64-linux ~x86-linux"
 SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="bindist clang cpu_flags_x86_avx2 dbus debug eme-free

@@ -14,7 +14,7 @@ SRC_URI="https://www.rarlab.com/rar/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="unRAR"
 # subslot = soname version
 SLOT="0/5"
-KEYWORDS="~alpha amd64 arm ~arm64 hppa ~ia64 m68k ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm ~arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE=""
 
 RDEPEND="!<=app-arch/unrar-gpl-0.0.1_p20080417"
@@ -46,7 +46,7 @@ src_configure() {
 
 src_compile() {
 	unrar_make() {
-		emake CXX="$(tc-getCXX)" CXXFLAGS="${CXXFLAGS}" STRIP=true "$@"
+		emake AR="$(tc-getAR)" CXX="$(tc-getCXX)" CXXFLAGS="${CXXFLAGS}" STRIP=true "$@"
 	}
 
 	unrar_make CXXFLAGS+=" -fPIC" -C build-lib lib

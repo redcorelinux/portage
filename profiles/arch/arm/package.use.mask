@@ -1,6 +1,15 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Lars Wendler <polynomial-c@gentoo.org> (2020-04-20)
+# Not keyworded on arm
+net-misc/whois xcrypt
+
+# Ettore Di Giacinto <mudler@gentoo.org> (2016-11-10)
+# Dependency has no stable keyword
+# and as for now we have only stable mate versions
+mate-base/mate bluetooth
+
 # Adam Feldman <NP-Hardass@gentoo.org> (2020-04-06)
 # Mask until gui-libs/gtk-layer-shell is keyworded
 mate-base/mate-panel wayland
@@ -133,7 +142,6 @@ net-analyzer/zmap mongo
 # Unkeyworded dep masks moved from default/linux.
 app-admin/diamond mongo
 net-libs/gnutls test-full
-mail-client/mutt notmuch
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2018-03-02)
 # Requires unkeyworded deps
@@ -516,10 +524,6 @@ net-vpn/tinc vde
 dev-qt/qtdeclarative -jit
 dev-qt/qtscript -jit
 dev-qt/qtwebkit -jit
-
-# Markus Meier <maekke@gentoo.org> (2011-09-05)
-# unkeyworded deps for bug 379657 and bug 379651
-app-admin/packagekit-base entropy
 
 # Sebastian Pipping <sping@gentoo.org> (2011-02-22)
 # No media-sound/lilypond here, yet (bug #356069)

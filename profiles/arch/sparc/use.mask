@@ -4,12 +4,21 @@
 # Unmask the flag which corresponds to ARCH.
 -sparc
 
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-21)
+# ruby2.4 will go away soon, avoid keywording older packages
+ruby_targets_ruby24
+
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-14)
+# media-libs/opencv not keyworded on sparc
+opencv
+
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-09)
 # gimp dependencies unusable because of unaligned accesses, bug #638172
 gimp
 
 # Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2019‑08‑31)
 # Dependency not keyworded (dev-libs/libappindicator).
+appindicator
 ayatana
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2018-12-12)

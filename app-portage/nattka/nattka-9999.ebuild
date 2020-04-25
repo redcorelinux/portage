@@ -17,12 +17,16 @@ SLOT="0"
 KEYWORDS=""
 
 RDEPEND="
+	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-util/pkgcheck[${PYTHON_USEDEP}]
 	dev-vcs/git
 	sys-apps/pkgcore[${PYTHON_USEDEP}]"
 BDEPEND="
-	test? ( dev-python/vcrpy[${PYTHON_USEDEP}] )"
+	test? (
+		dev-python/freezegun[${PYTHON_USEDEP}]
+		dev-python/vcrpy[${PYTHON_USEDEP}]
+	)"
 
 distutils_enable_sphinx doc --no-autodoc
 distutils_enable_tests pytest

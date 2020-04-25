@@ -6,6 +6,32 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Mike Gilbert <floppym@gentoo.org> (2020-04-23)
+# Tests are very sensitive to the host environment.
+dev-util/meson test
+
+# Michał Górny <mgorny@gentoo.org> (2020-04-22)
+# Requires dev-python/filemagic that is broken and masked for removal.
+dev-python/jira magic
+
+# Michał Górny <mgorny@gentoo.org> (2020-04-20)
+# Requires dev-python/rst2pdf that is masked for removal.
+media-video/mpv doc
+
+# Michał Górny <mgorny@gentoo.org> (2020-04-19)
+# Requires dev-vcs/ghp-import that is masked for removal.
+www-apps/nikola ghpages
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2020-04-19)
+# oracle-jdk-bin masked for removal, mask revdep useflag.
+=app-forensics/sleuthkit-4.7.0 java
+
+# Ulrich Müller <ulm@gentoo.org> (2020-04-15, updated 2020-04-22)
+# Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2020-04-17)
+# app-i18n/man-pages-{de,fr,nl,pl} masked for removal.
+# Bug #713590, bug #717744.
+<sys-apps/man-pages-5.05-r1 l10n_de l10n_fr l10n_nl l10n_pl
+
 # Stephan Hartmann <stha09@googlemail.com> (2020-04-11)
 # Requires unreleased >=dev-libs/icu-67
 >=www-client/chromium-83.0.4103.7 system-icu
@@ -37,7 +63,9 @@ kde-apps/kdesdk-meta bazaar
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2020-03-27)
 # Depends on vulnerable old version of icedtea-web #711392
-# new version uses maven + rust
+# new version is not packaged yet
+# package/useflag is not going away anytime soon,
+# just masked. unmask as needed.
 dev-java/icedtea nsplugin webstart
 dev-java/icedtea-bin nsplugin webstart
 dev-java/openjdk nsplugin webstart
@@ -92,10 +120,6 @@ dev-python/pyzmq doc
 # Michał Górny <mgorny@gentoo.org> (2020-02-24)
 # app-admin/packagekit* are masked for removal.
 kde-frameworks/frameworkintegration appstream
-
-# Michał Górny <mgorny@gentoo.org> (2020-02-24)
-# sys-apps/entropy is masked for removal.
-app-admin/packagekit-base entropy
 
 # Michał Górny <mgorny@gentoo.org> (2020-02-08)
 # The dependency is python-single-r1 while the package (and its revdeps)
@@ -287,10 +311,6 @@ dev-python/pandas doc
 # with Gentoo install media. Mask the l10n_ja flag until a better
 # solution is found, e.g., transition to a free font package.
 app-text/ghostscript-gpl l10n_ja
-
-# Michał Górny <mgorny@gentoo.org> (2019-04-10)
-# media-sound/aacplusenc is slated for removal.
-media-video/h264enc aac
 
 # Michał Górny <mgorny@gentoo.org> (2019-03-21)
 # x11-wm/afterstep is slated for removal.
@@ -497,11 +517,6 @@ net-irc/hexchat theme-manager
 # Pacho Ramos <pacho@gentoo.org> (2016-11-27)
 # Avoid the usage of dead net-dialup/capi4k-utils
 app-emulation/crossover-bin capi
-
-# Ettore Di Giacinto <mudler@gentoo.org> (2016-11-10)
-# Dependency has no stable keyword
-# and as for now we have only stable mate versions
-mate-base/mate bluetooth
 
 # Ulrich Müller <ulm@gentoo.org> (2016-10-15)
 # The --with-cairo option is considered as experimental by upstream

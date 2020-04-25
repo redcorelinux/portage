@@ -15,7 +15,9 @@ SLOT="0"
 KEYWORDS="~alpha amd64 ~arm64 ~hppa ~sparc x86"
 IUSE="test"
 
-RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+RDEPEND="
+	dev-python/pip[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/wheel-0.25.0[${PYTHON_USEDEP}]"
 BDEPEND="${RDEPEND}
 	dev-python/setuptools-git[${PYTHON_USEDEP}]
@@ -24,6 +26,7 @@ BDEPEND="${RDEPEND}
 		>=dev-python/pytest-2.3[${PYTHON_USEDEP}]
 		dev-python/twine[${PYTHON_USEDEP}]
 		dev-python/webtest[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep 'dev-python/mock[${PYTHON_USEDEP}]' -2)
 	)"
 
 PATCHES=(

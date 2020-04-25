@@ -2,10 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_6 )
 VALA_USE_DEPEND="vapigen"
 
-inherit cmake-utils db-use flag-o-matic gnome2 python-any-r1 systemd vala virtualx
+inherit cmake-utils db-use flag-o-matic gnome2 systemd vala virtualx
 
 DESCRIPTION="Evolution groupware backend"
 HOMEPAGE="https://wiki.gnome.org/Apps/Evolution"
@@ -17,7 +16,7 @@ SLOT="0/62-24-20" # subslot = libcamel-1.2/libedataserver-1.2/libebook-1.2.so so
 IUSE="berkdb +gnome-online-accounts +gtk gtk-doc +introspection ipv6 ldap kerberos oauth vala +weather"
 REQUIRED_USE="vala? ( introspection )"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~x86-solaris"
 
 # gdata-0.17.7 soft required for new gdata_feed_get_next_page_token API to handle more than 100 google tasks
 # berkdb needed only for migrating old addressbook data from <3.13 versions, bug #519512
@@ -58,7 +57,6 @@ RDEPEND="
 	weather? ( >=dev-libs/libgweather-3.10:2= )
 "
 DEPEND="${RDEPEND}
-	${PYTHON_DEPS}
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	dev-util/gperf
@@ -77,10 +75,6 @@ DEPEND="${RDEPEND}
 # Also, dbus tests are flaky, bugs #397975 #501834
 # It looks like a nightmare to disable those for now.
 RESTRICT="test !test? ( test )"
-
-pkg_setup() {
-	python-any-r1_pkg_setup
-}
 
 # global scope PATCHES or DOCS array mustn't be used due to double default_src_prepare call
 src_prepare() {
