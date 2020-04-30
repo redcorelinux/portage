@@ -3,7 +3,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_6,3_7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
+
+DISTUTILS_USE_SETUPTOOLS=no
 inherit distutils-r1
 
 DESCRIPTION="Python bindings for the CUPS API"
@@ -15,13 +17,8 @@ KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ppc ppc64 sparc x86"
 SLOT="0"
 IUSE="examples"
 
-RDEPEND="
-	net-print/cups
-"
-DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	${RDEPEND}
-"
+RDEPEND="net-print/cups"
+DEPEND="${RDEPEND}"
 
 python_install_all() {
 	if use examples; then

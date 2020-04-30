@@ -7,13 +7,18 @@
 # NOTE: When masking a USE flag due to missing keywords, please file a keyword
 # request bug for the hppa arch.
 
+# Rolf Eike Beer <eike@sf-mail.de> (2020-04-21)
+# ruby2.4 will go away soon, avoid keywording older packages
+ruby_targets_ruby24
+
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-06)
 # media-libs/libvpx is not keyworded, bug #698956
-system-vpx
+system-libvpx
 vpx
 
 # Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2019‑08‑31)
 # Dependency not keyworded (dev-libs/libappindicator).
+appindicator
 ayatana
 
 # Michał Górny <mgorny@gentoo.org> (2018-07-16)

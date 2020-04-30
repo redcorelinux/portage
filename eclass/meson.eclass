@@ -23,9 +23,9 @@
 #
 # src_configure() {
 # 	local emesonargs=(
-# 		-Dqt4=$(usex qt4 true false)
-# 		-Dthreads=$(usex threads true false)
-# 		-Dtiff=$(usex tiff true false)
+# 		$(meson_use qt4)
+# 		$(meson_feature threads)
+# 		$(meson_use bindist official_branding)
 # 	)
 # 	meson_src_configure
 # }
@@ -84,6 +84,11 @@ fi
 # Optional meson test arguments as Bash array; this should be defined before
 # calling meson_src_test.
 
+# @VARIABLE: MYMESONARGS
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# User-controlled environment variable containing arguments to be passed to
+# meson in meson_src_configure.
 
 read -d '' __MESON_ARRAY_PARSER <<"EOF"
 import shlex
@@ -177,6 +182,8 @@ _meson_create_cross_file() {
 	objcpp_args = $(_meson_env_array "${OBJCXXFLAGS} ${CPPFLAGS}")
 	objcpp_link_args = $(_meson_env_array "${OBJCXXFLAGS} ${LDFLAGS}")
 	needs_exe_wrapper = ${needs_exe_wrapper}
+	sys_root = '${SYSROOT}'
+	pkg_config_libdir = '${PKG_CONFIG_LIBDIR-${EPREFIX}/usr/$(get_libdir)/pkgconfig}'
 
 	[host_machine]
 	system = '${system}'
@@ -219,32 +226,54 @@ meson_feature() {
 meson_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Common args
 	local mesonargs=(
+		meson setup
 		--buildtype plain
 		--libdir "$(get_libdir)"
 		--localstatedir "${EPREFIX}/var/lib"
 		--prefix "${EPREFIX}/usr"
 		--sysconfdir "${EPREFIX}/etc"
 		--wrap-mode nodownload
-		)
+		--pkg-config-path="${PKG_CONFIG_PATH-${EPREFIX}/usr/share/pkgconfig}"
+	)
 
 	if tc-is-cross-compiler || [[ ${ABI} != ${DEFAULT_ABI-${ABI}} ]]; then
 		_meson_create_cross_file || die "unable to write meson cross file"
 		mesonargs+=( --cross-file "${T}/meson.${CHOST}.${ABI}" )
 	fi
 
+	BUILD_DIR="${BUILD_DIR:-${WORKDIR}/${P}-build}"
+
+	# Handle quoted whitespace
+	eval "local -a MYMESONARGS=( ${MYMESONARGS} )"
+
+	mesonargs+=(
+		# Arguments from ebuild
+		"${emesonargs[@]}"
+
+		# Arguments passed to this function
+		"$@"
+
+		# Arguments from user
+		"${MYMESONARGS[@]}"
+
+		# Source directory
+		"${EMESON_SOURCE:-${S}}"
+
+		# Build directory
+		"${BUILD_DIR}"
+	)
+
+	# Used by symbolextractor.py
+	# https://bugs.gentoo.org/717720
+	tc-export NM
+	tc-getPROG READELF readelf >/dev/null
+
 	# https://bugs.gentoo.org/625396
 	python_export_utf8_locale
 
-	# Append additional arguments from ebuild
-	mesonargs+=("${emesonargs[@]}")
-
-	BUILD_DIR="${BUILD_DIR:-${WORKDIR}/${P}-build}"
-	set -- meson "${mesonargs[@]}" "$@" \
-		"${EMESON_SOURCE:-${S}}" "${BUILD_DIR}"
-	echo "$@"
-	tc-env_build "$@" || die
+	echo "${mesonargs[@]}" >&2
+	tc-env_build "${mesonargs[@]}" || die
 }
 
 # @FUNCTION: meson_src_compile

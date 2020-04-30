@@ -17,6 +17,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Kent Fredric <kentnl@gentoo.org> (2020-04-15)
+# Functionality now provided by Net::SMTP 3.25+
+# available with >=virtual/perl-libnet-1.28
+# provided by >=dev-lang/perl-5.20.0
+# Try patching/removing dependent code to utilize this.
+# Bug #650320
+dev-perl/Net-SMTP-SSL
+
 # Michał Górny <mgorny@gentoo.org> (2020-03-28)
 # Backport specific to Python 2.6.  No modern package should be using
 # it.
@@ -100,12 +108,6 @@ dev-java/oracle-jre-bin
 # Removal (without prior masking) after the release of Emacs 27.1,
 # but not later than 2020-06-18. Bug #291296.
 virtual/emacs
-
-# Michał Górny <mgorny@gentoo.org> (2019-12-09)
-# The pycrypto project is long dead, and has been forked into
-# dev-python/pycryptodome that's not entirely API compatible.  Many
-# upstreams prefer switching to dev-python/cryptography instead.
-dev-python/pycrypto
 
 # Michał Górny <mgorny@gentoo.org> (2019-12-09)
 # Test coverage reporting is not useful for Gentoo ebuilds.  The deps
