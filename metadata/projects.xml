@@ -424,16 +424,16 @@
     <email>bug-wranglers@gentoo.org</email>
     <name>Bug Wranglers</name>
     <url>https://wiki.gentoo.org/wiki/Project:Bug-wranglers</url>
-    <description>The Gentoo Bug Wranglers project controls, describes the tasks to be carried out and goals to be achieved for everyone who wrangles bugs on Gentoo's bug tracker.</description>
-    <member is-lead="1">
+    <description>The Gentoo Bug Wranglers Project elaborates how to proceed with bugs on the Gentoo bug tracker.</description>
+    <member>
       <email>jer@gentoo.org</email>
       <name>Jeroen Roovers</name>
       <role>Developer</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
-      <role>Developer</role>
+      <role>team leader</role>
     </member>
     <member>
       <email>polynomial-c@gentoo.org</email>
@@ -1237,7 +1237,7 @@
     <member>
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
-      <role>Member ( mostly cleaning up bugs and QA )</role>
+      <role>Member (QA and cleaning up bugs)</role>
     </member>
     <member>
       <email>soap@gentoo.org</email>
@@ -3070,9 +3070,8 @@
     <member>
       <email>dolsen@gentoo.org</email>
       <name>Brian Dolbec</name>
-      <role>Catalyst Lead</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>jmbsvicetto@gentoo.org</email>
       <name>Jorge Manuel B. S. Vicetto</name>
       <role>AMD64 / X86 Release Coordinator</role>
@@ -3082,10 +3081,10 @@
       <name>Matthew Marchese</name>
       <role>Documentation Helper</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
-      <role>Alpha/HPPA/IA64/MIPS/PPC/PPC64/S390 Release Coordinator</role>
+      <role>Lead, Alpha/HPPA/IA64/MIPS/PPC/PPC64/SPARC/S390 Release Coordinator</role>
     </member>
     <member>
       <email>robbat2@gentoo.org</email>

@@ -1,6 +1,10 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Georgy Yakovlev <gyakovlev@gentoo.org (2020-04-26)
+# static-pie works on arm64, #719444
+sys-libs/glibc -static-pie
+
 # Lars Wendler <polynomial-c@gentoo.org> (2020-04-20)
 # Not keyworded on arm64
 net-misc/whois xcrypt
@@ -10,17 +14,9 @@ net-misc/whois xcrypt
 # and as for now we have only stable mate versions
 mate-base/mate bluetooth
 
-# Adam Feldman <NP-Hardass@gentoo.org> (2020-04-06)
-# Mask until gui-libs/gtk-layer-shell is keyworded
-mate-base/mate-panel wayland
-
 # Patrick McLean <chutzpah@gentoo.org> (2020-04-03)
 # Lots of deps for little gain
 dev-python/joblib doc
-
-# Patrick McLean <chutzpah@gentoo.org> (2020-02-15)
-# Mask until dev-libs/libfido2 is keyworded
-net-misc/openssh security-key
 
 # Matt Turner <mattst88@gentoo.org> (2020-02-02)
 # dev-libs/mongo-c-driver is not keyworded
@@ -119,11 +115,9 @@ media-libs/mlt -sdl
 media-libs/openal -sdl
 media-sound/mpg123 -sdl
 media-video/ffmpeg -sdl
-media-video/libav -sdl
 media-video/mplayer -sdl
 media-video/mpv -sdl
 media-video/transcode -sdl
-virtual/ffmpeg -sdl
 >=x11-libs/wxGTK-3 -sdl
 
 # Roy Bamford <neddyseagoon@gentoo.org> (2019-02-24)

@@ -11,7 +11,7 @@ HOMEPAGE="https://openvpn.net/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x86-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x86-macos"
 
 IUSE="down-root examples inotify iproute2 libressl lz4 +lzo mbedtls pam"
 IUSE+=" pkcs11 +plugins selinux +ssl systemd test userland_BSD"
@@ -61,22 +61,34 @@ src_prepare() {
 }
 
 src_configure() {
+	local myeconfargs=(
+		$(use_enable inotify async-push)
+		$(use_enable ssl crypto)
+	)
+	if use ssl; then
+		myeconfargs+=(
+			$(use_with ssl crypto-library $(usex mbedtls mbedtls openssl))
+		)
+		if use libressl || ! use mbedtls; then
+			myeconfargs+=(
+				$(use_enable pkcs11)
+			)
+		fi
+	fi
+	myeconfargs+=(
+		$(use_enable lz4)
+		$(use_enable lzo)
+		$(use_enable plugins)
+		$(use_enable iproute2)
+		$(use_enable pam plugin-auth-pam)
+		$(use_enable down-root plugin-down-root)
+		$(use_enable systemd)
+	)
 	SYSTEMD_UNIT_DIR=$(systemd_get_systemunitdir) \
 	TMPFILES_DIR="/usr/lib/tmpfiles.d" \
 	IFCONFIG=/bin/ifconfig \
 	ROUTE=/bin/route \
-	econf \
-		$(use_enable inotify async-push) \
-		$(use_enable ssl crypto) \
-		$(use_with ssl crypto-library $(usex mbedtls mbedtls openssl)) \
-		$(use_enable lz4) \
-		$(use_enable lzo) \
-		$(use_enable pkcs11) \
-		$(use_enable plugins) \
-		$(use_enable iproute2) \
-		$(use_enable pam plugin-auth-pam) \
-		$(use_enable down-root plugin-down-root) \
-		$(use_enable systemd)
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {

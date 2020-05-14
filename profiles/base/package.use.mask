@@ -6,6 +6,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Ben Kohler <bkohler@gentoo.org> (2020-04-29)
+# Dependency pam_wrapper missing for tests, and RESTRICT=test is already set
+net-fs/samba test
+
 # Mike Gilbert <floppym@gentoo.org> (2020-04-23)
 # Tests are very sensitive to the host environment.
 dev-util/meson test
@@ -31,10 +35,6 @@ www-apps/nikola ghpages
 # app-i18n/man-pages-{de,fr,nl,pl} masked for removal.
 # Bug #713590, bug #717744.
 <sys-apps/man-pages-5.05-r1 l10n_de l10n_fr l10n_nl l10n_pl
-
-# Stephan Hartmann <stha09@googlemail.com> (2020-04-11)
-# Requires unreleased >=dev-libs/icu-67
->=www-client/chromium-83.0.4103.7 system-icu
 
 # Ulrich Müller <ulm@gentoo.org> (2020-04-08)
 # Old versions of libjpeg-turbo have known security issues.
@@ -346,7 +346,6 @@ dev-lang/gnat-gpl go
 
 # Pacho Ramos <pacho@gentoo.org> (2018-11-11)
 # pm-utils will be removed, bug #659616
-net-misc/wicd pm-utils
 sys-apps/razercfg pm-utils
 sys-power/powermgmt-base pm-utils
 
@@ -513,10 +512,6 @@ net-proxy/haproxy wurfl
 # Not rely on monodevelop, bug #596656
 # dev-dotnet/zeitgeist-sharp is going to be removed, bug #582894
 net-irc/hexchat theme-manager
-
-# Pacho Ramos <pacho@gentoo.org> (2016-11-27)
-# Avoid the usage of dead net-dialup/capi4k-utils
-app-emulation/crossover-bin capi
 
 # Ulrich Müller <ulm@gentoo.org> (2016-10-15)
 # The --with-cairo option is considered as experimental by upstream
@@ -736,12 +731,6 @@ dev-lisp/clisp svm
 # Don't use system-wide mode unless you *really* know what you're doing.
 # Keep it masked here so that I don't need to manage two versions every time.
 media-sound/pulseaudio system-wide
-
-# Jeremy Olexa <darkside@gentoo.org> (2010-01-10)
-# Upsteam doesn't support ioctl backend and neither does Gentoo. ioctl USE flag
-# will eventually be removed unless the backend is re-written by upstream. bug
-# 299674
->net-misc/wicd-1.6.2.2 ioctl
 
 # These are for BSD only
 net-proxy/squid ipf-transparent pf-transparent

@@ -15,7 +15,7 @@ SRC_URI="https://inkscape.global.ssl.fastly.net/media/resources/file/${P}.tar.bz
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~hppa ppc ppc64 x86"
 IUSE="cdr dia dbus exif gnome imagemagick openmp postscript inkjar jpeg latex"
 IUSE+=" lcms nls spell static-libs visio wpg uniconvertor"
 
@@ -103,6 +103,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.92.4-poppler-0.76.0.patch" #684246
 	"${FILESDIR}/${PN}-0.92.4-poppler-0.82.0.patch"
 	"${FILESDIR}/${PN}-0.92.4-poppler-0.83.0.patch"
+	"${FILESDIR}/${PN}-0.92.4-glibmm-2.62.patch" #715394
 )
 
 S="${WORKDIR}/${MY_P}"

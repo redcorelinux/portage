@@ -12,7 +12,7 @@ SRC_URI="https://github.com/RetroShare/RetroShare/releases/download/v${PV}/Retro
 # pegmarkdown can also be used with MIT
 LICENSE="AGPL-3 GPL-2 GPL-3 Apache-2.0 LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="cli control-socket gnome-keyring +gui +jsonapi service +sqlcipher webui +xapian"
 
@@ -27,7 +27,7 @@ RDEPEND="
 	<net-libs/libupnp-1.8.0
 	sys-libs/zlib
 	control-socket? ( dev-qt/qtnetwork:5 )
-	gnome-keyring? ( gnome-base/libgnome-keyring )
+	gnome-keyring? ( app-crypt/libsecret )
 	gui? (
 		dev-qt/qtcore:5
 		dev-qt/qtmultimedia:5
