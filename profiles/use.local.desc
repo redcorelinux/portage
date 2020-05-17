@@ -145,7 +145,9 @@ app-admin/sagan:pcap - Add support for network packet capture via net-libs/libpc
 app-admin/sagan:smtp - Build witch SMTP (E-Mail) support
 app-admin/sagan:snort - Add support to interact with Snort IDE using net-analyzer/snortsam'
 app-admin/sagan-rules:lognorm - Install normalize rules support with dev-libs/liblognorm
+app-admin/salt:cheetah - Enable support for dev-python/cheetah3
 app-admin/salt:cherrypy - Enable support for using cherrypy.
+app-admin/salt:genshi - Enable support for dev-python/genshi
 app-admin/salt:gnupg - Enable support for gnupg via python-gnupg.
 app-admin/salt:keyring - Enable support for keyrings via python-keyring.
 app-admin/salt:libcloud - Enable salt-cloud support via libcloud.
@@ -199,7 +201,6 @@ app-antivirus/clamav:clamsubmit - A tool to submit false positives / negatives
 app-antivirus/clamav:libclamav-only - Bypass building of libfreshclam and the ClamAV CLI applications.
 app-antivirus/clamav:metadata-analysis-api - Enables collection of file property metadata using ClamAV API for analysis by ClamAV bytecode programs.
 app-antivirus/clamav:xml - DMG and XAR support
-app-antivirus/clamav-unofficial-sigs:cron - Install an hourly cron job to /etc/cron.d that runs the updates as the clamav user (instead of root), with an appropriate home directory and shell. The same cron job is installed as documentation when this flag is disabled.
 app-antivirus/clamtk:kde - Install the Dolphin plugin.
 app-antivirus/clamtk:nautilus - Install the Nautilus plugin.
 app-antivirus/clamtk:nemo - Install the Nemo plugin.
@@ -245,6 +246,7 @@ app-backup/bacula:bacula-nodir - Disable building of director
 app-backup/bacula:bacula-nosd - Disable building of storage daemon
 app-backup/bacula:batch-insert - Enable batch insert into data base
 app-backup/bacula:logwatch - Install support files for logwatch
+app-backup/bareos:ceph - Enable ceph support
 app-backup/bareos:cephfs - Enable cephfs storage backend
 app-backup/bareos:clientonly - Only install file-daemon (client)
 app-backup/bareos:director - Install director
@@ -344,6 +346,8 @@ app-crypt/seahorse:ldap - Enable seahorse to manipulate GPG keys on a LDAP serve
 app-crypt/swtpm:fuse - Support sys-fs/fuse based /dev/tpm interface
 app-crypt/tpm-emulator:mtm-emulator - Build the MTM emulator
 app-crypt/tpm-tools:pkcs11 - Build Token data management utilities based on OpenCryptoki's (dev-libs/opencryptoki) PKCS#11 implementation.
+app-crypt/tpm2-tools:fapi - Enable feature API tools
+app-crypt/tpm2-tss:fapi - Enable feature API (requires openssl as crypto backend)
 app-crypt/tpm2-tss:gcrypt - Use dev-libs/libgcrypt as crypto engine
 app-crypt/tpm2-tss:openssl - Use dev-libs/openssl as crypto engine
 app-crypt/veracrypt:asm - Enable assembly for optimization
@@ -469,6 +473,9 @@ app-emulation/cri-o:device-mapper - Enables dependencies for the "devicemapper" 
 app-emulation/cri-o:ostree - Enables dependencies for handling of OSTree images.
 app-emulation/crossover-bin:capi - Enable ISDN support via CAPI
 app-emulation/crossover-bin:opencl - Enable OpenCL support
+app-emulation/crossover-bin:osmesa - Add support for OpenGL in bitmaps using libOSMesa
+app-emulation/crossover-bin:pcap - Support packet capture software (e.g. wireshark)
+app-emulation/crossover-bin:vulkan - Enable Vulkan drivers
 app-emulation/crun:bpf - Enable in Kernel, eBPF (enhanced Berkley Packet Filter) support for managing device controllers.
 app-emulation/docker:apparmor - Enable AppArmor support.
 app-emulation/docker:aufs - Enables dependencies for the "aufs" graph driver, including necessary kernel flags.
@@ -578,6 +585,7 @@ app-emulation/qemu:curl - Support ISOs / -cdrom directives vis HTTP or HTTPS.
 app-emulation/qemu:fdt - Enables firmware device tree support
 app-emulation/qemu:glusterfs - Enables GlusterFS cluster fileystem via sys-cluster/glusterfs
 app-emulation/qemu:gnutls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support. For 2.0 through 2.3 also enables disk quorum support.
+app-emulation/qemu:io-uring - Enable efficient I/O via sys-libs/liburing.
 app-emulation/qemu:iscsi - Enable direct iSCSI support via net-libs/libiscsi instead of indirectly via the Linux block layer that sys-block/open-iscsi does.
 app-emulation/qemu:jemalloc - Enable jemalloc allocator support
 app-emulation/qemu:jpeg - Enable jpeg image support for the VNC console server
@@ -616,6 +624,7 @@ app-emulation/runc:kmem - Enable Kernel Memory Accounting.
 app-emulation/runv:libvirt - Enable support for KVM via libvirt
 app-emulation/runv:xen - Enable support for the Xen Hypervisor
 app-emulation/ski:debug - enable extra binary emulation debugging via sys-libs/binutils-libs
+app-emulation/skopeo:btrfs - Enables dependencies for the "btrfs" graph driver.
 app-emulation/spice:smartcard - Enable smartcard remoting using app-emulation/libcacard
 app-emulation/spice-vdagent:consolekit - Use sys-auth/consolekit to determine the master vdagentd in case of multiple running vdagentds (highly recommended)
 app-emulation/vagrant:virtualbox - Use VirtualBox provider.
@@ -832,6 +841,9 @@ app-leechcraft/lc-blogique:metida - Support for the LiveJournal blogging platfor
 app-leechcraft/lc-core:qwt - Support for QML plotting item through x11-libs/qwt
 app-leechcraft/lc-gmailnotifier:notify - Pull in a plugin to show notifications from GMail Notiifer
 app-leechcraft/lc-gmailnotifier:quark - Pull in a plugin to show GMail Notifier's quark
+app-leechcraft/lc-liznoo:battery - Enables battery charge level reading support.
+app-leechcraft/lc-liznoo:poweractions - Enables support for suspending and hibernating the machine.
+app-leechcraft/lc-liznoo:powerevents - Enables support for receiving events about suspending and resuming the machine (to notify other plugins).
 app-leechcraft/lc-lmp:fradj - Build FrAdj, the equalizer effect module
 app-leechcraft/lc-lmp:graffiti - Build media tags editor plugin
 app-leechcraft/lc-lmp:mp3tunes - Build plugin for supporting the mp3tunes.com music locker service
@@ -855,7 +867,7 @@ app-leechcraft/lc-poshuku:qrd - Build module for displaying the QR code of a web
 app-leechcraft/lc-poshuku:speeddial - Build SpeedDial module.
 app-leechcraft/lc-poshuku:webengine - Build WebEngine- (that is, Chromium-)based rendering backend.
 app-leechcraft/lc-secman:exposecontents - Build the GUI for viewing the stored data.
-app-leechcraft/leechcraft-meta:de - Install components, that allow using Leechcraft as Desktop Environment
+app-leechcraft/leechcraft-meta:de - Install components that allow using LeechCraft as Desktop Environment
 app-metrics/collectd:contrib - Install user-contributed files in the doc directory
 app-metrics/collectd:filecaps - When set collectd daemon will have set required capabilities to run most plugins even if run as unprivileged user
 app-metrics/collectd:java - Must be set (workaround for java-pkg-opt-2 eclass limitation) when you want java or genericjmx plugin
@@ -1100,12 +1112,9 @@ app-portage/eix:debug - Build with upstream's CXXFLAGS/LDFLAGS for debugging sup
 app-portage/eix:doc - Create description of the eix cache file additionally in html format
 app-portage/eix:sqlite - Compile in support for portage's sqlite backend; to actually use it you need additional configuration of portage and eix
 app-portage/g-sorcery:bson - Support BSON file format for package DB
-app-portage/gemato:blake2 - Install dependencies needed for BLAKE2 hash functions
 app-portage/gemato:gpg - Install dependencies needed for OpenPGP signature verification support
-app-portage/gemato:sha3 - Install dependencies needed for SHA3 hash functions
 app-portage/gemato:tools - Install additional utilities (benchmarks, hash testing tools, fast Manifest generators) to /usr/share/gemato.
 app-portage/grs:server - Install all the tools building systems
-app-portage/layman:bazaar - Support dev-vcs/bzr based overlays
 app-portage/layman:cvs - Support dev-vcs/cvs based overlays
 app-portage/layman:darcs - Support dev-vcs/darcs based overlays
 app-portage/layman:g-sorcery - Support app-portage/g-sorcery based overlays
@@ -1962,6 +1971,7 @@ dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
 dev-lang/rakudo:moar - Use the MoarVM as backend
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
 dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
+dev-lang/ruby:systemtap - Enable SystemTAP/DTrace tracing
 dev-lang/rust:clippy - Install clippy, Rust code linter
 dev-lang/rust:miri - Install miri, an interpreter for Rust's mid-level intermediate representation (requires USE=nightly)
 dev-lang/rust:nightly - Enable nightly (UNSTABLE) features
@@ -2140,6 +2150,7 @@ dev-libs/hidapi:fox - Build a x11-libs/fox GUI
 dev-libs/hsa-ext-rocr:deprecated - Install the deprecated debug/trace/profiling library
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
+dev-libs/intel-neo:l0 - Install the oneAPI Level Zero driver alongside the OpenCL one
 dev-libs/intel-neo:vaapi - Support the sharing of surfaces with Video Acceleration API (OpenCL Extension #36)
 dev-libs/jemalloc:hugepages - Enable transparent huge page support
 dev-libs/jemalloc:lazy-lock - Enable lazy locking (only lock when multi-threaded)
@@ -2260,6 +2271,7 @@ dev-libs/m17n-lib:gd - Build API and utilities based on media-libs/gd. This flag
 dev-libs/m17n-lib:libotf - Use dev-libs/libotf to handle OpenType fonts
 dev-libs/m17n-lib:libxml2 - Use dev-libs/libxml2 to parse XML
 dev-libs/msgpack:boost - Enable boost support
+dev-libs/nettle:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
 dev-libs/nss:cacert - Include root/class3 certs from CAcert (http://www.cacert.org/)
 dev-libs/nss:utils - Install utilities included with the library
 dev-libs/ocl-icd:khronos-headers - Install Khronos OpenCL headers.
@@ -2620,7 +2632,6 @@ dev-qt/qt-creator:android - Build plugin for Android devices
 dev-qt/qt-creator:autotest - Enable integration with popular unit testing frameworks (QtTest, Google Test, Boost.Test)
 dev-qt/qt-creator:autotools - Enable autotools project manager plugin
 dev-qt/qt-creator:baremetal - Build plugin for bare metal devices
-dev-qt/qt-creator:bazaar - Add support for dev-vcs/bzr version control system
 dev-qt/qt-creator:beautifier - Build the beautifier plugin (supports astyle, clang-format, and uncrustify)
 dev-qt/qt-creator:boot2qt - Build plugin for Boot2Qt devices
 dev-qt/qt-creator:clang - Build clang-based plugins (code model, formatting, refactoring, static analysis)
@@ -2717,7 +2728,6 @@ dev-qt/qtgui:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtgui:tuio - Build plugin to receive touch events over the TUIO protocol
 dev-qt/qtgui:vulkan - Enable support for Vulkan
 dev-qt/qtgui:wayland - Provide dev-qt/qtwayland to ensure Qt applications can be run as Wayland clients
-dev-qt/qtgui:xcb - Build the XCB platform plugin and enable X11 integration
 dev-qt/qtmultimedia:gstreamer - Enable audio support via media-libs/gstreamer using SLOT 1.0
 dev-qt/qtmultimedia:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtmultimedia:widgets - Build the QtMultimediaWidgets module
@@ -2733,7 +2743,6 @@ dev-qt/qtquickcontrols2:widgets - Enable QtWidgets support
 dev-qt/qtscript:scripttools - Build the QtScriptTools module (requires QtWidgets)
 dev-qt/qtsensors:qml - Build QML bindings
 dev-qt/qtvirtualkeyboard:handwriting - Adds handwriting recognition integration support
-dev-qt/qtwayland:libinput - Enable support for input devices via dev-libs/libinput
 dev-qt/qtwayland:vulkan - Enable support for Vulkan-based server buffer integration
 dev-qt/qtwebchannel:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtwebengine:designer - Install the QWebEngineView plugin used to add widgets in dev-qt/designer forms that display web pages.
@@ -2879,16 +2888,7 @@ dev-util/diffoscope:xz - Use app-arch/xz-utils
 dev-util/diffoscope:zip - Use app-arch/unzip
 dev-util/edb-debugger:jumbo-build - Experimental jumbo (also known as unity) build capability
 dev-util/edi:clang - Provide integration with sys-devel/clang for autocompletion and inline errors
-dev-util/electron:gconf - Use gnome-base/gconf
-dev-util/electron:lto - Build with link time optimization enabled
-dev-util/electron:pic - Disable optimized assembly code that is not PIC friendly
-dev-util/electron:proprietary-codecs - Enable proprietary codecs like H.264, MP3
-dev-util/electron:system-ffmpeg - Use system ffmpeg instead of the bundled one
-dev-util/electron:system-libvpx - Use system libvpx instead of the bundled one
-dev-util/electron:system-ssl - Use system OpenSSL instead of the bundled one
-dev-util/electron:tcmalloc - Use bundled tcmalloc instead of system malloc
 dev-util/emilpro:system-binutils - Use the gentoo binutils instead of building against an unpatched vanilla version
-dev-util/fatrace:powertop - Add powetop integration
 dev-util/geany:gtk3 - Use GTK+3 instead of GTK+2
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:ctags - Enable ctags plugin
@@ -2962,6 +2962,8 @@ dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
 dev-util/pkgconf:pkg-config - Install as a replacement for dev-util/pkgconfig
 dev-util/pkgconfig:internal-glib - Use internal copy of dev-libs/glib
+dev-util/pycharm-community:bundled-jdk - Use bundled jdk
+dev-util/pycharm-professional:bundled-jdk - Use bundled jdk
 dev-util/scanmem:gui - Enable the GameConqueror GUI
 dev-util/sccache:azure - Enable Azure Blob Storage support
 dev-util/sccache:dist-client - Enables distributed support in the sccache client
@@ -2981,9 +2983,12 @@ dev-util/sysdig:modules - Build kernel modules needed for tracing local events. 
 dev-util/systemtap:libvirt - Support probing of libvirt domains.
 dev-util/trace-cmd:udis86 - Enable support for dev-libs/udis86 disassembler library
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
+dev-util/unrpyc:module - Build un.rpyc module for run-time decompiling
+dev-util/unrpyc:proto0 - Use pickle protocol 0 for un-rpyc module. May be usefule for very old games
+dev-util/unrpyc:proto1 - Use pickle protocol 1 for un-rpyc module. Default if no protocol is selected
+dev-util/unrpyc:proto2 - Use pickle protocol 2 for un-rpyc module
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/vulkan-tools:vulkaninfo - Build the vulkaninfo utility
-dev-vcs/bzr:sftp - Enable sftp support
 dev-vcs/cssc:valgrind - Enable usage of dev-util/valgrind in tests
 dev-vcs/cvs:server - Enable server support
 dev-vcs/cvs2svn:bazaar - Support for dev-vcs/bzr
@@ -3127,6 +3132,8 @@ games-emulation/dolphin:log - Increase logging output
 games-emulation/dolphin:lto - Add support for link-time optimizations.
 games-emulation/dosbox:core-inline - Enable memory-increasing inlines for better performance but requiring more build time
 games-emulation/dosbox:glide - Enable unofficial Glide emulation via media-libs/openglide
+games-emulation/dosbox-staging:dynrec - Use recompiling cpu core instead of dynamic x86/x64 specific cpu core
+games-emulation/dosbox-staging:opus - Support compressed audio tracks (.opus) used with CDROM images
 games-emulation/fceux:logo - Enable the ability to add a logo screen when creating AVIs
 games-emulation/generator:sdlaudio - Enable SDL Audio
 games-emulation/hatari:capsimage - Use dev-libs/spsdeclib to read .IPF, .RAW, and .CTR disk images
@@ -3259,6 +3266,8 @@ games-puzzle/numptyphysics:user-levels - Install some fun user-created levels
 games-puzzle/pingus:music - Enable playing of background music
 games-puzzle/sgt-puzzles:gtk3 - Use x11-libs/gtk+:3 instead of x11-libs/gtk+:2
 games-puzzle/tiny-and-big:bundled-libs - Use the upstream provided bundled libraries.
+games-puzzle/world-of-goo-gog:bundled-libs - Use bundled libs
+games-puzzle/world-of-goo-hb:bundled-libs - Use bundled libs
 games-puzzle/xlogical:alt_gfx - Use alternate graphics which are closer to the original Amiga version
 games-roguelike/FTL:bundled-libs - Use bundled libraries.
 games-roguelike/angband:sdl2 - Use libsdl2 instead of libsdl
@@ -3406,13 +3415,11 @@ gnome-extra/libgsf:gtk - Enable use of gdk in thumbnailer
 gnome-extra/nemo:packagekit - Use packagekit to search for programs to open unknown file types
 gnome-extra/nemo:tracker - Add support for app-misc/tracker search
 gnome-extra/nm-applet:gcr - Enable advanced certificate chooser, requires app-crypt/gcr
-gnome-extra/nm-applet:gtk - Enable legacy library libnm-gtk
 gnome-extra/nm-applet:lto - Enable link time optimization
 gnome-extra/nm-applet:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 gnome-extra/nm-applet:teamd - Enable teamd configuration editor
 gnome-extra/nm-applet:wwan - Enable WWAN support
 gnome-extra/sushi:office - Support viewing file formats such as generated by app-office/libreoffice
-gnome-extra/synapse:indicator - Build support for application indicators using dev-libs/libappindicator
 gnome-extra/synapse:plugins - Build support for plugins using net-libs/rest
 gnustep-apps/gemas:projectcenter - Build and install plugin for gnustep-apps/projectcenter
 gnustep-apps/gworkspace:gwmetadata - Enable the metadata indexing and searching system
@@ -3438,6 +3445,8 @@ gui-apps/swaylock:man - Build and install man pages
 gui-apps/waybar:mpd - Enable support for the Music Player Daemon
 gui-apps/waybar:network - Enable libnl support for network related features
 gui-apps/waybar:tray - Enable support for tray
+gui-apps/wf-recorder:man - Build and install man pages
+gui-apps/wf-recorder:opencl - Enable OpenCL
 gui-libs/libhandy:glade - Install module and catalog for dev-util/glade
 gui-libs/wlroots:X - Enable support for X11 applications (XWayland)
 gui-libs/wlroots:elogind - Enable support for rootless session via elogind
@@ -3499,7 +3508,6 @@ kde-apps/kdepim-addons:markdown - Enable Markdown support via app-text/discount
 kde-apps/kdepim-meta:bogofilter - Install mail-filter/bogofilter for spam filter support in kde-apps/kmail
 kde-apps/kdepim-meta:clamav - Install app-antivirus/clamav for virus detection support in kde-apps/kmail
 kde-apps/kdepim-meta:spamassassin - Install mail-filter/spamassassin for spam filter support in kde-apps/kmail
-kde-apps/kdesdk-meta:bazaar - Enable support for Bazaar VCS in kde-apps/dolphin via kde-apps/dolphin-plugins-bazaar
 kde-apps/kdesdk-meta:git - Enable support for Git VCS in kde-apps/dolphin via kde-apps/dolphin-plugins-git
 kde-apps/kdesdk-meta:mercurial - Enable support for Mercurial VCS in kde-apps/dolphin via kde-apps/dolphin-plugins-mercurial
 kde-apps/kdesdk-meta:subversion - Enable support for Apache Subversion VCS in kde-apps/dolphin via kde-apps/dolphin-plugins-subversion
@@ -3651,6 +3659,7 @@ kde-plasma/plasma-meta:display-manager - Pull in a graphical display manager
 kde-plasma/plasma-meta:elogind - Use sys-auth/elogind for session tracking
 kde-plasma/plasma-meta:grub - Pull in Breeze theme for sys-boot/grub
 kde-plasma/plasma-meta:gtk - Enable Breeze widget style and system settings module for GTK+
+kde-plasma/plasma-meta:kwallet - Enable support for KWallet auto-unlocking via kde-plasma/kwallet-pam
 kde-plasma/plasma-meta:legacy-systray - Add support for legacy applications using kde-plasma/xembed-sni-proxy
 kde-plasma/plasma-meta:pam - Enable support for kwallet auto-unlocking
 kde-plasma/plasma-meta:plymouth - Pull in Breeze theme for sys-boot/plymouth
@@ -3714,6 +3723,7 @@ lxqt-base/lxqt-panel:worldclock - Build worldclock plugin
 lxqt-base/lxqt-session:themes - Install LXQt themes and graphics
 mail-client/aerc:notmuch - Enable support for net-mail/notmuch
 mail-client/alot:doc - Install user manual and API documentation
+mail-client/alpine:chappa - enhance Alpine by applying Eduardo Chappa's patches
 mail-client/alpine:onlyalpine - installs only the alpine binary, so it does not collied with pico and/or pine
 mail-client/alpine:passfile - Adds support for caching passwords into a file between sessions
 mail-client/alpine:smime - Enable support for S/MIME
@@ -3744,7 +3754,6 @@ mail-client/evolution:spamassassin - Build mail-filter/spamassassin plugin
 mail-client/evolution:weather - Enable optional weather calendar support
 mail-client/evolution:ytnef - Enable optional TNEF attachments parser support using net-mail/ytnef
 mail-client/geary:ytnef - Enable optional TNEF attachments parser support using net-mail/ytnef
-mail-client/mail-notification:sylpheed - Enable support for MH mailboxes used by mail-client/sylpheed
 mail-client/mutt:berkdb - Enable sys-libs/db database backend for header caching
 mail-client/mutt:gdbm - Enable sys-libs/gdbm database backend for header caching
 mail-client/mutt:gpgme - Build gpgme backend to support S/MIME, PGP/MIME and traditional/inline PGP
@@ -4156,6 +4165,7 @@ media-libs/flickcurl:raptor - Use media-libs/raptor for proper RDF serializing
 media-libs/fontconfig-infinality:nyx - Additional style using croscorefonts
 media-libs/freetype:adobe-cff - Use Adobe CFF as default font-renderer
 media-libs/freetype:bindist - Disable ClearType support (see http://freetype.org/patents.html)
+media-libs/freetype:brotli - Enable brotli decompression support via app-arch/brotli
 media-libs/freetype:bzip2 - Support bzip2 compressed PCF fonts.
 media-libs/freetype:cleartype_hinting - New bytecode hinting mode for TrueType fonts that activates subpixel hinting (a.k.a. ClearType hinting) by default
 media-libs/freetype:fontforge - Install internal headers required for TrueType debugger in media-gfx/fontforge (built with USE=truetype-debugger)
@@ -4236,7 +4246,6 @@ media-libs/libplacebo:shaderc - Use media-libs/shaderc to compile GLSL
 media-libs/libplacebo:vulkan - Add support for the vulkan graphics API
 media-libs/libpng:apng - support unofficial APNG (Animated PNG) spec
 media-libs/libpng-compat:apng - support unofficial APNG (Animated PNG) spec
-media-libs/libpostproc:pic - Force shared libraries to be built as PIC (this is slower).
 media-libs/libprojectm:gles2 - Provide support for OpenGL ES 2 and 3
 media-libs/libsdl:joystick - Control joystick support (disable at your own risk)
 media-libs/libsdl:sound - Control audio support (disable at your own risk)
@@ -4276,6 +4285,7 @@ media-libs/mesa:gles1 - Enable GLESv1 support.
 media-libs/mesa:gles2 - Enable GLESv2 support.
 media-libs/mesa:libglvnd - Use libglvnd for dispatch.
 media-libs/mesa:llvm - Enable LLVM backend for Gallium3D.
+media-libs/mesa:lm-sensors - Enable Gallium HUD lm-sensors support.
 media-libs/mesa:opencl - Enable the Clover Gallium OpenCL state tracker.
 media-libs/mesa:osmesa - Build the Mesa library for off-screen rendering.
 media-libs/mesa:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
@@ -4864,20 +4874,23 @@ media-tv/xmltv:dtvla - Latin America digital tv listing grabber
 media-tv/xmltv:es-laguiatv - Spain alternative grabber
 media-tv/xmltv:eu-dotmedia - Grabber for Europe (xmltv.se / dotmedia)
 media-tv/xmltv:eu-epg - EPG grabber for some European countries.
-media-tv/xmltv:fi - Finland tv listing grabber
+media-tv/xmltv:eu-epgdata - include fanart URLs for some European countries.
+media-tv/xmltv:eu-xmltvse - Grabbber for Europe [replaces eu-dotmedia and se-tvzon]
+media-tv/xmltv:fi - Finland tv listing grabber (0.6.1 add ampparit telsu)
 media-tv/xmltv:fi-sv - Grabber for Finland (Swedish)
 media-tv/xmltv:fr - France tv listing grabber
 media-tv/xmltv:fr-kazer - France (Kazer) tv listing grabber
 media-tv/xmltv:huro - Hungarian tv listing grabber
 media-tv/xmltv:il - Israel tv listing grabber
 media-tv/xmltv:is - Iceland tv listing grabber
-media-tv/xmltv:it - Italy tv listing grabber
+media-tv/xmltv:it - Italy tv listing grabber (RUV)
 media-tv/xmltv:na-dd - North America tv listing grabber
 media-tv/xmltv:na-dtv - North America Direct TV grabber
 media-tv/xmltv:na-tvmedia - Grabber for North America (TVMedia)
-media-tv/xmltv:nl - Netherlands tv listing grabber
+media-tv/xmltv:nl - Netherlands tv listing grabber [REMOVED 0.6.1]
 media-tv/xmltv:no-gf - Norway Gfeed tv listing grabber
 media-tv/xmltv:pt-meo - Grabber for Portugal (MEO)
+media-tv/xmltv:pt-vodafone - Grabber for Portugal (Vodafone)
 media-tv/xmltv:se-swedb - Sweden tv listing grabber
 media-tv/xmltv:se-tvzon - Sweden (tvzon.se) tv listing grabber
 media-tv/xmltv:tr - Turkey (Digiturk) tv listing grabber
@@ -4887,6 +4900,7 @@ media-tv/xmltv:tv-pick-cgi - enable CGI support
 media-tv/xmltv:uk-bleb - Britain tv listing grabber
 media-tv/xmltv:uk-tvguide - UK and Ireland tv listing grabber using TV Guide website
 media-tv/xmltv:zz-sdjson - Grabber for schedulesDirect.org SD-JSON service (many countries)
+media-tv/xmltv:zz-sdjson-sqlite - Grabber for schedulesDirect.org SD-JSON service (sqlite DB)
 media-video/aegisub:uchardet - Enable charset discovery via app-i18n/uchardet
 media-video/aravis:fast-heartbeat - Enable faster heartbeat rate.
 media-video/aravis:gstreamer - Build the GStreamer plugin.
@@ -4968,32 +4982,6 @@ media-video/handbrake:nvenc - Adds support for NVIDIA Encoder (NVENC) API for ha
 media-video/handbrake:x265 - Support for encoding h265 using media-libs/x265.
 media-video/kino:gpac - Enable GPAC support when exporting to 3GPP format
 media-video/kmplayer:npp - Compile the npp backend that plays xembed style browser plugins.
-media-video/libav:aac - Use external vo-aacenc library for AAC encoding
-media-video/libav:amr - Enable Adaptive Multi-Rate Audio support
-media-video/libav:armv5te - Enable optimizations for armv5te processors
-media-video/libav:armv6 - Enable optimizations for armv6 processors
-media-video/libav:armv6t2 - Enable optimizations for armv6t2 processors
-media-video/libav:armvfp - Enable VFP optimizations for ARM processors
-media-video/libav:bs2b - Enable media-libs/libbs2b based Bauer stereo-to-binaural audio filter
-media-video/libav:cdio - Enable audio CD grabbing with dev-libs/libcdio.
-media-video/libav:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs).
-media-video/libav:faac - Use external faac library for AAC encoding
-media-video/libav:fdk - Use external fdk-aac library for AAC encoding and decoding
-media-video/libav:frei0r - Enable frei0r wrapping in libavfilter
-media-video/libav:gpl - Build all GPL licensed code. Without this flag set the package is build under LGPL license.
-media-video/libav:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly.
-media-video/libav:network - Enable network streaming support.
-media-video/libav:nvidia - Enable nvidia video codec hardware acceleration support.
-media-video/libav:openssl - Prefer dev-libs/openssl over net-libs/gnutls to provide SSL/TLS support (notice: the resulting binaries are unredistributable).
-media-video/libav:opus - Use the external opus library for encoding and decoding.
-media-video/libav:pic - Force shared libraries to be built as PIC (this is slower).
-media-video/libav:pulseaudio - Enable pulseaudio input support.
-media-video/libav:rtmp - Enable Real Time Messaging Protocol using librtmp instead the native implementation.
-media-video/libav:ssl - Enable SSL/TLS support using dev-libs/openssl or net-libs/gnutls.
-media-video/libav:tools - Build and install small tools like aviocat, cws2fws, graph2dot, ismindex, qt-faststart.
-media-video/libav:twolame - Enable MP2 encoding via media-sound/twolame as an alternative to the internal encoder
-media-video/libav:vpx - Enable vp8 encoding support using media-libs/libvpx.
-media-video/libav:x265 - Enable HEVC encoding with media-libs/x265.
 media-video/libva-utils:drm - Enables VA/DRM API support.
 media-video/mjpegtools:sdlgfx - Enables y4mhist to display a graphical histogram
 media-video/mjpg-streamer:input-control - Plugin giving ability to control camera movement (only specific cameras)
@@ -5082,27 +5070,26 @@ media-video/qmplay2:avdevice - Build FFmpeg module with libavdevice suport
 media-video/qmplay2:avresample - Use libavresample instead of libswresample
 media-video/qmplay2:cdio - Build with AudioCD module
 media-video/qmplay2:cuvid - Build with CUVID module
-media-video/qmplay2:extensions - Build with Extensions module
+media-video/qmplay2:extensions - Build with Extensions module and enable other plugins
 media-video/qmplay2:gme - Build Chiptune with GME support
 media-video/qmplay2:inputs - Build with Inputs module
 media-video/qmplay2:lastfm - Build with LastFM support
+media-video/qmplay2:libass - Build with SSA/ASS subtitles rendering support
 media-video/qmplay2:lyrics - Build with lyrics support
 media-video/qmplay2:mediabrowser - Build with MediaBrowser support
 media-video/qmplay2:mpris2 - Build Extensions with MPRIS2 support
 media-video/qmplay2:notifications - Build additional notifications module
+media-video/qmplay2:shaders - Compile Vulkan shaders using media-libs/shaderc
 media-video/qmplay2:sid - Build Chiptune with SIDPLAY support
 media-video/qmplay2:videofilters - Build with VideoFilters module
 media-video/qmplay2:visualizations - Build with Visualizations module
+media-video/qmplay2:vulkan - Build with Vulkan support
 media-video/rav1e:capi - Build the C-API library and header file
 media-video/simplescreenrecorder:asm - Enable x86 assembly optimisation.
 media-video/simplescreenrecorder:vpx - Enable VP8 codec support via media-libs/libvpx.
 media-video/smplayer:autoshutdown - Enable the option to shutdown your computer after finishing the playlist. This requires dev-qt/qtdbus as dependency.
 media-video/smplayer:mpris - Enable support for MPRIS2 (Media Player Remote Interfacing Specification, version 2), a DBus interface for remote control, which requires dev-qt/qtdbus as dependency.
 media-video/subtitlecomposer:mpv - Build mpv backend support
-media-video/syncplay:client - Install Syncplay client
-media-video/syncplay:server - Install Syncplay server
-media-video/syncplay:vlc - Enable VLC2.x support
-media-video/totem:lirc - Enable support for controlling Totem with a remote control using app-misc/lirc
 media-video/totem:python - Build dev-lang/python using plugins (dbusservice for notifications and MPRIS control, interactive python console and opensubtitles lookup)
 media-video/transcode:mjpeg - Enables mjpegtools support
 media-video/transcode:nuv - NuppelVideo container format demuxing
@@ -5155,7 +5142,6 @@ media-video/vlc:mpeg - Add libmpeg2 support for mpeg-1 and mpeg-2 video streams
 media-video/vlc:nfs - Enable support for nfs protocol via net-fs/libnfs
 media-video/vlc:omxil - Enable OpenMAX Integration Layer codec module
 media-video/vlc:optimisememory - Enable optimisation for memory rather than performance
-media-video/vlc:postproc - Enable image post-processing via libpostproc (part of FFmpeg)
 media-video/vlc:projectm - Enable the projectM visualization plugin
 media-video/vlc:run-as-root - Allows vlc to start for root. Don't enable this unless you have a very specific (e.g. embedded) need for it!
 media-video/vlc:sdl-image - Enable sdl image video decoder (depends on sdl)
@@ -5240,10 +5226,6 @@ net-analyzer/icinga2:nano-syntax - Adds support for syntax used in the nano edit
 net-analyzer/icinga2:plugins - Adds support for nagios plugins
 net-analyzer/ipsumdump:nanotimestamp - Enable timestamps with nano-second resolution
 net-analyzer/linkchecker:sqlite - Mozilla Bookmark parsing
-net-analyzer/metasploit:development - Install dependencies needed for metasploit and exploit development
-net-analyzer/metasploit:nexpose - Enable the plugin to integrate with nexpose
-net-analyzer/metasploit:oracle - Enable restricted oracle modules which have additional deps
-net-analyzer/metasploit:pcap - Enable libpcap for packet sniffing
 net-analyzer/mk-livestatus:boost - Use dev-libs/boost for ASIO support
 net-analyzer/mk-livestatus:nagios4 - Generate a net-analyzer/nagios-4 compatible plugin
 net-analyzer/mk-livestatus:re2 - Use dev-libs/re2 for regex support
@@ -5285,6 +5267,7 @@ net-analyzer/nagios-plugins:snmp - Install dev-perl/Net-SNMP required for monito
 net-analyzer/nagios-plugins:ssh - Install net-misc/openssh required for monitoring SSH servers. Disabling the flag does not remove any plugin file.
 net-analyzer/nagios-plugins-flameeyes:smart - Install sys-apps/smartmontools required for S.M.A.R.T. disk monitoring. Disabling the flag removes the plugin file. This plugin also requires the sudo flag to be enable.
 net-analyzer/nagios-plugins-linux-madrisan:curl - Build check_docker which requires net-misc/curl
+net-analyzer/nagios-plugins-linux-madrisan:varlink - Build check_podman which requires dev-libs/libvarlink
 net-analyzer/net-snmp:elf - Enable the use of elf utils to check uptime on some systems
 net-analyzer/net-snmp:kmem - Enable usage of /dev/kmem
 net-analyzer/net-snmp:mfd-rewrites - Use MFD rewrites of mib modules where available
@@ -5757,7 +5740,9 @@ net-im/ejabberd:postgres - Enable PostgreSQL support for data storage
 net-im/ejabberd:redis - Enable Redis support for transient data
 net-im/ejabberd:riak - Enable support for Riak - distributed NoSQL key-value data store
 net-im/ejabberd:roster-gw - Turn on workaround for processing gateway subscriptions
+net-im/ejabberd:sip - Enable SIP support
 net-im/ejabberd:sqlite - Enable SQLite database support
+net-im/ejabberd:stun - Enable STUN/TURN support
 net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
 net-im/ekg2:gadu - Enable Gadu-Gadu protocol support (requires net-libs/libgadu).
 net-im/ekg2:gpg - Enable jabber message encryption through app-crypt/gpgme.
@@ -5770,7 +5755,6 @@ net-im/err:irc - Pull optional dependencies, needed for IRC backend
 net-im/gajim:crypt - End to end encryption and GPG encryption
 net-im/gajim:geolocation - Sharing your location
 net-im/gajim:jingle - Audio and video calls
-net-im/gajim:keyring - Saving your password to your system keyring
 net-im/gajim:networkmanager - Network lose detection using NetworkManager
 net-im/gajim:remote - Controling Gajim instance from command line with gajim-remote
 net-im/gajim:rst - Generating XHTML output from RST code
@@ -5814,7 +5798,6 @@ net-im/psi:webkit - Enable themed, html-based chatlogs using dev-qt/qtwebkit
 net-im/psi:whiteboarding - Enable experimental interactive SVG drawing
 net-im/psi:xscreensaver - Use X screensaver protocol extension to monitor idle/active status based on mouse/keyboard events
 net-im/psimedia:extras - Enable Psi+ mode (required when built for Psi+)
-net-im/pyicq-t:webinterface - Install dependencies needed for the web interface
 net-im/qtox:X - Adds support for X11
 net-im/qtox:notification - Adds support for GTK Status Notifier tray backends
 net-im/spectrum2:frotz - Enables the Z-Engine backend.
@@ -5941,6 +5924,8 @@ net-irc/kvirc:dcc_video - Support video connections over DCC protocol
 net-irc/kvirc:phonon - Support Phonon for audio output
 net-irc/limnoria:crypt - Enables user authentication with GPG
 net-irc/ngircd:ident - Enables support for net-libs/libident
+net-irc/ngircd:irc-plus - Enables support for the IRC+ protocol (needs virtual/libiconv)
+net-irc/ngircd:strict-rfc - Strict RFC compliance; may harm compatibility
 net-irc/psybnc:multinetwork - Adds support for multiple networks
 net-irc/psybnc:oidentd - Adds support for oidentd
 net-irc/psybnc:scripting - Adds scripting support
@@ -5995,6 +5980,10 @@ net-libs/c-client:chappa - Enable Eduardo Chappa's patches for use with mail-cli
 net-libs/c-client:doc - Install RFCs related to IMAP
 net-libs/c-client:topal - Enable support for net-mail/topal for use with mail-client/alpine
 net-libs/cvm:vpopmail - Enable vpopmail support
+net-libs/czmq:drafts - Build draft API, which may change at any time without any notice, and is therefore not recommended for normal use. (requires draft support in net-libs/zeromq as well)
+net-libs/czmq:http-client - Build support for HTTP client using net-misc/curl
+net-libs/czmq:http-server - Build support for HTTP server using net-libs/libmicrohttpd
+net-libs/czmq:uuid - Enable UUID support using sys-apps/util-linux
 net-libs/daq:afpacket - Build the AFPacket data acquisition module. Functions similar to the PCAP module but with better performance. Snort can run unprivileged when using this module. AFpacket supports both inline and passive modes.
 net-libs/daq:dump - Build the Dump data acquisition module. The dump DAQ allows you to test the various inline mode features available in 2.9 Snort like injection and normalization.
 net-libs/daq:ipq - Build the IPQ data acquisition module. IPQ is the old way to process iptables packets for inline deployments. Snort can not run unprivileged when using this module.
@@ -6089,6 +6078,7 @@ net-libs/libwebsockets:lejp - With the Lightweight JSON Parser
 net-libs/libwebsockets:libev - Support event loops via dev-libs/libev
 net-libs/libwebsockets:libevent - Support event loops via dev-libs/libevent
 net-libs/libwebsockets:libuv - Support asynchronous I/O via dev-libs/libuv
+net-libs/libwebsockets:mbedtls - Use mbedTLS replacement for OpenSSL
 net-libs/libwebsockets:peer-limits - Track peers and restrict resources a single peer can allocate
 net-libs/libwebsockets:server-status - Support json + jscript server monitoring
 net-libs/libwebsockets:smtp - Provide SMTP support
@@ -6690,13 +6680,6 @@ net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via media-libs/libnspsl
 net-misc/wget2:valgrind - Depend on dev-util/vagrind for test suite
 net-misc/whois:xcrypt - Enable crypt through sys-libs/libxcrypt package
-net-misc/wicd:ambiance - Install icons from Ubuntu's ambiance theme
-net-misc/wicd:gnome-shell - Install gnome-shell extension
-net-misc/wicd:gtk - Installs a gtk UI. This is enabled by default because it is intended behavior. Requires dev-python/pygtk
-net-misc/wicd:ioctl - Installs additional python libraries to use as a backend. This will improve speed but is experimental.
-net-misc/wicd:mac4lin - Change default icons to mac4lin icon set
-net-misc/wicd:ncurses - Installs a ncurses UI
-net-misc/wicd:pm-utils - Installs the pm-utils hooks for suspend/resume and requires sys-power/pm-utils
 net-misc/x2goserver:fuse - Use net-fs/sshfs to allow shared folders
 net-misc/youtube-viewer:gtk - Install the gtk3 GUI
 net-misc/youtube-viewer:gtk2 - Use the old gtk2 GUI instead of the gtk3 one
@@ -6923,7 +6906,6 @@ net-vpn/ipsec-tools:nat - Enable NAT-Traversal
 net-vpn/ipsec-tools:rc5 - Enable support for the patented RC5 algorithm
 net-vpn/ipsec-tools:stats - Enable statistics reporting
 net-vpn/libreswan:dnssec - Use DNSSEC resolver (requires net-dns/unbound)
-net-vpn/networkmanager-strongswan:glib - Enable libnm-glib compatibility.
 net-vpn/ocserv:otp - Enable support for one-time passwords
 net-vpn/openconnect:gssapi - Build GSSAPI support
 net-vpn/openconnect:libproxy - Enable proxy support
@@ -7064,6 +7046,7 @@ net-wireless/openbsc:gprs - Support GPRS via OpenGGSN
 net-wireless/osmocom-bb:transmit - Enable transmission capabilities.
 net-wireless/pyrit:cuda - Enable CUDA support via net-wireless/cpyrit-cuda
 net-wireless/pyrit:opencl - Enable OpenCL support via net-wireless/cpyrit-opencl
+net-wireless/rtl-sdr:zerocopy - may cause a bus error on some ARM systems
 net-wireless/rtl_433:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
 net-wireless/rtl_433:soapy - Build with SoapySDR support
 net-wireless/soapy_power:faster - Use sci-libs/scipy to speed up drawing
@@ -7292,7 +7275,6 @@ sci-libs/blis:pthread - Use pthread threadding model
 sci-libs/blis:serial - Use no threadding model
 sci-libs/cantera:cti - Install CTI tools (ck2cti, ctml_writer) for conversion of Chemkin files to Cantera format
 sci-libs/cddlib:tools - Add a few executables and tests for cddlib
-sci-libs/ceres-solver:c++11 - Build ceres-solver using the C++11 standard
 sci-libs/ceres-solver:cxsparse - Enable simple support for sparse matrix algebra from sci-libs/cxsparse with no LAPACK dependencies
 sci-libs/ceres-solver:gflags - Use dev-cpp/gflags for flag parsing
 sci-libs/ceres-solver:schur - Enable fixed-size schur specializations (disable if binary size is an issue)
@@ -7314,7 +7296,6 @@ sci-libs/coinor-clp:glpk - Enable GNU Linear Programming Kit sci-mathematics/glp
 sci-libs/coinor-clp:metis - Enable partitioning with sci-libs/metis
 sci-libs/coinor-clp:mumps - Enable sci-libs/mumps support
 sci-libs/coinor-clp:sparse - Enable support for sparse matrix with sci-libs/cholmod
-sci-libs/coinor-osi:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/coinor-symphony:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/coinor-utils:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/dealii:adolc - Adds support for ADOL-C (sci-libs/adolc)
@@ -7359,6 +7340,7 @@ sci-libs/gdal:ogdi - Enable support for the open geographic datastore interface 
 sci-libs/gdal:opencl - Enable OpenCL support
 sci-libs/gdal:spatialite - Enable Spatial DBMS over sqlite dev-db/spatialite
 sci-libs/gdal:xls - Add the dev-libs/freexl library for xls import support
+sci-libs/ginkgo:cuda - Add support for cuda assimp (dev-util/nvidia-cuda-sdk)
 sci-libs/gmsh:cgns - Enables cgns output support
 sci-libs/gmsh:med - Enables med support
 sci-libs/gmsh:metis - Enables metis support
@@ -7393,8 +7375,8 @@ sci-libs/libsigrok:ftdi - Enable drivers that need libftdi
 sci-libs/libsigrok:parport - Enable drivers that are parallel (IEEE1284) based
 sci-libs/libsigrok:serial - Enable drivers that are serial (RS232) based
 sci-libs/libsvm:tools - Install python based tool scripts for data selection and visualization with sci-visualization/gnuplot
+sci-libs/linbox:opencl - Enable the use of OpenCL in LinBox
 sci-libs/linux-gpib:firmware - Install firmware
-sci-libs/linux-gpib-modules:isa - Build ISA kernel modules; from 3.12 on the setting is ignored and the decision based on the kernel configuration
 sci-libs/lis:quad - Enable quadruple precision operations
 sci-libs/lis:saamg - Build the Smoothed Aggregation Algebraic MultiGrid preconditioner
 sci-libs/magma:fermi - Compile for GPU NVIDIA Fermi family (2.x cards)
@@ -7814,11 +7796,18 @@ sys-apps/hwids:net - Install the oui.txt and iab.txt databases
 sys-apps/hwids:pci - Install the pci.ids database
 sys-apps/hwids:udev - Install hwdb.d rules for udev
 sys-apps/hwids:usb - Install the usb.ids database
-sys-apps/hwloc:cuda - Enable CUDA device discovery
+sys-apps/hwloc:X - use the X Window System
+sys-apps/hwloc:cairo - Enable the Cairo back-end of hwloc's lstopo command
+sys-apps/hwloc:cpuid - Enable the cpuid-based architecture specific support (x86 component)
+sys-apps/hwloc:cuda - Enable CUDA device discovery using libcudart
 sys-apps/hwloc:gl - Enable GL display device discovery (NVCtrl)
+sys-apps/hwloc:libudev - Enable the Linux libudev
+sys-apps/hwloc:netloc - Enable Netloc
 sys-apps/hwloc:numa - Add support for numa memory allocation
+sys-apps/hwloc:nvml - Enable the NVML device discovery
 sys-apps/hwloc:pci - Enable PCI device discovery using libpci
 sys-apps/hwloc:plugins - Build hwloc components as plugins so that the hwloc core library does not directly depend on their dependencies (for instance the libpci library)
+sys-apps/hwloc:xml - use libxml2 for XML support, instead of a custom minimalistic support
 sys-apps/ibm-powerpc-utils:rtas - Add support for the Run Time Abstraction Services (RTAS)
 sys-apps/iotools:make-symlinks - Generate sub-command symlinks to iotools -- note that a lot are simple like "xor"
 sys-apps/ipmitool:openipmi - Use the system OpenIPMI implementation.
@@ -7874,6 +7863,7 @@ sys-apps/pcsc-lite:udev - Use sys-fs/udev rules to handle devices' permissions a
 sys-apps/pcsc-tools:network-cron - Monthly cronjob the update-smartcard_list script
 sys-apps/policycoreutils:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
 sys-apps/portage:apidoc - Build html API documentation with sphinx-apidoc.
+sys-apps/portage:binpkg-zstd - Use zstd compression with creating binary packages.
 sys-apps/portage:gentoo-dev - Enable features required for Gentoo ebuild development.
 sys-apps/portage:ipc - Use inter-process communication between portage and running ebuilds.
 sys-apps/portage:native-extensions - Compiles native "C" extensions (speedups, instead of using python backup code). Currently includes libc-locales. This should only be temporarily disabled for some bootstrapping operations. Cross-compilation is not supported.
@@ -8624,6 +8614,7 @@ www-apps/cgit:highlight - Enable source code highlighting
 www-apps/cgit:lua - Enable support for Lua scripting
 www-apps/drupal:uploadprogress - Install dev-php/pecl-uploadprogress package
 www-apps/gitea:acct - User and group management via acct-*/git packages
+www-apps/gitea:build-client - Build the client code, instead of using a precompiled one
 www-apps/gitit:network-uri - Get Network.URI from the network-uri package.
 www-apps/gitit:plugins - enables optional plugin runtime loader
 www-apps/hugo:sass - Enable SASS/SCSS support
@@ -8725,11 +8716,9 @@ www-client/qutebrowser:scripts - Installs userscripts from the misc/userscripts 
 www-client/seamonkey:calendar - Build Mozilla's calendar
 www-client/seamonkey:chatzilla - Build Mozilla's IRC client (default on)
 www-client/seamonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
-www-client/seamonkey:force-gtk3 - Use the cairo-gtk3 rendering engine
 www-client/seamonkey:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
 www-client/seamonkey:ipc - Use inter-process communication between tabs and plugins. Allows for greater stability in case of plugin crashes
 www-client/seamonkey:roaming - Build roaming extension support (default on)
-www-client/seamonkey:system-cairo - Use the system-wide x11-libs/cairo instead of bundled
 www-client/seamonkey:system-harfbuzz - Use the system-wide media-libs/harfbuzz instead of bundled
 www-client/seamonkey:system-icu - Use the sytem-wide dev-libs/icu instead of bundled
 www-client/seamonkey:system-jpeg - Use the system-wide media-libs/libjpeg-turbo instead of bundled
@@ -8743,17 +8732,11 @@ www-client/uget:openssl - Use dev-libs/openssl instead of net-libs/gnutls
 www-client/uget:rss - Enable uGet feed messages
 www-client/w3m:gdk-pixbuf - Enable support for x11-libs/gdk-pixbuf
 www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding
-www-client/weboob:deprecated - Enable dev-python/mechanize support (deprecated in favor of dev-python/requests
-www-client/weboob:fast-libs - Enable fast libs
-www-client/weboob:secure-updates - Enable secure updates
 www-misc/litmus:libproxy - Support for automatic proxy configuratino management through net-libs/libproxy.
 www-misc/litmus:libxml2 - Use dev-libs/libxml2 to parse XML
 www-misc/litmus:pkcs11 - Support for PKCS #11 through PaKChoiS (dev-libs/pakchois).
 www-misc/vdradmin-am:vdr - Support for media-video/vdr. Disable this if the VDR you want to control runs at a remote machine.
 www-misc/xxv:themes - Enable more themes via x11-themes/xxv-skins
-www-misc/zoneminder:curl - Enable using net-misc/curl for streaming from cameras
-www-misc/zoneminder:gcrypt - ...
-www-misc/zoneminder:vlc - Enable using media-libs/vlc for streaming from cameras
 www-plugins/adobe-flash:nsplugin - Install the Netscape Flash API plugin (for Firefox and similar browsers)
 www-plugins/adobe-flash:ppapi - Install the Pepper Flash API plugin (for Chrome and similar browsers)
 www-plugins/freshplayerplugin:v4l - Use libv4l2 for colorspace conversion
@@ -8804,7 +8787,6 @@ www-servers/tomcat:websockets - Builds websockets api and implementation (requir
 www-servers/uwsgi:embedded - Embed plugins instead of building them as real plugins. When disabling this USE flag make sure you specify all used plugins in your uWSGI configuration. Note: Language plugins will always be built as real plugins.
 www-servers/uwsgi:go - Build the gccgo plugin to run Go applications.
 www-servers/uwsgi:json - Support json as a configuration file format.
-www-servers/uwsgi:pypy - Build the pypy plugin to run your code using dev-python/pypy.
 www-servers/uwsgi:python_asyncio - Use the EXPERIMENTAL asyncio (tulip) for python3.4 async request dispatching and as LoopEngine (see http://uwsgi-docs.readthedocs.org/en/latest/asyncio.html).
 www-servers/uwsgi:python_gevent - Use dev-python/gevent for async request dispatching and as LoopEngine (see http://projects.unbit.it/uwsgi/wiki/Gevent).
 www-servers/uwsgi:routing - Enable routing support
@@ -9077,7 +9059,6 @@ x11-wm/e16:xsm - Enable X Session Management support using x11-libs/libSM
 x11-wm/e16:xsync - Enable X Sync support
 x11-wm/e16:zoom - Support resolution change of current window (zoom) usingx11-libs/libXxf86vm (xvidtune)
 x11-wm/echinus:xrandr - Enable support for multihead configuration
-x11-wm/enlightenment:packagekit - Enable module for package manager integration
 x11-wm/enlightenment:xwayland - Enable XWayland application support
 x11-wm/fluxbox:slit - Enables the Fluxbox slit (or dock)
 x11-wm/fluxbox:systray - Enables the system tray in the Fluxbox toolbar
@@ -9095,7 +9076,6 @@ x11-wm/metacity:vulkan - Enable Vulkan based compositor support via META_COMPOSI
 x11-wm/musca:apis - Optionally install the experimental `apis' window manager
 x11-wm/musca:xlisten - Optionally install the xlisten utility
 x11-wm/mutter:elogind - Rely on sys-auth/elogind as logind provider for Wayland sessions
-x11-wm/mutter:gles2 - Enable OpenGL ES 2.0 support
 x11-wm/mutter:screencast - Enable support for remote desktop and screen cast using media-video/pipewire
 x11-wm/mutter:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 x11-wm/notion:xrandr - Add support for xrandr

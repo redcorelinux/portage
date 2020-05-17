@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 toolchain-funcs
 
 DESCRIPTION="C parser and AST generator written in Python"
 HOMEPAGE="https://github.com/eliben/pycparser"
@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 RDEPEND="dev-python/ply:=[${PYTHON_USEDEP}]"
 BDEPEND="${RDEPEND}
@@ -41,9 +41,20 @@ python_compile() {
 }
 
 python_test() {
+	# Trick the tests into using CPP variable
+	# https://bugs.gentoo.org/719934
+	local CPP="$(tc-getCPP)"
+	mkdir -p "${T}"/bin || die
+	cat > "${T}"/bin/cpp <<-EOF || die
+	#!/bin/sh
+	exec ${CPP} "\$@"
+	EOF
+	chmod +x "${T}"/bin/cpp || die
+	local -x PATH="${T}/bin:${PATH}"
+
 	# change workdir to avoid '.' import
 	cd tests || die
-	"${EPYTHON}" -m unittest discover -v || die "Tests fail with ${EPYTHON}"
+	${EPYTHON} -m unittest discover -v || die "Tests fail with ${EPYTHON}"
 }
 
 python_install() {

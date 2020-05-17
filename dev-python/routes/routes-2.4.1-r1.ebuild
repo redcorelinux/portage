@@ -16,13 +16,16 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc"
 
 RDEPEND="
 	>=dev-python/repoze-lru-0.3[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 "
+
+BDEPEND="
+	test? ( dev-python/webob[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests nose
 distutils_enable_sphinx doc
