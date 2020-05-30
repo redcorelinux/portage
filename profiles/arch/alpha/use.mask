@@ -4,6 +4,15 @@
 # Unmask the flag which corresponds to ARCH.
 -alpha
 
+# Michał Górny <mgorny@gentoo.org> (2020-05-28)
+# Moving from arch/base.
+python_targets_python3_8
+python_single_target_python3_8
+
+# Michał Górny <mgorny@gentoo.org> (2020-05-28)
+# Unmask once alpha is FINALLY done with bug #719700.
+python_targets_python3_9
+
 # James Le Cuirot <chewi@gentoo.org> (2020-05-10)
 # media-libs/allegro is not keyworded.
 allegro
@@ -48,7 +57,6 @@ qt5
 apcupsd
 bluetooth
 bluray
-chipcard
 dvb
 gps
 hbci
@@ -152,10 +160,6 @@ llvm
 # Matt Turner <mattst88@gentoo.org (2012-05-27)
 # net-misc/connman is not keyworded
 connman
-
-# Matt Turner <mattst88@gentoo.org (2012-05-27)
-# sys-apps/entropy is not keyworded
-entropy
 
 # Anthony G. Basile <blueness@gentoo.org> (2012-04-15)
 # Pulls in net-libs/axtls which is not keyworded for arch

@@ -4,7 +4,7 @@
 EAPI=7
 
 # The selftests fail with pypy, and urlgrabber segfaults for me.
-PYTHON_COMPAT=( python2_7 python3_{6,7,8} )
+PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} )
 
 inherit distutils-r1 toolchain-funcs
 
@@ -54,6 +54,8 @@ PATCHES=(
 
 python_prepare_all() {
 	sed -e "/setup_args\['data_files'\] = /d" -i setup.py || die
+	# these tests are broken with newer versions of bottle
+	sed -e 's:test.*_invalid_utf8:_&:' -i tests/getinfo_test.py || die
 	distutils-r1_python_prepare_all
 }
 

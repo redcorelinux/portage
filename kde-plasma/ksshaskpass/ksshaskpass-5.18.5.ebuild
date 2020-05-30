@@ -9,11 +9,11 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration"
-HOMEPAGE="https://cgit.kde.org/ksshaskpass.git"
+HOMEPAGE="https://invent.kde.org/plasma/ksshaskpass"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 DEPEND="

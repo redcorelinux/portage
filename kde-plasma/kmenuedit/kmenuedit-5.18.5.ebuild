@@ -9,11 +9,11 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma menu editor"
-HOMEPAGE="https://cgit.kde.org/kmenuedit.git"
+HOMEPAGE="https://invent.kde.org/plasma/kmenuedit"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 RDEPEND="

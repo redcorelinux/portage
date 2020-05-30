@@ -30,7 +30,7 @@ else
 	MY_PV=${MY_PV/_rc/rc}
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}-${CODENAME}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}-${CODENAME}
 fi
 
@@ -301,7 +301,8 @@ src_compile() {
 }
 
 src_test() {
-	cmake_build check
+	# see https://github.com/xbmc/xbmc/issues/17860#issuecomment-630120213
+	KODI_HOME="${BUILD_DIR}" cmake_build check
 }
 
 src_install() {

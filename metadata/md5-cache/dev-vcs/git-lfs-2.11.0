@@ -1,0 +1,14 @@
+BDEPEND=doc? ( app-text/ronn ) >=dev-lang/go-1.12 app-arch/unzip
+DEFINED_PHASES=compile install postinst test unpack
+DESCRIPTION=Command line extension and specification for managing large files with git
+EAPI=7
+HOMEPAGE=https://git-lfs.github.com/
+IUSE=doc test
+KEYWORDS=~amd64 ~amd64-linux ~x86-linux
+LICENSE=Apache-2.0 BSD BSD-2 BSD-4 ISC MIT
+RDEPEND=dev-vcs/git
+RESTRICT=strip !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/git-lfs/git-lfs/archive/v2.11.0.tar.gz -> git-lfs-2.11.0.tar.gz
+_eclasses_=go-module	cca12a5688562f107c14ffcf28195dd7
+_md5_=7b4ed91e78650c01a2fa2938b8e9ab68

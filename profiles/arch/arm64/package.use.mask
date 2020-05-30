@@ -1,6 +1,10 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Jimi Huotari <chiitoo@gentoo.org> (2020-05-17)
+# Mask until 'app-arch/lxqt-archiver' is keyworded.
+lxqt-base/lxqt-meta archiver
+
 # Georgy Yakovlev <gyakovlev@gentoo.org (2020-04-26)
 # static-pie works on arm64, #719444
 sys-libs/glibc -static-pie
@@ -220,7 +224,6 @@ dev-python/ipython notebook
 dev-python/networkx scipy
 dev-ruby/haml test
 media-libs/opencv contribdnn
-net-analyzer/icinga2 classicui
 
 # Matthew Thode <prometheanfire@gentoo.org> (2018-02-16)
 # USE=test requires dev-db/mongodb which is not keyworded
@@ -339,10 +342,6 @@ app-crypt/heimdal afs
 # James Le Cuirot <chewi@gentoo.org> (2017-05-22)
 # Only available on some architectures.
 dev-java/icedtea -shenandoah
-
-# Michael Weber <xmw@gentoo.org> (2017-05-18)
-# mask due missing keywords on dev-python/epydoc[latex]
-sys-apps/portage epydoc
 
 # Jason Zaman <perfinion@gentoo.org> (2017-05-09)
 # x11-libs/libXpresent is not keyworded on arm64

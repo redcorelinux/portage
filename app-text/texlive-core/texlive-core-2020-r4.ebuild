@@ -75,7 +75,7 @@ for i in ${TL_CORE_EXTRA_SRC_MODULES}; do
 done
 SRC_URI="${SRC_URI} )"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="cjk X doc source tk +luajittex xetex"
 
 TEXMF_PATH=/usr/share/texmf-dist
@@ -121,6 +121,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=app-text/dvipsk-5.997
 	>=dev-tex/bibtexu-3.71_p20170524
 	virtual/perl-Getopt-Long
+	dev-perl/File-HomeDir
+	dev-perl/Log-Dispatch
+	dev-perl/Unicode-LineBreak
+	dev-perl/YAML-Tiny
 	tk? ( dev-perl/Tk )"
 
 S="${WORKDIR}/${P}_build"

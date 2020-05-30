@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools gnome2-utils flag-o-matic nsplugins qmake-utils toolchain-funcs versionator xdg-utils
+inherit autotools flag-o-matic nsplugins qmake-utils toolchain-funcs xdg-utils
 
 DESCRIPTION="Portable DjVu viewer using Qt"
 HOMEPAGE="http://djvu.sourceforge.net/djview4.html"
@@ -23,6 +23,7 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5"
 DEPEND="${RDEPEND}
+	dev-qt/linguist-tools:5
 	>=sys-devel/autoconf-2.67
 	virtual/pkgconfig
 	nsplugin? ( dev-libs/glib:2 )"
@@ -37,7 +38,7 @@ src_prepare() {
 	# Force XEmbed instead of Xt-based mainloop (disable Xt autodep)
 	sed -e 's:\(ac_xt=\)yes:\1no:' -i configure* || die
 	sed 's/AC_CXX_OPTIMIZE/OPTS=;AC_SUBST(OPTS)/' -i configure.ac || die #263688
-	rm aclocal.m4 config/{libtool.m4,install-sh,ltmain.sh,lt*.m4}
+	rm aclocal.m4 config/{libtool.m4,install-sh,ltmain.sh,lt*.m4} || die
 	AT_M4DIR="config" eautoreconf
 }
 
@@ -63,23 +64,23 @@ src_install() {
 
 	einstalldocs
 
-	cd desktopfiles
 	insinto /usr/share/icons/hicolor/32x32/apps
-	newins prebuilt-hi32-djview4.png djvulibre-djview4.png
+	newins desktopfiles/prebuilt-hi32-djview4.png djvulibre-djview4.png
 	insinto /usr/share/icons/hicolor/64x64/apps
-	newins prebuilt-hi64-djview4.png djvulibre-djview4.png
+	newins desktopfiles/prebuilt-hi64-djview4.png djvulibre-djview4.png
 	insinto /usr/share/icons/hicolor/scalable/apps
-	newins djview.svg djvulibre-djview4.svg
-	sed -i -e 's/Exec=djview4/Exec=djview/' djvulibre-djview4.desktop
-	domenu djvulibre-djview4.desktop
+	newins desktopfiles/djview.svg djvulibre-djview4.svg
+	sed -e 's/Exec=djview4/Exec=djview/' \
+		-i desktopfiles/djvulibre-djview4.desktop || die
+	domenu desktopfiles/djvulibre-djview4.desktop
 }
 
 pkg_postinst() {
 	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }

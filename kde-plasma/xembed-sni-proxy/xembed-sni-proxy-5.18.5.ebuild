@@ -10,11 +10,11 @@ QTMIN=5.12.3
 inherit cmake kde.org
 
 DESCRIPTION="Legacy xembed tray icons support for SNI-only system trays"
-HOMEPAGE="https://cgit.kde.org/plasma-workspace.git/tree/xembed-sni-proxy/Readme.md"
+HOMEPAGE="https://invent.kde.org/plasma/plasma-workspace/-/blob/master/xembed-sni-proxy/Readme.md"
 
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5

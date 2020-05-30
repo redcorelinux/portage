@@ -244,7 +244,7 @@
     <email>artwork@gentoo.org</email>
     <name>Artwork</name>
     <url>https://wiki.gentoo.org/wiki/Project:Artwork</url>
-    <description>The Artwork project manages Gentoo artwork and related assets. This includes wallpapers, logos, themes, icons sets.</description>
+    <description>The Artwork project manages Gentoo artwork and related assets. This includes wallpapers, logos, themes, icons.</description>
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
@@ -260,10 +260,10 @@
       <name>David Abbott</name>
       <role>Developer</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
-      <role>Developer</role>
+      <role>Team Leader</role>
     </member>
     <member>
       <email>maffblaster@gentoo.org</email>
@@ -1337,11 +1337,6 @@
     <name>Geosciences Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Geosciences</url>
     <description>The Geosciences Project handles all geosciences activities in Gentoo.</description>
-    <member is-lead="1">
-      <email>amynka@gentoo.org</email>
-      <name>Amy Liffey</name>
-      <role>Member</role>
-    </member>
     <member>
       <email>wraeth@gentoo.org</email>
       <name>Sam Jorna</name>
@@ -2078,6 +2073,10 @@
     <member>
       <email>axs@gentoo.org</email>
       <name>Ian Stakenvicius</name>
+    </member>
+    <member>
+      <email>juippis@gentoo.org</email>
+      <name>Joonas Niilola</name>
     </member>
     <member>
       <email>polynomial-c@gentoo.org</email>
@@ -2916,11 +2915,6 @@
     <subproject ref="devmanual@gentoo.org"/>
     <subproject ref="pms@gentoo.org"/>
     <subproject ref="treecleaner@gentoo.org"/>
-    <member>
-      <email>amynka@gentoo.org</email>
-      <name>Amy Liffey</name>
-      <role>Developer</role>
-    </member>
     <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
@@ -3811,6 +3805,10 @@
     <member>
       <email>dlan@gentoo.org</email>
       <name>Lan Yixun</name>
+    </member>
+    <member>
+      <email>juippis@gentoo.org</email>
+      <name>Joonas Niilola</name>
     </member>
     <member>
       <email>lu_zero@gentoo.org</email>

@@ -10,11 +10,11 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="GTK2 and GTK3 configurator for KDE Plasma"
-HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
+HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"
 
 LICENSE="GPL-3"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 DEPEND="

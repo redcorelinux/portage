@@ -88,7 +88,6 @@ app-admin/syslog-ng spoof-source
 app-portage/layman cvs subversion test
 app-text/xmlto latex
 dev-libs/apr-util odbc
-sys-apps/man-pages l10n_fr
 sys-apps/systemd qrcode
 sys-auth/pambase pam_krb5 pam_ssh passwdqc
 sys-block/thin-provisioning-tools test
@@ -107,7 +106,6 @@ net-fs/samba ads
 # Masked due to unstable deps.
 dev-db/redis tcmalloc
 dev-python/hgdistver test
-dev-python/setuptools_scm mercurial test
 dev-python/sphinx latex test
 net-analyzer/netcat crypt
 

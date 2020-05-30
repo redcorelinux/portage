@@ -1,6 +1,15 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Christoph Junghans <junghans@gentoo.org> (2020-05-16)
+# restrict USE=kokkos for x86 as kokkos doesn't support 32-bit archs
+# https://github.com/kokkos/kokkos/issues/2312
+sci-physics/lammps kokkos
+
+# Joonas Niilola <juippis@gentoo.org> (2020-05-14)
+# Dependency not keyworded on this arch.
+app-emulation/lxc apparmor
+
 # Thomas Deutschmann <whissi@gentoo.org> (2020-04-30)
 # sys-cluster/slurm is keyworded on x86
 app-metrics/collectd -collectd_plugins_slurm
@@ -118,10 +127,6 @@ app-emulation/fuse -backend-svga
 # Thomas Deutschmann <whissi@gentoo.org> (2018-02-10)
 # Requires dev-db/mongodb which has dropped x86 support
 dev-libs/mongo-c-driver test
-
-# Thomas Deutschmann <whissi@gentoo.org> (2018-01-05)
-# Requires dev-python/neovim-remote, which is not keyworded on x86.
-app-editors/neovim remote
 
 # Michał Górny <mgorny@gentoo.org> (2017-12-30)
 # Moved from use.mask since it is a flag local to one package:

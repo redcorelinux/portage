@@ -15,7 +15,7 @@ DESCRIPTION="KDE Plasma workspace"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="appstream +calendar geolocation gps qalculate qrcode +semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
@@ -124,7 +124,11 @@ PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" # downstream patch
+
+	"${FILESDIR}/${P}-sddm-theme-prevent-logo-leaking.patch" # in Plasma/5.18
+)
 
 RESTRICT+=" test"
 

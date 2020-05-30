@@ -23,7 +23,7 @@ LICENSE+=" Apache-2.0"
 # admin icons, jquery, xregexp.js
 LICENSE+=" MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="doc sqlite test"
 RESTRICT="!test? ( test )"
 
@@ -49,7 +49,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.6-bashcomp.patch
 )
 
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs --no-autodoc
 
 python_test() {
 	# Tests have non-standard assumptions about PYTHONPATH,

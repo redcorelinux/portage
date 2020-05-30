@@ -8,11 +8,11 @@ PVCUT=$(ver_cut 1-3)
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
-HOMEPAGE="https://cgit.kde.org/breeze-gtk.git"
+HOMEPAGE="https://invent.kde.org/plasma/breeze-gtk"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 BDEPEND="${PYTHON_DEPS}

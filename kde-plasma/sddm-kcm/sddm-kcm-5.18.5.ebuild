@@ -9,11 +9,11 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma control module for SDDM"
-HOMEPAGE="https://cgit.kde.org/sddm-kcm.git"
+HOMEPAGE="https://invent.kde.org/plasma/sddm-kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 DEPEND="

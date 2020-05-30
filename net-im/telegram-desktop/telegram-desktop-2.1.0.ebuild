@@ -15,7 +15,7 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 
 LICENSE="GPL-3-with-openssl-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="amd64 ~ppc64"
 IUSE="+alsa +dbus enchant +hunspell libressl pulseaudio +spell wayland +X"
 
 RDEPEND="
@@ -70,7 +70,10 @@ REQUIRED_USE="
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/${PV}-kde-dir.patch" )
+PATCHES=( 
+	"${FILESDIR}/${PV}-kde-dir.patch"
+	"${FILESDIR}/${PN}-qt5.15.patch"
+)
 
 src_configure() {
 	local mycxxflags=(

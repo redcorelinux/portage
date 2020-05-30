@@ -1,4 +1,4 @@
-DEFINED_PHASES=configure install
+DEFINED_PHASES=configure install prepare
 DEPEND=pcre? ( dev-libs/libpcre ) ccache? ( sys-libs/zlib )
 DESCRIPTION=Simplified Wrapper and Interface Generator
 EAPI=7
@@ -10,4 +10,5 @@ RDEPEND=pcre? ( dev-libs/libpcre ) ccache? ( sys-libs/zlib )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/swig/swig-4.0.0.tar.gz
-_md5_=0acc6a53c046522f73f53e09fe1524e4
+_eclasses_=multilib	0914eab919f4f11dd9e0407b92af4726	toolchain-funcs	d3e75048a89c0445838d2f44e5c65d97
+_md5_=c6c03aab0034069800d748cfe7cbf499
