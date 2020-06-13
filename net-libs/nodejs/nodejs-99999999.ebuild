@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/nodejs/node"
 LICENSE="Apache-1.1 Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="cpu_flags_x86_sse2 debug doc icu inspector +npm pax_kernel +snapshot +ssl +system-ssl systemtap test"
+IUSE="cpu_flags_x86_sse2 debug doc +icu inspector +npm pax_kernel +snapshot +ssl +system-ssl systemtap test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	inspector? ( icu ssl )
@@ -51,7 +51,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	tc-export CC CXX PKG_CONFIG
+	tc-export AR CC CXX PKG_CONFIG
 	export V=1
 	export BUILDTYPE=Release
 

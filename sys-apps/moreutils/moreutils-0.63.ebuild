@@ -10,7 +10,7 @@ SRC_URI="mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_${PV}.orig.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm64 hppa ~ppc ~ppc64 x86 ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm arm64 hppa ~ppc ~ppc64 x86 ~x86-linux"
 IUSE="+doc +perl"
 
 RDEPEND="
@@ -29,7 +29,7 @@ DEPEND="
 	)"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-respect-env.patch
+	"${FILESDIR}"/${PN}-0.63-respect-env.patch
 )
 
 src_prepare() {

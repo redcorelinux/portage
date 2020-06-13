@@ -1,6 +1,19 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Matt Turner <mattst88@gentoo.org> (2020-06-09)
+# Requires unsupported dev-python/eventlet and fails tests with gevent
+dev-python/socketpool eventlet gevent
+
+# Mikle Kolyada <zlogene@gentoo.org> (2020-06-08)
+# clisp is keyworded on alpha
+app-text/texlive-core -xindy
+
+# Michał Górny <mgorny@gentoo.org> (2020-06-02)
+# Avoid unkeyworded deps, we really need a minimal install
+# for imagemagick.
+media-gfx/inkscape cdr visio
+
 # Mart Raudsepp <leio@gentoo.org> (2020-04-25)
 # gnome-base/gnome-shell not keyworded on alpha
 # anymore, bug #677176
@@ -35,11 +48,6 @@ media-tv/v4l-utils bpf
 # Patrick McLean <chutzpah@gentoo.org> (2020-02-15)
 # Mask until dev-libs/libfido2 is keyworded
 net-misc/openssh security-key
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-02-02)
-# net-libs/libgadu is not keyworded
-net-im/pidgin gadu
-net-im/telepathy-connection-managers gadu
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-01-26)
 # media-libs/libheif is not keyworded
@@ -374,10 +382,6 @@ media-plugins/gst-plugins-meta dts libvisual
 # Diego Elio Pettenò <flameeyes@gentoo.org> (2010-12-17)
 # needs sys-libs/libcap-ng that is masked right now
 sys-apps/smartmontools caps
-
-# Justin Lecher <jlec@gentoo.org> (2010-08-13)
-# MKL not available on this arch, 
-media-gfx/povray mkl 
 
 # Raúl Porcel <armin76@gentoo.org> (2010-06-26)
 # custom-optimization doesn't work on alpha

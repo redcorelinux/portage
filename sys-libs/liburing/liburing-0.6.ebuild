@@ -11,7 +11,7 @@ SRC_URI="https://git.kernel.dk/cgit/${PN}/snapshot/${P}.tar.bz2"
 LICENSE="MIT"
 SLOT="0"
 
-KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="static-libs"
 
 src_prepare() {
@@ -32,7 +32,7 @@ multilib_src_configure() {
 }
 
 multilib_src_compile() {
-	emake V=1
+	emake V=1 AR="$(tc-getAR)" RANLIB="$(tc-getRANLIB)"
 }
 
 multilib_src_install_all() {
