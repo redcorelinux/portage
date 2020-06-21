@@ -11,6 +11,11 @@
       <name>Alexey Shvetsov</name>
       <role>Member</role>
     </member>
+    <member>
+      <email>expeditioneer@gentoo.org</email>
+      <name>Dennis Lamm</name>
+      <role>Member</role>
+    </member>
   </project>
   <project>
     <email>alsa-bugs@gentoo.org</email>
@@ -201,14 +206,14 @@
       <name>Agostino Sarubbo</name>
       <role>Member ( Security bugs primarily )</role>
     </member>
-    <member is-lead="1">
+    <member>
       <email>klausman@gentoo.org</email>
       <name>Tobias Klausmann</name>
-      <role>Lead ( Gentoo/Alpha )</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
+      <role>Lead</role>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>

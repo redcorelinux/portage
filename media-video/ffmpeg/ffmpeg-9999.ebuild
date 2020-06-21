@@ -288,7 +288,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	>=sys-devel/make-3.81
-	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
+	virtual/pkgconfig
 	cpu_flags_x86_mmx? ( || ( >=dev-lang/nasm-2.13 >=dev-lang/yasm-1.3 ) )
 	cuda? ( >=sys-devel/clang-7[llvm_targets_NVPTX] )
 	doc? ( sys-apps/texinfo )
@@ -470,6 +470,7 @@ multilib_src_configure() {
 		--cc="$(tc-getCC)" \
 		--cxx="$(tc-getCXX)" \
 		--ar="$(tc-getAR)" \
+		--nm="$(tc-getNM)" \
 		--ranlib="$(tc-getRANLIB)" \
 		--optflags="${CFLAGS}" \
 		$(use_enable static-libs static) \
