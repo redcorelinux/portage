@@ -16,6 +16,7 @@ SRC_URI="https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz -
 	!system-ffmpeg? ( https://github.com/xbmc/FFmpeg/archive/${FFMPEG_VERSION}-${CODENAME}-${FFMPEG_KODI_VERSION}.tar.gz -> ffmpeg-${PN}-${FFMPEG_VERSION}-${CODENAME}-${FFMPEG_KODI_VERSION}.tar.gz )"
 PATCHES=(
 	"${FILESDIR}/${PN}-18.5-cassert.patch"
+	"${FILESDIR}/${PN}-18-remove-useless-test.patch"
 )
 
 if [[ ${PV} == *9999 ]] ; then
@@ -30,7 +31,7 @@ else
 	MY_PV=${MY_PV/_rc/rc}
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}-${CODENAME}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	S=${WORKDIR}/xbmc-${MY_PV}-${CODENAME}
 fi
 

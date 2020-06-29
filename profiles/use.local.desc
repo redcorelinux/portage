@@ -555,9 +555,6 @@ app-emulation/libvirt:zfs - Enable ZFS backend storage sys-fs/zfs
 app-emulation/lxc:apparmor - Enable AppArmor support
 app-emulation/lxc:templates - Install old style templates through app-emulation/lxc-templates
 app-emulation/lxc:tools - Build and install additional command line tools
-app-emulation/lxd:daemon - Build the system daemon, not just the client tool
-app-emulation/lxd:dnsmasq - Depend on dnsmasq to provide DHCP and DNS
-app-emulation/lxd:tools - Build and install optional tools
 app-emulation/nemu:network-map - Adds possibility of exporting network map to SVG
 app-emulation/nemu:ovf - Adds support for OVA/OVF import
 app-emulation/nemu:savevm - Adds support for QEMU savevm snapshots (experimental, QEMU must be patched)
@@ -1330,12 +1327,6 @@ dev-cpp/libjson-rpc-cpp:redis-server - Build support for Redis server using dev-
 dev-cpp/libjson-rpc-cpp:stubgen - Build header stub code generator (needed for development and when pregenerated headers are not bundled)
 dev-cpp/sourcetrail:examples - Install example projects.
 dev-db/aerospike-server-community:tools - Install extra tools
-dev-db/clickhouse:client - Build CLI client.
-dev-db/clickhouse:kafka - Enables support for kafka consumer.
-dev-db/clickhouse:mongodb - Enabled support for MongoDB-based dictionaries
-dev-db/clickhouse:server - Build server.
-dev-db/clickhouse:tools - Build various tools, like benchmark, copier, etc.
-dev-db/clickhouse:zookeeper - Enable support for clustering (based on Zookeeper).
 dev-db/etcd:server - Installs etcd daemon
 dev-db/firebird:server - Install the server components of Firebird, not just the client
 dev-db/firebird:xinetd - Install ClassicServer
@@ -1893,6 +1884,7 @@ dev-lang/go:system-bootstrap - Bootstrap using previously installed dev-lang/go
 dev-lang/icon:iplsrc - install the icon programming library source
 dev-lang/janet:static-libs - install janet static library archive, you must enable this flag for using `jpm build`
 dev-lang/jsonnet:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
+dev-lang/julia:system-llvm - (Try to) Use the system LLVM install. YMMV.
 dev-lang/lazarus:minimal - Don't build extra packages from the bigide component
 dev-lang/logtalk:fop - Support for generating pdf documentation using fop
 dev-lang/logtalk:xslt - Support for generating html documentation using xslt
@@ -2404,9 +2396,11 @@ dev-ml/ocaml-cohttp:lwt - Enables support for the dev-ml/lwt cooperative light-w
 dev-ml/ocaml-cstruct:async - Support for asynchronous execution
 dev-ml/ocaml-cstruct:lwt - Enable threads via lwt
 dev-ml/ocaml-cstruct:ppx - Enable the ppx syntax extension
+dev-ml/ocaml-fileutils:ocamlopt - Whether the OCaml native code compiler is used. Must be set globally and match dev-lang/ocaml.
 dev-ml/ocamlnet:httpd - Enables net-httpd web server component
 dev-ml/ocamlnet:zip - Enables netzip support to read/write gzip data using object channels
 dev-ml/pgocaml:camlp4 - Enable PG'Ocaml syntax extension.
+dev-ml/stdlib-shims:ocamlopt - Whether the OCaml native code compiler is used. Must be set globally and match dev-lang/ocaml.
 dev-ml/tyxml:camlp4 - Enables the camlp4 syntax extension (deprecated)
 dev-ml/tyxml:ppx - Enables the ppx syntax extension (preferred)
 dev-ml/uutf:utftrip - Builds and install the utftrip executable: Among other things, reads unicode on stdin and rewrites it on stdout.
@@ -2723,6 +2717,7 @@ dev-qt/qt-docs:serialbus - Install documentation for dev-qt/qtserialbus
 dev-qt/qt-docs:serialport - Install documentation for dev-qt/qtserialport
 dev-qt/qt-docs:speech - Install documentation for dev-qt/qtspeech
 dev-qt/qt-docs:sql - Install documentation for dev-qt/qtsql
+dev-qt/qt-docs:timeline - Install documentation for dev-qt/qtquicktimeline
 dev-qt/qt-docs:virtualkeyboard - Install documentation for dev-qt/qtvirtualkeyboard
 dev-qt/qt-docs:webchannel - Install documentation for dev-qt/qtwebchannel
 dev-qt/qt-docs:webengine - Install documentation for dev-qt/qtwebengine
@@ -2809,6 +2804,7 @@ dev-ruby/ruby-sdl:image - Enable media-libs/sdl-image support
 dev-ruby/ruby-sdl:mixer - Enable media-libs/sdl-mixer support
 dev-ruby/ruby-sdl:sge - Enable sdl-sge support
 dev-ruby/rubygems:server - Install support for the rubygems server
+dev-ruby/vcr:json - Add support for casettes serialized with JSON
 dev-scheme/gauche:mbedtls - Enable support for net-libs/mbedtls
 dev-scheme/gauche-gl:cg - Enable NVidia Cg binding
 dev-scheme/guile:debug-freelist - Include garbage collector freelist debugging code
@@ -3050,7 +3046,6 @@ dev-vcs/git:webdav - Adds support for push'ing to HTTP/HTTPS repositories via DA
 dev-vcs/git-annex:assistant - Enable git-annex assistant and watch command
 dev-vcs/git-annex:benchmark - Enable benchmarking
 dev-vcs/git-annex:concurrentoutput - Use concurrent-output library (experimental)
-dev-vcs/git-annex:magicmime - Use libmagic to determine file MIME types
 dev-vcs/git-annex:network-uri - Get Network.URI from the network-uri package.
 dev-vcs/git-annex:pairing - Enable pairing of git annex repositories
 dev-vcs/git-annex:s3 - Enable Amazon S3 remote
@@ -3420,6 +3415,9 @@ gnome-extra/evolution-data-server:berkdb - sys-libs/db support needed to migrate
 gnome-extra/evolution-data-server:gnome-online-accounts - Enable net-libs/gnome-online-accounts based Google authentication support
 gnome-extra/evolution-data-server:oauth - Enable internal OAuth2 authentication support for Google and Outlook.com. If gnome-online-accounts is enabled and used, this is not necessary, but both can be supported at the same time with different setup at runtime
 gnome-extra/evolution-data-server:weather - Enable optional weather calendar support
+gnome-extra/filemanager-actions:caja - Install the mate-base/caja extension
+gnome-extra/filemanager-actions:nautilus - Install the gnome-base/nautilus extension
+gnome-extra/filemanager-actions:nemo - Install the gnome-extra/nemo extension
 gnome-extra/gnome-color-manager:packagekit - Enable support for the distro-neutral package manager GUI PackageKit
 gnome-extra/gnome-commander:chm - Enable metadata support for Microsoft Compiled HTML Help files
 gnome-extra/gnome-commander:gsf - Add metadata support for OLE, OLE2 and ODF
@@ -4325,7 +4323,6 @@ media-libs/mesa:llvm - Enable LLVM backend for Gallium3D.
 media-libs/mesa:lm-sensors - Enable Gallium HUD lm-sensors support.
 media-libs/mesa:opencl - Enable the Clover Gallium OpenCL state tracker.
 media-libs/mesa:osmesa - Build the Mesa library for off-screen rendering.
-media-libs/mesa:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 media-libs/mesa:valgrind - Compile in valgrind memory hints
 media-libs/mesa:vdpau - Enable the VDPAU acceleration interface for the Gallium3D Video Layer.
 media-libs/mesa:vulkan - Enable Vulkan drivers
@@ -4798,12 +4795,14 @@ media-sound/split2flac:flake - Add support for Flake, alternative FLAC encoder
 media-sound/split2flac:mac - Add support for Monkey's Audio files
 media-sound/split2flac:replaygain - Support for Replay Gain metadata, for relative volume adjustment
 media-sound/spotify:pax_kernel - Triggers a paxmarking of the main Spotify binary
+media-sound/spotify:pulseaudio - Constrols the dependency on pulseaudio or apulse
 media-sound/spotify:systray - Pulls in dependencies needed for systray support on some desktop environments
 media-sound/supercollider:emacs - Enable the SCEL user interface
 media-sound/supercollider:gedit - Enable the SCED user interface
 media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
+media-sound/supercollider:webengine - Enable the internal help system using QtWebengine
 media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
 media-sound/tomahawk:telepathy - Enable support for the real-time communication framework telepathy
 media-sound/traverso:lv2 - Add support for Ladspa V2
@@ -5103,6 +5102,10 @@ media-video/orion:mpv - Use the media-video/mpv player (upstream default)
 media-video/orion:qtav - Use the media-libs/qtav player
 media-video/orion:qtmedia - Use the dev-qt/qtmultimedia
 media-video/peek:keybinder - Enable support for global hotkeys using dev-libs/keybinder
+media-video/pipewire:alsa - Install PipeWire alsa device for playback and record
+media-video/pipewire:jack - Enable SPA JACK plugin and emulation to be able to run JACK applications on top of PipeWire
+media-video/pipewire:pulseaudio - Enable emulation to be able to run PulseAudio applications on top of PipeWire
+media-video/pipewire:vulkan - Enable vulkan spa plugin integration
 media-video/qmplay2:audiofilters - Build with AudioFilters module
 media-video/qmplay2:avdevice - Build FFmpeg module with libavdevice suport
 media-video/qmplay2:avresample - Use libavresample instead of libswresample
@@ -5593,6 +5596,7 @@ net-dns/pdns:remote - Use a generic socket or pipe as a backend (via JSON RPC re
 net-dns/pdns:sodium - Use dev-libs/libsodium for cryptography
 net-dns/pdns:tinydns - Use a TinyDNS CDB database as backend.
 net-dns/pdns:tools - Build optional tools (dnsscan, dnsscope, etc..).
+net-dns/pdns-recursor:dnstap - Enable support for dnstap
 net-dns/pdns-recursor:protobuf - Enable support for dev-libs/protobuf.
 net-dns/pdns-recursor:sodium - Use dev-libs/libsodium for cryptography
 net-dns/pdnsd:isdn - Linux-only: check status of ippp interfaces with ISDN-specific system calls.
@@ -6180,7 +6184,6 @@ net-libs/webkit-gtk:webgl - Build support for the WebGL HTML API using virtual/o
 net-libs/wvstreams:boost - Use dev-libs/boost to provide TR1-compatible functional interface. This USE flag is only needed with GCC earlier than version 4.1, or with other compilares not providing said interface.
 net-libs/xrootd:fuse - Enable the sys-fs/fuse filesystem driver
 net-libs/xrootd:http - Enable http protocol support
-net-libs/xrootd:rbd - Enable rados block device support via sys-cluster/ceph
 net-libs/zeromq:drafts - Build draft API, which may change at any time without any notice, and is therefore not recommended for normal use.
 net-libs/zeromq:pgm - Build PGM (Pragmatic General Multicast)extention, a protocol for reliable multicast transport of data over IP networks.
 net-libs/zeromq:sodium - Use dev-libs/libsodium for cryptography
@@ -6725,6 +6728,7 @@ net-nds/389-ds-base:pam-passthru - Enable pam-passthru plugin - for simple and f
 net-nds/389-ds-base:presence - Enable presence plugin - non-standard syntax validation
 net-nds/ldapvi:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
 net-nds/nsscache:nsscache - Depend on sys-auth/libnss-cache to handle flat files
+net-nds/nsscache:s3 - Support for S3-based NSS sources
 net-nds/openldap:experimental - Enable experimental backend options
 net-nds/openldap:kinit - Enable support for kerberos init
 net-nds/openldap:minimal - Build libraries & userspace tools only. Does not install any server code
@@ -6829,11 +6833,8 @@ net-p2p/xmr-stak-rx:cuda - Enable NVIDIA CUDA toolkit support
 net-p2p/xmr-stak-rx:hwloc - Enable CPU affinity support via hwloc
 net-p2p/xmr-stak-rx:opencl - Enable OpenCL support
 net-p2p/xmr-stak-rx:webserver - Enable internal webserver
-net-print/cups:java - Add support for the Java interpeter in the web server CGIs.
 net-print/cups:lprng-compat - Do not install lp... binaries so cups and lprng can coexist.
-net-print/cups:python - Add support for the Python interpeter in the web server CGIs.
 net-print/cups-filters:foomatic - Build the included foomatic-rip printer driver. Strongly recommended.
-net-print/cups-filters:ipp_autosetup - Let cups-browsed automatically set up IPP network printers by default.
 net-print/cups-filters:pclm - Enable PCLm support
 net-print/dymo-cups-drivers:usb_modeswitch - Include usb_modeswitch for some hardware (bug #601242)
 net-print/fax4cups:efax - Install net-misc/efax backend
@@ -7104,10 +7105,14 @@ net-wireless/uhd:usrp1 - support USRP1 hardware
 net-wireless/uhd:usrp2 - support USRP2, N200, N210 hardware
 net-wireless/uhd:utils - utilities needed to list, query, calibrate, or update FPGA/Firmware
 net-wireless/uhd:x300 - support X300, X310 hardware
+net-wireless/urh:airspy - use native backend which directly uses net-wireless/airspy
+net-wireless/urh:audio - use a soundcard instead of an sdr
 net-wireless/urh:bladerf - use native backend which directly uses net-wireless/bladerf
 net-wireless/urh:hackrf - use native backend which directly uses net-libs/libhackrf
+net-wireless/urh:limesdr - use native backend which directly uses net-wireless/limesuite
 net-wireless/urh:plutosdr - use native backend which directly uses net-libs/libiio
 net-wireless/urh:rtlsdr - use native backend which directly uses net-wireless/rtl-sdr
+net-wireless/urh:sdrplay - use native backend which directly uses net-wireless/sdrplay
 net-wireless/urh:uhd - use native backend which directly uses net-wireless/uhd
 net-wireless/wepattack:john - Build with app-crypt/johntheripper support
 net-wireless/wireless-tools:multicall - Build the most commonly used tools as one binary
@@ -8298,6 +8303,7 @@ sys-devel/gcc:vtv - Build support for virtual table verification (a C++ hardenin
 sys-devel/gcc-apple:bootstrap - !DO NOT SET THIS FLAG YOURSELF! avoids need for autoconf during bootstrap stage2
 sys-devel/gcc-apple:objc - Build support for the Objective C code language
 sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
+sys-devel/gcc-config:cc-wrappers - Install and manage 'cc' and 'f77' wrappers in /usr/bin. Otherwise ignore them.
 sys-devel/gcc-config:native-symlinks - Install native symlinks like 'gcc' or 'g++' to /usr/bin. Otherwise keep only ${CTARGET}-gcc and friends.
 sys-devel/gdb:client - Install the main "gdb" program (most people want this)
 sys-devel/gdb:lzma - Support lzma compression in ELF debug info
@@ -8700,6 +8706,8 @@ www-apps/wordpress:themes - Installs themes (including default theme)
 www-client/chromium:closure-compile - Enable closure type-checking for Chrome's web technology-based UI. Requires Java.
 www-client/chromium:component-build - Split build into more shared libraries to speed up linking. Mostly intended for debugging and development, NOT RECOMMENDED for general use.
 www-client/chromium:hangouts - Enable support for Google Hangouts features such as screen sharing
+www-client/chromium:headless - Build Ozone only with headless backend, NOT RECOMMENDED for general use.
+www-client/chromium:ozone - Enable Ozone platform abstraction layer with X11 backend.
 www-client/chromium:pic - Disable optimized assembly code that is not PIC friendly
 www-client/chromium:proprietary-codecs - Enable proprietary codecs like H.264, MP3
 www-client/chromium:suid - Build the SUID sandbox, which is only needed on CONFIG_USER_NS=n kernels
@@ -8707,6 +8715,7 @@ www-client/chromium:system-ffmpeg - Use system ffmpeg instead of the bundled one
 www-client/chromium:system-icu - Use system icu instead of the bundled one
 www-client/chromium:system-libvpx - Use system libvpx instead of the bundled one
 www-client/chromium:tcmalloc - Use bundled tcmalloc instead of system malloc
+www-client/chromium:wayland - Enable Wayland backend for Ozone.
 www-client/chromium:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
 www-client/dillo:xembed - Enable X11 XEmbed support
 www-client/elinks:bittorrent - Enable support for the BitTorrent protocol
@@ -8750,7 +8759,6 @@ www-client/netsurf:bmp - BMP bitmap image support (media-libs/libnsbmp)
 www-client/netsurf:duktape - Use duktape.org javascript engine
 www-client/netsurf:gtk - Build GTK3 GUI
 www-client/netsurf:gtk2 - Build GTK2 GUI
-www-client/netsurf:pdf-writer - PDF output support (media-libs/libharu)
 www-client/netsurf:psl - Use public suffix list via media-libs/libnspsl
 www-client/netsurf:rosprite - RISC OS Sprite bitmap image support (media-libs/librosprite)
 www-client/netsurf:svgtiny - SVG image support via media-libs/svgatiny instead of gnome-base/librsvg
@@ -8994,7 +9002,9 @@ x11-misc/xmobar:mpd - Support mpd plugin
 x11-misc/xmobar:mpris - Enables MPRIS v1, v2 support
 x11-misc/xmobar:timezone - Enables localized date support
 x11-misc/xmobar:uvmeter - Plugin to show UV data for Australia.
+x11-misc/xscreensaver:gdk-pixbuf - Include support for the x11-libs/gdk-pixbuf library in some demos, which will make it possible for them to read GIF, JPEG, and PNG files as well
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm
+x11-misc/xscreensaver:locking - Compile in support for locking the display
 x11-misc/xscreensaver:new-login - Enable user switching support using gdmflexiserver (x11-misc/lightdm)
 x11-misc/xsr:cursor - Capture mouse cursor using x11-misc/xdotool, and place them on the screenshots using media-gfx/imagemagick
 x11-misc/xss-lock:man - Build and install man pages
