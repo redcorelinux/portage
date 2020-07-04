@@ -2517,7 +2517,6 @@ dev-python/dask:distributed - Add support for distributed computing with dev-pyt
 dev-python/drf-yasg:validation - Enable swagger spec validation using swagger-spec-validator
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/falcon:cython - Build cython-based python modules
-dev-python/fastparquet:brotli - Enable support for brotli compression
 dev-python/glance_store:cinder - enable cinder backend supprt
 dev-python/glance_store:swift - enable swift backend supprt
 dev-python/glance_store:vmware - enable vmware backend supprt
@@ -3002,6 +3001,7 @@ dev-util/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/
 dev-util/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
 dev-util/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
 dev-util/sysdig:modules - Build kernel modules needed for tracing local events. Disable this only if you intend to use sysdig purely to work with dumpfiles.
+dev-util/sysprof:unwind - Use sys-libs/libunwind to unwind the stack
 dev-util/systemtap:libvirt - Support probing of libvirt domains.
 dev-util/trace-cmd:udis86 - Enable support for dev-libs/udis86 disassembler library
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
@@ -3069,19 +3069,29 @@ dev-vcs/subversion:http - Enable http support using net-libs/serf
 dev-vcs/subversion:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 games-action/beathazardultra:bundled-libs - Use the upstream provided bundled libraries.
 games-action/chromium-bsu:mixer - Enables media-libs/sdl-mixer sound backend instead of media-libs/openal one.
-games-action/d1x-rebirth:demo - Use the demo data instead of the full game
-games-action/d1x-rebirth:l10n_de - Provides German translations for the game's briefings, robot descriptions, and outro of the original campaign
-games-action/d1x-rebirth:music - Support for ingame music
-games-action/d1x-rebirth:opl3-musicpack - Include alternate version of the game's music, recorded with the Yamaha YMF262 OPL3 soundchip
-games-action/d1x-rebirth:sc55-musicpack - Include alternate version of the game's music, recorded with the Roland Sound Canvas SC-55 MIDI module
-games-action/dxx-rebirth:data - Install data files
-games-action/dxx-rebirth:descent1 - Install Descent 1 resources and executable
-games-action/dxx-rebirth:descent2 - Install Descent 2 resources and executable
+games-action/descent1-freedata:l10n_de - Provides German translations for the game's briefings, robot descriptions, and outro of the original campaign
+games-action/descent1-freedata:opl3-musicpack - Include alternate version of the game's music, recorded with the Yamaha YMF262 OPL3 soundchip
+games-action/descent1-freedata:sc55-musicpack - Include alternate version of the game's music, recorded with the Roland Sound Canvas SC-55 MIDI module
+games-action/descent1-freedata:textures - Include high resolution (640x480) backgrounds, briefing images and fonts (Descent 1)
+games-action/descent2-freedata:l10n_de - Provides German translations for the game's briefings, robot descriptions, and outro of the original campaign
+games-action/descent2-freedata:opl3-musicpack - Include alternate version of the game's music, recorded with the Yamaha YMF262 OPL3 soundchip
+games-action/descent2-freedata:sc55-musicpack - Include alternate version of the game's music, recorded with the Roland Sound Canvas SC-55 MIDI module
+games-action/dxx-rebirth:d1x - Install Descent 1 resources and executable
+games-action/dxx-rebirth:d2x - Install Descent 2 resources and executable
+games-action/dxx-rebirth:data - Ensure some game levels are present; if the full game's level data is not already installed then install the playable demo data (i.e. shareware levels)
+games-action/dxx-rebirth:debug - Enable various debugging code paths and sanity checks, not just output. Some of these checks date back to the retail build, and choke on some custom levels because the game was never coded to sufficiently distrust inputs
+games-action/dxx-rebirth:descent1 - Install Descent 1 resources and executable (used prior to version 0.61)
+games-action/dxx-rebirth:descent2 - Install Descent 2 resources and executable (used prior to version 0.61)
+games-action/dxx-rebirth:editor - Enable level editor support
 games-action/dxx-rebirth:l10n_de - Provides German translations for the game's briefings, robot descriptions, and outro of the original campaign
+games-action/dxx-rebirth:midi - Enforce that SDL-mixer is used and has midi support
 games-action/dxx-rebirth:music - Enable music support
 games-action/dxx-rebirth:opl3-musicpack - Include alternate version of the game's music, recorded with the Yamaha YMF262 OPL3 soundchip
 games-action/dxx-rebirth:sc55-musicpack - Include alternate version of the game's music, recorded with the Roland Sound Canvas SC-55 MIDI module
-games-action/dxx-rebirth:textures - Include high resolution (640x480) backgrounds, briefing images and fonts (Descent 1)
+games-action/dxx-rebirth:sdl2 - Use libSDL2, SDL2-mixer instead of libSDL-1* and SDL-mixer-1*
+games-action/dxx-rebirth:textures - Include high resolution (640x480) backgrounds, briefing images and fonts (for Descent 1)
+games-action/dxx-rebirth:tracker - Enable support for the PHP-based multiplayer game tracker
+games-action/dxx-rebirth:valgrind - Include a Valgrind header in build in order to support Memcheck client requests
 games-action/hotline-miami:bundled-libs - Use bundled libraries.
 games-action/hotline-miami:launcher - Install qt launcher
 games-action/minetest:client - Build Minetest client
@@ -3453,6 +3463,8 @@ gnustep-base/gnustep-make:native-exceptions - Enables use of the native Objectiv
 gnustep-base/libobjc2:boehm-gc - Enable Hans Boehm's garbage collector (dev-libs/boehm-gc). Not recommended by upstream
 gui-apps/grim:jpeg - Enable JPEG support.
 gui-apps/grim:man - Generate and install man pages.
+gui-apps/gtkgreet:layershell - Enable layer shell support
+gui-apps/gtkgreet:man - Build and install man pages
 gui-apps/kanshi:man - build and install man pages
 gui-apps/lavalauncher:man - Build and install man pages
 gui-apps/mako:icons - Enable support for icons
@@ -3469,6 +3481,7 @@ gui-apps/waybar:network - Enable libnl support for network related features
 gui-apps/waybar:tray - Enable support for tray
 gui-apps/wf-recorder:man - Build and install man pages
 gui-apps/wf-recorder:opencl - Enable OpenCL
+gui-libs/greetd:man - Build and install man pages
 gui-libs/libhandy:glade - Install module and catalog for dev-util/glade
 gui-libs/wlroots:X - Enable support for X11 applications (XWayland)
 gui-libs/wlroots:elogind - Enable support for rootless session via elogind
@@ -4108,9 +4121,7 @@ media-gfx/imv:libnsgif - Use media-libs/libnsgif as image library
 media-gfx/inkscape:cdr - Enable support for CorelDRAW files via media-libs/libcdr
 media-gfx/inkscape:dia - Enable DIA flow chart import via app-office/dia
 media-gfx/inkscape:inkjar - Enable support for OpenOffice.org SVG jar files
-media-gfx/inkscape:latex - Enable rendering of LaTeX formulas
 media-gfx/inkscape:svg2 - Enable support for new SVG2 features
-media-gfx/inkscape:uniconvertor - Enable conversion of vector graphic files via media-gfx/uniconvertor (needs Python 2)
 media-gfx/inkscape:visio - Enable support for Microsoft Visio diagrams via media-libs/libvisio
 media-gfx/inkscape:wpg - Enable support for WordPerfect graphics via app-text/libwpg
 media-gfx/iscan-plugin-gt-f500:minimal - Install the firmware only, and not the plugin.
@@ -4993,6 +5004,7 @@ media-video/ffmpeg:openh264 - Enables H.264 encoding suppoprt via media-libs/ope
 media-video/ffmpeg:openssl - Enables dev-libs/openssl support. Adds support for encrypted network protocols (TLS/HTTPS).
 media-video/ffmpeg:pic - Force shared libraries to be built as PIC (this is slower)
 media-video/ffmpeg:postproc - Build and install libpostproc.
+media-video/ffmpeg:rav1e - Enables AV1 encoding support via media-video/rav1e.
 media-video/ffmpeg:rubberband - Adds time-stretching and pitch-shifting audio filter based on media-libs/rubberband.
 media-video/ffmpeg:snappy - Enable app-arch/snappy support. Required for e.g. Vidvox Hap encoder.
 media-video/ffmpeg:srt - Enable support for Secure Reliable Transport (SRT) via net-libs/srt
@@ -6227,7 +6239,6 @@ net-mail/notmuch:emacs - Install Emacs UI (the main one)
 net-mail/notmuch:mutt - Install helper script for Mutt
 net-mail/notmuch:nmbug - Install experimental tag sharing / pseudo-bug-tracking script for Notmuch (see http://notmuchmail.org/nmbug/)
 net-mail/notmuch:valgrind - Depend on dev-util/vagrind for test suite
-net-mail/offlineimap:sqlite - Enable runtime support for sqlite mail status backend.
 net-mail/qmailadmin:maildrop - Filter spam using maildrop
 net-mail/tpop3d:authexternal - Enable authentication by an external program
 net-mail/tpop3d:flatfile - Enable authentication against /etc/passwd-style flat files
@@ -6413,7 +6424,7 @@ net-misc/dahdi-tools:ppp - Enables PPP/DAHDIRAS support
 net-misc/dhcp:client - Install the dhclient program
 net-misc/dhcp:server - Install the dhcpd and dhcrelay programs
 net-misc/dhcpcd:embedded - Embed the definitions of dhcp options in the dhcpcd executable
-net-misc/dhcpcd:privsep - Enable support for privilege separation through chroot
+net-misc/dhcpcd:privsep - Enable support for privilege separation
 net-misc/dhcpcd-ui:gtk2 - Build with x11-libs/gtk+ version 2 instead of version 3
 net-misc/dhcpcd-ui:gtk3 - Add support for x11-libs/gtk+ version 3 (The GIMP Toolkit)
 net-misc/dibbler:resolvconf - Use resolvconf to handle /etc/resolv.conf updates
@@ -8033,10 +8044,12 @@ sys-block/fio:aio - Enable AIO ioengine
 sys-block/fio:curl - Enable HTTP engine for S3 and WebDav support support via net-misc/curl
 sys-block/fio:glusterfs - Enable GlusterFS gfapi support via sys-cluster/glusterfs
 sys-block/fio:gnuplot - Install tools for generating gnuplots
+sys-block/fio:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-block/fio:numa - Enable numa support
 sys-block/fio:rbd - Enable Rados block device support via sys-cluster/ceph
 sys-block/fio:rdma - Enable infiniband support via sys-fabric/librdmacm
 sys-block/fio:tcmalloc - Link against dev-util/google-perftools by default which will speed up USE=rbd up to 20%
+sys-block/fio:zbc - Enable ZBC & ZAC disks via sys-block/libzbc.
 sys-block/gparted:btrfs - Include Btrfs support (sys-fs/btrfs-progs)
 sys-block/gparted:cryptsetup - Include LUKS volume support (sys-fs/cryptsetup)
 sys-block/gparted:dmraid - Support for dmraid devices, also known as ATA-RAID, or Fake RAID.
@@ -8140,18 +8153,12 @@ sys-cluster/drbd-utils:heartbeat - Enable Heartbeat integration
 sys-cluster/drbd-utils:pacemaker - Enable Pacemaker integration
 sys-cluster/drbd-utils:xen - Enable Xen integration
 sys-cluster/galera:garbd - Install Galera Arbitrator - a stateless daemon which acts as a lightweight group member
-sys-cluster/glusterfs:bd-xlator - Enable the blockdevice translator (requires sys-fs/lvm2)
-sys-cluster/glusterfs:crypt-xlator - Enable the encryption translator
 sys-cluster/glusterfs:fuse - Add FUSE mount helper
 sys-cluster/glusterfs:georeplication - Enable support for georeplication (requires dev-lang/python)
-sys-cluster/glusterfs:glupy - Enable support for translators written in Python
 sys-cluster/glusterfs:infiniband - Add support for Infiniband ibverbs transport. Libraries can be found in science overlay
 sys-cluster/glusterfs:ipv6 - Use IPv6 by default, requires libtirpc
 sys-cluster/glusterfs:libtirpc - Build against net-libs/libtirpc for RPC support
-sys-cluster/glusterfs:qemu-block - Transparently create files as QCow2/QED images in the backend, including the possibility to snapshot.
 sys-cluster/glusterfs:rsyslog - Install configuration snippet for app-admin/rsyslog
-sys-cluster/glusterfs:systemtap - Enable support for dev-util/systemtap
-sys-cluster/glusterfs:tiering - Enable support for data classification/tiering (requires dev-db/sqlite SLOT 3)
 sys-cluster/heat:memcached - Installs the memcached server
 sys-cluster/hpx:papi - Use dev-libs/papi for NaCl
 sys-cluster/hpx:perftools - Use dev-util/google-perftools for memory allocation
@@ -8688,6 +8695,9 @@ www-apps/postfixadmin:vacation - Install vacation.pl script and dependencies
 www-apps/radicale:bcrypt - Depend on passlib to enable bcrypt and md5 authentication methods
 www-apps/redmine:markdown - Enable support for Markdown
 www-apps/redmine:passenger - Enable support for www-apache/passenger
+www-apps/roundup:jinja - Enable Jinja2 support
+www-apps/roundup:markdown - Enable markdown rendering
+www-apps/roundup:pyjwt - Enable jwt tokens for login
 www-apps/roundup:tz - Enable full support of timezone
 www-apps/roundup:whoosh - Enable Whoosh full-text indexer
 www-apps/roundup:xapian - Enable Xapian full-text indexer
@@ -8707,6 +8717,7 @@ www-client/chromium:closure-compile - Enable closure type-checking for Chrome's 
 www-client/chromium:component-build - Split build into more shared libraries to speed up linking. Mostly intended for debugging and development, NOT RECOMMENDED for general use.
 www-client/chromium:hangouts - Enable support for Google Hangouts features such as screen sharing
 www-client/chromium:headless - Build Ozone only with headless backend, NOT RECOMMENDED for general use.
+www-client/chromium:js-type-check - Enable JavaScript type-checking for Chrome's web technology-based UI. Requires Java.
 www-client/chromium:ozone - Enable Ozone platform abstraction layer with X11 backend.
 www-client/chromium:pic - Disable optimized assembly code that is not PIC friendly
 www-client/chromium:proprietary-codecs - Enable proprietary codecs like H.264, MP3
@@ -8735,6 +8746,7 @@ www-client/firefox:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to 
 www-client/firefox:gtk2 - Use the cairo-gtk2 rendering engine
 www-client/firefox:hwaccel - Force-enable hardware-accelerated rendering (Mozilla bug 594876)
 www-client/firefox:lto - Enable Link Time Optimization (LTO). Requires Gold linker when using GCC or LDD linker when using Clang
+www-client/firefox:openh264 - Use media-libs/openh264 for H.264 support instead of downloading binary blob from Mozilla at runtime
 www-client/firefox:pgo - Add support for profile-guided optimization using gcc-4.5, for faster binaries. This option will double the compile time.
 www-client/firefox:rust - Enable support for using rust compiler (experimental)
 www-client/firefox:screenshot - Allow to disable screenshot extension in global profile
@@ -9018,7 +9030,6 @@ x11-plugins/pidgin-sipe:openssl - Enable crypto support via dev-libs/openssl
 x11-plugins/pidgin-sipe:telepathy - Support use as a telepathy backend
 x11-plugins/pidgin-sipe:voice - Enable experimental voice/video support
 x11-plugins/pidgin-telegram:gcrypt - Use dev-libs/libgcrypt instead of dev-libs/openssl.
-x11-plugins/purple-plugin_pack:talkfilters - Enable support for app-text/talkfilters
 x11-plugins/vicious:contrib - Install extra widgets, some for less common hardware, some contributed by Vicious users.
 x11-plugins/wmbattery:apm - Add APM (Advanced Power Management) support
 x11-plugins/wmfire:session - Enable session management

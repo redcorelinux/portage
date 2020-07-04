@@ -32,6 +32,65 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2020-07-04)
+# Unmaintained.  Python 2 only.  Effectively depends on vulnerable
+# version of dev-python/pillow.  No revdeps.  Multiple bugs open.
+# Removal in 30 days.  Bug #715682.
+media-gfx/uniconvertor
+
+# Mikle Kolyada <zlogene@gentoo.org> (2020-07-03)
+# Merged into dev-texlive/texlive-langcjk.
+# Removal in 30 days.
+dev-tex/cjk-latex
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-07-01)
+# Depends on dead gnome-base/libgnomeui, bug #726816, dead upstream. Big Debian
+# patch exists, but we won't become new upstream. Masked for removal in 30 days.
+games-board/teg
+
+# Aaron Bauman <bman@gentoo.org> (2020-06-29)
+# More Py2 only stuff. Plz see -dev ML for discussions
+# Remove bindings, port to Py3, etc
+# Removal in 30 days
+app-dicts/opendict
+app-editors/editra
+app-office/taskcoach
+app-backup/holland
+app-backup/holland-backup-example
+app-backup/holland-backup-pgdump
+app-backup/holland-backup-random
+app-backup/holland-backup-sqlite
+app-backup/holland-lib-common
+app-backup/holland-lib-lvm
+app-cdr/burn-cd
+app-editors/leo
+app-emulation/playonlinux
+app-text/bibus
+dev-db/SchemaSync
+dev-python/squaremap
+dev-util/wxglade
+media-gfx/fontypython
+media-gfx/fr0st
+sci-chemistry/apbs
+sci-chemistry/eden
+sci-chemistry/p3d
+sci-chemistry/pdb2pqr
+sci-chemistry/pdb-tools
+sci-chemistry/prodecomp
+sci-chemistry/pymol-plugins-caver
+sci-chemistry/pymol-plugins-dssp
+sci-chemistry/pymol-plugins-promol
+sci-chemistry/relax
+sci-chemistry/sparky
+www-apps/viewvc
+x11-misc/nts
+
+# Stephan Hartmann <stha09@googlemail.com> (2020-06-29)
+# Dev channel releases are only for people who
+# are developers or want more experimental features
+# and accept a more unstable release.
+>=www-client/chromium-85
+
 # Michał Górny <mgorny@gentoo.org> (2020-06-29)
 # Unmaintained in Gentoo.  Multiple unresolved vulnerabilities.
 # Suggested replacement: sys-apps/portage (just kidding).
@@ -46,6 +105,7 @@ app-arch/deltarpm
 app-crypt/virtualsmartcard
 app-text/duali
 app-text/duali-data
+app-dicts/duali-data
 app-text/mftrace
 app-text/queequeg
 app-text/referencer
@@ -54,7 +114,6 @@ dev-libs/tut
 dev-python/elib-intl
 dev-python/eunuchs
 dev-python/medusa
-dev-python/misaka
 dev-python/python-iwscan
 dev-util/confix
 dev-util/qmtest
@@ -62,19 +121,15 @@ dev-util/unrpyc
 games-engines/gemrb
 media-sound/lilycomp
 media-video/tovid
-net-dns/maradns
 net-irc/irker
 net-mail/archivemail
 net-mail/getmail
-net-nds/nsscache
 net-wireless/airpwn
 sci-chemistry/bkchem
-sci-chemistry/propka
 sci-chemistry/pymol-plugins-bni-tools
 sci-chemistry/pymol-plugins-emovie
 sci-chemistry/viewmol
 sci-libs/chemkit
-sys-apps/x86info
 www-misc/surl
 x11-wm/plwm
 
@@ -234,47 +289,6 @@ media-libs/pymemphis
 # Removal in 30 days. Bug #728904.
 dev-tex/feynmf
 
-# Aaron Bauman <bman@gentoo.org> (2020-06-20)
-# Py2 only
-# Removal in 14 days
-app-crypt/openvpn-blacklist
-app-forensics/volatility
-<=dev-libs/distorm64-3.4.2
-app-misc/yagtd
-app-text/pylize
-app-vim/easytags
-app-vim/notes
-dev-db/metakit
-dev-python/backports-ssl-match-hostname
-dev-python/backports-shutil_get_terminal_size
-dev-python/backports-shutil_which
-dev-python/python-wpactrl
-dev-util/bakefile
-dev-vcs/git-deps
-dev-vcs/git-remote-hg
-games-emulation/openmsx
-games-kids/childsplay
-games-mud/lyntin
-games-sports/ski
-mail-filter/tmda
-media-video/subdl
-media-sound/cplay
-media-sound/tunapie
-net-firewall/dshieldpy
-net-mail/offlineimap
-net-misc/switzerland
-net-wireless/multimode
-sci-biology/last
-sci-chemistry/hollow
-sci-chemistry/modeller
-sci-chemistry/pymol-plugins-msms
-sci-geosciences/tilecache
-sci-libs/deap
-sci-libs/pycifrw
-www-apps/curator
-x11-apps/whyteboard
-x11-plugins/purple-plugin_pack
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-06-18)
 # Games depending on dead gnome-base/libgnomeui.
 # games-board/gnono: Bug #726788, last release 2007, abandoned upstream.
@@ -367,19 +381,6 @@ app-misc/webcomics-collector
 net-misc/pytvshows
 net-news/rawdog
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-06-02)
-# libgnomeui revdeps with no sign of upstream porting away or doing anything.
-# No maintainer. Bugs #726826, #726822. Masked for removal in 30 days.
-app-misc/cbrpager
-app-misc/ignuit
-
-# Joonas Niilola <juippis@gentoo.org> (2020-06-02)
-# Last snapshot is from 2+ years ago, which doesn't build. Latest 
-# upstream commit won't build with in-tree efl versions. Has a bug 
-# open and unanswered for 2 years, so this package seems unmaintained
-# in Gentoo. Removal in ~30 days. Bug #656098
-x11-themes/terminology-themes
-
 # Jonas Stein <jstein@gentoo.org> (2020-06-01)
 # Last rite package due to missing/unclear license.
 # Removal after 2020-08-01
@@ -395,51 +396,11 @@ dev-python/py2play
 dev-python/pyopenal
 dev-python/soya
 
-# James Le Cuirot <chewi@gentoo.org> (2020-05-31)
-# Now merged into media-libs/dumb with the allegro USE flag. This
-# package was added before EAPI 2 and USE-dependencies. Removal in 30
-# days.
-media-libs/aldumb
-
-# Michał Górny <mgorny@gentoo.org> (2020-05-31)
-# The following packages are either unmaintained, or their deps
-# are unmaintained.  They are stuck on Python 3.6 and have no reverse
-# dependencies outside the list.
-#
-# app-admin/dxf: #718178
-# dev-python/fastparquet: #718820
-# dev-python/numba: #719286
-# dev-python/raven: #719522
-# dev-python/sphinxcontrib-documentedlist: #719564
-# dev-python/thriftpy: #719590
-# dev-python/toro: #719592
-#
-# Removal in 30 days.
-app-admin/dxf
-dev-python/fastparquet
-dev-python/numba
-dev-python/raven
-dev-python/sphinxcontrib-documentedlist
-dev-python/thriftpy
-dev-python/toro
-
-# Michał Górny <mgorny@gentoo.org> (2020-05-31)
-# Outdated.  Not touched since the initial commit.  Lacks py3.7 support.
-# No reverse dependencies outside the three packages.
-# Removal in 30 days.  Bug #708270.
-dev-python/graphql-core
-dev-python/gql
-
 # Hans de Graaff <graaff@gentoo.org> (2020-05-24)
 # No releases since 2011, upstream is gone, fails tests,
 # no reverse dependencies.
 # Masked for removal in 30 days.
 dev-ruby/rack-mount
-
-# Hans de Graaff <graaff@gentoo.org> (2020-05023)
-# Masked for removal in 30 days.
-# Not useful anymore now that metasploit has been removed.
-app-eselect/eselect-metasploit
 
 # Aaron W. Swenson <titanofold@gentoo.org> (2020-05-15)
 # PostgreSQL 9.4 series is EOL. Migrate your database cluster to a more recent
