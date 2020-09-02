@@ -11,7 +11,7 @@ SRC_URI="https://github.com/SpectrumIM/spectrum2/archive/${PV}.tar.gz -> ${P}.ta
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="doc frotz irc mysql postgres purple sms +sqlite test twitter whatsapp xmpp"
 REQUIRED_USE="
 	|| ( mysql postgres sqlite )
@@ -58,7 +58,10 @@ DEPEND="
 	test? ( dev-util/cppunit )
 "
 
-PATCHES=( "${FILESDIR}/${P}-libpqxx-7-compatibility.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-libpqxx-7-compatibility.patch"
+	"${FILESDIR}/${P}-musl-compatibility.patch"
+)
 
 src_prepare() {
 	# Respect users LDFLAGS

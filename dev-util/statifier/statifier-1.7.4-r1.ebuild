@@ -22,8 +22,9 @@ RDEPEND="
 "
 
 PATCHES=(
-	# Respect users CFLAGS and LDFLAGS
+	"${FILESDIR}"/${PN}-1.7.4-clang.patch
 	"${FILESDIR}"/${PN}-1.7.4-fix-build-system.patch
+	"${FILESDIR}"/${PN}-1.7.4-musl.patch
 )
 
 src_prepare() {

@@ -11,14 +11,14 @@ PATCHSET="python-gentoo-patches-2.7.17-r1"
 
 DESCRIPTION="A fast, compliant alternative implementation of the Python language"
 HOMEPAGE="https://pypy.org/"
-SRC_URI="https://bitbucket.org/pypy/pypy/downloads/${MY_P}-src.tar.bz2
+SRC_URI="https://downloads.python.org/pypy/${MY_P}-src.tar.bz2
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz"
 S="${WORKDIR}/${MY_P}-src"
 
 LICENSE="MIT"
 # pypy -c 'import sysconfig; print sysconfig.get_config_var("SOABI")'
 SLOT="0/73"
-KEYWORDS="amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 gdbm +jit libressl ncurses sqlite tk"
 
 RDEPEND="

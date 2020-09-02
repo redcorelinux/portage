@@ -10,12 +10,12 @@ inherit check-reqs pax-utils python-any-r1 toolchain-funcs
 MY_P=pypy3.6-v${PV/_/}
 DESCRIPTION="PyPy3 executable (build from source)"
 HOMEPAGE="https://pypy.org/"
-SRC_URI="https://bitbucket.org/pypy/pypy/downloads/${MY_P}-src.tar.bz2"
+SRC_URI="https://downloads.python.org/pypy/${MY_P}-src.tar.bz2"
 S="${WORKDIR}/${MY_P}-src"
 
 LICENSE="MIT"
 SLOT="${PV}"
-KEYWORDS="amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 +jit low-memory ncurses cpu_flags_x86_sse2"
 
 RDEPEND=">=sys-libs/zlib-1.1.3:0=
