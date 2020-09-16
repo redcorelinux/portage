@@ -41,7 +41,7 @@ CDEPEND="
 		x11-libs/libXext
 		x11-libs/libXmu
 		x11-libs/libXt
-		opengl? ( virtual/opengl media-libs/freeglut )
+		opengl? ( media-libs/libglvnd[X] )
 		qt5? (
 			dev-qt/qtcore:5
 			dev-qt/qtgui:5
@@ -62,7 +62,10 @@ CDEPEND="
 DEPEND="
 	${CDEPEND}
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
-	!headless? ( x11-libs/libXinerama )
+	!headless? (
+		x11-libs/libXinerama
+		opengl? ( virtual/opengl )
+	)
 	pam? ( sys-libs/pam )
 	pax_kernel? ( sys-apps/elfix )
 	pulseaudio? ( media-sound/pulseaudio )

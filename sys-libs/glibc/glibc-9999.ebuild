@@ -117,13 +117,13 @@ RESTRICT="!test? ( test )"
 
 if [[ ${CATEGORY} == cross-* ]] ; then
 	BDEPEND+=" !headers-only? (
-		>=${CATEGORY}/binutils-2.24
+		>=${CATEGORY}/binutils-2.27
 		>=${CATEGORY}/gcc-6
 	)"
 	[[ ${CATEGORY} == *-linux* ]] && DEPEND+=" ${CATEGORY}/linux-headers"
 else
 	BDEPEND+="
-		>=sys-devel/binutils-2.24
+		>=sys-devel/binutils-2.27
 		>=sys-devel/gcc-6
 	"
 	DEPEND+=" virtual/os-headers "
@@ -302,7 +302,7 @@ setup_target_flags() {
 			# The mips abi cannot support the GNU style hashes. #233233
 			filter-ldflags -Wl,--hash-style=gnu -Wl,--hash-style=both
 		;;
-		ppc)
+		ppc|ppc64)
 			# Many arch-specific implementations do not work on ppc with
 			# cache-block not equal to 128 bytes. This breaks memset:
 			#   https://sourceware.org/PR26522

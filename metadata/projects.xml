@@ -554,18 +554,12 @@
       <name>Mike Gilbert</name>
     </member>
     <member>
+      <email>sultan@gentoo.org</email>
+      <name>Stephan Hartmann</name>
+    </member>
+    <member>
       <email>voyageur@gentoo.org</email>
       <name>Bernard Cafarelli</name>
-    </member>
-  </project>
-  <project>
-    <email>cinnamon@gentoo.org</email>
-    <name>Cinnamon</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Cinnamon</url>
-    <description>The goal of the Cinnamon project is to maintain Cinnamon related packages in the main Gentoo repository.</description>
-    <member>
-      <email>k_f@gentoo.org</email>
-      <name>Kristian Fiskerstrand</name>
     </member>
   </project>
   <project>
@@ -3575,6 +3569,11 @@
     <member>
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
+      <role>Member</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
       <role>Member</role>
     </member>
     <member>

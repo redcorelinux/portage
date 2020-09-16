@@ -7,7 +7,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{6..8} )
 PYTHON_REQ_USE='sqlite?,threads(+)'
 
-inherit bash-completion-r1 distutils-r1 eutils
+inherit bash-completion-r1 distutils-r1 optfeature
 
 MY_PN="Django"
 MY_P="${MY_PN}-${PV}"
@@ -23,7 +23,7 @@ LICENSE+=" Apache-2.0"
 # admin icons, jquery, xregexp.js
 LICENSE+=" MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc sqlite test"
 RESTRICT="!test? ( test )"
 
@@ -70,7 +70,7 @@ pkg_postinst() {
 	elog "Additional Backend support can be enabled via"
 	optfeature "MySQL backend support" dev-python/mysqlclient
 	optfeature "PostgreSQL backend support" dev-python/psycopg:2
-	echo ""
+	elog
 	elog "Other features can be enhanced by"
 	optfeature "GEO Django" "sci-libs/gdal[geos]"
 	optfeature "Memcached support" dev-python/pylibmc dev-python/python-memcached

@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.ardour.org/ardour/ardour.git"
 	inherit git-r3
 else
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 x86"
 	SRC_URI="https://dev.gentoo.org/~fordfrog/distfiles/Ardour-${PV}.0.tar.bz2"
 	S="${WORKDIR}/Ardour-${PV}.0"
 fi
@@ -71,7 +71,13 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${P}-fix-no-nls.patch"
+	"${FILESDIR}/${P}-use-signed-int-for-atomic-operations.patch"
 )
+
+pkg_pretend() {
+	[[ $(tc-getLD) == *gold* ]] && (has_version sci-libs/fftw[openmp] || has_version sci-libs/fftw[threads]) && \
+		ewarn "Linking with gold linker might produce broken executable, see bug #733972"
+}
 
 pkg_setup() {
 	if has_version \>=dev-libs/libsigc++-2.6 ; then

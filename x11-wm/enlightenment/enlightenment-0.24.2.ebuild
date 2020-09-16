@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils meson xdg-utils
+inherit meson optfeature xdg-utils
 
 DESCRIPTION="Enlightenment window manager"
 HOMEPAGE="https://www.enlightenment.org"
@@ -11,7 +11,7 @@ SRC_URI="https://download.enlightenment.org/rel/apps/${PN}/${P}.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0.17/${PV%%_*}"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 IUSE="acpi bluetooth connman doc geolocation nls pam policykit systemd udisks wayland wifi xwayland"
 
 REQUIRED_USE="xwayland? ( wayland )"

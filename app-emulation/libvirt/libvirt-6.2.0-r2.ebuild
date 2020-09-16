@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit autotools out-of-source bash-completion-r1 eutils linux-info python-any-r1 readme.gentoo-r1 systemd
 
@@ -11,7 +11,6 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://libvirt.org/git/libvirt.git"
 	SRC_URI=""
-	KEYWORDS="amd64 arm64 x86"
 	SLOT="0"
 else
 	SRC_URI="https://libvirt.org/sources/${P}.tar.xz"
