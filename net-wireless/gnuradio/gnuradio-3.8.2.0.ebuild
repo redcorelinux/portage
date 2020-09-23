@@ -56,9 +56,9 @@ RDEPEND="${PYTHON_DEPS}
 	alsa? ( media-libs/alsa-lib:= )
 	fec? (
 		sci-libs/gsl
-		sci-libs/scipy
+		dev-python/scipy
 	)
-	filter? ( sci-libs/scipy )
+	filter? ( dev-python/scipy )
 	grc? (
 		$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
@@ -77,7 +77,7 @@ RDEPEND="${PYTHON_DEPS}
 		dev-qt/qtwidgets:5
 	)
 	sdl? ( >=media-libs/libsdl-1.2.0 )
-	trellis? ( sci-libs/scipy )
+	trellis? ( dev-python/scipy )
 	uhd? (
 		$(python_gen_cond_dep '>=net-wireless/uhd-3.9.6:=[${PYTHON_SINGLE_USEDEP}]')
 	)
@@ -113,6 +113,13 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-util/cppunit-1.9.14 )
 	zeromq? ( net-libs/cppzmq )
 "
+
+PATCHES=(
+	"${FILESDIR}/gnuradio-3.8.2.0-lamda-gr-qtgui.patch"
+	"${FILESDIR}/gnuradio-3.8.2.0-lamda-gr-uhd.patch"
+	"${FILESDIR}/gnuradio-3.8.2.0-lamda-most-components.patch"
+	"${FILESDIR}/gnuradio-3.8.2.0-lamda-set-msg-handlers.patch"
+)
 
 src_prepare() {
 	xdg_environment_reset #534582

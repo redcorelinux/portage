@@ -62,10 +62,6 @@ gnome-base/libgnomeui
 gnome-base/orbit
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-03-08)
-# dev-python/pygtk is in the process of being removed, tracker bug #706462
-dev-python/pygtk
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-03-08)
 # x11-libs/gtkglext is in the process of being removed, tracker bug #698950
 x11-libs/gtkglext
 
@@ -79,14 +75,6 @@ virtual/libffi
 # necessary.  Depend on dev-python/pypy{,3} instead.
 virtual/pypy
 virtual/pypy3
-
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2019-12-21)
-# Unmaintained, vulnerable oracle java ebuilds, even fetching distfiles
-# requires agreement to restrictive license
-# Most things that still depend on oracle variants require javafx
-# https://bugs.gentoo.org/681828
-dev-java/oracle-jdk-bin
-dev-java/oracle-jre-bin
 
 # Michał Górny <mgorny@gentoo.org> (2019-12-09)
 # Test coverage reporting is not useful for Gentoo ebuilds.  The deps
