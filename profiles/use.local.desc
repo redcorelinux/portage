@@ -23,7 +23,6 @@ app-accessibility/simon:pim - Enable support for KDE PIM resources integration
 app-accessibility/simon:sphinx - Build sphinx backend (pulls app-accessibility/julius if disabled
 app-accessibility/speech-dispatcher:espeak - Adds support for espeak speech engine
 app-accessibility/speech-dispatcher:flite - Adds support for flite speech engine
-app-accessibility/speechd-el:brltty - brltty support
 app-admin/calamares:pythonqt - Enable PythonQt-based module interface
 app-admin/clsync:apidoc - Provide doxygen generated API docs.
 app-admin/clsync:cgroups - Use cgroups to limit /dev access.
@@ -264,8 +263,8 @@ app-backup/bareos:rados-striper - Enable use of rados-striper
 app-backup/bareos:scsi-crypto - Enable low level SCSI crypto support
 app-backup/bareos:sql-pooling - Enable SQL pooling support
 app-backup/bareos:storage-daemon - Install storage daemon (bareos-sd)
+app-backup/btrbk:lsbtr - Enable the lsbtr command-line tool
 app-backup/btrbk:mbuffer - Use sys-block/mbuffer to enable progress bar and buffering/limiting functionality
-app-backup/btrbk:pv - Use sys-apps/pv to enable progress bar functionality
 app-backup/dar:dar32 - Enables --enable-mode=32 option, which replace infinite by 32 bit integers
 app-backup/dar:dar64 - Enables --enable-mode=64 option, which replace infinite by 64 bit integers
 app-backup/dar:gcrypt - Enables strong encryption support
@@ -417,6 +416,7 @@ app-editors/nano:magic - Add magic file support (sys-apps/file) to automatically
 app-editors/nano:minimal - Disable all fancy features, including ones that otherwise have a dedicated USE flag (such as spelling).
 app-editors/nano:split-usr - Enable this if /bin and /usr/bin are separate directories
 app-editors/ne:tinfo - Link against libtinfo from sys-libs/ncurses
+app-editors/neovim:lto - Build with Link Time Optimization (LTO)
 app-editors/neovim:nvimpager - Install nvimpager symlink to less.sh macro
 app-editors/neovim:tui - Build the neovim unix tui
 app-editors/okteta:designer - Build plugins for dev-qt/designer
@@ -1064,9 +1064,9 @@ app-office/orage:clock-panel-plugin - Build the clock plugin for the XFCE panel
 app-office/scribus:boost - Enable support for Boost based enhancement
 app-office/scribus:hunspell - Enable support for spell checking with app-text/hunspell
 app-office/scribus:minimal - Don't install headers (only required for e.g. plug-in developers)
-app-office/scribus:osg - 3D redering via dev-games/openscenegraph
+app-office/scribus:osg - 3D rendering via dev-games/openscenegraph
 app-office/scribus:scripts - Install the scripts
-app-office/scribus:templates - Document tamplates
+app-office/scribus:templates - Document templates
 app-office/scribus:tk - Install tk based scripts e.g. FontSample.py
 app-office/skrooge:activities - Enable kactivities support
 app-office/skrooge:designer - Build plugins for dev-qt/designer
@@ -1111,6 +1111,7 @@ app-shells/shish:diet - Use dev-libs/dietlibc
 app-text/atril:caja - Enable property page extension in mate-base/caja
 app-text/atril:dvi - Enable build-in DVI viewer
 app-text/atril:epub - Enable build-in DVI viewer using net-libs/webkit-gtk
+app-text/atril:synctex - Enable search highlighting through synctex (virtual/tex-base)
 app-text/atril:t1lib - Enable the Type-1 fonts for the build-in DVI viewer (media-libs/t1lib)
 app-text/atril:xps - Enable XPS viewer using app-text/libgxps
 app-text/blogc:git - Build blogc-git-receiver tool
@@ -1530,12 +1531,6 @@ dev-haskell/cabal-install:native-dns - Enable use of the resolv and windns packa
 dev-haskell/chaselev-deque:debug - Enable the extra internal checks.
 dev-haskell/chell:color-output - use colors in program output
 dev-haskell/chimera:representable - Define Representable instance from adjunctions package
-dev-haskell/citeproc-hs:bibutils - use Chris Putnam's app-text/bibutils
-dev-haskell/citeproc-hs:embed-data-files - Embed locale files into the library (needed for windows packaging)
-dev-haskell/citeproc-hs:hexpat - use dev-haskell/hexpat instead of dev-haskell/xml for XML parsing
-dev-haskell/citeproc-hs:network - use dev-haskell/network and dev-haskell/http to retrieve CSL file from URIs
-dev-haskell/citeproc-hs:small-base - Choose the new smaller, split-up base package.
-dev-haskell/citeproc-hs:unicode-collation - Use Haskell bindings to the dev-libs/icu
 dev-haskell/cmark:system-cmark - use app-text/cmark instead of bundled copy
 dev-haskell/cmdargs:quotation - Build quote module
 dev-haskell/cmdargs:testprog - Build the test program
@@ -1817,6 +1812,7 @@ dev-lang/erlang:hipe - HIgh Performance Erlang extension
 dev-lang/erlang:kpoll - Enable kernel polling support
 dev-lang/fpc:ide - Build and install the Free Pascal Compiler IDE
 dev-lang/gdl:eigen - Build matrix manipulation with dev-cpp/eigen
+dev-lang/gdl:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-lang/gdl:gshhs - Add support for projection adn continent maps with sci-geosciences/gshhs-data
 dev-lang/gdl:hdf - Add support for the Hierarchical Data Format v.4
 dev-lang/gdl:proj - Add support for sci-libs/proj (geographic projections)
@@ -1986,9 +1982,9 @@ dev-libs/aws-sdk-cpp:ec2 - Amazon Elastic Compute Cloud (EC2) is a web service t
 dev-libs/aws-sdk-cpp:ecr - Amazon Elastic Container Registry (ECR) is a fully managed Docker container registry.
 dev-libs/aws-sdk-cpp:ecs - Amazon Elastic Container Service (ECS) is a highly scalable, fast, container management service.
 dev-libs/aws-sdk-cpp:eks - Amazon Elastic Kubernetes Service (EKS) is a managed service to run Kubernetes on AWS without own Kubernetes clusters.
+dev-libs/aws-sdk-cpp:elastic-inference - Amazon Elastic Inference is a service that allows you to attach low-cost GPU-powered acceleration to many Amazon machine instances in order to reduce the cost of running deep learning inference by up to 75%. Amazon Elastic Inference supports TensorFlow, Apache MXNet, and ONNX models through MXNet.
 dev-libs/aws-sdk-cpp:elasticache - Set up, manage, and scale distributed in-memory cache environments in the AWS Cloud
 dev-libs/aws-sdk-cpp:elasticbeanstalk - Quickly deploy and manage applications in the AWS Cloud.
-dev-libs/aws-sdk-cpp:elasticinference - Amazon Elastic Inference is a service that allows you to attach low-cost GPU-powered acceleration to many Amazon machine instances in order to reduce the cost of running deep learning inference by up to 75%. Amazon Elastic Inference supports TensorFlow, Apache MXNet, and ONNX models through MXNet.
 dev-libs/aws-sdk-cpp:elasticloadbalancing - Automatically distribute incoming application traffic across multiple targets, such as EC2 instances. Also enables elasticloadbalancingv2.
 dev-libs/aws-sdk-cpp:elasticmapreduce - Amazon Elastic MapReduce (EMR) processes large amounts of data efficiently using Hadoop processing combined with several AWS products.
 dev-libs/aws-sdk-cpp:email - Amazon Simple Email Service (Amazon SES): An email platform to send and receive email using ones own email addresses and domains. See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Also enables sesv2
@@ -2620,7 +2616,6 @@ dev-python/twisted:serial - include serial port support
 dev-python/urllib3:brotli - Enable support for brotli compression
 dev-python/ws4py:client - Install client modules
 dev-python/ws4py:server - Install server modules
-dev-python/wxpython:examples - Install interactive demo module browser and sample applets.
 dev-python/zeep:async - Add async support
 dev-python/zeep:tornado - Add tornado support
 dev-qt/designer:declarative - Build the qdeclarativeview plugin
@@ -3035,9 +3030,7 @@ dev-vcs/kdesvn:man - Build and install man pages
 dev-vcs/mercurial:chg - Support Mercurial command server client
 dev-vcs/mercurial:gpg - Support signing with GnuPG.
 dev-vcs/mercurial:tk - Install dev-lang/tk for hgk script.
-dev-vcs/subversion:dso - Enable runtime module search
 dev-vcs/subversion:extras - Install extra scripts (examples, tools, hooks)
-dev-vcs/subversion:http - Enable http support using net-libs/serf
 dev-vcs/subversion:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 games-action/beathazardultra:bundled-libs - Use the upstream provided bundled libraries.
 games-action/chromium-bsu:mixer - Enables media-libs/sdl-mixer sound backend instead of media-libs/openal one.
@@ -3300,7 +3293,6 @@ games-simulation/flightgear:udev - Enable event-based Input devices through virt
 games-simulation/flightgear:utils - Build various utilities (fgpanel, fgviewer among others)
 games-simulation/openrct2:lightfx - Enables LightFX for better lightning effects.
 games-simulation/openrct2:scripting - Enable the dev-lang/duktape scripting engine for executing user scripts.
-games-simulation/openrct2:twitch - Enables streaming of ingame content to Twitch.
 games-simulation/openttd:aplaymidi - Enables midi music in game, using aplaymidi as an external player
 games-simulation/openttd:dedicated - Build only the openttd server, and not the client.
 games-simulation/openttd:lzo - Enables LZO compression for savegames. This is only needed to load extremely old savegames. (versions before 0.2)
@@ -3463,7 +3455,6 @@ gui-libs/wlroots:x11-backend - Enable support for handling input/output devices 
 gui-libs/xdg-desktop-portal-wlr:elogind - Enable support for rootless session via elogind
 gui-wm/hikari:gamma - add gamma control for redshift
 gui-wm/hikari:layershell - add support for wayland apps using layer shell
-gui-wm/hikari:man - build and install man pages
 gui-wm/hikari:screencopy - add support for screen grabbing
 gui-wm/hikari:virtual-io - enable virtual input/output support, needed for remote I/O in VNC
 gui-wm/sway:X - Enable support for X11 applications (XWayland)
@@ -3663,6 +3654,7 @@ kde-plasma/kscreenlocker:consolekit - Support for killing the screenlocker when 
 kde-plasma/ksysguard:pcap - Enable per-process network statistic collection using net-libs/libpcap
 kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
 kde-plasma/libksysguard:webengine - Enable display of detailed memory information using dev-qt/qtwebengine.
+kde-plasma/plasma-desktop:emoji - Build emojipicker applet using app-i18n/ibus and media-fonts/noto-emoji
 kde-plasma/plasma-desktop:ibus - Use ibus input method via app-i18n/ibus
 kde-plasma/plasma-desktop:scim - Enable applets that use app-i18n/scim
 kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Firefox with browser extensions
@@ -3905,6 +3897,7 @@ mate-base/mate-applets:cpupower - Enable support for cpu frequency manipulation 
 mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
 mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
 mate-base/mate-control-center:accountsservice - Add support for AccountsService
+mate-base/mate-session-manager:gles2 - Build with support for GLESv2 acceleration sessions
 mate-base/mate-session-manager:xtrans - Build with Xtrans support; WARNING: Disabling this flag will result in ICE binding on all interfaces
 mate-base/mate-settings-daemon:rfkill - build support for rfkill
 mate-extra/caja-extensions:cdr - Add an extension to burn files to cds using app-cdr/brasero.
@@ -4223,6 +4216,11 @@ media-libs/leptonica:utils - Install command-line utilities
 media-libs/libafterimage:shaping - Use MIT shaped X windows extention.
 media-libs/libafterimage:shm - Use MIT shared memory extention for X image transfer.
 media-libs/libass:harfbuzz - Enables OpenType shaping via media-libs/harfbuzz.
+media-libs/libavif:aom - Enable support for the AOM codec encoding and decoding
+media-libs/libavif:dav1d - Enable support for the dav1d codec decoding
+media-libs/libavif:extras - Build extra apps (avifenc, avifdec) and test files
+media-libs/libavif:gdk-pixbuf - Build a gdk-pixbuf loader
+media-libs/libavif:rav1e - Enable support for the rav1e codec encoding
 media-libs/libbdplus:aacs - Add support for decryption of AACS
 media-libs/libbluray:aacs - Add support for decryption of AACS
 media-libs/libbluray:bdplus - Use media-libs/libbdplus for BD+ decryption
@@ -4586,6 +4584,14 @@ media-sound/csound:utils - Build stand-alone executables for utilities that can 
 media-sound/csound:websocket - Build the websocket opcode
 media-sound/darkice:aacplus - AAC+ encoding via media-libs/libaacplus
 media-sound/darkice:twolame - Build with twolame support
+media-sound/deadbeef:converter - File format converter
+media-sound/deadbeef:cover - Support for cover art
+media-sound/deadbeef:hotkeys - Keyboard shortcuts support
+media-sound/deadbeef:lastfm - last.fm/AudioScrobbler protocol support
+media-sound/deadbeef:notify - Desktop notifications support
+media-sound/deadbeef:nullout - Dummy output driver
+media-sound/deadbeef:shellexec - Define custom shell commands that can be called on tracks
+media-sound/deadbeef:supereq - Enable equalizer
 media-sound/deinvert:liquid - improve sound quality using net-libs/liquid-dsp
 media-sound/deinvert:wav - wav file support using media-libs/libsndfile
 media-sound/denemo:alsa - Enable alsa support through media-libs/alsa-lib
@@ -4798,7 +4804,6 @@ media-sound/supercollider:vim - Enable the SCVIM user interface
 media-sound/supercollider:webengine - Enable the internal help system using QtWebengine
 media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
 media-sound/tomahawk:telepathy - Enable support for the real-time communication framework telepathy
-media-sound/traverso:lv2 - Add support for Ladspa V2
 media-sound/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
 media-sound/umurmur:shm - Enable shared memory support
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
@@ -6020,8 +6025,6 @@ net-libs/gnutls:test-full - Enable full test mode
 net-libs/gnutls:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
 net-libs/gnutls:tools - Build extra tools
 net-libs/gnutls:valgrind - Enable usage of dev-util/valgrind in debug
-net-libs/grpc:perftools - Enable profiling using dev-util/google-perftools
-net-libs/grpc:systemtap - Enable SystemTAP/DTrace tracing
 net-libs/iax:snomhack - Use slower memset for SNOM phoneem
 net-libs/ldns:dane - Enable DNS-based Authentication of Named Entities (DANE) support
 net-libs/ldns:ecdsa - Enable ECDSA support
@@ -7179,8 +7182,6 @@ sci-electronics/gtkwave:fatlines - Renders lines as double width in gtkwave.
 sci-electronics/gtkwave:judy - Enables Judy array support.
 sci-electronics/gtkwave:packed - Enables '#pragma pack' for data arrays (saves memory, costs time).
 sci-electronics/kicad:github - Add github support into PCB editor
-sci-electronics/kicad:i18n - Allow GUI internationalization through l10n_* use flags
-sci-electronics/kicad:minimal - Build only binaries without parts library and examples
 sci-electronics/kicad:ngspice - Enable circuit simulation
 sci-electronics/kicad:occ - Enable viewing 3D rendering of designs via opencascade
 sci-electronics/kicad:oce - Enable viewing 3D rendering of designs via OCE
@@ -8281,6 +8282,7 @@ sys-devel/llvm:gold - Build the gold linker plugin
 sys-devel/llvm:ncurses - Support querying terminal properties using ncurses' terminfo
 sys-devel/llvm:xar - Support dumping LLVM bitcode sections in Mach-O files (uses app-arch/xar)
 sys-devel/llvm:z3 - Enable support for sci-mathematics/z3 constraint solver
+sys-devel/llvm-roc:runtime - Builds the compiler runtime libraries.
 sys-devel/parity:vc10_0 - Enable support for Visual Studio 2010
 sys-devel/parity:vc11_0 - Enable support for Visual Studio 2012
 sys-devel/parity:vc12_0 - Enable support for Visual Studio 2013
@@ -8403,7 +8405,8 @@ sys-fs/zfs:minimal - Don't install python scripts (arcstat, dbufstat etc) and av
 sys-fs/zfs:pam - Install zfs_key pam module, for automatically loading zfs encryption keys for home datasets
 sys-fs/zfs:rootfs - Enable dependencies required for booting off a pool containing a rootfs
 sys-fs/zfs:test-suite - Install regression test suite
-sys-fs/zfs-auto-snapshot:default-exclude - Only take snapshots if dataset has com.sun:auto-snapshot=true property set
+sys-fs/zfs-auto-snapshot:cron - Install /etc/cron.* files
+sys-fs/zfs-auto-snapshot:default-exclude - Only take snapshots of datasets with com.sun:auto-snapshot=true property set
 sys-fs/zfs-kmod:rootfs - Install zfs-shutdown script to support exporting a pool containing rootfs
 sys-kernel/aufs-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/aufs-sources:module - Patch kernel to allow aufs being build as a module.

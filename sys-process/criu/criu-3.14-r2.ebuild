@@ -13,7 +13,7 @@ SRC_URI="https://download.openvz.org/criu/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc64"
 IUSE="doc selinux setproctitle static-libs"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -79,6 +79,11 @@ src_configure() {
 	# Gold linker generates invalid object file when used with criu's custom
 	# linker script.  Use the bfd linker instead. See https://crbug.com/839665#c3
 	tc-ld-disable-gold
+
+	# Build system uses this variable as a trigger to append coverage flags
+	# we'd like to avoid it. https://bugs.gentoo.org/744244
+	unset GCOV
+
 	python_setup
 }
 

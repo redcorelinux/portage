@@ -126,19 +126,10 @@ app-text/tesseract scrollview
 # Java is no longer supported on ppc.
 app-text/texlive pdfannotextractor
 dev-lang/logtalk fop
-gnome-extra/libgda reports
-
-# Ben de Groot <yngwin@gentoo.org> (2015-07-20)
-# missing keyword
-media-sound/audacity midi soundtouch
 
 # Pacho Ramos <pacho@gentoo.org> (2015-06-02)
 # Missing keywords (2015-06-02)
 net-misc/connman openconnect
-
-# Michał Górny <mgorny@gentoo.org> (2015-03-01)
-# pidgin-opensteamworks is only available for amd64, ppc32 and x86
-net-im/telepathy-connection-managers -steam
 
 # Julian Ospald <hasufell@gentoo.org> (2013-11-23)
 # FIXME: app-arch/innoextract not available under ppc yet
