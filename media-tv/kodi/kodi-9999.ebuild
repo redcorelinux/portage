@@ -9,7 +9,7 @@ LIBDVDREAD_VERSION="6.0.0-Leia-Alpha-3"
 LIBDVDNAV_VERSION="6.0.0-Leia-Alpha-3"
 FFMPEG_VERSION="4.3.1"
 CODENAME="Matrix"
-FFMPEG_KODI_VERSION="Alpha1-2"
+FFMPEG_KODI_VERSION="Beta1"
 PYTHON_COMPAT=( python3_{6,7,8,9} )
 SRC_URI="https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz -> libdvdcss-${LIBDVDCSS_VERSION}.tar.gz
 	https://github.com/xbmc/libdvdread/archive/${LIBDVDREAD_VERSION}.tar.gz -> libdvdread-${LIBDVDREAD_VERSION}.tar.gz
@@ -25,7 +25,7 @@ else
 	MY_PV=${MY_PV/_rc/rc}
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}-${CODENAME}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}-${CODENAME}
 fi
 
@@ -43,7 +43,7 @@ IUSE="airplay alsa bluetooth bluray caps cec +css dbus dvd gbm gles lcms libress
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	|| ( gles opengl )
-	^^ ( gbm raspberry-pi wayland X )
+	|| ( gbm wayland X )
 	?? ( mariadb mysql )
 	bluray? ( udf )
 	udev? ( !libusb )
@@ -216,6 +216,11 @@ src_prepare() {
 }
 
 src_configure() {
+	local platform=()
+	use gbm && platform+=( gbm )
+	use wayland && platform+=( wayland )
+	use X && platform+=( x11 )
+	local core_platform_name="${platform[@]}"
 	local mycmakeargs=(
 		-Ddocdir="${EPREFIX}/usr/share/doc/${PF}"
 		-DENABLE_LDGOLD=OFF # https://bugs.gentoo.org/show_bug.cgi?id=606124
@@ -258,6 +263,8 @@ src_configure() {
 		-Dlibdvdcss_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.gz"
 		-DPYTHON_INCLUDE_DIR="$(python_get_includedir)"
 		-DPYTHON_LIBRARY="$(python_get_library_path)"
+		-DAPP_RENDER_SYSTEM="$(usex opengl gl gles)"
+		-DCORE_PLATFORM_NAME="${core_platform_name}"
 	)
 
 	use libusb && mycmakeargs+=( -DENABLE_LIBUSB=$(usex libusb) )
@@ -266,31 +273,6 @@ src_configure() {
 		mycmakeargs+=( -DWITH_FFMPEG="yes" )
 	else
 		mycmakeargs+=( -DFFMPEG_URL="${DISTDIR}/ffmpeg-${PN}-${FFMPEG_VERSION}-${CODENAME}-${FFMPEG_KODI_VERSION}.tar.gz" )
-	fi
-
-	if use gbm; then
-		mycmakeargs+=(
-			-DCORE_PLATFORM_NAME="gbm"
-			-DGBM_RENDER_SYSTEM="$(usex opengl gl gles)"
-		)
-	fi
-
-	if use wayland; then
-		mycmakeargs+=(
-			-DCORE_PLATFORM_NAME="wayland"
-			-DWAYLAND_RENDER_SYSTEM="$(usex opengl gl gles)"
-		)
-	fi
-
-	if use raspberry-pi; then
-		mycmakeargs+=( -DCORE_PLATFORM_NAME="rbpi" )
-	fi
-
-	if use X; then
-		mycmakeargs+=(
-			-DCORE_PLATFORM_NAME="x11"
-			-DX11_RENDER_SYSTEM="$(usex opengl gl gles)"
-		)
 	fi
 
 	cmake_src_configure

@@ -22,7 +22,7 @@ PATCH_DEV=dilfridge
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv s390 ~sparc x86"
 	SRC_URI="mirror://gnu/glibc/${P}.tar.xz"
 	SRC_URI+=" https://dev.gentoo.org/~${PATCH_DEV}/distfiles/${P}-patches-${PATCH_VER}.tar.xz"
 	SRC_URI+=" riscv? ( https://dev.gentoo.org/~dilfridge/distfiles/backport-rv32.txz )"
@@ -89,11 +89,19 @@ fi
 # and that gcc already contains the hardened patches.
 # Lastly, let's avoid some openssh nastiness, bug 708224, as
 # convenience to our users.
+
+# gzip, grep, awk are needed by locale-gen, bug 740750
+
 BDEPEND="
 	${PYTHON_DEPS}
 	>=app-misc/pax-utils-0.1.10
 	sys-devel/bison
 	doc? ( sys-apps/texinfo )
+	!compile-locales? (
+		app-arch/gzip
+		sys-apps/grep
+		virtual/awk
+	)
 "
 COMMON_DEPEND="
 	gd? ( media-libs/gd:2= )
@@ -107,9 +115,17 @@ COMMON_DEPEND="
 	!<net-misc/openssh-8.1_p1-r2
 "
 DEPEND="${COMMON_DEPEND}
+	compile-locales? (
+		app-arch/gzip
+		sys-apps/grep
+		virtual/awk
+	)
 	test? ( >=net-dns/libidn2-2.3.0 )
 "
 RDEPEND="${COMMON_DEPEND}
+	app-arch/gzip
+	sys-apps/grep
+	virtual/awk
 	sys-apps/gentoo-functions
 "
 

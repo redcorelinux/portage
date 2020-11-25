@@ -1,6 +1,16 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2020-10-24)
+# asm redc is only available on amd64,
+# ppc64. bug #750974.
+sci-mathematics/gmp-ecm custom-tune
+
+# Sam James <sam@gentoo.org> (2020-10-05)
+# Guile only supports JIT on some arches
+# (See 9.3.8 in the Guile manual)
+dev-scheme/guile jit
+
 # Sam James <sam@gentoo.org> (2020-09-20)
 # (for Mikle Kolyada <zlogene@gentoo.org>)
 # libgcrypt et al no longer support static-libs
@@ -51,13 +61,16 @@ sys-libs/glibc static-pie
 # dev-util/sysprof not keyworded on most arches yet
 x11-wm/mutter sysprof
 dev-libs/gjs sysprof
+dev-libs/glib sysprof
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-02-26)
 # Vulkan support is only available on few selected arches atm.
 # Mask everywhere, unmask where appropriate.
+dev-qt/qt3d vulkan
 dev-qt/qtdeclarative vulkan
 dev-qt/qtgui vulkan
 dev-qt/qtwayland vulkan
+media-video/pipewire vulkan
 
 # dev-python/pandas is only keyworded for amd64 & x86
 sys-block/fio python gnuplot
@@ -101,10 +114,11 @@ media-video/vlc libplacebo
 # Overlay can only be built on amd64 and x86
 x11-apps/igt-gpu-tools overlay
 
-# Thomas Deutschmann <whissi@gentoo.org> (2018-11-15)
+# Thomas Deutschmann <whissi@gentoo.org> (2020-10-06)
+# - aesni plugin is only supported on amd64 and x86
 # - rdrand plugin is only supported on amd64 and x86
 # - padlock plugin is only supported on amd64 and x86
-net-vpn/strongswan strongswan_plugins_rdrand strongswan_plugins_padlock
+net-vpn/strongswan strongswan_plugins_aesni strongswan_plugins_rdrand strongswan_plugins_padlock
 
 # James Le Cuirot <chewi@gentoo.org> (2018-11-02)
 # Vulkan is only available on amd64 at present.
@@ -146,9 +160,10 @@ app-laptop/pbbuttonsd macbook
 # Requires [cuda] which is masked in most of the profiles.
 media-libs/opencv contribxfeatures2d
 
-# Thomas Deutschmann <whissi@gentoo.org> (2017-03-01)
-# dev-libs/libmaxminddb is only keyworded on amd64 and x86 at the moment
-app-admin/rsyslog mdblookup
+# Thomas Deutschmann <whissi@gentoo.org> (2020-10-22)
+# imhttp: www-servers/civetweb is only keyworded on amd64 and x86 at the moment
+# mdblookup: dev-libs/libmaxminddb is only keyworded on amd64 and x86 at the moment
+app-admin/rsyslog imhttp mdblookup
 
 # Alexis Ballier <aballier@gentoo.org> (2017-02-21)
 # spacetime is only supported on amd64 at the moment.
@@ -243,7 +258,7 @@ app-editors/gvim luajit racket
 # Kacper Kowalik <xarthisius@gentoo.org> (2013-08-09)
 # Doesn't work on most profiles. Easier to mask here and
 # unmask in particular profiles
-sys-apps/hwloc gl
+sys-apps/hwloc gl nvml
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (2012-11-03)
 # Requires net-dns/unbound which is not keyworded by most arches

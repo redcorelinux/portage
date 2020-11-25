@@ -11,7 +11,7 @@ LICENSE="GPL-2"
 SRC_URI="https://github.com/ice-wm/icewm/releases/download/${PV}/${P}.tar.lz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ppc sparc x86"
 IUSE="+alsa ao bidi debug +gdk-pixbuf nls truetype uclibc xinerama"
 
 # Tests broken in all versions, patches welcome, bug #323907, #389533
@@ -51,7 +51,13 @@ RDEPEND="
 	)
 	bidi? ( dev-libs/fribidi )
 	gdk-pixbuf? (
-		x11-libs/gdk-pixbuf:2[X]
+		|| (
+			(
+				x11-libs/gdk-pixbuf-xlib
+				>=x11-libs/gdk-pixbuf-2.42.0:2
+			)
+			<x11-libs/gdk-pixbuf-2.42.0:2[X]
+		)
 	)
 	!gdk-pixbuf? (
 		media-libs/libpng:0=
@@ -63,7 +69,6 @@ DEPEND="
 	${RDEPEND}
 	$(unpacker_src_uri_depends)
 	dev-libs/glib:2
-	gnome-base/librsvg
 	x11-base/xorg-proto
 	gdk-pixbuf? ( gnome-base/librsvg:2 )
 "
@@ -95,10 +100,10 @@ src_configure() {
 	local myconf=(
 		--enable-logevents
 		--enable-xrandr
-		--with-cfgdir=/etc/icewm
-		--with-docdir=/usr/share/doc/${PF}/html
+		--with-cfgdir="${EPREFIX}"/etc/icewm
+		--with-docdir="${EPREFIX}"/usr/share/doc/${PF}/html
 		--with-icesound="${icesound}"
-		--with-libdir=/usr/share/icewm
+		--with-libdir="${EPREFIX}"/usr/share/icewm
 		$(use_enable bidi fribidi)
 		$(use_enable debug)
 		$(use_enable gdk-pixbuf)

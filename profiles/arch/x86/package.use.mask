@@ -1,6 +1,21 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Alexey Sokolov <alexey+gentoo@asokolov.org> (2020-10-28)
+# dev-qt/linguist-tools-5.15.0 and 5.15.1 OOM with bad_alloc.
+# https://bugs.gentoo.org/751418
+>=sci-astronomy/stellarium-0.20.3 nls
+
+# Thomas Deutschmann <whissi@gentoo.org> (2020-10-07)
+# <app-admin/salt-3000 is Python 3.6 but last Python 3.6
+# compatible dev-python/libvirt-python version was removed
+<app-admin/salt-3000 libvirt
+
+# Sam James <sam@gentoo.org> (2020-10-05)
+# Guile only supports JIT on some arches
+# (See 9.3.8 in the Guile manual)
+dev-scheme/guile -jit
+
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2020-09-18)
 # swt 4.10 not keyworded on x86
 dev-java/openjdk:8 javafx
@@ -68,16 +83,15 @@ www-client/firefox -eme-free
 # dev-util/sysprof-capture is keyworded on x86
 x11-wm/mutter -sysprof
 dev-libs/gjs -sysprof
+dev-libs/glib -sysprof
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-02-26)
 # Vulkan is available on x86.
+dev-qt/qt3d -vulkan
 dev-qt/qtdeclarative -vulkan
 dev-qt/qtgui -vulkan
 dev-qt/qtwayland -vulkan
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-29)
-# media-libs/pulseaudio-qt is not keyworded
-kde-misc/kdeconnect pulseaudio
+media-video/pipewire -vulkan
 
 # Georgy Yakovlev <gyakovlev@gentoo.org (2020-01-04)
 # zfs is not keyworded on x86
@@ -132,10 +146,11 @@ app-admin/conserver -freeipmi
 # No Spice protocol for x86
 app-emulation/nemu spice
 
-# Thomas Deutschmann <whissi@gentoo.org> (2018-11-15)
+# Thomas Deutschmann <whissi@gentoo.org> (2020-10-06)
+# - aesni plugin is supported on x86
 # - rdrand plugin is supported on x86
 # - padlock plugin is supported on x86
-net-vpn/strongswan -strongswan_plugins_rdrand -strongswan_plugins_padlock
+net-vpn/strongswan -strongswan_plugins_aesni -strongswan_plugins_rdrand -strongswan_plugins_padlock
 
 # Alexys Jacob <ultrabug@gentoo.org> (2018-11-05)
 # Requires dev-db/mongodb which has dropped x86 support
@@ -192,9 +207,10 @@ media-gfx/digikam mediaplayer
 # Requires USE=cuda that is masked in this profile.
 media-gfx/blender opensubdiv
 
-# Thomas Deutschmann <whissi@gentoo.org> (2017-03-01)
-# dev-libs/libmaxminddb is keyworded on x86
-app-admin/rsyslog -mdblookup
+# Thomas Deutschmann <whissi@gentoo.org> (2020-10-22)
+# -imhttp: www-servers/civetweb is keyworded on x86
+# -mdblookup: dev-libs/libmaxminddb is keyworded on x86
+app-admin/rsyslog -imhttp -mdblookup
 
 # David Seifert <soap@gentoo.org> (2017-02-10)
 # Requires dev-lua/ldoc for building documentation,
@@ -231,6 +247,8 @@ dev-db/mariadb -jdbc
 # Mike Gilbert <floppym@gentoo.org> (2016-03-03)
 # chrome-binary-plugins dropped x86 support
 www-client/chromium widevine
+www-client/vivaldi widevine
+www-client/vivaldi-snapshot widevine
 
 # Ian Delaney <idella4@gentoo.org> (2015-12-02)
 # mask revdeps of xen that emply a hypervisor in arch x86
@@ -281,7 +299,7 @@ app-editors/gvim -luajit -racket
 
 # Kacper Kowalik <xarthisius@gentoo.org> (2013-08-09)
 # Works on x86
-sys-apps/hwloc -gl
+sys-apps/hwloc -gl -nvml
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (2012-11-03)
 # Unmask here, as it's masked in base.

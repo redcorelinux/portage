@@ -15,7 +15,10 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
+
+# Fails due to problems with dev-python/flexmock-0.10.4; see Bug #740128
+RESTRICT="test"
 
 # borg is called as an external tool, hence no pythonic stuff
 RDEPEND="app-backup/borgbackup

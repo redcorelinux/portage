@@ -5,12 +5,14 @@
 # - attempt +test, linked bug claims to be fixed
 
 EAPI=7
+
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 VIRTUALX_REQUIRED="manual"
-inherit desktop eutils xdg-utils toolchain-funcs
+inherit desktop distutils-r1 eutils xdg-utils toolchain-funcs
 
 MY_P="stone_soup-${PV}"
 DESCRIPTION="Role-playing roguelike game of exploration and treasure-hunting in dungeons"
-HOMEPAGE="http://crawl.develz.org/wordpress/"
+HOMEPAGE="https://crawl.develz.org"
 SRC_URI="
 	https://crawl.develz.org/release/$(ver_cut 1-2)/${PN/-/_}-${PV}.tar.xz
 	https://dev.gentoo.org/~hasufell/distfiles/${PN}.png
@@ -23,7 +25,7 @@ SRC_URI="
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug ncurses sound test +tiles"
 # test is broken
 # see https://crawl.develz.org/mantis/view.php?id=6121
@@ -50,10 +52,12 @@ RDEPEND="
 	)"
 DEPEND="${RDEPEND}
 	dev-lang/perl
-	dev-python/pyyaml
+	dev-python/pyyaml[${PYTHON_USEDEP}]
 	sys-devel/flex
 	tiles? (
-		sys-libs/ncurses:0
+		   app-arch/advancecomp
+		   media-gfx/pngcrush
+		   sys-libs/ncurses:0
 	)
 	virtual/pkgconfig
 	virtual/yacc

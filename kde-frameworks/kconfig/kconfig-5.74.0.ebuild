@@ -9,7 +9,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework for reading and writing configuration"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="dbus nls"
 
 BDEPEND="
@@ -31,6 +31,7 @@ DOCS=( DESIGN docs/DESIGN.kconfig docs/options.md )
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
 		-DKCONFIG_USE_DBUS=$(usex dbus)
 	)
 	ecm_src_configure

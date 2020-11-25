@@ -156,7 +156,7 @@ RDEPEND="${DEPEND}
 		diskprediction? (
 			$(python_gen_cond_dep '<dev-python/scipy-1.4.0[${PYTHON_USEDEP}]' python3_{6,7})
 		)
-		sci-libs/scikits_learn[${PYTHON_USEDEP}]
+		sci-libs/scikit-learn[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 	)
 "
@@ -201,6 +201,7 @@ PATCHES=(
 	"${FILESDIR}/ceph-15.2.4-system-uring.patch"
 	"${FILESDIR}/ceph-15.2.5-missing-includes.patch"
 	"${FILESDIR}/ceph-15.2.5-systemd-unit-fix.patch"
+	"${FILESDIR}/ceph-15.2.5-glibc-2.32.patch"
 )
 
 check-reqs_export_vars() {

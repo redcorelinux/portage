@@ -8,11 +8,11 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Tool to check contrast for colors to verify they are correctly accessible"
-HOMEPAGE="https://invent.kde.org/accessibility/kontrast"
+HOMEPAGE="https://apps.kde.org/en/kontrast"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64 arm64 x86"
 fi
 
 LICENSE="GPL-3+"

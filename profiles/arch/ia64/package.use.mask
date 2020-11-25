@@ -1,6 +1,14 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Cédric Krier <cedk@gentoo.org> (2020-11-10)
+# virtual/rust has no ia64 keyword
+dev-vcs/mercurial rust
+
+# Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com> (2020-10-14)
+# app-i18n/fcitx:4 not keyworded.
+media-libs/libsdl2 fcitx4
+
 # Sergei Trofimovich <slyfox@gentoo.org> (2020-09-18)
 # media-libs/libilbc is not ported to ia64
 net-analyzer/wireshark ilbc
@@ -60,6 +68,8 @@ gnome-base/nautilus previewer
 # - net-libs/gnome-online-accounts: depends on webkit-gtk
 gnome-base/gnome-control-center flickr
 gnome-base/gvfs google
+# app-text/libgepub depends on webkit-gtk.
+xfce-extra/tumbler epub
 
 # Thomas Deutschmann <whissi@gentoo.org> (2020-03-15)
 # Mask USE=libtesseract, app-text/tesseract is not keyworded
@@ -407,7 +417,6 @@ www-client/elinks javascript
 
 # Raúl Porcel <armin76@gentoo.org> (2010-06-26)
 # custom-optimization doesn't work on ia64
-mail-client/thunderbird custom-optimization
 www-client/firefox custom-optimization
 www-client/seamonkey custom-optimization
 

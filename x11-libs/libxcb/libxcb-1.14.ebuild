@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_6,3_7,3_8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 PYTHON_REQ_USE=xml
 
 XORG_TARBALL_SUFFIX="xz"
@@ -33,6 +33,10 @@ DEPEND="${RDEPEND}
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep '>=x11-base/xcb-proto-1.14[${PYTHON_USEDEP}]')
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-tests-don-t-use-deprecated-fail_unless-check-API.patch
+)
 
 python_check_deps() {
 	has_version -b ">=x11-base/xcb-proto-1.14[${PYTHON_USEDEP}]"

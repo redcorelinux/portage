@@ -1,0 +1,14 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/base:= dev-ml/ppx_assert:= dev-ml/stdio:= dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?]
+DESCRIPTION=Compile-time configuration for Jane Street libraries
+EAPI=7
+HOMEPAGE=https://github.com/janestreet/jst-config
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/base:= dev-ml/ppx_assert:= dev-ml/stdio:= dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?]
+SLOT=0/0.14.0
+SRC_URI=https://github.com/janestreet/jst-config/archive/v0.14.0.tar.gz -> jst-config-0.14.0.tar.gz
+_eclasses_=dune	31e50aa986270c1f8ba957a9dd3f6fcf
+_md5_=7e9db86c39113df60d1a4dde2916e4db

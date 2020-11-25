@@ -11,7 +11,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="nls"
 
 BDEPEND="
@@ -24,3 +24,10 @@ DEPEND="
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
+	)
+	ecm_src_configure
+}

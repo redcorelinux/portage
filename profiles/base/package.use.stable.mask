@@ -4,9 +4,15 @@
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in package.use.mask
 
-# Michał Górny <mgorny@gentoo.org> (2020-09-20)
-# Always build python-exec with all the targets.
-dev-lang/python-exec -python_targets_python3_9
+# James Le Cuirot <sam@gentoo.org> (2020-11-23)
+# Cinnamon is not stable on any architecture.
+x11-themes/arc-theme cinnamon
+
+# Sam James <sam@gentoo.org> (2020-10-09)
+# Depends on dev-libs/boost[python,numpy], not fully working atm
+# bug #733830, bug #746740, bug #753566
+media-gfx/openvdb python numpy
+media-libs/openimageio python
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2020-09-18)
 # openjfx:8 will never be stabilized
@@ -42,17 +48,9 @@ dev-libs/boost numpy
 # for stable systems
 dev-lang/rust miri nightly parallel-compiler system-bootstrap
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2019-12-18)
-# Neither sys-apps/bolt nor kde-plasma/plasma-thunderbolt are stable
-<kde-plasma/plasma-meta-5.19 thunderbolt
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-12-09)
 # Declared experimental, and dev-cpp/websocketpp not stable yet
 sci-libs/indilib websocket
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2019-11-28)
-# sci-libs/vtk is not stable anymore
-media-libs/opencv vtk
 
 # Kent Fredric <kentnl@gentoo.org> (2019-08-29)
 # Support for DBD-mysql to use mariadb is sketchy. Use DBD-MariaDB
@@ -98,10 +96,8 @@ media-gfx/alembic arnold maya
 media-plugins/grilo-plugins chromaprint
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-02-16)
-# media-libs/opencv[contrib,contribdnn], net-libs/libmediawiki,
-# net-libs/libkvkontakte all not stable anywhere.
+# net-libs/libmediawiki, net-libs/libkvkontakte not stable anywhere.
 kde-apps/kipi-plugins mediawiki vkontakte
-media-gfx/digikam dnn vkontakte
 
 # Mikle Kolyada <zlogene@gentoo.org> (2018-11-07)
 # sssd is only stable for amd64 and x86
@@ -172,10 +168,6 @@ kde-apps/cantor julia
 # This is stable masked as g-sorcery is being not actively developed.
 app-portage/layman g-sorcery
 
-# Michael Palimaka <kensington@gentoo.org (2017-01-26)
-# Requires testing version of media-libs/opencv
-media-libs/mlt opencv
-
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2017-01-15)
 # Has no stable reverse deps requiring this useflag
 # Stable-masking it so Boost 1.62 stabilization can go ahead
@@ -243,7 +235,7 @@ app-emulation/xen-tools ocaml
 # Samuli Suominen <ssuominen@gentoo.org> (2014-03-19)
 # Some open source OpenCL providers cause sandbox violation while accessing /dev/dri/card*
 # from a command like eg. `/usr/bin/mogrify -version`, see bug #472766
-media-gfx/imagemagick opencl
+<media-gfx/imagemagick-7.0.10.34 opencl
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (2013-03-28)
 # Depends on unstable sci-libs/avogadrolibs

@@ -14,7 +14,7 @@ else
 	DOCKER_GITCOMMIT=4484c46d9d
 	MY_PV=${PV/_/-}
 	SRC_URI="https://${EGO_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 ppc64 ~x86"
 	[ "$DOCKER_GITCOMMIT" ] || die "DOCKER_GITCOMMIT must be added manually for each bump!"
 	inherit golang-vcs-snapshot
 fi
@@ -72,7 +72,7 @@ CONFIG_CHECK="
 	~KEYS
 	~VETH ~BRIDGE ~BRIDGE_NETFILTER
 	~IP_NF_FILTER ~IP_NF_TARGET_MASQUERADE
-	~NETFILTER_XT_MATCH_ADDRTYPE ~NETFILTER_XT_MATCH_CONNTRACK ~NETFILTER_XT_MATCH_IPVS
+	~NETFILTER_NETLINK ~NETFILTER_XT_MATCH_ADDRTYPE ~NETFILTER_XT_MATCH_CONNTRACK ~NETFILTER_XT_MATCH_IPVS
 	~IP_NF_NAT ~NF_NAT
 	~POSIX_MQUEUE
 
@@ -93,7 +93,7 @@ CONFIG_CHECK="
 	~IPVLAN
 	~MACVLAN ~DUMMY
 
-	~OVERLAY_FS
+	~OVERLAY_FS ~!OVERLAY_FS_REDIRECT_DIR
 	~EXT4_FS_SECURITY
 	~EXT4_FS_POSIX_ACL
 "
@@ -302,15 +302,32 @@ pkg_postinst() {
 
 	elog
 	elog "To use Docker, the Docker daemon must be running as root. To automatically"
-	elog "start the Docker daemon at boot, add Docker to the default runlevel:"
-	elog "  rc-update add docker default"
-	elog "Similarly for systemd:"
-	elog "  systemctl enable docker.service"
+	elog "start the Docker daemon at boot:"
+	if systemd_is_booted || has_version sys-apps/systemd; then
+		elog "  systemctl enable docker.service"
+	else
+		elog "  rc-update add docker default"
+	fi
 	elog
 	elog "To use Docker as a non-root user, add yourself to the 'docker' group:"
-	elog "  usermod -aG docker youruser"
+	elog '  usermod -aG docker <youruser>'
 	elog
 
-	elog " Devicemapper storage driver has been deprecated"
-	elog " It will be removed in a future release"
+	if use device-mapper; then
+		elog " Devicemapper storage driver has been deprecated"
+		elog " It will be removed in a future release"
+		elog
+	fi
+
+	if use overlay; then
+		elog " Overlay storage driver/USEflag has been deprecated"
+		elog " in favor of overlay2 (enabled unconditionally)"
+		elog
+	fi
+
+	if has_version sys-fs/zfs; then
+		elog " ZFS storage driver is available"
+		elog " Check https://docs.docker.com/storage/storagedriver/zfs-driver for more info"
+		elog
+	fi
 }

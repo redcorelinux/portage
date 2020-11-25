@@ -10,10 +10,11 @@ inherit cmake llvm.org multilib-minimal pax-utils python-any-r1 \
 DESCRIPTION="Low Level Virtual Machine"
 HOMEPAGE="https://llvm.org/"
 LLVM_COMPONENTS=( llvm )
+LLVM_MANPAGES=build
 llvm.org_set_globals
 
 # Those are in lib/Targets, without explicit CMakeLists.txt mention
-ALL_LLVM_EXPERIMENTAL_TARGETS=( ARC VE )
+ALL_LLVM_EXPERIMENTAL_TARGETS=( ARC CSKY VE )
 # Keep in sync with CMakeLists.txt
 ALL_LLVM_TARGETS=( AArch64 AMDGPU ARM AVR BPF Hexagon Lanai Mips MSP430
 	NVPTX PowerPC RISCV Sparc SystemZ WebAssembly X86 XCore
@@ -53,16 +54,18 @@ DEPEND="${RDEPEND}
 	gold? ( sys-libs/binutils-libs )"
 BDEPEND="
 	dev-lang/perl
+	>=dev-util/cmake-3.16
 	sys-devel/gnuconfig
 	kernel_Darwin? (
 		<sys-libs/libcxx-$(ver_cut 1-3).9999
 		>=sys-devel/binutils-apple-5.1
 	)
-	libffi? ( virtual/pkgconfig )
-	$(python_gen_any_dep '
+	doc? ( $(python_gen_any_dep '
+		dev-python/recommonmark[${PYTHON_USEDEP}]
 		dev-python/sphinx[${PYTHON_USEDEP}]
-		doc? ( dev-python/recommonmark[${PYTHON_USEDEP}] )
-	')"
+	') )
+	libffi? ( virtual/pkgconfig )
+	${PYTHON_DEPS}"
 # There are no file collisions between these versions but having :0
 # installed means llvm-config there will take precedence.
 RDEPEND="${RDEPEND}
@@ -71,10 +74,9 @@ PDEPEND="sys-devel/llvm-common
 	gold? ( >=sys-devel/llvmgold-${SLOT} )"
 
 python_check_deps() {
-	if use doc; then
-		has_version -b "dev-python/recommonmark[${PYTHON_USEDEP}]" ||
-			return 1
-	fi
+	use doc || return 0
+
+	has_version -b "dev-python/recommonmark[${PYTHON_USEDEP}]" &&
 	has_version -b "dev-python/sphinx[${PYTHON_USEDEP}]"
 }
 
@@ -137,7 +139,7 @@ check_distribution_components() {
 						;;
 					# used only w/ USE=doc
 					docs-llvm-html)
-						continue
+						use doc || continue
 						;;
 				esac
 
@@ -241,6 +243,7 @@ get_distribution_components() {
 			llvm-ar
 			llvm-as
 			llvm-bcanalyzer
+			llvm-bitcode-strip
 			llvm-c-test
 			llvm-cat
 			llvm-cfi-verify
@@ -262,6 +265,7 @@ get_distribution_components() {
 			llvm-ifs
 			llvm-install-name-tool
 			llvm-jitlink
+			llvm-jitlink-executor
 			llvm-lib
 			llvm-libtool-darwin
 			llvm-link
@@ -297,17 +301,22 @@ get_distribution_components() {
 			opt
 			sancov
 			sanstats
+			split-file
 			verify-uselistorder
 			yaml2obj
 
 			# python modules
 			opt-viewer
-
-			# manpages
-			docs-dsymutil-man
-			docs-llvm-dwarfdump-man
-			docs-llvm-man
 		)
+
+		if llvm_are_manpages_built; then
+			out+=(
+				# manpages
+				docs-dsymutil-man
+				docs-llvm-dwarfdump-man
+				docs-llvm-man
+			)
+		fi
 		use doc && out+=(
 			docs-llvm-html
 		)
@@ -363,6 +372,8 @@ multilib_src_configure() {
 		# used only for llvm-objdump tool
 		-DHAVE_LIBXAR=$(multilib_native_usex xar 1 0)
 
+		-DPython3_EXECUTABLE="${PYTHON}"
+
 		# disable OCaml bindings (now in dev-ml/llvm-ocaml)
 		-DOCAMLFIND=NO
 	)
@@ -389,15 +400,22 @@ multilib_src_configure() {
 	)
 
 	if multilib_is_native_abi; then
+		local build_docs=OFF
+		if llvm_are_manpages_built; then
+			build_docs=ON
+			mycmakeargs+=(
+				-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/${SLOT}/share/man"
+				-DLLVM_INSTALL_SPHINX_HTML_DIR="${EPREFIX}/usr/share/doc/${PF}/html"
+				-DSPHINX_WARNINGS_AS_ERRORS=OFF
+			)
+		fi
+
 		mycmakeargs+=(
-			-DLLVM_BUILD_DOCS=ON
+			-DLLVM_BUILD_DOCS=${build_docs}
 			-DLLVM_ENABLE_OCAMLDOC=OFF
-			-DLLVM_ENABLE_SPHINX=ON
+			-DLLVM_ENABLE_SPHINX=${build_docs}
 			-DLLVM_ENABLE_DOXYGEN=OFF
 			-DLLVM_INSTALL_UTILS=ON
-			-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/${SLOT}/share/man"
-			-DLLVM_INSTALL_SPHINX_HTML_DIR="${EPREFIX}/usr/share/doc/${PF}/html"
-			-DSPHINX_WARNINGS_AS_ERRORS=OFF
 		)
 		use gold && mycmakeargs+=(
 			-DLLVM_BINUTILS_INCDIR="${EPREFIX}"/usr/include
@@ -492,6 +510,7 @@ multilib_src_install_all() {
 	_EOF_
 
 	docompress "/usr/lib/llvm/${SLOT}/share/man"
+	llvm_install_manpages
 }
 
 pkg_postinst() {

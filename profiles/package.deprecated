@@ -17,21 +17,15 @@
 
 #--- END OF EXAMPLES ---
 
-# Jesus P Rey <gentoo@chuso.net> (2020-09-26)
-# Only one provider left; media-video/ffmpeg should be used instead
-# Bug #744787
-virtual/ffmpeg
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-11-20)
+# dev-qt/qtwebkit is in the process of being removed, tracker bug #684580
+dev-qt/qtwebkit
 
 # Thomas Deutschmann <whissi@gentoo.org> (2020-09-08)
 # Dead implementations, please migrate to >=zeromq-4
 dev-perl/ZMQ-LibZMQ2
 dev-perl/ZMQ-LibZMQ3
 <net-libs/zeromq-4
-
-# Joonas Niilola <juippis@gentoo.org> (2020-07-13)
-# Abandoned upstream, switch to dev-python/mysqlclient which is a maintained 
-# fork. #710024
-dev-python/mysql-python
 
 # Mart Raudsepp <leio@gentoo.org> (2020-07-04)
 # Port to gtk+:3 using wxGTK:3.0-gtk3 SLOT
@@ -50,15 +44,8 @@ sys-power/pm-utils
 dev-perl/Net-SMTP-SSL
 
 # Matt Turner <mattst88@gentoo.org> (2020-03-17)
-# Deprecated GNOME 2 era packages
-# Bugs #640022, #713010, #726784, #728956
+# Deprecated GNOME 2 era packages, bug #751001
 gnome-base/gnome-vfs
-gnome-base/libbonobo
-gnome-base/libbonoboui
-gnome-base/libgnome
-gnome-base/libgnome-keyring
-gnome-base/libgnomeui
-gnome-base/orbit
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-03-08)
 # x11-libs/gtkglext is in the process of being removed, tracker bug #698950

@@ -2,59 +2,57 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit systemd tmpfiles toolchain-funcs
 
 DESCRIPTION="NTP client and server programs"
 HOMEPAGE="https://chrony.tuxfamily.org/"
 
 if [[ ${PV} == "9999" ]]; then
-	EGIT_REPO_URI="https://git.tuxfamily.org/chrony/chrony.git"
-
 	inherit git-r3
+	EGIT_REPO_URI="https://git.tuxfamily.org/chrony/chrony.git"
 else
 	SRC_URI="https://download.tuxfamily.org/${PN}/${P/_/-}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
+S="${WORKDIR}/${P/_/-}"
+
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="
-	+caps +cmdmon html ipv6 libedit +nettle +ntp +phc pps readline +refclock
-	+rtc samba +seccomp +sechash selinux
-"
-REQUIRED_USE="
-	?? ( libedit readline )
-	sechash? ( nettle )
-"
-RESTRICT=test
-CDEPEND="
-	caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap )
+IUSE="+caps +cmdmon html ipv6 libedit +nettle +ntp +phc pps +refclock +rtc samba +seccomp +sechash selinux"
+REQUIRED_USE="sechash? ( nettle )"
+RESTRICT="test"
+
+BDEPEND="nettle? ( virtual/pkgconfig )"
+
+if [[ ${PV} == "9999" ]]; then
+	# Needed for doc generation in 9999
+	BDEPEND+=" virtual/w3m"
+	REQUIRED_USE+=" html"
+fi
+
+DEPEND="
+	caps? (
+		acct-group/ntp
+		acct-user/ntp
+		sys-libs/libcap
+	)
 	libedit? ( dev-libs/libedit )
 	nettle? ( dev-libs/nettle:= )
-	readline? ( >=sys-libs/readline-4.1-r4:= )
 	seccomp? ( sys-libs/libseccomp )
-"
-DEPEND="
-	${CDEPEND}
 	html? ( dev-ruby/asciidoctor )
 	pps? ( net-misc/pps-tools )
 "
 RDEPEND="
-	${CDEPEND}
+	${DEPEND}
 	selinux? ( sec-policy/selinux-chronyd )
 "
-BDEPEND="
-	nettle? ( virtual/pkgconfig )
-"
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.5-pool-vendor-gentoo.patch
 	"${FILESDIR}"/${PN}-3.5-r3-systemd-gentoo.patch
 )
-S="${WORKDIR}/${P/_/-}"
-
-if [[ ${PV} == "9999" ]]; then
-	BDEPEND+=" virtual/w3m"
-fi
 
 src_prepare() {
 	default
@@ -86,18 +84,6 @@ src_configure() {
 
 	tc-export CC PKG_CONFIG
 
-	local CHRONY_EDITLINE
-	# ./configure legend:
-	# --disable-readline : disable line editing entirely
-	# --without-readline : do not use sys-libs/readline (enabled by default)
-	# --without-editline : do not use dev-libs/libedit (enabled by default)
-	if ! use readline && ! use libedit; then
-		CHRONY_EDITLINE='--disable-readline'
-	else
-		CHRONY_EDITLINE+=" $(usex readline '' --without-readline)"
-		CHRONY_EDITLINE+=" $(usex libedit '' --without-editline)"
-	fi
-
 	# Note: ncurses and nss switches are mentioned in the configure script but
 	# do nothing
 	# not an autotools generated script
@@ -106,6 +92,7 @@ src_configure() {
 		$(usex caps '' --disable-linuxcaps)
 		$(usex cmdmon '' --disable-cmdmon)
 		$(usex ipv6 '' --disable-ipv6)
+		$(usex libedit '' --without-editline)
 		$(usex nettle '' --without-nettle)
 		$(usex ntp '' --disable-ntp)
 		$(usex phc '' --disable-phc)
@@ -114,7 +101,6 @@ src_configure() {
 		$(usex rtc '' --disable-rtc)
 		$(usex samba --enable-ntp-signd '')
 		$(usex sechash '' --disable-sechash)
-		${CHRONY_EDITLINE}
 		${EXTRA_ECONF}
 		--chronysockdir="${EPREFIX}/run/chrony"
 		--docdir="${EPREFIX}/usr/share/doc/${PF}"

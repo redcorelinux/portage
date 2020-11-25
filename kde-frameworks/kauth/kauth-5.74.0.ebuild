@@ -10,7 +10,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="nls +policykit"
 
 BDEPEND="
@@ -28,6 +28,7 @@ PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
 		$(cmake_use_find_package policykit PolkitQt5-1)
 	)
 

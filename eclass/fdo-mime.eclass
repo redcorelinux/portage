@@ -1,5 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
+# @DEAD
+# No consumers left. Removal in 30 days.
 
 # @ECLASS: fdo-mime.eclass
 # @MAINTAINER:
@@ -7,6 +10,7 @@
 # @AUTHOR:
 # Original author: foser <foser@gentoo.org>
 # @BLURB: Utility eclass to update the desktop mime info as laid out in the freedesktop specs & implementations
+# @DEPRECATED: xdg-utils
 # @DESCRIPTION:
 # This eclass is DEPRECATED. Please use xdg-utils or xdg instead.
 

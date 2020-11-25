@@ -1,6 +1,18 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-11-12)
+# media-sound/lash not keyworded, bug #736725
+media-sound/fluidsynth lash
+
+# Cédric Krier <cedk@gentoo.org> (2020-11-10)
+# virtual/rust has no alpha keyword
+dev-vcs/mercurial rust
+
+# Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com> (2020-10-14)
+# app-i18n/fcitx:4 not keyworded.
+media-libs/libsdl2 fcitx4
+
 # Sergei Trofimovich <slyfox@gentoo.org> (2020-09-18)
 # media-libs/libilbc is not ported to alpha
 net-analyzer/wireshark ilbc
@@ -27,6 +39,8 @@ app-office/planner eds
 gnome-base/nautilus previewer
 # needs libgdata[gnome-online-accounts], depends on net-libs/webkit-gtk
 gnome-base/gvfs google
+# needs app-text/libgepub which depends on webkit-gtk
+xfce-extra/tumbler epub
 
 # Robin H. Johnson <robbat2@gentoo.org> (2020-07-02)
 # Mask io-uring & zbc pending keywording
@@ -407,8 +421,6 @@ sys-apps/smartmontools caps
 
 # Raúl Porcel <armin76@gentoo.org> (2010-06-26)
 # custom-optimization doesn't work on alpha
-mail-client/thunderbird custom-optimization
-www-client/firefox custom-optimization
 www-client/seamonkey custom-optimization
 
 # Kacper Kowalik <xarthisius@gentoo.org> (2010-05-30)

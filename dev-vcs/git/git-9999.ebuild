@@ -51,7 +51,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg highlight +iconv libressl mediawiki mediawiki-experimental +nls +pcre +pcre-jit perforce +perl +ppcsha1 tk +threads +webdav xinetd cvs subversion test"
+IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg highlight +iconv libressl mediawiki mediawiki-experimental +nls +pcre +pcre-jit perforce +perl +ppcsha1 subversion tk +threads +webdav xinetd cvs test"
 
 # Common to both DEPEND and RDEPEND
 DEPEND="
@@ -131,10 +131,10 @@ REQUIRED_USE="
 	cvs? ( perl )
 	mediawiki? ( perl )
 	mediawiki-experimental? ( mediawiki )
-	subversion? ( perl )
-	webdav? ( curl )
 	pcre-jit? ( pcre )
 	perforce? ( ${PYTHON_REQUIRED_USE} )
+	subversion? ( perl )
+	webdav? ( curl )
 "
 
 RESTRICT="!test? ( test )"
@@ -143,18 +143,17 @@ PATCHES=(
 	# bug #350330 - automagic CVS when we don't want it is bad.
 	"${FILESDIR}"/git-2.22.0_rc0-optional-cvs.patch
 
-	"${FILESDIR}"/git-2.2.0-svn-fe-linking.patch
-
 	# Make submodule output quiet
 	"${FILESDIR}"/git-2.21.0-quiet-submodules-testcase.patch
 )
 
 pkg_setup() {
-	if use subversion && has_version "dev-vcs/subversion[dso]"; then
+	if use subversion && has_version "dev-vcs/subversion[dso]" ; then
 		ewarn "Per Gentoo bugs #223747, #238586, when subversion is built"
 		ewarn "with USE=dso, there may be weird crashes in git-svn. You"
 		ewarn "have been warned."
 	fi
+
 	if use perforce ; then
 		python-single-r1_pkg_setup
 	fi
@@ -201,9 +200,6 @@ exportmakeopts() {
 		OLD_ICONV=
 		NO_EXTERNAL_GREP=
 	)
-
-	# For svn-fe
-	extlibs=( -lz -lssl ${S}/xdiff/lib.a $(usex threads -lpthread '') )
 
 	# can't define this to null, since the entire makefile depends on it
 	sed -i -e '/\/usr\/local/s/BASIC_/#BASIC_/' Makefile || die
@@ -299,7 +295,7 @@ src_prepare() {
 		-e 's:^\(AR[[:space:]]* =\).*$:\1$(OPTAR):' \
 		-e "s:\(PYTHON_PATH[[:space:]]\+=[[:space:]]\+\)\(.*\)$:\1${EPREFIX}\2:" \
 		-e "s:\(PERL_PATH[[:space:]]\+=[[:space:]]\+\)\(.*\)$:\1${EPREFIX}\2:" \
-		Makefile contrib/svn-fe/Makefile || die
+		Makefile || die
 
 	# Fix docbook2texi command
 	sed -r -i 's/DOCBOOK2X_TEXI[[:space:]]*=[[:space:]]*docbook2x-texi/DOCBOOK2X_TEXI = docbook2texi.pl/' \
@@ -367,25 +363,6 @@ src_compile() {
 		fi
 	fi
 	popd &>/dev/null || die
-
-	if use subversion ; then
-		pushd contrib/svn-fe &>/dev/null || die
-		# by defining EXTLIBS we override the detection for libintl and
-		# libiconv, bug #516168
-		local nlsiconv=()
-		use nls && use !elibc_glibc && nlsiconv+=( -lintl )
-		use iconv && use !elibc_glibc && nlsiconv+=( -liconv )
-		git_emake EXTLIBS="${EXTLIBS} ${nlsiconv[@]}" \
-			|| die "emake svn-fe failed"
-		if use doc ; then
-			# svn-fe.1 requires the full USE=doc dependency stack
-			git_emake svn-fe.1 \
-				|| die "emake svn-fe.1 failed"
-			git_emake svn-fe.html \
-				|| die "svn-fe.html failed"
-		fi
-		popd &>/dev/null || die
-	fi
 
 	if use gnome-keyring ; then
 		pushd contrib/credential/libsecret &>/dev/null || die
@@ -494,19 +471,6 @@ src_install() {
 	if use gnome-keyring ; then
 		pushd contrib/credential/libsecret &>/dev/null || die
 		dobin git-credential-libsecret
-		popd &>/dev/null || die
-	fi
-
-	if use subversion ; then
-		pushd contrib/svn-fe &>/dev/null || die
-		dobin svn-fe
-		dodoc svn-fe.txt
-		if use doc ; then
-			# Do not move svn-fe.1 outside USE=doc!
-			doman svn-fe.1
-			docinto html
-			dodoc svn-fe.html
-		fi
 		popd &>/dev/null || die
 	fi
 

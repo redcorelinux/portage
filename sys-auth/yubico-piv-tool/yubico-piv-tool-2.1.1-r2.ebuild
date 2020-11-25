@@ -5,13 +5,13 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="Command line tool for the YubiKey PIV application"
+DESCRIPTION="Command-line tool and p11-kit module for the YubiKey PIV application"
 SRC_URI="https://github.com/Yubico/yubico-piv-tool/archive/yubico-piv-tool-${PV}.tar.gz"
 HOMEPAGE="https://developers.yubico.com/yubico-piv-tool/ https://github.com/Yubico/yubico-piv-tool"
 
 LICENSE="BSD-2"
 SLOT="0/1"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="libressl test"
 
 RESTRICT="!test? ( test )"
@@ -27,6 +27,7 @@ BDEPEND="dev-util/gengetopt
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.1-install-man-page.patch
+	"${FILESDIR}"/${PN}-2.1.1-no-Werror.patch
 	"${FILESDIR}"/${PN}-2.1.1-tests-optional.patch
 	"${FILESDIR}"/${PN}-2.1.1-ykcs11-threads.patch
 )

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Reference-LAPACK/lapack/archive/v${PV}.tar.gz -> ${P
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="lapacke doc eselect-ldso test"
 # TODO: static-libs 64bit-index
 RESTRICT="!test? ( test )"
@@ -21,10 +21,6 @@ RDEPEND="
 	eselect-ldso? ( >=app-eselect/eselect-blas-0.2
 	>=app-eselect/eselect-lapack-0.2 )
 	!app-eselect/eselect-cblas
-	!sci-libs/blas-reference
-	!sci-libs/cblas-reference
-	!sci-libs/lapack-reference
-	!sci-libs/lapacke-reference
 	virtual/fortran
 	doc? ( app-doc/blas-docs )"
 DEPEND="${RDEPEND}

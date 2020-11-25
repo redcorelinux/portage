@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python{3_6,3_7,3_8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 PYTHON_REQ_USE="ncurses,readline"
 
 PLOCALES="bg de_DE fr_FR hu it sv tr zh_CN"
@@ -41,7 +41,7 @@ IUSE="accessibility +aio alsa bzip2 capstone +caps +curl debug doc
 	ncurses nfs nls numa opengl +oss +pin-upstream-blobs
 	plugins +png pulseaudio python rbd sasl +seccomp sdl sdl-image selinux
 	+slirp
-	smartcard snappy spice ssh static static-user systemtap tci test usb
+	smartcard snappy spice ssh static static-user systemtap test usb
 	usbredir vde +vhost-net vhost-user-fs virgl virtfs +vnc vte xattr xen
 	xfs +xkb zstd"
 
@@ -123,7 +123,7 @@ SOFTMMU_TOOLS_DEPEND="
 		sys-fabric/librdmacm:=[static-libs(+)]
 	)
 	iscsi? ( net-libs/libiscsi )
-	io-uring? ( sys-libs/liburing[static-libs(+)] )
+	io-uring? ( sys-libs/liburing:=[static-libs(+)] )
 	jack? ( virtual/jack )
 	jemalloc? ( dev-libs/jemalloc )
 	jpeg? ( virtual/jpeg:0=[static-libs(+)] )
@@ -225,7 +225,6 @@ RDEPEND="${CDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.11.1-capstone_include_path.patch
-	"${FILESDIR}"/${PN}-9999-cflags.patch
 )
 
 QA_PREBUILT="
@@ -334,7 +333,7 @@ check_targets() {
 	local var=$1 mak=$2
 	local detected sorted
 
-	pushd "${S}"/default-configs >/dev/null || die
+	pushd "${S}"/default-configs/targets/ >/dev/null || die
 
 	# Force C locale until glibc is updated. #564936
 	detected=$(echo $(printf '%s\n' *-${mak}.mak | sed "s:-${mak}.mak::" | LC_COLLATE=C sort -u))
@@ -417,6 +416,16 @@ qemu_src_configure() {
 		--disable-containers # bug #732972
 		--disable-guest-agent
 		--disable-strip
+
+		# bug #746752: TCG interpreter has a few limitations:
+		# - it does not support FPU
+		# - it's generally slower on non-self-modifying code
+		# It's advantage is support for host architectures
+		# where native codegeneration is not implemented.
+		# Gentoo has qemu keyworded only on targets with
+		# native code generation available. Avoid the interpreter.
+		--disable-tcg-interpreter
+
 		--disable-werror
 		# We support gnutls/nettle for crypto operations.  It is possible
 		# to use gcrypt when gnutls/nettle are disabled (but not when they
@@ -431,7 +440,6 @@ qemu_src_configure() {
 		$(use_enable debug debug-tcg)
 		$(use_enable doc docs)
 		$(use_enable plugins)
-		$(use_enable tci tcg-interpreter)
 		$(use_enable xattr attr)
 	)
 
@@ -444,7 +452,7 @@ qemu_src_configure() {
 			use_enable "$@"
 		fi
 	}
-	# Ennable option only for softmmu build, but not 'user' or 'tools'
+	# Enable option only for softmmu build, but not 'user' or 'tools'
 	conf_softmmu() {
 		if [[ ${buildtype} == "softmmu" ]] ; then
 			use_enable "$@"
@@ -568,6 +576,10 @@ qemu_src_configure() {
 	else
 		tc-enables-pie && conf_opts+=( --enable-pie )
 	fi
+
+	# Plumb through equivalent of EXTRA_ECONF to allow experiments
+	# like bug #747928.
+	conf_opts+=( ${EXTRA_CONF_QEMU} )
 
 	echo "../configure ${conf_opts[*]}"
 	cd "${builddir}"

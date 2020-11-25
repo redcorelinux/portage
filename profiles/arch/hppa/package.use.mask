@@ -4,6 +4,22 @@
 # NOTE: When masking a USE flag due to missing keywords, please file a keyword
 # request bug for the hppa arch.
 
+# Michał Górny <mgorny@gentoo.org> (2020-11-18)
+# Requires dev-python/coverage, bug #743355.
+dev-python/nose coverage
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-11-12)
+# media-sound/lash not keyworded, bug #736725
+media-sound/fluidsynth lash
+
+# Cédric Krier <cedk@gentoo.org> (2020-11-10)
+# virtual/rust has no hppa keyword
+dev-vcs/mercurial rust
+
+# Joonas Niilola <juippis@gentoo.org> (2020-10-08)
+# Dependency not keyworded on this arch.
+dev-libs/efl avif
+
 # Matt Turner <mattst88@gentoo.org> (2020-08-11)
 # No drivers on this architecture support Vulkan
 media-libs/mesa vulkan vulkan-overlay zink

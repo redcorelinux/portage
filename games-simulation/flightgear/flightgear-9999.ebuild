@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake bash-completion-r1 toolchain-funcs git-r3
+inherit cmake bash-completion-r1 flag-o-matic toolchain-funcs git-r3
 
 DESCRIPTION="Open Source Flight Simulator"
 HOMEPAGE="https://www.flightgear.org/"
@@ -66,7 +66,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2020.1.2-cmake.patch"
+#	"${FILESDIR}/${PN}-2020.1.2-cmake.patch"
 )
 
 DOCS=(AUTHORS ChangeLog NEWS README Thanks)
@@ -97,7 +97,6 @@ src_configure() {
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_RTI=OFF
 		-DENABLE_SIMD=OFF # see CPU_FLAGS
-		-DENABLE_SIMD_CODE=$(usex cpu_flags_x86_sse2)
 		-DENABLE_STGMERGE=ON
 		-DENABLE_SWIFT=OFF # swift pilot client not packaged yet
 		-DENABLE_TERRASYNC=$(usex utils)

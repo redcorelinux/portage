@@ -1,6 +1,14 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com> (2020-10-14)
+# app-i18n/fcitx:4 not keyworded.
+media-libs/libsdl2 fcitx4
+
+# Joonas Niilola <juippis@gentoo.org> (2020-10-02)
+# Dependency only keyworded on specific arm profiles.
+dev-libs/efl avif
+
 # Adam Feldman <NP-Hardass@gentoo.org> (2020-09-05)
 # dev-util/dogtail is not keyworded for arm
 app-text/atril test
@@ -66,10 +74,6 @@ net-misc/whois xcrypt
 # Dependency has no stable keyword
 # and as for now we have only stable mate versions
 mate-base/mate bluetooth
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-01-26)
-# media-libs/libheif is not keyworded
-media-gfx/gimp heif
 
 # Georgy Yakovlev <gyakovlev@gentoo.org (2020-01-04)
 # zfs is not keyworded on arm
@@ -221,12 +225,6 @@ media-sound/rhythmbox upnp-av
 # Allow jdbc on this arch
 dev-db/mariadb -jdbc
 
-# David Seifert <soap@gentoo.org> (2016-07-31)
-# media-gfx/graphicsmagick is not keyworded on arm, users will need
-# to enable imagemagick flag and disable graphicsmagick use flag
-# to enable conversion facilities
-media-gfx/zbar graphicsmagick
-
 # Amy Winston <amynka@gentoo.org> (2016-06-12)
 # does not build on arm at all (upstream bug)
 dev-scheme/racket futures jit
@@ -284,6 +282,8 @@ media-libs/freeimage tiff
 # Google does not distribute the widevine plugin for ARM. It must be extracted from a Chromebook,
 # and this kind of reverse engineering work likely violates many agreements, so we mask the flag.
 www-client/chromium widevine
+www-client/vivaldi widevine
+www-client/vivaldi-snapshot widevine
 
 # Markus Meier <maekke@gentoo.org> (2015-01-17)
 # Unkeyworded deps, bug #536226
@@ -392,12 +392,6 @@ sci-libs/linux-gpib firmware
 # Christoph Junghans <junghans@gentoo.org> (2013-04-29)
 # MKL not available on this arch
 media-gfx/povray mkl
-
-# Benda Xu <heroxbd@gentoo.org> (2013-04-01)
-# Sam James <sam@gentoo.org> (2020-06-29)
-# net-misc/x11-ssh-askpass nor
-# net-misc/ssh-askpass-fullscreen keyworded
-net-misc/unison gtk
 
 # Julian Ospald <hasufell@gentoo.org> (2013-03-31)
 # depends on mono

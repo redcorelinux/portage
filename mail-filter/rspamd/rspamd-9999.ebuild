@@ -31,16 +31,17 @@ RDEPEND="
 	dev-libs/snowball-stemmer
 	net-libs/libnsl
 	sys-apps/file
-	blas? ( sci-libs/openblas )
+	blas? (
+		virtual/blas
+		virtual/lapack
+	)
 	cpu_flags_x86_ssse3? ( dev-libs/hyperscan )
 	jemalloc? ( dev-libs/jemalloc )
 	jit? (
 		dev-lang/luajit:2
-		dev-lua/lpeg[luajit]
 	)
 	!jit? (
 		dev-lang/lua:*
-		dev-lua/lpeg[-luajit]
 		dev-lua/LuaBitOp
 	)
 	!libressl? ( dev-libs/openssl:0=[-bindist] )
@@ -54,15 +55,15 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/rspamd-2.5-unbundle-lua.patch"
-	"${FILESDIR}/rspamd-2.5-unbundle-zstd.patch"
+	"${FILESDIR}/rspamd-2.6-unbundle-lua.patch"
+	"${FILESDIR}/rspamd-9999-unbundle-zstd.patch"
 	"${FILESDIR}/rspamd-2.5-unbundle-snowball.patch"
 )
 
 src_prepare() {
 	cmake_src_prepare
 
-	rm -vrf contrib/{lua-{bit,lpeg},snowball,zstd} || die
+	rm -vrf contrib/{lua-bit,snowball,zstd} || die
 
 	sed -i -e 's/User=_rspamd/User=rspamd/g' \
 		rspamd.service \

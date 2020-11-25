@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit optfeature
+
 MY_PN="bats-core"
 DESCRIPTION="Bats-core: Bash Automated Testing System"
 HOMEPAGE="https://github.com/bats-core/bats-core/"
@@ -10,7 +12,7 @@ SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 DEPEND="app-shells/bash:*"
 RDEPEND="${DEPEND}"
@@ -30,4 +32,8 @@ src_install() {
 
 	dodoc README.md
 	doman man/${PN}.1 man/${PN}.7
+}
+
+pkg_postinst() {
+	optfeature "Parallel Execution" sys-process/parallel
 }

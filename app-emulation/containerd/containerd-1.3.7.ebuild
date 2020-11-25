@@ -16,7 +16,7 @@ SRC_URI="https://github.com/containerd/${PN}/archive/${CONTAINERD_COMMIT}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ppc64 ~x86"
 IUSE="apparmor btrfs device-mapper +cri hardened +seccomp selinux test"
 
 DEPEND="
@@ -73,7 +73,7 @@ src_compile() {
 src_install() {
 	dobin bin/*
 	doman man/*
-	newinitd "${FILESDIR}"/${PN}.initd-r1 "${PN}"
+	newinitd "${FILESDIR}"/${PN}.initd "${PN}"
 	keepdir /var/lib/containerd
 
 	# we already installed manpages, remove markdown source

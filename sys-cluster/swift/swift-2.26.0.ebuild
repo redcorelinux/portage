@@ -3,6 +3,7 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_7 python3_8 )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 eutils linux-info
 
@@ -14,7 +15,7 @@ if [[ ${PV} == *9999 ]];then
 	EGIT_BRANCH="stable/victoria"
 else
 	SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 x86"
 fi
 
 LICENSE="Apache-2.0"
@@ -23,10 +24,7 @@ IUSE="account container doc +memcached +object proxy"
 REQUIRED_USE="|| ( proxy account container object )"
 
 CDEPEND=">=dev-python/pbr-1.8.0[${PYTHON_USEDEP}]"
-DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	${CDEPEND}"
-
+DEPEND="${CDEPEND}"
 RDEPEND="
 	${CDEPEND}
 	>=dev-python/eventlet-0.25.0[${PYTHON_USEDEP}]

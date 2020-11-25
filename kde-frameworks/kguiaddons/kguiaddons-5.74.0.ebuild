@@ -9,7 +9,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE=""
 
 RDEPEND="
@@ -21,3 +21,10 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	x11-libs/libxcb
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
+	)
+	ecm_src_configure
+}

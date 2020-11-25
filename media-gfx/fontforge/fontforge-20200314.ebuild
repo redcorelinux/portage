@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit python-single-r1 xdg cmake
 
@@ -58,6 +58,7 @@ PATCHES=(
 	"${FILESDIR}"/20200314-big-endian.patch
 	"${FILESDIR}"/fontforge-doc-no-warn-error.patch
 	"${FILESDIR}"/20200314-MacServiceReadFDs.patch
+	"${FILESDIR}"/${P}-freetype-2.10.3.patch
 )
 
 pkg_setup() {

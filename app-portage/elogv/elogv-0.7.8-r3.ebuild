@@ -3,14 +3,14 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} pypy3 )
 PYTHON_REQ_USE="ncurses"
 DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1
 
 DESCRIPTION="Curses based utility to parse the contents of elogs created by Portage"
-HOMEPAGE="https://github.com/gentoo/elogv"
+HOMEPAGE="https://gitweb.gentoo.org/proj/elogv.git/"
 SRC_URI="https://github.com/gentoo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"

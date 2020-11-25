@@ -3,6 +3,7 @@
 
 EAPI=7
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} pypy3 )
 PYTHON_REQ_USE="threads(+)"
 
@@ -15,7 +16,7 @@ SRC_URI="https://github.com/cython/cython/archive/${PV}.tar.gz -> ${P}.gh.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm arm64 hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 IUSE="emacs test"
 RESTRICT="!test? ( test )"
 
@@ -23,7 +24,6 @@ RDEPEND="
 	emacs? ( >=app-editors/emacs-23.1:* )
 "
 BDEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]' \
 			python3_{6,7,8})

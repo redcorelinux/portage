@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6..9} )
 
 inherit bash-completion-r1 check-reqs estack flag-o-matic llvm multiprocessing multilib-build python-any-r1 rust-toolchain toolchain-funcs
 
@@ -12,13 +12,13 @@ if [[ ${PV} = *beta* ]]; then
 	BETA_SNAPSHOT="${betaver:0:4}-${betaver:4:2}-${betaver:6:2}"
 	MY_P="rustc-beta"
 	SLOT="beta/${PV}"
-	SRC="${BETA_SNAPSHOT}/rustc-beta-src.tar.xz"
+	SRC="${BETA_SNAPSHOT}/rustc-beta-src.tar.xz -> rustc-${PV}-src.tar.xz"
 else
 	ABI_VER="$(ver_cut 1-2)"
 	SLOT="stable/${ABI_VER}"
 	MY_P="rustc-${PV}"
 	SRC="${MY_P}-src.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 arm arm64 ppc64 x86"
 fi
 
 RUST_STAGE0_VERSION="1.$(($(ver_cut 2) - 1)).1"
@@ -27,7 +27,7 @@ DESCRIPTION="Systems programming language from Mozilla"
 HOMEPAGE="https://www.rust-lang.org/"
 
 SRC_URI="
-	https://static.rust-lang.org/dist/${SRC} -> rustc-${PV}-src.tar.xz
+	https://static.rust-lang.org/dist/${SRC}
 	!system-bootstrap? ( $(rust_all_arch_uris rust-${RUST_STAGE0_VERSION}) )
 "
 
@@ -114,8 +114,7 @@ QA_SONAME="
 	usr/lib.*/${P}/rustlib/.*/lib/lib.*.so.*
 "
 
-# tests need a bit more work, currently they are causing multiple
-# re-compilations and somewhat fragile.
+# still disabled, almost ready to enable
 RESTRICT="test"
 
 PATCHES=(
@@ -131,6 +130,7 @@ toml_usex() {
 
 boostrap_rust_version_check() {
 	# never call from pkg_pretend. eselect-rust may be not installed yet.
+	[[ ${MERGE_TYPE} == binary ]] && return
 	local rustc_wanted="$(ver_cut 1).$(($(ver_cut 2) - 1))"
 	local rustc_version=( $(eselect --brief rust show 2>/dev/null) )
 	rustc_version=${rustc_version[0]#rust-bin-}
@@ -419,19 +419,55 @@ src_compile() {
 }
 
 src_test() {
-	env $(cat "${S}"/config.env) RUST_BACKTRACE=1\
-		"${EPYTHON}" ./x.py test -vv --config="${S}"/config.toml -j$(makeopts_jobs) --no-doc --no-fail-fast \
-		src/test/codegen \
-		src/test/codegen-units \
-		src/test/compile-fail \
-		src/test/incremental \
-		src/test/mir-opt \
-		src/test/pretty \
-		src/test/run-fail \
-		src/test/run-make \
-		src/test/run-make-fulldeps \
-		src/test/ui \
-		src/test/ui-fulldeps || die
+	# https://rustc-dev-guide.rust-lang.org/tests/intro.html
+
+	# those are basic and codegen tests.
+	local tests=(
+		codegen
+		codegen-units
+		compile-fail
+		incremental
+		mir-opt
+		pretty
+		run-make
+	)
+
+	# fails if llvm is not built with ALL targets.
+	# use system-llvm || tests+=( assembly )
+
+	# fragile/expensive/less important tests
+	# or tests that require extra build time
+	# TODO: instead of skipping, just make some nonfatal.
+	if [[ ${ERUST_RUN_EXTRA_TESTS:-no} != no ]]; then
+		tests+=(
+			rustdoc
+			rustdoc-js
+			rustdoc-js-std
+			rustdoc-ui
+			run-make-fulldeps
+			ui
+			ui-fulldeps
+		)
+	fi
+
+	local i failed=()
+	einfo "rust_src_test: enabled tests ${tests[@]/#/src/test/}"
+	for i in "${tests[@]}"; do
+		local t="src/test/${i}"
+		einfo "rust_src_test: running ${t}"
+		if ! nonfatal env $(cat "${S}"/config.env) RUST_BACKTRACE=1 \
+			"${EPYTHON}" ./x.py test -vv --config="${S}"/config.toml \
+			-j$(makeopts_jobs) --no-doc --no-fail-fast "${t}"; then
+
+				failed+=( "${t}" )
+				eerror "rust_src_test: ${t} failed"
+		fi
+	done
+
+	if [[ ${#failed[@]} -ne 0 ]]; then
+		eerror "rust_src_test: failure summary: ${failed[@]}"
+		die "aborting due to test failures"
+	fi
 }
 
 src_install() {
@@ -478,7 +514,7 @@ src_install() {
 		rust_target=$(rust_abi $(get_abi_CHOST ${v##*.}))
 		mkdir -p "${ED}/usr/${abi_libdir}/${P}"
 		cp "${ED}/usr/$(get_libdir)/${P}/rustlib/${rust_target}/lib"/*.so \
-		   "${ED}/usr/${abi_libdir}/${P}" || die
+			"${ED}/usr/${abi_libdir}/${P}" || die
 	done
 
 	# versioned libdir/mandir support
@@ -522,7 +558,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	eselect rust update --if-unset
+	eselect rust update
 
 	elog "Rust installs a helper script for calling GDB and LLDB,"
 	elog "for your convenience it is installed under /usr/bin/rust-{gdb,lldb}-${PV}."

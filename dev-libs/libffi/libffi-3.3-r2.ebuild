@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit multilib multilib-minimal toolchain-funcs
+inherit multilib multilib-minimal
 
 MY_PV=${PV/_rc/-rc}
 MY_P=${PN}-${MY_PV}
@@ -32,25 +32,12 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.3-power7-memcpy-2.patch
 	"${FILESDIR}"/${PN}-3.3-ppc-int128.patch
 	"${FILESDIR}"/${PN}-3.3-ppc-vector-offset.patch
+	"${FILESDIR}"/${PN}-3.3-compiler-vendor-quote.patch
 )
 
 S=${WORKDIR}/${MY_P}
 
 ECONF_SOURCE=${S}
-
-pkg_setup() {
-	# Check for orphaned libffi, see https://bugs.gentoo.org/354903 for example
-	if [[ ${ROOT} == "/" && ${EPREFIX} == "" ]] && ! has_version ${CATEGORY}/${PN}; then
-		local base="${T}"/conftest
-		echo 'int main() { }' > "${base}".c
-		$(tc-getCC) -o "${base}" "${base}".c -lffi >&/dev/null
-		if [ $? -eq 0 ]; then
-			eerror "The linker reported linking against -lffi to be working while it shouldn't have."
-			eerror "This is wrong and you should find and delete the old copy of libffi before continuing."
-			die "The system is in inconsistent state with unknown libffi installed."
-		fi
-	fi
-}
 
 multilib_src_configure() {
 	use userland_BSD && export HOST="${CHOST}"

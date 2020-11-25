@@ -6,27 +6,34 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2020-11-25)
+# Depends on masked net-libs/libkvkontakte
+kde-apps/kipi-plugins vkontakte
+
+# Alfredo Tupone <tupone@gentoo.org> (2020-11-06)
+# waiting for lua to be slotted
+media-gfx/exact-image lua
+
+# Marek Szuba <marecki@gentoo.org> (2020-10-12)
+# Requires slotted Lua, which is still masked.
+media-gfx/darktable system-lua
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2020-10-08)
+# USE=doc broken on 1.47.0
+# error: unresolved link to `crate::os::unix::ffi::OsStrExt`
+#
+# USE=miri seems to be not working on 1.48.0
+~dev-lang/rust-1.47.0 doc
+~dev-lang/rust-1.48.0 doc miri
+
 # Michał Górny <mgorny@gentoo.org> (2020-09-27)
 # The respective dependencies are masked for removal.
 net-im/telepathy-connection-managers gadu icq meanwhile steam yahoo
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-26)
-# Removed in 1.1.34-r1, mask in older to unblock libxml2 cleanup.
-<dev-libs/libxslt-1.1.34-r1 python
-
-# Michał Górny <mgorny@gentoo.org> (2020-09-26)
 # The respective dependencies are masked for removal.
 ~dev-db/percona-server-5.7.27.30 test
 sci-geosciences/viking mapnik
-
-# Ulrich Müller <ulm@gentoo.org> (2020-09-25)
-# Python 2 only. Bug #735496.
-sys-cluster/ganglia python
-
-# Joonas Niilola <juippis@gentoo.org> (2020-09-23)
-# Not yet packaged in ::gentoo but besides that the functionality is 
-# still experimental and possibly broken. Use with caution.
-dev-libs/efl avif
 
 # Joonas Niilola <juippis@gentoo.org> (2020-09-23)
 # Highly experimental, may cause breakages when updating. Use with 
@@ -37,31 +44,19 @@ dev-libs/efl efl-one
 # The respective dependencies are masked for removal.
 net-nntp/pan gnome-keyring
 
-# Michał Górny <mgorny@gentoo.org> (2020-09-19)
-# The respective dependencies are masked for removal.
-app-office/lyx docbook
-
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
 media-plugins/mythplugins mythnetvision
-sci-physics/thepeg rivet
 sys-cluster/drbd-utils heartbeat
-sys-cluster/pacemaker heartbeat
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
 app-metrics/collectd collectd_plugins_gmond
 app-metrics/collectd collectd_plugins_onewire
 
-# Stephan Hartmann <sultan@gentoo.org> (2020-09-06)
-# Causes seccomp sandbox violation or chromium might hang on startup.
->=www-client/chromium-87 wayland
-
 # Michał Górny <mgorny@gentoo.org> (2020-08-22)
 # These flags depend on dev-python/pygtk that is masked for removal.
-app-mobilephone/sobexsrv gtk
 <media-gfx/gimp-3 python
-<x11-libs/vte-0.58 python
 
 # Michał Górny <mgorny@gentoo.org> (2020-08-22)
 # These flags depend on packages masked for removal due to py2.
@@ -74,13 +69,7 @@ sci-geosciences/qgis grass
 dev-db/mariadb columnstore
 
 # Michał Górny <mgorny@gentoo.org> (2020-08-01)
-# Require dev-python/twisted with py2.7.
-net-voip/telepathy-haze test
-<net-voip/telepathy-salut-0.8.1-r3 test
-
-# Michał Górny <mgorny@gentoo.org> (2020-08-01)
 # dev-python/distributed is going to be last rited.
-dev-python/dask distributed
 dev-python/joblib doc
 
 # Michał Górny <mgorny@gentoo.org> (2020-07-30)
@@ -91,12 +80,8 @@ www-apps/nikola websocket
 # These packages require Python 2 support in dev-python/sphinx.
 # They are generally fixable by adding py3 support and using
 # distutils_enable_sphinx to build docs.
-dev-python/backports-functools-lru-cache doc
-<=dev-python/futures-3.2.0 doc
 <=dev-python/lockfile-0.12.2-r2 doc
-<=dev-python/mysql-python-1.2.5-r3 doc
 <dev-python/pep8-1.7.1-r1 doc
-<dev-python/psycopg-2.8.4 doc
 
 # Michał Górny <mgorny@gentoo.org> (2020-07-27)
 # Requires Python 2 support in xapian-bindings which in turn require
@@ -112,11 +97,6 @@ dev-python/autobahn xbr
 # media-video/pipewire:0/0.3 is only available for certain architectures
 www-client/firefox screencast
 
-# Mart Raudsepp <leio@gentoo.org> (2020-06-28)
-# media-video/pipewire:0/0.3 is ongoing work, 0.2 on mutter-3.34
-# is not worth trying to get to work.
-<x11-wm/mutter-3.36 screencast
-
 # Stephan Hartmann <stha09@googlemail.com> (2020-06-28)
 # Mostly intended for development and not for general use.
 >=www-client/chromium-84 headless
@@ -131,10 +111,6 @@ media-gfx/inkscape jemalloc
 # broken.
 www-client/chromium component-build
 
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2020-05-04)
-# Broken error[E0478]: lifetime bound not satisfied
-=dev-lang/rust-1.44.1 miri
-
 # Ben Kohler <bkohler@gentoo.org> (2020-04-29)
 # Dependency pam_wrapper missing for tests, and RESTRICT=test is already set
 net-fs/samba test
@@ -147,8 +123,11 @@ dev-util/meson test
 # Requires dev-vcs/ghp-import that is masked for removal.
 www-apps/nikola ghpages
 
-# Ulrich Müller <ulm@gentoo.org> (2020-04-08)
+# Ulrich Müller <ulm@gentoo.org> (2020-04-08, 2020-11-21)
 # Old versions of libjpeg-turbo have known security issues.
+# The version included with >=zoom-5.3 has an empty DT_RPATH,
+# which is insecure because the loader will search the working
+# directory when it finds an empty path.
 # Use the bundled lib on your own risk. Bug #715106.
 net-im/zoom bundled-libjpeg-turbo
 
@@ -164,7 +143,6 @@ net-analyzer/hydra ncp
 # Michał Górny <mgorny@gentoo.org> (2020-03-28)
 # Requires masked dev-vcs/bzr.  Remove the mask if breezy is packaged
 # and the package is confirmed to work with it.
-dev-vcs/cvs2svn bazaar
 <=dev-util/rosinstall-0.7.8 test
 <=dev-util/wstool-0.1.18 test
 <=dev-python/vcstools-0.1.42 test
@@ -190,14 +168,9 @@ dev-python/pyzmq doc
 # Unsatisfiable dep due to missing impls.
 dev-python/zeep tornado
 
-# Michał Górny <mgorny@gentoo.org> (2020-01-29)
-# Require Python 2 support in numpydoc.
-<=dev-python/pywavelets-0.5.2-r1 doc
-
 # Michał Górny <mgorny@gentoo.org> (2020-01-27)
 # Requires old split dev-python/twisted-*.
 net-irc/telepathy-idle test
-net-voip/telepathy-rakia test
 
 # Michał Górny <mgorny@gentoo.org> (2020-01-12)
 # libcxxrt is unmaintained and it's going to be removed.
@@ -213,7 +186,6 @@ dev-libs/ossp-uuid php
 dev-games/openscenegraph fox
 dev-libs/hidapi fox
 sci-mathematics/gsl-shell fox
-sys-libs/gwenhywfar fox
 
 # James Le Cuirot <chewi@gentoo.org> (2019-12-10)
 # The JIT feature only works on amd64 and x86.
@@ -245,11 +217,6 @@ sys-libs/libxcrypt split-usr system
 # net-libs/openslp is being removed.
 sys-block/open-iscsi slp
 sys-block/open-isns slp
-
-# Brian Evans <grknight@gentoo.org> (2019-10-01)
-# PHP support is broken with current version
-# Mask USE until they are fixed
-media-gfx/exact-image php
 
 # Michał Górny <mgorny@gentoo.org> (2019-09-28)
 # media-fonts/hkscs-ming is slated for removal.
@@ -445,11 +412,6 @@ sci-libs/linux-gpib php
 # Globally mask pie use flag. Selectively unmask on specific profiles.
 sys-devel/gcc pie
 
-# Pawel Hajdan jr <phajdan.jr@gentoo.org> (2017-03-02)
-# Known build issue with system libvpx:
-# https://bugs.gentoo.org/show_bug.cgi?id=611394
->=www-client/chromium-58.0.3026.3 system-libvpx
-
 # Mike Gilbert <floppym@gentoo.org> (2017-02-16)
 # Multiple test failures.
 sys-boot/grub:2 test
@@ -509,11 +471,6 @@ dev-java/icedtea cacao jamvm
 # https://bugs.gentoo.org/show_bug.cgi?id=533876
 >=sci-libs/vtk-6.1.0 examples
 
-# Jason Zaman <perfinion@gentoo.org> (2015-09-06)
-# This is for cgmanager which is linux only.
-# Unmasked in default/linux/package.use.mask.
-sys-auth/consolekit cgroups
-
 # James Le Cuirot <chewi@gentoo.org> (2015-08-18)
 # gcc[awt] is only used by gcj-jdk[awt] and that isn't needed by
 # anything in the tree. The toolchain folks aren't keen to support it
@@ -552,10 +509,6 @@ sys-devel/gcc sanitize
 # mirisdr does not seem to like making releases
 <net-wireless/gr-osmosdr-9999 mirisdr
 
-# Maxim Koltsov <maksbotan@gentoo.org> (2014-08-05)
-# net-libs/tox is in mva overlay only ATM
-app-leechcraft/lc-azoth sarin
-
 # Pacho Ramos <pacho@gentoo.org> (2014-06-01)
 # Needs hardmasked lua-5.2
 >=media-plugins/grilo-plugins-0.2.12 lua
@@ -589,11 +542,6 @@ x11-libs/cairo gles2-only
 # Fails to build, haven't had time to debug
 app-doc/doxygen sqlite
 
-# Alexis Ballier <aballier@gentoo.org> (2013-05-08)
-# On behalf of Pavel Sanda <ps@twin.jikos.cz>
-# Lyx is currently not working with subversion 1.7 and needs 1.6.
-app-office/lyx subversion
-
 # Bernard Cafarelli <voyageur@gentoo.org> (2013-04-04)
 # Broken for now (segmentation fault on play)
 gnustep-apps/cynthiune flac
@@ -617,10 +565,6 @@ net-analyzer/net-snmp pci
 # Diego Elio Pettenò (2012-08-20)
 # The prevent-removal USE flag is only implemented for Linux.
 sys-auth/pam_mktemp prevent-removal
-
-# Samuli Suominen <ssuominen@gentoo.org> (2012-03-20)
-# This is for udev-acl. Unmasked in default/linux/package.use.mask.
-sys-auth/consolekit acl
 
 # Bernard Cafarelli <voyageur@gentoo.org> (2012-02-08)
 # libobjc2/clang experimental support
@@ -665,3 +609,8 @@ net-proxy/squid ipf-transparent pf-transparent
 # Alexis Ballier <aballier@gentoo.org> (2011-02-16)
 # Win32 specific useflag for vlc. Can be used for cross-compiling.
 media-video/vlc directx
+
+# Ross Charles Campbell <rossbridger.cc@gmail.com> (2020-09-21)
+# Since >=dev-games/ogre-1.11.2 is masked, mask contribovis USE to
+# make repoman happy
+media-libs/opencv contribovis

@@ -47,8 +47,8 @@ ADDONS_SRC=(
 	# not packaged in Gentoo, https://www.netlib.org/fp/dtoa.c
 	"${ADDONS_URI}/dtoa-20180411.tgz"
 	# not packaged in Gentoo, https://skia.org/
-	"${ADDONS_URI}/skia-m83-8ce842d38d0b32149e874d6855c91e8c68ba65a7.tar.xz"
-	# QR code generating library for >=libreoffice-6.4
+	"${ADDONS_URI}/skia-m85-e684c6daef6bfb774a325a069eda1f76ca6ac26c.tar.xz"
+	# QR code generating library for >=libreoffice-6.4, bug #691740
 	"${ADDONS_URI}/QR-Code-generator-1.4.0.tar.gz"
 	"base? (
 		${ADDONS_URI}/commons-logging-1.2-src.tar.gz
@@ -82,8 +82,8 @@ unset ADDONS_SRC
 # Extensions that need extra work:
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
-IUSE="accessibility base bluetooth +branding coinmp +cups +dbus debug eds firebird
-googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres test
+IUSE="accessibility base bluetooth +branding clang coinmp +cups custom-cflags +dbus debug eds firebird
+googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres test vulkan
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -125,7 +125,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	app-text/liblangtag
 	>=app-text/libmspub-0.1.0
 	>=app-text/libmwaw-0.3.1
-	app-text/libnumbertext
+	>=app-text/libnumbertext-1.0.6
 	>=app-text/libodfgen-0.1.0
 	app-text/libqxp
 	app-text/libstaroffice
@@ -143,7 +143,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/icu:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
-	>=dev-libs/liborcus-0.15.0
+	dev-libs/liborcus:0/0.16
 	dev-libs/librevenge
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -181,6 +181,19 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	bluetooth? (
 		dev-libs/glib:2
 		net-wireless/bluez
+	)
+	clang? (
+		|| (
+			(	sys-devel/clang:12
+				sys-devel/llvm:12
+				=sys-devel/lld-12*	)
+			(	sys-devel/clang:11
+				sys-devel/llvm:11
+				=sys-devel/lld-11*	)
+			(	sys-devel/clang:10
+				sys-devel/llvm:10
+				=sys-devel/lld-10*	)
+		)
 	)
 	coinmp? ( sci-libs/coinor-mp )
 	cups? ( net-print/cups )
@@ -239,7 +252,10 @@ DEPEND="${COMMON_DEPEND}
 	x11-libs/libXtst
 	java? (
 		dev-java/ant-core
-		>=virtual/jdk-1.8
+		|| (
+			dev-java/openjdk:11
+			dev-java/openjdk-bin:11
+		)
 	)
 	test? (
 		app-crypt/gnupg
@@ -254,7 +270,11 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/openoffice
 	media-fonts/liberation-fonts
 	|| ( x11-misc/xdg-utils kde-plasma/kde-cli-tools )
-	java? ( >=virtual/jre-1.8 )
+	java? ( || (
+		dev-java/openjdk:11
+		dev-java/openjdk-jre-bin:11
+		>=virtual/jre-1.8
+	) )
 	kde? ( kde-frameworks/breeze-icons:* )
 "
 if [[ ${MY_PV} != *9999* ]] && [[ ${PV} != *_* ]]; then
@@ -271,6 +291,7 @@ PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-5.3.4.2-kioclient5.patch"
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
+	"${FILESDIR}/${PN}-7.0.3.1-qt5detect.patch"
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
@@ -367,17 +388,58 @@ src_configure() {
 	local google_default_client_id="329227923882.apps.googleusercontent.com"
 	local google_default_client_secret="vgKG0NNv7GoDpbtoFNLxCUXu"
 
+	# Show flags set at the beginning
+	einfo "Preset CFLAGS:    ${CFLAGS}"
+	einfo "Preset LDFLAGS:   ${LDFLAGS}"
+
+	if use clang ; then
+		# Force clang
+		einfo "Enforcing the use of clang due to USE=clang ..."
+		AR=llvm-ar
+		CC=${CHOST}-clang
+		CXX=${CHOST}-clang++
+		NM=llvm-nm
+		RANLIB=llvm-ranlib
+		LDFLAGS+=" -fuse-ld=lld"
+	else
+		# Force gcc
+		einfo "Enforcing the use of gcc due to USE=-clang ..."
+		AR=gcc-ar
+		CC=${CHOST}-gcc
+		CXX=${CHOST}-g++
+		NM=gcc-nm
+		RANLIB=gcc-ranlib
+	fi
+
+	if use custom-cflags ; then
+		elog "USE=custom-cflags has been selected. You are on your own to make sure that"
+		elog "the build succeeds. Good luck!"
+		strip-unsupported-flags
+	else
+		strip-flags
+	fi
+
+	export LO_CLANG_CC=${CC}
+	export LO_CLANG_CXX=${CXX}
+
+	# Show flags set at the end
+	einfo "  Used CFLAGS:    ${CFLAGS}"
+	einfo "  Used LDFLAGS:   ${LDFLAGS}"
+
+	# Ensure we use correct toolchain
+	tc-export CC CXX LD AR NM OBJDUMP RANLIB PKG_CONFIG
+
+	if use vulkan && ! use clang ; then
+		ewarn "Building skia with gcc may lead to performance issues. Disable vulkan or enable clang."
+	fi
+
 	# optimization flags
 	export GMAKE_OPTIONS="${MAKEOPTS}"
 	# System python enablement:
 	export PYTHON_CFLAGS=$(python_get_CFLAGS)
 	export PYTHON_LIBS=$(python_get_LIBS)
 
-	if use kde; then
-		export QT_SELECT=5 # bug 639620 needs proper fix though
-		export QT5DIR="$(qt5_get_bindir)/../"
-		export MOC5="$(qt5_get_bindir)/moc"
-	fi
+	use kde && export QT5DIR="$(qt5_get_bindir)/.."
 
 	local gentoo_buildid="Gentoo official package"
 	if [[ -n ${LOCOREGIT_VERSION} ]]; then
@@ -396,7 +458,7 @@ src_configure() {
 	# --without-system-sane: just sane.h header that is used for scan in writer,
 	#   not linked or anything else, worthless to depend on
 	# --disable-pdfium: not yet packaged
-	# --without-system-qrencode: has no real build system and LO is the only user
+	# --without-system-qrcodegen: has no real build system and LO is the only user
 	local myeconfargs=(
 		--with-system-dicts
 		--with-system-epoxy
@@ -421,7 +483,7 @@ src_configure() {
 		--disable-openssl
 		--disable-pdfium
 		--disable-vlc
-		--with-build-version="${gentoo_buildid}"
+		--with-extra-buildid="${gentoo_buildid}"
 		--enable-extension-integration
 		--with-external-dict-dir="${EPREFIX}/usr/share/myspell"
 		--with-external-hyph-dir="${EPREFIX}/usr/share/myspell"
@@ -458,6 +520,7 @@ src_configure() {
 		$(use_enable odk)
 		$(use_enable pdfimport)
 		$(use_enable postgres postgresql-sdbc)
+		$(use_enable vulkan skia)
 		$(use_with accessibility lxml)
 		$(use_with coinmp system-coinmp)
 		$(use_with googledrive gdrive-client-id ${google_default_client_id})
@@ -487,9 +550,12 @@ src_configure() {
 			--without-junit
 			--without-system-hsqldb
 			--with-ant-home="${ANT_HOME}"
-			--with-jdk-home=$(java-config --jdk-home 2>/dev/null)
-			--with-jvm-path="${EPREFIX}/usr/lib/"
 		)
+		if has_version "dev-java/openjdk:11"; then
+			myeconfargs+=( -with-jdk-home="${EPREFIX}/usr/$(get_libdir)/openjdk-11" )
+		elif has_version "dev-java/openjdk-bin:11"; then
+			myeconfargs+=( --with-jdk-home="/opt/openjdk-bin-11" )
+		fi
 
 		use libreoffice_extensions_scripting-beanshell && \
 			myeconfargs+=( --with-beanshell-jar=$(java-pkg_getjar bsh bsh.jar) )
@@ -575,6 +641,11 @@ EOF
 			dosym ../../../../${loprogdir}/__pycache__/${pyc} $(python_get_sitedir)/__pycache__/${pyc}
 		done < <(find "${D}"${lodir}/program -type f -name ${py/.py/*.pyc} -print0)
 	done
+
+	# bug 709450
+	mkdir -p "${ED}"/usr/share/metainfo || die
+	mv "${ED}"/usr/share/appdata/* "${ED}"/usr/share/metainfo/ || die
+	rmdir "${ED}"/usr/share/appdata || die
 }
 
 pkg_postinst() {

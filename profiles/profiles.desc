@@ -14,24 +14,6 @@ alpha		default/linux/alpha/17.0/desktop/gnome		stable
 alpha		default/linux/alpha/17.0/desktop/gnome/systemd	stable
 alpha		default/linux/alpha/17.0/developer		stable
 
-# AMD64 Profiles
-# @MAINTAINER: amd64@gentoo.org
-amd64		default/linux/amd64/17.0				stable
-amd64		default/linux/amd64/17.0/selinux			stable
-amd64		default/linux/amd64/17.0/hardened			stable
-amd64		default/linux/amd64/17.0/hardened/selinux		stable
-amd64		default/linux/amd64/17.0/desktop			stable
-amd64		default/linux/amd64/17.0/desktop/gnome			stable
-amd64		default/linux/amd64/17.0/desktop/gnome/systemd		stable
-amd64		default/linux/amd64/17.0/desktop/plasma			stable
-amd64		default/linux/amd64/17.0/desktop/plasma/systemd		stable
-amd64		default/linux/amd64/17.0/developer			stable
-amd64		default/linux/amd64/17.0/no-multilib			stable
-amd64		default/linux/amd64/17.0/no-multilib/hardened		stable
-amd64		default/linux/amd64/17.0/no-multilib/hardened/selinux	stable
-amd64		default/linux/amd64/17.0/systemd			stable
-amd64		default/linux/amd64/17.0/x32				dev
-
 # SYMLINK_LIB=no profiles
 # Run app-portage/unsymlink-lib *before* switching the profile.
 # @MAINTAINER: mgorny@gentoo.org
@@ -49,6 +31,24 @@ amd64		default/linux/amd64/17.1/no-multilib			stable
 amd64		default/linux/amd64/17.1/no-multilib/hardened		stable
 amd64		default/linux/amd64/17.1/no-multilib/hardened/selinux	stable
 amd64		default/linux/amd64/17.1/systemd			stable
+
+# AMD64 Profiles
+# @MAINTAINER: amd64@gentoo.org
+amd64		default/linux/amd64/17.0				dev
+amd64		default/linux/amd64/17.0/selinux			dev
+amd64		default/linux/amd64/17.0/hardened			dev
+amd64		default/linux/amd64/17.0/hardened/selinux		dev
+amd64		default/linux/amd64/17.0/desktop			dev
+amd64		default/linux/amd64/17.0/desktop/gnome			dev
+amd64		default/linux/amd64/17.0/desktop/gnome/systemd		dev
+amd64		default/linux/amd64/17.0/desktop/plasma			dev
+amd64		default/linux/amd64/17.0/desktop/plasma/systemd		dev
+amd64		default/linux/amd64/17.0/developer			dev
+amd64		default/linux/amd64/17.0/no-multilib			dev
+amd64		default/linux/amd64/17.0/no-multilib/hardened		dev
+amd64		default/linux/amd64/17.0/no-multilib/hardened/selinux	dev
+amd64		default/linux/amd64/17.0/systemd			dev
+amd64		default/linux/amd64/17.0/x32				dev
 
 # ARM Profiles
 # @MAINTAINER: arm@gentoo.org
@@ -175,8 +175,8 @@ ppc64		default/linux/ppc64/17.0				exp
 #ppc64		 default/linux/ppc64/17.0/desktop/gnome			exp
 #ppc64		 default/linux/ppc64/17.0/desktop/gnome/systemd		exp
 #ppc64		 default/linux/ppc64/17.0/developer			exp
-#ppc64		 default/linux/ppc64/17.0/musl				exp
-#ppc64		 default/linux/ppc64/17.0/musl/hardened			exp
+ppc64		default/linux/ppc64/17.0/musl				exp
+ppc64		default/linux/ppc64/17.0/musl/hardened			exp
 ppc64		default/linux/ppc64le/17.0				stable
 ppc64		default/linux/ppc64le/17.0/desktop			stable
 ppc64		default/linux/ppc64le/17.0/desktop/plasma		dev
@@ -272,6 +272,9 @@ x86-linux		prefix/linux/x86				exp
 amd64-linux		default/linux/amd64/17.0/no-multilib/prefix/kernel-3.2+		dev
 amd64-linux		default/linux/amd64/17.0/no-multilib/prefix/kernel-2.6.32+	exp
 amd64-linux		default/linux/amd64/17.0/no-multilib/prefix/kernel-2.6.16+	exp
+amd64-linux		default/linux/amd64/17.1/no-multilib/prefix/kernel-3.2+		dev
+amd64-linux		default/linux/amd64/17.1/no-multilib/prefix/kernel-2.6.32+	exp
+amd64-linux		default/linux/amd64/17.1/no-multilib/prefix/kernel-2.6.16+	exp
 x86-linux		default/linux/x86/17.0/prefix/kernel-3.2+	exp
 x86-linux		default/linux/x86/17.0/prefix/kernel-2.6.32+	exp
 x86-linux		default/linux/x86/17.0/prefix/kernel-2.6.16+	exp
@@ -300,8 +303,14 @@ x86-macos		prefix/darwin/macos/10.12/x86			exp
 x64-macos		prefix/darwin/macos/10.12/x64			exp
 x86-macos		prefix/darwin/macos/10.13/x86			exp
 x64-macos		prefix/darwin/macos/10.13/x64			exp
+x64-macos		prefix/darwin/macos/10.13/x64/gcc		exp
 x86-macos		prefix/darwin/macos/10.14/x86			exp
 x64-macos		prefix/darwin/macos/10.14/x64			exp
+x64-macos		prefix/darwin/macos/10.14/x64/gcc		exp
+x64-macos		prefix/darwin/macos/10.15/x64			exp
+x64-macos		prefix/darwin/macos/10.15/x64/gcc		exp
+x64-macos		prefix/darwin/macos/11.0/x64			exp
+x64-macos		prefix/darwin/macos/11.0/x64/gcc		exp
 
 # Solaris Profiles
 sparc-solaris		prefix/sunos/solaris/5.9/sparc			exp

@@ -22,17 +22,9 @@ HOMEPAGE="https://github.com/certbot/certbot https://letsencrypt.org/"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND=">=app-crypt/acme-0.29.0[${PYTHON_USEDEP}]
 	>=app-crypt/certbot-1.6.0[${PYTHON_USEDEP}]
 	dev-python/python-augeas[${PYTHON_USEDEP}]
 	dev-python/zope-component[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]"
-DEPEND="test? ( ${RDEPEND}
-	dev-python/pytest[${PYTHON_USEDEP}] )"
-
-python_test() {
-	esetup.py test || die
-}
