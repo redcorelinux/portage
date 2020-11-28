@@ -13,12 +13,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-macos"
 
-IUSE="down-root examples inotify iproute2 libressl lz4 +lzo mbedtls +openssl pam"
-IUSE+=" pkcs11 +plugins selinux +ssl systemd test userland_BSD"
+IUSE="down-root examples inotify iproute2 libressl lz4 +lzo mbedtls +openssl"
+IUSE+=" pam pkcs11 +plugins selinux systemd test userland_BSD"
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	^^ ( openssl libressl mbedtls )
+	^^ ( openssl mbedtls )
 	pkcs11? ( !mbedtls )
 	!plugins? ( !pam !down-root )
 	inotify? ( plugins )
@@ -28,11 +28,13 @@ CDEPEND="
 	kernel_linux? (
 		iproute2? ( sys-apps/iproute2[-minimal] )
 	)
-	libressl? ( dev-libs/libressl:0= )
 	lz4? ( app-arch/lz4 )
 	lzo? ( >=dev-libs/lzo-1.07 )
 	mbedtls? ( net-libs/mbedtls:= )
-	openssl? ( >=dev-libs/openssl-0.9.8:0= )
+	openssl? (
+		!libressl? ( >=dev-libs/openssl-0.9.8:0= )
+		libressl? ( dev-libs/libressl:0= )
+	)
 	pam? ( sys-libs/pam )
 	pkcs11? ( >=dev-libs/pkcs11-helper-1.11 )
 	systemd? ( sys-apps/systemd )
@@ -46,9 +48,12 @@ RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-openvpn )
 "
 
-CONFIG_CHECK="~TUN"
+PATCHES=(
+	"${FILESDIR}/openvpn-2.5.0-auth-pam-missing-header.patch"
+)
 
 pkg_setup() {
+	local CONFIG_CHECK="~TUN"
 	linux-info_pkg_setup
 }
 
