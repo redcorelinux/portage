@@ -9,7 +9,7 @@ SRC_URI="https://github.com/elixir-lang/elixir/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="Apache-2.0 ErlPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ia64 ppc ~sparc x86"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
@@ -29,6 +29,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.9.1-disable-network-tests.patch
 	"${FILESDIR}"/${PN}-1.10.3-no-Q.patch
 	"${FILESDIR}"/${PN}-1.10.3-epmd-daemon.patch
+	"${FILESDIR}"/${PN}-1.11.2-mksh.patch
 )
 
 src_install() {

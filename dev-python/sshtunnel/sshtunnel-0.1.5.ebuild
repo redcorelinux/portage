@@ -10,7 +10,7 @@ DESCRIPTION="Pure Python SSH tunnels"
 HOMEPAGE="https://pypi.python.org/pypi/sshtunnel"
 SRC_URI="mirror://pypi/s/sshtunnel/${P}.tar.gz"
 
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm x86"
 LICENSE="MIT"
 SLOT="0"
 
@@ -22,5 +22,7 @@ DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? ( dev-python/tox[${PYTHON_USEDEP}] )
 "
+
+RESTRICT="test"
 
 distutils_enable_tests setup.py

@@ -190,7 +190,9 @@ ppc64		default/linux/ppc64le/17.0/musl/hardened		exp
 # @MAINTAINER: riscv@gentoo.org
 riscv		default/linux/riscv/17.0/rv64gc			exp
 riscv		default/linux/riscv/17.0/rv64gc/lp64d		stable
+riscv		default/linux/riscv/17.0/rv64gc/lp64d/systemd	stable
 riscv		default/linux/riscv/17.0/rv64gc/lp64		stable
+riscv		default/linux/riscv/17.0/rv64gc/lp64/systemd	stable
 
 # S390 Profiles
 # @MAINTAINER: s390@gentoo.org
@@ -266,6 +268,7 @@ x86		default/linux/x86/17.0/uclibc/hardened			exp
 amd64-linux		prefix/linux/amd64				exp
 arm-linux		prefix/linux/arm				exp
 ppc64-linux		prefix/linux/ppc64				exp
+ppc64-linux		prefix/linux/ppc64le				exp
 x86-linux		prefix/linux/x86				exp
 
 # Linux Standalone Profiles

@@ -1,6 +1,10 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (2020-11-30)
+# Qt5 is not keyworded here.
+x11-misc/synergy gui
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-11-12)
 # media-sound/lash not keyworded, bug #736725
 media-sound/fluidsynth lash
@@ -41,10 +45,6 @@ gnome-base/nautilus previewer
 gnome-base/gvfs google
 # needs app-text/libgepub which depends on webkit-gtk
 xfce-extra/tumbler epub
-
-# Robin H. Johnson <robbat2@gentoo.org> (2020-07-02)
-# Mask io-uring & zbc pending keywording
-sys-block/fio -io-uring zbc
 
 # Michał Górny <mgorny@gentoo.org> (2020-06-14)
 # Requires dev-python/networkx.

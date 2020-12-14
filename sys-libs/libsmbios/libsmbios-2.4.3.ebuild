@@ -12,7 +12,7 @@ SRC_URI="https://github.com/dell/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 OSL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 x86"
+KEYWORDS="amd64 ~arm64 ~ia64 x86"
 IUSE="doc graphviz nls +python static-libs test"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -57,6 +57,7 @@ src_configure() {
 		$(use_enable python)
 		$(use_enable static-libs static)
 	)
+	CONFIG_SHELL="/bin/bash" \
 	econf "${myeconfargs[@]}"
 }
 

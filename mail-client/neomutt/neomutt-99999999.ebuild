@@ -42,7 +42,7 @@ CDEPEND="
 	qdbm? ( dev-db/qdbm )
 	tokyocabinet? ( dev-db/tokyocabinet )
 	gnutls? ( >=net-libs/gnutls-1.0.17:= )
-	gpgme? ( >=app-crypt/gpgme-0.9.0:= )
+	gpgme? ( >=app-crypt/gpgme-1.13.1:= )
 	idn? ( net-dns/libidn:= )
 	kerberos? ( virtual/krb5 )
 	notmuch? ( net-mail/notmuch:= )

@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
 LICENSE="BSD IJG ZLIB"
 SLOT="0/0.2"
 [[ "$(ver_cut 3)" -ge 90 ]] || \
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="java static-libs"
 
 ASM_DEPEND="|| ( dev-lang/nasm dev-lang/yasm )"
@@ -83,19 +83,13 @@ multilib_src_configure() {
 		-DWITH_MEM_SRCDST=ON
 	)
 
-	[[ ${ABI} == "x32" ]] && mycmakeargs+=( -DREQUIRE_SIMD=OFF ) #420239
+	# bug #420239, bug #723800
+	[[ ${ABI} == "x32" ]] && mycmakeargs+=( -DWITH_SIMD=OFF ) #420239
 
 	# mostly for Prefix, ensure that we use our yasm if installed and
 	# not pick up host-provided nasm
 	has_version dev-lang/yasm && ! has_version dev-lang/nasm && \
 		mycmakeargs+=( -DCMAKE_ASM_NASM_COMPILER=$(type -P yasm) )
-
-	if use ppc ; then
-		# Workaround recommended by upstream:
-		# https://bugs.gentoo.org/715406#c9
-		# https://github.com/libjpeg-turbo/libjpeg-turbo/issues/428
-		mycmakeargs+=( -DFLOATTEST="64bit" )
-	fi
 
 	cmake_src_configure
 }

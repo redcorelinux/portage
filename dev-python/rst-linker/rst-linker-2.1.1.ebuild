@@ -15,7 +15,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv s390 sparc x86"
 
 RDEPEND="
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' pypy3 python3_{6,7})
@@ -23,6 +23,7 @@ RDEPEND="
 "
 BDEPEND="
 	>=dev-python/setuptools_scm-1.15.0[${PYTHON_USEDEP}]
+	dev-python/toml[${PYTHON_USEDEP}]
 	test? (
 		dev-python/path-py[${PYTHON_USEDEP}]
 	)

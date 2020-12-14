@@ -6,6 +6,42 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com> (2020-12-07)
+# Waiting for unmasking of slotted Lua.
+>=app-i18n/fcitx-4.2.9.8:4 lua
+>=app-i18n/ibus-libpinyin-1.11.92 lua
+app-i18n/ibus-pinyin lua
+
+# Matt Turner <mattst88@gentoo.org> (2020-12-05)
+# Relies on gtkdoc-mktmpl which was removed from gtk-doc-1.26
+# Bug #740690
+x11-libs/colord-gtk doc
+
+# Michał Górny <mgorny@gentoo.org> (2020-12-04)
+# Mask the experimental targets in release ebuilds.
+<dev-ml/llvm-ocaml-11 llvm_targets_AVR
+<sys-devel/clang-11 llvm_targets_AVR
+<sys-devel/llvm-11 llvm_targets_AVR
+<dev-ml/llvm-ocaml-12 llvm_targets_ARC llvm_targets_CSKY llvm_targets_VE
+<sys-devel/clang-12 llvm_targets_ARC llvm_targets_CSKY llvm_targets_VE
+<sys-devel/llvm-12 llvm_targets_ARC llvm_targets_CSKY llvm_targets_VE
+
+# Joonas Niilola <juippis@gentoo.org> (2020-12-03)
+# Doc building seem to be very random without any predictability, 
+# bug #734104
+media-gfx/blender doc
+
+# Marek Szuba <marecki@gentoo.org> (2020-11-30)
+# Vendored therecipe/qt violates network sandbox + uses external binary
+# Qt libraries; see https://github.com/ProtonMail/proton-bridge/issues/16
+# The qt module itself apparently can be made to build against system Qt5
+# but making it do so while vendored is a non-trivial task.
+mail-mta/protonmail-bridge gui
+
+# Michał Górny <mgorny@gentoo.org> (2020-11-29)
+# libclangformat-ide is masked for removal.
+dev-qt/qt-creator clang
+
 # Joonas Niilola <juippis@gentoo.org> (2020-11-26)
 # Still too experimental. efl's upstream can't keep up with libavif's.
 # Bug: 756733
@@ -18,6 +54,10 @@ kde-apps/kipi-plugins vkontakte
 # Alfredo Tupone <tupone@gentoo.org> (2020-11-06)
 # waiting for lua to be slotted
 media-gfx/exact-image lua
+
+# Haelwenn (lanodan) Monnier <contact@hacktivis.me> (2020-11-03)
+# Requires >=dev-lang/lua-5.2, which is still masked.
+app-editors/vis lua
 
 # Marek Szuba <marecki@gentoo.org> (2020-10-12)
 # Requires slotted Lua, which is still masked.
