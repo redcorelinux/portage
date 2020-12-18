@@ -6,6 +6,7 @@
 # runtime bugs (bug #758446) which are not worth it.
 # Building Firefox/Thunderbird with GCC is no longer supported
 # in Gentoo until further notice.
+dev-lang/spidermonkey clang
 mail-client/thunderbird clang
 www-client/firefox clang
 
@@ -13,6 +14,11 @@ www-client/firefox clang
 # sys-boot/udk is being removed, and newest revision of refind does not
 # support it already.
 sys-boot/refind gnuefi
+
+# Alexey Sokolov <alexey+gentoo@asokolov.org> (2020-12-06)
+# Doesn't build without X. Not removing IUSE from ebuild yet in hope that
+# https://github.com/TomenetGame/tomenet/issues/14 will be fixed.
+>=games-roguelike/tomenet-4.7.3 X
 
 # Mikle Kolyada <zlogene@gentoo.org> (2020-08-08)
 # Ensure tools flag is enabled for @system set
