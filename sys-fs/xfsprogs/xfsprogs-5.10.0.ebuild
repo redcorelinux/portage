@@ -11,7 +11,7 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/fs/xfs/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="icu libedit nls"
 
 LIB_DEPEND=">=sys-apps/util-linux-2.17.2[static-libs(+)]
@@ -88,8 +88,8 @@ src_compile() {
 }
 
 src_install() {
-	emake DIST_ROOT="${ED}" install
-	emake DIST_ROOT="${ED}" install-dev
+	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install
+	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install-dev
 
 	gen_usr_ldscript -a handle
 }
