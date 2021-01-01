@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -29,6 +29,10 @@ BDEPEND="
 		=sys-devel/clang-${PV%_*}*:${CLANG_SLOT} )
 	${PYTHON_DEPS}"
 
+PATCHES=(
+	"${FILESDIR}/9999/${PN}-prefix-paths.patch"
+)
+
 python_check_deps() {
 	use test || return 0
 	has_version "dev-python/lit[${PYTHON_USEDEP}]"
@@ -42,7 +46,12 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	llvm_pkg_setup
+	# Darwin Prefix builds do not have llvm installed yet, so rely on
+	# bootstrap-prefix to set the appropriate path vars to LLVM instead
+	# of using llvm_pkg_setup.
+	if [[ ${CHOST} != *-darwin* ]] || has_version dev-lang/llvm; then
+		llvm_pkg_setup
+	fi
 	python-any-r1_pkg_setup
 }
 
@@ -83,8 +92,14 @@ src_configure() {
 
 	if use prefix && [[ "${CHOST}" == *-darwin* ]] ; then
 		mycmakeargs+=(
-			# disable use of SDK for the system itself
-			-DDARWIN_macosx_CACHED_SYSROOT=/
+			# setting -isysroot is disabled with compiler-rt-prefix-paths.patch
+			# this allows adding arm64 support using SDK in EPREFIX
+			-DDARWIN_macosx_CACHED_SYSROOT="${EPREFIX}/MacOSX.sdk"
+			# Set version based on the SDK in EPREFIX.
+			# This disables i386 for SDK >= 10.15
+			-DDARWIN_macosx_OVERRIDE_SDK_VERSION="$(realpath ${EPREFIX}/MacOSX.sdk | sed -e 's/.*MacOSX\(.*\)\.sdk/\1/')"
+			# Use our libtool instead of looking it up with xcrun
+			-DCMAKE_LIBTOOL="${EPREFIX}/usr/bin/${CHOST}-libtool"
 		)
 	fi
 

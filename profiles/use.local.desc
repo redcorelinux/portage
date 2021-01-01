@@ -796,8 +796,6 @@ app-metrics/collectd:filecaps - When set collectd daemon will have set required 
 app-metrics/collectd:java - Must be set (workaround for java-pkg-opt-2 eclass limitation) when you want java or genericjmx plugin
 app-metrics/collectd:udev - Enable optional udev usage in disk plugin; Required for smart plugin
 app-metrics/collectd:xfs - Enable optional capability to filter on XFS file system in df plugin; Requires XFS headers from sys-fs/xfsprogs
-app-misc/anki:recording - Enable support for audio recording
-app-misc/anki:sound - Enable support for adding sound to cards
 app-misc/blink1:mini-tool - Build and install command-line mini-tool blink1-mini-tool (normally used for embedded devices)
 app-misc/blink1:server - Build and install REST API server (currently hard-coded to TCP port 8080)
 app-misc/blink1:tool - Build and install command-line tool blink1-tool
@@ -1979,9 +1977,7 @@ dev-libs/boost:tools - Build and install the boost tools (bcp, quickbook, inspec
 dev-libs/botan:boost - use dev-libs/boost
 dev-libs/check:subunit - Enable support for the subunit unit test protocol
 dev-libs/crypto++:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
-dev-libs/cudnn:cuda10-1 - On nVidia CUDA 10.1.
 dev-libs/cudnn:cuda10-2 - On nVidia CUDA 10.2.
-dev-libs/cudnn:cuda11-0 - On nVidia CUDA 11.0.
 dev-libs/cudnn:cuda11-1 - On nVidia CUDA 11.1.
 dev-libs/cyberjack:tools - Build and install optional management tools.
 dev-libs/cyberjack:usb - Enable support for usb based chipcard reader.
@@ -2243,7 +2239,6 @@ dev-libs/totem-pl-parser:archive - Enables ISO detection with app-arch/libarchiv
 dev-libs/totem-pl-parser:crypt - Support AmazonAMZ decoding with dev-libs/libgcrypt
 dev-libs/totem-pl-parser:quvi - Use media-libs/libquvi for parsing video links
 dev-libs/tvision:gpm - Support text mode mouse through sys-libs/gpm
-dev-libs/ucommon:socks - Build with socks proxy support
 dev-libs/userspace-rcu:regression-test - Run regression tests (requires FEATURES=test)
 dev-libs/ustr:ustr-import - Install ustr-import developer program and source code for bundling.
 dev-libs/weston:desktop - Enable the desktop shell
@@ -2469,6 +2464,8 @@ dev-python/passlib:bcrypt - bcrpyt hash algoryptm support
 dev-python/passlib:scrypt - accelerated scrypt algoythm support
 dev-python/passlib:totp - time based one time password support
 dev-python/pillow:imagequant - Build with Image Quantization Library support
+dev-python/pivy:quarter - Use media-libs/quarter for GUI bindings
+dev-python/pivy:soqt - Use media-libs/SoQt for GUI bindings
 dev-python/py-amqp:extras - Install extra tools to generate initial Python mod from an AMQP XML file
 dev-python/pygame:midi - Enable midi support using media-libs/portmidi
 dev-python/pyglet:image - Enable support for image formats other than PNG and BMP
@@ -2766,7 +2763,7 @@ dev-util/bitcoin-tx:knots - Build enhanced Bitcoin Knots version, rather than Bi
 dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
 dev-util/bustle:interactivetests - Build interactive test programs
-dev-util/bustle:threaded - Build with support for multithreaded execution.
+dev-util/bustle:threaded - Build with the multi-threaded runtime
 dev-util/cargo-audit:fix - Add support for 'fix' subcommand (experimental)
 dev-util/catalyst:ccache - Enables ccache support
 dev-util/catalyst:iso - Pulls in the depends for building iso images
@@ -2865,7 +2862,7 @@ dev-util/nvidia-cuda-toolkit:debugger - Install the CUDA debugger
 dev-util/nvidia-cuda-toolkit:eclipse - Install Eclipse plugins
 dev-util/nvidia-cuda-toolkit:nsight - Install profiling and optimizing tools (nsight-compute, nsight-systems)
 dev-util/nvidia-cuda-toolkit:profiler - Install the NVIDIA CUDA profiler (nvprof) and the related libraries
-dev-util/nvidia-cuda-toolkit:sanitizer - Install compute-sanitiazer tool
+dev-util/nvidia-cuda-toolkit:sanitizer - Install compute-sanitizer tool
 dev-util/nvidia-cuda-toolkit:vis-profiler - Install the NVIDIA CUDA visual profiler (nvvp)
 dev-util/oprofile:apidoc - Provide doxygen generated API docs.
 dev-util/ostree:archive - Use libarchive
@@ -3321,7 +3318,6 @@ gnome-base/nautilus:gstreamer - Enable the Audio/Video file properties page
 gnome-base/nautilus:previewer - Use gnome-extra/sushi to preview files from the file mananger
 gnome-base/nautilus:sendto - Enable the nautilus-sendto extension to send files to various locations/devices
 gnome-extra/cinnamon-control-center:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
-gnome-extra/cinnamon-session:elogind - Rely on sys-auth/elogind as runtime logind provider
 gnome-extra/eiciel:nautilus - Build gnome-base/nautilus extension
 gnome-extra/evolution-data-server:berkdb - sys-libs/db support needed to migrate old (pre-3.13 evolution versions) addressbook data
 gnome-extra/evolution-data-server:gnome-online-accounts - Enable net-libs/gnome-online-accounts based Google authentication support
@@ -3784,7 +3780,6 @@ mail-filter/opendkim:unbound - Use the unbound dnssec library to perform DKIM DN
 mail-filter/opendmarc:reports - Install the reports binaries: expire, import, reports, params
 mail-filter/opendmarc:spf - Use the mail-filter/libspf2 for Sender Policy Framework checking
 mail-filter/postfwd:tools - Install additional tools for testing postfwd
-mail-filter/postgrey:targrey - Enables the targrey patch
 mail-filter/pyzor:gdbm - Enables the Gdbm back-end database engine for pyzord
 mail-filter/pyzor:gevent - Use dev-python/gevent to enable asynchronous operation
 mail-filter/pyzor:mysql - Enables the MySQL back-end database engine for pyzord through dev-python/mysqlclient.
@@ -3940,6 +3935,7 @@ media-gfx/blender:valgrind - Add support for memory debugging using dev-util/val
 media-gfx/chafa:tools - Build command-line tools
 media-gfx/cura:usb - Access 3D printers via USB
 media-gfx/curaengine:arcus - Build with support for communication library between internal components for Ultimaker software
+media-gfx/darktable:avif - Support importing and exporting AVIF images
 media-gfx/darktable:flickr - Add support for uploading photos to flickr
 media-gfx/darktable:geolocation - Enable geotagging support
 media-gfx/darktable:gmic - Use the G'MIC image-processing framework (media-gfx/gmic), e.g. to support Colour LUTs compressed using their compression scheme
@@ -4032,6 +4028,7 @@ media-gfx/librecad:3d - Require all 2D coordinates stored as 3D
 media-gfx/librecad:tools - Build additional tool programs: tff2lff
 media-gfx/luminance-hdr:fits - Enable support for the FITS format
 media-gfx/mandelbulber:opencl - Enable GPU rendering support using OpenCL
+media-gfx/meshlab:double-precision - Use double type instead of float type for scalars
 media-gfx/nomacs:opencv - Build support for media-libs/opencv
 media-gfx/nomacs:plugins - Build officially support plugins
 media-gfx/nvidia-texture-tools:cg - Enable NVIDIA C graphics compiler toolkit plug-in
@@ -5312,7 +5309,6 @@ net-analyzer/pmacct:traffic-bins - Link IPv4/IPv6 traffic accounting binaries
 net-analyzer/pmacct:zmq - Enable support for ZeroMQ through net-libs/zeromq
 net-analyzer/pnp4nagios:icinga - Build against net-analyzer/icinga2 instead of net-analyzer/nagios-core
 net-analyzer/pnp4nagios:nagios - Build against net-analyzer/nagios-core (the default)
-net-analyzer/prelude-lml:tls - Enables Prelude LML support Syslog through TLS using net-libs/gnutls.
 net-analyzer/rrdcollect:exec - Enable exec:/// support
 net-analyzer/rrdcollect:librrd - Use the librrd library from net-analyzer/rrdtool
 net-analyzer/rrdtool:graph - Enable support for graphing functions
@@ -5334,20 +5330,20 @@ net-analyzer/snort:active-response - Enables support for automatically sending T
 net-analyzer/snort:control-socket - Enables Snort's control socket.
 net-analyzer/snort:file-inspect - Enables extended file inspection capabilities.
 net-analyzer/snort:flexresp3 - Enables support for new flexable response preprocessor for enabling connection tearing for inline deployments. Replaces flexresp and flexresp2.
-net-analyzer/snort:gre - Enable support for inspecting and processing Generic Routing Encapsulation (GRE) packet headders. Only needed if you are monitoring GRE tunnels.
+net-analyzer/snort:gre - Enable support for inspecting and processing Generic Routing Encapsulation (GRE) packet headers. Only needed if you are monitoring GRE tunnels.
 net-analyzer/snort:high-availability - Enables high-availability state sharing.
 net-analyzer/snort:inline-init-failopen - Enables support to allow traffic to pass (fail-open) through inline deployments while snort is starting and not ready to begin inspecting traffic. If this option is not enabled, network traffic will not pass (fail-closed) until snort has fully started and is ready to perform packet inspection.
 net-analyzer/snort:large-pcap-64bit - Allows Snort to read pcap files that are larger than 2 GB. ONLY VALID FOR 64bit SYSTEMS!
 net-analyzer/snort:libtirpc - Build against net-libs/libtirpc for RPC support
-net-analyzer/snort:linux-smp-stats - Enable accurate statistics reporting through /proc on systems with multipule processors.
+net-analyzer/snort:linux-smp-stats - Enable accurate statistics reporting through /proc on systems with multiple processors.
 net-analyzer/snort:non-ether-decoders - Enable decoding of non-ethernet protocols such as TokenRing, FDDI, IPX, etc.
 net-analyzer/snort:open-appid - Enable OpenAppID, an open, application-focused detection language and processing module for Snort that enables users to create, share, and implement application detection. Requires dev-lang/luajit.
 net-analyzer/snort:perfprofiling - Enables support for preprocessor and rule performance profiling using the perfmonitor preprocessor.
 net-analyzer/snort:ppm - Enables support for setting per rule or per packet latency limits. Helps protect against introducing network latency with inline deployments.
 net-analyzer/snort:react - Enables support for the react rule keyword. Supports interception, termination, and redirection of HTTP connections.
-net-analyzer/snort:reload-error-restart - Enables support for completely restarting snort if an error is detected durring a reload.
+net-analyzer/snort:reload-error-restart - Enables support for completely restarting snort if an error is detected during a reload.
 net-analyzer/snort:shared-rep - Enables the use of shared memory for the Reputation Preprocessor (Only available on Linux systems)
-net-analyzer/snort:side-channel - Enables Snort's the side channel.
+net-analyzer/snort:side-channel - Enables Snort's side channel.
 net-analyzer/snort:sourcefire - Enables Sourcefire specific build options, which include --enable-perfprofiling and --enable-ppm.
 net-analyzer/suricata:af-packet - Enable AF_PACKET support
 net-analyzer/suricata:bpf - Enable support for eBPF (as well as XDP if supported by the kernel and the NIC driver) for low-level, high-speed packet processing
@@ -6344,7 +6340,8 @@ net-misc/dibbler:resolvconf - Use resolvconf to handle /etc/resolv.conf updates
 net-misc/dropbear:bsdpty - Add support for legacy BSD pty's rather than dynamic UNIX pty's -- do not use this flag unless you are absolutely sure you actually want it
 net-misc/dropbear:multicall - Build all the programs as one little binary (to save space)
 net-misc/dropbear:shadow - Enable shadow password support
-net-misc/electron-cash:audio_modem - Enable plugin to support Audio Modem
+net-misc/electron-cash:amodem - Enable plugin to support Audio Modem
+net-misc/electron-cash:audio_modem - Deprecated name for amodem
 net-misc/electron-cash:cli - Enables the CLI interface
 net-misc/electron-cash:cosign - Enable plugin to support multisig wallets between multiple Electrum clients
 net-misc/electron-cash:digitalbitbox - Enable plugin to support Digital Bitbox hardware wallet
@@ -7278,9 +7275,7 @@ sci-libs/lapack:eselect-ldso - Enable runtime library switching by eselect and l
 sci-libs/lapack:lapacke - Build LAPACKE
 sci-libs/lemon:coin - Enable the sci-libs/coinor-clp and sci-libs/coinor-cbc graph algorithms
 sci-libs/lemon:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
-sci-libs/libccd:double - Use double precision floats
 sci-libs/libccd:double-precision - More precise calculations at the expense of speed
-sci-libs/libccd:shared - Build shared library
 sci-libs/libgeodecomp:cuda - Enables plugins for NVIDIA GPUs
 sci-libs/libgeodecomp:hpx - Enables HPX backend
 sci-libs/libgeodecomp:opencl - Enables OpenCL backend
@@ -7680,7 +7675,7 @@ sys-apps/flashrom:nicrealtek - Support for Realtek NICs
 sys-apps/flashrom:ogp-spi - Enable support for OGP (Open Graphics Project) SPI flashing
 sys-apps/flashrom:pickit2-spi - SUpport for SPI flash ROMs accessible via Microchip PICkit2
 sys-apps/flashrom:pony-spi - Enable support for SI-Prog like hardware by Lancos
-sys-apps/flashrom:raiden - Enable ChromiumOS Servo DUT debug board
+sys-apps/flashrom:raiden-debug-spi - Enable ChromiumOS Servo DUT debug board
 sys-apps/flashrom:rayer-spi - RayeR SPIPGM hardware support
 sys-apps/flashrom:realtek-mst-i2c-spi - Enable support for Realtek MultiStream Transport (MST)
 sys-apps/flashrom:satamv - Enable programmer for Marvell SATA controllers
@@ -7782,7 +7777,6 @@ sys-apps/portage:xattr - Preserve extended attributes (filesystem-stored metadat
 sys-apps/proot:care - Build dynamic CARE binary (more info - https://proot-me.github.io)
 sys-apps/qingy:opensslcrypt - Encrypt communications between qingy and its GUI using dev-libs/openssl
 sys-apps/razercfg:gui - Installs GUI configuration utility and status bar applet. Requires dev-python/PyQt5
-sys-apps/razercfg:pm-utils - Installs the pm-utils hooks for suspend/resume and requires sys-power/pm-utils
 sys-apps/rng-tools:jitterentropy - Enable Jitter RNG entropy support
 sys-apps/rng-tools:nistbeacon - Enable NIST beacon entropy support
 sys-apps/rng-tools:pkcs11 - Enable PKCS11 entropy support
@@ -8284,11 +8278,7 @@ sys-fs/zfs:test-suite - Install regression test suite
 sys-fs/zfs-auto-snapshot:cron - Install /etc/cron.* files
 sys-fs/zfs-auto-snapshot:default-exclude - Only take snapshots of datasets with com.sun:auto-snapshot=true property set
 sys-fs/zfs-kmod:rootfs - Install zfs-shutdown script to support exporting a pool containing rootfs
-sys-kernel/aufs-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
-sys-kernel/aufs-sources:module - Patch kernel to allow aufs being build as a module.
-sys-kernel/aufs-sources:vanilla - Use vanilla kernel sources without applying genpatches. WARNING: This flag will drop all support from the Gentoo Kernel Security team
 sys-kernel/bliss-kernel-bin:initramfs - Build initramfs along with the kernel.
-sys-kernel/ck-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/genkernel:cryptsetup - Enable support for Luks disk encryption using sys-fs/cryptsetup
 sys-kernel/genkernel:firmware - Prefer system firmware sys-kernel/linux-firmware over local copy.
 sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.
@@ -8693,7 +8683,6 @@ x11-apps/xsm:rsh - This allows the use of rsh (remote shell) and rcp (remote cop
 x11-base/xorg-server:dmx - Build the Distributed Multiheaded X server
 x11-base/xorg-server:elogind - Use elogind to get control over framebuffer when running as regular user
 x11-base/xorg-server:kdrive - Build the kdrive X servers
-x11-base/xorg-server:libglvnd - Use libglvnd for dispatch.
 x11-base/xorg-server:unwind - Enable libunwind usage for backtraces
 x11-base/xorg-server:xcsecurity - Build Security extension
 x11-base/xorg-server:xephyr - Build the Xephyr server
@@ -8809,6 +8798,7 @@ x11-misc/rss-glx:quesoglc - Enable support for OpenGL Character Renderer
 x11-misc/sddm:elogind - Use sys-auth/elogind for session tracking.
 x11-misc/sent:savedconfig - Without a saved config.h, this package depends on media-gfx/farbfeld for image conversions
 x11-misc/spacefm:video-thumbnails - Support video thumbnails with media-video/ffmpegthumbnailer
+x11-misc/splatmoji:json - Escape output in JSON style using app-misc/jq
 x11-misc/stalonetray:graceful-exit - use non-portable hack to exit gracefuly on signal
 x11-misc/tint2:battery - Enable battery status plugin
 x11-misc/tint2:tint2conf - Build/Install tint2conf as well
@@ -8888,6 +8878,7 @@ x11-terms/rxvt-unicode:gdk-pixbuf - Enable transparency support using x11-libs/g
 x11-terms/rxvt-unicode:iso14755 - Enable ISO-14755 support
 x11-terms/rxvt-unicode:mousewheel - Enable scrolling via mouse wheel or buttons 4 and 5
 x11-terms/rxvt-unicode:perl - Enable perl script support. You can still disable this at runtime with -pe ""
+x11-terms/rxvt-unicode:sgrmouse - Enable unofficial support for the xterm SGR 1006 mouse-tracking extension. Needed to properly support mouse events for terminals with more than 223 rows or columns, in applications not supporting the urxvt 1015 extension.
 x11-terms/rxvt-unicode:unicode3 - Use 21 instead of 16 bits to represent unicode characters
 x11-terms/rxvt-unicode:utmp - Enable utmp support
 x11-terms/rxvt-unicode:wtmp - Enable wtmp support

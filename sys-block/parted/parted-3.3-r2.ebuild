@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
 IUSE="+debug device-mapper nls readline selinux"
 
 RDEPEND="
@@ -24,8 +24,8 @@ RDEPEND="
 	selinux? ( sys-libs/libselinux )
 	elibc_uclibc? ( dev-libs/libiconv )
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	nls? ( >=sys-devel/gettext-0.12.1-r2 )
 	virtual/pkgconfig
 "
@@ -59,5 +59,5 @@ DOCS=(
 
 src_install() {
 	default
-	find "${D}" -name '*.la' -delete || die
+	find "${ED}" -type f -name '*.la' -delete || die
 }

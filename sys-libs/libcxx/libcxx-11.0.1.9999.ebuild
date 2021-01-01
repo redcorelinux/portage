@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -42,7 +42,12 @@ python_check_deps() {
 }
 
 pkg_setup() {
-	llvm_pkg_setup
+	# Darwin Prefix builds do not have llvm installed yet, so rely on
+	# bootstrap-prefix to set the appropriate path vars to LLVM instead
+	# of using llvm_pkg_setup.
+	if [[ ${CHOST} != *-darwin* ]] || has_version dev-lang/llvm; then
+		llvm_pkg_setup
+	fi
 	use test && python-any-r1_pkg_setup
 
 	if ! use libcxxabi && ! tc-is-gcc ; then
@@ -100,6 +105,15 @@ multilib_src_configure() {
 				extra_libs+=( "${compiler_rt}" )
 			fi
 		fi
+	elif [[ ${CHOST} == *-darwin* ]] && tc-is-clang; then
+		# clang-based darwin prefix disables libunwind useflag during
+		# bootstrap, because libunwind is not in the prefix yet.
+		# override the default, though, because clang based libcxx
+		# should never use gcc_s on Darwin.
+		want_gcc_s=OFF
+		# compiler_rt is not available in EPREFIX during bootstrap,
+		# so we cannot link to it yet anyway, so keep the defaults
+		# of want_compiler_rt=OFF and extra_libs=()
 	fi
 
 	# bootstrap: cmake is unhappy if compiler can't link to stdlib
@@ -189,8 +203,10 @@ gen_shared_ldscript() {
 
 multilib_src_install() {
 	cmake_src_install
-	gen_shared_ldscript
-	use static-libs && gen_static_ldscript
+	if [[ ${CHOST} != *-darwin* ]] ; then
+		gen_shared_ldscript
+		use static-libs && gen_static_ldscript
+	fi
 }
 
 pkg_postinst() {

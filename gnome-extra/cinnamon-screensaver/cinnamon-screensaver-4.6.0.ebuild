@@ -14,7 +14,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="systemd xinerama"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 
 COMMON_DEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]
@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	xinerama? ( x11-libs/libXinerama )
 "
 RDEPEND="${COMMON_DEPEND}
+	sys-apps/accountsservice[introspection]
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]

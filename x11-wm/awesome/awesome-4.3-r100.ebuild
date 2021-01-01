@@ -25,7 +25,7 @@ RDEPEND="${LUA_DEPS}
 	>=dev-libs/libxdg-basedir-1
 	$(lua_gen_cond_dep 'dev-lua/lgi[${LUA_USEDEP}]')
 	x11-libs/cairo[X,xcb(+)]
-	x11-libs/gdk-pixbuf:2
+	x11-libs/gdk-pixbuf:2[introspection]
 	>=x11-libs/libxcb-1.6[xkb]
 	>=x11-libs/pango-1.19.3[introspection]
 	>=x11-libs/startup-notification-0.10_p20110426
@@ -41,7 +41,11 @@ RDEPEND="${LUA_DEPS}
 "
 
 # graphicsmagick's 'convert -channel' has no Alpha support, bug #352282
-# ldoc is used by invoking its executable, hence no need for LUA_SINGLE_USEDEP
+# ldoc is used by invoking its executable, hence no need for LUA_SINGLE_USEDEP.
+# On the other hand, it means that we should explicitly depend on a version
+# migrated to Lua eclasses so that during the upgrade from unslotted
+# to slotted dev-lang/lua, the package manager knows to emerge migrated
+# ldoc before migrated awesome.
 DEPEND="${RDEPEND}
 	>=app-text/asciidoc-8.4.5
 	app-text/xmlto
@@ -50,7 +54,7 @@ DEPEND="${RDEPEND}
 	media-gfx/imagemagick[png]
 	>=x11-base/xcb-proto-1.5
 	x11-base/xorg-proto
-	doc? ( dev-lua/ldoc )
+	doc? ( >=dev-lua/ldoc-1.4.6-r100 )
 	test? (
 		app-shells/zsh
 		x11-base/xorg-server[xvfb]
@@ -67,6 +71,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.0-convert-path.patch"  # bug #408025
 	"${FILESDIR}/${PN}-xsession.patch"          # bug #408025
 	"${FILESDIR}/${PN}-4.0-cflag-cleanup.patch" # bug #509658
+	"${FILESDIR}/${PN}-4.3-fno-common.patch"    # bug #707262
 )
 
 src_configure() {
