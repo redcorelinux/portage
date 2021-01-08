@@ -32,6 +32,89 @@
 
 #--- END OF EXAMPLES ---
 
+# Brian Evans <grknight@gentoo.org> (2021-01-07)
+# PHP 7.2 is security vulnerable and end-of-life
+# Please upgrade to a newer slot
+dev-lang/php:7.2
+virtual/httpd-php:7.2
+=dev-php/phpunit-5.7.15-r3
+=dev-php/PHP_CodeCoverage-4.0.7-r2
+=dev-php/PHP_TokenStream-1.4.11-r1
+
+# Joonas Niilola <juippis@gentoo.org> (2020-01-07)
+# Eterm's development stopped 2014 and upstream brought to life 
+# its successor, terminology. Eterm is unmaintained in Gentoo with 
+# multiple bugs open for a long time. Switch to any available 
+# alternative, https://packages.gentoo.org/categories/x11-terms
+# For Esetroot replacement, use feh from media-gfx/feh or wmsetbg
+# from x11-wm/windowmaker.
+# Removal in ~30 days. Bug: #764359
+x11-terms/eterm
+
+# Joonas Niilola <juippis@gentoo.org> (2020-01-07)
+# Doesn't compile, no maintainer, EAPI-5. Last version bump 3 years 
+# ago. Use any of the available alternatives, 
+# https://packages.gentoo.org/categories/x11-terms
+# Removal in ~30 days. Bug: #764353
+x11-terms/pangoterm
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-01-06)
+# Post-consolekit cleanup, dead upstream since 2016.
+# https://s3hh.wordpress.com/2016/06/18/whither-cgmanager/
+# Masked for removal in 30 days.
+app-admin/cgmanager
+sys-libs/libnih
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-01-06)
+# Abandoned upstream, countless bugs. Removal in 30 days. Bug #659616.
+sys-power/pm-utils
+sys-power/pm-quirks
+
+# Michał Górny <mgorny@gentoo.org> (2021-01-06)
+# (on behalf of QA)
+# The new docker version splits the docker(1) executable into a separate
+# app-emulation/docker-cli package.  However, the package is not pulled
+# automatically and the new version does not even warn the user about
+# that.  In other words, the upgrade breaks people's systems hard.
+>=app-emulation/docker-20.1.0
+>=app-emulation/docker-cli-20.1.0
+
+# Michał Górny <mgorny@gentoo.org> (2021-01-05)
+# The portable version has been discontinued upstream (i.e. it is now
+# available only as tightly coupled part of OpenBSD).  The current
+# version relies on dev-libs/libressl implementation details, and can
+# not be easily ported to dev-libs/openssl.  Reported to fail to build
+# with gcc-10.  There are multiple alternative ACME clients available.
+# Removal in 30 days.  Bug #762310.
+app-crypt/acme-client
+
+# Jaco Kroon <jaco@uls.co.za> (2021-01-04)
+# media-libs/libilbc is (for every package I manage) a drop-in for
+# dev-libs/ilbc-rfc3951. The latter had net-misc/asterisk,
+# net-libs/pjproject and net-voip/yate as dependencies.
+# (All of which has been bumped to no longer have this dependency.)
+# Removal in 30 days, bug #444470
+dev-libs/ilbc-rfc3951
+
+# Mikle Kolyada <zlogene@gentoo.org> (2021-01-04)
+# This release is broken multiple ways.
+# Do not use
+=app-admin/terraform-0.14.3
+
+# Jakov Smolic <jakov.smolic@sartura.hr> (2021-01-02)
+# sci-physics/cernlib fails to build with gcc-10, last release in 2006,
+# multiple open bugs, all revdeps also broken and declared EOL upstream.
+# Removal in 30 days, bug #763183
+sci-physics/cernlib
+sci-physics/cernlib-montecarlo
+sci-physics/paw
+
+# Jakov Smolic <jakov.smolic@sartura.hr> (2021-01-02)
+# Fails to build with gcc-10, no maintainer, upstream gone,
+# multiple open bugs.
+# Removal in 30 days, bug #677322, bug #707200, bug #716012
+net-dialup/diald
+
 # Conrad Kostecki <conikost@gentoo.org> (2021-01-01)
 # NetworkManager has buildin support for WireGuard,
 # this plugin is old and unmaintained, so let's drop it.
@@ -90,23 +173,11 @@ media-libs/jpeg
 dev-ruby/rack:2.0
 dev-ruby/rack:2.1
 
-# Sam James <sam@gentoo.org> (2020-12-29)
-# ABI may have been broken in 8.3.0.
-# Masking for now to avoid rebuilds from
-# a subslot bump in case a new release occurs.
-# bug 762241
-=dev-libs/crypto++-8.3.0
-
 # Jonas Stein <jstein@gentoo.org> (2020-12-29)
 # Unusable without alsa.
 # Masked for removal after 2021-02-01
 # Bug #762361
 media-sound/takcd
-
-# Alfredo Tupone <tupone@gentoo.org> (2020-12-28)
-# Masked for testing
->=dev-lang/tk-8.6.10
->=dev-lang/tcl-8.6.10
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
 # Dead upstream, only two revdeps.
@@ -285,17 +356,6 @@ dev-util/creduce
 # paths.
 =net-libs/gnutls-3.7.0
 
-# Joonas Niilola <juippis@gentoo.org> (2020-12-06)
-# Not keyworded, unmaintained, unbuildable for a long time, EAPI-5.
-# Removal in ~30 days. List sorted by their bug numbers.
-# Bugs: #752432, #752435, #752438, #752441, #752444, #752453.
-media-plugins/kodi-screensaver-crystalmorph
-media-plugins/kodi-visualization-nastyfft
-media-plugins/kodi-screensaver-rsxs
-net-wireless/qradiolink
-net-libs/liba53
-app-emulation/qt-virt-manager
-
 # Thomas Deutschmann <whissi@gentoo.org> (2020-11-24)
 # Serious data corruption bug when using XFS, see https://www.spinics.net/lists/linux-xfs/msg47004.html
 # Feel free to manually unmask when not using XFS.
@@ -336,12 +396,6 @@ app-emulation/qt-virt-manager
 =sys-kernel/gentoo-kernel-bin-5.4.79
 =sys-kernel/gentoo-kernel-bin-5.4.78-r1
 =sys-kernel/gentoo-kernel-bin-5.4.78
-
-# Jonas Stein <jstein@gentoo.org> (2020-11-12)
-# Adobe will stop distributing Flash Player after 2020-12-31.
-# Masked for removal after 2020-12-31
-# Bug #754192
-www-plugins/adobe-flash
 
 # Michał Górny <mgorny@gentoo.org> (2020-11-10)
 # This old Kodi version requires vulnerable dev-python/pillow
@@ -472,52 +526,6 @@ dev-lang/vala:0.50
 net-analyzer/ntopng
 net-analyzer/pmacct
 net-libs/nDPI
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2020-07-15)
-# In preparation; do not use yet.
-=dev-lang/perl-5.32*
-~virtual/perl-Archive-Tar-2.360.0
-~virtual/perl-autodie-2.320.0
-~virtual/perl-Compress-Raw-Bzip2-2.93.0
-~virtual/perl-Compress-Raw-Zlib-2.93.0
-~virtual/perl-CPAN-2.270.0
-~virtual/perl-DB_File-1.853.0
-~virtual/perl-Devel-PPPort-3.570.0
-~virtual/perl-Digest-MD5-2.550.100_rc
-~virtual/perl-Dumpvalue-1.210.0
-~virtual/perl-Encode-3.60.0
-~virtual/perl-Exporter-5.740.0
-~virtual/perl-ExtUtils-CBuilder-0.280.234
-~virtual/perl-ExtUtils-MakeMaker-7.440.0
-~virtual/perl-Filter-Simple-0.960.0
-~virtual/perl-Getopt-Long-2.510.0
-~virtual/perl-I18N-LangTags-0.440.0
-~virtual/perl-IO-1.430.0
-~virtual/perl-IO-Compress-2.93.0
-~virtual/perl-IPC-Cmd-1.40.0
-~virtual/perl-JSON-PP-4.40.0
-~virtual/perl-Math-BigInt-1.999.818
-~virtual/perl-Math-BigInt-FastCalc-0.500.900
-~virtual/perl-Module-CoreList-5.202.6.200
-~virtual/perl-Module-Load-Conditional-0.700.0
-~virtual/perl-Module-Metadata-1.0.37
-~virtual/perl-Net-Ping-2.720.0
-~virtual/perl-parent-0.238.0
-~virtual/perl-podlators-4.140.0
-~virtual/perl-Pod-Simple-3.400.0
-~virtual/perl-Safe-2.410.0
-~virtual/perl-Scalar-List-Utils-1.550.0
-~virtual/perl-Socket-2.29.0
-~virtual/perl-Storable-3.210.0
-~virtual/perl-Sys-Syslog-0.360.0
-~virtual/perl-Term-ANSIColor-5.10.0
-~virtual/perl-Test-Simple-1.302.175
-~virtual/perl-Thread-Queue-3.140.0
-~virtual/perl-threads-2.250.0
-~virtual/perl-threads-shared-1.610.0
-~virtual/perl-Time-HiRes-1.976.400
-~virtual/perl-Time-Piece-1.340.100
-~virtual/perl-Unicode-Normalize-1.270.0
 
 # Mart Raudsepp <leio@gentoo.org> (2020-06-06)
 # Meson port does not handle multilib yet and has issues

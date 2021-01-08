@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ HOMEPAGE="http://www.xmlsoft.org/"
 
 LICENSE="MIT"
 SLOT="2"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug examples icu ipv6 lzma +python readline static-libs test"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
@@ -81,10 +81,6 @@ src_prepare() {
 	eapply "${FILESDIR}"/${P}-remove-TRUE.patch
 
 	eprefixify catalog.c xmlcatalog.c runtest.c xmllint.c
-
-	# Fix build for Windows platform
-	# https://bugzilla.gnome.org/show_bug.cgi?id=760456
-	# eapply "${FILESDIR}"/${PN}-2.8.0_rc1-winnt.patch
 
 	# Fix python detection, bug #567066
 	# https://bugzilla.gnome.org/show_bug.cgi?id=760458
@@ -182,15 +178,6 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	# on windows, xmllint is installed by interix libxml2 in parent prefix.
-	# this is the version to use. the native winnt version does not support
-	# symlinks, which makes repoman fail if the portage tree is linked in
-	# from another location (which is my default). -- mduft
-	if [[ ${CHOST} == *-winnt* ]]; then
-		rm -rf "${ED}"/usr/bin/xmllint
-		rm -rf "${ED}"/usr/bin/xmlcatalog
-	fi
-
 	rm -rf "${ED}"/usr/share/doc/${P}
 	einstalldocs
 

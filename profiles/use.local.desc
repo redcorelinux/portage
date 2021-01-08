@@ -607,7 +607,6 @@ app-emulation/qemu:xattr - Add support for getting and setting POSIX extended at
 app-emulation/qemu:xen - Enables support for Xen backends
 app-emulation/qemu:xfs - Support xfsctl() notification and syncing for XFS backed virtual disks.
 app-emulation/qemu:xkb - Depend on x11-libs/libxkbcommon to build qemu-keymap tool for converting xkb keymaps
-app-emulation/qt-virt-manager:smartcard - Enable smartcard remoting using app-emulation/libcacard
 app-emulation/runc:ambient - Enable support for ambient capabilities set (Requires Linux kernel 4.3 or later).
 app-emulation/runc:apparmor - Enable AppArmor support.
 app-emulation/runc:kmem - Enable Kernel Memory Accounting.
@@ -3410,6 +3409,7 @@ gui-wm/wayfire:system-wfconfig - use the system-wide wf-config, else build it as
 gui-wm/wayfire:system-wlroots - use the system wide wlroots, else build it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
 kde-apps/akonadi:designer - Install plugin for dev-qt/designer
 kde-apps/akonadi:kaccounts - Enable support for system-wide defined KAccounts
+kde-apps/akonadi:mariadb - Enable support for using dev-db/mariadb storage backend
 kde-apps/akonadi:tools - Install tools for developers and testing
 kde-apps/analitza:eigen - Enable dev-cpp/eigen mathematical templates support
 kde-apps/ark:zip - Enable ZIP archive support via dev-libs/libzip
@@ -3542,6 +3542,7 @@ kde-apps/okular:qml - Install Okular Qml components
 kde-apps/okular:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/okular:speech - Enable text-to-speech support
 kde-apps/pimcommon:designer - Build plugins for dev-qt/designer
+kde-apps/spectacle:annotate - Enable support for screenshot annotations using media-libs/kimageannotator
 kde-apps/spectacle:kipi - Enable support for the KDE Image Plugin Interface
 kde-apps/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/step:qalculate - Enable the libqalculate library for unit conversion
@@ -4258,8 +4259,9 @@ media-libs/mlt:lua - Build SWIG bindings for Lua
 media-libs/mlt:melt - Build the melt commandline tool
 media-libs/mlt:opencv - Build motion tracking module using media-libs/opencv
 media-libs/mlt:python - Build SWIG bindings for Python
-media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms.
-media-libs/mlt:vidstab - Enabled video stabilization with media-libs/vidstab.
+media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms
+media-libs/mlt:rubberband - Enable audio pitch-shifting using media-libs/rubberband
+media-libs/mlt:vidstab - Enabled video stabilization with media-libs/vidstab
 media-libs/netpbm:rle - Build converters for the RLE format (utah raster toolkit)
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
 media-libs/opencv:contribcvv - CVV module requires Qt5
@@ -4591,7 +4593,9 @@ media-sound/loudness-scanner:sndfile - build the sndfile plugin
 media-sound/mangler:espeak - Text to speech engine
 media-sound/mangler:g15 - Logitech g15 lcd support
 media-sound/mixxx:hid - Enable HID controller support
+media-sound/mixxx:keyfinder - Enable musical key detection support via media-libs/libkeyfinder
 media-sound/mixxx:lv2 - Add support for Ladspa V2 via media-libs/lilv
+media-sound/mixxx:qtkeychain - Enable Secure credential storage support via dev-libs/qtkeychain
 media-sound/mixxx:shout - Enable broadcasting support via media-libs/libshout
 media-sound/moc:cache - Enable tags caching support
 media-sound/moc:sid - Build with SID (Commodore 64 Audio) support
@@ -4739,6 +4743,7 @@ media-sound/split2flac:replaygain - Support for Replay Gain metadata, for relati
 media-sound/spotify:pax_kernel - Triggers a paxmarking of the main Spotify binary
 media-sound/spotify:pulseaudio - Controls the dependency on pulseaudio or apulse
 media-sound/spotify:systray - Pulls in dependencies needed for systray support on some desktop environments
+media-sound/strawberry:vlc - Enable media-video/vlc backend
 media-sound/supercollider:emacs - Enable the SCEL user interface
 media-sound/supercollider:gedit - Enable the SCED user interface
 media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
@@ -5176,10 +5181,8 @@ net-analyzer/ettercap:plugins - Install ettercap plugins (et_*.so)
 net-analyzer/flent:plots - Enable drawing plots
 net-analyzer/flowgrind:pcap - Enable packet capturing support using net-libs/libpcap
 net-analyzer/fprobe:messages - enable console messages
-net-analyzer/goaccess:btree - Enable Tokyo Cabinet's on-disk B+ Tree database backend
 net-analyzer/goaccess:geoipv2 - Enable support for GeoIP2 through dev-libs/libmaxminddb
 net-analyzer/goaccess:getline - Use GNU getline() to parse full line requests
-net-analyzer/goaccess:tokyocabinet - Enable Tokyo Cabinet's on-memory hash database backend
 net-analyzer/gr-fosphor:glfw - enable GLFW based interface
 net-analyzer/graphite-web:carbon - Enable carbon support
 net-analyzer/graphite-web:memcached - Enable memcached support
@@ -5748,7 +5751,6 @@ net-im/pidgin:zephyr - Enable Zephyr protocol support
 net-im/profanity:gpg - Enable OpenPGP encryption
 net-im/profanity:omemo - Enable OMEMO encryption
 net-im/profanity:otr - Enable encrypted conversations using Off-The-Records messaging
-net-im/prosody:jit - Use LuaJIT instead of vanilla Lua
 net-im/prosody:libevent - Use libevent for event handling
 net-im/psi:aspell - Enable spellchecking using app-text/aspell
 net-im/psi:enchant - Enable spellchecking using app-text/enchant
@@ -5976,8 +5978,9 @@ net-libs/libgsasl:gcrypt - Use dev-libs/libgcrypt for low-level crypto
 net-libs/libgsasl:ntlm - Add support for Microsoft's NTLM mechanism using net-libs/libntlm
 net-libs/libiio:aio - Enable asynchronous IO support
 net-libs/libisds:openssl - Use dev-libs/openssl as crypto backend instead of app-crypt/gpgme and dev-libs/libgcrypt
-net-libs/libmicrohttpd:epoll - use epoll() system call
+net-libs/libmicrohttpd:epoll - Use epoll() system call
 net-libs/libmicrohttpd:messages - enable error messages
+net-libs/libmicrohttpd:thread-names - Assign thread names to internal threads
 net-libs/libnids:glib - Use dev-libs/glib for multiprocessing support
 net-libs/libnids:libnet - Include code requiring net-libs/libnet
 net-libs/libnma:pkcs11 - Enable PKCS#11 support in certificate chooser via app-crypt/gcr
@@ -5986,7 +5989,6 @@ net-libs/liboauth:curl - If enabled, net-misc/curl is used thorugh the libcurl l
 net-libs/liboauth:nss - Use Mozilla NSS (dev-libs/nss) as hash library; if this is disabled, dev-libs/openssl is used instead.
 net-libs/liboping:filecaps - Allow non-root users to use [n]oping utility.
 net-libs/liboping:ncurses - Build ncurses-based version of oping utility (requires sys-libs/ncurses)
-net-libs/libosmocore:embedded - Build for embedded use and disable unsupported features
 net-libs/libosmocore:pcsc-lite - Enable smartcard support with sys-apps/pcsc-lite
 net-libs/libpcap:netlink - Use dev-libs/libnl to put wireless interfaces in monitor mode.
 net-libs/libpcap:rdma - Enable RDMA capture support using sys-cluster/rdma-core
@@ -6280,6 +6282,7 @@ net-misc/cgminer:minion - Enable support for mining with BlackArrow Bitfury
 net-misc/cgminer:modminer - Enable support for mining with ModMiner FPGAs
 net-misc/cgminer:sp10 - Enable support for Spondoolies SP10
 net-misc/cgminer:sp30 - Enable support for Spondoolies SP30
+net-misc/chrome-remote-desktop:xrandr - Enable support for the XRandR extension for dynamic desktop resizing
 net-misc/chrony:cmdmon - Support for command and monitoring
 net-misc/chrony:html - Install HTML documentation
 net-misc/chrony:nettle - Use dev-libs/nettle for hash functions
@@ -6504,6 +6507,7 @@ net-misc/ofono:qmimodem - Enable Qualcomm QMI modem support
 net-misc/ofono:tools - Enable testing tools
 net-misc/oidentd:masquerade - Enable support for masqueraded/NAT connections
 net-misc/olsrd:pud - Install the Node Position Update plugin
+net-misc/openntpd:constraints - Enable HTTPS TLS time constraint support
 net-misc/openntpd:libressl - Enable HTTPS TLS time constraint support using dev-libs/libressl
 net-misc/openssh:X509 - Adds support for X.509 certificate authentication
 net-misc/openssh:bindist - Disable EC/RC5 algorithms in OpenSSL for patent reasons.
@@ -6767,24 +6771,28 @@ net-proxy/haproxy:prometheus-exporter - Also build the prometheus exporter
 net-proxy/haproxy:slz - Use dev-libs/libslz compression library
 net-proxy/haproxy:tools - Install additional tools (halog, iprange)
 net-proxy/haproxy:wurfl - Device Detection using WURFL
+net-proxy/privoxy:brotli - Decompress brotli compressed data using app-arch/brotli before filtering
 net-proxy/privoxy:client-tags - Enable support for client-specific tags
 net-proxy/privoxy:compression - Allow privoxy to compress buffered content before sending to the client, if it supports it
 net-proxy/privoxy:editor - Enable the web-based actions file editor
-net-proxy/privoxy:extended-host-patterns - Enable and require PCRE syntax in host patterns. You must convert action files to PCRE, see privoxy-url-pattern-translator.pl Use at your own risk!
+net-proxy/privoxy:extended-host-patterns - Enable and require PCRE syntax in host patterns. You must convert action files to PCRE, see privoxy-url-pattern-translator.pl (see tools USE flag). Use at your own risk!
+net-proxy/privoxy:extended-statistics - Gather extended statistics
 net-proxy/privoxy:external-filters - Allow to filter content with scripts and programs. Experimental
 net-proxy/privoxy:fast-redirects - Support fast redirects
 net-proxy/privoxy:force - Allow single-page disable (force load)
 net-proxy/privoxy:fuzz - Exposes Privoxy internals to input from files or stdout. Intended for fuzzing testing
 net-proxy/privoxy:graceful-termination - Allow to shutdown Privoxy through the webinterface
-net-proxy/privoxy:ie-images - Enable a quick but not always reliable auto-detect whether requests from MS Internet Explorer are for an image or not
 net-proxy/privoxy:image-blocking - Allows the +handle-as-image action, to send "blocked" images instead of HTML
 net-proxy/privoxy:lfs - Support large files (>2GB) on 32-bit systems
+net-proxy/privoxy:mbedtls - Use net-libs/mbedtls for HTTPS filtering
+net-proxy/privoxy:openssl - Use dev-libs/openssl for HTTPS filtering
 net-proxy/privoxy:png-images - Use PNG format instead of GIF for built-in images
+net-proxy/privoxy:ssl - HTTPS inspection support. Enables privoxy to perform SSL MITM filtering, see docs, use with care
 net-proxy/privoxy:stats - Keep statistics
 net-proxy/privoxy:toggle - Support temporary disable toggle via web interface
 net-proxy/privoxy:tools - Install log parser, regression tester and user agent generator tools
 net-proxy/privoxy:whitelists - Support trust files (white lists)
-net-proxy/privoxy:zlib - Use sys-libs/zlib to decompress data before filtering
+net-proxy/privoxy:zlib - Decompress zlib compressed data using sys-libs/zlib before filtering
 net-proxy/rejik:banlists - Install upstream provided simple banlists
 net-proxy/squid:ecap - Adds support for loadable content adaptation modules (http://www.e-cap.org)
 net-proxy/squid:esi - Enable ESI for accelerators, will cause squid reverse proxies to be capable of the Edge Acceleration Specification (www.esi.org)
@@ -7341,8 +7349,6 @@ sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
 sci-libs/proj:europe - Install the PROJ collection of European grids and init-files
 sci-libs/rtabmap:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2.
-sci-libs/scikit-image:freeimage - Enable support for image i/o viamedia-libs/freeimage
-sci-libs/scikit-image:pyamg - Enable support for algebraic solvers via dev-python/pyamg
 sci-libs/scotch:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
 sci-libs/scotch:tools - Provides the graph, mesh, architecture, mapping/ordering, output handling programs (see Scotch User's Guide).
 sci-libs/silo:silex - Build silex data browser
@@ -7793,7 +7799,7 @@ sys-apps/shadow:bcrypt - build the bcrypt password encryption algorithm
 sys-apps/shadow:su - build the su program
 sys-apps/smartmontools:caps - Build against sys-libs/libcap-ng to allow smartd to drop its privileges.
 sys-apps/smartmontools:daemon - Install the monitoring daemon (smartd) and associated scripts.
-sys-apps/smartmontools:update_drivedb - Install a script to update the drivedb file.
+sys-apps/smartmontools:update-drivedb - Install a script to update the drivedb file.
 sys-apps/smc-sum:module - Install Supermicro's kernel module.
 sys-apps/superdiag:iso - Install an iso image, which can be used with sys-apps/smc-sum.
 sys-apps/superdiag:usb - Install all files, which are needed for an installation on an usb thumb drive.
@@ -8142,6 +8148,7 @@ sys-devel/gcc-apple:objc - Build support for the Objective C code language
 sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
 sys-devel/gcc-config:cc-wrappers - Install and manage 'cc' and 'f77' wrappers in /usr/bin. Otherwise ignore them.
 sys-devel/gcc-config:native-symlinks - Install native symlinks like 'gcc' or 'g++' to /usr/bin. Otherwise keep only ${CTARGET}-gcc and friends.
+sys-devel/gdb:cet - Enable Intel Control-flow Enforcement Technology.
 sys-devel/gdb:client - Install the main "gdb" program (most people want this)
 sys-devel/gdb:lzma - Support lzma compression in ELF debug info
 sys-devel/gdb:multitarget - Support all known targets in one gdb binary
@@ -8611,8 +8618,6 @@ www-misc/litmus:libproxy - Support for automatic proxy configuratino management 
 www-misc/litmus:libxml2 - Use dev-libs/libxml2 to parse XML
 www-misc/litmus:pkcs11 - Support for PKCS #11 through PaKChoiS (dev-libs/pakchois).
 www-misc/xxv:themes - Enable more themes via x11-themes/xxv-skins
-www-plugins/adobe-flash:nsplugin - Install the Netscape Flash API plugin (for Firefox and similar browsers)
-www-plugins/adobe-flash:ppapi - Install the Pepper Flash API plugin (for Chrome and similar browsers)
 www-plugins/lightspark:ppapi - Install the PPAPI plugin (for Chromium)
 www-plugins/lightspark:rtmp - Enable Real Time Messaging Protocol using librtmp
 www-plugins/passff-host:chrome - Install plugin for chrome (which also includes opera)
@@ -8798,7 +8803,6 @@ x11-misc/rss-glx:quesoglc - Enable support for OpenGL Character Renderer
 x11-misc/sddm:elogind - Use sys-auth/elogind for session tracking.
 x11-misc/sent:savedconfig - Without a saved config.h, this package depends on media-gfx/farbfeld for image conversions
 x11-misc/spacefm:video-thumbnails - Support video thumbnails with media-video/ffmpegthumbnailer
-x11-misc/splatmoji:json - Escape output in JSON style using app-misc/jq
 x11-misc/stalonetray:graceful-exit - use non-portable hack to exit gracefuly on signal
 x11-misc/tint2:battery - Enable battery status plugin
 x11-misc/tint2:tint2conf - Build/Install tint2conf as well

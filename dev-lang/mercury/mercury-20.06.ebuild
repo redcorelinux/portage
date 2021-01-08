@@ -1,11 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit autotools elisp-common eutils flag-o-matic java-pkg-opt-2 multilib vcs-clean xdg-utils
 
-PATCHSET_VER="0"
+PATCHSET_VER="1"
 MY_P=${PN}-srcdist-${PV}
 
 DESCRIPTION="Mercury is a modern general-purpose logic/functional programming language"
@@ -15,7 +15,7 @@ SRC_URI="https://dl.mercurylang.org/release-20.06/${MY_P}.tar.gz
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="debug doc emacs erlang examples java mono profile readline threads trail"
 

@@ -1,9 +1,10 @@
-# Copyright 2003-2020 Gentoo Authors
+# Copyright 2003-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+PYTHON_COMPAT=( python3_{6..9} )
 
-inherit bash-completion-r1 linux-info meson ninja-utils multilib-minimal toolchain-funcs udev usr-ldscript
+inherit bash-completion-r1 linux-info meson ninja-utils multilib-minimal python-any-r1 toolchain-funcs udev usr-ldscript
 
 if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/systemd/systemd.git"
@@ -18,7 +19,7 @@ else
 	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sparc x86"
 fi
 
 DESCRIPTION="Linux dynamic and persistent device naming support (aka userspace devfs)"
@@ -39,6 +40,7 @@ BDEPEND="
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
+	${PYTHON_DEPS}
 "
 COMMON_DEPEND="
 	>=sys-apps/util-linux-2.30[${MULTILIB_USEDEP}]
@@ -142,6 +144,7 @@ multilib_src_configure() {
 src_configure() {
 	# Prevent conflicts with i686 cross toolchain, bug 559726
 	tc-export AR CC NM OBJCOPY RANLIB
+	python_setup
 	multilib-minimal_src_configure
 }
 

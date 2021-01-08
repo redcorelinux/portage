@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,11 +9,12 @@ PATCHSET_VER="0"
 
 DESCRIPTION="versatile implementation of the Prolog programming language"
 HOMEPAGE="https://www.swi-prolog.org/"
-SRC_URI="https://www.swi-prolog.org/download/stable/src/swipl-${PV}.tar.gz"
+SRC_URI="https://www.swi-prolog.org/download/stable/src/swipl-${PV}.tar.gz
+	https://dev.gentoo.org/~keri/distfiles/swi-prolog/${P}-gentoo-patchset-${PATCHSET_VER}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="archive berkdb debug doc +gmp java +libedit libressl minimal odbc pcre qt5 readline ssl test uuid X yaml"
 RESTRICT="!test? ( test )"
 
