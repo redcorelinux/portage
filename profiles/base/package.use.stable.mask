@@ -4,6 +4,11 @@
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in package.use.mask
 
+# Sam James <sam@gentoo.org> (2021-01-09)
+# relapack is experimental, please be careful with use
+# bug #764206
+sci-libs/openblas relapack
+
 # Brian Evans <grknight@gentoo.org> (2021-01-07)
 # temporarily block tests so that bugs can be resolved
 dev-php/theseer-Autoload test
@@ -31,10 +36,6 @@ dev-java/openjdk:8 javafx
 # Pacho Ramos <pacho@gentoo.org> (2020-08-21)
 # app-text/pandoc is hard to stabilize #737612
 sys-apps/earlyoom docs
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-06-06)
-# dev-python/wxpython:4.0 w/ py3 is not stable, bug #714566
-dev-python/matplotlib wxwidgets
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2020-04-13)
 # app-text/pandoc (dev-lang/ghc) has no stable keywords.
@@ -78,10 +79,6 @@ dev-perl/Business-ISBN barcode
 dev-perl/Template-Toolkit gd
 media-fonts/unifont utils fontforge
 media-video/vdrsync dvdr
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2019-07-16)
-# sci-libs/dcmtk is not stable
-media-libs/openimageio dicom
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-05-10)
 # needs llvm slots which are not stable #678908

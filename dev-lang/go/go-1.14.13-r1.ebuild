@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,7 +21,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* ~amd64 ~arm ~arm64 ~ppc64 ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* amd64 arm arm64 ppc64 ~s390 x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 		;;
 	esac
 esac
@@ -181,14 +181,6 @@ src_install()
 	# install the @golang-rebuild set for Portage
 	insinto /usr/share/portage/config/sets
 	newins "${FILESDIR}"/go-sets.conf go.conf
-
-	# fix install_name for test object (binutils_test) on Darwin, it
-	# is never used in real circumstances
-	if [[ ${CHOST} == *-darwin* ]] ; then
-		local libmac64="${EPREFIX}"/usr/lib/go/src/cmd/vendor/github.com/
-		      libmac64+=google/pprof/internal/binutils/testdata/lib_mac_64
-		install_name_tool -id "${libmac64}" "${D}${libmac64}"
-	fi
 }
 
 pkg_postinst() {

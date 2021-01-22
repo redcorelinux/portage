@@ -1,5 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
+# Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com> (2021-01-16)
+# NVTT support required for building games-strategy/0ad-data.
+=games-strategy/0ad-0.0.24_alpha_pre* nvtt
 
 # Lars Wendler <polynomial-c@gentoo.org> (2020-12-31)
 # Force-enable unicode. We're in 2020 and this should really be available
@@ -163,7 +167,6 @@ app-shells/bash:0 readline
 # Force-enable all PYTHON_TARGETS for python-exec to avoid using private
 # API. Please remember to keep it in sync with python_targets.desc.
 dev-lang/python-exec python_targets_python2_7
-dev-lang/python-exec python_targets_python3_6
 dev-lang/python-exec python_targets_python3_7
 dev-lang/python-exec python_targets_python3_8
 dev-lang/python-exec python_targets_python3_9

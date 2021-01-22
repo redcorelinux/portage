@@ -56,8 +56,8 @@ DEPEND="${RDEPEND}
 	test? ( app-arch/xz-utils[extra-filters(+)] )
 	virtual/pkgconfig
 	!sys-devel/gcc[libffi(-)]"
+PDEPEND="app-eselect/eselect-python"
 RDEPEND+=" !build? ( app-misc/mime-types )"
-PDEPEND=">=app-eselect/eselect-python-20140125-r1"
 
 # large file tests involve a 2.5G file being copied (duplicated)
 CHECKREQS_DISK_BUILD=5500M

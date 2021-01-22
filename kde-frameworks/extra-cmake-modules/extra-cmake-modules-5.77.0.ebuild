@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,7 +11,7 @@ DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://invent.kde.org/frameworks/extra-cmake-modules"
 
 LICENSE="BSD"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~hppa ppc ppc64 x86"
 IUSE="doc test"
 
 BDEPEND="
@@ -67,10 +67,11 @@ src_configure() {
 src_test() {
 	# ECMToolchainAndroidTest passes but then breaks src_install
 	# ECMPoQmToolsTest is broken, bug #627806
+	# KDEFetchTranslations can not possibly succeed in releases, bug #764953
 	# possible race condition with multiple jobs, bug #701854
 	local myctestargs=(
 		-j1
-		-E "(ECMToolchainAndroidTest|ECMPoQmToolsTest)"
+		-E "(ECMToolchainAndroidTest|ECMPoQmToolsTest|KDEFetchTranslations)"
 	)
 
 	cmake_src_test

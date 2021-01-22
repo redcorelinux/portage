@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 hppa ~ia64 ~ppc ~ppc64 sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 hppa ~ia64 ~ppc ~ppc64 sparc ~x86"
 
 RDEPEND="
 	>=dev-python/async_timeout-3.0.0[${PYTHON_USEDEP}]
@@ -70,6 +70,10 @@ python_prepare_all() {
 	# Internet
 	sed -e 's:test_mark_formdata_as_processed:_&:' \
 		-i tests/test_formdata.py || die
+
+	# newer chardet works too
+	sed -e 's|chardet>=2.0,<4.0|chardet>=2.0|' \
+		-i setup.py aiohttp.egg-info/requires.txt || die
 
 	# takes a very long time, then fails
 	rm tests/test_pytest_plugin.py || die
