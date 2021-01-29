@@ -6,13 +6,6 @@
 # bug #766186
 dev-util/ragel doc
 
-# Sam James <sam@gentoo.org> (2021-01-19)
-# Joonas Niilola <juippis@gentoo.org> (2021-01-10)
-# Test-dep needs keywording on multiple arches, best to just mask it
-# globally for now. Resolves issue by b5248bbb1b5
-# bug #766147
-app-text/enchant test
-
 # Joonas Niilola <juippis@gentoo.org> (2021-01-15)
 # Dependency not keyworded on this arch.
 app-text/enchant voikko
@@ -203,12 +196,6 @@ dev-lang/spidermonkey jit
 # Sergei Trofimovich <slyfox@gentoo.org> (2019-04-20)
 # No ffmpeg keywords on sparc
 media-sound/dir2ogg aac wma
-
-# Sergei Trofimovich <slyfox@gentoo.org> (2018-09-28)
-# No stable nftables yet. Let new iptables stabilization
-# to pick nftables up. Meanwhile keep old iptables off
-# nftables.
-<net-firewall/iptables-1.6.2 nftables
 
 # Virgil Dupras <vdupras@gentoo.org> (2018-10-08)
 # app-text/mupdf sparc keyword was dropped in bug #631970

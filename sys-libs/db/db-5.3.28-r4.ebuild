@@ -37,8 +37,7 @@ REQUIRED_USE="test? ( tcl )"
 # the entire testsuite needs the TCL functionality
 DEPEND="tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )
 	test? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )
-	java? ( >=virtual/jdk-1.5 )
-	>=sys-devel/binutils-2.16.1"
+	java? ( >=virtual/jdk-1.5 )"
 RDEPEND="tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )
 	java? ( >=virtual/jre-1.5 )"
 
@@ -140,7 +139,7 @@ multilib_src_configure() {
 		$(use_enable test)
 	)
 
-	tc-ld-disable-gold #470634
+	tc-ld-force-bfd #470634 #729510
 
 	# compilation with -O0 fails on amd64, see bug #171231
 	if [[ ${ABI} == amd64 ]]; then

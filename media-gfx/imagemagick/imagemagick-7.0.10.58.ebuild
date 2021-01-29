@@ -13,7 +13,7 @@ else
 	MY_PV="$(ver_rs 3 '-')"
 	MY_P="ImageMagick-${MY_PV}"
 	SRC_URI="mirror://imagemagick/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 fi
 
 DESCRIPTION="A collection of tools and libraries for many image formats"
@@ -220,7 +220,7 @@ src_install() {
 
 	find "${ED}" -name '*.la' -exec sed -i -e "/^dependency_libs/s:=.*:='':" {} +
 	# .la files in parent are not needed, keep plugin .la files
-	rm "${ED}"/usr/$(get_libdir)/*.la || die
+	find "${ED}"/usr/$(get_libdir)/ -maxdepth 1 -name "*.la" -delete || die
 
 	if use opencl; then
 		cat <<-EOF > "${T}"/99${PN}

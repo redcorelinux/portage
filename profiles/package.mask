@@ -32,6 +32,58 @@
 
 #--- END OF EXAMPLES ---
 
+# Ulrich Müller <ulm@gentoo.org> (2021-01-29)
+# Pretest versions, masked for testing.
+~app-editors/emacs-27.1.91
+~app-editors/emacs-27.1.92
+~app-editors/emacs-27.1.93
+
+# Michał Górny <mgorny@gentoo.org> (2021-01-28)
+# The new pkgcheck version triggers lots of false positives due
+# to Prefix profiles being broken.  Bug #720224.
+>=dev-util/pkgcheck-0.8
+>=sys-apps/pkgcore-0.11
+
+# Azamat H. Hackimov <azamat.hackimov@gmail.com> (2021-01-26)
+# Dead upstream (last release 2007), unmaintained, multiple issues,
+# no reverse dependencies.
+# Removal in 30 days. Bug #744019
+sys-power/ncpufreqd
+
+# Azamat H. Hackimov <azamat.hackimov@gmail.com> (2021-01-26)
+# Dead upstream, no live HOMEPAGE and SRC_URI.
+# Removal in 30 days. Bug #744013
+app-text/csvfix
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-01-26)
+# In preparation. Do not use yet.
+~dev-lang/perl-5.32.1
+=virtual/perl-Data-Dumper-2.174.10_rc
+=virtual/perl-Module-CoreList-5.202.101.230
+=virtual/perl-Safe-2.410.100_rc
+
+# Brian Evans <grknight@gentoo.org> (2021-01-25)
+# Dead upstream. Relies on soon to be removed wddx support in PHP.
+# wddx in general failed overall as a protocol. No real maintainer.
+# Removal in 30 days. Bug #688066
+net-analyzer/jffnms
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-01-24)
+# (New and QML-based) functionality moved into kde-plasma/plasma-desktop:5
+# Masked for removal in 14 days.
+kde-plasma/user-manager:5
+
+# Aisha Tammy <gentoo@aisha.cc> (2021-01-24)
+# Dead package, wrongly named, only installs
+# really old scikit-examples.
+# Removal in 14 days
+sci-libs/scikits
+
+# Jakov Smolic <jakov.smolic@sartura.hr> (2021-01-24)
+# Last release in 2004. Fails to build with gcc-10 and openssl-1.1.
+# Removal on 2021-02-23.  Bugs #707004, #677170, #562724
+app-crypt/sign
+
 # Conrad Kostecki <conikost@gentoo.org> (2020-01-21)
 # All kernels >= 4.17 removed IrDA drivers and support,
 # the package has also multiple bugs open and is unmaintained.
@@ -222,35 +274,6 @@ dev-ruby/rack:2.1
 # Bug #762361
 media-sound/takcd
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Dead upstream, only two revdeps.
-# Masked for removal in 30 days.
-media-libs/qt-gstreamer
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Dead upstream, depends on dead media-libs/qt-gstreamer.
-# If anyone is actually using this productively, *do tell*.
-# Masked for removal in 30 days.
-kde-apps/ktp-call-ui
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Depends on deprecated dev-qt/qtwebkit, abandoned upstream.
-# Alternatives: Plenty. media-sound/cantata, media-sound/clementine,
-# media-sound/elisa, media-sound/strawberry, media-sound/yarock, ...
-# Masked for removal in 30 days.
-media-sound/tomahawk
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Depends on deprecated dev-qt/qtwebkit, no maintainer, bug #688852.
-# Masked for removal in 30 days.
-media-video/smtube
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Depends on deprecated dev-qt/qtwebkit, no maintainer, bug #709880.
-# Alternatives: dev-python/weasyprint, xhtml2pdf (not packaged, bug #699356)
-# Masked for removal in 30 days.
-media-gfx/wkhtmltopdf
-
 # Andrew Savchenko <bircoph@gentoo.org> (2020-12-26)
 # All docs and socket library functionality are merged back into single
 # app-admin/clsync package using USE="apidoc doc socket-library" starting
@@ -266,15 +289,6 @@ dev-libs/libclsync
 dev-haskell/derive
 app-forensics/quickfuzz
 
-# Mike Pagano <mpagano@gentoo.org> (2020-12-18)
-# Serious data corruption bug when using F2FS,
-# see https://bugzilla.kernel.org/show_bug.cgi?id=210765
-# Feel free to manually unmask when not using F2FS.
-=sys-kernel/gentoo-sources-5.10.0
-=sys-kernel/gentoo-sources-5.10.1
-=sys-kernel/vanilla-sources-5.10.1
-=sys-kernel/vanilla-sources-5.10.0
-
 # Lars Wendler <polynomial-c@gentoo.org> (2020-12-09)
 # Masked until most broken packages have been fixed (bug #732648)
 >=sys-devel/autoconf-2.70
@@ -285,60 +299,12 @@ app-forensics/quickfuzz
 # paths.
 =net-libs/gnutls-3.7.0
 
-# Thomas Deutschmann <whissi@gentoo.org> (2020-11-24)
-# Serious data corruption bug when using XFS, see https://www.spinics.net/lists/linux-xfs/msg47004.html
-# Feel free to manually unmask when not using XFS.
-=sys-kernel/gentoo-sources-5.9.10
-=sys-kernel/gentoo-sources-5.9.9
-=sys-kernel/gentoo-sources-5.4.79
-=sys-kernel/gentoo-sources-5.4.78
-=sys-kernel/gentoo-sources-4.19.159
-=sys-kernel/gentoo-sources-4.19.158
-=sys-kernel/gentoo-sources-4.14.208
-=sys-kernel/gentoo-sources-4.14.207
-=sys-kernel/gentoo-sources-4.9.245
-=sys-kernel/gentoo-sources-4.9.244
-=sys-kernel/pf-sources-5.9_p5
-=sys-kernel/vanilla-sources-5.9.10
-=sys-kernel/vanilla-sources-5.9.9
-=sys-kernel/vanilla-sources-5.4.79
-=sys-kernel/vanilla-sources-5.4.78
-=sys-kernel/vanilla-sources-4.19.159
-=sys-kernel/vanilla-sources-4.19.158
-=sys-kernel/vanilla-sources-4.14.208
-=sys-kernel/vanilla-sources-4.14.207
-=sys-kernel/vanilla-sources-4.9.245
-=sys-kernel/vanilla-sources-4.9.244
-=sys-kernel/vanilla-kernel-5.9.10
-=sys-kernel/vanilla-kernel-5.9.9
-=sys-kernel/vanilla-kernel-5.4.79
-=sys-kernel/vanilla-kernel-5.4.78
-=sys-kernel/gentoo-kernel-5.9.10
-=sys-kernel/gentoo-kernel-5.9.9
-=sys-kernel/gentoo-kernel-5.4.79
-=sys-kernel/gentoo-kernel-5.4.78
-=sys-kernel/gentoo-kernel-bin-5.9.10-r1
-=sys-kernel/gentoo-kernel-bin-5.9.10
-=sys-kernel/gentoo-kernel-bin-5.9.9-r1
-=sys-kernel/gentoo-kernel-bin-5.9.9
-=sys-kernel/gentoo-kernel-bin-5.4.79-r1
-=sys-kernel/gentoo-kernel-bin-5.4.79
-=sys-kernel/gentoo-kernel-bin-5.4.78-r1
-=sys-kernel/gentoo-kernel-bin-5.4.78
-
 # Michał Górny <mgorny@gentoo.org> (2020-11-10)
 # This old Kodi version requires vulnerable dev-python/pillow
 # and prevents users from upgrading.  Masked for the time being.
 # Bug #729672.
 media-plugins/kodi-game-libretro-nestopia
 media-plugins/kodi-game-libretro-dosbox
-
-# Alexys Jacob <ultrabug@gentoo.org> (2020-11-09)
-# Mask dev-db/mongodb versions which do not support python3 so we
-# can move forward in cleaning python2 from tree. Bug #708954.
-# We keep the ebuilds available since some of those versions are still
-# supported by upstream. See: https://jira.mongodb.org/browse/SERVER-52687
-<dev-db/mongodb-4.2.8
 
 # Alfredo Tupone <tupone@gentoo.org> (2020-11-05)
 # will be upgraded after new lua release
@@ -569,9 +535,9 @@ sys-devel/automake:1.10
 # If you still use one of these old toolchain packages, please upgrade (and
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
-<sys-libs/glibc-2.31-r6
-<sys-devel/binutils-2.33.1-r1
-<sys-devel/binutils-hppa64-2.33.1
+<sys-libs/glibc-2.32-r3
+<sys-devel/binutils-2.34
+<sys-devel/binutils-hppa64-2.34
 
 # Michał Górny <mgorny@gentoo.org> (2017-05-20)
 # Old versions of CUDA and their reverse dependencies. They do not
@@ -597,8 +563,6 @@ app-admin/amazon-ec2-init
 # FAIL:07:02:35 (00:00:00) db_dump/db_load(./TESTDIR.3/recd001.db:child killed: kill signal): expected 0, got 1
 # FAIL:07:02:35 (00:00:00) Dump/load of ./TESTDIR.3/recd001.db failed.
 # FAIL:07:02:35 (00:00:00) db_verify_preop: expected 0, got 1
-# Lars Wendler <polynomial-c@gentoo.org> (2019-01-25)
-# Also masked because of mostly incompatible license (AGPL-3)
 =sys-libs/db-6.1*
 =sys-libs/db-6.2*
 =sys-libs/db-18.1*

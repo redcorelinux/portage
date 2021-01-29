@@ -359,10 +359,6 @@
       <role>base-system team lead</role>
     </member>
     <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
       <role>Specialized block devices and lots of other miscellaneous stuff</role>
@@ -573,6 +569,28 @@
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
       <role>OpenMPI/Slurm</role>
+    </member>
+  </project>
+  <project>
+    <email>codec@gentoo.org</email>
+    <name>Core libraries for gfx / audio / video formats</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Codec</url>
+    <description>The codec project maintains core libraries for gfx / audio / video formats, partly in cooperation with other projects.</description>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+    </member>
+    <member>
+      <email>mgorny@gentoo.org</email>
+      <name>Michał Górny</name>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
+      <email>whissi@gentoo.org</email>
+      <name>Thomas Deutschmann</name>
     </member>
   </project>
   <project>
@@ -1964,10 +1982,6 @@
       <name>Marc Schiffbauer</name>
     </member>
     <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
     </member>
@@ -2420,10 +2434,6 @@
       <name>Andreas Schuerch</name>
     </member>
     <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
       <email>stasibear@gentoo.org</email>
       <name>Erik Mackdanz</name>
     </member>
@@ -2605,10 +2615,6 @@
     <member>
       <email>prometheanfire@gentoo.org</email>
       <name>Matthew Thode</name>
-    </member>
-    <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
     </member>
     <member>
       <email>sbraz@gentoo.org</email>
@@ -3171,10 +3177,6 @@
       <name>Jonas Stein</name>
     </member>
     <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
     </member>
@@ -3422,10 +3424,6 @@
       <email>hd_brummy@gentoo.org</email>
       <name>Joerg Bornkessel</name>
     </member>
-    <member>
-      <email>idl0r@gentoo.org</email>
-      <name>Christian Ruppert</name>
-    </member>
   </project>
   <project>
     <email>media-video@gentoo.org</email>
@@ -3449,10 +3447,6 @@
       <role>Lead (PPC work, mplayer, ffmpeg)</role>
     </member>
     <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
-    </member>
-    <member>
       <email>steils@gentoo.org</email>
       <name>Stefan Strogin</name>
       <role>OpenShot</role>
@@ -3466,10 +3460,6 @@
     <member>
       <email>monsieurp@gentoo.org</email>
       <name>Patrice Clement</name>
-    </member>
-    <member>
-      <email>radhermit@gentoo.org</email>
-      <name>Tim Harder</name>
     </member>
     <member>
       <email>tranquility@gentoo.org</email>

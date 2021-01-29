@@ -1,17 +1,13 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Sam James <sam@gentoo.org> (2021-01-21)
-# Needs keywording of new test dependency
-# bug #766441
-dev-db/redis ssl
+# Jonathan Davies <jpds@protonmail.com> (2021-01-27)
+# No SELinux on ARM
+net-im/prosody selinux
 
-# Sam James <sam@gentoo.org> (2021-01-19)
-# Joonas Niilola <juippis@gentoo.org> (2021-01-10)
-# Test-dep needs keywording on multiple arches, best to just mask it
-# globally for now. Resolves issue by b5248bbb1b5
-# bug #766147
-app-text/enchant test
+# Jakov Smolic <jakov.smolic@sartura.hr> (2021-01-23)
+# Depends on media-video/rav1e which needs Rust
+>=media-libs/libheif-1.10.0 rav1e
 
 # Sam James <sam@gentoo.org> (2020-01-17)
 # gnuefi + systemd-boot works on arm
@@ -242,7 +238,6 @@ sys-cluster/openmpi java openmpi_fabrics_psm openmpi_fabrics_knem openmpi_fabric
 # Luke Dashjr <luke-jr+gentoobugs@utopios.org> (2017-01-04)
 # Assembly optimisations are supported on arm since 0.0.0_pre20161213
 dev-libs/libsecp256k1 -asm
-<dev-libs/libsecp256k1-0.0.0_pre20161213 asm
 
 # James Le Cuirot <chewi@gentoo.org> (2016-12-14)
 # DOSBox + OpenGLide is untested on this arch.
@@ -343,10 +338,6 @@ app-i18n/scim-anthy kasumi
 dev-python/ipython doc
 dev-python/oct2py doc
 
-# Markus Meier <maekke@gentoo.org> (2014-11-14)
-# Unkeyworded deps, bug #511532
-net-im/prosody libevent mysql postgres sqlite
-
 # Alexis Ballier <aballier@gentoo.org> (2014-10-24)
 # sci-libs/hdf is not supported on arm
 sci-libs/netcdf hdf
@@ -426,10 +417,6 @@ media-libs/devil allegro nvtt
 # Andreas K. Huettel <dilfridge@gentoo.org> (2013-05-27)
 # Firmware loader not keyworded yet
 sci-libs/linux-gpib firmware
-
-# Christoph Junghans <junghans@gentoo.org> (2013-04-29)
-# MKL not available on this arch
-media-gfx/povray mkl
 
 # Julian Ospald <hasufell@gentoo.org> (2013-03-31)
 # depends on mono
