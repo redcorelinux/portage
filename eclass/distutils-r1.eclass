@@ -518,12 +518,20 @@ distutils_enable_tests() {
 esetup.py() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	[[ -n ${EPYTHON} ]] || die "EPYTHON unset, invalid call context"
+
 	local die_args=()
 	[[ ${EAPI} != [45] ]] && die_args+=( -n )
 
 	[[ ${BUILD_DIR} ]] && _distutils-r1_create_setup_cfg
 
-	set -- "${EPYTHON:-python}" setup.py "${mydistutilsargs[@]}" "${@}"
+	local setup_py=( setup.py )
+	if [[ ${DISTUTILS_USE_SETUPTOOLS} == pyproject.toml ]]; then
+		# TODO: remove '.main' when we require v10
+		setup_py=( -m pyproject2setuppy.main )
+	fi
+
+	set -- "${EPYTHON}" "${setup_py[@]}" "${mydistutilsargs[@]}" "${@}"
 
 	echo "${@}" >&2
 	"${@}" || die "${die_args[@]}"
@@ -632,14 +640,7 @@ _distutils-r1_disable_ez_setup() {
 # Generate setup.py for pyproject.toml if requested.
 _distutils-r1_handle_pyproject_toml() {
 	if [[ ! -f setup.py && -f pyproject.toml ]]; then
-		if [[ ${DISTUTILS_USE_SETUPTOOLS} == pyproject.toml ]]; then
-			cat > setup.py <<-EOF || die
-				#!/usr/bin/env python
-				from pyproject2setuppy.main import main
-				main()
-			EOF
-			chmod +x setup.py || die
-		else
+		if [[ ${DISTUTILS_USE_SETUPTOOLS} != pyproject.toml ]]; then
 			eerror "No setup.py found but pyproject.toml is present.  In order to enable"
 			eerror "pyproject.toml support in distutils-r1, set:"
 			eerror "  DISTUTILS_USE_SETUPTOOLS=pyproject.toml"
@@ -780,23 +781,14 @@ distutils-r1_python_compile() {
 
 	_distutils-r1_copy_egg_info
 
-	local build_args=()
 	# distutils is parallel-capable since py3.5
-	# to avoid breaking stable ebuilds, enable it only if either:
-	# a. we're dealing with EAPI 7
-	# b. we're dealing with Python 3.7 or PyPy3
-	if python_is_python3 && [[ ${EPYTHON} != python3.4 ]]; then
-		if [[ ${EAPI} != [56] || ${EPYTHON} != python3.[56] ]]; then
-			local jobs=$(makeopts_jobs "${MAKEOPTS}" INF)
-			if [[ ${jobs} == INF ]]; then
-				local nproc=$(get_nproc)
-				jobs=$(( nproc + 1 ))
-			fi
-			build_args+=( -j "${jobs}" )
-		fi
+	local jobs=$(makeopts_jobs "${MAKEOPTS}" INF)
+	if [[ ${jobs} == INF ]]; then
+		local nproc=$(get_nproc)
+		jobs=$(( nproc + 1 ))
 	fi
 
-	esetup.py build "${build_args[@]}" "${@}"
+	esetup.py build -j "${jobs}" "${@}"
 }
 
 # @FUNCTION: _distutils-r1_wrap_scripts
@@ -869,9 +861,8 @@ distutils-r1_python_install() {
 	# python likes to compile any module it sees, which triggers sandbox
 	# failures if some packages haven't compiled their modules yet.
 	addpredict "${EPREFIX}/usr/lib/${EPYTHON}"
-	addpredict "${EPREFIX}/usr/$(get_libdir)/${EPYTHON}"
-	addpredict /usr/lib/pypy2.7
 	addpredict /usr/lib/pypy3.6
+	addpredict /usr/lib/pypy3.7
 	addpredict /usr/lib/portage/pym
 	addpredict /usr/local # bug 498232
 

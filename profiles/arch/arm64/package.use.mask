@@ -1,6 +1,16 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2021-02-06)
+# media-sound/sndio is not yet keyworded here
+# bug #769098, bug #769122
+media-libs/openal sndio
+
+# Sam James <sam@gentoo.org> (2021-02-05)
+# Requires pandoc. We don't yet have Haskell
+# on arm64. bug #768738, bug #622786.
+media-sound/bluez-alsa man
+
 # Sam James <sam@gentoo.org> (2021-01-19)
 # app-text/dblatex not yet keyworded
 # bug #766186
@@ -51,10 +61,6 @@ media-gfx/darktable gmic
 # Builds & tests pass on arm64.
 # Available on: amd64, x86, arm{,64}.
 >=dev-lang/spidermonkey-60 -jit
-
-# Sam James <sam@gentoo.org> (2020-10-06)
-# Deprecated. See bug #741855.
-net-mail/dovecot vpopmail
 
 # Sam James <sam@gentoo.org> (2020-10-05)
 # Guile only supports JIT on some arches
@@ -391,11 +397,6 @@ net-libs/libpcap bluetooth
 app-text/evince dvi nautilus postscript t1lib xps
 net-wireless/blueman appindicator
 x11-libs/gtk+ cloudprint
-
-# Thomas Deutschmann <whissi@gentoo.org> (2017-02-14)
-# No lua keyworded for this arch yet
-# libpcre jit is not (yet?) support on this arch
-www-servers/nginx nginx_modules_http_lua pcre-jit
 
 # Steev Klimaszewski <steev@gentoo.org> (2016-03-04)
 # Chromium uses an internal tcmalloc that doesn't support this arch yet.

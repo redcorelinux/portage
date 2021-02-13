@@ -7,14 +7,14 @@ inherit toolchain-funcs
 
 MY_PN=OpenDoas
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Run commands as super user or another user, alternative to sudo from OpenBSD"
+DESCRIPTION="Run commands as super/another user (alt sudo) (unofficial port from OpenBSD)"
 HOMEPAGE="https://github.com/Duncaen/OpenDoas"
 SRC_URI="https://github.com/Duncaen/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~sparc"
+KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="pam persist"
 
 BDEPEND="virtual/yacc"

@@ -6,6 +6,21 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Sam James <sam@gentoo.org> (2021-02-09)
+# We plan to remove dev-ml/js_of_ocaml
+# but right now, this drags in plenty
+# of ancient deps and is not installable.
+# bug #769680
+dev-ml/logs javascript
+dev-ml/mtime javascript
+
+# Sam James <sam@gentoo.org> (2021-02-07)
+# Fails to build with USE=doc for now.
+# Needs rework to use Python eclasses
+# for conditional doc dependencies.
+# bug #759523
+sci-libs/gdal doc
+
 # Lars Wendler <polynomial-c@gentoo.org> (2021-01-26)
 # Fails to build:
 #
@@ -25,7 +40,7 @@ app-cdr/burncdda mp3
 # Brian Evans <grknight@gentoo.org> (2021-01-07)
 # Block test deps on packages until they can be updated
 # Old phpunit does not work with new PHP and last is vulnerable
-dev-php/PEAR-Crypt_GPG test
+<dev-php/PEAR-Crypt_GPG-1.6.4 test
 dev-php/PEAR-Text_Wiki_Mediawiki test
 dev-php/PEAR-VersionControl_SVN test
 dev-php/PHP_CodeSniffer test
@@ -110,12 +125,11 @@ kde-apps/kipi-plugins vkontakte
 media-gfx/exact-image lua
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2020-10-08)
-# USE=doc broken on 1.47.0
+# USE=doc broken on 1.47.0 and later
 # error: unresolved link to `crate::os::unix::ffi::OsStrExt`
-#
-# USE=miri seems to be not working on 1.48.0
-~dev-lang/rust-1.47.0 doc
-~dev-lang/rust-1.48.0 doc miri
+# miri seems to be not working on 1.48.0 and later
+>=dev-lang/rust-1.47.0 doc
+>=dev-lang/rust-1.48.0 doc miri
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-27)
 # The respective dependencies are masked for removal.
@@ -141,7 +155,6 @@ sys-cluster/drbd-utils heartbeat
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
-app-metrics/collectd collectd_plugins_gmond
 app-metrics/collectd collectd_plugins_onewire
 
 # Michał Górny <mgorny@gentoo.org> (2020-08-22)
@@ -379,7 +392,6 @@ dev-lang/gnat-gpl go
 
 # Pacho Ramos <pacho@gentoo.org> (2018-11-11)
 # pm-utils will be removed, bug #659616
-sys-apps/razercfg pm-utils
 sys-power/powermgmt-base pm-utils
 
 # Alfredo Tupone <tupone@gentoo.org> (2018-10-24)
@@ -396,8 +408,11 @@ dev-python/paramiko server
 # New and for Gentoo still quite experimental. You've been
 # warned. (Also, works only on x86_64 and with certain CPUs
 # and compiler/binutils combinations.)
-sys-libs/glibc cet
+sys-devel/binutils cet
+sys-devel/binutils-hppa64 cet
 sys-devel/gdb cet
+sys-libs/binutils-libs cet
+sys-libs/glibc cet
 
 # Michał Górny <mgorny@gentoo.org> (2018-06-13)
 # Requires app-arch/snappy[static-libs] that is no longer available.
@@ -665,7 +680,7 @@ sci-libs/mathgl octave
 # Diego E. Pettenò <flameeyes@gentoo.org> (2011-03-27)
 #
 # Mask pdnsd's Linux-specific USE flags.
-net-dns/pdnsd isdn urandom
+net-dns/pdnsd urandom
 
 # Raúl Porcel <armin76@gentoo.org> (2011-02-13)
 # Masked until devs know how to use repoman
