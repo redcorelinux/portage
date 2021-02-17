@@ -32,6 +32,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Lars Wendler <polynomial-c@gentoo.org> (2021-02-15)
+# Mask development versions now that they were bumped...
+=net-misc/kea-1.9*
+
+# Sam James <sam@gentoo.org> (2021-02-14)
+# This version seems to have broken ABI.
+# Masking until investigation completed
+# upstream.
+# bug #770181
+=app-crypt/mit-krb5-1.19
+
 # Jakov Smolic <jakov.smolic@sartura.hr> (2021-02-13)
 # Fails to build with gcc-10, stuck on EAPI 5, dead upstream
 # multiple reported bugs, not touched by maintainer in years.
@@ -59,15 +70,6 @@ media-plugins/vdr-cpumon
 # the depended bug.
 # Removal on 2021-03-12.  Bug #740302
 media-plugins/vdr-mount
-
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-02-11)
-# Needs some workarounds in mozilla ebuilds
-# https://bugs.gentoo.org/768543
-# https://bugzilla.mozilla.org/show_bug.cgi?id=1692353
-# https://bugzilla.mozilla.org/show_bug.cgi?id=1692363
-=dev-lang/rust-1.50.0
-=dev-lang/rust-bin-1.50.0
-=virtual/rust-1.50.0
 
 # Joerg Bornkessel <hd_brummy@gentoo.org> (2021-02-11)
 # Does not build against vdr-2.4.  Last release in ~2006.
@@ -254,23 +256,6 @@ virtual/httpd-php:7.2
 # Removal on 2021-02-19. Bugs #659616, #764773
 sys-power/pm-utils
 sys-power/pm-quirks
-
-# Michał Górny <mgorny@gentoo.org> (2021-01-05)
-# The portable version has been discontinued upstream (i.e. it is now
-# available only as tightly coupled part of OpenBSD).  The current
-# version relies on dev-libs/libressl implementation details, and can
-# not be easily ported to dev-libs/openssl.  Reported to fail to build
-# with gcc-10.  There are multiple alternative ACME clients available.
-# Removal in 30 days.  Bug #762310.
-app-crypt/acme-client
-
-# Jaco Kroon <jaco@uls.co.za> (2021-01-04)
-# media-libs/libilbc is (for every package I manage) a drop-in for
-# dev-libs/ilbc-rfc3951. The latter had net-misc/asterisk,
-# net-libs/pjproject and net-voip/yate as dependencies.
-# (All of which has been bumped to no longer have this dependency.)
-# Removal in 30 days, bug #444470
-dev-libs/ilbc-rfc3951
 
 # Lars Wendler <polynomial-c@gentoo.org> (2020-12-09)
 # Masked until most broken packages have been fixed (bug #732648)
