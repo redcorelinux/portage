@@ -3,16 +3,16 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..8} )
 
 inherit distutils-r1
 
 PDFS_COMMIT=d646009a0e3e71daf13a52ab1029e2230920ebf4
 DESCRIPTION="PDF file reader/writer library"
-HOMEPAGE="https://github.com/pmaupin/pdfrw"
+HOMEPAGE="https://github.com/sarnold/pdfrw"
 
 if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/sarnold/hexdump.git"
+	EGIT_REPO_URI="https://github.com/sarnold/pdfrw.git"
 	EGIT_BRANCH="main"
 	inherit git-r3
 else

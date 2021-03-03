@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake fcaps flag-o-matic git-r3 toolchain-funcs wxwidgets
 
 DESCRIPTION="A PlayStation 2 emulator"
-HOMEPAGE="https://www.pcsx2.net"
+HOMEPAGE="https://pcsx2.net/"
 EGIT_REPO_URI="https://github.com/PCSX2/${PN}.git"
 EGIT_SUBMODULES=()
 
@@ -40,14 +40,11 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/wxGTK:3.0-gtk3[X]
 "
-DEPEND="${RDEPEND}
-	dev-cpp/pngpp
-	dev-cpp/sparsehash
-"
+DEPEND="${RDEPEND}"
 BDEPEND="test? ( dev-cpp/gtest )"
 
 FILECAPS=(
-	"CAP_NET_RAW+eip CAP_NET_ADMIN+eip" usr/bin/PCSX2
+	-m 755 "CAP_NET_RAW+eip CAP_NET_ADMIN+eip" usr/bin/PCSX2
 )
 
 pkg_setup() {
@@ -73,7 +70,6 @@ src_configure() {
 		-DDISABLE_BUILD_DATE=TRUE
 		-DDISABLE_PCSX2_WRAPPER=TRUE
 		-DDISABLE_SETCAP=TRUE
-		-DEXTRA_PLUGINS=FALSE
 		-DOPTIMIZATION_FLAG=
 		-DPACKAGE_MODE=TRUE
 		-DXDG_STD=TRUE

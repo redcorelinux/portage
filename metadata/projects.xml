@@ -74,6 +74,10 @@
       <role>Security bugs primarily</role>
     </member>
     <member>
+      <email>ajak@gentoo.org</email>
+      <name>John Helmert III</name>
+    </member>
+    <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
       <role>Kernel</role>
@@ -104,7 +108,7 @@
       <name>Steve Arnold</name>
       <role>Kernel</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
     </member>
@@ -112,7 +116,7 @@
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
     </member>
-    <member is-lead="1">
+    <member>
       <email>zerochaos@gentoo.org</email>
       <name>Rick Farina</name>
     </member>
@@ -130,10 +134,6 @@
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>Catalyst builds for systemd and musl</role>
-    </member>
-    <member>
-      <email>kentnl@gentoo.org</email>
-      <name>Kent Fredric</name>
     </member>
     <member>
       <email>leio@gentoo.org</email>
@@ -2131,11 +2131,6 @@
       <name>Andreas K. Hüttel</name>
       <role>Lead</role>
     </member>
-    <member is-lead="1">
-      <email>kentnl@gentoo.org</email>
-      <name>Kent Fredric</name>
-      <role>Lead</role>
-    </member>
     <member>
       <email>monsieurp@gentoo.org</email>
       <name>Patrice Clement</name>
@@ -2880,10 +2875,6 @@
       <name>Georgy Yakovlev</name>
     </member>
     <member>
-      <email>kentnl@gentoo.org</email>
-      <name>Kent Fredric</name>
-    </member>
-    <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
     </member>
@@ -2968,7 +2959,7 @@
     <email>samba@gentoo.org</email>
     <name>Samba</name>
     <url>https://wiki.gentoo.org/wiki/Project:Samba</url>
-    <description>This project maintains packages related to Samba suit.</description>
+    <description>This project maintains packages related to Samba suite.</description>
     <member>
       <email>bkohler@gentoo.org</email>
       <name>Ben Kohler</name>
@@ -3082,6 +3073,10 @@
     <description>The Security Project's mission is to ensure that vulnerabilities in software accessible through the Portage tree are found and fixed in a timely manner, so that our users remain protected against known vulnerabilities.</description>
     <subproject ref="security-audit@gentoo.org"/>
     <subproject ref="security-kernel@gentoo.org"/>
+    <member>
+      <email>ajak@gentoo.org</email>
+      <name>John Helmert III</name>
+    </member>
     <member>
       <email>bman@gentoo.org</email>
       <name>Aaron Bauman</name>

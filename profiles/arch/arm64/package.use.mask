@@ -1,24 +1,34 @@
+
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
+# Patrick McLean <chutzpah@gentoo.org> (2021-02-25)
+# Requires unkeyworded dev-libs/pmdk, mask until keyworded
+sys-cluster/ceph pmdk rbd-rwl
+
+# Roy Bamford <neddyseagoon@gentoo.org> (2021-02-24)
+# Invert the theme-manager mask as it bouilds and tests here 
+# Originaly set by Julian Ospald <hasufell@gentoo.org> (2013-03-31)
+# but it's in base now.
+net-irc/hexchat -theme-manager
+
+# Roy Bamford <neddyseagoon@gentoo.org> (2021-02-20)
+# sci-libs/hdf does not build on arm64 bug #771648
+sci-libs/netcdf hdf
+
+# Roy Bamford <neddyseagoon@gentoo.org> (2021-02-20)
+# all-modules needs sci-libs/kissfft not yet in gentoo bug #754684
+# build fails with USE=java
+sci-libs/vtk all-modules java
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-02-17)
 # Unmask PCRE JIT support where dev-libs/libpcre2[jit] is available
 dev-lang/php -jit
 
-# Sam James <sam@gentoo.org> (2021-02-06)
-# media-sound/sndio is not yet keyworded here
-# bug #769098, bug #769122
-media-libs/openal sndio
-
 # Sam James <sam@gentoo.org> (2021-02-05)
 # Requires pandoc. We don't yet have Haskell
 # on arm64. bug #768738, bug #622786.
 media-sound/bluez-alsa man
-
-# Sam James <sam@gentoo.org> (2021-01-19)
-# app-text/dblatex not yet keyworded
-# bug #766186
-dev-util/ragel doc
 
 # Sam James <sam@gentoo.org> (2020-01-17)
 # gnuefi + systemd-boot works on arm64
@@ -93,11 +103,6 @@ dev-lua/mpack test
 # Felix Janda <felix.janda@posteo.de> (2020-08-01)
 # Requires unkeyworded dev-lang/spidermonkey:17
 >=www-client/elinks-0.13.3 javascript
-
-# Sam James <sam@gentoo.org> (2020-07-10)
-# Failed build with USE=tools
-# bug #732122
-dev-libs/xmlrpc-c tools
 
 # Sam James <sam@gentoo.org> (2020-07-09)
 # mariadb[rocksdb] fails to build on arm64
@@ -228,12 +233,6 @@ media-video/mpv -sdl
 media-video/transcode -sdl
 >=x11-libs/wxGTK-3 -sdl
 
-# Virgil Dupras <vdupras@gentoo.org> (2018-09-06)
-# sci-electronics/ngspice not yet keyworded, bug #665416
-# sci-libs/opencascade not yet keyworded
-# sci-libs/oce not yet keyworded
-sci-electronics/kicad occ oce ngspice
-
 # Michał Górny <mgorny@gentoo.org> (2018-07-07)
 # Unkeyworded dependencies.
 net-libs/gnome-online-accounts gnome
@@ -306,10 +305,6 @@ sys-libs/libblockdev dmraid
 >=media-plugins/grilo-plugins-0.3.5 upnp-av
 
 # Mart Raudsepp <leio@gentoo.org> (2018-02-13)
-# USE=vtk requires sci-libs/vtk that is not keyworded yet.
-media-libs/opencv vtk
-
-# Mart Raudsepp <leio@gentoo.org> (2018-02-13)
 # USE=lua requires dev-lua/lgi that is not keyworded yet.
 dev-libs/libpeas lua
 
@@ -351,11 +346,6 @@ media-gfx/pstoedit emf
 app-emulation/libvirt zfs
 sys-cluster/ceph zfs
 
-# Alexis Ballier <aballier@gentoo.org> (2017-07-11)
-# dev-libs/botan:0 fails with 'ERROR: Unknown or unidentifiable processor
-# "aarch64"'
-app-crypt/qca botan
-
 # Alexis Ballier <aballier@gentoo.org> (2017-07-10)
 # openvz-sources are likely too old for any proper arm64 usage
 app-emulation/libvirt openvz
@@ -367,13 +357,6 @@ media-libs/devil nvtt
 # Alexis Ballier <aballier@gentoo.org> (2017-07-10)
 # Virtualbox is x86 only
 app-emulation/libvirt virtualbox
-
-# Alexis Ballier <aballier@gentoo.org> (2017-07-07)
-# nautilus pulls in gnome-extra/sushi -> dev-libs/gjs -> dev-lang/spidermonkey:24
-# Older spidermonkey does not work on arm64.
-# This should be revised when gjs is updated.
-gnome-base/nautilus previewer
-app-crypt/libsecret test
 
 # Alexis Ballier <aballier@gentoo.org> (2017-06-21)
 # net-fs/openafs-kernel does not recognize arm64 properly
@@ -406,10 +389,6 @@ x11-libs/gtk+ cloudprint
 # Chromium uses an internal tcmalloc that doesn't support this arch yet.
 www-client/chromium tcmalloc
 
-# Roy Bamford <neddyseagoon@gentoo.org> (2017-01-26)
-# gcj-6.3 won't bootstrap icedtea 7
->=sys-devel/gcc-6 gcj
-
 # Markus Meier <maekke@gentoo.org> (2013-12-26)
 # Unkeyworded deps, bug #488724
 app-office/gnumeric libgda
@@ -438,24 +417,7 @@ media-libs/devil allegro nvtt
 # Firmware loader not keyworded yet
 sci-libs/linux-gpib firmware
 
-# Julian Ospald <hasufell@gentoo.org> (2013-03-31)
-# depends on mono
->=net-irc/hexchat-2.9.4-r1 theme-manager
-
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (2013-02-20)
 # Mask flags of calligra and dependencies due to lack of keywords
 app-office/calligra spacenav
 media-gfx/pstoedit emf
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (2012-12-31)
-# requires app-office/unoconv, which requires virtual/ooo, which is not
-# keyworded here. Remove mask if this situation changes.
-gnome-extra/sushi office
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (2012-04-12)
-# Temporary mask-in-base, unmask-in-arch for dev-python/mako keywording for
-# gobject-introspection[doctool], bug #411761
-dev-libs/gobject-introspection -doctool
-
-# missing keywords
-media-plugins/gst-plugins-meta aac dts dv lame libvisual taglib vcd wavpack
