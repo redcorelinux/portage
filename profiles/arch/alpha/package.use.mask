@@ -1,6 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2021-03-11)
+# media-libs/libheif isn't keyworded here
+# media-libs/libavif isn't keyworded here
+media-libs/gd avif heif
+
 # Sam James <sam@gentoo.org> (2021-02-26)
 # dev-libs/efl not keyworded here
 # and is a desktop application mainly
@@ -17,6 +22,7 @@ sci-libs/umfpack cholmod
 media-libs/openal sndio
 media-video/ffmpeg sndio
 media-sound/moc sndio
+media-sound/mpd sndio
 
 # Sam James <sam@gentoo.org> (2021-01-19)
 # Avoid pulling in a large unkeyworded dep

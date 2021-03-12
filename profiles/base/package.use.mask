@@ -6,6 +6,15 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Michał Górny <mgorny@gentoo.org> (2021-03-06)
+# LLVM 9 has been removed.
+dev-lang/julia system-llvm
+dev-util/perf clang
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-03-06)
+# Needs last-rited dev-libs/klibc
+sys-fs/dmraid klibc
+
 # Sam James <sam@gentoo.org> (2021-02-27)
 # Needs last-rited sci-mathematics/ggnfs
 sci-mathematics/yafu sieve
@@ -13,14 +22,6 @@ sci-mathematics/yafu sieve
 # Thomas Deutschmann <whissi@gentoo.org> (2021-02-17)
 # PCRE JIT support via dev-libs/libpcre2[jit] is only available for certain architectures
 dev-lang/php jit
-
-# Sam James <sam@gentoo.org> (2021-02-09)
-# We plan to remove dev-ml/js_of_ocaml
-# but right now, this drags in plenty
-# of ancient deps and is not installable.
-# bug #769680
-dev-ml/logs javascript
-dev-ml/mtime javascript
 
 # Sam James <sam@gentoo.org> (2021-02-07)
 # Fails to build with USE=doc for now.
@@ -114,11 +115,6 @@ mail-mta/protonmail-bridge gui
 # Michał Górny <mgorny@gentoo.org> (2020-11-29)
 # libclangformat-ide is masked for removal.
 dev-qt/qt-creator clang
-
-# Joonas Niilola <juippis@gentoo.org> (2020-11-26)
-# Still too experimental. efl's upstream can't keep up with libavif's.
-# Bug: 756733
-dev-libs/efl avif
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-11-25)
 # Depends on masked net-libs/libkvkontakte
@@ -216,12 +212,8 @@ net-fs/samba test
 # Tests are very sensitive to the host environment.
 dev-util/meson test
 
-# Michał Górny <mgorny@gentoo.org> (2020-04-19)
-# Requires dev-vcs/ghp-import that is masked for removal.
-www-apps/nikola ghpages
-
 # Alfredo Tupone <tupone@gentoo.org> (2020-04-04)
-# Ada support is not yet ready for sys-deve/gcc
+# Ada support is not yet ready for sys-devel/gcc
 sys-devel/gcc ada
 
 # Joshua Kinard <kumba@gentoo.org> (2020-03-28)
@@ -260,10 +252,6 @@ dev-python/zeep tornado
 # Michał Górny <mgorny@gentoo.org> (2020-01-27)
 # Requires old split dev-python/twisted-*.
 net-irc/telepathy-idle test
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-12)
-# libcxxrt is unmaintained and it's going to be removed.
-sys-libs/libcxx libcxxrt
 
 # Alexey Shvetsov <alexxy@gentoo.org> (2019-12-24)
 # Gromacs python module install br0ken
@@ -320,11 +308,6 @@ net-misc/curl nghttp3
 # Michał Górny <mgorny@gentoo.org> (2019-09-07)
 # media-libs/libnut is slated for removal.
 media-video/mplayer nut
-
-# Michał Górny <mgorny@gentoo.org> (2019-09-07)
-# media-libs/fmod is slated for removal.
-games-arcade/savagewheels fmod
-games-fps/doomsday fmod
 
 # Thomas Deutschmann <whissi88@gentoo.org> (2019-09-02)
 # PGO not yet supported for comm-central, #693160

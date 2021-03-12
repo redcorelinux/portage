@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit eutils systemd unpacker
+inherit eutils systemd unpacker tmpfiles
 
 DESCRIPTION="general puppet client utils along with hiera and facter"
 HOMEPAGE="https://puppetlabs.com/"
@@ -10,7 +10,7 @@ SRC_URI="http://apt.puppetlabs.com/pool/focal/puppet/${PN:0:1}/${PN}/${PN}_${PV}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="puppetdb selinux"
 RESTRICT="strip"
 
@@ -64,7 +64,7 @@ src_install() {
 	newinitd "${FILESDIR}/puppet.initd2" puppet
 	systemd_dounit lib/systemd/system/puppet.service
 	systemd_dounit lib/systemd/system/pxp-agent.service
-	systemd_newtmpfilesd usr/lib/tmpfiles.d/puppet-agent.conf puppet-agent.conf
+	newtmpfiles usr/lib/tmpfiles.d/puppet-agent.conf puppet-agent.conf
 	# symlinks
 	chmod 0755 -R "${D}/opt/puppetlabs/puppet/bin/"
 	dosym ../../opt/puppetlabs/bin/facter /usr/bin/facter

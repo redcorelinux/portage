@@ -89,7 +89,7 @@
     <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
-      <role>inactive (no hardware)</role>
+      <role>Release engineering</role>
     </member>
     <member>
       <email>dlan@gentoo.org</email>
@@ -2483,7 +2483,7 @@
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
-      <role>Mastodon (Admin), Twitter (Admin), Events</role>
+      <role>Mastodon (Admin), Twitter (Admin), Events, Telegram (admin)</role>
     </member>
     <member>
       <email>dabbott@gentoo.org</email>
@@ -2724,7 +2724,7 @@
     <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
-      <role>RISC-V; autobuilds; qemu</role>
+      <role>RISC-V; ARM; qemu autobuilds</role>
     </member>
     <member>
       <email>dolsen@gentoo.org</email>
@@ -2957,6 +2957,10 @@
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Lead</role>
+    </member>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
