@@ -1,10 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Marek Szuba <marecki@gentoo.org> (2021-03-11)
-# Awaiting keywording of dev-python/ruamel-std-pathlib
-# on this arch (Bug #775242)
-dev-python/ruamel-yaml test
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-03-13)
+# virtual/jdk isn't keyworded here
+media-libs/rubberband jni
 
 # Sam James <sam@gentoo.org> (2021-03-11)
 # media-libs/libheif isn't keyworded here
@@ -203,7 +202,8 @@ media-sound/pulseaudio native-headset
 # Robin H. Johnson <robbat2@gentoo.org> (2017-08-05)
 # Upstream Git is switching to PCRE2 w/ JIT.
 # This is not available on some arches, where a fallback to PCRE1 without JIT is used.
-dev-vcs/git pcre-jit
+# Since >=dev-vcs/git-2.31.0 pcre1 support has been dropped from git.
+<dev-vcs/git-2.31.0 pcre-jit
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2017-07-20)
 # pulls in unkeyworded java

@@ -1,6 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-03-13)
+# virtual/jdk isn't keyworded here
+media-libs/rubberband jni
+
 # Patrick McLean <chutzpah@gentoo.org> (2021-02-25)
 # Requires unkeyworded dev-libs/pmdk, mask until keyworded
 sys-cluster/ceph pmdk rbd-rwl
@@ -340,10 +344,6 @@ net-misc/connman ofono
 # Alexey Shvetsov <alexxy@gentoo.org> (2012-01-20)
 # Mask some use flags for openmpi due to unkeyworded deps
 sys-cluster/openmpi openmpi_fabrics_psm openmpi_fabrics_knem openmpi_fabrics_ofed openmpi_fabrics_dapl openmpi_rm_slurm openmpi_ofed_features_rdmacm openmpi_ofed_features_control-hdr-padding openmpi_ofed_features_connectx-xrc openmpi_ofed_features_udcm openmpi_ofed_features_dynamic-sl openmpi_ofed_features_failover
-
-# Kacper Kowalik <xarthisius@gentoo.org> (2011-11-20)
-# Dropped dietlibc wrt #364103
-sys-fs/dmraid dietlibc
 
 # Patrick McLean <chutzpah@gentoo.org> (2011-09-07)
 # missing keywords on dependencies
