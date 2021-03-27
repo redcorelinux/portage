@@ -14,12 +14,12 @@ SRC_URI="https://gitlab.gnome.org/GNOME/${PN}/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="2.90"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE=""
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 sparc ~x86"
 
 UNICODE_VERSION="13.0"
 
 IUSE="debug +introspection gtk-doc vala"
+REQUIRED_USE="vala? ( introspection )"
 
 BDEPEND="virtual/pkgconfig
 	>=sys-devel/gettext-0.19.8

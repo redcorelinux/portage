@@ -122,6 +122,10 @@ gnome-base/gnome-desktop seccomp
 app-misc/tracker-miners seccomp
 net-libs/webkit-gtk seccomp
 
+# Luke Dashjr <luke-jr+gentoobugs@utopios.org> (2018-11-19)
+# iasl is not keyworded on many platforms yet
+sys-firmware/seabios binary
+
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2018-09-11)
 # All glibc versions that include RPC code are masked now.
 dev-perl/Lab-VXI11 libtirpc
@@ -133,7 +137,7 @@ net-misc/netkit-bootparamd libtirpc
 sci-astronomy/esomidas libtirpc
 sys-cluster/glusterfs libtirpc
 
-# NP-Hardass <NP-Hardass@gentoo.org> (2017-04-10)
+# Adam Feldman <NP-Hardass@gentoo.org> (2017-04-10)
 # Always force patch on appropriate variant
 app-emulation/wine-staging staging
 
