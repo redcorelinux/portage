@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools eutils xdg
+inherit autotools edos2unix xdg
 
 DESCRIPTION="a software musical instrument and audio synthesizer"
 HOMEPAGE="https://dinisnoise.org/"
@@ -11,7 +11,7 @@ SRC_URI="https://archive.org/download/dinisnoise_source_code/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+alsa jack"
 
 RDEPEND="

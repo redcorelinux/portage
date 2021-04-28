@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit toolchain-funcs flag-o-matic
+inherit toolchain-funcs
 
 PATCH_VER="1.0"
 MY_P=nc${PV}
@@ -17,7 +17,7 @@ S="${WORKDIR}"
 
 LICENSE="netcat"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc64-solaris ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc64-solaris ~x64-solaris"
 IUSE="crypt ipv6 static"
 
 LIB_DEPEND="crypt? ( dev-libs/libmix[static-libs(+)] )"

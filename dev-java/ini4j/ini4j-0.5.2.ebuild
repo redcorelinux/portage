@@ -1,11 +1,11 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 JAVA_PKG_IUSE="doc source"
 
-inherit eutils java-pkg-2 java-pkg-simple
+inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Simple Java API Windows style .ini file handling"
 HOMEPAGE="http://ini4j.sourceforge.net/"
@@ -21,7 +21,12 @@ RDEPEND="
 DEPEND="
 	>=virtual/jdk-1.6"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-remove.patch
+)
+
 src_prepare() {
 	default
-	epatch "${FILESDIR}"/"${P}-remove.patch"
+
+	java-pkg-2_src_prepare
 }

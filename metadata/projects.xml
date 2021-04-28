@@ -775,10 +775,6 @@
     <name>Dotnet Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Dotnet</url>
     <description>The Dotnet Project handles the development using the C# language. More specifically, it is often oriented with the mono development environment.</description>
-    <member is-lead="1">
-      <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
-    </member>
   </project>
   <project>
     <email>ejabberd@gentoo.org</email>
@@ -1239,10 +1235,6 @@
     <url>https://wiki.gentoo.org/wiki/Project:GitHub</url>
     <description>Support team for the Gentoo organization on GitHub and the related resources (mirrors, pull requests).</description>
     <member>
-      <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
-    </member>
-    <member>
       <email>kensington@gentoo.org</email>
       <name>Michael Palimaka</name>
       <role>Administrator</role>
@@ -1368,10 +1360,6 @@
     <name>Haskell</name>
     <url>https://wiki.gentoo.org/wiki/Project:Haskell</url>
     <description>Support Haskell programming language ecosystem on Gentoo systems.</description>
-    <member>
-      <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
-    </member>
     <member>
       <email>gienah@gentoo.org</email>
       <name>Mark Wright</name>
@@ -1939,6 +1927,10 @@
     <name>Netifrc Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Netifrc</url>
     <description>This project is for the development and maintenance of the netifrc network configuration scripts</description>
+    <member>
+      <email>polynomial-c@gentoo.org</email>
+      <name>Lars Wendler</name>
+    </member>
     <member is-lead="1">
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
@@ -2037,6 +2029,16 @@
     <member>
       <email>neddyseagoon@gentoo.org</email>
       <name>Roy Bamford</name>
+      <role>Operator</role>
+    </member>
+    <member>
+      <email>patrick@gentoo.org</email>
+      <name>Patrick Lauer</name>
+      <role>Operator</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
       <role>Operator</role>
     </member>
     <member>
@@ -2480,7 +2482,7 @@
     <email>pr@gentoo.org</email>
     <name>Public Relations</name>
     <url>https://wiki.gentoo.org/wiki/Project:Public_Relations</url>
-    <description>The Public Relations project improves Gentoo's visibility toward the rest of the world. We maintain a presence for Gentoo on various web silos such as Facebook, Twitter, and various chat services.</description>
+    <description>The Public Relations project improves Gentoo's visibility toward the rest of the world. We maintain a presence for Gentoo on various walled garden web silos such as Facebook, Twitter, and various chat services.</description>
     <subproject ref="news@gentoo.org" inherit-members="1"/>
     <subproject ref="planet@gentoo.org"/>
     <subproject ref="www@gentoo.org"/>
@@ -2488,6 +2490,11 @@
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
       <role>Mastodon (Admin), Twitter (Admin), Events, Telegram (admin)</role>
+    </member>
+    <member>
+      <email>arzano@gentoo.org</email>
+      <name>Max Magorsch</name>
+      <role>Creative marketing specialist</role>
     </member>
     <member>
       <email>dabbott@gentoo.org</email>
@@ -2502,11 +2509,12 @@
     <member is-lead="1">
       <email>maffblaster@gentoo.org</email>
       <name>Matthew Marchese</name>
-      <role>Cafepress store, Facebook (admin), Twitter, Telegram (admin)</role>
+      <role>Cafepress store, Twitter, Telegram (admin)</role>
     </member>
     <member>
       <email>rich0@gentoo.org</email>
       <name>Richard Freeman</name>
+      <role>Reddit</role>
     </member>
     <member>
       <email>sping@gentoo.org</email>
@@ -2845,10 +2853,6 @@
     <member>
       <email>chutzpah@gentoo.org</email>
       <name>Patrick McLean</name>
-    </member>
-    <member>
-      <email>cynede@gentoo.org</email>
-      <name>Cynede</name>
     </member>
     <member>
       <email>djc@gentoo.org</email>

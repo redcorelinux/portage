@@ -17,13 +17,13 @@ REQUIRED_USE="
 	test? ( wayland )"
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~sparc x86"
 
 # gnome-settings-daemon is build checked, but used at runtime only for org.gnome.settings-daemon.peripherals.keyboard gschema
 # xorg-server is needed at build and runtime with USE=wayland for Xwayland
 # v3.32.2 has many excessive or unused *_req variables declared, thus currently the dep order ignores those and goes via dependency() call order
 DEPEND="
-	x11-libs/libX11
+	>=x11-libs/libX11-1.7.0
 	>=media-libs/graphene-1.9.3[introspection?]
 	>=x11-libs/gtk+-3.19.8:3[X,introspection?]
 	x11-libs/gdk-pixbuf:2

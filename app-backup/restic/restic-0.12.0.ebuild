@@ -9,7 +9,7 @@ DESCRIPTION="A backup program that is fast, efficient and secure"
 HOMEPAGE="https://restic.github.io/"
 
 EGO_SUM=(
-    "bazil.org/fuse v0.0.0-20200407214033-5883e5a4b512"
+	"bazil.org/fuse v0.0.0-20200407214033-5883e5a4b512"
 	"bazil.org/fuse v0.0.0-20200407214033-5883e5a4b512/go.mod"
 	"cloud.google.com/go v0.26.0/go.mod"
 	"cloud.google.com/go v0.34.0/go.mod"
@@ -606,7 +606,7 @@ SRC_URI="https://github.com/restic/restic/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 RDEPEND="sys-fs/fuse:0"

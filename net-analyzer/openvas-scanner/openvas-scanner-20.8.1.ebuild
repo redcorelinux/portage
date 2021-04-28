@@ -4,7 +4,7 @@
 EAPI=7
 
 CMAKE_MAKEFILE_GENERATOR="emake"
-inherit cmake flag-o-matic toolchain-funcs
+inherit cmake toolchain-funcs
 
 MY_PN="openvas"
 MY_DN="openvassd"
@@ -51,6 +51,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.0.1-disable-automagic-dep.patch
+	"${FILESDIR}"/${PN}-7.0.1-fix-linking-with-lld.patch
 	#qa fix for rpath
 	"${FILESDIR}"/${P}-rpath-qa-fix.patch
 )
@@ -58,7 +59,7 @@ PATCHES=(
 src_prepare() {
 	cmake_src_prepare
 	# QA-Fix | Correct FHS/Gentoo policy paths for 7.0.0
-	sed -i -e "s*/doc/openvas-scanner/*/doc/openvas-scanner-${PV}/*g" "$S"/src/CMakeLists.txt || die
+	sed -i -e "s*/doc/openvas-scanner/*/doc/openvas-scanner-${PV}/*g" "${S}"/src/CMakeLists.txt || die
 	# QA-Fix | Remove !CLANG doxygen warnings for 7.0.0
 	if use extras; then
 		if ! tc-is-clang; then

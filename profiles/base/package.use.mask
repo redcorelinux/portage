@@ -6,18 +6,35 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Matt Turner <mattst88@gentoo.org> (2021-04-14)
+# Was masked since 2014. Unmasked starting with 0.3.13.
+<media-plugins/grilo-plugins-0.3.13 lua
+
+# Joonas Niilola <juippis@gentoo.org> (2021-04-12)
+# Creates +130 GB worth of bindings, possibly Gentoo-related.
+# Upstream issue: https://phab.enlightenment.org/T8924
+dev-libs/efl mono
+
+# Sam James <sam@gentoo.org> (2021-04-09)
+# Crashes at runtime.
+# Mask LTO for now until issue with Qt
+# (to be resolved in Wireshark?) is resolved
+# bug #754021
+net-analyzer/wireshark lto
+
+# Sam James <sam@gentoo.org> (2021-04-09)
+# Fails to build right now
+# bug #651740
+net-misc/openssh debug
+
 # Stephan Hartmann <sultan@gentoo.org> (2021-03-21)
 # Requires unreleased sys-devel/icu-69.1
 >=www-client/chromium-91 system-icu
 
 # Michał Górny <mgorny@gentoo.org> (2021-03-06)
 # LLVM 9 has been removed.
-dev-lang/julia system-llvm
+<dev-lang/julia-1.6.0 system-llvm
 dev-util/perf clang
-
-# Sam James <sam@gentoo.org> (2021-02-27)
-# Needs last-rited sci-mathematics/ggnfs
-sci-mathematics/yafu sieve
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-02-17)
 # PCRE JIT support via dev-libs/libpcre2[jit] is only available for certain architectures
@@ -62,18 +79,9 @@ dev-php/symfony-finder test
 # bug #723438
 app-i18n/enca doc
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-01-01)
-# media-video/pipewire:0/0.2 cleanup
-<dev-libs/weston-9 pipewire
-
 # Marek Szuba <marecki@gentoo.org> (2020-12-26)
 # User manual is only available for releases
 =media-gfx/darktable-9999 doc
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-12-26)
-# Depends on masked media-libs/qt-gstreamer and kde-apps/ktp-call-ui
-kde-apps/artikulate gstreamer
-kde-apps/plasma-telepathy-meta gstreamer
 
 # Rick Farina <zerochaos@gentoo.org> (2020-12-21)
 # This use flag enables code which appears to be broken
@@ -116,17 +124,6 @@ mail-mta/protonmail-bridge gui
 # libclangformat-ide is masked for removal.
 dev-qt/qt-creator clang
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-11-25)
-# Depends on masked net-libs/libkvkontakte
-kde-apps/kipi-plugins vkontakte
-
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2020-10-08)
-# USE=doc broken on 1.47.0 and later
-# error: unresolved link to `crate::os::unix::ffi::OsStrExt`
-# miri seems to be not working on 1.48.0 and later
->=dev-lang/rust-1.47.0 doc
->=dev-lang/rust-1.48.0 doc miri
-
 # Michał Górny <mgorny@gentoo.org> (2020-09-27)
 # The respective dependencies are masked for removal.
 net-im/telepathy-connection-managers gadu icq meanwhile steam yahoo
@@ -143,7 +140,6 @@ net-nntp/pan gnome-keyring
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
 media-plugins/mythplugins mythnetvision
-sys-cluster/drbd-utils heartbeat
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
@@ -208,11 +204,6 @@ dev-util/meson test
 # Ada support is not yet ready for sys-devel/gcc
 sys-devel/gcc ada
 
-# Joshua Kinard <kumba@gentoo.org> (2020-03-28)
-# NCP support is masked pending removal of net-fs/ncpfs
-# Bug #681820
-net-analyzer/hydra ncp
-
 # Michał Górny <mgorny@gentoo.org> (2020-03-28)
 # Requires masked dev-vcs/bzr.  Remove the mask if breezy is packaged
 # and the package is confirmed to work with it.
@@ -240,10 +231,6 @@ dev-python/pyzmq doc
 # Michał Górny <mgorny@gentoo.org> (2020-02-04)
 # Unsatisfiable dep due to missing impls.
 dev-python/zeep tornado
-
-# Michał Górny <mgorny@gentoo.org> (2020-01-27)
-# Requires old split dev-python/twisted-*.
-net-irc/telepathy-idle test
 
 # Alexey Shvetsov <alexxy@gentoo.org> (2019-12-24)
 # Gromacs python module install br0ken
@@ -296,10 +283,6 @@ app-i18n/xcin unicode
 # see https://github.com/openssl/openssl/pull/8797
 net-libs/ngtcp2 ssl
 net-misc/curl nghttp3
-
-# Michał Górny <mgorny@gentoo.org> (2019-09-07)
-# media-libs/libnut is slated for removal.
-media-video/mplayer nut
 
 # Thomas Deutschmann <whissi88@gentoo.org> (2019-09-02)
 # PGO not yet supported for comm-central, #693160
@@ -458,7 +441,7 @@ app-emulation/libvirt openvz
 # rather sensitive when it comes to compiler flags, resulting in
 # black screens, hangs or crashes. The average joe should have no
 # need or even advantage to set custom compiler flags at all.
-# Example: https://bugs.gentoo.org/619628
+# Example: bug #619628
 sys-boot/gnu-efi custom-cflags
 sys-boot/refind custom-cflags
 
@@ -530,7 +513,7 @@ dev-java/icedtea cacao jamvm
 
 # Justin Lecher <jlec@gentoo.org> (2015-09-22)
 # Downloads files during installation
-# https://bugs.gentoo.org/show_bug.cgi?id=533876
+# bug #533876
 >=sci-libs/vtk-6.1.0 examples
 
 # James Le Cuirot <chewi@gentoo.org> (2015-08-18)
@@ -570,10 +553,6 @@ sys-devel/gcc sanitize
 # Rick Farina <zerochaos@gentoo.org> (2014-08-26)
 # mirisdr does not seem to like making releases
 <net-wireless/gr-osmosdr-9999 mirisdr
-
-# Pacho Ramos <pacho@gentoo.org> (2014-06-01)
-# Needs hardmasked lua-5.2
->=media-plugins/grilo-plugins-0.2.12 lua
 
 # Tom Wijsman <TomWij@gentoo.org> (2014-05-14)
 # Documentation generation needs APIviz which is not in the Portage tree yet.
@@ -676,3 +655,8 @@ media-video/vlc directx
 # Since >=dev-games/ogre-1.11.2 is masked, mask contribovis USE to
 # make repoman happy
 media-libs/opencv contribovis
+
+# Tobias Klausmann <klausman@gentoo.org> (2021-04-16)
+# Newer (>=4.4.0) versions of Quodlibet have a different library structure, so
+# puddletag needs to be updated to handle that.
+media-sound/puddletag quodlibet

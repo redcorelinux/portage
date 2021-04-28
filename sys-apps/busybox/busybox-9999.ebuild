@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # See `man savedconfig.eclass` for info on how to use USE=savedconfig.
@@ -25,11 +25,14 @@ IUSE="debug ipv6 livecd make-symlinks math mdev pam selinux sep-usr static syslo
 REQUIRED_USE="pam? ( !static )"
 RESTRICT="test"
 
+# TODO: Could make pkgconfig conditional on selinux? bug #782829
 COMMON_DEPEND="!static? ( selinux? ( sys-libs/libselinux ) )
 	pam? ( sys-libs/pam )"
 DEPEND="${COMMON_DEPEND}
+	virtual/pkgconfig
 	static? ( selinux? ( sys-libs/libselinux[static-libs(+)] ) )
 	>=sys-kernel/linux-headers-2.6.39"
+BDEPEND="virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
 	mdev? ( !<sys-apps/openrc-0.13 )"
 

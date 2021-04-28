@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/en/gwenview https://userbase.kde.org/Gwenview"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="activities fits kipi +mpris raw semantic-desktop share X"
 
 # requires running environment
@@ -103,7 +103,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "SVG support" kde-apps/svgpart:${SLOT}
 	fi
 	ecm_pkg_postinst

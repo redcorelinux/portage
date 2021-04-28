@@ -17,7 +17,7 @@ https://kontact.kde.org/components/kmail.html"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="telemetry"
 
 BDEPEND="
@@ -104,7 +104,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "Virus detection" app-antivirus/clamav
 		optfeature "Spam filtering" mail-filter/bogofilter mail-filter/spamassassin
 		optfeature "Fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}

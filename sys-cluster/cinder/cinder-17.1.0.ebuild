@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_7 python3_8 )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1 eutils linux-info
+inherit distutils-r1 linux-info
 
 DESCRIPTION="Cinder is the OpenStack Block storage service, a spin out of nova-volumes"
 HOMEPAGE="https://launchpad.net/cinder"
@@ -19,7 +19,7 @@ if [[ ${PV} == *9999 ]];then
 else
 	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/cinder/victoria/cinder.conf.sample -> cinder.conf.sample-${PV}
 	https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 x86"
 fi
 
 LICENSE="Apache-2.0"

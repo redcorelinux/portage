@@ -10,7 +10,7 @@ inherit ecm kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="epub exif ffmpeg kernel_linux office pdf taglib"
 
 RESTRICT+=" test"
@@ -59,7 +59,6 @@ src_test() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "Microsoft Word/Powerpoint file indexing" app-text/catdoc
 		optfeature "Microsoft Excel file indexing" dev-libs/libxls
 	fi

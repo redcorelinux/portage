@@ -10,7 +10,7 @@ SRC_URI="mirror://debian/pool/main/${PN::1}/${PN}/${PN}_${PV}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 # grub-mount needed per bug #607518
 RDEPEND="sys-boot/grub:2[mount]"
@@ -68,7 +68,9 @@ src_install() {
 		exeinto /usr/lib/${dir}
 		doexe ${dir}/common/*
 		if [[ -d ${dir}/${debarch} ]]; then
-			doexe ${dir}/${debarch}/*
+			for exe in ${dir}/${debarch}/*; do
+				[[ ! -d "${exe}" ]] && doexe "${exe}"
+			done
 		fi
 		if [[ -d ${dir}/${debarch}/efi ]]; then
 			exeinto /usr/lib/${dir}/efi

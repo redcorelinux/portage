@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit toolchain-funcs linux-info autotools flag-o-matic
+inherit autotools flag-o-matic linux-info toolchain-funcs
 
 DESCRIPTION="Misc tools bundled with kernel sources"
 HOMEPAGE="https://kernel.org/"
@@ -18,7 +18,7 @@ MY_PV="${MY_PV/-pre/-git}"
 
 LINUX_V=$(ver_cut 1-2)
 
-get_version_component_count() {
+_get_version_component_count() {
 	local cnt=( $(ver_rs 1- ' ') )
 	echo ${#cnt[@]} || die
 }
@@ -29,7 +29,7 @@ if [ ${PV/_rc} != ${PV} ]; then
 	LINUX_PATCH=patch-${PV//_/-}.xz
 	SRC_URI="https://www.kernel.org/pub/linux/kernel/v3.x/testing/${LINUX_PATCH}
 		https://www.kernel.org/pub/linux/kernel/v3.x/testing/v${PATCH_VERSION}/${LINUX_PATCH}"
-elif [ $(get_version_component_count) == 4 ]; then
+elif [ $(_get_version_component_count) == 4 ]; then
 	# stable-release series
 	LINUX_VER=$(ver_cut 1-3)
 	LINUX_PATCH=patch-${PV}.xz

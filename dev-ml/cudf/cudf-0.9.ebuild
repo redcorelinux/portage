@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Library to parse, pretty print, and evaluate CUDF documents"
 HOMEPAGE="http://www.mancoosi.org/cudf/"
@@ -26,6 +26,8 @@ DEPEND="${RDEPEND}
 	dev-ml/ocamlbuild
 	dev-lang/perl
 "
+BDEPEND="virtual/pkgconfig"
+
 PATCHES=( "${FILESDIR}/ounit2.patch" )
 
 QA_FLAGS_IGNORED='.*'

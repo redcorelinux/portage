@@ -13,7 +13,7 @@ BDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}] )"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 PATCHES=( "${FILESDIR}"/${PN}-1.7.0-test.patch )
 distutils_enable_tests pytest
@@ -32,10 +32,8 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	elog "To get additional features, optional runtime dependencies may be installed:"
-		optfeature "Remote commands via ssh" dev-python/paramiko
-		optfeature "Progress bars in jupyter" dev-python/ipywidgets
-		optfeature "Colored output in jupyter" dev-python/ipython
-		optfeature "Images on the command line" dev-python/pillow
-	elog ""
+	optfeature "remote commands via ssh" dev-python/paramiko
+	optfeature "progress bars in jupyter" dev-python/ipywidgets
+	optfeature "colored output in jupyter" dev-python/ipython
+	optfeature "images on the command line" dev-python/pillow
 }

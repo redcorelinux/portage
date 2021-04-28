@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
-inherit distutils-r1 eutils linux-info multilib udev
+inherit distutils-r1 linux-info multilib udev
 
 DESCRIPTION="Cloud computing fabric controller"
 HOMEPAGE="https://launchpad.net/nova"
@@ -17,7 +17,7 @@ if [[ ${PV} == *9999 ]];then
 else
 	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/ussuri/nova.conf.sample -> nova.conf.sample-${PV}
 	https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 x86"
 fi
 
 LICENSE="Apache-2.0"

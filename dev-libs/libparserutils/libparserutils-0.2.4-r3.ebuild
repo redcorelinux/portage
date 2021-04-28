@@ -11,13 +11,14 @@ SRC_URI="https://download.netsurf-browser.org/libs/releases/${P}-src.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm arm64 ppc ~ppc64 x86"
+KEYWORDS="amd64 arm arm64 ppc ~ppc64 x86"
 IUSE="iconv test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
+BDEPEND="
 	>=dev-util/netsurf-buildsystem-1.7-r1
-	test? (	dev-lang/perl )"
+	test? (	dev-lang/perl )
+"
 
 DOCS=( README docs/Todo )
 

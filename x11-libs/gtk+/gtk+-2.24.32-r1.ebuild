@@ -17,7 +17,7 @@ REQUIRED_USE="
 	xinerama? ( !aqua )
 "
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 # Upstream wants us to do their job:
 # https://bugzilla.gnome.org/show_bug.cgi?id=768663#c1
@@ -160,7 +160,7 @@ src_prepare() {
 		# UI tests require immodules already installed; bug #413185
 		if ! has_version 'x11-libs/gtk+:2'; then
 			ewarn "Disabling UI tests because this is the first install of"
-			ewarn "gtk+:2 on this machine. Please re-run the tests after $P"
+			ewarn "gtk+:2 on this machine. Please re-run the tests after ${P}"
 			ewarn "has been installed."
 			sed '/g_test_add_func.*ui-tests/ d' \
 				-i gtk/tests/testing.c || die "sed 2 failed"

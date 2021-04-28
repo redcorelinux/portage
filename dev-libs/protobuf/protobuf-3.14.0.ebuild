@@ -22,7 +22,7 @@ fi
 
 LICENSE="BSD"
 SLOT="0/25"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="emacs examples static-libs test zlib"
 RESTRICT="!test? ( test )"
 
@@ -45,6 +45,9 @@ src_prepare() {
 
 	# https://github.com/protocolbuffers/protobuf/issues/7413
 	sed -e "/^AC_PROG_CXX_FOR_BUILD$/d" -i configure.ac || die
+
+	# https://github.com/protocolbuffers/protobuf/issues/8082
+	sed -e "/^TEST_F(IoTest, LargeOutput) {$/,/^}$/d" -i src/google/protobuf/io/zero_copy_stream_unittest.cc || die
 
 	eautoreconf
 }

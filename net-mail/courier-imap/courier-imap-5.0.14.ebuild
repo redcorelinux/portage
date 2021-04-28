@@ -43,7 +43,6 @@ RDEPEND="${RDEPEND}
 	!mail-mta/courier
 	!net-mail/bincimap
 	!net-mail/cyrus-imapd
-	!net-mail/uw-imap
 "
 
 RC_VER="4.0.6-r1"
@@ -81,6 +80,7 @@ src_prepare() {
 		eapply "${FILESDIR}/${PN}-4.17-db4-configure.ac.patch"
 	fi
 
+	cd libs/rootcerts & autoupdate
 	eautoreconf
 }
 

@@ -1,6 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# @DEAD
 # @ECLASS: readme.gentoo.eclass
 # @MAINTAINER:
 # Pacho Ramos <pacho@gentoo.org>
@@ -8,13 +9,12 @@
 # Author: Pacho Ramos <pacho@gentoo.org>
 # @SUPPORTED_EAPIS: 4 5
 # @BLURB: install a doc file shown via elog messages
+# @DEPRECATED: readme.gentoo-r1
 # @DESCRIPTION:
 # An eclass for installing a README.gentoo doc file recording tips
 # shown via elog messages. With this eclass, those elog messages will only be
 # shown at first package installation and a file for later reviewing will be
 # installed under /usr/share/doc/${PF}
-#
-# This eclass is DEPRECATED. Please use readme.gentoo-r1 instead.
 
 if [[ -z ${_README_GENTOO_ECLASS} ]]; then
 _README_GENTOO_ECLASS=1

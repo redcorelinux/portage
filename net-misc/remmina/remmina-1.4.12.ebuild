@@ -13,7 +13,7 @@ SRC_URI="https://gitlab.com/Remmina/Remmina/-/archive/v${PV}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2+-with-openssl-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="appindicator crypt cups examples gnome-keyring kwallet libressl nls spice ssh rdp telemetry telepathy vnc webkit zeroconf"
 
 DEPEND="
@@ -94,9 +94,6 @@ src_configure() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	elog "To get additional features, some optional runtime dependencies"
-	elog "may be installed:"
-	elog ""
 	optfeature "encrypted VNC connections" net-libs/libvncserver[gcrypt]
 	optfeature "XDMCP support" x11-base/xorg-server[xephyr]
 }

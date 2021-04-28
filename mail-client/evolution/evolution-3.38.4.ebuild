@@ -14,7 +14,7 @@ SLOT="2.0"
 
 IUSE="archive +bogofilter geolocation gtk-doc highlight ldap spamassassin spell ssl +weather ytnef"
 
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
 
 # glade-3 support is for maintainers only per configure.ac
 # pst is not mature enough and changes API/ABI frequently
@@ -95,6 +95,8 @@ file from /usr/share/applications if you use a different browser)."
 src_prepare() {
 	cmake_src_prepare
 	gnome2_src_prepare
+
+	eapply "${FILESDIR}"/3.38-PrintableOptions.cmake-Correct-variable-name-compari.patch
 }
 
 src_configure() {

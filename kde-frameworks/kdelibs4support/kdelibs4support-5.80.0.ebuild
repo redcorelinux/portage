@@ -12,7 +12,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework easing the development transition from KDELibs 4 to KF 5"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="X"
 
 RESTRICT+=" test"
@@ -77,7 +77,10 @@ RDEPEND="${COMMON_DEPEND}
 	=kde-frameworks/kitemmodels-${PVCUT}*:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.79.0-no-kdesignerplugin.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-no-kdesignerplugin.patch"
+	"${FILESDIR}/${P}-unused-dep.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare

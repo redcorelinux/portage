@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils eutils multilib
+inherit cmake-utils multilib
 
 # deal.II uses its own FindLAPACK.cmake file that calls into the system
 # FindLAPACK.cmake module and does additional internal setup. Do not remove
@@ -62,7 +62,7 @@ RDEPEND="dev-libs/boost
 	scalapack? ( sci-libs/scalapack )
 	slepc? ( sci-mathematics/slepc[mpi=] )
 	sparse? ( sci-libs/umfpack )
-	sundials? ( <sci-libs/sundials-4:= )
+	sundials? ( sci-libs/sundials:= )
 	symengine? ( >=sci-libs/symengine-0.4:= )
 	trilinos? ( sci-libs/trilinos )"
 

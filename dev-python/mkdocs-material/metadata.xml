@@ -9,7 +9,6 @@
     <email>proxy-maint@gentoo.org</email>
     <name>Proxy Maintainers</name>
   </maintainer>
-  <stabilize-allarches/>
   <longdescription lang="en">
     What to expect
 
@@ -23,4 +22,5 @@
     <remote-id type="github">squidfunk/mkdocs-material</remote-id>
     <remote-id type="pypi">mkdocs-material</remote-id>
   </upstream>
+  <stabilize-allarches/>
 </pkgmetadata>

@@ -9,7 +9,7 @@ inherit ecm kde.org optfeature
 
 DESCRIPTION="Provider for platform independent hardware discovery, abstraction and management"
 LICENSE="LGPL-2.1+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="ios nls"
 
 BDEPEND="
@@ -43,7 +43,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "Media player devices support" app-misc/media-player-info
 	fi
 	ecm_pkg_postinst

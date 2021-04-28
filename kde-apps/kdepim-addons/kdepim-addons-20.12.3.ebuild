@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/en/kontact"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="importwizard markdown"
 
 RDEPEND="
@@ -80,7 +80,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "regex support for Sieve editor plugin" kde-misc/kregexpeditor
 	fi
 	ecm_pkg_postinst

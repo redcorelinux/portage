@@ -5,13 +5,13 @@ EAPI="5"
 
 PLOCALES='fr'
 
-inherit flag-o-matic eutils toolchain-funcs l10n
+inherit desktop flag-o-matic toolchain-funcs l10n
 
 MAJ_PV=${PV:0:${#PV}-1}
 MIN_PVE=${PV:0-1}
 MIN_PV=${MIN_PVE/b/B}
 
-MY_P="$PN-$MIN_PV.$MAJ_PV"
+MY_P="${PN}-${MIN_PV}.${MAJ_PV}"
 DESCRIPTION="Hardware Lister"
 HOMEPAGE="https://www.ezix.org/project/wiki/HardwareLiSter"
 SRC_URI="https://www.ezix.org/software/files/${MY_P}.tar.gz"

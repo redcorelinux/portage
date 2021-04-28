@@ -8,13 +8,14 @@ if [[ ${PV} == 9999  ]]; then
 	GRUB_BOOTSTRAP=1
 fi
 
+PYTHON_COMPAT=( python{2_7,3_{6,7,8,9}} )
+WANT_LIBTOOL=none
+
 if [[ -n ${GRUB_AUTOGEN} || -n ${GRUB_BOOTSTRAP} ]]; then
-	PYTHON_COMPAT=( python{2_7,3_{6,7,8,9}} )
 	inherit python-any-r1
 fi
 
 if [[ -n ${GRUB_AUTORECONF} ]]; then
-	WANT_LIBTOOL=none
 	inherit autotools
 fi
 
@@ -288,10 +289,9 @@ pkg_postinst() {
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog
-		elog "You may consider installing the following optional packages:"
-		optfeature "Detect other operating systems (grub-mkconfig)" sys-boot/os-prober
-		optfeature "Create rescue media (grub-mkrescue)" dev-libs/libisoburn
-		optfeature "Enable RAID device detection" sys-fs/mdadm
+		optfeature "detecting other operating systems (grub-mkconfig)" sys-boot/os-prober
+		optfeature "creating rescue media (grub-mkrescue)" dev-libs/libisoburn
+		optfeature "enabling RAID device detection" sys-fs/mdadm
 	fi
 
 	if has_version sys-boot/os-prober; then

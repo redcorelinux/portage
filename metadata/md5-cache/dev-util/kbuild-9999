@@ -1,10 +1,11 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-vcs/subversion[http(+)] net-misc/rsync
 DEFINED_PHASES=compile install preinst prepare setup unpack
-DEPEND=sys-devel/gettext virtual/yacc >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-vcs/subversion[http(+)] net-misc/rsync
+DEPEND=sys-apps/texinfo sys-devel/flex sys-devel/gettext || ( dev-util/byacc dev-util/yacc <sys-devel/bison-3.7 )
 DESCRIPTION=A makefile framework for writing simple makefiles for complex tasks
-EAPI=6
+EAPI=7
 HOMEPAGE=http://svn.netlabs.org/kbuild/wiki
-LICENSE=GPL-3
+LICENSE=GPL-3+
 PROPERTIES=live
 SLOT=0
-_eclasses_=autotools	4ba6c345bf49883c84d5fa5c9bf40c0b	estack	055c42df72f76a4f45ec92b35e83cd56	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	subversion	ed3498da4fb92dcfb0d6089c85d1465f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=e58c1d2ba9d38846b3e7becd4f245f18
+_eclasses_=autotools	9e63f92c2a5d867fea55ecb160c7d354	estack	055c42df72f76a4f45ec92b35e83cd56	gnuconfig	9f91b4b0c84e734a87492d4293f03de5	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	subversion	c500a1b7795f44153bd96fc2597e3c05	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=7107b4e8394ad3e9f286830b0ff8e16a

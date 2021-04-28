@@ -13,7 +13,7 @@ SRC_URI="https://www.lesbonscomptes.com/recoll/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="camelcase chm doc +inotify qt5 session +spell webengine"
 REQUIRED_USE="
@@ -110,10 +110,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "In order to extract the full functionality of "
-	elog "recoll, the following packages should be installed "
-	elog "to get the corresponding document support."
-
 	optfeature "XML based documents support"    "dev-libs/libxslt[python] dev-libs/libxml2[python]"
 	optfeature "PDF files support"              app-text/poppler
 	optfeature "PDF files with OCR support"     app-text/tesseract

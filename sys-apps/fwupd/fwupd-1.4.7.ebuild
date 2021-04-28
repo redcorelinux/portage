@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="agent amt dell gtk-doc elogind minimal introspection +man nvme redfish synaptics systemd test thunderbolt tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
@@ -31,8 +31,9 @@ BDEPEND="$(vala_depend)
 		sys-apps/help2man
 	)
 	test? (
-		thunderbolt? ( dev-util/umockdev )
+		app-crypt/tpm2-tss
 		net-libs/gnutls[tools]
+		thunderbolt? ( dev-util/umockdev )
 	)
 "
 CDEPEND="${PYTHON_DEPS}
@@ -125,7 +126,7 @@ src_configure() {
 		$(meson_use systemd)
 		$(meson_use test tests)
 		$(meson_use thunderbolt plugin_thunderbolt)
-		$(meson_use tpm plugin_tpm)
+		$(meson_use tpm tpm)
 		$(meson_use uefi plugin_uefi)
 		# Although our sys-apps/flashrom package now provides
 		# libflashrom.a, meson still can't find it
@@ -143,7 +144,7 @@ src_install() {
 
 	if ! use minimal ; then
 		sed "s@%SEAT_MANAGER%@elogind@" \
-			"${FILESDIR}"/${PN}-r1 \
+			"${FILESDIR}"/${PN}-r2 \
 			> "${T}"/${PN} || die
 		doinitd "${T}"/${PN}
 

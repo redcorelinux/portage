@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 # disable mpi until mpi4py gets python3_8
 #IUSE="examples mpi"
 IUSE="examples"
@@ -44,6 +44,10 @@ distutils_enable_sphinx docs \
 #pkg_setup() {
 #	use mpi && export CC=mpicc
 #}
+
+PATCHES=(
+	"${FILESDIR}"/h5py-3.2.1-i686-types.patch
+)
 
 python_prepare_all() {
 	# avoid pytest-mpi dep, we do not use mpi anyway

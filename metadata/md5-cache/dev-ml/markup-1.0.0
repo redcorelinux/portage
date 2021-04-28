@@ -11,5 +11,5 @@ RDEPEND=dev-ml/lwt dev-ml/uutf >=dev-lang/ocaml-4:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/1.0.0
 SRC_URI=https://github.com/aantron/markup.ml/archive/1.0.0.tar.gz -> markup-1.0.0.tar.gz
-_eclasses_=dune	46e13a2340ab32b2ad8ae98b653695ea
+_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
 _md5_=eed3e7e84ad76bf3b99780a27b402c41

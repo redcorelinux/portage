@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]] ; then
 
 	inherit git-r3
 else
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 	if [[ ${PV/_beta} == ${PV} ]]; then
 		MY_P="${P}"
 		SRC_URI="mirror://gnu/${PN}/${P}.tar.xz
@@ -55,7 +55,8 @@ PATCHES=(
 )
 
 pkg_setup() {
-	use test && python-any-r1_pkg_setup
+	# Avoid python-any-r1_pkg_setup
+	:
 }
 
 src_prepare() {
@@ -70,6 +71,11 @@ src_prepare() {
 	if ! has_version sys-apps/texinfo ; then
 		touch doc/{stamp-vti,version.texi,automake.info} || die
 	fi
+}
+
+src_configure() {
+	use test && python_setup
+	default
 }
 
 # slot the info pages.  do this w/out munging the source so we don't have

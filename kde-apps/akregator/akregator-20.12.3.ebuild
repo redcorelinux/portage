@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/en/akregator"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="telemetry"
 
 RDEPEND="
@@ -54,6 +54,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/grantlee:5
 "
+
+PATCHES=( "${FILESDIR}/${PN}-21.04.0-fix-dependencies.patch" ) # bug 783921
 
 src_configure() {
 	local mycmakeargs=(

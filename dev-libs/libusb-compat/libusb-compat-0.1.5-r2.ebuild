@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit toolchain-funcs multilib-minimal usr-ldscript
+inherit multilib-minimal usr-ldscript
 
 DESCRIPTION="Userspace access to USB devices (libusb-0.1 compat wrapper)"
 HOMEPAGE="http://libusb.sourceforge.net/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN/-compat}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="debug examples static-libs"
 
 RDEPEND=">=virtual/libusb-1-r1:1[${MULTILIB_USEDEP}]
@@ -26,7 +26,7 @@ PATCHES=(
 )
 
 multilib_src_configure() {
-	ECONF_SOURCE=${S} \
+	ECONF_SOURCE="${S}" \
 	econf \
 		$(use_enable static-libs static) \
 		$(use_enable debug debug-log)

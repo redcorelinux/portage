@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/en/lokalize https://l10n.kde.org/tools/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 arm64 x86"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -65,9 +65,8 @@ src_install() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
-		optfeature "Autofetch kde.org translations in new project wizard" dev-vcs/subversion
-		optfeature "Spell and grammar checking" app-text/languagetool
+		optfeature "autofetch kde.org translations in new project wizard" dev-vcs/subversion
+		optfeature "spell and grammar checking" app-text/languagetool
 	fi
 	ecm_pkg_postinst
 }

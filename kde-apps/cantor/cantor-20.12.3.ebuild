@@ -18,7 +18,7 @@ HOMEPAGE="https://apps.kde.org/en/cantor https://edu.kde.org/cantor/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 arm64 x86"
 IUSE="+analitza julia lua postscript python qalculate R"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) python? ( ${PYTHON_REQUIRED_USE} )"
@@ -102,7 +102,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "Maxima backend" sci-mathematics/maxima
 		optfeature "Octave backend" sci-mathematics/octave
 		optfeature "LaTeX support" virtual/latex-base
