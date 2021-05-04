@@ -47,6 +47,7 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-10.3.0-global-npm-config.patch
 	"${FILESDIR}"/${PN}-12.20.1-fix_ppc64_crashes.patch
+	"${FILESDIR}"/${PN}-12.22.1-uvwasi_shared_libuv.patch
 	"${FILESDIR}"/${PN}-12.22.1-v8_icu69.patch
 	"${FILESDIR}"/${PN}-99999999-llhttp.patch
 )
@@ -59,7 +60,15 @@ pkg_pretend() {
 
 	if [[ ${MERGE_TYPE} != "binary" ]]; then
 		if use lto; then
-			tc-is-gcc || die "${PN} only supports LTO for gcc"
+			if tc-is-gcc; then
+				if [[ $(gcc-major-version) -ge 11 ]]; then
+					# Bug #787158
+					die "LTO builds of ${PN} using gcc-11+ currently fail tests and produce runtime errors. Either switch to gcc-10 or unset USE=lto for this ebuild"
+				fi
+			else
+				# configure.py will abort on this later if we do not
+				die "${PN} only supports LTO for gcc"
+			fi
 		fi
 	fi
 }

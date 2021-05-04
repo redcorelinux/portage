@@ -32,6 +32,170 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-03)
+# Sync concurrent unmasking with icu/chromium/boost.
+~dev-qt/qtwebengine-5.15.2_p20210421
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-01)
+# nsplugin is dead, bug #771801
+# Removal on 2021-05-31
+www-plugins/google-talkplugin
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-01)
+# Unmaintained, java depends on deprecated JDK-7, nsplugin is dead.
+# Multiple bugs: #446508, #678776, #682600, #787407
+# Removal on 2021-05-31
+media-gfx/freewrl
+
+# Michał Górny <mgorny@gentoo.org> (2021-05-01)
+# The following packages have not been ported to Python 3.8, and are
+# therefore going to be removed when support for Python 3.7 target is
+# removed.  Please do not unmask them unless you port them both to
+# Python 3.8 *and* Python 3.9 (that is becoming the default
+# on 2021-06-01).
+#
+# Removal on 2021-05-31.  Relevant bugs found on tracker #701178.
+gnome-extra/gnome-dvb-daemon
+sci-chemistry/gmxapi
+www-apps/netbox
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-04-30)
+# Superceded by dev-perl/Image-Sane. Tests hang, bug 626594
+# Removal in 30 days.
+dev-perl/Sane
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-04-30)
+# Outdated, not pulled in by any virtuals anymore, no
+# keywords. Removal in 30 days.
+perl-core/Devel-PPPort
+perl-core/Time-Local
+perl-core/Unicode-Normalize
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-30)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/787152
+dev-java/tagsoup
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786888
+dev-java/zeus-jscl
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786864
+dev-java/sun-jmx
+java-virtuals/jmx
+dev-util/jconfig
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786843
+dev-java/sun-httpserver-bin
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786840
+dev-java/stax-ex
+dev-java/xmlstreambuffer
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786831
+dev-java/stax2-api
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786756
+dev-java/nekohtml
+dev-java/boilerpipe
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786786
+dev-java/spymemcached
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786783
+dev-java/skinlf
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786780
+dev-java/sblim-cim-client
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786774
+dev-java/radeox
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bugs: https://bugs.gentoo.org/786771
+dev-java/prefuse
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786768
+dev-java/picocontainer
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786753
+dev-java/msv
+dev-java/relaxngcc
+dev-java/wstx
+dev-java/jettison
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786744
+dev-java/minlog
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786714
+dev-java/libmatthew-java
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# no consumers
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/786711
+dev-java/ldapsdk
+
+# Michał Górny <mgorny@gentoo.org> (2021-04-29)
+# The most recent release is still broken with current
+# dev-python/coverage.  Inactive downstream maintainer.  No revdeps.
+# Removal on 2021-05-29.  Bug #786666.
+dev-python/pytest-testmon
+
+# Eray Aslan <eras@gentoo.org> (2021-04-29)
+# Mask experimental software
+=mail-mta/postfix-3.7*
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
+# security issues, last release in 2004
+# removal in 30 days
+# see bug: https://bugs.gentoo.org/631394
+media-sound/bladeenc
+
 # Miroslav Šulc <fordfrog@gentoo.org> (2021-04-28)
 # no consumers
 # removal in 30 days
@@ -366,12 +530,6 @@ dev-java/ical4j
 # https://bugs.gentoo.org/782697
 >=dev-java/xerces-2.12.1
 
-# Matt Turner <mattst88@gentoo.org> (2021-04-18)
-# Masked for testing.
->=dev-libs/vala-common-0.51
-dev-lang/vala:0.52
->=games-board/gnome-chess-40
-
 # Michał Górny <mgorny@gentoo.org> (2021-04-17)
 # Superseded by dev-python/pycodestyle.  Last revdep masked for removal.
 # Removal on 2021-05-17.  Bug #783369.
@@ -473,15 +631,6 @@ dev-java/slf4j-ext
 # Masked for removal in 30 days.
 dev-php/PEAR-Net_LDAP3
 
-# Matt Turner <mattst88@gentoo.org> (2021-04-05)
-# Masked for testing and for dependence on masked pango
-gui-libs/gtk
->=gnome-base/gnome-shell-40
->=gnome-extra/gnome-shell-extensions-40
->=x11-wm/mutter-40
->=media-sound/gnome-music-40
->=games-board/gnome-chess-40
-
 # David Seifert <soap@gentoo.org> (2021-04-05)
 # Completely broken, unmaintained, does not build. Newer version
 # use Maven, good luck with that. Bugs #418625, #431644, #515816
@@ -509,12 +658,6 @@ dev-libs/go-usb
 # Masking until we can investigate & fix
 # bug #737406
 =media-fonts/culmus-0.133-r1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-03-30)
-# Completely broken since profile 17.1, package needs a real maintainer,
-# bugfix and 3.0.4 version bump. Bugs #677374, #692928
-# Removal on 2021-04-29
-app-office/ical
 
 # Jonas Stein <jstein@gentoo.org> (2021-03-29)
 # Depends on gtk-2, no release since 2010.
@@ -561,13 +704,6 @@ app-admin/lastpass-cli
 # Lars Wendler <polynomial-c@gentoo.org> (2021-02-15)
 # Mask development versions now that they were bumped...
 =net-misc/kea-1.9*
-
-# Michał Górny <mgorny@gentoo.org> (2021-02-01)
-# LibreSSL support is discontinued.  Please read the relevant news item
-# and either migrate to dev-libs/openssl, or use the unsupported
-# user-maintained libressl overlay.
-# Removal on 2021-05-01.  Bug #762847.
-dev-libs/libressl
 
 # Marek Szuba <marecki@gentoo.org> (2021-01-21)
 # Masked for testing and further work - the golang-vcs-snapshot variant
@@ -626,20 +762,10 @@ kde-apps/kdebase-meta:5
 # Masked to allow py2.7 removal
 dev-lang/spark
 
-# Mart Raudsepp <leio@gentoo.org> (2020-08-15)
-# Development release, needs testing to ensure valac-0.50
-# works for existing packages
->=dev-libs/vala-common-0.49
-dev-lang/vala:0.50
-
 # Mart Raudsepp <leio@gentoo.org> (2020-06-06)
 # Meson port does not handle multilib yet and has issues
 # regarding runstatedir (not using /run).
 =net-misc/networkmanager-1.22*
-
-# Eray Aslan <eras@gentoo.org> (2020-03-09)
-# Mask experimental software
-=mail-mta/postfix-3.6*
 
 # Miroslav Šulc <fordfrog@gentoo.org> (2020-02-27)
 # >=dev-java/ant-eclipse-ecj-4.10 depends on masked >=virtual/{jdk,jre}-11
@@ -648,10 +774,6 @@ dev-lang/vala:0.50
 >=dev-java/eclipse-ecj-4.10
 >=www-servers/tomcat-9
 
-# Mart Raudsepp <leio@gentoo.org> (2020-02-16)
-# Fails to automatically launch pipewire for me. Help welcome figuring it out.
-net-misc/gnome-remote-desktop
-
 # Stefan Strogin <steils@gentoo.org> (2020-02-12)
 # Mask for testing revdeps.
 >=dev-games/mygui-3.4.0
@@ -659,11 +781,6 @@ net-misc/gnome-remote-desktop
 # Patrick McLean <chutzpah@gentoo.org> (2020-02-07)
 # Mask until sys-libs/libxcrypt[system] is unmasked
 >=virtual/libcrypt-2
-
-# Mart Raudsepp <leio@gentoo.org> (2020-02-03)
-# Needs news item, known breakages that need to be handled first, bug 698922
->=x11-libs/pango-1.43
->=dev-cpp/pangomm-2.48
 
 # Andrew Ammerlaan <andrewammerlaan@riseup.net> (2020-01-26)
 # v3.6.4 uses huge amounts of memory: Bug #705682

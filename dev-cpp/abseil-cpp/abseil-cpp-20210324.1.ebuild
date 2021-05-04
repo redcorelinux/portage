@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-inherit cmake python-any-r1 toolchain-funcs
+inherit cmake flag-o-matic python-any-r1 toolchain-funcs
 
 # yes, it needs SOURCE, not just installed one
 GTEST_COMMIT="aee0f9d9b5b87796ee8a0ab26b7587ec30e8858e"
@@ -22,7 +22,7 @@ LICENSE="
 "
 SLOT="0/${PV%%.*}"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="+cxx17 test"
+IUSE="test"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -61,6 +61,7 @@ src_prepare() {
 
 src_configure() {
 	if use arm || use arm64; then
+		# bug #778926
 		if [[ $($(tc-getCXX) ${CXXFLAGS} -E -P - <<<$'#if defined(__ARM_FEATURE_CRYPTO)\nHAVE_ARM_FEATURE_CRYPTO\n#endif') != *HAVE_ARM_FEATURE_CRYPTO* ]]; then
 			append-cxxflags -DABSL_ARCH_ARM_NO_CRYPTO
 		fi
@@ -69,7 +70,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DABSL_ENABLE_INSTALL=TRUE
 		-DABSL_LOCAL_GOOGLETEST_DIR="${WORKDIR}/googletest-${GTEST_COMMIT}"
-		$(usex cxx17 -DCMAKE_CXX_STANDARD=17 '') # it has to be a useflag for some consumers
+		-DCMAKE_CXX_STANDARD=17
 		$(usex test -DBUILD_TESTING=ON '') #intentional usex
 	)
 	cmake_src_configure
