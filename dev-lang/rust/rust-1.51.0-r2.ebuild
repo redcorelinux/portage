@@ -5,7 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit bash-completion-r1 check-reqs estack flag-o-matic llvm multiprocessing multilib-build python-any-r1 rust-toolchain toolchain-funcs
+inherit bash-completion-r1 check-reqs estack flag-o-matic llvm multiprocessing \
+	multilib-build python-any-r1 rust-toolchain toolchain-funcs verify-sig
 
 if [[ ${PV} = *beta* ]]; then
 	betaver=${PV//*beta}
@@ -28,6 +29,7 @@ HOMEPAGE="https://www.rust-lang.org/"
 
 SRC_URI="
 	https://static.rust-lang.org/dist/${SRC}
+	verify-sig? ( https://static.rust-lang.org/dist/${SRC}.asc )
 	!system-bootstrap? ( $(rust_all_arch_uris rust-${RUST_STAGE0_VERSION}) )
 "
 
@@ -93,6 +95,7 @@ BDEPEND="${PYTHON_DEPS}
 		dev-util/ninja
 	)
 	test? ( sys-devel/gdb )
+	verify-sig? ( app-crypt/openpgp-keys-rust )
 "
 
 DEPEND="
@@ -138,10 +141,13 @@ QA_SONAME="
 # causes double bootstrap
 RESTRICT="test"
 
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/rust.asc"
+
 PATCHES=(
 	"${FILESDIR}"/1.47.0-ignore-broken-and-non-applicable-tests.patch
 	"${FILESDIR}"/1.49.0-gentoo-musl-target-specs.patch
 	"${FILESDIR}"/1.51.0-bootstrap-panic.patch
+	"${FILESDIR}"/1.51.0-slow-doc-install.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr81728.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr81741.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr82289.patch
@@ -463,8 +469,15 @@ src_configure() {
 	done
 	fi # I_KNOW_WHAT_I_AM_DOING_CROSS
 
-	einfo "Rust configured with the following settings:"
+	einfo "Rust configured with the following flags:"
+
+	echo "RUSTFLAGS=\"${RUSTFLAGS:-}\""
+	echo "RUSTFLAGS_BOOTSTRAP=\"${RUSTFLAGS_BOOTSTRAP:-}\""
+	echo "RUSTFLAGS_NOT_BOOTSTRAP=\"${RUSTFLAGS_NOT_BOOTSTRAP:-}\""
+	echo
+	einfo "config.toml contents:"
 	cat "${S}"/config.toml || die
+	echo
 }
 
 src_compile() {
