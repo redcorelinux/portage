@@ -36,6 +36,7 @@ app-admin/conky:apcupsd - Enable support for sys-power/apcupsd
 app-admin/conky:bundled-toluapp - Enable support for bundled toluapp. This only makes sense in combination with the lua-* flags
 app-admin/conky:cmus - Enable monitoring of music played by media-sound/cmus
 app-admin/conky:ical - Enable support for events from iCalendar (RFC 5545) files using dev-libs/libical
+app-admin/conky:intel-backlight - Enable support for Intel backlight
 app-admin/conky:iostats - Enable support for per-task I/O statistics
 app-admin/conky:irc - Enable support for displaying everything from an irc channel using net-libs/libircclient
 app-admin/conky:lua-cairo - Enable if you want Lua Cairo bindings
@@ -1205,7 +1206,6 @@ dev-ada/libgpr:static-pic - Build static library with pic code
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/abseil-cpp:cxx17 - Build with -DCMAKE_CXX_STANDARD=17 (required by some revdeps)
-dev-cpp/eigen:c++11 - Build using the C++11 standard
 dev-cpp/eigen:cuda - Build with cuda support
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
 dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
@@ -1720,11 +1720,13 @@ dev-lang/gnat-gpl:ada - Build the ADA language (GNAT) frontend
 dev-lang/gnat-gpl:awt - Useful only when building GCJ, this enables Abstract Window Toolkit (AWT) peer support on top of GTK+
 dev-lang/gnat-gpl:bootstrap - Used to bootstrap gnat-gpl
 dev-lang/gnat-gpl:cilk - Support the Cilk Plus language (C/C++ based languages for parallel programming)
+dev-lang/gnat-gpl:d - Enable support for the D programming language
 dev-lang/gnat-gpl:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
 dev-lang/gnat-gpl:gcj - Build the GCJ Java language frontend.
 dev-lang/gnat-gpl:go - Build the GCC Go language frontend.
 dev-lang/gnat-gpl:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 dev-lang/gnat-gpl:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
+dev-lang/gnat-gpl:lto - Build using Link Time Optimizations (LTO)
 dev-lang/gnat-gpl:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 dev-lang/gnat-gpl:nopie - Disable PIE support (NOT FOR GENERAL USE)
 dev-lang/gnat-gpl:nossp - Disable SSP support (NOT FOR GENERAL USE)
@@ -1840,6 +1842,7 @@ dev-lang/swi-prolog:uuid - Use ossp-uuid for UUID pack
 dev-lang/swi-prolog:yaml - Use libyaml for YAML pack
 dev-lang/swig:ccache - build ccache-swig(a fast compiler cache)
 dev-lang/vala:valadoc - Installs valadoc documentation generation tool
+dev-lang/xsb:mariadb - Enable support for the mariadb database backend
 dev-lang/yap:R - Enable support for connecting R to Prolog
 dev-lang/yap:raptor - Enable support for Raptor RDF syntax libarary
 dev-lang/zig:experimental - Enable builds that do not support all of LLVM's target architectures
@@ -3581,6 +3584,7 @@ kde-plasma/plasma-desktop:policykit - Build the Users KCM using sys-apps/account
 kde-plasma/plasma-desktop:scim - Enable applets that use app-i18n/scim
 kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Firefox with browser extensions
 kde-plasma/plasma-meta:colord - Enable kde-plasma/kwin color management via x11-misc/colord
+kde-plasma/plasma-meta:crash-handler - Pull in kde-plasma/drkonqi for assisted upstream crash reports
 kde-plasma/plasma-meta:crypt - Pull in kde-plasma/plasma-vault for encrypted vaults integration
 kde-plasma/plasma-meta:desktop-portal - Enable sys-apps/xdg-desktop-portal backend implementation for Plasma
 kde-plasma/plasma-meta:discover - Pull in resources management GUI; a centralised GHNS alternative and optional sys-apps/fwupd frontend
@@ -3602,6 +3606,7 @@ kde-plasma/plasma-nm:modemmanager - Enable support for mobile broadband devices
 kde-plasma/plasma-nm:openconnect - Build support for the OpenConnect VPN client
 kde-plasma/plasma-nm:teamd - Enable Teamd control support
 kde-plasma/plasma-workspace:appstream - Enable AppStream software metadata support
+kde-plasma/plasma-workspace:calculator - Enable calculator runner using sci-libs/libqalculate
 kde-plasma/plasma-workspace:geolocation - Enables dataengine providing location information
 kde-plasma/plasma-workspace:qalculate - Enable Qalculate runner using sci-libs/libqalculate
 kde-plasma/plasma-workspace:screencast - Enable screencast portal using media-video/pipewire
@@ -4021,7 +4026,6 @@ media-gfx/krita:color-management - Enable color management via media-libs/openco
 media-gfx/krita:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/krita:qtmedia - Enable sound support for animations via dev-qt/qtmultimedia
 media-gfx/krita:vc - Enable support for dev-libs/vc, could be a significant speed boost
-media-gfx/librecad:3d - Require all 2D coordinates stored as 3D
 media-gfx/librecad:tools - Build additional tool programs: tff2lff
 media-gfx/luminance-hdr:fits - Enable support for the FITS format
 media-gfx/mandelbulber:opencl - Enable GPU rendering support using OpenCL
@@ -4791,6 +4795,7 @@ media-tv/kodi:mariadb - Enable support store of media library metadata on local 
 media-tv/kodi:mysql - Enable support store of media library metadata on local or remote MySQL
 media-tv/kodi:nfs - Enable NFS client support
 media-tv/kodi:optical - Enable Audio CD playback, optical disks detection and reading (CD-ROM, Video CD, and others), and ISO optical disk images direct reading. DVD disks may require additional 'udf' flag.
+media-tv/kodi:pipewire - Enable pipewire support
 media-tv/kodi:power-control - Enable control of shutdown, reboot, suspend, and hibernate
 media-tv/kodi:raspberry-pi - Enable support for the Raspberry Pi
 media-tv/kodi:system-ffmpeg - Use system ffmpeg instead of the bundled one
@@ -5029,13 +5034,15 @@ media-video/mpv:vulkan - Enable support for various Vulkan-based video backends
 media-video/mpv:zimg - Enable libzimg support (for vf_fingerprint)
 media-video/noad:libmpeg2 - Build support for mpeg2 over media-libs/libmpeg2 rather than using ffmpeg
 media-video/nvidia_video_sdk:tools - Build and install example tools.
-media-video/obs-studio:fdk - Enable libfdk support for AAC encoding.
+media-video/obs-studio:decklink - Build the Decklink plugin.
+media-video/obs-studio:fdk - Build with LibFDK AAC support.
 media-video/obs-studio:imagemagick - Use ImageMagick for image loading instead of FFmpeg.
-media-video/obs-studio:nvenc - Enable NVENC encoding for nVidia video cards.
-media-video/obs-studio:python - Build support for scripting via Python 3.
-media-video/obs-studio:speex - Enable noise suppression filter support via media-libs/speexdsp.
-media-video/obs-studio:ssl - Build support for TLS/SSL connections (RTMPS) via net-libs/mbedtls.
-media-video/obs-studio:vlc - Build support for using media-video/vlc as a media source.
+media-video/obs-studio:nvenc - Build with NVENC encoding support for nVidia video cards.
+media-video/obs-studio:pipewire - Build with PipeWire support.
+media-video/obs-studio:python - Build with scripting support for Python 3.
+media-video/obs-studio:speex - Build with Speex noise suppression filter support.
+media-video/obs-studio:ssl - Build with TLS/SSL support for RTMPS connections.
+media-video/obs-studio:vlc - Build with VLC media source support.
 media-video/ogmrip:ogm - Support for OGM container format
 media-video/ogmrip:srt - Support for SRT subtitle format
 media-video/orion:mpv - Use the media-video/mpv player (upstream default)
@@ -5048,6 +5055,7 @@ media-video/pipewire:extra - Build pw-cat/pw-play/pw-record
 media-video/pipewire:ffmpeg - Builds an unsupported SPA (file a Gentoo bug if you need this)
 media-video/pipewire:jack - Enable SPA JACK plugin and emulation to be able to run JACK applications on top of PipeWire
 media-video/pipewire:jack-client - Install a plugin for running PipeWire as a JACK client
+media-video/pipewire:jack-sdk - Use PipeWire as JACK replacement
 media-video/pipewire:ldac - LDAC over Bluetooth (primarily Sony headphones)
 media-video/pipewire:pipewire-alsa - Replace PulseAudio's ALSA plugin with PipeWire's plugin
 media-video/pipewire:vulkan - Uses Vulkan compute shaders to provide a CGI video source
@@ -6393,7 +6401,6 @@ net-misc/hylafaxplus:pam - hfaxd authentication via PAM
 net-misc/icecast:kate - Add karaoke and text encapsulation support for Ogg files
 net-misc/icecast:logrotate - Install support files for app-admin/logrotate?
 net-misc/icecast:yp - Build support for yp public directory listings
-net-misc/iputils:SECURITY_HAZARD - Allow non-root users to flood (ping -f). This is generally a very bad idea.
 net-misc/iputils:arping - Build and install arping -- tool for sending ARP requests to peers (see also net-analyzer/arping)
 net-misc/iputils:clockdiff - Build and install clockdiff -- tool for comparing clocks via ICMP packets
 net-misc/iputils:gcrypt - Use dev-libs/libgcrypt for md5 support
@@ -6543,6 +6550,7 @@ net-misc/quagga:tcp-zebra - Enable TCP zserv interface on port 2600 for Zebra/pr
 net-misc/rdesktop:kerberos - Enable CredSPP support + Kerberos authentication
 net-misc/rdesktop:pcsc-lite - Enable smartcard support with sys-apps/pcsc-lite driver
 net-misc/rdesktop:xrandr - Enable XRandR window extension support
+net-misc/remmina:gvnc - Enable GVNC plugin using gtk-vnc, suitable for KVM and Vino servers
 net-misc/remmina:kwallet - Enable KDE Wallet plugin
 net-misc/remmina:spice - Support connecting to SPICE-enabled virtual machines
 net-misc/remmina:ssh - Enable support for SSH/SFTP protocol
@@ -6716,7 +6724,6 @@ net-p2p/mldonkey:fasttrack - enable fasttrack support
 net-p2p/mldonkey:gnutella - enable gnutella and gnutella2 support
 net-p2p/mldonkey:guionly - enable client build only
 net-p2p/qbittorrent:webui - Enable the Web UI
-net-p2p/resilio-sync:pax_kernel - Use paxctl to mark binaries
 net-p2p/retroshare:cli - Enables the CLI version of RetroShare
 net-p2p/retroshare:control-socket - Enables API via Unix socket support
 net-p2p/retroshare:gnome-keyring - Enables potentially insecure autologin capability via Gnome Keyring
@@ -8794,6 +8801,7 @@ x11-misc/py3status:udev - Install extra requirement dev-python/pyudev to enable 
 x11-misc/qt5ct:dbus - Enable system tray and global menu support
 x11-misc/qtfm:dbus - Install the qtfm-tray removable device manager
 x11-misc/qtfm:shared - Install the libQtFM shared library and headers
+x11-misc/read-edid:vbe-mode - Build get-edid with support for legacy, VBE-based interface. Requires dev-libs/libx86.
 x11-misc/redshift:geoclue - Control dependency on app-misc/geoclue
 x11-misc/rofi:drun - Enable desktop file run dialog
 x11-misc/rofi:windowmode - Enable normal window mode

@@ -394,6 +394,10 @@ setup_flags() {
 	# glibc aborts if rpath is set by LDFLAGS
 	filter-ldflags '-Wl,-rpath=*'
 
+	# ld can't use -r & --relax at the same time, bug #788901
+	# https://sourceware.org/PR27837
+	filter-ldflags '-Wl,--relax'
+
 	# #492892
 	filter-flags -frecord-gcc-switches
 
@@ -644,21 +648,6 @@ sanity_prechecks() {
 		ewarn "You are using Xen but don't have -mno-tls-direct-seg-refs in your CFLAGS."
 		ewarn "This will result in a 50% performance penalty when running with a 32bit"
 		ewarn "hypervisor, which is probably not what you want."
-	fi
-
-	# Check for sanity of /etc/nsswitch.conf
-	if [[ -e ${EROOT}/etc/nsswitch.conf ]] ; then
-		local entry
-		for entry in passwd group shadow; do
-			if ! egrep -q "^[ \t]*${entry}:.*files" "${EROOT}"/etc/nsswitch.conf; then
-				eerror "Your ${EROOT}/etc/nsswitch.conf is out of date."
-				eerror "Please make sure you have 'files' entries for"
-				eerror "'passwd:', 'group:' and 'shadow:' databases."
-				eerror "For more details see:"
-				eerror "  https://wiki.gentoo.org/wiki/Project:Toolchain/nsswitch.conf_in_glibc-2.26"
-				die "nsswitch.conf has no 'files' provider in '${entry}'."
-			fi
-		done
 	fi
 
 	# ABI-specific checks follow here. Hey, we have a lot more specific conditions that
