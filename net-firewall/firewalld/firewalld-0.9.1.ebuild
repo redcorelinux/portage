@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 IUSE="gui +nftables +iptables"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -70,7 +70,6 @@ src_configure() {
 
 	local econf_args=(
 		--enable-systemd
-		$(use_with nftables nft "${EPREFIX}/sbin/nft")
 		$(use_with iptables iptables "${EPREFIX}/sbin/iptables")
 		$(use_with iptables iptables_restore "${EPREFIX}/sbin/iptables-restore")
 		$(use_with iptables ip6tables "${EPREFIX}/sbin/ip6tables")

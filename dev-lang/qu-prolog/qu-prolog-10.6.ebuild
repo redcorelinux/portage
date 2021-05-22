@@ -28,12 +28,14 @@ RDEPEND="
 	pedro? ( net-misc/pedro )
 	readline? ( app-misc/rlwrap )"
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	dev-lang/perl"
 
 S="${WORKDIR}"/${MY_P}
 
 src_prepare() {
 	eapply "${FILESDIR}"/${PN}-10.x-qt5.patch
+	eapply "${FILESDIR}"/${PN}-10.x-compiler-flags.patch
 	eapply_user
 
 	eautoconf

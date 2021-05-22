@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit user-info flag-o-matic multilib autotools pam systemd toolchain-funcs
+inherit user-info flag-o-matic autotools pam systemd toolchain-funcs
 
 # Make it more portable between straight releases
 # and _p? releases.
@@ -50,7 +50,7 @@ REQUIRED_USE="
 "
 
 # tests currently fail with XMSS
-REQUIRED_USE="test? ( !xmss )"
+REQUIRED_USE+="test? ( !xmss )"
 
 LIB_DEPEND="
 	audit? ( sys-process/audit[static-libs(+)] )

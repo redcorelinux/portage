@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} pypy3 )
+PYTHON_COMPAT=( python3_{7..10} pypy3 )
 
 inherit distutils-r1
 
@@ -24,5 +24,4 @@ RDEPEND="
 	>=dev-python/attrs-19.1.0[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]"
 
-distutils_enable_sphinx docs
 distutils_enable_tests pytest

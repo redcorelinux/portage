@@ -10,7 +10,7 @@ SRC_URI="mirror://sourceforge/courier/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
 
 IUSE="berkdb debug fam +gdbm gnutls ipv6 selinux trashquota"
 REQUIRED_USE="|| ( berkdb gdbm )"
@@ -20,7 +20,7 @@ CDEPEND="
 	!gnutls? (
 		dev-libs/openssl:0=
 	)
-	>=net-libs/courier-authlib-0.66.4
+	>=net-libs/courier-authlib-0.71
 	>=net-libs/courier-unicode-2
 	>=net-mail/mailbase-0.00-r8
 	net-dns/libidn:=

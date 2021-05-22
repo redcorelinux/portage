@@ -32,15 +32,104 @@
 
 #--- END OF EXAMPLES ---
 
+# Andrew Ammmerlaan <andrewammerlaan@gentoo.org> (2021-05-20)
+# dev-python/QtPy-1.9.0-r4 now uses USE flags to control if it uses
+# PySide2 or PyQt5. With the removal of -r3, this eselect module does
+# not do anything and will only lead to confusion and possibly breakage.
+# See also: https://bugs.gentoo.org/790764
+# Removal in 30 days.
+app-eselect/eselect-QtPy
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-05-20)
+# no non-masked consumer, removal in 30 days
+# see bug: https://bugs.gentoo.org/786852
+dev-java/sun-jimi
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-05-20)
+# no non-masked consumer, removal in 30 days
+# see bug: https://bugs.gentoo.org/786828
+dev-java/squareness-jlf
+
+# Sam James <sam@gentoo.org> (2021-05-20)
+# Need to ditch Meson or investigate consumers.
+# https://bugs.gentoo.org/791163
+=dev-libs/tinyxml2-8.1.0
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-05-19)
+# no consumer, removal in 30 days
+# see bug: https://bugs.gentoo.org/784065
+dev-java/werken-xpath
+
+# Zac Medico <zmedico@gentoo.org> (2021-05-16)
+# Obsoleted by go modules. Masked for removal in 30 days. Bug #790470.
+dev-go/godep
+
+# Miroslav Šulc <fordfrog@gentoo.org> (2021-05-16)
+# no consumer, does not compile, not with jdk-11
+# and not even with openjdk:8
+# see bug: https://bugs.gentoo.org/790551
+dev-java/freemarker
+
+# Sergei Trofimovich <slyfox@gentoo.org> (2021-05-16)
+# Mask gcc-7 branch (ended upstream support). Please switch
+# to a freshed gcc branch.
+<sys-devel/gcc-8
+<dev-util/nvidia-cuda-toolkit-10
+<dev-util/nvidia-cuda-sdk-10
+
+# Sergei Trofimovich <slyfox@gentoo.org> (2021-05-16)
+# Mask gcc-6 branch (ended upstream support). Please switch
+# to a freshed gcc branch.
+<sys-devel/gcc-7
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-05-15)
+# Dead upstream, homepage missing, EAPI=5, no systemd units.
+# https://bugs.gentoo.org/790413 , #434900, #552760
+# Use any of or combination of the following instead:
+# sys-apps/rng-tools
+# sys-apps/haveged
+# app-crypt/jitterentropy-rngd
+sys-apps/timer_entropyd
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
+# Dead upstream, dead downstream, GTK+2 based.  Bug #770898
+# Removal on 2021-06-14.
+app-editors/amyedit
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
+# Unmaintained, GTK+2-based, dubiously duplicating app-mobilephone/gnokii[X]
+# Removal on 2021-06-14. Bug #769032
+app-mobilephone/gnocky
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
+# Long-standing bugs, GTK+2-based, last revdep of media-libs/libexif-gtk.
+# Alternative: media-gfx/shotwell
+# Removal on 2021-06-14.  Bugs #560032, #740020, #769095
+media-gfx/gtkam
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
+# Unmaintained, pending version bump request since 2014, no revdeps.
+# Removal on 2021-06-14.  Bug #507760
+media-libs/libexif-gtk
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
+# Unmaintained, dead upstream since 2004, no hope to port away from GTK+2.
+# Removal on 2021-06-14.  Bug #769110
+media-gfx/gimageview
+
+# Michał Górny <mgorny@gentoo.org> (2021-05-15)
+# Relies on dev-python/astunparse that is broken with Python 3.8+
+# and abandoned upstream.  The current version is also broken
+# w/ sphinx-4 but with Python 3.7 being removed in half a month, bumping
+# makes little sense.  No reverse dependencies.
+# Removal on 2021-06-14.  Bug #743889.
+dev-python/sphinxcontrib-httpexample
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2021-05-09)
 # Unmaintained, last revdep of dev-perl/gtk2-spell, bugs #724796, #769296
 # Removal on 2021-06-08
 app-misc/gcstar
 dev-perl/gtk2-spell
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-05-09)
-# Work in progress, do not use yet
-=dev-lang/perl-5.34*
 
 # David Seifert <soap@gentoo.org> (2021-05-09)
 # All revdeps masked, last release in 1999, needs to do now.
@@ -405,11 +494,6 @@ dev-java/jarbundler
 # see bug: https://bugs.gentoo.org/786234
 dev-java/j2ssh
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-27)
-# Unmaintained, dead service, EAPI-5.
-# Removal on 2021-05-14
-app-misc/mediacrush-cli
-
 # Miroslav Šulc <fordfrog@gentoo.org> (2021-04-27)
 # library with no consumer
 # removal in 30 days
@@ -556,26 +640,9 @@ dev-dotnet/notify-sharp
 # Removal on 2021-05-22.  Bug #784983.
 dev-python/idna-ssl
 
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-21)
-# no consumers, last commit 2017
-# see: https://bugs.gentoo.org/784836
-# removal in 30 days
-dev-java/apt-mirror
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-21)
-# java library, no consumers
-# see: https://bugs.gentoo.org/784830
-# removal in 30 days
-dev-java/ant-owanttask
-
 # Ulrich Müller <ulm@gentoo.org> (2021-04-20)
 # Version 3.15 is broken with Emacs 27.2.
 =app-emacs/mic-paren-3.15-r0
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-21)
-# java library, no consumers
-# see: https://bugs.gentoo.org/784812
-dev-java/ini4j
 
 # Matt Turner <mattst88@gentoo.org> (2021-04-18)
 # Pretty dead. Needs GTK+3 port. Doesn't build with glib-2.68.
@@ -587,66 +654,10 @@ net-nntp/pan
 # Removal on 2021-07-01.  Bug #784221.
 x11-apps/amlc
 
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# our version is outdated with security issues, new version
-# uses gradle to build which we don't support atm,
-# also being a web framework deployable to application servers,
-# we have no usage for it, and nothing depends on it
-# removal in 30 days
-dev-java/tapestry
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# the project has been abandoned and the developement
-# is now under name SpotBugs
-# see: https://github.com/findbugsproject/findbugs
-dev-util/findbugs
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# obsolete deps, not used by any package
-# removal in 30 days
-dev-java/classmate
-dev-java/commons-configuration
-dev-java/commons-jelly
-dev-java/ezmorph
-dev-java/ical4j
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-04-18)
 # dev-java/xerces-2.12.1 depends on masked >=virtual/{jdk,jre}-11
 # https://bugs.gentoo.org/782697
 >=dev-java/xerces-2.12.1
-
-# Michał Górny <mgorny@gentoo.org> (2021-04-17)
-# Superseded by dev-python/pycodestyle.  Last revdep masked for removal.
-# Removal on 2021-05-17.  Bug #783369.
-dev-python/pep8
-
-# Michał Górny <mgorny@gentoo.org> (2021-04-17)
-# Dead.  Upstream repo gone.  Requires obsolete dev-python/pep8.
-# No revdeps.
-# Removal on 2021-05-17.  Bug #783366.
-dev-python/pytest-pep8
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-16)
-# Dubious usefulness in current Plasma 5, unmaintained upstream, depends on
-# even less maintained and chronically broken libraries with many open bugs.
-# media-gfx/icc-examin: Bug #740010
-# media-libs/libXcm: Bugs #525326, #724808
-# media-libs/oyranos: Bugs #702158, #705364, #780057
-# app-admin/elektra: Bugs #601992, #656168
-# Removal on 2021-05-16
-kde-misc/kolor-manager
-app-admin/elektra
-media-gfx/icc-examin
-media-gfx/synnefo
-media-libs/libXcm
-media-libs/openicc
-media-libs/oyranos
-
-# Bernard Cafarelli <voyageur@gentoo.org> (2021-04-15)
-# Abandoned upstream, does not work with current API,
-# does not compile with current mpv
-# Removal on 2021-05-15, bug #782601
-media-video/orion
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-04-15)
 # dev-java/jcodings-1.0.55 depends on masked >=virtual/{jdk,jre}-11
@@ -658,12 +669,6 @@ media-video/orion
 # Depends on gtk2, which is EOL
 # Removal on 2021-06-01.  Bug #782904.
 x11-themes/gtk-engines-aurora
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-14)
-# java libraries not used by any other package,
-# masked for removal
-dev-java/odfdom
-dev-java/saaj
 
 # Jonas Stein <jstein@gentoo.org> (2021-04-14)
 # Open bugs, dead upstream.
@@ -691,12 +696,6 @@ x11-misc/xstroke
 # Most likely caused by the following upstream commit:
 #   https://git.savannah.gnu.org/cgit/autoconf.git/commit/?id=aba75f6d4a9c875a9d5d90a07c6b3678db66a4bf
 sys-devel/autoconf:2.71
-
-# Göktürk Yüksek <gokturk@gentoo.org> (2021-03-14)
-# Dead upstream. No revdeps.
-# Removal in 60 days to allow people extra time
-# for transitioning out. Bug #776262.
-app-admin/lastpass-cli
 
 # Sam James <sam@gentoo.org> (2021-03-03)
 # Doesn't seem to sync clock correctly
@@ -797,11 +796,6 @@ dev-lang/spark
 # Mask until sys-libs/libxcrypt[system] is unmasked
 >=virtual/libcrypt-2
 
-# Andrew Ammerlaan <andrewammerlaan@riseup.net> (2020-01-26)
-# v3.6.4 uses huge amounts of memory: Bug #705682
-# v3.6.1 is the latest version without this issue
->=dev-libs/libsass-3.6.2
-
 # Lars Wendler <polynomial-c@gentoo.org> (2019-11-14)
 # Breaks archives containing relative paths
 # when being called with --no-absolute-filenames
@@ -879,8 +873,8 @@ sys-devel/automake:1.10
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
 <sys-libs/glibc-2.32-r3
-<sys-devel/binutils-2.34
-<sys-devel/binutils-hppa64-2.34
+<sys-devel/binutils-2.35.2
+<sys-devel/binutils-hppa64-2.35.2
 
 # Michael Orlitzky <mjo@gentoo.org> (2017-01-07)
 # This package has some dangerous quality and security issues, but

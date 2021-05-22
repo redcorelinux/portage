@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 PYTHON_REQ_USE="ncurses,readline"
 
 FIRMWARE_ABI_VERSION="5.2.0-r50"
@@ -274,6 +274,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.2.0-cleaner-werror.patch
 	"${FILESDIR}"/${PN}-5.2.0-disable-keymap.patch
 	"${FILESDIR}"/${PN}-5.2.0-dce-locks.patch
+	"${FILESDIR}"/${PN}-6.0.0-sphinx-4.patch
 )
 
 QA_PREBUILT="
