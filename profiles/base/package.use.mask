@@ -133,10 +133,6 @@ net-im/telepathy-connection-managers gadu icq meanwhile steam yahoo
 # caution!
 dev-libs/efl efl-one
 
-# Michał Górny <mgorny@gentoo.org> (2020-09-20)
-# The respective dependencies are masked for removal.
-net-nntp/pan gnome-keyring
-
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
 media-plugins/mythplugins mythnetvision
@@ -154,7 +150,7 @@ app-metrics/collectd collectd_plugins_onewire
 sci-geosciences/qgis grass
 
 # Thomas Deutschmann <whissi@gentoo.org> (2020-08-17)
-# CMake checks will only allow on amd64 & x86
+# Only supported on 64bit systems, see storage/columnstore/CMakeLists.txt
 dev-db/mariadb columnstore
 
 # Michał Górny <mgorny@gentoo.org> (2020-07-27)
@@ -511,8 +507,10 @@ dev-java/icedtea cacao jamvm
 
 # Justin Lecher <jlec@gentoo.org> (2015-09-22)
 # Downloads files during installation
-# bug #533876
->=sci-libs/vtk-6.1.0 examples
+# https://bugs.gentoo.org/show_bug.cgi?id=533876
+# Bernd Waibel <waebbl-gentoo@posteo.net> (2021-03-26)
+# Fixed in vtk-9
+<sci-libs/vtk-9 examples
 
 # James Le Cuirot <chewi@gentoo.org> (2015-08-18)
 # gcc[awt] is only used by gcj-jdk[awt] and that isn't needed by
@@ -551,11 +549,6 @@ sys-devel/gcc sanitize
 # Rick Farina <zerochaos@gentoo.org> (2014-08-26)
 # mirisdr does not seem to like making releases
 <net-wireless/gr-osmosdr-9999 mirisdr
-
-# Tom Wijsman <TomWij@gentoo.org> (2014-05-14)
-# Documentation generation needs APIviz which is not in the Portage tree yet.
-# Tracked in Gentoo bug #509602.
-dev-java/jboss-logging doc
 
 # Mike Frysinger <vapier@gentoo.org> (2014-02-03)
 # Upstream says to not use this for now.

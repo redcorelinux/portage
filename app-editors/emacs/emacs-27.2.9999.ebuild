@@ -149,7 +149,7 @@ src_prepare() {
 			|| die "Upstream version number changed to ${FULL_VERSION}"
 	fi
 
-	eapply_user
+	default
 
 	# Fix filename reference in redirected man page
 	sed -i -e "/^\\.so/s/etags/&-${EMACS_SUFFIX}/" doc/man/ctags.1 || die
@@ -325,7 +325,7 @@ src_install() {
 
 	# avoid collision between slots, see bug #169033 e.g.
 	rm "${ED}"/usr/share/emacs/site-lisp/subdirs.el || die
-	rm -rf "${ED}"/usr/share/{appdata,applications,icons} || die
+	rm -rf "${ED}"/usr/share/{applications,icons} || die
 	rm -rf "${ED}/usr/$(get_libdir)" || die
 	rm -rf "${ED}"/var || die
 

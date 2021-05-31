@@ -2000,7 +2000,7 @@
     <email>ops@gentoo.org</email>
     <name>The #gentoo Operators Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Ops</url>
-    <description>The &lt;span style="font-family: monospace; font-size: 95%;"&gt;[irc://irc.gentoo.org/gentoo #gentoo]&lt;/span&gt; Operators project describes the tasks and policies carried out by the operators of the #gentoo channel on the Freenode network.</description>
+    <description>The &lt;span style="font-family: monospace; font-size: 95%;"&gt;[irc://irc.gentoo.org/gentoo #gentoo]&lt;/span&gt; Operators project describes the tasks and policies carried out by the operators of the #gentoo channel on the Libera Chat network.</description>
     <member>
       <email>neddyseagoon@gentoo.org</email>
       <name>Roy Bamford</name>
@@ -2014,6 +2014,11 @@
     <member>
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
+      <role>Operator</role>
+    </member>
+    <member>
+      <email>tamiko@gentoo.org</email>
+      <name>Matthias Maier</name>
       <role>Operator</role>
     </member>
     <member>
@@ -2816,25 +2821,10 @@
     <name>Rust Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Rust</url>
     <description>The Rust Project maintains the Rust toolchain and its related packages.</description>
-    <member>
-      <email>cardoe@gentoo.org</email>
-      <name>Doug Goldstein</name>
-    </member>
-    <member>
-      <email>chutzpah@gentoo.org</email>
-      <name>Patrick McLean</name>
-    </member>
-    <member>
-      <email>djc@gentoo.org</email>
-      <name>Dirkjan Ochtman</name>
-    </member>
-    <member>
+    <member is-lead="1">
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
-    </member>
-    <member>
-      <email>williamh@gentoo.org</email>
-      <name>William Hubbs</name>
+      <role>Self-appointed lead</role>
     </member>
   </project>
   <project>
