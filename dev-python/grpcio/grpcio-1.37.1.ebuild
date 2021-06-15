@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
 
 RDEPEND="
 	>=dev-libs/openssl-1.0.2:0=[-bindist]
@@ -26,6 +26,11 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/1.37.1-cxx-no-gnu99.patch"
+	"${FILESDIR}/1.37.1-cc-flag-test-fix.patch"
+)
 
 python_prepare_all() {
 	distutils-r1_python_prepare_all

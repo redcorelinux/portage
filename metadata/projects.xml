@@ -314,11 +314,6 @@
     <subproject ref="toolchain@gentoo.org"/>
     <subproject ref="x86@gentoo.org"/>
     <member>
-      <email>cardoe@gentoo.org</email>
-      <name>Doug Goldstein</name>
-      <role>Misc stuff that needs to get done</role>
-    </member>
-    <member>
       <email>chainsaw@gentoo.org</email>
       <name>Tony Vroon</name>
       <role>LILO</role>
@@ -1109,6 +1104,10 @@
       <name>Conrad Kostecki</name>
     </member>
     <member>
+      <email>ionen@gentoo.org</email>
+      <name>Ionen Wolkens</name>
+    </member>
+    <member>
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
       <role>QA and cleaning up bugs</role>
@@ -1502,6 +1501,10 @@
       <name>Andreas Sturmlechner</name>
     </member>
     <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+    </member>
+    <member>
       <email>johu@gentoo.org</email>
       <name>Johannes Huber</name>
     </member>
@@ -1653,28 +1656,6 @@
     <member is-lead="1">
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
-    </member>
-  </project>
-  <project>
-    <email>libressl@gentoo.org</email>
-    <name>LibreSSL</name>
-    <url>https://wiki.gentoo.org/wiki/Project:LibreSSL</url>
-    <description>LibreSSL is a fork of, and drop in replacement for OpenSSL. Primary development is done in OpenBSD, but it is ported to Linux as well. The LibreSSL project aims to bring support for this alternative SSL provider to Gentoo Linux.</description>
-    <member is-lead="1">
-      <email>blueness@gentoo.org</email>
-      <name>Anthony G. Basile</name>
-    </member>
-    <member>
-      <email>soap@gentoo.org</email>
-      <name>David Seifert</name>
-    </member>
-    <member>
-      <email>steils@gentoo.org</email>
-      <name>Stefan Strogin</name>
-    </member>
-    <member>
-      <email>zx2c4@gentoo.org</email>
-      <name>Jason A. Donenfeld</name>
     </member>
   </project>
   <project>
@@ -1840,21 +1821,6 @@
     <member>
       <email>zerochaos@gentoo.org</email>
       <name>Rick Farina</name>
-    </member>
-  </project>
-  <project>
-    <email>multilib@gentoo.org</email>
-    <name>Multilib</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Multilib</url>
-    <description>The Gentoo multilib project aims to provide means to build Gentoo packages for multiple ABIs.</description>
-    <member>
-      <email>aballier@gentoo.org</email>
-      <name>Alexis Ballier</name>
-    </member>
-    <member is-lead="1">
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>Lead</role>
     </member>
   </project>
   <project>
@@ -2608,7 +2574,7 @@
   </project>
   <project>
     <email>riscv@gentoo.org</email>
-    <name>RISC-V development project</name>
+    <name>RISC-V Development</name>
     <url>https://wiki.gentoo.org/wiki/Project:RISC-V</url>
     <description>Gentoo RISC-V architecture support project</description>
     <member>
@@ -3355,10 +3321,6 @@
     <subproject ref="openstack@gentoo.org"/>
     <subproject ref="xen@gentoo.org"/>
     <member>
-      <email>cardoe@gentoo.org</email>
-      <name>Doug Goldstein</name>
-    </member>
-    <member>
       <email>dlan@gentoo.org</email>
       <name>Yixun Lan</name>
     </member>
@@ -3495,7 +3457,7 @@
   </project>
   <project>
     <email>x86@gentoo.org</email>
-    <name>x86 Architecture Development</name>
+    <name>x86 Development</name>
     <url>https://wiki.gentoo.org/wiki/Project:X86</url>
     <description>The x86 Project works to keep Gentoo the most up to date and secure x86 distribution available.</description>
     <member>
@@ -3544,10 +3506,6 @@
     <member>
       <email>alexxy@gentoo.org</email>
       <name>Alexey Shvetsov</name>
-    </member>
-    <member>
-      <email>cardoe@gentoo.org</email>
-      <name>Doug Goldstein</name>
     </member>
     <member>
       <email>dlan@gentoo.org</email>
