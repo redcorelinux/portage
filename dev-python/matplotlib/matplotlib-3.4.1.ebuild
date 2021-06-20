@@ -22,7 +22,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
 # Fonts: BitstreamVera, OFL-1.1
 LICENSE="BitstreamVera BSD matplotlib MIT OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 ~sparc ~x86"
 IUSE="cairo doc excel examples gtk3 latex qt5 tk webagg wxwidgets"
 
 # internal copy of pycxx highly patched
@@ -69,9 +69,7 @@ RDEPEND="
 		>=www-servers/tornado-6.0.4[${PYTHON_USEDEP}]
 	)
 	wxwidgets? (
-		$(python_gen_cond_dep '
-			dev-python/wxpython:*[${PYTHON_USEDEP}]
-		' python3_{6,7,8})
+		dev-python/wxpython:*[${PYTHON_USEDEP}]
 	)
 "
 
