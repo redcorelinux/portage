@@ -332,8 +332,13 @@
       <role>Specialized block devices and lots of other miscellaneous stuff</role>
     </member>
     <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
+      <role>NFS</role>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -624,28 +629,28 @@
       <role>Council member</role>
     </member>
     <member>
+      <email>marecki@gentoo.org</email>
+      <name>Marek Szuba</name>
+      <role>Council member</role>
+    </member>
+    <member>
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
       <role>Council member</role>
     </member>
     <member>
-      <email>slyfox@gentoo.org</email>
-      <name>Sergei Trofimovich</name>
+      <email>mgorny@gentoo.org</email>
+      <name>Michał Górny</name>
+      <role>Council member</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
       <role>Council member</role>
     </member>
     <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
-      <role>Council member</role>
-    </member>
-    <member>
-      <email>whissi@gentoo.org</email>
-      <name>Thomas Deutschmann</name>
-      <role>Council member</role>
-    </member>
-    <member>
-      <email>williamh@gentoo.org</email>
-      <name>William Hubbs</name>
       <role>Council member</role>
     </member>
   </project>
@@ -1828,28 +1833,6 @@
     </member>
   </project>
   <project>
-    <email>net-mail@gentoo.org</email>
-    <name>Net-Mail</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Net-Mail</url>
-    <description>The Gentoo Net-Mail project aims to maintain email related packages in Gentoo.</description>
-    <member>
-      <email>eras@gentoo.org</email>
-      <name>Eray Aslan</name>
-    </member>
-    <member>
-      <email>hattya@gentoo.org</email>
-      <name>Akinori Hattori</name>
-    </member>
-    <member>
-      <email>mschiff@gentoo.org</email>
-      <name>Marc Schiffbauer</name>
-    </member>
-    <member>
-      <email>robbat2@gentoo.org</email>
-      <name>Robin Johnson</name>
-    </member>
-  </project>
-  <project>
     <email>netifrc@gentoo.org</email>
     <name>Netifrc Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Netifrc</url>
@@ -2229,7 +2212,7 @@
     <member>
       <email>slyfox@gentoo.org</email>
       <name>Sergei Trofimovich</name>
-      <role>ppc/ppc64 keywording/stabilization</role>
+      <role>ppc/ppc64 arch specific bug fixes</role>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -2583,10 +2566,6 @@
       <name>Steve Arnold</name>
     </member>
     <member>
-      <email>slyfox@gentoo.org</email>
-      <name>Sergei Trofimovich</name>
-    </member>
-    <member>
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
     </member>
@@ -2639,6 +2618,11 @@
     <member>
       <email>gokturk@gentoo.org</email>
       <name>Göktürk Yüksek</name>
+      <role>Recruiter</role>
+    </member>
+    <member>
+      <email>juippis@gentoo.org</email>
+      <name>Joonas Niilola</name>
       <role>Recruiter</role>
     </member>
     <member is-lead="1">
@@ -3165,6 +3149,14 @@
       <email>nerdboy@gentoo.org</email>
       <name>Steve Arnold</name>
     </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
+      <email>soap@gentoo.org</email>
+      <name>David Seifert</name>
+    </member>
     <member is-lead="1">
       <email>tamiko@gentoo.org</email>
       <name>Matthias Maier</name>
@@ -3176,6 +3168,10 @@
     <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
+    </member>
+    <member>
+      <email>zlogene@gentoo.org</email>
+      <name>Mikle Kolyada</name>
     </member>
     <member>
       <email>zorry@gentoo.org</email>

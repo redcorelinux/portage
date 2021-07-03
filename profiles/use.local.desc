@@ -14,6 +14,12 @@ app-accessibility/brltty:pcm - support for sound card digital audio
 app-accessibility/brltty:speech - speech support
 app-accessibility/eflite:16k_voice - Use a higher-quality voice.
 app-accessibility/emacspeak:espeak - Adds support for the espeak tts engine
+app-accessibility/espeak-ng:async - Enables asynchronous commands
+app-accessibility/espeak-ng:klatt - Enables Klatt formant synthesis and implementation
+app-accessibility/espeak-ng:l10n_ru - Builds extended Russian Dictionary file
+app-accessibility/espeak-ng:l10n_zh - Builds extended Chinese (Mandarin and Cantonese) Dictionary files
+app-accessibility/espeak-ng:man - Builds and installs manpage with app-text/ronn
+app-accessibility/espeak-ng:mbrola - Adds support for mbrola voices
 app-accessibility/flite:voices - Install synthetic voices
 app-accessibility/freetts:jsapi - build Java Speech API (JSAPI)
 app-accessibility/freetts:mbrola - Adds support for mbrola voices
@@ -616,11 +622,11 @@ app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
 app-emulation/virtualbox:dtrace - Install dtrace Extension Pack
 app-emulation/virtualbox:headless - Build without any graphic frontend
 app-emulation/virtualbox:lvm - Build VBoxVolInfo that needs devicemapper from sys-fs/lvm2.
-app-emulation/virtualbox:pax_kernel - Apply patch needed for pax enabled kernels.
+app-emulation/virtualbox:pax-kernel - Apply patch needed for pax enabled kernels.
 app-emulation/virtualbox:sdk - Enable building of SDK
 app-emulation/virtualbox:udev - Controls installation of special USB udev rules.
 app-emulation/virtualbox:vboxwebsrv - Build and install the VirtualBox webservice
-app-emulation/virtualbox-modules:pax_kernel - Apply patch needed for pax enabled kernels
+app-emulation/virtualbox-modules:pax-kernel - Apply patch needed for pax enabled kernels
 app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using dev-util/spirv-tools
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
@@ -1143,7 +1149,6 @@ app-text/tesseract:osd - Enable support orientation and script detection.
 app-text/tesseract:scrollview - Install viewer to debug recognition (ScrollView).
 app-text/tesseract:training - Install training applications to add support for new languages.
 app-text/texlive:context - Add support for the ConTeXt format (dev-texlive/texlive-context)
-app-text/texlive:epspdf - Add support for app-text/epspdf, a tool for converting [e]ps files to pdf
 app-text/texlive:extra - Add support for extra TeXLive packages
 app-text/texlive:games - Add typesetting support for games (chess, etc.) (dev-texlive/texlive-games)
 app-text/texlive:graphics - Add support for several graphics packages (pgf, tikz,...)
@@ -1659,7 +1664,7 @@ dev-java/icedtea:headless-awt - Don't install the X backend for AWT, needed by s
 dev-java/icedtea:jamvm - Use the JamVM virtual machine rather than HotSpot.
 dev-java/icedtea:jbootstrap - If possible, recompile the final IcedTea executables with itself.
 dev-java/icedtea:kerberos - Link against Kerberos in order to obtain the cache location.
-dev-java/icedtea:pax_kernel - Apply patch needed for pax enabled kernels.
+dev-java/icedtea:pax-kernel - Apply patch needed for pax enabled kernels.
 dev-java/icedtea:pch - Build using pre-compiled headers.
 dev-java/icedtea:sctp - Build the SCTP NIO channel implementation against lksctp
 dev-java/icedtea:shenandoah - Include the Shenandoah ultra-low pause time garbage collector (-XX:+UseShenandoahGC) (arm64 and x86_64 only)
@@ -1752,14 +1757,14 @@ dev-lang/mercury:trail - Support Mercury trail grades
 dev-lang/mercury-extras:tommath - Enable support for tommath library
 dev-lang/mlton:binary - install a binary version
 dev-lang/mlton:bootstrap-smlnj - Boostrap mlton with dev-lang/smlnj (takes a long time)
-dev-lang/mlton:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/mlton:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/mlton:stage3 - After bootstrap building mlton with dev-lang/smlnj, rebuild mlton with the second stage build of mlton (recommended).
 dev-lang/moarvm:asan - Enable clang's Address Sanitizer functionality. Expect longer compile time.
 dev-lang/moarvm:clang - Use clang compiler instead of GCC
 dev-lang/moarvm:jit - Enable Just-In-Time-Compiler. Has no effect except on AMD64 and Darwin.
 dev-lang/moarvm:optimize - Enable optimization via CFLAGS
 dev-lang/moarvm:ubsan - Enable clang's Undefined Behavior Sanitizer functionality. Expect longer compile time.
-dev-lang/mono:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/mono:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/mono:xen - Make mono generate code that is considerably faster on xen VMs but slightly slower on for normal systems.
 dev-lang/nqp:clang - Toggle usage of the clang compiler in conjunction with MoarVM
 dev-lang/nqp:moar - Build the MoarVM backend (experimental/broken)
@@ -1829,7 +1834,7 @@ dev-lang/rust-bin:clippy - Install clippy, Rust code linter
 dev-lang/rust-bin:rls - Install rls, Rust Language Server (used with IDEs supporting RLS protocol)
 dev-lang/rust-bin:rustfmt - Install rustfmt, Rust code formatter
 dev-lang/scala:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
-dev-lang/smlnj:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/smlnj:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/spidermonkey:clang - Use Clang compiler instead of GCC
 dev-lang/spidermonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 dev-lang/spidermonkey:debug - Enable assertions to allow for easier debugging of programs that link to spidermonkey -- note this will often crash software on regular end-user systems
@@ -2044,8 +2049,9 @@ dev-libs/libevent:malloc-replacement - Support for replacing the memory manageme
 dev-libs/libevent:mbedtls - Support for net-libs/mbedtls encryption
 dev-libs/libevent:ssl - Support for dev-libs/openssl encryption
 dev-libs/libevent:verbose-debug - Support for verbose debug logging
-dev-libs/libffi:pax_kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
-dev-libs/libffi-compat:pax_kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
+dev-libs/libffi:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
+dev-libs/libffi:pax_kernel - DEPRECATED alias for 'pax-kernel'. Do not use.
+dev-libs/libffi-compat:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
 dev-libs/libfido2:nfc - Enable experimental NFC support
 dev-libs/libflatarray:cuda - Enables plugins for NVIDIA GPUs (e.g. CUDAAllocator)
 dev-libs/libgcrypt:asm - Enable assembly for optimization
@@ -2932,7 +2938,6 @@ dev-vcs/mercurial:tk - Install dev-lang/tk for hgk script.
 dev-vcs/subversion:extras - Install extra scripts (examples, tools, hooks)
 dev-vcs/subversion:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 games-action/beathazardultra:bundled-libs - Use the upstream provided bundled libraries.
-games-action/chromium-bsu:mixer - Enables media-libs/sdl-mixer sound backend instead of media-libs/openal one.
 games-action/descent1-freedata:l10n_de - Provides German translations for the game's briefings, robot descriptions, and outro of the original campaign
 games-action/descent1-freedata:opl3-musicpack - Include alternate version of the game's music, recorded with the Yamaha YMF262 OPL3 soundchip
 games-action/descent1-freedata:sc55-musicpack - Include alternate version of the game's music, recorded with the Roland Sound Canvas SC-55 MIDI module
@@ -2999,6 +3004,8 @@ games-board/pasang-emas:extras - Install some extra themes
 games-board/pioneers:help - Enable gnome ingame help via scrollkeeper
 games-board/pysolfc:extra-cardsets - Install extra cardsets
 games-board/pysolfc:sound - Enable sound support using dev-python/pygame
+games-board/scid:photos - Install collection of player photos (large)
+games-board/scid:scripts - Install additional python and tcl utility scripts
 games-board/stockfish:general-32 - Generic unoptimized 32-bits build
 games-board/stockfish:general-64 - Generic unoptimized 64-bits build
 games-board/stockfish:optimize - Enable upstream -O3 optimizations (default enabled)
@@ -4548,6 +4555,7 @@ media-sound/denemo:rubberband - Enable support for media-libs/rubberband
 media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
 media-sound/drumstick:fluidsynth - Enable support for media-sound/fluidsynth
+media-sound/drumstick:network - Build Network RT backend
 media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
@@ -4747,7 +4755,7 @@ media-sound/split2flac:flake - Add support for Flake, alternative FLAC encoder
 media-sound/split2flac:mac - Add support for Monkey's Audio files
 media-sound/split2flac:replaygain - Support for Replay Gain metadata, for relative volume adjustment
 media-sound/spotify:local-playback - Allows playing local files with the Spotify client
-media-sound/spotify:pax_kernel - Triggers a paxmarking of the main Spotify binary
+media-sound/spotify:pax-kernel - Triggers a paxmarking of the main Spotify binary
 media-sound/spotify:pulseaudio - Controls the dependency on pulseaudio or apulse
 media-sound/spotify:systray - Pulls in dependencies needed for systray support on some desktop environments
 media-sound/strawberry:vlc - Enable media-video/vlc backend
@@ -5047,6 +5055,7 @@ media-video/mpv:vulkan - Enable support for various Vulkan-based video backends
 media-video/mpv:zimg - Enable libzimg support (for vf_fingerprint)
 media-video/noad:libmpeg2 - Build support for mpeg2 through media-libs/libmpeg2 rather than using media-video/ffmpeg
 media-video/nvidia_video_sdk:tools - Build and install example tools.
+media-video/obs-studio:browser - Enable browser source support via (precompiled) CEF.
 media-video/obs-studio:decklink - Build the Decklink plugin.
 media-video/obs-studio:fdk - Build with LibFDK AAC support.
 media-video/obs-studio:imagemagick - Use ImageMagick for image loading instead of FFmpeg.
@@ -5431,8 +5440,10 @@ net-analyzer/zabbix:frontend - Enable zabbix web frontend
 net-analyzer/zabbix:ipv6 - Turn on support of IPv6
 net-analyzer/zabbix:java - Enable Zabbix Java JMX Management Gateway
 net-analyzer/zabbix:libxml2 - Use libxml2 client library
+net-analyzer/zabbix:mbedtls - Use net-libs/mbedtls as TLS backend
 net-analyzer/zabbix:odbc - Enable Database Monitor and use UnixODBC Library by default
 net-analyzer/zabbix:openipmi - Enable openipmi things
+net-analyzer/zabbix:openssl - Use dev-libs/openssl as TLS backend
 net-analyzer/zabbix:proxy - Enable proxy support
 net-analyzer/zabbix:server - Enable zabbix server
 net-analyzer/zabbix:ssh - SSH v2 based checks
@@ -5896,7 +5907,7 @@ net-irc/iroffer-dinoex:memsave - Compile with memory protection
 net-irc/iroffer-dinoex:telnet - Compile with Telnet server support
 net-irc/irssi:otr - Adds support for a loadable IRC otr module
 net-irc/irssi:proxy - Adds support for a loadable IRC proxy module
-net-irc/kvirc:dcc_video - Support video connections over DCC protocol
+net-irc/kvirc:dcc-video - Support video connections over DCC protocol
 net-irc/kvirc:phonon - Support Phonon for audio output
 net-irc/limnoria:crypt - Enables user authentication with GPG
 net-irc/ngircd:ident - Enables support for net-libs/libident
@@ -6062,7 +6073,7 @@ net-libs/nghttp2:utils - Install nghttp, nghttpd and nghttpx
 net-libs/nodejs:inspector - Enable V8 inspector
 net-libs/nodejs:lto - Build with link-time optimisation
 net-libs/nodejs:npm - Enable NPM package manager
-net-libs/nodejs:pax_kernel - Enable building under a PaX enabled kernel
+net-libs/nodejs:pax-kernel - Enable building under a PaX enabled kernel
 net-libs/nodejs:snapshot - Enable snapshot creation for faster startup
 net-libs/nodejs:system-icu - Use system dev-libs/icu instead of the bundled version
 net-libs/nodejs:system-ssl - Use system OpenSSL instead of the bundled one
@@ -7276,6 +7287,7 @@ sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hypre:int64 - Build the 64 bits integer library
+sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/indilib:websocket - Enable support for WebSocket protocol
 sci-libs/ipopt:hsl - hsl
 sci-libs/ipopt:mumps - Enable sci-libs/mumps support
@@ -7448,6 +7460,10 @@ sci-mathematics/giac:glpk - Enable the use of sci-mathematics/glpk
 sci-mathematics/gmp-ecm:custom-tune - Improve performance of some operations by selecting machine-specific defaults
 sci-mathematics/gretl:R - Enable support for dev-lang/R
 sci-mathematics/gsl-shell:fox - Build a x11-libs/fox GUI
+sci-mathematics/lcalc:double - Use double precision (the upstream default)
+sci-mathematics/lcalc:double-double - Use sci-libs/qdfor double-double precision
+sci-mathematics/lcalc:pari - Use sci-mathematics/pari for elliptic curve L-functions
+sci-mathematics/lcalc:quad-double - Use sci-libs/qdfor quad-double precision
 sci-mathematics/maxima:clisp - Compile maxima with GNU CLISP (dev-lisp/clisp)
 sci-mathematics/maxima:clozurecl - Compile maxima with 32-bit Clozure Common Lisp (dev-lisp/clozurecl)
 sci-mathematics/maxima:clozurecl64 - Compile maxima with 64-bit Clozure Common Lisp (dev-lisp/clozurecl)
@@ -8598,6 +8614,7 @@ www-servers/lighttpd:nss - Build module for TLS via Mozilla's Network Security S
 www-servers/lighttpd:rrdtool - Enable rrdtool support via mod_rrdtool
 www-servers/lighttpd:webdav - Enable webdav properties
 www-servers/lighttpd:zlib - Enable output compression via gzip or deflate algorithms
+www-servers/lighttpd:zstd - Enable output compression via Zstandard algorithm
 www-servers/monkeyd:debug - Enable lots of debugging info
 www-servers/monkeyd:static-plugins - Build statically linked plugins
 www-servers/nginx:aio - Enables file AIO support
@@ -8823,7 +8840,6 @@ x11-terms/gnome-terminal:nautilus - Build gnome-base/nautilus extension
 x11-terms/guake:utempter - Include utmp management support via sys-libs/libutempter
 x11-terms/mlterm:brltty - Enable support for app-accessibility/brltty
 x11-terms/mlterm:fcitx - Enable support for app-i18n/fcitx
-x11-terms/mlterm:gtk2 - Build with x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 x11-terms/mlterm:harfbuzz - Enable support for OpenType Layout (media-libs/harfbuzz)
 x11-terms/mlterm:ibus - Enable support for app-i18n/ibus
 x11-terms/mlterm:libssh2 - Enable support for net-libs/libssh2

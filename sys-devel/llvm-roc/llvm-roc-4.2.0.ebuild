@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug +runtime"
 
-RDEPEND="virtual/cblas
+RDEPEND="
 	dev-libs/libxml2
 	sys-libs/zlib
 	sys-libs/ncurses:="
@@ -24,7 +24,7 @@ S="${WORKDIR}/llvm-project-rocm-${PV}/llvm"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.2.0-current_pos.patch"
-	"${FILESDIR}/${PN}-4.2.0-add_BinaryFormat.patch"
+	"${FILESDIR}/${PN}-4.2.0-add_Object.patch"
 )
 
 CMAKE_BUILD_TYPE=RelWithDebInfo
