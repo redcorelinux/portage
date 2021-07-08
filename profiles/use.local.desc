@@ -2049,6 +2049,7 @@ dev-libs/libevent:malloc-replacement - Support for replacing the memory manageme
 dev-libs/libevent:mbedtls - Support for net-libs/mbedtls encryption
 dev-libs/libevent:ssl - Support for dev-libs/openssl encryption
 dev-libs/libevent:verbose-debug - Support for verbose debug logging
+dev-libs/libffi:exec-static-trampoline - Don't rely on dynamic code generation for trampolines.
 dev-libs/libffi:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
 dev-libs/libffi:pax_kernel - DEPRECATED alias for 'pax-kernel'. Do not use.
 dev-libs/libffi-compat:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
@@ -2140,7 +2141,9 @@ dev-libs/libzip:mbedtls - Use net-libs/mbedtls as TLS provider
 dev-libs/libzip:tools - Install binary tools to compare, modify and merge zip files
 dev-libs/link-grammar:aspell - Adds support for app-text/aspell spell checker
 dev-libs/link-grammar:hunspell - Adds support for app-text/hunspell spell checker
+dev-libs/log4cplus:explicit-initialization - Require explicit initialization
 dev-libs/log4cplus:iconv - Use inconv for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
+dev-libs/log4cplus:server - Build the logging server
 dev-libs/log4cplus:working-c-locale - Use the C99 locale facilities for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
 dev-libs/log4cplus:working-locale - Use C++'s std::locale for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
 dev-libs/log4cxx:smtp - Offer SMTP support via net-libs/libesmtp
@@ -3024,6 +3027,7 @@ games-emulation/dosbox:core-inline - Enable memory-increasing inlines for better
 games-emulation/dosbox:glide - Enable unofficial Glide emulation via media-libs/openglide
 games-emulation/dosbox-staging:dynrec - Use recompiling cpu core instead of dynamic x86/x64 specific cpu core
 games-emulation/dosbox-staging:fluidsynth - use media-sound/fluidsynth for MIDI emulation
+games-emulation/dosbox-staging:mt-32 - use media-libs/munt-mt32emu for MT-32 emulation
 games-emulation/dosbox-staging:network - Enable networking features (modem, ipx)
 games-emulation/dosbox-staging:opus - Support compressed audio tracks (.opus) used with CDROM images
 games-emulation/generator:sdlaudio - Enable SDL Audio
@@ -3146,6 +3150,7 @@ games-fps/yamagi-quake2:client - Build client
 games-fps/yamagi-quake2:ctf - Build support for the 'Capture The Flag' addon
 games-fps/yamagi-quake2:rogue - Build support for the 'Ground Zero' Mission Pack
 games-fps/yamagi-quake2:softrender - Build software renderer
+games-fps/yamagi-quake2:vulkan - Build experimental Vulkan renderer
 games-fps/yamagi-quake2:xatrix - Build support for the 'The Reckoning' Mission Pack
 games-kids/gcompris:kiosk - Enable kiosk mode by default (for use by small children or on a self-service host machine)
 games-misc/little-inferno:bundled-libs - Use bundled libraries.
@@ -3322,6 +3327,7 @@ gnome-extra/synapse:plugins - Build support for plugins using net-libs/rest
 gnustep-apps/gemas:projectcenter - Build and install plugin for gnustep-apps/projectcenter
 gnustep-apps/gworkspace:gwmetadata - Enable the metadata indexing and searching system
 gnustep-apps/sogo:activesync - Build the ActiveSync support code
+gnustep-apps/sogo:sodium - Enable support for Argon2 password schemes using dev-libs/libsodium
 gnustep-base/gnustep-back-art:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-cairo:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-xlib:xim - Enable X11 XiM input method
@@ -3703,6 +3709,7 @@ mail-client/neomutt:smime-classic - Build classic-smime backend to support S/MIM
 mail-client/neomutt:tokyocabinet - Enable Tokyo Cabinet database backend for header caching
 mail-client/roundcube:change-password - Allow users to change passwords through Roundcube
 mail-client/roundcube:enigma - Add dependencies to support server-side GnuPG signing and/or encryption through the enigma plugin
+mail-client/roundcube:fileinfo - Use the dev-lang/php fileinfo extension to guess the mime_type of attachments
 mail-client/roundcube:ldap - Add dependencies to support connecting to an LDAP address book server
 mail-client/s-nail:kerberos - If network is enabled, this adds support for GSSAPI login on IMAP through virtual/krb5.
 mail-client/s-nail:net - Enable support for network protocols (POP, IMAP and SMTP). If you only need to send mail with the local Transport Agent, disabling this will get you support for only /usr/sbin/sendmail call.
@@ -3864,7 +3871,7 @@ media-fonts/terminus-font:a-like-o - Changes view of letter 'a' - a looks like o
 media-fonts/terminus-font:center-tilde - Place the '~' character vertically centered on the line instead of to the top.
 media-fonts/terminus-font:distinct-l - ll2 variant with more distinctive l (lowercase L)
 media-fonts/terminus-font:otf - Install Open Type Font (OTF) (required for HarfBuzz backend)
-media-fonts/terminus-font:pcf - Install Portable Compiled Font (PCF) (required for X11)
+media-fonts/terminus-font:pcf - Install Portable Compiled Font (PCF) (X11 bitmap fonts)
 media-fonts/terminus-font:pcf-unicode-only - Remove non-unicode PCF fonts that could be problematic. See bug #520222.
 media-fonts/terminus-font:psf - Install PC Screen Font (PSF) with unicode data (for linux console)
 media-fonts/terminus-font:quote - Changes view of quotes: symmetric ` and ' instead of asymmetric one (see homepage)
@@ -6473,12 +6480,14 @@ net-misc/mrouted:rsrr - Enable Routing Support for Resource Reservations, for RS
 net-misc/mulk:checksum - Enable checksum verification for Metalink from dev-libs/openssl
 net-misc/mulk:metalink - Enable support for media-libs/libmetalink
 net-misc/netkit-bootparamd:libtirpc - Build against net-libs/libtirpc for RPC support
-net-misc/networkmanager:connection-sharing - Use net-dns/dnsmasq and net-firewall/iptables for connection sharing
-net-misc/networkmanager:dhclient - Use dhclient from net-misc/dhcp for getting ip
-net-misc/networkmanager:dhcpcd - Use net-misc/dhcpcd for getting ip
+net-misc/networkmanager:connection-sharing - Support connection sharing (uses net-dns/dnsmasq)
+net-misc/networkmanager:dhclient - Use dhclient from net-misc/dhcp for getting an IP via DHCP
+net-misc/networkmanager:dhcpcd - Use net-misc/dhcpcd for getting an IP
 net-misc/networkmanager:elogind - Use sys-auth/elogind for session tracking
+net-misc/networkmanager:iptables - Use net-firewall/iptables for connection sharing
 net-misc/networkmanager:iwd - Use net-wireless/iwd instead of net-wireless/wpa_supplicant for wifi support by default
 net-misc/networkmanager:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
+net-misc/networkmanager:nftables - Use net-firewall/nftables for connection sharing
 net-misc/networkmanager:nss - Use dev-libs/nss for cryptography
 net-misc/networkmanager:ofono - Use net-misc/ofono for telephony support.
 net-misc/networkmanager:ovs - Enable OpenVSwitch support
@@ -6489,6 +6498,7 @@ net-misc/networkmanager:wext - Enable support for the deprecated Wext (Wireless 
 net-misc/networkmanager:wifi - Enable support for wifi and 802.1x security
 net-misc/nextcloud-client:dolphin - Install the kde-apps/dolphin extension
 net-misc/nextcloud-client:nautilus - Install the gnome-base/nautilus extension
+net-misc/nextcloud-client:webengine - Enable old Flow1 login using dev-qt/qtwebengine
 net-misc/ntp:openntpd - Allow ntp to be installed alongside openntpd
 net-misc/ntp:parse-clocks - Add support for PARSE clocks
 net-misc/ntp:samba - Provide support for Samba's signing daemon (needed for Active Directory domain controllers)
@@ -7436,6 +7446,7 @@ sci-mathematics/agda:stdlib - Install the standard library.
 sci-mathematics/bertini:optimization - Accept upstream's choices for -O option.
 sci-mathematics/cgal:mpfi - Enable support for multiple recision interval arithmetic via sci-libs/mpfi
 sci-mathematics/cgal:ntl - Enable support for dev-libs/ntl
+sci-mathematics/cgal:shared - Build shared library
 sci-mathematics/cvc4:cln - Use sci-libs/cln
 sci-mathematics/cvc4:proofs - Support for proof generation
 sci-mathematics/cvc4:replay - Turn on the replay feature
@@ -8208,6 +8219,7 @@ sys-fs/cryptsetup:nettle - Use dev-libs/nettle crypto backend
 sys-fs/cryptsetup:openssl - Use dev-libs/openssl crypto backend
 sys-fs/cryptsetup:pwquality - Use dev-libs/libpwquality for password quality checking
 sys-fs/cryptsetup:reencrypt - Build cryptsetup-reencrypt
+sys-fs/cryptsetup:ssh - Build cryptsetup-ssh for experimental support of token via SSH-server
 sys-fs/cryptsetup:urandom - Use /dev/urandom instead of /dev/random
 sys-fs/dmraid:intel_led - Enable Intel LED support
 sys-fs/dmraid:led - Enable LED support

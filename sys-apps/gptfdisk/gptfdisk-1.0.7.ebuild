@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="kernel_linux ncurses static"
 
 # libuuid from util-linux is required.
@@ -29,6 +29,10 @@ DEPEND="
 	)
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-remove_byteswap.patch" #797412
+)
 
 src_prepare() {
 	default
