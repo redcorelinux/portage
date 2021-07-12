@@ -32,6 +32,52 @@
 
 #--- END OF EXAMPLES ---
 
+# Craig Andrews <candrews@gentoo.org> (2021-07-10)
+# Masked until November, 2021
+# This release adds enforcement of the Taproot protocol change to the Bitcoin
+# rules, beginning in November. Protocol changes require user consent to be
+# effective, and if enforced inconsistently within the community may compromise
+# your security or others! If you do not know what you are doing, learn more
+# before November. (You must make a decision either way - simply not upgrading
+# is insecure in all scenarios.)
+# To learn more, see https://bitcointaproot.cc
+>=net-p2p/bitcoind-0.21.1
+>=net-p2p/bitcoin-qt-0.21.1
+>=net-libs/libbitcoinconsensus-0.21.1
+
+# Lars Wendler <polynomial-c@gentoo.org> (2021-07-10)
+# Masked for testing
+>=mail-client/claws-mail-4.0.0
+
+# Craig Andrews <candrews@gentoo.org> (2021-07-09)
+# deprecated; replaced by media-plugins/kodi-audiodecoder-sacd
+# No reverse dependencies
+# See https://bugs.gentoo.org/801406
+# Masked for removal in 30 days.
+media-plugins/kodi-vfs-sacd
+
+# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
+# Last release in 2016. Tests fail with recent git versions.
+# No reverse dependencies, no maintainer.
+# Masked for removal in 30 days.
+dev-vcs/git-num
+
+# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
+# Last release in 2014 and no longer supported upstream. Obsolete CSS
+# framework with known issues.
+# Masked for removal in 30 days.
+dev-ruby/compass
+dev-ruby/compass-core
+dev-ruby/compass-import-once
+
+# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
+# Mask ruby25 for removal. This version is no longer supported
+# upstream. Use a newer ruby version, e.g ruby26.
+# Masked for removal in 30 days.
+dev-lang/ruby:2.5
+=dev-ruby/rubygems-2.7*
+dev-ruby/did_you_mean:2.5
+
 # Pacho Ramos <pacho@gentoo.org> (2021-07-08)
 # Doesn't support Gnome 40, use gnome-shell-extension-desktop-icons-ng
 # instead. Removal in 30 days.
@@ -271,22 +317,12 @@ dev-python/pyls-black
 # see bug: https://bugs.gentoo.org/787410
 media-gfx/povtree
 
-# Joonas Niilola <juippis@gentoo.org> (2021-06-12)
-# A library without consumers, old dep of tree-cleaned gnome-mplayer,
-# EAPI-5. Removal in ~30 days. #776898
-media-libs/gmtk
-
 # Sam James <sam@gentoo.org> (2021-06-12)
 # Masked until all reverse dependencies support
 # OCaml 4.12.
 # bug #795138
 >=dev-lang/ocaml-4.12
 =dev-ml/camlp4-4.12
-
-# Alfredo Tupone <tupone@gentoo.org> (2021-06-11)
-# Masked for removal in 30 days. No more supported
-<dev-lang/gnat-gpl-2017
-<dev-ada/gnat-suite-bin-2017
 
 # Tomáš Mózes <hydrapolic@gmail.com> (2021-06-10)
 # Based on unsupported grub-legacy, replaced by
@@ -540,12 +576,6 @@ dev-go/qt
 # Bug #729672.
 media-plugins/kodi-game-libretro-nestopia
 media-plugins/kodi-game-libretro-dosbox
-
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2020-10-30)
-# broken acl handling, possible broken chattr handling
-# needs more testing
-# bug #751739
-=sys-apps/opentmpfiles-0.3.1
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-10-26)
 # Historical metapackage that exists in slot 5 only for transition from KDE SC4.

@@ -4,9 +4,9 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit gnome.org meson python-single-r1 xdg
+inherit gnome.org gnome2-utils meson python-single-r1 xdg
 
-DESCRIPTION="Customize advanced GNOME 3 options"
+DESCRIPTION="Customize advanced GNOME options"
 HOMEPAGE="https://wiki.gnome.org/Apps/Tweaks"
 
 LICENSE="GPL-3+ CC0-1.0"
@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	>=dev-libs/glib-2.58:2
 	>=x11-libs/gtk+-3.12:3[introspection]
 	>=gnome-base/gnome-desktop-3.30:3[introspection]
-	gui-libs/libhandy:0.0[introspection]
+	gui-libs/libhandy:1[introspection]
 	net-libs/libsoup:2.4[introspection]
 	x11-libs/libnotify[introspection]
 
@@ -46,4 +46,14 @@ src_install() {
 	meson_src_install
 	python_optimize
 	python_fix_shebang "${ED}"/usr/bin/
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	gnome2_schemas_update
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	gnome2_schemas_update
 }

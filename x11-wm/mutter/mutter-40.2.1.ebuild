@@ -4,7 +4,7 @@
 EAPI=7
 inherit gnome.org gnome2-utils meson udev virtualx xdg
 
-DESCRIPTION="GNOME 3 compositing window manager based on Clutter"
+DESCRIPTION="GNOME compositing window manager based on Clutter"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/mutter/"
 
 LICENSE="GPL-2+"
@@ -17,7 +17,7 @@ REQUIRED_USE="
 	test? ( wayland )"
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 
 # gnome-settings-daemon is build checked, but used at runtime only for org.gnome.settings-daemon.peripherals.keyboard gschema
 # xorg-server is needed at build and runtime with USE=wayland for Xwayland
@@ -94,7 +94,7 @@ BDEPEND="
 		>=sys-kernel/linux-headers-4.4
 		|| (
 			x11-libs/libxcvt
-			x11-base/xorg-server[xorg,-minimal]
+			<x11-base/xorg-server-1.20.11-r3[xorg,-minimal]
 		)
 	)
 "
