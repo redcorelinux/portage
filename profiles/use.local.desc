@@ -715,8 +715,6 @@ app-forensics/libewf:fuse - Enable fuse support for ewfmount
 app-forensics/libewf:uuid - Enable UUID support in the ewftools
 app-forensics/sleuthkit:aff - Enable extra aff formats
 app-forensics/sleuthkit:ewf - Enable libewf support
-app-i18n/anthy:canna-2ch - Enable support for app-dicts/canna-2ch
-app-i18n/canna:canuum - Build canuum
 app-i18n/fcitx:autostart - Enable XDG-compatible autostart of Fcitx
 app-i18n/fcitx:enchant - Enable Enchant backend (using app-text/enchant) for spelling hinting
 app-i18n/fcitx:gtk2 - Install input method module for GTK+ 2
@@ -1648,6 +1646,7 @@ dev-java/commons-logging:avalon-framework - Add optional support for avalon-fram
 dev-java/commons-logging:avalon-logkit - Add optional support for avalon-logkit
 dev-java/commons-logging:log4j - Add optional support for log4j
 dev-java/commons-logging:servletapi - Add optional support for servletapi
+dev-java/dom4j:jaxen - Includes org.jaxen.dom4j package
 dev-java/ecj-gcj:native - Build a native binary along with the jar. Provides faster execution time, but needs about 1G memory and some patience to compile.
 dev-java/eclipse-ecj:ant - Support using ecj in Ant builds via dev-java/ant-eclipse-ecj
 dev-java/emma:launcher - Install /usr/bin/emma. Collides with sci-biology/emboss.
@@ -1698,6 +1697,7 @@ dev-java/openjfx:media - Compile media module, based on gstreamer-minimal (does 
 dev-java/openjfx:source - Install JavaFX sources
 dev-java/rxtx:lfd - Installs and uses LockFileServer daemon (lfd)
 dev-java/sbt:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
+dev-lang/R:lto - Use link-time optimization for R and its recommended packages.
 dev-lang/bas:lr0 - Use the LR0 parser instead of the recursive descending parser
 dev-lang/crystal:blocking-stdio-hack - Keep STDIO file descriptors in blocking mode.
 dev-lang/crystal:debug - Build each module as a separate object file. Speeds build up.
@@ -1770,6 +1770,7 @@ dev-lang/nqp:moar - Build the MoarVM backend (experimental/broken)
 dev-lang/ocaml:flambda - Enables the Flambda optimizer: A new intermediate representation (introduced in ocaml 4.03) in the depths of the compiler designed to allow for better inlining.
 dev-lang/ocaml:spacetime - Enables the Spacetime memory profiler. See https://caml.inria.fr/pub/docs/manual-ocaml/spacetime.html for more information.
 dev-lang/perl:ithreads - Enable Perl threads, has some compatibility problems
+dev-lang/php:apparmor - Support FPM application confinement through sys-libs/libapparmor
 dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
 dev-lang/php:bcmath - Add support for libbcmath
 dev-lang/php:cli - Enable CLI SAPI
@@ -2411,7 +2412,6 @@ dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-python/drf-yasg:validation - Enable swagger spec validation using swagger-spec-validator
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/falcon:cython - Build cython-based python modules
-dev-python/gmpy:mpir - Use sci-libs/mpir as gmp implementation
 dev-python/hiredis:system-libs - Use dev-libs/hiredis from system
 dev-python/hypothesis:cli - Install a CLI tool used to write tests.
 dev-python/icalendar:doc - Generate examples and other extra documentation
@@ -3155,16 +3155,13 @@ games-misc/xcowsay:fortune - Enable support for fortune cookies via games-misc/f
 games-mud/tf:atcp - enable ATCP support.
 games-mud/tf:gmcp - enable GMCP support.
 games-mud/tf:option102 - enable telnet option 102 support.
-games-puzzle/cuyo:music - Enable playing of background music
 games-puzzle/gnome-tetravex:cli - Build the gnome-tetravex-cli command-line interface
 games-puzzle/gnome-tetravex:gui - Build the gnome-tetravex graphical Gtk user interface
 games-puzzle/nightsky:bundled-libs - Use the upstream provided bundled libraries.
-games-puzzle/numptyphysics:user-levels - Install some fun user-created levels
 games-puzzle/pingus:music - Enable playing of background music
 games-puzzle/tiny-and-big:bundled-libs - Use the upstream provided bundled libraries.
 games-puzzle/world-of-goo-gog:bundled-libs - Use bundled libs
 games-puzzle/world-of-goo-hb:bundled-libs - Use bundled libs
-games-puzzle/xlogical:alt_gfx - Use alternate graphics which are closer to the original Amiga version
 games-roguelike/FTL:bundled-libs - Use bundled libraries.
 games-roguelike/angband:sound - Enable and install sounds
 games-roguelike/stone-soup:ncurses - Enable for console (uses ncurses) based build. (can be enabled on top of tiles)
@@ -4554,6 +4551,9 @@ media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
 media-sound/drumstick:fluidsynth - Enable support for media-sound/fluidsynth
 media-sound/drumstick:network - Build Network RT backend
+media-sound/easyeffects:bs2b - Enable use of media-libs/libbs2b
+media-sound/easyeffects:calf - Enable use of media-plugins/calf for adding various FX
+media-sound/easyeffects:rubberband - Enable usse of media-libs/rubberband for the pitch shifting FX
 media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
@@ -4705,7 +4705,6 @@ media-sound/pulseaudio-modules-bt:native-headset - Build with native HSP (Headse
 media-sound/pulseaudio-modules-bt:ofono-headset - Build with oFono HFP (Hands Free Profile) headset for bluez 5, requires net-misc/ofono.
 media-sound/pulseeffects:bs2b - Enable use of media-libs/libbs2b
 media-sound/pulseeffects:calf - Enable use of media-plugins/calf for adding various FX
-media-sound/pulseeffects:mda-lv2 - Enable use of media-plugins/mda-lv2 for the loudness FX
 media-sound/pulseeffects:rubberband - Enable usse of media-libs/rubberband for the pitch shifting FX
 media-sound/qmidiarp:lv2 - Enables Ladspa V2 plugins.
 media-sound/qmmp:analyzer - Enable visual analyzer
@@ -5514,7 +5513,6 @@ net-dns/getdns:getdns-server-mon - Add getdns_server_mon tool
 net-dns/getdns:libev - Enable dev-libs/libev support
 net-dns/getdns:libevent - Enable dev-libs/libevent support
 net-dns/getdns:libuv - Enable dev-libs/libuv support
-net-dns/getdns:nettle - Use dev-libs/nettle as crypto backend
 net-dns/getdns:stubby - Add Stubby DNS Privacy Deamon
 net-dns/getdns:unbound - Enable net-dns/unbound libraries support
 net-dns/hash-slinger:ipsec - Enable support for IPSECKEY records (ipseckey)
@@ -7321,6 +7319,8 @@ sci-libs/lis:saamg - Build the Smoothed Aggregation Algebraic MultiGrid precondi
 sci-libs/mathgl:hdf - Add support for the Hierarchical Data Format v.4 sci-libs/hdf
 sci-libs/mathgl:octave - Add bindings for sci-mathematics/octave
 sci-libs/matio:sparse - Extend formats for sparse matrix (not matlab)
+sci-libs/metis:double-precision - Use double- rather than single-precision floating-point representation
+sci-libs/metis:int64 - Use 64- rather than 32-bit integer representation (needed for > 2^31 vertices)
 sci-libs/mpir:cpudetection - Enables runtime cpudetection (useful for bindist, compatability on other CPUs)
 sci-libs/mumps:metis - Enable matrix ordering with METIS (sci-libs/metis, sci-libs/parmetis)
 sci-libs/mumps:scotch - Enable matrix ordering with sci-libs/scotch
@@ -7352,8 +7352,12 @@ sci-libs/p4est:romio - Build with support for the ROMIO MPI-IO component
 sci-libs/p4est:vtk-binary - Enable binary vtk output. If disabled vtk files will be written in ASCII text format.
 sci-libs/parmetis:double-precision - Floating-point operation done as double precision
 sci-libs/parmetis:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
-sci-libs/pastix:int64 - Build the 64 bits integer library
-sci-libs/pastix:starpu - Build and link with dev-libs/starpu
+sci-libs/pastix:cuda - Enable GPU support using CUDA kernels
+sci-libs/pastix:fortran - Install the Fortran interface
+sci-libs/pastix:int64 - Use 64- rather than 32-bit integer representation
+sci-libs/pastix:metis - Enable matrix ordering with sci-libs/metis
+sci-libs/pastix:scotch - Enable matrix ordering with sci-libs/scotch
+sci-libs/pastix:starpu - Enable support for ther dev-libs/starpu runtime
 sci-libs/pcl:cuda - Adds support for NVIDIA CUDA.
 sci-libs/pcl:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI.
 sci-libs/pcl:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni).
@@ -7959,7 +7963,6 @@ sys-boot/refind:ntfs - Builds the EFI binary ntfs filesystem driver
 sys-boot/refind:reiserfs - Builds the EFI binary reiserfs filesystem driver
 sys-boot/silo:tilo-only - Install only the tilo netboot tool
 sys-boot/vboot-utils:libzip - Use dev-libs/libzip.
-sys-boot/woeusb:minimal - Install only woeusb tool
 sys-cluster/ceph:babeltrace - Add support for LTTng babeltrace
 sys-cluster/ceph:cephfs - Build support for cephfs, a POSIX compatible filesystem built on top of ceph
 sys-cluster/ceph:diskprediction - Enable local diskprediction module to predict disk failures
@@ -8441,6 +8444,7 @@ sys-process/systemd-cron:yearly - Support /etc/cron.yearly
 sys-process/tini:args - Enable argument parsing.
 virtual/blas:eselect-ldso - Enable runtime library switching by eselect and ld.so.
 virtual/cblas:eselect-ldso - Enable runtime library switching by eselect and ld.so.
+virtual/jdk:headless-awt - Don't install the X backend for AWT, needed by some GUIs
 virtual/lapack:eselect-ldso - Enable runtime library switching by eselect and ld.so.
 virtual/lapacke:eselect-ldso - Enable runtime library switching by eselect and ld.so.
 virtual/linux-sources:firmware - Install linux kernel firmware

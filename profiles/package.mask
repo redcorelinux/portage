@@ -32,6 +32,70 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
+# Deprecated upstream, replaced with factory_bot.
+# Last release in 2017, no dependencies.
+# Masked for removal in 30 days.
+dev-ruby/factory_girl
+
+# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
+# Deprecated upstream, no longer needed with rspec 2+
+# Last release in 2016, factory_girl was last dependency.
+# Masked for removal in 30 days.
+dev-ruby/bourne
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-07-16)
+# library with no consumer, multiple vulnerabilities
+# removal in 30 days (bug #713098)
+dev-java/xmlrpc
+
+# Kai Krakow <hurikhan77+bgo@gmail.com> (2021-07-16)
+# To be replaced by net-p2p/go-ipfs, no migration needed.
+# Simply deselect the masked package and install the replacement.
+# Masked for removal in 30 days. Bug #802381
+net-p2p/go-ipfs-bin
+
+# Hans de Graaff <graaff@gentoo.org> (2021-07-15)
+# Dead upstream, no longer maintained, last release in 2013.
+# No dependencies.
+# Masked for removal in 30 days.
+dev-ruby/spork
+
+# John Helmert III <ajak@gentoo.org> (2021-07-14)
+# Dead upstream, unfixed security issue.
+# Removal on 2021-08-13.  Bugs #755896, #781467.
+net-proxy/polipo
+
+# Marek Szuba <marecki@gentoo.org> (2021-07-14)
+# New, considerably refactored major version with a new build system.
+# Masked for further testing.
+>=sci-libs/pastix-6.0.0
+
+# Marco Scardovi <marco@scardovi.vom> (2021-07-13)
+# These packages were only ported for netbox. Not useful for anything else
+# No revdeps. Removal in 30 days (Bug #801991)
+dev-python/markuppy
+dev-python/tablib
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-07-12)
+# Version 3.3.0 suffers from ridiculously high CPU usage, this version has
+# therefore been retracted upstream.
+# https://github.com/RocketChat/Rocket.Chat.Electron/issues/2068
+# https://github.com/RocketChat/Rocket.Chat.Electron/issues/2070
+=net-im/rocketchat-desktop-bin-3.3.0
+
+# Marek Szuba <marecki@gentoo.org> (2021-07-12)
+# No releases since March 2015, no upstream repo activity since November
+# 2019. Unmaintained in Gentoo. Depends on effectively EOLed Lua 5.2,
+# fails to build against any other version. Removal in 30 days (Bug #801883)
+app-crypt/cardpeek
+
+# Marek Szuba <marecki@gentoo.org> (2021-07-12)
+# Effectively EOL, no packages in the tree strictly require this
+# particular version. Removal, of both the ebuilds and target support,
+# in 30 days (bug #801865).
+dev-lang/lua:5.2
+
 # Craig Andrews <candrews@gentoo.org> (2021-07-10)
 # Masked until November, 2021
 # This release adds enforcement of the Taproot protocol change to the Bitcoin
@@ -235,16 +299,6 @@ dev-java/jcodings
 dev-java/joni
 dev-java/jvyamlb
 
-# David Seifert <soap@gentoo.org> (2021-06-20)
-# Abandoned upstream, last release 17 years ago, unmaintained, tons of
-# QA bugs, eclass is terrible. Bug #796878, removal in 30 days.
-app-dicts/canna-cannadic
-app-dicts/canna-2ch
-app-emacs/yc
-app-i18n/canna
-app-i18n/canfep
-app-i18n/im-canna
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-06-20)
 # no consumer, removal in 30 days
 # see bug: https://bugs.gentoo.org/796587
@@ -289,29 +343,6 @@ sys-apps/rescan-scsi-bus
 # Removal on 2021-07-15.
 media-sound/sc2mpd
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-06-14)
-# The original Python Language Server by Palantir is no longer actively
-# developed [1]. Development on a language server for Python is continued by
-# the Spyder IDE community under a new name and in a new package. To continue
-# using pyls, please switch to the maintained forks [2]:
-# dev-python/python-language-server --> dev-python/python-lsp-server
-# dev-python/python-jsonrpc-server --> dev-python/python-lsp-jsonrpc
-# dev-python/pyls-black --> dev-python/python-lsp-black
-# -
-# Note that dev-python/pyls-spyder has already switched to the new language
-# server as of version 0.4.0. Users of the Spyder IDE will automatically
-# switch to the new language server when upgrading to version 4.2.5-r1 or
-# 5.0.4-r1. Manual adjustments to the settings may be required in certain
-# configurations [3].
-# -
-# Masked for removal in 30 days (2021-07-14).
-# [1] https://github.com/palantir/python-language-server/issues/935
-# [2] https://bugs.gentoo.org/795924
-# [3] https://bugs.gentoo.org/783615
-dev-python/python-language-server
-dev-python/python-jsonrpc-server
-dev-python/pyls-black
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-06-14)
 # DeprecatedDep jre-1.3, upstream dead,removal in 30 days
 # see bug: https://bugs.gentoo.org/787410
@@ -323,12 +354,6 @@ media-gfx/povtree
 # bug #795138
 >=dev-lang/ocaml-4.12
 =dev-ml/camlp4-4.12
-
-# Tomáš Mózes <hydrapolic@gmail.com> (2021-06-10)
-# Based on unsupported grub-legacy, replaced by
-# pvgrub2.
-# Removal on 2021-07-08.  Bug #790668.
-app-emulation/xen-pvgrub
 
 # Sam James <sam@gentoo.org> (2021-06-10)
 # Fails to build with modern libetpan. Unmaintained.
@@ -621,11 +646,6 @@ kde-apps/kdebase-meta:5
 # Mask for testing revdeps.
 >=dev-games/mygui-3.4.0
 
-# Patrick McLean <chutzpah@gentoo.org> (2020-02-07)
-# Mask until sys-libs/libxcrypt[system] is unmasked
-# (NOTE: Likely needs to be moved to musl + uclibc profiles, not dropped entirely)
-~virtual/libcrypt-2
-
 # Lars Wendler <polynomial-c@gentoo.org> (2019-11-14)
 # Breaks archives containing relative paths
 # when being called with --no-absolute-filenames
@@ -711,12 +731,6 @@ sys-devel/automake:1.10
 # people may still find it useful. It is masked to prevent accidental
 # use. See bugs 603346 and 604998 for more information.
 app-admin/amazon-ec2-init
-
-# Michał Górny <mgorny@gentoo.org> (2016-11-17)
-# New version masked for testing. It supports source-window buffer size
-# over 2G but it 'currently performs 3-5% slower and has 1-2% worse
-# compression'.
->=dev-util/xdelta-3.1.0
 
 # Robin H. Johnson <robbat2@gentoo.org> (2014-08-04)
 # Masked for testing, presently fails upstream testsuite:

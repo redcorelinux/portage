@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit bash-completion-r1 flag-o-matic pax-utils python-any-r1 toolchain-funcs xdg-utils
@@ -19,7 +19,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz"
 	SLOT="0/$(ver_cut 1)"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos"
+	KEYWORDS="~amd64 arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos"
 	S="${WORKDIR}/node-v${PV}"
 fi
 
@@ -37,7 +37,10 @@ RDEPEND=">=app-arch/brotli-1.0.9
 	>=net-libs/nghttp2-1.41.0
 	sys-libs/zlib
 	system-icu? ( >=dev-libs/icu-67:= )
-	system-ssl? ( >=dev-libs/openssl-1.1.1:0= )"
+	system-ssl? (
+		>=dev-libs/openssl-1.1.1:0=
+		<dev-libs/openssl-3.0.0_beta1:0=
+	)"
 BDEPEND="${PYTHON_DEPS}
 	sys-apps/coreutils
 	virtual/pkgconfig

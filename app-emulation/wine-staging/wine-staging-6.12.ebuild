@@ -172,6 +172,7 @@ PATCHES=(
 	"${PATCHDIR}/patches/${MY_PN}-4.7-multilib-portage.patch" #395615
 	"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch" #310611
 	"${PATCHDIR}/patches/${MY_PN}-5.9-Revert-makedep-Install-also-generated-typelib-for-in.patch"
+	"${FILESDIR}/wine-staging-6.12-winegcc-equals-args.patch" #800809
 )
 PATCHES_BIN=()
 
@@ -528,10 +529,9 @@ multilib_src_configure() {
 		$(use_with vaapi va)
 	)
 
-	local PKG_CONFIG AR RANLIB
+	local PKG_CONFIG
 	# Avoid crossdev's i686-pc-linux-gnu-pkg-config if building wine32 on amd64; #472038
-	# set AR and RANLIB to make QA scripts happy; #483342
-	tc-export PKG_CONFIG AR RANLIB
+	tc-export PKG_CONFIG
 
 	if use amd64; then
 		if [[ ${ABI} == amd64 ]]; then
