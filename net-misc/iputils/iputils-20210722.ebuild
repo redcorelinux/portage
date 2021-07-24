@@ -110,6 +110,15 @@ src_compile() {
 	meson_src_compile
 }
 
+src_test() {
+	if [[ ${EUID} != 0 ]]; then
+		einfo "Tests require root privileges; Skipping ..."
+		return
+	fi
+
+	meson_src_test
+}
+
 src_install() {
 	meson_src_install
 
