@@ -1,6 +1,24 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-07-20)
+# sys-auth/sssd and it's deps not keyworded yet
+app-admin/sudo sssd
+
+# Alex Fan <alexfanqi@yahoo.com> (2021-07-20)
+# sci-libs/hdf5 fails tests with these 2 use flags enabled,
+# otherwise passes all tests
+sci-libs/hdf5 fortran debug
+
+# Marek Szuba <marecki@gentoo.org> (2021-07-19)
+# sci-libs/hdf5 may or may not work properly on this arch (on some
+# systems fails tests even with the mask above in place), masked for
+# further testing.
+dev-libs/starpu hdf5
+sci-libs/gdal hdf5
+# (via dev-python/pytables)
+dev-python/pandas doc full-support test
+
 # Marek Szuba <marecki@gentoo.org> (2021-07-14)
 # LuaJIT does not support riscv
 app-text/texlive-core luajittex
@@ -23,30 +41,30 @@ mail-mta/courier fax
 dev-python/ipython nbconvert notebook
 dev-python/matplotlib wxwidgets
 
-# Marek Szuba <marecki@gentoo.org> (2021-07-02)
-# Yixun Lan <dlan@gentoo.org> (2021-05-24)
-#   net-fs/samba not keyworded here yet
-app-misc/mc samba
-gnome-base/gvfs samba
-net-libs/libsoup samba
-www-client/elinks samba
-
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
 # Dependencies not keyworded here yet:
 #  - gnome-base/gconf, dev-libs/libotf & dev-libs/m17n-lib, net-libs/webkit-gtk
 app-editors/emacs gconf m17n-lib xwidgets
 #  - net-fs/openafs
 app-crypt/heimdal afs
-#  - sci-libs/hdf5
-dev-libs/starpu hdf5
-#  - dev-python/pygraphviz & sci-libs/gdal, dev-python/pandas
-dev-python/networkx extras pandas
-#  - sys-cluster/ceph
-net-analyzer/rrdtool rados
+#  - app-xemacs/ruby-modes (and by extension xemacs itself)
+dev-lang/ruby xemacs
+#  - sci-libs/gdal
+dev-python/networkx extras
+#  - app-text/dblatex & media-gfx/transfig
+dev-util/ragel doc
+#  - media-libs/dumb, media-libs/openal
+media-libs/allegro dumb openal
+#  - media-gfx/nvidia-texture-tools
+media-libs/devil nvtt
+#  - sys-cluster/ceph, dev-ruby/rrdtool-bindings
+net-analyzer/rrdtool rados ruby
+#  - dev-util/aruba & dev-util/cucumber
+sys-block/thin-provisioning-tools test
 #  - sys-cluster/rdma-core | sys-fabric/ofed, sys-cluster/knem, sys-fabric/infinipath-psm, sys-fabric/librdmacm
 sys-cluster/openmpi openmpi_fabrics_ofed openmpi_fabrics_knem openmpi_fabrics_psm openmpi_ofed_features_control-hdr-padding openmpi_ofed_features_dynamic-sl openmpi_ofed_features_rdmacm openmpi_ofed_features_udcm
-#  - sci-libs/hdf5, sys-fabric/ofed, dev-db/mariadb | dev-db/mysql
-sys-cluster/slurm hdf5 ofed slurmdbd
+#  - sys-fabric/ofed, dev-db/mariadb | dev-db/mysql
+sys-cluster/slurm ofed slurmdbd
 
 # Yixun Lan <dlan@gentoo.org> (2021-05-24)
 # Dependencies not keyworded, not tested
@@ -57,7 +75,6 @@ media-libs/libcaca doc imlib
 x11-libs/tslib sdl
 dev-libs/libbytesize test
 sys-libs/libblockdev dmraid escrow
-app-text/docbook-xsl-ns-stylesheets ruby
 app-misc/geoclue modemmanager zeroconf
 gnome-base/gvfs bluray cdda gnome-online-accounts google mtp ios test zeroconf
 sys-power/upower ios
@@ -79,6 +96,7 @@ dev-util/strace unwind
 media-libs/gstreamer unwind
 media-libs/mesa unwind
 net-libs/zeromq unwind
+net-mail/dovecot unwind
 x11-base/xorg-server unwind
 x11-base/xwayland unwind
 
@@ -86,8 +104,8 @@ x11-base/xwayland unwind
 # Dependencies not keyworded, not tested
 dev-libs/gobject-introspection doctool test
 dev-python/markdown test
-x11-libs/gtk+ cups test colord
-net-libs/libsoup samba test
+x11-libs/gtk+ test colord
+net-libs/libsoup test
 net-libs/libproxy spidermonkey webkit kde networkmanager
 
 # Sam James <sam@gentoo.org> (2021-03-11)
@@ -125,11 +143,7 @@ dev-libs/libpcre jit
 
 app-admin/syslog-ng amqp geoip2 kafka mongodb redis spoof-source smtp test
 app-arch/p7zip wxwidgets
-app-doc/doxygen doc
 app-text/asciidoc test
-app-text/ghostscript-gpl cups
-app-text/po4a test
-dev-libs/check subunit
 dev-libs/libgcrypt doc
 dev-python/argcomplete test
 dev-python/aiohttp doc test
@@ -143,26 +157,10 @@ dev-python/twisted test
 dev-python/urllib3 test
 dev-util/catalyst iso
 dev-util/pkgconf test
-dev-vcs/git cvs highlight subversion
-media-libs/harfbuzz doc
-sys-libs/libcxx libcxxabi libunwind static-libs
-sys-libs/libcxxabi libunwind
-media-gfx/graphviz devil svg pdf
-media-libs/tiff jbig webp
-net-fs/nfs-utils nfsv41
+dev-vcs/git highlight subversion
+sys-libs/libcxx static-libs
 media-libs/fontconfig doc
-net-irc/irssi socks5
-net-libs/gnutls doc test-full
-net-libs/ldns doc python
+net-libs/gnutls test-full
 net-libs/libpcap rdma
-net-misc/ntp openntpd vim-syntax zeroconf
-net-nds/openldap cxx kerberos sasl
-sys-apps/kmod doc
-sys-apps/portage apidoc
-sys-apps/rng-tools nistbeacon pkcs11
-sys-auth/pambase gnome-keyring pam_krb5 pam_ssh  mktemp
-sys-block/thin-provisioning-tools test
-sys-devel/automake test
-sys-devel/gdb source-highlight
+net-misc/ntp openntpd
 sys-devel/gettext cvs
-x11-libs/libvdpau doc

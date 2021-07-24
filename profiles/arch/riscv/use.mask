@@ -30,6 +30,7 @@ valgrind
 bluetooth
 emacs
 fuse
+jack
 java
 latex
 libedit
@@ -37,11 +38,10 @@ mono
 motif
 opencl
 qt5
+pulseaudio
 rsh
-ruby
 slang
 sound
-systemtap
 webkit
 
 # Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2019‑08‑31)
@@ -53,7 +53,6 @@ ayatana
 
 video_cards_ast
 video_cards_dummy
-video_cards_fbdev
 video_cards_freedreno
 video_cards_geode
 video_cards_glint
@@ -61,7 +60,6 @@ video_cards_i915
 video_cards_i965
 video_cards_intel
 video_cards_mga
-video_cards_nouveau
 video_cards_nv
 video_cards_omap
 video_cards_qxl
@@ -79,7 +77,6 @@ video_cards_nvidia
 # input devices
 
 input_devices_elographics
-input_devices_evdev
 input_devices_joystick
 input_devices_vmmouse
 input_devices_void

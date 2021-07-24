@@ -134,12 +134,9 @@ app-admin/rsyslog:uuid - Include UUIDs in messages (requires sys-apps/util-linux
 app-admin/rsyslog:xxhash - Enable xxHash support in fmhash module (requires dev-libs/xxhash)
 app-admin/rsyslog:zeromq - Build the ZeroMQ input and output modules (requires net-libs/czmq)
 app-admin/sagan:libdnet - Add support for dev-libs/libdnet
-app-admin/sagan:lognorm - Add support for log/rules normalizations via dev-libs/liblognorm
 app-admin/sagan:pcap - Add support for network packet capture via net-libs/libpcap
 app-admin/sagan:redis - Add support for the Redis database via dev-libs/hiredis
 app-admin/sagan:smtp - Build witch SMTP (E-Mail) support
-app-admin/sagan:snort - Add support to interact with Snort IDE using net-analyzer/snortsam
-app-admin/sagan-rules:lognorm - Install normalize rules support with dev-libs/liblognorm
 app-admin/salt:cheetah - Enable support for dev-python/cheetah3
 app-admin/salt:cherrypy - Enable support for using cherrypy.
 app-admin/salt:genshi - Enable support for dev-python/genshi
@@ -2178,12 +2175,14 @@ dev-libs/openssl:ktls - Enable support for Kernel implementation of TLS (kTLS)
 dev-libs/openssl:rfc3779 - Enable support for RFC 3779 (X.509 Extensions for IP Addresses and AS Identifiers)
 dev-libs/openssl:sslv2 - Support for the old/insecure SSLv2 protocol -- note: not required for TLS/https
 dev-libs/openssl:sslv3 - Support for the old/insecure SSLv3 protocol -- note: not required for TLS/https
+dev-libs/openssl:tls-compression - Enable support for discouraged TLS compression
 dev-libs/openssl:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
 dev-libs/openssl-compat:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
 dev-libs/openssl-compat:bindist - Disable/Restrict EC algorithms (as they seem to be patented) -- note: changes the ABI
 dev-libs/openssl-compat:rfc3779 - Enable support for RFC 3779 (X.509 Extensions for IP Addresses and AS Identifiers)
 dev-libs/openssl-compat:sslv2 - Support for the old/insecure SSLv2 protocol -- note: not required for TLS/https
 dev-libs/openssl-compat:sslv3 - Support for the old/insecure SSLv3 protocol -- note: not required for TLS/https
+dev-libs/openssl-compat:tls-compression - Enable support for discouraged TLS compression
 dev-libs/openssl-compat:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
 dev-libs/pkcs11-helper:nss - Enable NSS crypto engine
 dev-libs/poco:7z - Add Support for the 7z archive format
@@ -2485,6 +2484,7 @@ dev-python/pyside2:widgets - Build QtWidgets module
 dev-python/pyside2:x11extras - Build QtX11Extras module
 dev-python/pyside2:xml - Build QtXml module
 dev-python/pyside2:xmlpatterns - Build QtXmlPatterns module
+dev-python/python-lsp-server:all-plugins - Pull in all optional plugins
 dev-python/python-mpd:twisted - Enable twisted support
 dev-python/python-stdnum:vies - Enable VIES
 dev-python/pyudev:qt5 - Install PyQt5 bindings
@@ -3123,6 +3123,7 @@ games-fps/quake2-icculus:qmax - Build the pretty version (quake max)
 games-fps/quake2-icculus:rogue - Build support for the 'Ground Zero' Mission Pack (rogue)
 games-fps/quake2-icculus:xatrix - Build support for the 'The Reckoning' Mission Pack (xatrix)
 games-fps/quakeforge:client - Build Normal and QuakeWorld clients alongside the servers
+games-fps/quakeforge:vulkan - Enable vulkan renderer (experimental)
 games-fps/quakeforge:wildmidi - Use media-sound/wildmidi for midi support
 games-fps/qudos:demo - Install the demo files (quake2-demodata) and configure for use
 games-fps/qudos:mods - Build support for the quake2 mission packs
@@ -3863,8 +3864,8 @@ media-fonts/terminus-font:a-like-o - Changes view of letter 'a' - a looks like o
 media-fonts/terminus-font:center-tilde - Place the '~' character vertically centered on the line instead of to the top.
 media-fonts/terminus-font:distinct-l - ll2 variant with more distinctive l (lowercase L)
 media-fonts/terminus-font:otf - Install Open Type Font (OTF) (required for HarfBuzz backend)
-media-fonts/terminus-font:pcf - Install Portable Compiled Font (PCF) (X11 bitmap fonts)
-media-fonts/terminus-font:pcf-unicode-only - Remove non-unicode PCF fonts that could be problematic. See bug #520222.
+media-fonts/terminus-font:pcf-8bit - Install Portable Compiled Font (PCF) (X11 bitmap fonts), 8-bit encodings
+media-fonts/terminus-font:pcf-unicode - Install Portable Compiled Font (PCF) (X11 bitmap fonts), Unicode encodings
 media-fonts/terminus-font:psf - Install PC Screen Font (PSF) with unicode data (for linux console)
 media-fonts/terminus-font:quote - Changes view of quotes: symmetric ` and ' instead of asymmetric one (see homepage)
 media-fonts/terminus-font:ru-dv - Changes view of Russian letters 'de' and 've' (see homepage)
@@ -4415,7 +4416,6 @@ media-plugins/gst-plugins-meta:vpx - Enables vp8 codec support using libvpx, req
 media-plugins/gst-plugins-vaapi:drm - Enable DRM renderer
 media-plugins/gst-plugins-vaapi:egl - Enable EGL support
 media-plugins/gst-plugins-vaapi:gles2 - Enable GLESv2 and GLESv3 support
-media-plugins/hexter:gtk2 - Enable x11-libs/gtk+:2 based GUI
 media-plugins/imlib2_loaders:eet - Enable Eet image loader
 media-plugins/imlib2_loaders:xcf - Enable XCF image loader
 media-plugins/ir_lv2:tools - Build convert4chan tool
@@ -4551,9 +4551,12 @@ media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
 media-sound/drumstick:fluidsynth - Enable support for media-sound/fluidsynth
 media-sound/drumstick:network - Build Network RT backend
-media-sound/easyeffects:bs2b - Enable use of media-libs/libbs2b
+media-sound/easyeffects:bs2b - Enable use of media-libs/libbs2b for the crossfeed FX
 media-sound/easyeffects:calf - Enable use of media-plugins/calf for adding various FX
-media-sound/easyeffects:rubberband - Enable usse of media-libs/rubberband for the pitch shifting FX
+media-sound/easyeffects:rnnoise - Enable use of media-libs/rnnoise for the neural network-based noise-reduction FX
+media-sound/easyeffects:rubberband - Enable use of media-libs/rubberband for the pitch-shifting FX
+media-sound/easyeffects:webrtc - Enable use of media-plugins/gst-plugins-webrtc for various voice-enhancement FX
+media-sound/easyeffects:zamaudio - Enable use of media-plugins/zam-plugins for the maximizer FX
 media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
@@ -4703,9 +4706,12 @@ media-sound/pulseaudio-modules-bt:ffmpeg - APTX, APTX-HD encoding support
 media-sound/pulseaudio-modules-bt:ldac - LDAC encoding support, using media-libs/libldac
 media-sound/pulseaudio-modules-bt:native-headset - Build with native HSP (Headset Profile) headset for bluez 5
 media-sound/pulseaudio-modules-bt:ofono-headset - Build with oFono HFP (Hands Free Profile) headset for bluez 5, requires net-misc/ofono.
-media-sound/pulseeffects:bs2b - Enable use of media-libs/libbs2b
+media-sound/pulseeffects:bs2b - Enable use of media-libs/libbs2b for the crossfeed FX
 media-sound/pulseeffects:calf - Enable use of media-plugins/calf for adding various FX
-media-sound/pulseeffects:rubberband - Enable usse of media-libs/rubberband for the pitch shifting FX
+media-sound/pulseeffects:rnnoise - Enable use of media-libs/rnnoise for the neural network-based noise-reduction FX
+media-sound/pulseeffects:rubberband - Enable use of media-libs/rubberband for the pitch-shifting FX
+media-sound/pulseeffects:webrtc - Enable use of media-plugins/gst-plugins-webrtc for various voice-enhancement FX
+media-sound/pulseeffects:zamaudio - Enable use of media-plugins/zam-plugins for the maximizer FX
 media-sound/qmidiarp:lv2 - Enables Ladspa V2 plugins.
 media-sound/qmmp:analyzer - Enable visual analyzer
 media-sound/qmmp:archive - Enable archiving plugin via app-arch/libarchive.
@@ -4845,7 +4851,6 @@ media-tv/mythtv:vpx - Enable VP8/VP9 support for media-libs/libvpx
 media-tv/mythtv:wrapper - Use Ubuntu mythtfrontend wrapper
 media-tv/mythtv:x265 - Enable h265 encoding using x265
 media-tv/mythtv:xmltv - Support media-tv/xmltv TV listing - not used by Schedules Direct]
-media-tv/plex-media-server:system-openssl - Use system copy of dev-libs/openssl instead of the bundled one. Unsupported upstream.
 media-tv/tvheadend:capmt - Enable support for capmt (dvbapi) protocol
 media-tv/tvheadend:constcw - Enable support for the constcw protocol
 media-tv/tvheadend:cwc - Enable support for the cwc (newcamd) protocol
@@ -5671,6 +5676,7 @@ net-fs/samba:system-heimdal - Use app-crypt/heimdal instead of bundled heimdal.
 net-fs/samba:system-mitkrb5 - Use app-crypt/mit-krb5 instead of app-crypt/heimdal.
 net-fs/samba:winbind - Enables support for the winbind auth daemon
 net-ftp/frox:transparent - Enable transparent proxying of data connections
+net-ftp/ftpbase:zeroconf - Enable support for zero-configuration networking via Avahi.
 net-ftp/lftp:convert-mozilla-cookies - Install the convert-mozilla-cookies script and its run-time dependencies
 net-ftp/lftp:verify-file - Install the verify-file script and its run-time dependencies
 net-ftp/proftpd:authfile - Enable support for the auth-file module
@@ -5756,6 +5762,7 @@ net-im/err:irc - Pull optional dependencies, needed for IRC backend
 net-im/gajim:crypt - End to end encryption and GPG encryption
 net-im/gajim:geolocation - Sharing your location
 net-im/gajim:jingle - Audio and video calls
+net-im/gajim:omemo - Install dependencies for OMEMO encryption plugin
 net-im/gajim:remote - Controling Gajim instance from command line with gajim-remote
 net-im/gajim:rst - Generating XHTML output from RST code
 net-im/gajim:spell - Spellchecking of composed messages
@@ -6565,6 +6572,7 @@ net-misc/quagga:pam - Add support for PAM (via sys-libs/pam) to the Quagga Virtu
 net-misc/quagga:protobuf - Enable support for dev-libs/protobuf
 net-misc/quagga:readline - Enable support for sys-libs/readline to provide the Quagga Virtual Terminal Interface Shell (vtysh)
 net-misc/quagga:tcp-zebra - Enable TCP zserv interface on port 2600 for Zebra/protocol-daemon communication. Unix domain sockets are chosen otherwise
+net-misc/r8168:use-firmware - Enable support for automatic firmware loading
 net-misc/rdesktop:kerberos - Enable CredSPP support + Kerberos authentication
 net-misc/rdesktop:pcsc-lite - Enable smartcard support with sys-apps/pcsc-lite driver
 net-misc/rdesktop:xrandr - Enable XRandR window extension support
@@ -6738,7 +6746,6 @@ net-p2p/ktorrent:stats - Shows statistics about torrents in several graphs
 net-p2p/ktorrent:upnp - Forward ports using UPnP
 net-p2p/ktorrent:webengine - Embedded search for torrents using dev-qt/qtwebengine
 net-p2p/ktorrent:zeroconf - Discover peers on the local network using the Zeroconf protocol
-net-p2p/litecoind:logrotate - Use app-admin/logrotate for rotating logs
 net-p2p/litecoind:wallet - Enable wallet support
 net-p2p/mldonkey:bittorrent - enable bittorrent support
 net-p2p/mldonkey:fasttrack - enable fasttrack support
@@ -8250,7 +8257,6 @@ sys-fs/ntfs3g:ntfsprogs - Include internal version of ntfsprogs.
 sys-fs/quota:netlink - Compile daemon receiving quota messages via netlink
 sys-fs/quota:rpc - Enable quota interaction via RPC
 sys-fs/squashfs-tools-ng:tools - Build the gensquashfs, rdsquashfs, sqfs2tar, sqfsdiff, and tar2sqfs tools
-sys-fs/squashfs-tools-ng:xz - Enable support for XZ ("LZMA2") compression using app-arch/xz-utils
 sys-fs/udev:kmod - Enable kernel module loading/unloading support using sys-apps/kmod
 sys-fs/udisks:daemon - Build the system daemon, not just the client tool
 sys-fs/udisks:elogind - Use sys-auth/elogind for session tracking
@@ -8267,7 +8273,6 @@ sys-fs/zfs-auto-snapshot:cron - Install /etc/cron.* files
 sys-fs/zfs-auto-snapshot:default-exclude - Only take snapshots of datasets with com.sun:auto-snapshot=true property set
 sys-fs/zfs-kmod:rootfs - Install zfs-shutdown script to support exporting a pool containing rootfs
 sys-kernel/bliss-kernel-bin:initramfs - Build initramfs along with the kernel.
-sys-kernel/genkernel:cryptsetup - Enable support for Luks disk encryption using sys-fs/cryptsetup
 sys-kernel/genkernel:firmware - Prefer system firmware sys-kernel/linux-firmware over local copy.
 sys-kernel/gentoo-kernel:hardened - Use selection of hardening options recommended by Kernel Self Protection Project
 sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.

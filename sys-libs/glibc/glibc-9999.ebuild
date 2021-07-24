@@ -35,10 +35,13 @@ GCC_BOOTSTRAP_VER=20201208
 
 LOCALE_GEN_VER=2.10
 
+GLIBC_SYSTEMD_VER=20210724
+
 SRC_URI+=" https://gitweb.gentoo.org/proj/locale-gen.git/snapshot/locale-gen-${LOCALE_GEN_VER}.tar.gz"
 SRC_URI+=" multilib-bootstrap? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-multilib-bootstrap-${GCC_BOOTSTRAP_VER}.tar.xz )"
+SRC_URI+=" systemd? ( https://gitweb.gentoo.org/proj/toolchain/glibc-systemd.git/snapshot/glibc-systemd-${GLIBC_SYSTEMD_VER}.tar.gz )"
 
-IUSE="audit caps cet compile-locales +crypt custom-cflags doc gd headers-only +multiarch multilib multilib-bootstrap nscd profile selinux +ssp +static-libs static-pie suid systemtap test vanilla"
+IUSE="audit caps cet compile-locales +crypt custom-cflags doc gd headers-only +multiarch multilib multilib-bootstrap nscd profile selinux +ssp +static-libs static-pie suid systemd systemtap test vanilla"
 
 # Minimum kernel version that glibc requires
 MIN_KERN_VER="3.2.0"
@@ -95,7 +98,7 @@ fi
 
 BDEPEND="
 	${PYTHON_DEPS}
-	>=app-misc/pax-utils-0.1.10
+	>=app-misc/pax-utils-1.3.3
 	sys-devel/bison
 	doc? ( sys-apps/texinfo )
 	!compile-locales? (
@@ -113,7 +116,6 @@ COMMON_DEPEND="
 	suid? ( caps? ( sys-libs/libcap ) )
 	selinux? ( sys-libs/libselinux )
 	systemtap? ( dev-util/systemtap )
-	!<net-misc/openssh-8.1_p1-r2
 "
 DEPEND="${COMMON_DEPEND}
 	compile-locales? (
@@ -128,6 +130,8 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/grep
 	virtual/awk
 	sys-apps/gentoo-functions
+	!<app-misc/pax-utils-1.3.3
+	!<net-misc/openssh-8.1_p1-r2
 "
 
 RESTRICT="!test? ( test )"
@@ -755,6 +759,7 @@ src_unpack() {
 
 	cd "${WORKDIR}" || die
 	unpack locale-gen-${LOCALE_GEN_VER}.tar.gz
+	use systemd && unpack glibc-systemd-${GLIBC_SYSTEMD_VER}.tar.gz
 }
 
 src_prepare() {
@@ -1362,7 +1367,13 @@ glibc_do_src_install() {
 
 	# Install misc network config files
 	insinto /etc
-	doins posix/gai.conf nss/nsswitch.conf
+	doins posix/gai.conf
+
+	if use systemd ; then
+		doins "${WORKDIR}/glibc-systemd-${GLIBC_SYSTEMD_VER}/gentoo-config/nsswitch.conf"
+	else
+		doins nss/nsswitch.conf
+	fi
 
 	# Gentoo-specific
 	newins "${FILESDIR}"/host.conf-1 host.conf
@@ -1378,7 +1389,7 @@ glibc_do_src_install() {
 
 		sed -i "${nscd_args[@]}" "${ED}"/etc/init.d/nscd
 
-		systemd_dounit nscd/nscd.service
+		use systemd && systemd_dounit nscd/nscd.service
 		newtmpfiles nscd/nscd.tmpfiles nscd.conf
 	fi
 
@@ -1448,6 +1459,12 @@ glibc_sanity_check() {
 	# (e.g. /var/tmp/portage:${HOSTNAME})
 	pushd "${ED}"/$(get_libdir) >/dev/null
 
+	# first let's find the actual dynamic linker here
+	# symlinks may point to the wrong abi
+	local newldso=$(find . -name 'ld-linux*.so.2' -type f -print -quit)
+
+	einfo Last-minute run tests with ${newldso} in /$(get_libdir) ...
+
 	local x striptest
 	for x in cal date env free ls true uname uptime ; do
 		x=$(type -p ${x})
@@ -1460,7 +1477,7 @@ glibc_sanity_check() {
 		# We need to clear the locale settings as the upgrade might want
 		# incompatible locale data.  This test is not for verifying that.
 		LC_ALL=C \
-		./ld-*.so --library-path . ${x} > /dev/null \
+		${newldso} --library-path . ${x} > /dev/null \
 			|| die "simple run test (${x}) failed"
 	done
 
