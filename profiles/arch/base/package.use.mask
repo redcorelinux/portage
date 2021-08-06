@@ -11,11 +11,6 @@ dev-util/diffoscope haskell
 x11-base/xwayland video_cards_nvidia
 x11-wm/mutter video_cards_nvidia
 
-# Bernd Waibel <waebbl-gentoo@posteo.net> (2021-06-16)
-# sci-libs/pcl-1.11.1 is missing support for >=sci-libs/vtk-9
-# bug #796368
-~media-gfx/freecad-0.19.2 pcl
-
 # Bernd Waibel <waebbl-gentoo@posteo.net> (2021-06-11)
 # Has unpackaged depdencies, bug #795459
 >=media-libs/opencolorio-2.0.0 doc
@@ -48,7 +43,7 @@ net-misc/asterisk blocks
 sys-libs/compiler-rt-sanitizers asan dfsan lsan msan hwasan tsan
 sys-libs/compiler-rt-sanitizers ubsan safestack cfi scudo
 sys-libs/compiler-rt-sanitizers shadowcallstack gwp-asan
-sys-libs/compiler-rt-sanitizers libfuzzer memprof profile xray
+sys-libs/compiler-rt-sanitizers libfuzzer memprof orc profile xray
 
 # Sam James <sam@gentoo.org> (2020-10-24)
 # asm redc is only available on amd64,

@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/ksystemlog/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 IUSE="audit kdesu systemd"
 
 DEPEND="
@@ -51,6 +51,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package audit Audit)
 		$(cmake_use_find_package systemd Journald)
 	)
 	ecm_src_configure

@@ -6,6 +6,22 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Sam James <sam@gentoo.org> (2021-08-04)
+# Needs last-rited app-dicts/kasumi
+# bug #786738
+app-i18n/scim-anthy kasumi
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
+# Two years after the tracker was opened it is time to mask dev-qt/qtwebkit
+# for good. No commits to upstream repository for >9 months, latest available
+# tarball still "alpha" with warning about known unpatched vulnerabilities.
+# Bugs: #684580, #750893
+app-office/kexi webkit
+dev-libs/kreport webkit
+dev-python/PyQt5 webkit
+media-plugins/mythplugins mythbrowser mythmusic
+net-irc/kvirc webkit
+
 # Sam James <sam@gentoo.org> (2021-07-24)
 # USE=exec-static-trampoline can break consumers due to
 # faulty assumptions. Masked for now due to the possibility
@@ -135,9 +151,12 @@ x11-libs/colord-gtk doc
 <dev-ml/llvm-ocaml-12 llvm_targets_ARC llvm_targets_VE
 <sys-devel/clang-12 llvm_targets_ARC llvm_targets_VE
 <sys-devel/llvm-12 llvm_targets_ARC llvm_targets_VE
-<dev-ml/llvm-ocaml-12.0.0.9999 llvm_targets_CSKY
-<sys-devel/clang-12.0.0.9999 llvm_targets_CSKY
-<sys-devel/llvm-12.0.0.9999 llvm_targets_CSKY
+<dev-ml/llvm-ocaml-13 llvm_targets_CSKY
+<sys-devel/clang-13 llvm_targets_CSKY
+<sys-devel/llvm-13 llvm_targets_CSKY
+<dev-ml/llvm-ocaml-14 llvm_targets_M68k
+<sys-devel/clang-14 llvm_targets_M68k
+<sys-devel/llvm-14 llvm_targets_M68k
 
 # Joonas Niilola <juippis@gentoo.org> (2020-12-03)
 # Doc building seem to be very random without any predictability,

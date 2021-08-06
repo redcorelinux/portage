@@ -7,7 +7,7 @@ EAPI=7
 # DOCS_BUILDER="mkdocs"
 # DOCS_DEPEND="dev-python/mkdocs-material"
 # DOCS_AUTODOC=1
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 # docs
 
@@ -17,7 +17,7 @@ SRC_URI="https://github.com/encode/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="amd64 arm arm64 ppc ~ppc64 sparc x86"
 
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
@@ -39,6 +39,11 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	# https://github.com/encode/httpx/pull/1781
+	"${FILESDIR}"/${P}-big-endian.patch
+)
 
 python_prepare_all() {
 	# trio is not currently in the tree

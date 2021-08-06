@@ -83,11 +83,12 @@ NUT_PRIVATE_FILES="/etc/nut/{upsd.conf,upsd.users,upsmon.conf}"
 NUT_CGI_FILES="/etc/nut/{{hosts,upsset}.conf,upsstats{,-single}.html}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.7.2-no-libdummy.patch
 	"${FILESDIR}"/${PN}-2.7.1-snmpusb-order.patch
 	"${FILESDIR}"/${PN}-2.6.2-lowspeed-buffer-size.patch
 	"${FILESDIR}"/nut-openssl-1.1-support.patch
 	"${FILESDIR}"/nut-2.7.4-py3.patch
+	"${FILESDIR}"/nut-2.7.4-nut-scanner.patch
+	"${FILESDIR}"/nut-2.7.4-slibtool.patch
 )
 
 src_prepare() {
@@ -110,7 +111,11 @@ src_prepare() {
 
 src_configure() {
 	local myconf
+
 	append-flags -fno-lto
+	# bug #786702
+	append-cxxflags -std=c++14
+
 	tc-export CC
 	tc-export CXX
 	tc-export AR
