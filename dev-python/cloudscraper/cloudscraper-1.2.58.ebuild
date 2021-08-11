@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 optfeature
 
@@ -20,12 +20,13 @@ RDEPEND="
 	dev-python/requests-toolbelt[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 "
-BDEPEND="${RDEPEND}
+BDEPEND="
 	test? (
 		dev-python/js2py[${PYTHON_USEDEP}]
 		dev-python/pytest-forked[${PYTHON_USEDEP}]
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
+		net-libs/nodejs
 	)
 "
 
