@@ -5,7 +5,7 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_{8,9} )
 DISTUTILS_SINGLE_IMPL=1
-inherit distutils-r1 systemd
+inherit xdg distutils-r1 systemd
 
 DESCRIPTION="BitTorrent client with a client/server model"
 HOMEPAGE="https://deluge-torrent.org/"
@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.deluge-torrent.org/${PN}"
 else
 	SRC_URI="http://download.deluge-torrent.org/source/2.0/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~ppc ~sparc ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -62,6 +62,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.0.3-setup.py.patch"
 	"${FILESDIR}/${PN}-2.0.3-UI-status.patch"
 	"${FILESDIR}/${PN}-2.0.3-gettext.patch"
+	"${FILESDIR}/${P}-fix-pickle.patch"
+	"${FILESDIR}/${P}-log.patch"
 )
 
 python_prepare_all() {
@@ -121,6 +123,8 @@ python_install_all() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	elog
 	elog "If, after upgrading, deluge doesn't work, please remove the"
 	elog "'~/.config/deluge' directory and try again, but make a backup"
