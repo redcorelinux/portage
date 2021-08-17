@@ -1,12 +1,16 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-08-17)
+# sys-libs/libfaketime does not work properly on this arch
+sys-auth/sssd test
+
 # Marek Szuba <marecki@gentoo.org> (2021-08-14)
 # virtual/mysql & co. round-up:
 #  dev-db/mariadb fails tests here, see Bug #807995
 #  dev-db/mysql and dev-db/percona-server do not support this arch
-#  dev-db/mariadb-galera has been absent from the tree since June 2019
 #  dev-db/mysql-cluster not tested yet, seriously outdated in the tree
+dev-python/pymysql test
 sci-libs/gdal mysql
 sys-cluster/slurm slurmdbd
 
@@ -29,9 +33,13 @@ media-gfx/gimp lua unwind
 # dependency on PyQt5[bluetooth].
 dev-python/ipython qt5
 
+# Marek Szuba <marecki@gentoo.org> (2021-08-14)
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-05)
-# pdfannotextractor depends on java, not (sustainably) supported yet
+# These USE flags depend on java, not (sustainably) supported yet
+#  - dev-tex/pdfannotextractor
 app-text/texlive pdfannotextractor
+#  - dev-java/jackcess
+sci-libs/gdal mdb
 
 # Yixun Lan <dlan@gentoo.org> (2021-08-05)
 # Boost.Context can be built on riscv
@@ -55,23 +63,11 @@ dev-python/pymongo test
 # lack an ios device to test it
 kde-frameworks/solid ios
 
-# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-07-20)
-# sys-auth/sssd and its deps not keyworded yet
-app-admin/sudo sssd
-
 # Alex Fan <alexfanqi@yahoo.com> (2021-07-20)
-# sci-libs/hdf5 fails tests with these 2 use flags enabled,
-# otherwise passes all tests
-sci-libs/hdf5 fortran debug
-
-# Marek Szuba <marecki@gentoo.org> (2021-07-19)
-# sci-libs/hdf5 may or may not work properly on this arch (on some
-# systems fails tests even with the mask above in place), masked for
-# further testing.
-dev-libs/starpu hdf5
-sci-libs/gdal hdf5
-# (via dev-python/pytables)
-dev-python/pandas doc full-support test
+# hdf5-1.10 always fails tests with these 2 use flags enabled, otherwise
+# passes all tests on at least some systems. No longer needed for 1.12,
+# though.
+<sci-libs/hdf5-1.12.1 fortran debug
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-14)
 # LuaJIT does not support riscv
@@ -107,10 +103,6 @@ app-misc/lirc ftdi inputlirc
 dev-lang/ruby xemacs
 #  - dev-ruby/asciidoctor
 dev-libs/nanomsg doc
-#  - sci-libs/gdal
-dev-python/networkx extras
-#  - dev-ruby{kramdown,maruku,rdiscount}
-dev-ruby/yard doc
 #  - app-text/dblatex & media-gfx/transfig
 dev-util/ragel doc
 #  - Qt5 & KDE

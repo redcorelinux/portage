@@ -6,6 +6,11 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Marek Szuba <marecki@gentoo.org> (2021-07-14)
+# Even on a clean install, 8 phdf5 tests fail (Bug #808612)
+# Mask for further study.
+>=sci-libs/hdf5-1.12.1 mpi
+
 # James Le Cuirot <chewi@gentoo.org> (2021-08-07)
 # The ORBlite scanner plugin only works on amd64 and x86.
 net-print/hplip-plugin orblite
@@ -258,10 +263,6 @@ www-client/firefox eme-free
 # Rick Farina <zerochaos@gentoo.org> (2020-02-26)
 # dev-python/pyzmq USE=doc deps are not met with python2_7
 dev-python/pyzmq doc
-
-# Michał Górny <mgorny@gentoo.org> (2020-02-04)
-# Unsatisfiable dep due to missing impls.
-dev-python/zeep tornado
 
 # Alexey Shvetsov <alexxy@gentoo.org> (2019-12-24)
 # Gromacs python module install br0ken
