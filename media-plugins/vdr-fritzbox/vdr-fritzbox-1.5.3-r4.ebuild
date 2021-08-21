@@ -11,7 +11,7 @@ SRC_URI="https://github.com/jowi24/vdr-fritz/releases/download/${PV}/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
 DEPEND="
@@ -21,9 +21,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-		"${FILESDIR}/${P}-boost-1.67.patch"
-		"${FILESDIR}/${P}_clang.patch"
-		)
+	"${FILESDIR}/${P}-boost-1.67.patch"
+	"${FILESDIR}/${P}_clang.patch"
+	"${FILESDIR}/${P}-gcc11-include.patch"
+)
 
 src_prepare() {
 	vdr-plugin-2_src_prepare

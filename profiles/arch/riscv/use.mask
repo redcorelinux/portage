@@ -29,20 +29,16 @@ lua_targets_luajit
 # valgrind has no RISCV port.
 valgrind
 
-# Not tested yet
-bluetooth
-emacs
-jack
-java
+# As of August 2021, RISC-V support in dev-lang/mono is minimal and some
+# versions do not even build on this arch. See
+# https://github.com/dotnet/runtime/issues/36748
 mono
-motif
-opencl
-rsh
 
-# Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2019‑08‑31)
-# Dependencies not keyworded.
-appindicator
-ayatana
+# No proper support for this arch yet
+java
+
+# Neither the virtual nor any of the runtimes (except mesa) keyworded here yet
+opencl
 
 # not supported / tested cards
 

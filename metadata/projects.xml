@@ -215,10 +215,6 @@
       <email>lordvan@gentoo.org</email>
       <name>Thomas Raschbacher</name>
     </member>
-    <member>
-      <email>mjo@gentoo.org</email>
-      <name>Michael Orlitzky</name>
-    </member>
   </project>
   <project>
     <email>apache-bugs@gentoo.org</email>
@@ -295,16 +291,11 @@
     <url>https://wiki.gentoo.org/wiki/Project:Base</url>
     <description>The Base System Project provides an umbrella project for keeping system tools, libraries, and layout consistent for all the various architectures under Gentoo Linux.</description>
     <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
-      <role>LILO</role>
-    </member>
-    <member>
       <email>chutzpah@gentoo.org</email>
       <name>Patrick McLean</name>
       <role>Misc stuff that needs to get done</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
       <role>Misc stuff, toolchain</role>
@@ -317,10 +308,6 @@
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
       <role>new helper</role>
-    </member>
-    <member>
-      <email>lu_zero@gentoo.org</email>
-      <name>Luca Barbato</name>
     </member>
     <member>
       <email>mattst88@gentoo.org</email>
@@ -1258,6 +1245,22 @@
     <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
+    </member>
+  </project>
+  <project>
+    <email>handbook@gentoo.org</email>
+    <name>Handbook</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Handbook</url>
+    <description>The Handbook project is responsible for maintaining Gentoo's official Handbook.</description>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+      <role>Editor</role>
+    </member>
+    <member>
+      <email>maffblaster@gentoo.org</email>
+      <name>Matthew Marchese</name>
+      <role>Maintainer</role>
     </member>
   </project>
   <project>
@@ -3318,6 +3321,7 @@
     <name>Wiki</name>
     <url>https://wiki.gentoo.org/wiki/Project:Wiki</url>
     <description>The wiki project oversees the community and the content surrounding wiki.gentoo.org</description>
+    <subproject ref="handbook@gentoo.org" inherit-members="1"/>
     <member>
       <email>grknight@gentoo.org</email>
       <name>Brian Evans</name>

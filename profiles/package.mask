@@ -32,6 +32,28 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-08-20)
+# Inactive upstream.
+# Fully superseded by dev-python/dnspython. All reverse dependencies support
+# and recommend usage of dev-python/dnspython.
+# No other distros package it anymore.
+# Removal on 2021-09-19.  Bug #809239.
+dev-python/pydns
+
+# Sam James <sam@gentoo.org> (2021-08-18)
+# Fails to build with glibc-2.34. End of maintenance
+# upstream was declared in 2007. Several other serious
+# bugs open. Removal on 2021-09-19.
+# bug #711088, bug #775944, bug #790680, bug #806953.
+net-analyzer/netwox
+net-analyzer/netwag
+
+# Sam James <sam@gentoo.org> (2021-08-17)
+# Fails to build with >= Boost 1.73, so broken for well over a year.
+# Several open bugs: bug #722882, bug #742290, bug #808673.
+# Removal on 2021-09-17.
+sys-fs/e4rat
+
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2021-08-15)
 # Broken since Perl 5.22, bug 662318. Removal in 30 days.
 dev-perl/POE-API-Peek
@@ -346,30 +368,6 @@ dev-ml/cstruct
 # Masked for removal in 30 days.
 dev-ruby/sfl
 
-# William Hubbs <williamh@gentoo.org> (2021-07-17)
-# Does not build and has multiple open bugs including a security issue.
-# Dead upstream (last release in 2006).
-# Removal in 30 days (2021-08-16) (bug #602594).
-app-accessibility/eflite
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
-# Deprecated upstream, replaced with factory_bot.
-# Last release in 2017, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/factory_girl
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
-# Deprecated upstream, no longer needed with rspec 2+
-# Last release in 2016, factory_girl was last dependency.
-# Masked for removal in 30 days.
-dev-ruby/bourne
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-15)
-# Dead upstream, no longer maintained, last release in 2013.
-# No dependencies.
-# Masked for removal in 30 days.
-dev-ruby/spork
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-07-12)
 # Version 3.3.0 suffers from ridiculously high CPU usage, this version has
 # therefore been retracted upstream.
@@ -395,51 +393,12 @@ dev-ruby/spork
 >=mail-client/claws-mail-4.0.0
 
 # Hans de Graaff <graaff@gentoo.org> (2021-07-09)
-# Last release in 2016. Tests fail with recent git versions.
-# No reverse dependencies, no maintainer.
-# Masked for removal in 30 days.
-dev-vcs/git-num
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
-# Last release in 2014 and no longer supported upstream. Obsolete CSS
-# framework with known issues.
-# Masked for removal in 30 days.
-dev-ruby/compass
-dev-ruby/compass-core
-dev-ruby/compass-import-once
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
 # Mask ruby25 for removal. This version is no longer supported
 # upstream. Use a newer ruby version, e.g ruby26.
 # Masked for removal in 30 days.
 dev-lang/ruby:2.5
 =dev-ruby/rubygems-2.7*
 dev-ruby/did_you_mean:2.5
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-07)
-# Security bug CVE-2015-9284, bug 761960. Use slot 2 instead.
-# Masked for removal in 30 days.
-dev-ruby/omniauth:0
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Obsolete slot, no dependencies. Use dev-ruby/http:4 instead.
-# Masked for removal in 30 days.
-dev-ruby/http:3
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, no tests, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/nagios
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, no tests, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/notify
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, all dependencies have switched to rash_alt.
-# Masked for removal in 30 days.
-dev-ruby/rash
 
 # Michał Górny <mgorny@gentoo.org> (2021-07-06)
 # Upstream changed license to GPL-3+ in order to deliberately cause

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Python API and shell utilities to monitor file system events"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/gorakhargosh/${PN}/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86"
 
 CDEPEND="dev-python/pyyaml[${PYTHON_USEDEP}]"
 RDEPEND="${CDEPEND}
@@ -25,6 +25,10 @@ DEPEND="${CDEPEND}
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}"/${P}-big-endian.patch
+	)
+
 	sed -i -e '/--cov/d' setup.cfg || die
 	default
 }

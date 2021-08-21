@@ -12,7 +12,7 @@ SRC_URI="https://mosquitto.org/files/source/${P}.tar.gz"
 
 LICENSE="EPL-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 arm ~arm64 x86"
 IUSE="bridge examples +persistence +srv ssl tcpd test websockets"
 RESTRICT="!test? ( test )"
 
@@ -32,6 +32,10 @@ DEPEND="${PYTHON_DEPS}
 	${RDEPEND}
 	test? ( dev-util/cunit )
 	websockets? ( net-libs/libwebsockets[lejp] )"
+
+PATCHES=(
+	"${FILESDIR}"/${PV}-Fix-installation-using-WITH_TLS-no.patch
+)
 
 _emake() {
 	local LIBDIR=$(get_libdir)

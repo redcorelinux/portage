@@ -1,6 +1,33 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Yixun Lan <dlan@gentoo.org> (2021-08-20)
+# dependencies not keyworded/tested
+net-misc/networkmanager ofono
+
+# Marek Szuba <marecki@gentoo.org> (2021-08-18)
+# media-libs/libffado does not recognise this arch, fails src_configure
+# (Bug #808853).
+media-sound/jack2 ieee1394
+
+# Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
+# dependencies not keyworded/tested
+sys-apps/xdg-desktop-portal screencast
+kde-plasma/powerdevil wireless
+kde-plasma/plasma-vault networkmanager
+kde-plasma/plasma-desktop emoji
+kde-plasma/ksystemstats networkmanager
+kde-plasma/libksysguard webengine
+kde-frameworks/kfilemetadata ffmpeg
+kde-plasma/plasma-workspace appstream screencast gps geolocation
+kde-plasma/kdeplasma-addons webengine
+kde-plasma/plasma-meta networkmanager accessibility grub plymouth pulseaudio
+kde-plasma/discover firmware flatpak
+kde-plasma/kwin accessibility screencast
+kde-plasma/plasma-firewall firewalld
+# vlc has libatomic issue, bug #803473
+media-libs/phonon vlc gstreamer
+
 # Marek Szuba <marecki@gentoo.org> (2021-08-17)
 # sys-libs/libfaketime does not work properly on this arch
 sys-auth/sssd test
@@ -10,6 +37,7 @@ sys-auth/sssd test
 #  dev-db/mariadb fails tests here, see Bug #807995
 #  dev-db/mysql and dev-db/percona-server do not support this arch
 #  dev-db/mysql-cluster not tested yet, seriously outdated in the tree
+dev-python/mysqlclient test
 dev-python/pymysql test
 sci-libs/gdal mysql
 sys-cluster/slurm slurmdbd
@@ -107,20 +135,24 @@ dev-libs/nanomsg doc
 dev-util/ragel doc
 #  - Qt5 & KDE
 dev-vcs/subversion kwallet
-#  - media-sound/pavucontrol-qt
-lxqt-base/lxqt-panel pulseaudio
+#  - kde-frameworks/bluez-qt
+kde-frameworks/purpose bluetooth
+#  - kde-plasma/bluedevil
+kde-plasma/plasma-meta bluetooth
 #  - media-libs/dumb
 media-libs/allegro dumb
 #  - media-gfx/nvidia-texture-tools
 media-libs/devil nvtt
 #  - dev-lang/php
 media-libs/libvpx doc
-#  - bluetooth, net-misc/ofono
-media-sound/pulseaudio native-headset ofono-headset
-#  - media-sound/jack2
-media-video/pipewire jack-client
-#  - maaaaaany
-media-video/ffmpeg amrenc bluray bs2b cdio chromaprint codec2 fdk frei0r gme iec61883 ieee1394 kvazaar libaribb24 libilbc libsoxr libtesseract lv2 openh264 rubberband speex srt vidstab xvid zimg zvbi
+#  - net-misc/ofono
+media-sound/pulseaudio ofono-headset
+#  - media-libs/vo-amrwbenc, media-libs/libbs2b, dev-libs/libcdio-paranoia,
+#    media-libs/codec2, media-plugins/frei0r-plugins,
+#    media-libs/kvazaar, media-libs/libilbc,
+#    app-text/tesseract, media-libs/lv2 & media-libs/lilv, media-libs/rubberband,
+#    media-libs/vidstab, media-libs/xvid, media-libs/zimg
+media-video/ffmpeg amrenc bs2b cdio codec2 frei0r kvazaar libilbc libtesseract lv2 rubberband vidstab xvid zimg
 #  - media-libs/libquicktime, media-libs/sdl-gfx
 media-video/mjpegtools quicktime sdlgfx
 #  - sys-cluster/ceph
@@ -147,8 +179,6 @@ net-libs/gnome-online-accounts gnome
 net-libs/libproxy kde
 xfce-extra/tumbler epub ffmpeg odf pdf raw
 xfce-base/xfce4-meta pulseaudio
-# KDE not tested, so mask
-sys-auth/polkit kde
 
 # Ye Cao <ye.c@rioslab.org> (2021-07-31)
 # Piotr Karbowski <slashbeast@gentoo.org> (2021-06-22)

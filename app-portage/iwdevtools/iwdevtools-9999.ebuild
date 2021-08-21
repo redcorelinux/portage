@@ -14,8 +14,10 @@ SLOT="0"
 KEYWORDS=""
 
 RDEPEND="
+	app-misc/pax-utils
 	app-portage/portage-utils
 	sys-apps/diffutils
+	sys-apps/file
 	sys-apps/portage
 	sys-apps/util-linux"
 
@@ -25,9 +27,9 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
-		elog "To integrate with portage, inspect the .bashrc files installed"
-		elog "at ${EROOT}/usr/share/${PN}. If not already using a bashrc, you"
-		elog "can use the example bashrc directly by creating a symlink:"
+		elog "To (optionally) integrate with portage, inspect the .bashrc files installed"
+		elog "at ${EROOT}/usr/share/${PN}. If not already using a bashrc, you can use"
+		elog "the example bashrc directly by creating a symlink:"
 		elog
 		elog "    ln -s ../../../usr/share/${PN}/bashrc ${EROOT}/etc/portage/bashrc"
 		elog
