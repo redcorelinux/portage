@@ -1140,10 +1140,8 @@ app-text/tessdata_best:osd - Enable support orientation and script detection.
 app-text/tessdata_fast:osd - Enable support orientation and script detection.
 app-text/tessdata_legacy:math - Enable support for recognition of equations.
 app-text/tessdata_legacy:osd - Enable support orientation and script detection.
-app-text/tesseract:math - Enable support for recognition of equations.
+app-text/tesseract:float32 - Support float for model training and text recognition (faster, requires less RAM)
 app-text/tesseract:opencl - Enable opencl support for speedup using GPU computation.
-app-text/tesseract:osd - Enable support orientation and script detection.
-app-text/tesseract:scrollview - Install viewer to debug recognition (ScrollView).
 app-text/tesseract:training - Install training applications to add support for new languages.
 app-text/texlive:context - Add support for the ConTeXt format (dev-texlive/texlive-context)
 app-text/texlive:extra - Add support for extra TeXLive packages
@@ -1349,6 +1347,7 @@ dev-embedded/sdcc:tlcs90 - Add support for TLCS-90
 dev-embedded/sdcc:ucsim - Enable software simulator for microcontrollers
 dev-embedded/sdcc:z180 - Add support for Zilog Z180
 dev-embedded/sdcc:z80 - Add support for Zilog Z80
+dev-embedded/u-boot-tools:envtools - Build only the target-side environment tools
 dev-embedded/urjtag:ftd2xx - Enable support for USB FTDI chips via dev-embedded/libftd2xx
 dev-embedded/urjtag:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-games/aseprite:bundled-libs - Use the upstream provided bundled version of allegro 4.4.2
@@ -2742,6 +2741,7 @@ dev-util/cargo-audit:fix - Add support for 'fix' subcommand (experimental)
 dev-util/catalyst:ccache - Enables ccache support
 dev-util/catalyst:iso - Pulls in the depends for building iso images
 dev-util/catalyst:system-bootloader - Pulls in the depends needed to setup livecd bootloader from the host system rather than using a cdtar
+dev-util/ccache:redis - Enable Redis backend for storage via dev-libs/hiredis
 dev-util/ccache:static-c++ - Avoid dynamic dependency on gcc's libstdc++.
 dev-util/cccc:apidoc - Build software docs with doxygen/graphviz and metrics with cccc
 dev-util/cccc:mfc - Add patch for MFC dialect options
@@ -5064,16 +5064,11 @@ media-video/obs-studio:vlc - Build with VLC media source support.
 media-video/ogmrip:ogm - Support for OGM container format
 media-video/ogmrip:srt - Support for SRT subtitle format
 media-video/peek:keybinder - Enable support for global hotkeys using dev-libs/keybinder
-media-video/pipewire:aac - AAC over Bluetooth (iPhone compatible headphones)
-media-video/pipewire:aptx - aptX (HD) over Bluetooth (many Android compatible headphones)
+media-video/pipewire:echo-cancel - Enable WebRTC-based echo canceller via media-libs/webrtc-audio-processing
 media-video/pipewire:extra - Build pw-cat/pw-play/pw-record
-media-video/pipewire:ffmpeg - Builds an unsupported SPA (file a Gentoo bug if you need this)
-media-video/pipewire:jack - Enable SPA JACK plugin and emulation to be able to run JACK applications on top of PipeWire
 media-video/pipewire:jack-client - Install a plugin for running PipeWire as a JACK client
 media-video/pipewire:jack-sdk - Use PipeWire as JACK replacement
-media-video/pipewire:ldac - LDAC over Bluetooth (primarily Sony headphones)
 media-video/pipewire:pipewire-alsa - Replace PulseAudio's ALSA plugin with PipeWire's plugin
-media-video/pipewire:vulkan - Uses Vulkan compute shaders to provide a CGI video source
 media-video/qmplay2:audiofilters - Build with AudioFilters module
 media-video/qmplay2:avdevice - Build FFmpeg module with libavdevice suport
 media-video/qmplay2:cdio - Build with AudioCD module
@@ -5576,7 +5571,7 @@ net-firewall/conntrack-tools:cttimeout - Use net-libs/libnetfilter_cttimeout for
 net-firewall/conntrack-tools:libtirpc - Use net-libs/libtirpc for RPC support
 net-firewall/ebtables:perl - Install the ebtables-save script which uses perl
 net-firewall/firehol:ipset - Use net-firewall/ipset.
-net-firewall/firewalld:iptables - Add support for net-firewall/nftables as firewall backend
+net-firewall/firewalld:iptables - Add support for net-firewall/iptables as firewall backend
 net-firewall/firewalld:nftables - Add support for net-firewall/nftables as firewall backend
 net-firewall/fwknop:client - Build fwknop client
 net-firewall/fwknop:extras - Install utility scripts and AppArmor policy for fwknopd
@@ -6341,7 +6336,6 @@ net-misc/curl:mbedtls - Enable mbedtls ssl backend
 net-misc/curl:metalink - Enable metalink support
 net-misc/curl:nghttp3 - Enable HTTP/3.0 support using net-libs/nghttp3 and net-libs/ngtcp2
 net-misc/curl:nss - Enable nss ssl backend
-net-misc/curl:ntlm - Enable ntlm support
 net-misc/curl:openssl - Enable openssl ssl backend
 net-misc/curl:pop3 - Enable Post Office Protocol 3 support
 net-misc/curl:progress-meter - Enable the progress meter
@@ -7376,6 +7370,10 @@ sci-libs/plplot:octave - Add bindings for sci-mathematics/octave
 sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
 sci-libs/proj:europe - Install the PROJ collection of European grids and init-files
+sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
+sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
+sci-libs/rocPRIM:benchmark - Build and install benchmark programs.
+sci-libs/rocSPARSE:benchmark - Build and install rocblas-bench.
 sci-libs/rtabmap:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2.
 sci-libs/scotch:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
 sci-libs/scotch:tools - Provides the graph, mesh, architecture, mapping/ordering, output handling programs (see Scotch User's Guide).
@@ -8431,6 +8429,7 @@ sys-process/fcron:debug - Enable debug code and output. Since version 3.0.5 this
 sys-process/fcron:mta - Enable mta support for sending emails from fcron
 sys-process/fcron:pam - Enable PAM support for fcron. This means that fcron will pass through the "fcron" stack before executing the jobs, and fcrontab will use the "fcrontab" stack to authenticate the user before editing its crontab file.
 sys-process/fcron:system-crontab - Set up fcron to respect /etc/crontab and /etc/cron.d. If this flag is disabled, /etc/cron.d and /etc/crontab will be ignored, but /etc/cron.{hourly,daily,weekly,monthly} will still be respected.
+sys-process/htop:delayacct - Enable Linux delay accounting support via dev-libs/libnl
 sys-process/htop:hwloc - Use sys-apps/hwloc for CPU affinity support
 sys-process/htop:openvz - Enable openvz support
 sys-process/htop:vserver - Enable vserver support
