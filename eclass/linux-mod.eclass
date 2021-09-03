@@ -8,6 +8,7 @@
 # John Mylchreest <johnm@gentoo.org>,
 # Stefan Schweizer <genstef@gentoo.org>
 # @SUPPORTED_EAPIS: 5 6 7
+# @PROVIDES: linux-info
 # @BLURB: It provides the functionality required to install external modules against a kernel source tree.
 # @DESCRIPTION:
 # This eclass is used to interface with linux-info.eclass in such a way
@@ -152,8 +153,6 @@ case ${EAPI:-0} in
 	[567]) inherit eutils ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
-
-EXPORT_FUNCTIONS pkg_setup pkg_preinst pkg_postinst src_install src_compile pkg_postrm
 
 if [[ -z ${_LINUX_MOD_ECLASS} ]] ; then
 _LINUX_MOD_ECLASS=1
@@ -796,3 +795,6 @@ linux-mod_pkg_postrm() {
 }
 
 fi
+
+EXPORT_FUNCTIONS pkg_setup src_compile src_install \
+	pkg_preinst pkg_postinst pkg_postrm

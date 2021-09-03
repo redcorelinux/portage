@@ -33,24 +33,11 @@
 #--- END OF EXAMPLES ---
 
 # David Seifert <soap@gentoo.org> (2021-08-29)
-# Version in tree is over 7 years old with numerous bugs. A modern
-# version 4 is available, but this really requires a dedicated
-# maintainer.
-# Bug #802417, #808669, removal in 30 days.
-sci-chemistry/dssp
-
-# David Seifert <soap@gentoo.org> (2021-08-29)
 # Broken for the past 5 years (#585942), no new upstream release in over
 # 5 years. Same issues as sci-biology/wgs-assembler, use a modern
 # assembler like sci-biology/abyss or canu.
 # Bug #585942, #731880, #808667, removal in 30 days.
 sci-biology/mira
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2021-08-28)
-# Both versions have several bugs and have been pulled off PyPI
-# Bugs #810808 and #810790.
-=dev-python/setuptools_scm-6.1.0
-=dev-python/setuptools_scm-6.2.0
 
 # Alexey Sokolov <alexey+gentoo@asokolov.org> (2021-08-30)
 # Homepage dead, uses gtk2, fails to build, https://bugs.gentoo.org/711344
@@ -183,42 +170,12 @@ app-i18n/man-pages-it
 # Bug #610094, #715874, #731860, #739486, removal in 30 days.
 sci-biology/wgs-assembler
 
-# David Seifert <soap@gentoo.org> (2021-08-05)
-# Unmaintained, tons of issues, fails to build with GCC 11.
-# Bug #631598, #690024, #735960, #749038, #761415, #761667,
-# #778557, #786789, #799179, removal in 30 days.
-app-backup/bareos
-dev-libs/bareos-fastlzlib
-dev-python/bareos
-
 # Sam James <sam@gentoo.org> (2021-08-05)
 # Fails to build with GCC 11. No activity upstream.
 # bug #740308, bug #789816. Removal on 2021-09-05.
 app-eselect/eselect-audicle
 app-eselect/eselect-miniaudicle
 media-sound/audicle
-
-# Sam James <sam@gentoo.org> (2021-08-04)
-# Fails to build with GCC 11. Library with no reverse-dependencies.
-# bug #731254, bug #787905. Removal on 2021-09-04.
-net-libs/openmq-cclient
-
-# Sam James <sam@gentoo.org> (2021-08-04)
-# Fails to build with GCC 11, no activity upstream.
-# bug #729106, bug #786648. Removal on 2021-09-04.
-app-backup/zbackup
-
-# Sam James <sam@gentoo.org> (2021-08-04)
-# Fails to build with GCC 11, large number of open bugs,
-# no activity upstream. bug #692806, bug #694674, bug #712832,
-# bug #725166, bug #740792, bug #788637, bug #798042.
-# Removal on 2021-09-04.
-net-misc/stargazer
-
-# Sam James <sam@gentoo.org> (2021-08-04)
-# Fails to build with GCC 11 and has Boost incompatibility issues.
-# bug #741646, bug #792993. Removal on 2021-09-04.
-sci-physics/sassena
 
 # David Seifert <soap@gentoo.org> (2021-08-04)
 # Last release over 4 years ago, upstream pretty much dead, the
@@ -229,26 +186,6 @@ sci-physics/sassena
 # This is necessary as your world file should not contain dependencies.)
 # Bug #245228, #632124, #691268, #767853, removal in 30 days.
 dev-util/pkgconfig
-
-# David Seifert <soap@gentoo.org> (2021-08-04)
-# Last release 11 years ago, XDG env issue, no revdeps, blocks
-# WANT_AUTOMAKE=1.11 removal, last major distro to package this.
-# Bug #586586, removal in 30 days.
-media-libs/memphis
-
-# David Seifert <soap@gentoo.org> (2021-08-04)
-# Last release 16 years ago, multiple build failures, unmaintained,
-# upstream disappeared, last distro that still packages this.
-# Bug #722376, #742938, #742941, removal in 30 days.
-app-i18n/libtabe
-app-i18n/xcin
-
-# David Seifert <soap@gentoo.org> (2021-08-04)
-# Last release 7 years ago, multiple test failures, unmaintained,
-# last distro that still packages this.
-# Bug #629610, #646690, removal in 30 days.
-dev-libs/hyperleveldb
-dev-libs/replicant
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
 # Two years after the tracker was opened it is time to mask dev-qt/qtwebkit
@@ -371,11 +308,6 @@ sys-libs/db:5.1
 # Mask gcc-6 branch (ended upstream support). Please switch
 # to a fresher gcc branch.
 <sys-devel/gcc-7
-
-# Sam James <sam@gentoo.org> (2021-05-09)
-# Not working properly with cmake.eclass port
-# bug #788448
-=app-arch/brotli-1.0.9-r3
 
 # Sam James <sam@gentoo.org> (2021-05-07)
 # Masked for testing. Two major releases ahead of last packaged version.

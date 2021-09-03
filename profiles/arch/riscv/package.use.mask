@@ -1,14 +1,30 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Jonathan Davies <jpds@protonmail.com> (2021-09-03)
+# Requires CPU with SSSE3 support
+net-analyzer/suricata hyperscan
+
+# Marek Szuba <marecki@gentoo.org> (2021-09-02)
+# dev-python/pebble not keyworded here due to failing tests.
+# That said, with pebble-4.6.3 installed manually
+# (and without testing) all nbconvert-6.0.7 tests passed.
+dev-python/nbconvert test
+
+# Yixun Lan <dlan@gentoo.org> (2021-08-29)
+#  sys-apps/fwupd not tested, USE=spi,uefi,dell
+#  sys-apps/flashrom no risc-v support, bug 810880
+#  sys-apps/flashrom USE=introspection fail to build, bug 811321
+sys-apps/fwupd flashrom introspection spi uefi
+
 # Marek Szuba <marecki@gentoo.org> (2021-08-25)
 # sys-fabric/infinipath-psm does not support riscv
 sys-cluster/openmpi openmpi_fabrics_psm
 sys-fabric/ofed ofed_drivers_psm
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-23)
-# sys-cluster/ceph keywording blocked by libatomic issues in dev-libs/rocksdb-6.14,
-# see Bug #809830.
+# sys-cluster/ceph not keyworded here yet due to several dependencies
+# failing tests
 net-analyzer/rrdtool rados
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-22)
@@ -36,11 +52,10 @@ media-sound/jack2 ieee1394
 kde-plasma/powerdevil wireless
 kde-plasma/plasma-desktop emoji
 kde-plasma/libksysguard webengine
-kde-frameworks/kfilemetadata ffmpeg
 kde-plasma/plasma-workspace appstream screencast gps geolocation
 kde-plasma/kdeplasma-addons webengine
 kde-plasma/plasma-meta accessibility grub plymouth pulseaudio
-kde-plasma/discover firmware flatpak
+kde-plasma/discover flatpak
 kde-plasma/kwin accessibility screencast
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-17)
@@ -86,10 +101,6 @@ sci-libs/gdal mdb
 # Boost.Context can be built on riscv
 dev-libs/boost -context
 
-# Marek Szuba <marecki@gentoo.org> (2021-07-28)
-# app-cdr/cdrtools fails to compile on riscv
-dev-util/catalyst iso
-
 # Marek Szuba <marecki@gentoo.org> (2021-07-27)
 # dev-libs/boxfort does not support riscv yet, meaning
 # dev-libs/criterion cannot be keyworded here
@@ -130,22 +141,18 @@ sys-cluster/slurm ucx
 # net-dialup/mgetty fails to compile on this arch
 mail-mta/courier fax
 
-# Ye Cao <ye.c@rioslab.org> (2021-07-02)
-# Dependencies not keyworded, not tested
-dev-python/ipython nbconvert notebook
-
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
 # Dependencies not keyworded here yet:
 #  - dev-ruby/asciidoctor
 dev-libs/nanomsg doc
-#  - kde-plasma/bluedevil
-kde-plasma/plasma-meta bluetooth
 #  - media-gfx/nvidia-texture-tools
 media-libs/devil nvtt
 #  - dev-cpp/glog, sci-libs/vtk
 media-libs/opencv contribsfm glog vtk
 #  - dev-util/aruba
 sys-block/thin-provisioning-tools test
+#  - app-text/pandoc (-> dev-haskell/*)
+sys-cluster/ceph pmdk
 #  - sys-fabric/ofed
 sys-cluster/slurm ofed
 
@@ -154,7 +161,6 @@ sys-cluster/slurm ofed
 virtual/notification-daemon gnome
 net-libs/gnome-online-accounts gnome
 xfce-extra/tumbler epub
-xfce-base/xfce4-meta pulseaudio
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
 # Ye Cao <ye.c@rioslab.org> (2021-07-31)
@@ -184,6 +190,3 @@ www-servers/nginx pcre-jit
 # That said, with fish-3.3.1-r1 installed manually (and without testing)
 # all argcomplete-1.12.3 tests passed.
 dev-python/argcomplete test
-
-# Several dependencies not keyworded due to failing tests.
-dev-python/pypiserver test
