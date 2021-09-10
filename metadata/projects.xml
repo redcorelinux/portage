@@ -1095,6 +1095,10 @@
       <role>Crazy Scientist</role>
     </member>
     <member>
+      <email>arthurzam@gentoo.org</email>
+      <name>Arthur Zamarin</name>
+    </member>
+    <member>
       <email>bman@gentoo.org</email>
       <name>Aaron Bauman</name>
       <role>Comedic Relief</role>
@@ -1149,10 +1153,6 @@
     <member is-lead="1">
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
-    </member>
-    <member>
-      <email>ryao@gentoo.org</email>
-      <name>Richard Yao</name>
     </member>
     <member>
       <email>whissi@gentoo.org</email>
@@ -2176,6 +2176,10 @@
       <role>Infra Liaison</role>
     </member>
     <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
       <email>tommy@gentoo.org</email>
       <name>Thomas Sachau</name>
       <role>Mutlilib liaison</role>
@@ -2490,6 +2494,10 @@
     <name>Python</name>
     <url>https://wiki.gentoo.org/wiki/Project:Python</url>
     <description>The Python project maintains dev-lang/python and most of dev-python/*.</description>
+    <member>
+      <email>andrewammerlaan@gentoo.org</email>
+      <name>Andrew Ammerlaan</name>
+    </member>
     <member>
       <email>arthurzam@gentoo.org</email>
       <name>Arthur Zamarin</name>
@@ -3394,10 +3402,6 @@
       <email>NP-Hardass@gentoo.org</email>
       <name>Adam Feldman</name>
     </member>
-    <member>
-      <email>ryao@gentoo.org</email>
-      <name>Richard Yao</name>
-    </member>
     <member is-lead="1">
       <email>sarnex@gentoo.org</email>
       <name>Nick Sarnie</name>
@@ -3562,11 +3566,6 @@
     <member>
       <email>prometheanfire@gentoo.org</email>
       <name>Matthew Thode</name>
-      <role>Member (*)</role>
-    </member>
-    <member>
-      <email>ryao@gentoo.org</email>
-      <name>Richard Yao</name>
       <role>Member (*)</role>
     </member>
     <member>

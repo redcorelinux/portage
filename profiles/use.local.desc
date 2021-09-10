@@ -2854,8 +2854,7 @@ dev-util/perf:numa - Enable NUMA support
 dev-util/perf:perl - Add support for Perl as a scripting language for perf tools.
 dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
-dev-util/pkgconf:pkg-config - Install as a replacement for dev-util/pkgconfig
-dev-util/pkgconfig:internal-glib - Use internal copy of dev-libs/glib
+dev-util/plan9port:freefonts - Don't install BigelowHolmes fonts
 dev-util/poke:machine-interface - enable machine-interface protocol using dev-libs/json-c
 dev-util/pycharm-community:bundled-jdk - Use bundled jdk
 dev-util/pycharm-professional:bundled-jdk - Use bundled jdk
@@ -3980,11 +3979,12 @@ media-gfx/graphicsmagick:dynamic-loading - Compile graphicsmagick with dynamical
 media-gfx/graphicsmagick:fpx - Enable FlashPix support with media-libs/libfpx
 media-gfx/graphicsmagick:q16 - Set storage quantum size to 16 (~2*memory)
 media-gfx/graphicsmagick:q32 - Set storage quantum size to 32 (~5*memory)
-media-gfx/graphviz:X - Builds lefty front-end, builds plugin -Txlib, and enables support for x11 in various other modules (needs cairo)
+media-gfx/graphviz:X - Builds dotty, lneato, unflatten, vimdot, builds plugin -Txlib, and enables support for x11 in various other modules (needs cairo)
 media-gfx/graphviz:devil - Enables DevIL output plugin -Tdevil
 media-gfx/graphviz:gtk - Enables gtk+ output plugin -Tgtk (needs cairo)
 media-gfx/graphviz:gts - Enables support for GNU Triangulated Surface Library (required for sfdp to work)
 media-gfx/graphviz:lasi - Enables PostScript output via media-libs/lasi, for plugin -Tlasi (needs cairo)
+media-gfx/graphviz:lefty - Builds lefty front-end, requires x11-libs/libXmu and x11-libs/libXaw
 media-gfx/gthumb:http - Enable webservice integration through net-libs/webkit-gtk
 media-gfx/gthumb:slideshow - Enable slideshow plugin
 media-gfx/hugin:sift - automatically align images with media-gfx/autopano-sift-C
@@ -4190,6 +4190,7 @@ media-libs/libmp4v2:utils - Install command-line utilities
 media-libs/libmypaint:gegl - Add support for media-libs/gegl
 media-libs/libopenglrecorder:openh264 - Enable H.264 support using media-libs/openh264
 media-libs/libopenglrecorder:vpx - Enable VP8/VP9 codec support via media-libs/libvpx
+media-libs/libopenshot:opencv - Enable media-libs/opencv support
 media-libs/libpagemaker:tools - Build command line file format conversion tools
 media-libs/libplacebo:glslang - Use dev-util/glslang to compile GLSL
 media-libs/libplacebo:lcms - Add support for color management via media-libs/lcms
@@ -5953,6 +5954,7 @@ net-libs/axtls:static - Statically build axhttpd server
 net-libs/c-client:chappa - Enable Eduardo Chappa's patches for use with mail-client/alpine (mainly adds support for maildir)
 net-libs/c-client:doc - Install RFCs related to IMAP
 net-libs/c-client:topal - Enable support for net-mail/topal for use with mail-client/alpine
+net-libs/canlock:legacy - Enable or disable building legacy code (v2 compatible)
 net-libs/cvm:vpopmail - Enable vpopmail support
 net-libs/czmq:drafts - Build draft API, which may change at any time without any notice, and is therefore not recommended for normal use. (requires draft support in net-libs/zeromq as well)
 net-libs/czmq:http-client - Build support for HTTP client using net-misc/curl
@@ -6660,7 +6662,7 @@ net-nntp/sabnzbd:rar - Add support for extracting rar files
 net-nntp/sabnzbd:unzip - Add support for extracting zip files
 net-nntp/slrn:canlock - Add support for cancel locks via net-libs/canlock
 net-nntp/slrn:uudeview - Add support for yEnc coding and more using dev-libs/uulib
-net-nntp/tin:cancel-locks - Enable Cancel-Lock header functionality (also enables USE=evil)
+net-nntp/tin:cancel-locks - Enable Cancel-Lock header functionality
 net-nntp/tin:etiquette - Enable the display off posting etiquettes
 net-nntp/tin:gpg - Enable app-crypt/gnupg support
 net-nntp/tin:mime - Add MIME support
@@ -7217,7 +7219,6 @@ sci-libs/dealii:ginkgo - Add support for ginkgo (sci-libs/ginkgo)
 sci-libs/dealii:gmsh - Add support for gmsh (sci-libs/gmsh)
 sci-libs/dealii:metis - Add support for metis (sci-libs/metis)
 sci-libs/dealii:muparser - Add support for muparser (dev-cpp/muParser)
-sci-libs/dealii:nanoflann - Adds support for nanoflann (sci-libs/nanoflann)
 sci-libs/dealii:opencascade - Add support for opencascade (sci-libs/opencascade)
 sci-libs/dealii:p4est - Add support for p4est (sci-libs/p4est)
 sci-libs/dealii:petsc - Add support for petsc (sci-mathematics/petsc)
@@ -7226,7 +7227,6 @@ sci-libs/dealii:slepc - Add support for slepc (sci-mathematics/slepc)
 sci-libs/dealii:sparse - Add support for suitesparse (sci-libs/suitesparse)
 sci-libs/dealii:sundials - Add support for sundials (sci-libs/sundials)
 sci-libs/dealii:symengine - Add support for symengine (sci-libs/symengine)
-sci-libs/dealii:tbb - Add threading support with the help of the tbb library (dev-cpp/tbb)
 sci-libs/dealii:trilinos - Add support for trilinos (sci-libs/trilinos)
 sci-libs/dlib:cblas - Build with CBLAS virtual/cblas
 sci-libs/dlib:cuda - Enable support for CUDA for Deep Neural Networks (cuDNN) on GPU (experimental)
@@ -7580,6 +7580,9 @@ sci-visualization/gwyddion:sourceview - Enable support for x11-libs/gtksourcevie
 sci-visualization/labplot:cantor - Enable support for different open-source computer algebra systems via kde-apps/cantor
 sci-visualization/labplot:fits - Enable support for NASA's sci-libs/cfitsio library
 sci-visualization/labplot:libcerf - Enable special functions from sci-libs/libcerf
+sci-visualization/labplot:markdown - Enable Markdown support via app-text/discount
+sci-visualization/labplot:matio - Enable support for matio (sci-libs/matio)
+sci-visualization/labplot:origin - Enable support for reading OriginLab OPJ project files through sci-libs/liborigin
 sci-visualization/labplot:root - Enable support for CERN's ROOT file type
 sci-visualization/labplot:serial - Enable support for RS232 serial ports using dev-qt/qtserialport
 sci-visualization/opendx:cdf - Add support for sci-libs/cdf data exchange format
@@ -7815,6 +7818,7 @@ sys-apps/systemd:cryptsetup - Enable cryptsetup tools (includes unit generator f
 sys-apps/systemd:curl - Enable support for uploading journals
 sys-apps/systemd:dns-over-tls - Enable DNS-over-TLS support
 sys-apps/systemd:elfutils - Enable coredump stacktraces in the journal
+sys-apps/systemd:fido2 - Enable FIDO2 support
 sys-apps/systemd:gcrypt - Enable sealing of journal files using gcrypt
 sys-apps/systemd:gnuefi - Enable EFI boot manager and stub loader (built using sys-boot/gnu-efi)
 sys-apps/systemd:homed - Enable portable home directories
@@ -8315,6 +8319,7 @@ sys-libs/libblockdev:kbd - Enable kernel block device support.
 sys-libs/libblockdev:lvm - Enable support for Logical Volume Management via sys-fs/lvm2.
 sys-libs/libblockdev:tools - Build tools
 sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
+sys-libs/libcap:tools - Install captree, which requires dev-lang/go
 sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
 sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
 sys-libs/libcxxabi:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependency on gcc
@@ -8950,12 +8955,14 @@ x11-wm/xpra:brotli - Enable brotli compression support
 x11-wm/xpra:client - Build client-side code
 x11-wm/xpra:clipboard - Enable clipboard support
 x11-wm/xpra:csc - Enable csc softscaler support
+x11-wm/xpra:html - Install the HTML5 client
 x11-wm/xpra:ibus - Use ibus input method via app-i18n/ibus
 x11-wm/xpra:pillow - Enable pillow support
 x11-wm/xpra:pinentry - Use app-crypt/pinentry for password entry
 x11-wm/xpra:server - Build server-side code
 x11-wm/xpra:vpx - Enable vpx image format support
 x11-wm/xpra:webcam - Enable webcam support via opencv
+x11-wm/xpra:xdg - Enable support for XDG-based menus
 xfce-base/libxfce4ui:glade - Build support for Glade 3's GtkBuilder implementation
 xfce-base/libxfce4ui:system-info - Enable system information in xfce4-about.
 xfce-base/thunar:trash-panel-plugin - Build the trash status indicator plugin for the XFCE panel

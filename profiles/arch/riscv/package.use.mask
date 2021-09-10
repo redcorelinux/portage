@@ -1,6 +1,16 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-09-07)
+# firefox needs nodejs to build, no firefox-bin for riscv
+dev-ruby/capybara test
+# net-misc/memcached not keyworded yet due to failing tests (Bug #811477)
+dev-ruby/dalli test
+
+# Yixun Lan <dlan@gentoo.org> (2021-09-03)
+# dependencies not keyworded/tested
+media-sound/cmus pidgin
+
 # Jonathan Davies <jpds@protonmail.com> (2021-09-03)
 # Requires CPU with SSSE3 support
 net-analyzer/suricata hyperscan
@@ -61,16 +71,6 @@ kde-plasma/kwin accessibility screencast
 # Marek Szuba <marecki@gentoo.org> (2021-08-17)
 # sys-libs/libfaketime does not work properly on this arch
 sys-auth/sssd test
-
-# Marek Szuba <marecki@gentoo.org> (2021-08-14)
-# virtual/mysql & co. round-up:
-#  dev-db/mariadb fails tests here, see Bug #807995
-#  dev-db/mysql and dev-db/percona-server do not support this arch
-#  dev-db/mysql-cluster not tested yet, seriously outdated in the tree
-dev-python/mysqlclient test
-dev-python/pymysql test
-sci-libs/gdal mysql
-sys-cluster/slurm slurmdbd
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-11)
 # dev-ruby/httpclient not keyworded here due to failing tests
@@ -160,7 +160,6 @@ sys-cluster/slurm ofed
 # Dependencies not keyworded, not tested
 virtual/notification-daemon gnome
 net-libs/gnome-online-accounts gnome
-xfce-extra/tumbler epub
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
 # Ye Cao <ye.c@rioslab.org> (2021-07-31)
