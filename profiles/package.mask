@@ -4,7 +4,8 @@
 ####################################################################
 #
 # When you add an entry to the top of this file, add your name, the date
-# in the UTC timezone, and an explanation of why something is getting masked.
+# in the UTC timezone with a format of YYYY-MM-DD, and an explanation of why
+# something is getting masked.
 # Please be extremely careful not to commit atoms that are not valid, as it can
 # cause large-scale breakage, especially if it ends up in the daily snapshot.
 #
@@ -31,6 +32,95 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Alice Ferrazzi <alicef@gentoo.org> (2021-09-16)
+# Regression in POSIX CPU timers.
+# Please upgrade your gentoo-sources.
+# Adding affected vanilla-sources
+# https://www.spinics.net/lists/stable/msg499206.html
+=sys-kernel/gentoo-sources-5.14.4
+=sys-kernel/gentoo-sources-5.13.17
+=sys-kernel/gentoo-sources-5.10.65
+=sys-kernel/gentoo-sources-5.4.146
+=sys-kernel/vanilla-sources-5.14.4
+=sys-kernel/vanilla-sources-5.13.17
+=sys-kernel/vanilla-sources-5.10.65
+=sys-kernel/vanilla-sources-5.4.146
+
+# Michał Górny <mgorny@gentoo.org> (2021-09-16)
+# POSIX CPU timers are broken.  Please downgrade or wait for next bump
+# before rebooting.
+# See e.g. https://lkml.org/lkml/2021/9/15/799
+~sys-kernel/gentoo-kernel-5.13.17
+~sys-kernel/gentoo-kernel-5.10.65
+~sys-kernel/gentoo-kernel-5.4.146
+~sys-kernel/gentoo-kernel-bin-5.13.17
+~sys-kernel/gentoo-kernel-bin-5.10.65
+~sys-kernel/gentoo-kernel-bin-5.4.146
+~sys-kernel/vanilla-kernel-5.13.17
+~sys-kernel/vanilla-kernel-5.10.65
+~sys-kernel/vanilla-kernel-5.4.146
+~virtual/dist-kernel-5.13.17
+~virtual/dist-kernel-5.10.65
+~virtual/dist-kernel-5.4.146
+
+# Mart Raudsepp <leio@gentoo.org> (2021-09-15)
+# New major parallel-installable release which needs special care to not
+# end up loaded into the same process together with the earlier libsoup ABI.
+# Migration to it is expected for GNOME 42, NOT to be unmasked with GNOME 41.
+net-libs/libsoup:3.0
+
+# Gnome Team <gnome@gentoo.org> (2021-09-13)
+# GNOME 41 mask, bug #812986
+>=dev-util/gdbus-codegen-2.69
+>=dev-util/glib-utils-2.69
+>=dev-libs/glib-2.69
+>=net-libs/glib-networking-2.69
+
+# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
+# No reverse dependencies, stuck on EAPI-5.
+# Replaced by dev-libs/spsdeclib.
+# Removal on 2021-10-12. bug #812806
+games-emulation/caps
+
+# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
+# No reverse dependencies, stuck on EAPI-5, last release in 2006.
+# Please report if anyone still need this.
+# Removal on 2021-10-12. bug #776904
+media-libs/sdl-terminal
+
+# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
+# Stuck on x86 / amd64-multilib, no upstream, code relies on
+# several implicit constructs and undefined behavior, ebuild
+# semi-broken and runtime seems broken even if built.
+# Removal on 2021-10-12. bug #701414, bug #739188.
+games-emulation/nestra
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
+# No reverse dependencies. Implements ordered set, which was needed
+# for the python 2.6 era, and since python 2.7 isn't needed and is
+# builtin in the language. Upstream isn't active at all.
+# No other distros package it anymore.
+# Removal on 2021-10-11.  Bug #812554
+dev-python/oset
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
+# No reverse dependencies. Has issues with porting to python 3.10.
+# Has known upstream issues with latest GitHub's markdown parsing.
+# Last year upstream planned to archive the repository, no activity
+# since. No other distros package it anymore.
+# Extra bug: #798195
+# Removal on 2021-10-11.  Bug #812530.
+dev-python/py-gfm
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
+# Upstream repository was archived. No reverse dependencies (only blocked
+# by one other package). Implements GitHub API in python, while better and
+# maintained packages are in tree. Has non trivial issues with bump to
+# python 3.10. No other distros package it anymore.
+# Extra bugs: #791673, #723542, #802999
+# Removal on 2021-10-11.  Bug #812521.
+dev-python/txgithub
 
 # Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
 # Relies on setuptools' deprecated use_2to3 option.
@@ -162,60 +252,6 @@ net-analyzer/netwag
 # Removal on 2021-09-17.
 sys-fs/e4rat
 
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-08-15)
-# Broken since Perl 5.22, bug 662318. Removal in 30 days.
-dev-perl/POE-API-Peek
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-08-15)
-# Broken-ish, upstream unmaintained, only one un-used revdep.
-# Removal in 30 days. Bug 623674.
-dev-perl/MooseX-Types-DateTime-ButMaintained
-dev-perl/MooseX-Types-DateTimeX
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-08-15)
-# Broken for years, see bug 642466. No reverse dependencies,
-# no easy fix. Removal in 30 days.
-dev-perl/Perlbal-XS-HTTPHeaders
-
-# David Seifert <soap@gentoo.org> (2021-08-13)
-# Dead upstream, new "forked" upstream that just added the last version
-# on Github but doesn't maintain them. Unmaintained for the past 10
-# years in ::gentoo, no other real distros package these anymore.
-# HOMEPAGE leads to some scammy site.
-# Bug #318143, #626666, #626668, Removal in ~30 days.
-dev-libs/libbrahe
-dev-libs/libcoyotl
-dev-libs/libevocosm
-app-benchmarks/acovea
-app-benchmarks/acovea-gtk
-
-# Agostino Sarubbo <ago@gentoo.org> (2021-08-12)
-# Latest release 2012, not anymore useful for current routers
-# Removal in ~30 days.
-app-crypt/WiRouterKeyRec
-
-# Joonas Niilola <juippis@gentoo.org> (2021-08-11)
-# Broken since 2016. Latest upstream release 2014, no ebuild activity
-# from maintainer since 2016, EAPI-5 and the rest. HOMEPAGE leads to
-# some scammy site. Removal in ~30 days. #584668
-dev-util/emilpro
-
-# Joonas Niilola <juippis@gentoo.org> (2021-08-11)
-# A library without revdeps, broken for a long time. No maintainer
-# reply. Package not updated in Gentoo since 2016 even though upstream
-# is still active. Removal in ~30 days. #774147
-dev-libs/caliper
-
-# Joonas Niilola <juippis@gentoo.org> (2021-08-11)
-# Broken with gcc >=10, even the latest upstream release fails with
-# gcc-11. Unmaintained. Removal in ~30 days. #739904
-app-office/plan
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-10)
-# EAPI-5, dead, unused; last consumer dropped in bug #352952
-# Removal on 2021-09-09.
-net-print/libgnomecups
-
 # David Seifert <soap@gentoo.org> (2021-08-04)
 # Last release over 4 years ago, upstream pretty much dead, the
 # ecosystem has switched to dev-util/pkgconf, which is alive. Testing
@@ -263,14 +299,6 @@ dev-qt/qtwebkit:5
 # Masked for testing
 >=mail-client/claws-mail-4.0.0
 
-# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
-# Mask ruby25 for removal. This version is no longer supported
-# upstream. Use a newer ruby version, e.g ruby26.
-# Masked for removal in 30 days.
-dev-lang/ruby:2.5
-=dev-ruby/rubygems-2.7*
-dev-ruby/did_you_mean:2.5
-
 # Michał Górny <mgorny@gentoo.org> (2021-07-06)
 # Upstream changed license to GPL-3+ in order to deliberately cause
 # incompatiblity with revdep licenses.  Mask until the situation
@@ -295,14 +323,6 @@ sys-libs/db:5.1
 # New Minecraft server release needs at least Java 16,
 # which is currently not available in Gentoo.
 >=games-server/minecraft-server-1.17
-
-# Davide Pesavento <pesa@gentoo.org> (2021-06-15)
-# Masked for revdep testing.
->=dev-python/sip-6
->=dev-python/PyQt5-5.15.5_pre
->=dev-python/PyQtWebEngine-5.15.5_pre
->=dev-python/qscintilla-python-2.13
->=app-text/calibre-5.25.0
 
 # Sam James <sam@gentoo.org> (2021-06-12)
 # Masked until all reverse dependencies support

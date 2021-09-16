@@ -15,7 +15,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE="accessibility caps gles2-only multimedia plasma screencast"
 
 RESTRICT="test"
@@ -79,7 +79,6 @@ COMMON_DEPEND="
 "
 # TODO: sys-apps/hwdata? not packaged yet; commit 33a1777a, Gentoo-bug 717216
 RDEPEND="${COMMON_DEPEND}
-	!>=media-libs/libglvnd-1.3.4
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
@@ -91,11 +90,9 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
-# FIXME: <media-libs/libglvnd-1.3.4 not a dep, only temp. workaround for bug #810511
 DEPEND="${COMMON_DEPEND}
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
-	<media-libs/libglvnd-1.3.4
 	x11-base/xorg-proto
 	test? (
 		>=dev-libs/wayland-protocols-1.19
@@ -105,6 +102,11 @@ DEPEND="${COMMON_DEPEND}
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-libglvnd-1.3.4.patch" # KDE-bug 440372, bug 810511
+	"${FILESDIR}/${P}-32bit.patch" # bug 813228
+)
 
 src_prepare() {
 	ecm_src_prepare

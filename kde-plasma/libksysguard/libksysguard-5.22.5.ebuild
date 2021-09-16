@@ -14,7 +14,7 @@ DESCRIPTION="Task management and system monitoring library"
 
 LICENSE="LGPL-2+"
 SLOT="5/9"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE="webengine X"
 
 COMMON_DEPEND="
@@ -58,7 +58,7 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-5.18.80:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.16.0-no-detailed-mem-message.patch" )
+PATCHES=( "${FILESDIR}/${P}-no-detailed-mem-message.patch" )
 
 src_configure() {
 	local mycmakeargs=(

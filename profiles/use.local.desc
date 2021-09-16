@@ -2415,11 +2415,6 @@ dev-python/icalendar:doc - Generate examples and other extra documentation
 dev-python/ipython:matplotlib - Add support for dev-python/matplotlib
 dev-python/ipython:nbconvert - Enable support for converting notebooks to various formats using app-text/pandoc
 dev-python/ipython:notebook - Install requirements for the web notebook based on www-servers/tornado
-dev-python/kombu:mongodb - Enables MongoDB backend
-dev-python/kombu:msgpack - Enables MessagePack (de)serializer for Python
-dev-python/kombu:redis - Enables Redis backend
-dev-python/kombu:sqs - Enables Amazon SQS transport module for Kombu
-dev-python/kombu:yaml - Enables yaml backend
 dev-python/matplotlib:excel - Pull dev-python/xlwt for the exceltools toolkit
 dev-python/matplotlib:gtk3 - Enable x11-libs/gtk+:3 support
 dev-python/matplotlib:webagg - Enable webagg backend that uses www-servers/tornado
@@ -2498,6 +2493,7 @@ dev-python/simplespectral:faster - Use dev-python/scipy to speed up drawing
 dev-python/simplespectral:fastest - Use dev-python/pyFFTW to speed up drawing to the max
 dev-python/socketpool:eventlet - Install dev-python/eventlet as needed for the eventlet backend.
 dev-python/socketpool:gevent - Install dev-python/gevent as needed for the gevent backend.
+dev-python/subprocess-tee:test-full - Enable full test mode. Pulls in many additional dependencies, and requires having been emerged without this flag first in order to avoid a circular dependency.
 dev-python/sympy:imaging - Add support for dev-python/pillow
 dev-python/sympy:ipython - Add support for dev-python/ipython
 dev-python/sympy:mathml - Add support for mathml
@@ -2730,6 +2726,7 @@ dev-util/anjuta:terminal - Enable terminal plugin based on x11-libs/vte
 dev-util/bazel:static-libs - Link libstdc++ statically
 dev-util/bazel:tools - Install extra bazel tools to build from sources
 dev-util/bitcoin-tx:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
+dev-util/bpftool:caps - Use sys-libs/libcap to enable unprivileged run support
 dev-util/bpftrace:fuzzing - Build bpftrace for fuzzing
 dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
@@ -2779,7 +2776,6 @@ dev-util/diffoscope:tcpdump - Use net-analyzer/tcpdump
 dev-util/diffoscope:zip - Use app-arch/unzip
 dev-util/edb-debugger:jumbo-build - Experimental jumbo (also known as unity) build capability
 dev-util/edi:clang - Provide integration with sys-devel/clang and dev-util/bear for autocompletion, inline errors and information about compilation units.
-dev-util/emilpro:system-binutils - Use the gentoo binutils instead of building against an unpatched vanilla version
 dev-util/flatpak-builder:yaml - Use libyaml for yaml support
 dev-util/geany:gtk2 - Use GTK+2 instead of GTK+3
 dev-util/geany:gtk3 - Use GTK+3 instead of GTK+2
@@ -3563,7 +3559,6 @@ kde-plasma/kdeplasma-addons:comic - Enable comic applet (requires deprecated kde
 kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a variety of sources
 kde-plasma/kdeplasma-addons:webengine - Enable dictionary and web browser applets using dev-qt/qtwebengine
 kde-plasma/kinfocenter:pci - Show advanced PCI information
-kde-plasma/ksysguard:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
 kde-plasma/ksystemstats:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
 kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
 kde-plasma/kwin:screencast - Enable screencast portal using media-video/pipewire
@@ -5496,6 +5491,7 @@ net-dns/dnsmasq:dnssec - Enable support DNSSEC validation and caching.
 net-dns/dnsmasq:dumpfile - Include code to dump packets to a libpcap-format file for debugging
 net-dns/dnsmasq:id - Whether report *.bind CHAOS info to clients, otherwise forward such requests upstream instead
 net-dns/dnsmasq:libidn2 - Enable support for Internationalized Domain Names, via net-dns/libidn2 rather than net-dns/libidn
+net-dns/dnsmasq:loop - Include functionality to probe for and remove DNS forwarding loops
 net-dns/dnsmasq:nettlehash - Use hashing functions from dev-libs/nettle
 net-dns/dnsmasq:script - Enable support for calling scripts when leases change.
 net-dns/dnsmasq:tftp - Enables built in TFTP server for netbooting.
@@ -6623,6 +6619,7 @@ net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using
 net-misc/wget2:brotli - Enable support for brotli compression
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
 net-misc/wget2:http2 - Enable HTTP/2.0 support via net-libs/nghttp2
+net-misc/wget2:lzip - Enable app-arch/lzip support
 net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
 net-misc/wget2:valgrind - Depend on dev-util/valgrind for test suite

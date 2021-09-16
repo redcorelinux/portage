@@ -3,6 +3,19 @@
 
 EAPI=7
 
+# This ebuild uses 3 special global variables:
+# GRUB_BOOTSTRAP: Depend on python and invoke bootstrap (gnulib).
+# GRUB_AUTOGEN: Depend on python and invoke the autogen.sh.
+# GRUB_AUTORECONF: Inherit autotools and invoke eautoreconf.
+#
+# When applying patches:
+# If gnulib is updated, set GRUB_BOOTSTRAP=1
+# If *.def is updated, set GRUB_AUTOGEN=1
+# If gnulib, *.def, or any autotools files are updated, set GRUB_AUTORECONF=1
+#
+# If any of the above applies to a user patch, the user should set the
+# corresponding variable in make.conf or the environment.
+
 if [[ ${PV} == 9999  ]]; then
 	GRUB_AUTORECONF=1
 	GRUB_BOOTSTRAP=1
@@ -31,7 +44,7 @@ if [[ ${PV} != 9999 ]]; then
 		SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 		S=${WORKDIR}/${P%_*}
 	fi
-	KEYWORDS="amd64 ~arm arm64 ~ia64 ppc ppc64 sparc x86"
+	KEYWORDS="amd64 ~arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/grub.git"
