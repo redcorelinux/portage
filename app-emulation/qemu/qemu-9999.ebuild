@@ -6,10 +6,10 @@ EAPI="7"
 PYTHON_COMPAT=( python3_{7,8,9,10} )
 PYTHON_REQ_USE="ncurses,readline"
 
-FIRMWARE_ABI_VERSION="6.0.0-r50"
+FIRMWARE_ABI_VERSION="6.1.0"
 
-inherit eutils linux-info toolchain-funcs multilib python-r1
-inherit udev fcaps readme.gentoo-r1 pax-utils xdg-utils
+inherit linux-info toolchain-funcs python-r1 udev fcaps readme.gentoo-r1 \
+		pax-utils xdg-utils
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://git.qemu.org/git/qemu.git"
@@ -75,11 +75,8 @@ COMMON_TARGETS="
 IUSE_SOFTMMU_TARGETS="
 	${COMMON_TARGETS}
 	avr
-	lm32
-	moxie
 	rx
 	tricore
-	unicore32
 "
 IUSE_USER_TARGETS="
 	${COMMON_TARGETS}
@@ -243,7 +240,10 @@ BDEPEND="
 	dev-lang/perl
 	sys-apps/texinfo
 	virtual/pkgconfig
-	doc? ( dev-python/sphinx )
+	doc? (
+		dev-python/sphinx
+		dev-python/sphinx_rtd_theme
+	)
 	gtk? ( nls? ( sys-devel/gettext ) )
 	test? (
 		dev-libs/glib[utils]
@@ -273,10 +273,9 @@ RDEPEND="${CDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.11.1-capstone_include_path.patch
-	"${FILESDIR}"/${PN}-5.2.0-strings.patch
-	"${FILESDIR}"/${PN}-5.2.0-cleaner-werror.patch
 	"${FILESDIR}"/${PN}-5.2.0-disable-keymap.patch
-	"${FILESDIR}"/${PN}-5.2.0-dce-locks.patch
+	"${FILESDIR}"/${PN}-6.0.0-make.patch
+	"${FILESDIR}"/${PN}-6.1.0-strings.patch
 )
 
 QA_PREBUILT="
@@ -389,7 +388,7 @@ check_targets() {
 	local var=$1 mak=$2
 	local detected sorted
 
-	pushd "${S}"/default-configs/targets/ >/dev/null || die
+	pushd "${S}"/configs/targets/ >/dev/null || die
 
 	# Force C locale until glibc is updated. #564936
 	detected=$(echo $(printf '%s\n' *-${mak}.mak | sed "s:-${mak}.mak::" | LC_COLLATE=C sort -u))

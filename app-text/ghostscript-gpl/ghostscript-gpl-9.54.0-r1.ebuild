@@ -23,7 +23,7 @@ fi
 
 LICENSE="AGPL-3 CPL-1.0"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~arm64 hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="cups dbus gtk +jpeg2k l10n_de static-libs unicode X"
 
 LANGS="ja ko zh-CN zh-TW"
@@ -69,7 +69,9 @@ src_prepare() {
 		eapply "${WORKDIR}/patches/"*.patch
 	fi
 
+	# Upstream patches
 	eapply "${FILESDIR}"/${P}-CVE-2021-3781.patch
+	eapply "${FILESDIR}"/${P}-makefile-deps.patch
 
 	default
 
@@ -162,10 +164,12 @@ src_configure() {
 }
 
 src_compile() {
-	emake so all
+	# Forcing j1 for both emake calls for now
+	# See bug #800125
+	emake -j1 so all
 
 	cd ijs || die
-	emake
+	emake -j1
 }
 
 src_install() {

@@ -1,6 +1,10 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2021-09-23)
+# Needs media-libs/libldac which builds on ppc64le, but not be
+media-video/pipewire -bluetooth
+
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2021-06-02)
 # altivec code is big-endian only, #773100
 media-libs/libdvbcsa cpu_flags_ppc_altivec
@@ -39,7 +43,6 @@ dev-qt/qtwayland -vulkan
 media-libs/mesa -vulkan -vulkan-overlay
 media-libs/libsdl2 -vulkan
 media-video/mpv -vulkan
-media-video/pipewire -vulkan
 media-video/vlc -libplacebo
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2020-01-21)

@@ -10,7 +10,7 @@ DESCRIPTION="Library for rendering dynamic web content in Qt5 C++ and QML applic
 HOMEPAGE="https://www.qt.io/"
 
 if [[ ${QT5_BUILD_TYPE} == release ]]; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 x86"
+	KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
 	if [[ ${PV} == ${QT5_PV}_p* ]]; then
 		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}.tar.xz"
 		S="${WORKDIR}/${P}"
@@ -204,13 +204,13 @@ src_configure() {
 		-printing-and-pdf
 		-system-opus
 		-system-webp
-		$(usex alsa '-alsa' '-no-alsa')
-		$(usex bindist '-no-proprietary-codecs' '-proprietary-codecs')
-		$(usex geolocation '-webengine-geolocation' '-no-webengine-geolocation')
-		$(usex kerberos '-webengine-kerberos' '-no-webengine-kerberos')
-		$(usex pulseaudio '-pulseaudio' '-no-pulseaudio')
-		$(usex system-ffmpeg '-system-ffmpeg' '-qt-ffmpeg')
-		$(usex system-icu '-webengine-icu' '-no-webengine-icu')
+		$(qt_use alsa)
+		$(qt_use !bindist proprietary-codecs)
+		$(qt_use geolocation webengine-geolocation)
+		$(qt_use kerberos webengine-kerberos)
+		$(qt_use pulseaudio)
+		$(usex system-ffmpeg -system-ffmpeg -qt-ffmpeg)
+		$(qt_use system-icu webengine-icu)
 	)
 	qt5-build_src_configure
 }
