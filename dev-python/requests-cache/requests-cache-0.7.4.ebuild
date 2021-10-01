@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 RDEPEND="
 	dev-python/cattrs[${PYTHON_USEDEP}]
@@ -32,6 +32,7 @@ BDEPEND="
 		dev-python/requests-mock[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
 		dev-python/timeout-decorator[${PYTHON_USEDEP}]
+		dev-python/ujson[${PYTHON_USEDEP}]
 	)"
 
 distutils_enable_tests pytest
