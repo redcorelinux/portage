@@ -6,6 +6,15 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-10-07)
+# parallel-compiler feature is not tested by upstream
+# and is not recommended for general usage and may silently
+# miscompile code if used (unlikely, but not impossible)
+# feel free to unmask, but be prepared to deal with possible bugs
+# https://bugs.gentoo.org/813954
+# https://github.com/rust-lang/rust/issues/89108
+dev-lang/rust parallel-compiler
+
 # Stephan Hartmann <sultan@gentoo.org> (2021-09-16)
 # Uses a function that is not available in media-video/ffmpeg.
 >=www-client/chromium-94 system-ffmpeg
@@ -15,12 +24,6 @@
 # It is caused by -Wl,--as-needed linker flag,
 # see also: https://github.com/rspamd/rspamd/issues/3871
 ~mail-filter/rspamd-3.0 jemalloc
-
-# James Le Cuirot <chewi@gentoo.org> (2021-09-04)
-# Currently requires an unreleased version of FFmpeg. If you really want it,
-# unmask the flag and emerge ffmpeg-9999 with this environment variable set:
-# EGIT_OVERRIDE_COMMIT_FFMPEG=8649f5dca6688feb66f787dcf232d42ed20fdb28
->=www-client/vivaldi-snapshot-4.2.2406.4 proprietary-codecs
 
 # Matt Turner <mattst88@gentoo.org> (2021-08-28)
 # Mask experimental options.
@@ -34,16 +37,6 @@ gui-libs/gtk ffmpeg vulkan
 # James Le Cuirot <chewi@gentoo.org> (2021-08-07)
 # The ORBlite scanner plugin only works on amd64 and x86.
 net-print/hplip-plugin orblite
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# Two years after the tracker was opened it is time to mask dev-qt/qtwebkit
-# for good. No commits to upstream repository for >9 months, latest available
-# tarball still "alpha" with warning about known unpatched vulnerabilities.
-# Bugs: #684580, #750893
-app-office/kexi webkit
-dev-libs/kreport webkit
-media-plugins/mythplugins mythbrowser mythmusic
-net-irc/kvirc webkit
 
 # Sam James <sam@gentoo.org> (2021-07-24)
 # USE=exec-static-trampoline can break consumers due to
@@ -191,10 +184,6 @@ net-im/telepathy-connection-managers gadu icq meanwhile steam yahoo
 # Highly experimental, may cause breakages when updating. Use with
 # caution!
 dev-libs/efl efl-one
-
-# Michał Górny <mgorny@gentoo.org> (2020-09-09)
-# The respective dependencies are masked for removal.
-media-plugins/mythplugins mythnetvision
 
 # Michał Górny <mgorny@gentoo.org> (2020-09-09)
 # The respective dependencies are masked for removal.
@@ -452,10 +441,14 @@ dev-db/mysql client-libs
 media-video/ffmpeg appkit
 
 # James Le Cuirot <chewi@gentoo.org> (2017-12-17)
+# Georgy Yakovlev <gyakovlev@gentoo.org (2021-10-08)
 # Java 9+ is not yet fully supported on Gentoo. Having a masked
 # gentoo-vm flag allows us to provide it without it breaking Gentoo
 # packages. Those who wish to experiment with it as a fully recognised
 # Gentoo JVM can unmask the flag.
+dev-java/openjdk-jre-bin:17 gentoo-vm
+dev-java/openjdk-bin:17 gentoo-vm
+dev-java/openjdk:17 gentoo-vm
 dev-java/openjdk-jre-bin:11 gentoo-vm
 dev-java/openjdk-bin:11 gentoo-vm
 dev-java/openjdk:11 gentoo-vm

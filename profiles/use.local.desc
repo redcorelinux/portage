@@ -498,10 +498,10 @@ app-emulation/hyperd:libvirt - Enable support for KVM via libvirt
 app-emulation/hyperd:xen - Enable support for the Xen Hypervisor
 app-emulation/libcacard:passthrough - Enable smartcard passthrough support via sys-apps/pcsc-lite
 app-emulation/libguestfs:erlang - Build Erlang bindings
-app-emulation/libguestfs:fuse - Enable image mount support via fuse
-app-emulation/libguestfs:inspect-icons - Use media-gfx/icoutils for acces icon file in image and inspect it
+app-emulation/libguestfs:fuse - Enable image mount support via sys-fs/fuse
+app-emulation/libguestfs:inspect-icons - Use media-gfx/icoutils for accessing/inspecting icon file within images
 app-emulation/libguestfs:libvirt - Use app-emulation/libvirt to manipulate VMs
-app-emulation/libguestfs:systemtap - Use dev-util/systemtap to inspect VM via "probes" way
+app-emulation/libguestfs:systemtap - Use dev-util/systemtap to inspect VM via "probes"
 app-emulation/libspectrum:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
 app-emulation/libvirt:apparmor - Enable AppArmor support
 app-emulation/libvirt:dtrace - Enable dtrace support via dev-util/systemtap
@@ -572,7 +572,7 @@ app-emulation/qemu:pin-upstream-blobs - Pin the versions of BIOS firmware to the
 app-emulation/qemu:plugins - Enable qemu plugin API via shared library loading.
 app-emulation/qemu:png - Enable png image support for the VNC console server
 app-emulation/qemu:pulseaudio - Enable pulseaudio output for sound emulation
-app-emulation/qemu:rbd - Enable rados block device backend support, see http://ceph.newdream.net/wiki/QEMU-RBD
+app-emulation/qemu:rbd - Enable rados block device backend support, see https://docs.ceph.com/en/mimic/rbd/qemu-rbd/
 app-emulation/qemu:sdl - Enable the SDL-based console
 app-emulation/qemu:sdl-image - SDL Image support for icons
 app-emulation/qemu:slirp - Enable TCP/IP in hypervisor via net-libs/libslirp
@@ -584,10 +584,10 @@ app-emulation/qemu:systemtap - Enable SystemTAP/DTrace tracing
 app-emulation/qemu:usb - Enable USB passthrough via dev-libs/libusb
 app-emulation/qemu:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
 app-emulation/qemu:vde - Enable VDE-based networking
-app-emulation/qemu:vhost-net - Enable accelerated networking using vhost-net, see http://www.linux-kvm.org/page/VhostNet
+app-emulation/qemu:vhost-net - Enable accelerated networking using vhost-net, see https://www.linux-kvm.org/page/VhostNet
 app-emulation/qemu:vhost-user-fs - Enable shared file system access using the FUSE protocol carried over virtio.
 app-emulation/qemu:virgl - Enable experimental Virgil 3d (virtual software GPU)
-app-emulation/qemu:virtfs - Enable VirtFS via virtio-9p-pci / fsdev. See http://wiki.qemu.org/Documentation/9psetup
+app-emulation/qemu:virtfs - Enable VirtFS via virtio-9p-pci / fsdev. See https://wiki.qemu.org/Documentation/9psetup
 app-emulation/qemu:vte - Enable terminal support (x11-libs/vte) in the GTK+ interface
 app-emulation/qemu:xattr - Add support for getting and setting POSIX extended attributes, through sys-apps/attr. Requisite for the virtfs backend.
 app-emulation/qemu:xen - Enables support for Xen backends
@@ -805,7 +805,6 @@ app-misc/graphlcd-base:freetype - Add support for media-libs/freetype.
 app-misc/graphlcd-base:graphicsmagick - Add support for media-gfx/graphicsmagick.
 app-misc/graphlcd-base:imagemagick - Add support for media-gfx/imagemagick.
 app-misc/irtrans-irserver:mono - Enable mono support
-app-misc/jp:jp - Install jp which is the official jp CLI for JMESPath
 app-misc/jp:jpp - Install jpp which is an extended superset of the jp CLI for JMESPath
 app-misc/jpipe:jp-symlink - Install a jp symlink that points to jpipe.
 app-misc/jpipe:jpp-symlink - Install a jpp symlink that points to jpipe.
@@ -868,7 +867,6 @@ app-misc/lirc:uinput - Enable support for uinput
 app-misc/mc:edit - Compile and install the mcedit application
 app-misc/mc:sftp - Add support for sftp (uses net-libs/libssh2 for it).
 app-misc/mc:slang - Use sys-libs/slang instead of sys-libs/ncurses.
-app-misc/mc:xdg - Toggles mc's config dir location. Enable for $XDG_CONFIG_HOME/mc, disable for $HOME/.mc
 app-misc/mosquitto:bridge - Enable bridge support in the MQTT broker.
 app-misc/mosquitto:persistence - Store messages and subscriptions to a file.
 app-misc/mosquitto:srv - Include SRV lookup support.
@@ -960,7 +958,6 @@ app-office/grisbi:goffice - enable goffice graphic support
 app-office/kexi:experimental - Enable features deemed experimental by upstream
 app-office/kexi:marble - Enable displaying of maps using kde-apps/marble
 app-office/kexi:mdb - Enable support for Microsoft Access database
-app-office/kexi:webkit - Enable web form designer widget using dev-qt/qtwebkit
 app-office/kmymoney:activities - Enable kde-frameworks/kactivities integration
 app-office/kmymoney:addressbook - Enable kde-apps/akonadi contact integration
 app-office/kmymoney:hbci - Enable HBCI support using net-libs/aqbanking
@@ -1736,7 +1733,6 @@ dev-lang/gnat-gpl:sanitize - Build support for various sanitizer functions (ASAN
 dev-lang/gnat-gpl:ssp - Build packages with stack smashing protector on by default
 dev-lang/gnat-gpl:systemtap - enable systemtap static probe points
 dev-lang/gnat-gpl:vtv - Build support for virtual table verification (a C++ hardening feature)
-dev-lang/icon:iplsrc - install the icon programming library source
 dev-lang/janet:static-libs - install janet static library archive, you must enable this flag for using `jpm build`
 dev-lang/jerryscript:debugger - Install jerry-debugger
 dev-lang/jsonnet:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
@@ -1818,7 +1814,7 @@ dev-lang/ruby:systemtap - Enable SystemTAP/DTrace tracing
 dev-lang/rust:clippy - Install clippy, Rust code linter
 dev-lang/rust:miri - Install miri, an interpreter for Rust's mid-level intermediate representation (requires USE=nightly)
 dev-lang/rust:nightly - Enable nightly (UNSTABLE) features
-dev-lang/rust:parallel-compiler - Build a multi-threaded rustc (experimental, unsupported)
+dev-lang/rust:parallel-compiler - Build a multi-threaded rustc (experimental, not tested by upstream)
 dev-lang/rust:rls - Install rls, Rust Language Server (used with IDEs supporting RLS protocol)
 dev-lang/rust:rustfmt - Install rustfmt, Rust code formatter
 dev-lang/rust:system-bootstrap - Bootstrap using installed rust compiler
@@ -2011,8 +2007,8 @@ dev-libs/hidapi:fox - Build a x11-libs/fox GUI
 dev-libs/imath:large-stack - Enables code to take advantage of large stack support
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
-dev-libs/intel-neo:l0 - Install the oneAPI Level Zero driver alongside the OpenCL one
-dev-libs/intel-neo:vaapi - Support the sharing of surfaces with Video Acceleration API (OpenCL Extension #36)
+dev-libs/intel-compute-runtime:l0 - Install the oneAPI Level Zero driver alongside the OpenCL one
+dev-libs/intel-compute-runtime:vaapi - Support the sharing of surfaces with Video Acceleration API (OpenCL Extension #36)
 dev-libs/jemalloc:lazy-lock - Enable lazy locking (only lock when multi-threaded)
 dev-libs/jemalloc:prof - Enable allocation profiling
 dev-libs/jemalloc:stats - Enable statistics calculation/reporting
@@ -2412,6 +2408,7 @@ dev-python/cvxopt:dsdp - Use interior point library sci-libs/dsdp
 dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-python/drf-yasg:validation - Enable swagger spec validation using swagger-spec-validator
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
+dev-python/elasticsearch-py:async - Add async support
 dev-python/falcon:cython - Build cython-based python modules
 dev-python/gevent:events - Enables the gevent events system which is required by libraries that use gevent monkey patching. This adds dev-python/zope-event and dev-python/zope-interface as runtime dependencies.
 dev-python/hiredis:system-libs - Use dev-libs/hiredis from system
@@ -2649,13 +2646,6 @@ dev-qt/qtwebengine:jumbo-build - Combine source files to speed up build process.
 dev-qt/qtwebengine:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 dev-qt/qtwebengine:system-icu - Use the system-wide dev-libs/icu instead of bundled.
 dev-qt/qtwebengine:widgets - Enable QtWidgets support
-dev-qt/qtwebkit:geolocation - Enable physical position determination via dev-qt/qtpositioning
-dev-qt/qtwebkit:gstreamer - Enable HTML5 audio/video support via media-libs/gstreamer using SLOT 1.0
-dev-qt/qtwebkit:hyphen - Enable hyphenation support via dev-libs/hyphen
-dev-qt/qtwebkit:multimedia - Enable HTML5 audio/video support via dev-qt/qtmultimedia
-dev-qt/qtwebkit:orientation - Enable device orientation detection via dev-qt/qtsensors
-dev-qt/qtwebkit:printsupport - Enable printing via dev-qt/qtprintsupport
-dev-qt/qtwebkit:qml - Build QML/QtQuick bindings
 dev-qt/qtwebsockets:qml - Build QML bindings
 dev-qt/qtwidgets:gtk - Build the GTK platform theme plugin
 dev-qt/qtxmlpatterns:qml - Build the XmlListModel import for QtQuick (requires QtDeclarative)
@@ -3720,8 +3710,6 @@ mail-client/thunderbird:system-jpeg - Use the system-wide media-libs/libjpeg-tur
 mail-client/thunderbird:system-libevent - Use the system-wide dev-libs/libevent instead of bundled.
 mail-client/thunderbird:system-libvpx - Use the system-wide media-libs/libvpx instead of bundled.
 mail-client/thunderbird:system-webp - Use the system-wide media-libs/libwebp instead of bundled.
-mail-client/trojita:password - Store passwords securely via dev-libs/qtkeychain
-mail-client/trojita:pim - Enable support for KDE PIM resources integration via kde-apps/akonadi addressbook plugin
 mail-filter/MailScanner:exim - Set mail-mta/exim to used MTA
 mail-filter/MailScanner:postfix - Set mail-mta/postfix to used MTA
 mail-filter/MailScanner:spamassassin - Enable usage of mail-filter/spamassassin for spam protection
@@ -4422,11 +4410,8 @@ media-plugins/mythplugins:exif - Allows MythGallery to read EXIF data from photo
 media-plugins/mythplugins:fftw - Adds visual effects to MythMusic when playing back music
 media-plugins/mythplugins:hls - HTTP Live Streaming support
 media-plugins/mythplugins:mytharchive - Allows you to archive recorded content to CD or DVD
-media-plugins/mythplugins:mythbrowser - Adds a web browser within MythTV
 media-plugins/mythplugins:mythgame - Adds a frontend to various ROM emulators within MythTV
-media-plugins/mythplugins:mythmusic - Adds the ability for MythTV to act as a music player
 media-plugins/mythplugins:mythnetvision - Adds the ability to view netvision devices within MythTV
-media-plugins/mythplugins:mythnews - Adds a news viewer within MythTV
 media-plugins/mythplugins:mythweather - Adds weather information within MythTV
 media-plugins/mythplugins:mythzmserver - Build mythzmserver daemon needed by zoneminder on LAN
 media-plugins/mythplugins:mythzoneminder - Adds support for zoneminder (requires active mythzmserver daemon on LAN).
@@ -4983,6 +4968,10 @@ media-video/ffmpeg:x265 - Enables HEVC encoding with media-libs/x265.
 media-video/ffmpeg:zeromq - Enables net-libs/zeromq support with the zmq/azmq filters.
 media-video/ffmpeg:zimg - Enables media-libs/zimg based scale filter.
 media-video/ffmpeg:zvbi - Enables media-libs/zvbi based teletext decoder.
+media-video/ffmpeg-chromium:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
+media-video/ffmpeg-chromium:gpl - Build GPL code. Should be enabled unless you require LGPL binaries.
+media-video/ffmpeg-chromium:mmal - Enables Multi-Media Abstraction Layer (MMAL) decoding support: Available e.g. on the Raspberry Pi.
+media-video/ffmpeg-chromium:vulkan - Enables support for the vulkan API for GPU offload.
 media-video/ffmpeg2theora:kate - Adds support for Ogg Kate subtitles via libkate.
 media-video/google2srt:html - Install HTML documentation
 media-video/guvcview:qt5 - Build with Qt5 interface instead Gtk+
@@ -5077,7 +5066,6 @@ media-video/nvidia_video_sdk:tools - Build and install example tools.
 media-video/obs-studio:browser - Enable browser source support via (precompiled) CEF.
 media-video/obs-studio:decklink - Build the Decklink plugin.
 media-video/obs-studio:fdk - Build with LibFDK AAC support.
-media-video/obs-studio:imagemagick - Use ImageMagick for image loading instead of FFmpeg.
 media-video/obs-studio:nvenc - Build with NVENC encoding support for nVidia video cards.
 media-video/obs-studio:pipewire - Build with PipeWire support.
 media-video/obs-studio:python - Build with scripting support for Python 3.
@@ -5969,6 +5957,7 @@ net-irc/weechat:logger - Enable support for logging
 net-irc/weechat:relay - Enable relay plugin (experimental)
 net-irc/weechat:scripts - Build infrastructure for scripting
 net-irc/weechat:trigger - Enable trigger plugin
+net-irc/weechat:typing - Enable typing plugin
 net-irc/weechat:xfer - Enable xfer plugin support
 net-irc/znc:zlib - Enable mod_deflate-like gzip support for znc's web interface using sys-libs/zlib.
 net-libs/aqbanking:ebics - Enable support for Electronic Banking Internet Communication Standard (EBICS)
@@ -7285,6 +7274,7 @@ sci-libs/gmsh:petsc - Enable sci-mathematics/petsc support
 sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/cblas) instead of shipped internal version
 sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
+sci-libs/hdf5:ros3 - Enable support for read-only S3 access (https://portal.hdfgroup.org/display/HDF5/Configuration+and+Setup+for+HDF5+Read+Only+S3+VFD)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr

@@ -149,8 +149,15 @@ multilib_src_install() {
 		sed_macros "${ED}"/usr/include/minizip/*.h
 	fi
 
+	if use minizip; then
+		# This might not exist if slibtool is used.
+		# https://bugs.gentoo.org/816756
+		rm -f "${ED}"/usr/$(get_libdir)/libminizip.la || die
+	fi
+
 	if ! use static-libs ; then
-		rm -f "${ED}"/usr/$(get_libdir)/lib{z,minizip}.{a,la} || die #419645
+		# https://bugs.gentoo.org/419645
+		rm "${ED}"/usr/$(get_libdir)/libz.a || die
 	fi
 }
 

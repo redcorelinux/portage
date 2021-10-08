@@ -33,6 +33,23 @@
 
 #--- END OF EXAMPLES ---
 
+# Fabian Groffen <grobian@gentoo.org> (2021-10-03)
+# Masked for erratic behaviour
+# https://bugs.exim.org/show_bug.cgi?id=2813
+=mail-mta/exim-4.95
+
+# Hans de Graaff <graaff@gentoo.org> (2021-10-03)
+# Old obsolete slots. Use a newer slot instead.
+# Masked for removal in 30 days.
+dev-ruby/hashie:0
+dev-ruby/thor:0
+
+# Joonas Niilola <juippis@gentoo.org> (2021-10-02)
+# A library without revdeps. Last upstream release in 2009, huge amount
+# of open bugs not fixed has led the project being forked already.
+# Bug #776895. Removal in ~30 days.
+dev-libs/rapidxml
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2021-10-01)
 # KDE Plasma 5.22.90 (5.23 Beta) mask - Pre-release version
 # See also: https://kde.org/announcements/plasma/5/5.22.90/
@@ -279,27 +296,6 @@ dev-python/oauth2
 # Masked until dev-libs/openssl-3.0* is unmasked
 =dev-libs/gost-engine-3.0*
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-09-07)
-# EAPI-5, dead upstream, last (and only) version added in 2011
-# Bug 644344; Removal on 2021-10-07.
-net-libs/gsnmp
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-09-07)
-# EAPI-5, dead upstream, last bump in 2012
-# Bug 644344; Removal on 2021-10-07.
-net-analyzer/scli
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-09-04)
-# EAPI-5, dead, unused, bug 808213; Removal on 2021-10-04.
-x11-libs/mx
-
-# David Seifert <soap@gentoo.org> (2021-09-04)
-# Last upstream release over 2.5 years ago, removed by Fedora,
-# unresponsive maintainer in Gentoo, broken with linux-headers-5.13,
-# relies on glibc implementation details.
-# Bug #717114, #801457, removal in 30 days.
-dev-util/trinity
-
 # Ionen Wolkens <ionen@gentoo.org> (2021-09-03)
 # Currently may not function with kde-plasma/kwin (black screen),
 # so keeping masked for testing due to being a primary consumer.
@@ -319,22 +315,6 @@ games-puzzle/gnudoku
 # Bernard Cafarelli <voyageur@gentoo.org> (2021-08-26)
 # Preparing for final 5.0.0 release
 >=app-text/tesseract-5.0.0_beta
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# Depends on Qt5WebKit with more holes in it than swiss cheese. Bug #685750
-# Last release in 2016. Removal on 2021-10-04.
-mail-client/trojita
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# Depends on Qt5WebKit with more holes in it than swiss cheese. Bug #740416
-# Removal on 2021-10-04.
-app-text/fb2edit
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# No commits to upstream repository for >9 months, latest available tarball
-# still "alpha" with warning about known unpatched vulnerabilities. Bug #684580
-# Removal on 2021-10-04.
-dev-qt/qtwebkit:5
 
 # Joonas Niilola <juippis@gentoo.org> (2021-07-29)
 # Upstream provided migration instructions from 2. -> 3. update,
@@ -356,6 +336,7 @@ dev-qt/qtwebkit:5
 
 # Lars Wendler <polynomial-c@gentoo.org> (2021-07-10)
 # Masked for testing
+# bug #802186
 >=mail-client/claws-mail-4.0.0
 
 # Michał Górny <mgorny@gentoo.org> (2021-07-06)
@@ -364,20 +345,6 @@ dev-qt/qtwebkit:5
 # is resolved.  Bug #791259.
 >=media-libs/libopenaptx-0.2.1
 
-# David Seifert <soap@gentoo.org> (2021-07-01)
-# Berkeley DB slots that are long past EOL by Oracle,
-# maintenance burden, and no real path forward by Oracle.
-# Bug #792222, removal in 90 days.
-sys-libs/db:1
-sys-libs/db:3
-sys-libs/db:4.2
-sys-libs/db:4.3
-sys-libs/db:4.4
-sys-libs/db:4.5
-sys-libs/db:4.6
-sys-libs/db:4.7
-sys-libs/db:5.1
-
 # Conrad Kostecki <conikost@gentoo.org> (2021-06-20)
 # New Minecraft server release needs at least Java 16,
 # which is currently not available in Gentoo.
@@ -385,10 +352,10 @@ sys-libs/db:5.1
 
 # Sam James <sam@gentoo.org> (2021-06-12)
 # Masked until all reverse dependencies support
-# OCaml 4.12.
-# bug #795138
->=dev-lang/ocaml-4.12
-=dev-ml/camlp4-4.12
+# OCaml 4.13.
+# bug #816498
+>=dev-lang/ocaml-4.13
+>=dev-ml/camlp4-4.13
 
 # Bernard Cafarelli <voyageur@gentoo.org> (2021-06-04)
 # Alpha versions of fetchmail 7
@@ -418,16 +385,6 @@ sys-libs/db:5.1
 # to a fresher gcc branch.
 <sys-devel/gcc-7
 
-# Sam James <sam@gentoo.org> (2021-05-07)
-# Masked for testing. Two major releases ahead of last packaged version.
-# Please report bugs but this is experimental for now.
-# bug #731266
->=net-mail/cyrus-imapd-3.4.0
-
-# David Seifert <soap@gentoo.org> (2021-05-05)
-# Causes unsolvable package conflicts, bug #788310
->=media-libs/openexr-3
-
 # Eray Aslan <eras@gentoo.org> (2021-04-29)
 # Mask experimental software
 =mail-mta/postfix-3.7*
@@ -443,6 +400,7 @@ sys-libs/db:5.1
 
 # Lars Wendler <polynomial-c@gentoo.org> (2021-04-08)
 # Masked for testing
+# bug #790248
 >=app-crypt/gnupg-2.3.0
 
 # Sam James <sam@gentoo.org> (2021-03-30)
@@ -543,6 +501,7 @@ app-office/texmacs
 # Java 11 is not yet fully supported on Gentoo. Packages cannot depend
 # on it so these virtuals are not yet required. If you wish to use
 # Java 11 then install openjdk-(jdk|jre)-bin directly.
+# bug #697014
 virtual/jdk:11
 virtual/jre:11
 

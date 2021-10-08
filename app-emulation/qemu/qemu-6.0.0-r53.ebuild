@@ -23,11 +23,11 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 else
 	SRC_URI="https://download.qemu.org/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
-HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
+HOMEPAGE="https://www.qemu.org https://www.linux-kvm.org"
 
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"

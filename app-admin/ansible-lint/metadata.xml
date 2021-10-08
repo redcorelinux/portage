@@ -2,8 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>chainsaw@gentoo.org</email>
-		<name>Tony Vroon</name>
+		<email>monsieurp@gentoo.org</email>
+		<name>Patrice Clement</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>marecki@gentoo.org</email>
+		<name>Marek Szuba</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">ansible-lint</remote-id>

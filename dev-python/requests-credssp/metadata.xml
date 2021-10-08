@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>chainsaw@gentoo.org</email>
-		<name>Tony Vroon</name>
+		<email>marecki@gentoo.org</email>
+		<name>Marek Szuba</name>
 	</maintainer>
 	<stabilize-allarches/>
 	<upstream>

@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
@@ -13,7 +13,7 @@ HOMEPAGE="https://tellico-project.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="https://tellico-project.org/files/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 x86"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
@@ -21,11 +21,8 @@ SLOT="5"
 IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 
 # tests need network access
-RESTRICT+=" test"
+RESTRICT="test"
 
-BDEPEND="
-	sys-devel/gettext
-"
 RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -72,6 +69,9 @@ RDEPEND="
 	yaz? ( >=dev-libs/yaz-2:0= )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	sys-devel/gettext
+"
 
 src_configure() {
 	local mycmakeargs=(

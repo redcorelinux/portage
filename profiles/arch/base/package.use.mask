@@ -164,10 +164,6 @@ x11-apps/igt-gpu-tools overlay
 # - padlock plugin is only supported on amd64 and x86
 net-vpn/strongswan strongswan_plugins_aesni strongswan_plugins_rdrand strongswan_plugins_padlock
 
-# James Le Cuirot <chewi@gentoo.org> (2018-11-02)
-# Vulkan is only available on amd64 at present.
-media-libs/libsdl2 vulkan
-
 # Michael Palimaka <kensington@gentoo.org> (2018-10-12)
 # Only available on amd64/x86
 net-analyzer/testssl bundled-openssl kerberos
@@ -261,6 +257,7 @@ media-video/mpv raspberry-pi
 # MMAL is only available on the Raspberry Pi:
 # Mask it globally, unmask it on arm.
 media-video/ffmpeg mmal
+media-video/ffmpeg-chromium mmal
 
 # Brian Evans <grknight@gentoo.org (2015-09-14)
 # Mask new USE flags for mariadb which all arches do not yet have dependencies
@@ -338,7 +335,6 @@ media-video/transcode nuv pic
 # mask the flag here and unmask it in the appropriate arch profiles.
 dev-qt/qtdeclarative jit
 dev-qt/qtscript jit
-dev-qt/qtwebkit jit
 
 # Samuli Suominen <ssuominen@gentoo.org> (2011-11-25)
 # Expose USE="suid" for USE="svga" only for x86 users,
