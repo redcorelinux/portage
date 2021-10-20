@@ -40,7 +40,7 @@ sbcl
 
 # Pacho Ramos <pacho@gentoo.org> (2014-04-17)
 # Dropped stable keywords after the discussion caused by
-# Gnome 3.8/3.10 stabilization on this arch   
+# Gnome 3.8/3.10 stabilization on this arch
 devhelp
 dia
 eds

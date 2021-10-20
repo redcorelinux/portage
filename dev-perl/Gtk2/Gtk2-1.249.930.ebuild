@@ -11,7 +11,7 @@ DESCRIPTION="Perl bindings for GTK2"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -31,6 +31,10 @@ BDEPEND="${RDEPEND}
 	>=dev-perl/ExtUtils-PkgConfig-1.30.0
 	test? ( x11-libs/gdk-pixbuf[jpeg] )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.249.930-skip-pixbuf-test.patch
+)
 
 src_test() {
 	virtx perl-module_src_test

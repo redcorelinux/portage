@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Provide a progress meter on a standard terminal"
 
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
+KEYWORDS="~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 sparc x86 ~x86-linux"
 
 RDEPEND="
 	virtual/perl-Carp
@@ -25,5 +25,6 @@ BDEPEND="${RDEPEND}
 		>=dev-perl/Test-Exception-0.310.0
 		>=dev-perl/Capture-Tiny-0.130.0
 		>=virtual/perl-Test-Simple-0.800.0
+		dev-perl/Test-Warnings
 	)
 "

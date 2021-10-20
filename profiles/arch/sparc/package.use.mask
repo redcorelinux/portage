@@ -1,6 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2021-10-16)
+# Requires dev-db/mariadb which, at last check, was broken on sparc.
+# bug #814719
+dev-python/mysqlclient test
+
 # Sam James <sam@gentoo.org> (2021-09-14)
 # jack2 not keyworded here
 # bug #807616
@@ -27,11 +32,6 @@ dev-python/diskcache test
 # eigen itself is only being dragged in as a test dependency for now.
 # bug #760803
 dev-cpp/eigen test
-
-# Marek Szuba <marecki@gentoo.org> (2021-05-07)
-# Legacy interface that depends on kernel headers not available on this arch
-# as well as currently-unkeyworded dev-libs/libx86
-x11-misc/read-edid vbe-mode
 
 # Sam James <sam@gentoo.org> (2021-04-27)
 # Deps not yet tested/keyworded.

@@ -1,6 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-10-10)
+# Does work on amd64 and x86
+x11-misc/read-edid -vbe-mode
+
 # Lars Wendler <polynomial-c@gentoo.org> (2021-08-27)
 # media-libs/webrtc-audio-processing only has amd64 and x86 keywords
 media-video/pipewire -echo-cancel
@@ -38,10 +42,6 @@ media-video/obs-studio browser
 # the last drivers to support x86 (needed here to override use.mask).
 x11-base/xwayland video_cards_nvidia
 x11-wm/mutter video_cards_nvidia
-
-# Stefan Strogin <steils@gentoo.org> (2021-06-27)
-# Requires dev-python/adblock which is not keyworded on x86 yet
-www-client/qutebrowser adblock
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-04-25)
 # Depends on either unkeyworded dev-java/openjdk:11
@@ -303,6 +303,7 @@ dev-db/mariadb -jdbc
 # Mike Gilbert <floppym@gentoo.org> (2016-03-03)
 # chrome-binary-plugins dropped x86 support
 www-client/chromium widevine
+www-client/qutebrowser widevine
 www-client/vivaldi widevine
 www-client/vivaldi-snapshot widevine
 

@@ -10,7 +10,7 @@ inherit perl-module
 DESCRIPTION="A superdaemon for hot-deploying server programs"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 
 RDEPEND="
 "
@@ -23,3 +23,5 @@ BDEPEND="${RDEPEND}
 		>=dev-perl/Test-TCP-2.80.0
 	)
 "
+
+DIST_TEST=do

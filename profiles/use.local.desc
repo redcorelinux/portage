@@ -184,11 +184,13 @@ app-admin/ulogd:ulog - Build ULOG input plugin to support deprecated packet-base
 app-admin/vault:webui - Enable the Web UI
 app-admin/webalizer:xtended - Include the 404 extension
 app-admin/webapp-config:portage - Propagate python_targets dependencies to sys-apps/portage
+app-antivirus/clamav:clamapp - Build applications (clamscan, clamd, clamdscan, clamonacc (also has its own USE flag), sigtool, clambc, clamav-milter (also requires milter USE flag), clamdtop, clamsubmit, clamconf).
 app-antivirus/clamav:clamdtop - A Top like tool which shows what clamd is currently scanning amongst other things
 app-antivirus/clamav:clamonacc - Build the clamonacc on-access scanner
 app-antivirus/clamav:clamsubmit - A tool to submit false positives / negatives
 app-antivirus/clamav:libclamav-only - Bypass building of libfreshclam and the ClamAV CLI applications.
 app-antivirus/clamav:metadata-analysis-api - Enables collection of file property metadata using ClamAV API for analysis by ClamAV bytecode programs.
+app-antivirus/clamav:rar - RAR support
 app-antivirus/clamav:xml - DMG and XAR support
 app-antivirus/clamtk:kde - Install the Dolphin plugin.
 app-antivirus/clamtk:nautilus - Install the Nautilus plugin.
@@ -394,6 +396,7 @@ app-editors/gedit-plugins:git - Shows document changes related to git's HEAD
 app-editors/gedit-plugins:terminal - Embed a terminal in the bottom pane
 app-editors/gnome-latex:latexmk - Install dev-tex/latexmk (used by default for the build tools)
 app-editors/gnome-latex:rubber - Install dev-tex/rubber (can be used for the build tools)
+app-editors/gvim:crypt - Use dev-libs/libsodium for crypto support
 app-editors/gvim:cscope - Enable cscope interface
 app-editors/gvim:gtk2 - Enable GTK+2 interface
 app-editors/gvim:netbeans - Include netbeans external editor integration support
@@ -415,6 +418,7 @@ app-editors/tea:aspell - Enable spellchecking using app-text/aspell
 app-editors/tea:hunspell - Enable spellchecking using app-text/hunspell
 app-editors/tea:qml - Enable support for plugins using QML
 app-editors/vim:X - Link console vim against X11 libraries to enable title and clipboard features in xterm
+app-editors/vim:crypt - Use dev-libs/libsodium for crypto support
 app-editors/vim:cscope - Enable cscope interface
 app-editors/vim:ipv6 - Enable IPv6 support in channel
 app-editors/vim:racket - Enable support for Scheme using dev-scheme/racket
@@ -494,6 +498,7 @@ app-emulation/fuse:backend-sdl - Use SDL rendering backend
 app-emulation/fuse:backend-svga - Use svgalib rendering backend
 app-emulation/fuse:memlimit - Add compile-time memory usage limiting
 app-emulation/fuse-utils:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
+app-emulation/grub-xen-host:pvh - Build an additional grub bin for pvh.
 app-emulation/hyperd:libvirt - Enable support for KVM via libvirt
 app-emulation/hyperd:xen - Enable support for the Xen Hypervisor
 app-emulation/libcacard:passthrough - Enable smartcard passthrough support via sys-apps/pcsc-lite
@@ -554,6 +559,7 @@ app-emulation/q4wine:wineappdb - Enable Wine AppDB browser support
 app-emulation/qemu:accessibility - Adds support for braille displays using brltty
 app-emulation/qemu:aio - Enables support for Linux's Async IO
 app-emulation/qemu:alsa - Enable alsa output for sound emulation
+app-emulation/qemu:bpf - Enable eBPF support for RSS implementation.
 app-emulation/qemu:capstone - Enable disassembly support with dev-libs/capstone
 app-emulation/qemu:curl - Support ISOs / -cdrom directives via HTTP or HTTPS.
 app-emulation/qemu:fdt - Enables firmware device tree support
@@ -734,7 +740,6 @@ app-i18n/ibus-libpinyin:boost - Compile against dev-libs/boost libraries
 app-i18n/ibus-libpinyin:opencc - Enable support for app-i18n/opencc
 app-i18n/ibus-pinyin:boost - Enable support for dev-libs/boost
 app-i18n/ibus-sunpinyin:gui - Install graphical user interface tool (ibus-setup-sunpinyin)
-app-i18n/ibus-unikey:gtk2 - Enable support for x11-libs/gtk+:2
 app-i18n/im-chooser:gtk2 - Build with x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 app-i18n/im-chooser:xfce - Enable support for XFCE panel
 app-i18n/imsettings:gconf - Enable support for gnome-base/gconf
@@ -777,6 +782,7 @@ app-metrics/collectd:xfs - Enable optional capability to filter on XFS file syst
 app-misc/blink1:mini-tool - Build and install command-line mini-tool blink1-mini-tool (normally used for embedded devices)
 app-misc/blink1:server - Build and install REST API server (currently hard-coded to TCP port 8080)
 app-misc/blink1:tool - Build and install command-line tool blink1-tool
+app-misc/broot:X - X11 clipboard interaction
 app-misc/byobu:screen - Use app-misc/screen as the default backend
 app-misc/ca-certificates:cacert - Include root/class3 certs from CAcert (https://www.cacert.org/)
 app-misc/carbon-c-relay:lz4 - add support for LZ4 compressed transport
@@ -851,12 +857,12 @@ app-misc/lcd4linux:w1retap - Enable the w1retap plugin.
 app-misc/lcd4linux:wireless - Enable the wireless plugin, to get wireless statistics.
 app-misc/lcdproc:ethlcd - Enable support for ethlcd in the hd44780 driver.
 app-misc/lcdproc:extra-charmaps - Enable extra language specific charmaps.
-app-misc/lcdproc:freetype - Enable support for media-libs/freetype in the glcd driver.
 app-misc/lcdproc:menu - Enable menu support in the lcdproc client.
 app-misc/lcdproc:nfs - Display NFS filesystem stats in the lcdproc client.
 app-misc/lcdproc:png - Enable support for media-libs/libpng in the glcd driver.
 app-misc/lcdproc:samba - Display SMBFS filesystem stats in the lcdproc client.
 app-misc/lcdproc:test-menu - Enable test menu support for the lcdproc server.
+app-misc/lcdproc:truetype - Enable support for media-libs/freetype in the glcd driver.
 app-misc/libdatovka:openssl - Use openssl backend
 app-misc/lirc:audio - Support using an audio device connected to an IR receiver
 app-misc/lirc:devinput - Support the devinput input device
@@ -2409,7 +2415,6 @@ dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-python/drf-yasg:validation - Enable swagger spec validation using swagger-spec-validator
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/elasticsearch-py:async - Add async support
-dev-python/falcon:cython - Build cython-based python modules
 dev-python/gevent:events - Enables the gevent events system which is required by libraries that use gevent monkey patching. This adds dev-python/zope-event and dev-python/zope-interface as runtime dependencies.
 dev-python/hiredis:system-libs - Use dev-libs/hiredis from system
 dev-python/hypothesis:cli - Install a CLI tool used to write tests.
@@ -2424,8 +2429,6 @@ dev-python/mpmath:matplotlib - Add support for dev-python/matplotlib
 dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/nbdime:webtools - Install web-based diff and merge tools.
 dev-python/netaddr:cli - Enable netaddr shell with dev-python/ipython
-dev-python/networkx:extras - Provide graph drawing and graph layout algorithms along with shapefile format reading and writing
-dev-python/networkx:yaml - Provides YAML format reading and writing
 dev-python/nltk-data:extra - Install the complete set of data files. Otherwise, only files required by tests are installed.
 dev-python/numexpr:mkl - Enable support for Intel Vector Math Library, part of sci-libs/mkl.
 dev-python/pandas:full-support - Pull all packages to give pandas full support
@@ -2440,7 +2443,6 @@ dev-python/py-amqp:extras - Install extra tools to generate initial Python mod f
 dev-python/pygame:midi - Enable midi support using media-libs/portmidi
 dev-python/pyglet:image - Enable support for image formats other than PNG and BMP
 dev-python/pyilmbase:exceptions - Enable runtime floating point exceptions in PyIMath.
-dev-python/pyilmbase:numpy - Add bindings for dev-python/numpy use.
 dev-python/pyocr:cuneiform - Enable support for the app-text/cuneiform OCR engine
 dev-python/pyocr:tesseract - Enable support for the app-text/tesseract OCR engine
 dev-python/pypax:ptpax - Enable PT_PAX_FLAGS support.
@@ -3097,7 +3099,9 @@ games-fps/eduke32:voidsw - Enable support for Shadow Warrior (Classic) through V
 games-fps/eduke32:voxels - Install the Duke Nukem 3D Voxels Pack.
 games-fps/eduke32:vpx - Enable support for media-libs/libvpx.
 games-fps/eduke32:xmp - Enable support for media-libs/exempi.
+games-fps/gzdoom:gles2 - Enable GLES2 backend
 games-fps/gzdoom:non-free - Enable non-free components
+games-fps/gzdoom:vulkan - Enable Vulkan support
 games-fps/nexuiz:maps - Install the community map pack
 games-fps/prboom-plus:dumb - Enable support for various tracker-style music formats via media-libs/dumb
 games-fps/prboom-plus:fluidsynth - Enable support for MIDI via media-sound/fluidsynth
@@ -4868,31 +4872,23 @@ media-tv/tvheadend:xmltv - Use media-tv/xmltv
 media-tv/v4l-utils:bpf - Enables support for IR BPF decoders.
 media-tv/xmltv:ar - Argentina tv listing grabber
 media-tv/xmltv:ch-search - Grabber for Switzerland
-media-tv/xmltv:dk - Denmark tv listing grabber
-media-tv/xmltv:dtvla - Latin America digital tv listing grabber
-media-tv/xmltv:eu-dotmedia - Grabber for Europe (xmltv.se / dotmedia)
 media-tv/xmltv:eu-epgdata - include fanart URLs for some European countries.
 media-tv/xmltv:eu-xmltvse - Grabbber for Europe [replaces eu-dotmedia and se-tvzon]
 media-tv/xmltv:fi - Finland tv listing grabber (0.6.1 add ampparit telsu)
 media-tv/xmltv:fi-sv - Grabber for Finland (Swedish)
 media-tv/xmltv:fr - France tv listing grabber
 media-tv/xmltv:huro - Hungarian tv listing grabber
-media-tv/xmltv:il - Israel tv listing grabber
 media-tv/xmltv:is - Iceland tv listing grabber
 media-tv/xmltv:it - Italy tv listing grabber (RUV)
 media-tv/xmltv:it-dvb - Italy tv listing grabber
 media-tv/xmltv:na-dd - North America tv listing grabber
 media-tv/xmltv:na-dtv - North America Direct TV grabber
 media-tv/xmltv:na-tvmedia - Grabber for North America (TVMedia)
-media-tv/xmltv:pt-meo - Grabber for Portugal (MEO)
 media-tv/xmltv:pt-vodafone - Grabber for Portugal (Vodafone)
-media-tv/xmltv:se-swedb - Sweden tv listing grabber
-media-tv/xmltv:se-tvzon - Sweden (tvzon.se) tv listing grabber
 media-tv/xmltv:tr - Turkey (Digiturk) tv listing grabber
 media-tv/xmltv:tv-check - enable GUI checking
 media-tv/xmltv:tv-combiner - enable grabbers combiner
 media-tv/xmltv:tv-pick-cgi - enable CGI support
-media-tv/xmltv:uk-bleb - Britain tv listing grabber
 media-tv/xmltv:uk-tvguide - UK and Ireland tv listing grabber using TV Guide website
 media-tv/xmltv:zz-sdjson - Grabber for schedulesDirect.org SD-JSON service (many countries)
 media-tv/xmltv:zz-sdjson-sqlite - Grabber for schedulesDirect.org SD-JSON service (sqlite DB)
@@ -5973,6 +5969,7 @@ net-libs/cvm:vpopmail - Enable vpopmail support
 net-libs/czmq:drafts - Build draft API, which may change at any time without any notice, and is therefore not recommended for normal use. (requires draft support in net-libs/zeromq as well)
 net-libs/czmq:http-client - Build support for HTTP client using net-misc/curl
 net-libs/czmq:http-server - Build support for HTTP server using net-libs/libmicrohttpd
+net-libs/czmq:nss - Use dev-libs/nss for SHA instead of an internal implementation
 net-libs/czmq:uuid - Enable UUID support using sys-apps/util-linux
 net-libs/daq:afpacket - Build the AFPacket data acquisition module. Functions similar to the PCAP module but with better performance. Snort can run unprivileged when using this module. AFpacket supports both inline and passive modes.
 net-libs/daq:dump - Build the Dump data acquisition module. The dump DAQ allows you to test the various inline mode features available in 2.9 Snort like injection and normalization.
@@ -6171,7 +6168,6 @@ net-mail/mailutils:servers - Build server programs - imap4d pop3d comsatd
 net-mail/mailutils:tokyocabinet - Enable Tokyo Cabinet database support
 net-mail/mboxgrep:dmalloc - Enable debugging using dev-libs/dmalloc
 net-mail/mu:emacs - Install the mu4e mail client
-net-mail/mu:mug - Install the mug toy client, not for normal use
 net-mail/notmuch:apidoc - Provide doxygen generated API docs
 net-mail/notmuch:crypt - Support decryption and verification of PGP/MIME messages and in Emacs UI - encryption; support also S/MIME signature verification since version 0.22
 net-mail/notmuch:doc - Install API documentation
@@ -6587,6 +6583,7 @@ net-misc/remmina:gvnc - Enable GVNC plugin using gtk-vnc, suitable for KVM and V
 net-misc/remmina:kwallet - Enable KDE Wallet plugin
 net-misc/remmina:spice - Support connecting to SPICE-enabled virtual machines
 net-misc/remmina:ssh - Enable support for SSH/SFTP protocol
+net-misc/remmina:x2go - Enable support for X2Go
 net-misc/rsync:stunnel - Provide helper scripts for using rsync via >=net-misc/stunnel-4
 net-misc/rsync:system-zlib - Use system zlib instead of bundled one. This is incompatible with older rsync releases!
 net-misc/rsync:xxhash - Enable dev-libs/xxhash support for hashing
@@ -7259,6 +7256,7 @@ sci-libs/gdal:aux-xml - Enable Portable Auxilliary Metadata generation
 sci-libs/gdal:fits - Enable support for NASA's sci-libs/cfitsio library
 sci-libs/gdal:geos - Add support for geometry engine (sci-libs/geos)
 sci-libs/gdal:gml - Enable support for dev-libs/xerces-c C++ API
+sci-libs/gdal:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 sci-libs/gdal:mdb - Enable support for Microsoft Access database
 sci-libs/gdal:ogdi - Enable support for the open geographic datastore interface (sci-libs/ogdi)
 sci-libs/gdal:opencl - Enable OpenCL support
@@ -7363,6 +7361,7 @@ sci-libs/proj:europe - Install the PROJ collection of European grids and init-fi
 sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
 sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
 sci-libs/rocPRIM:benchmark - Build and install benchmark programs.
+sci-libs/rocRAND:benchmark - Build and install benchmark programs.
 sci-libs/rocSPARSE:benchmark - Build and install rocblas-bench.
 sci-libs/rtabmap:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2.
 sci-libs/scotch:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
@@ -7375,6 +7374,7 @@ sci-libs/suitesparse:cuda - Enable nvidia cuda toolkit for speeding up computati
 sci-libs/suitesparse:partition - Enable graph partitioning and graph-partition-based orderings through sci-libs/metis or sci-libs/parmetis
 sci-libs/suitesparse:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 sci-libs/sundials:hypre - Build with sci-libs/hypre conditioners
+sci-libs/sundials:int64 - Use index size of 64 rather than 32 bits
 sci-libs/sundials:sparse - Enable support for sci-libs/klu sparse solver
 sci-libs/sundials:superlumt - Build with sci-libs/superlu_mt
 sci-libs/superlu_mt:int64 - Build the 64 bits integer library
@@ -7708,6 +7708,7 @@ sys-apps/fwupd:archive - Use app-arch/libarchive for archives support
 sys-apps/fwupd:dell - Enable Dell-specific support.
 sys-apps/fwupd:flashrom - Enable flashrom plugin via sys-apps/flashrom
 sys-apps/fwupd:gusb - Enable dev-libs/libgusb support
+sys-apps/fwupd:logitech - Build and install Logitech bulk controller plugin
 sys-apps/fwupd:modemmanager - Build and install Modem Manager plugin
 sys-apps/fwupd:nvme - Build and install NVMe plugin
 sys-apps/fwupd:spi - Install Intel-SPI plugin
@@ -8569,7 +8570,7 @@ www-client/opera:proprietary-codecs - Enable codecs for patent-encumbered audio 
 www-client/opera-beta:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
 www-client/opera-developer:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
 www-client/qutebrowser:adblock - Enable Brave's ABP-style adblocker library for improved adblocking
-www-client/qutebrowser:scripts - Installs userscripts from the misc/userscripts directory to /usr/share/qutebrowser/userscripts.
+www-client/qutebrowser:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
 www-client/seamonkey:chatzilla - Build Mozilla's IRC client (default on)
 www-client/seamonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 www-client/seamonkey:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles

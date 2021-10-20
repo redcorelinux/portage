@@ -33,6 +33,155 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2021-10-17)
+# Broken since pretty much forever, last release 17 years ago, already
+# removed by Fedora. Bug #386275, #731042, #762346, removal in 30 days.
+media-sound/cdcd
+
+# Hans de Graaff <graaff@gentoo.org> (2021-10-17)
+# Obsolete package, replaced by dev-ruby/minitar.
+# No reverse dependencies left. Masked for removal in 30 days.
+dev-ruby/archive-tar-minitar
+
+# Sam James <sam@gentoo.org> (2021-10-17)
+# Fails to build with glibc 2.34 and no reverse dependencies.
+# bug #806508
+# Removal on 2021-11-17.
+dev-cpp/rttr
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-10-16)
+# Binary-only package, cannot be distributed, download
+# is an unversioned URL which changes content. In brief,
+# a pain. Unmaintained from now on. If you pick it up,
+# you'll have to watch it closely. Removal in 30 days
+# otherwise. Bug 794700.
+net-im/webex
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-10-16)
+# Outdated virtual; the respective module was removed
+# from core Perl with Perl 5.32. Use dev-perl/Pod-Parser
+# instead. Removal in 30days.
+virtual/perl-Pod-Parser
+
+# David Seifert <soap@gentoo.org> (2021-10-16)
+# EAPI 5, open bugs, practically maintainer-needed,
+# abandoned upstream, no other distro carries this.
+# Bug #632237, bug #656818, removal in 30 days.
+x11-themes/gtk-engines-flat
+
+# David Seifert <soap@gentoo.org> (2021-10-16)
+# EAPI 5, fails to compile with OpenSSL 1.1, bug #719974.
+# Removal in 30 days.
+mail-filter/spamdyke
+
+# David Seifert <soap@gentoo.org> (2021-10-16)
+# EAPI 5, fails to compile with OpenSSL 1.1, bug #674242.
+# Removal in 30 days.
+dev-java/netty-tcnative
+
+# David Seifert <soap@gentoo.org> (2021-10-16)
+# EAPI 5, fails to compile, QA issues, .NET team is
+# abandoned, bug #643452, bug #688404.
+# Removal in 30 days.
+dev-dotnet/dbus-sharp
+dev-dotnet/dbus-sharp-glib
+
+# Sam James <sam@gentoo.org> (2021-10-16)
+# Fails to compile with modern OCaml
+# bug #704464, bug #780090
+# Removal on 2021-11-16.
+app-text/htmlc
+
+# Sam James <sam@gentoo.org> (2021-10-15)
+# Drop broken packages with no reverse dependencies
+# Removal on 2021-11-15. bug #817965, bug #771756, bug #767196
+dev-ml/async_ssl
+dev-ml/ppx_tools_versioned
+
+# Andreas K. Huettel <dilfridge@gentoo.org> (2021-10-14)
+# Unused and outdated packages; the version in core Perl is
+# newer. Removal in 30 days.
+perl-core/Locale-Maketext-Simple
+perl-core/Math-BigInt
+perl-core/Math-Complex
+perl-core/Memoize
+perl-core/MIME-Base64
+
+# Jaco Kroon <jaco@uls.co.za> (2021-10-05)
+# Masked for removal in 30 days.
+# Last upstream release in 2012.
+# Looks to be broken (iax-config --libs references not installed libiax.so).
+# No consumers in ::gentoo. Bug #817989
+net-libs/iax
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Archived upstream, and no longer maintained. Has issues with
+# python 3.9 and python 3.10.
+# Extra bugs: #798348 #798351 #812908
+# Removal on 2021-11-09.  Bug #817401.
+dev-python/python-ceilometerclient
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Inactive upstream with reported bugs. Has issues with python 3.9
+# and python 3.10.
+# Extra bugs: #798252 #812734
+# Removal on 2021-11-09.  Bug #817392.
+dev-python/onkyo-eiscp
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Archived upstream repo, and deprecated by Microsoft. Doesn't work
+# with the latest Visual Studio. Has issues with python 3.9 and
+# python 3.10.
+# Extra bugs: #798192 #723741 #727212 #730330
+# Removal on 2021-11-09.  Bug #817389.
+dev-python/ptvsd
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Inactive upstream with reported bugs. Has issues with python 3.9
+# and python 3.10.
+# Removal on 2021-11-09.  Bug #817386.
+dev-python/pipfile
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Upstream lost to history. Web archive finds a very broken repo.
+# Has issues with python 3.9 and python 3.10.
+# Extra Bugs: Bug #696674, Bug #814572
+# Removal on 2021-11-09.  Bug #817383.
+dev-db/sadisplay
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-10-10)
+# Old project, has problems with symlinks in repo. Fails for new
+# GitHub projects.
+# Removal on 2021-11-09.  Bug #817380.
+dev-vcs/github-pages-publish
+
+# Joonas Niilola <juippis@gentoo.org> (2021-10-10)
+# Development stopped by upstream. Switch to its actively developed
+# fork, x11-misc/picom. Bug #817338. Removal in ~30 days.
+x11-misc/compton
+
+# Joonas Niilola <juippis@gentoo.org> (2021-10-10)
+# LiveOnlyPackage with no maintainer. Upstream has multiple releases.
+# Bug #817320. Removal in ~30 days.
+dev-vcs/gti
+
+# Sam James <sam@gentoo.org> (2021-10-10)
+# Needs upstream build system fixes (currently in progress).
+# Python toggles don't work correctly right now.
+# Masking this development release for now.
+=media-libs/gexiv2-0.13.0
+
+# Patrice Clement <monsieurp@gentoo.org> (2021-10-09)
+# Obsolete and unmaintained. Please switch to app-text/htmltidy.
+# Bug #564884. Masked for removal in 30 days.
+app-text/tidy-html5
+
+# Ionen Wolkens <ionen@gentoo.org> (2021-10-09)
+# Vulkan beta driver branch aimed at Vulkan developers for testing
+# new features. Beside vulkan, it is typically behind the main branch
+# and may be buggier or less secure. Only unmask if really wanted.
+x11-drivers/nvidia-drivers:0/vulkan
+
 # Fabian Groffen <grobian@gentoo.org> (2021-10-03)
 # Masked for erratic behaviour
 # https://bugs.exim.org/show_bug.cgi?id=2813
@@ -49,63 +198,6 @@ dev-ruby/thor:0
 # of open bugs not fixed has led the project being forked already.
 # Bug #776895. Removal in ~30 days.
 dev-libs/rapidxml
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-10-01)
-# KDE Plasma 5.22.90 (5.23 Beta) mask - Pre-release version
-# See also: https://kde.org/announcements/plasma/5/5.22.90/
-# KDE Plasma Beta Review Day on 2021-10-01: https://tinyurl.com/kdereview
-~kde-plasma/bluedevil-5.22.90
-~kde-plasma/breeze-5.22.90
-~kde-plasma/breeze-grub-5.22.90
-~kde-plasma/breeze-gtk-5.22.90
-~kde-plasma/breeze-plymouth-5.22.90
-~kde-plasma/discover-5.22.90
-~kde-plasma/drkonqi-5.22.90
-~kde-plasma/kactivitymanagerd-5.22.90
-~kde-plasma/kde-cli-tools-5.22.90
-~kde-plasma/kde-gtk-config-5.22.90
-~kde-plasma/kdecoration-5.22.90
-~kde-plasma/kdeplasma-addons-5.22.90
-~kde-plasma/kgamma-5.22.90
-~kde-plasma/khotkeys-5.22.90
-~kde-plasma/kinfocenter-5.22.90
-~kde-plasma/kmenuedit-5.22.90
-~kde-plasma/kscreen-5.22.90
-~kde-plasma/kscreenlocker-5.22.90
-~kde-plasma/ksshaskpass-5.22.90
-~kde-plasma/ksystemstats-5.22.90
-~kde-plasma/kwallet-pam-5.22.90
-~kde-plasma/kwayland-integration-5.22.90
-~kde-plasma/kwayland-server-5.22.90
-~kde-plasma/kwin-5.22.90
-~kde-plasma/kwrited-5.22.90
-~kde-plasma/layer-shell-qt-5.22.90
-~kde-plasma/libkscreen-5.22.90
-~kde-plasma/libksysguard-5.22.90
-~kde-plasma/libkworkspace-5.22.90
-~kde-plasma/milou-5.22.90
-~kde-plasma/oxygen-5.22.90
-~kde-plasma/plasma-browser-integration-5.22.90
-~kde-plasma/plasma-desktop-5.22.90
-~kde-plasma/plasma-disks-5.22.90
-~kde-plasma/plasma-firewall-5.22.90
-~kde-plasma/plasma-integration-5.22.90
-~kde-plasma/plasma-meta-5.22.90
-~kde-plasma/plasma-nm-5.22.90
-~kde-plasma/plasma-pa-5.22.90
-~kde-plasma/plasma-sdk-5.22.90
-~kde-plasma/plasma-systemmonitor-5.22.90
-~kde-plasma/plasma-thunderbolt-5.22.90
-~kde-plasma/plasma-workspace-5.22.90
-~kde-plasma/plasma-workspace-wallpapers-5.22.90
-~kde-plasma/plasma-vault-5.22.90
-~kde-plasma/plymouth-kcm-5.22.90
-~kde-plasma/polkit-kde-agent-5.22.90
-~kde-plasma/powerdevil-5.22.90
-~kde-plasma/sddm-kcm-5.22.90
-~kde-plasma/systemsettings-5.22.90
-~kde-plasma/xdg-desktop-portal-kde-5.22.90
-~kde-plasma/xembed-sni-proxy-5.22.90
 
 # Alfredo Tupone <tupone@gentoo.org> (2021-09-30)
 # Deprecated upstream
@@ -162,22 +254,10 @@ media-libs/webrtc-audio-processing:1
 # Removal on 2021-10-23.  Bug #814449.
 dev-python/python-jwt
 
-# Louis Sautier <sbraz@gentoo.org> (2021-09-19)
-# Last release in 2019, no reverse dependencies.
-# dev-python/isort provides similar functionality.
-# Removal on 2021-10-19, bug #813918.
-dev-python/flake8-import-order
-
 # Alfredo Tupone <tupone@gentoo.org> (2021-09-19)
 # Mask gnat-gpl-2018 and gnat-gpl-2019. Please switch
 # to a fresher gnat-gpl branch.
 <dev-lang/gnat-gpl-2019
-
-# Sam James <sam@gentoo.org> (2021-09-18)
-# Drops an unstable API which some projects were using
-# including Chromium. Masked to avoid runtime breakage.
-# bug #813705, bug #813711.
-=media-libs/harfbuzz-3.0.0
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2021-09-18)
 # sys-devel/automake version 1.11 is EOL and is only useful for testing
@@ -204,87 +284,12 @@ sys-devel/automake:1.11
 # Migration to it is expected for GNOME 42, NOT to be unmasked with GNOME 41.
 net-libs/libsoup:3.0
 
-# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
-# No reverse dependencies, stuck on EAPI-5.
-# Replaced by dev-libs/spsdeclib.
-# Removal on 2021-10-12. bug #812806
-games-emulation/caps
-
-# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
-# No reverse dependencies, stuck on EAPI-5, last release in 2006.
-# Please report if anyone still need this.
-# Removal on 2021-10-12. bug #776904
-media-libs/sdl-terminal
-
-# Ionen Wolkens <ionen@gentoo.org> (2021-09-12)
-# Stuck on x86 / amd64-multilib, no upstream, code relies on
-# several implicit constructs and undefined behavior, ebuild
-# semi-broken and runtime seems broken even if built.
-# Removal on 2021-10-12. bug #701414, bug #739188.
-games-emulation/nestra
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
-# No reverse dependencies. Implements ordered set, which was needed
-# for the python 2.6 era, and since python 2.7 isn't needed and is
-# builtin in the language. Upstream isn't active at all.
-# No other distros package it anymore.
-# Removal on 2021-10-11.  Bug #812554
-dev-python/oset
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
-# No reverse dependencies. Has issues with porting to python 3.10.
-# Has known upstream issues with latest GitHub's markdown parsing.
-# Last year upstream planned to archive the repository, no activity
-# since. No other distros package it anymore.
-# Extra bug: #798195
-# Removal on 2021-10-11.  Bug #812530.
-dev-python/py-gfm
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2021-09-11)
-# Upstream repository was archived. No reverse dependencies (only blocked
-# by one other package). Implements GitHub API in python, while better and
-# maintained packages are in tree. Has non trivial issues with bump to
-# python 3.10. No other distros package it anymore.
-# Extra bugs: #791673, #723542, #802999
-# Removal on 2021-10-11.  Bug #812521.
-dev-python/txgithub
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2019, no revdeps.
-# Removal on 2021-10-09. Bug #812236
-dev-python/sparql-wrapper
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2019, no revdeps.
-# Removal on 2021-10-09. Bug #812233
-dev-python/pybluez
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2015, no revdeps.
-# Removal on 2021-10-09. Bug #812224
-dev-python/lcdproc
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' use_2to3 option.
-# Last release in 2017, no revdeps.
-# Removal on 2021-10-09. Bug #812221
-dev-python/fudge
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-09-07)
 # Mask backwards-incompatible version to avoid autodeletion of previous one.
 # Data migration is not supported upstream and can't be done automatically.
 # https://github.com/martinrotter/rssguard/releases/tag/4.0.0
 # https://github.com/martinrotter/rssguard/blob/master/resources/docs/Documentation.md#migratt
 >=net-news/rssguard-4.0.0
-
-# Louis Sautier <sbraz@gentoo.org> (2021-09-09)
-# No reverse dependencies, no upstream activity for more than 3 years.
-# dev-python/oauthlib is maintained and provides the same functionality.
-# Removal on 2021-10-09.
-dev-python/oauth2
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-09-07)
 # Masked while being tested and reverse deps aren't fully compatible
@@ -297,9 +302,12 @@ dev-python/oauth2
 =dev-libs/gost-engine-3.0*
 
 # Ionen Wolkens <ionen@gentoo.org> (2021-09-03)
-# Currently may not function with kde-plasma/kwin (black screen),
-# so keeping masked for testing due to being a primary consumer.
-# Should be safe to unmask if you are using x11-wm/mutter instead.
+# Known to break plasma, and several other applications on EGLStream
+# wayland, and egl-wayland-1.1.7-r1 is still usable with newer drivers.
+# While it does not prevent using wlroots-based compositors with GBM,
+# it's needed to use some features with it (unmask if wanted).
+# https://github.com/NVIDIA/egl-wayland/issues/40
+# https://github.com/NVIDIA/egl-wayland/issues/41
 >=gui-libs/egl-wayland-1.1.8
 
 # Alexey Sokolov <alexey+gentoo@asokolov.org> (2021-08-30)
@@ -320,19 +328,6 @@ games-puzzle/gnudoku
 # Upstream provided migration instructions from 2. -> 3. update,
 # breaks if not all at least many revdeps. #805011 for tracker bug.
 >=net-libs/mbedtls-3.0.0
-
-# Craig Andrews <candrews@gentoo.org> (2021-07-10)
-# Masked until November, 2021
-# This release adds enforcement of the Taproot protocol change to the Bitcoin
-# rules, beginning in November. Protocol changes require user consent to be
-# effective, and if enforced inconsistently within the community may compromise
-# your security or others! If you do not know what you are doing, learn more
-# before November. (You must make a decision either way - simply not upgrading
-# is insecure in all scenarios.)
-# To learn more, see https://bitcointaproot.cc
->=net-p2p/bitcoind-0.21.1
->=net-p2p/bitcoin-qt-0.21.1
->=net-libs/libbitcoinconsensus-0.21.1
 
 # Lars Wendler <polynomial-c@gentoo.org> (2021-07-10)
 # Masked for testing
@@ -498,12 +493,15 @@ app-office/texmacs
 ~net-libs/rpcsvc-proto-0
 
 # James Le Cuirot <chewi@gentoo.org> (2017-12-17)
-# Java 11 is not yet fully supported on Gentoo. Packages cannot depend
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2021-10-16)
+# Java 11+ is not yet fully supported on Gentoo. Packages cannot depend
 # on it so these virtuals are not yet required. If you wish to use
-# Java 11 then install openjdk-(jdk|jre)-bin directly.
+# Java 11+ then install openjdk-(jdk|jre)-bin directly.
 # bug #697014
 virtual/jdk:11
 virtual/jre:11
+virtual/jdk:17
+virtual/jre:17
 
 # Nicolas Bock <nicolasbock@gentoo.org> (2017-10-31)
 # There are multiple unresolved upstream issues with >=jabref-bin-4.0 (#636036).
@@ -528,7 +526,7 @@ virtual/jre:11
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
 <sys-libs/glibc-2.33
-<sys-devel/binutils-2.36.1-r2
+<sys-devel/binutils-2.37_p1
 
 # Michael Orlitzky <mjo@gentoo.org> (2017-01-07)
 # This package has some dangerous quality and security issues, but
