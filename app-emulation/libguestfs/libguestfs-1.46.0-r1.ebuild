@@ -18,8 +18,7 @@ SRC_URI="https://libguestfs.org/download/${MY_PV_1}-${SD}/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0/${MY_PV_1}"
-# Unkeyworded for testing guestfs-tools split, #816693
-#KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="doc erlang +fuse gtk inspect-icons introspection libvirt lua +ocaml +perl python ruby selinux static-libs systemtap test"
 RESTRICT="!test? ( test )"
 
@@ -117,9 +116,10 @@ BDEPEND="lua? ( ${LUA_DEPS} )"
 
 DOCS=( AUTHORS BUGS ChangeLog HACKING README TODO )
 
-#PATCHES=(
-#	"${FILESDIR}"/${MY_PV_1}/
-#)
+PATCHES=(
+	#"${FILESDIR}"/${MY_PV_1}/
+	"${FILESDIR}"/1.44/
+)
 
 pkg_setup() {
 	CONFIG_CHECK="~KVM ~VIRTIO"

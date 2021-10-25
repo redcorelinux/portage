@@ -532,6 +532,7 @@ app-emulation/libvirt:wireshark-plugins - Build the net-analyzer/wireshark plugi
 app-emulation/libvirt:xen - Support management of Xen virtualisation (app-emulation/xen)
 app-emulation/libvirt:zfs - Enable ZFS backend storage sys-fs/zfs
 app-emulation/lxc:apparmor - Enable AppArmor support
+app-emulation/lxc:io-uring - Enable io_uring support, and use io_uring instead of epoll
 app-emulation/lxc:tools - Build and install additional command line tools
 app-emulation/lxd:apparmor - Enable AppArmor support
 app-emulation/nemu:network-map - Adds possibility of exporting network map to SVG
@@ -691,7 +692,6 @@ app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Cit
 app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen:flask - Enable the Flask XSM module from NSA
 app-emulation/xen-tools:api - Build the C libxenapi bindings
-app-emulation/xen-tools:flask - Enable the Flask XSM module from NSA
 app-emulation/xen-tools:hvm - Enable support for hardware based virtualization (VT-x,AMD-v)
 app-emulation/xen-tools:ipxe - Enable ipxe support
 app-emulation/xen-tools:ovmf - Enable support to boot UEFI guest vm, needed by hvm
@@ -1704,7 +1704,6 @@ dev-lang/crystal:xml - Use the dev-libs/libxml2 library to enable Crystal xml mo
 dev-lang/crystal:yaml - Use the dev-libs/libyaml library to enable Crystal yaml module
 dev-lang/erlang:hipe - HIgh Performance Erlang extension
 dev-lang/erlang:kpoll - Enable kernel polling support
-dev-lang/fpc:ide - Build and install the Free Pascal Compiler IDE
 dev-lang/gdl:eigen - Build matrix manipulation with dev-cpp/eigen
 dev-lang/gdl:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-lang/gdl:gshhs - Add support for projection adn continent maps with sci-geosciences/gshhs-data
@@ -3016,6 +3015,8 @@ games-emulation/dosbox-staging:fluidsynth - use media-sound/fluidsynth for MIDI 
 games-emulation/dosbox-staging:mt-32 - use media-libs/munt-mt32emu for MT-32 emulation
 games-emulation/dosbox-staging:network - Enable networking features (modem, ipx)
 games-emulation/dosbox-staging:opus - Support compressed audio tracks (.opus) used with CDROM images
+games-emulation/fceux:ffmpeg - Use media-video/ffmpeg for video recording
+games-emulation/fceux:x265 - Use media-libs/x265 for video recording (HEVC)
 games-emulation/generator:sdlaudio - Enable SDL Audio
 games-emulation/hatari:capsimage - Use dev-libs/spsdeclib to read .IPF, .RAW, and .CTR disk images
 games-emulation/hatari:microphone - Use media-libs/portaudio for Falcon microphone handling
@@ -5792,8 +5793,9 @@ net-im/psi:webengine - Enable themed, html-based chatlogs using dev-qt/qtwebengi
 net-im/psi:whiteboarding - Enable experimental interactive SVG drawing
 net-im/psi:xscreensaver - Use X screensaver protocol extension to monitor idle/active status based on mouse/keyboard events
 net-im/psimedia:extras - Enable Psi+ mode (required when built for Psi+)
+net-im/qtox:X - Enable auto-away support
 net-im/qtox:notification - Use snorenotify for desktop notifications
-net-im/qtox:spellcheck - Enable spell cheching support
+net-im/qtox:spellcheck - Enable spell checking support
 net-im/spectrum2:frotz - Enables the Z-Engine backend.
 net-im/spectrum2:irc - Enables the IRC backend, based on net-im/libcommuni.
 net-im/spectrum2:purple - Enables the libpurple backend, based on net-im/pidgin.
@@ -6123,6 +6125,7 @@ net-libs/tox:log-trace - Log level: 5
 net-libs/tox:log-warn - Log level: 2
 net-libs/udns:tools - Build and install dnsget, ex-rdns and rblcheck tools
 net-libs/wandio:http - Build support for reading files over HTTP using net-misc/curl
+net-libs/webkit-gtk:avif - Enable support for AVIF images via media-libs/libavif
 net-libs/webkit-gtk:egl - Enable EGL support
 net-libs/webkit-gtk:examples - Install the MiniBrowser example application
 net-libs/webkit-gtk:gamepad - Enable gamepad input support via dev-libs/libmanette
@@ -6747,8 +6750,10 @@ net-p2p/retroshare:webui - Enables Web interface and API support
 net-p2p/retroshare:xapian - Enables GXS content indexing and search via dev-libs/xapian
 net-p2p/rtorrent:daemon - Uses app-misc/screen to daemonize this application
 net-p2p/syncthing:tools - Install stdiscosrv, strelaysrv and other tools to /usr/libexec/syncthing/.
+net-p2p/transmission:cli - Build command-line client
 net-p2p/transmission:lightweight - Optimize transmission for low-resource systems (smaller cache size, prefer unencrypted peer connections, etc.)
 net-p2p/transmission:mbedtls - Use mbed TLS instead of OpenSSL
+net-p2p/transmission:web - Build Web client
 net-p2p/transmission-remote-gtk:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration.
 net-print/cups:lprng-compat - Do not install lp... binaries so cups and lprng can coexist.
 net-print/cups-filters:foomatic - Build the included foomatic-rip printer driver. Strongly recommended.
@@ -6855,6 +6860,7 @@ net-vpn/libreswan:dnssec - Use DNSSEC resolver (requires net-dns/unbound)
 net-vpn/ocserv:otp - Enable support for one-time passwords
 net-vpn/openconnect:gssapi - Build GSSAPI support
 net-vpn/openconnect:libproxy - Enable proxy support
+net-vpn/openconnect:pskc - Enable PSKC file storage of HOTP/TOTP keys
 net-vpn/openconnect:stoken - Enable stoken support
 net-vpn/openvpn:down-root - Enable the down-root plugin
 net-vpn/openvpn:iproute2 - Enabled iproute2 support instead of net-tools
@@ -7491,10 +7497,11 @@ sci-mathematics/petsc:sparse - Use suitesparse (sci-libs/suitesparse) including 
 sci-mathematics/petsc:superlu - Use superlu (sci-libs/superlu) for preconditioning
 sci-mathematics/polymake:bliss - Enable sci-libs/bliss interface for graph and face lattice isomorphism computations.
 sci-mathematics/polymake:cdd - Enable sci-libs/cddlib interface for convex hull computations (Should be kept enabled).
-sci-mathematics/polymake:group - Build extension for dealing with permutation groups and symmetric objects.
-sci-mathematics/polymake:libnormaliz - Build the bundled extension for lattice related computations.
+sci-mathematics/polymake:flint - Build with "strongly recommended" support for sci-mathematics/flint.
 sci-mathematics/polymake:libpolymake - Build the polymake library to build applications using the C++ interface.
 sci-mathematics/polymake:lrs - Enable sci-libs/lrslib interface for convex hull computations.
+sci-mathematics/polymake:nauty - Build the extension for graph automorphism computations using sci-mathematics/nauty.
+sci-mathematics/polymake:normaliz - Build the bundled extension for lattice computations using sci-mathematics/normaliz.
 sci-mathematics/polymake:ppl - Enable dev-libs/ppl interface for convex hull computations.
 sci-mathematics/polymake:singular - Enable the interface to sci-mathematics/singular for ideal related computations.
 sci-mathematics/rstudio:server - Build and install the RStudio server
@@ -7814,6 +7821,7 @@ sys-apps/s390-tools:pfm - build the cpacfstats tool
 sys-apps/s390-tools:zlib - build the zgetdump and dump2tar utilities
 sys-apps/s6:execline - enable support for dev-lang/execline
 sys-apps/s6-linux-init:sysv-utils - Install sysvinit compatibility symlinks for telinit, halt, poweroff, reboot, and shutdown
+sys-apps/sandbox:nnp - Enable NO_NEW_PRIVS which blocks set*id programs from gaining privileges (e.g. sudo)
 sys-apps/shadow:bcrypt - build the bcrypt password encryption algorithm
 sys-apps/shadow:su - build the su program
 sys-apps/smartmontools:caps - Build against sys-libs/libcap-ng to allow smartd to drop its privileges.
@@ -8784,7 +8792,6 @@ x11-misc/primus:libglvnd - Use media-libs/libglvnd for dispatch
 x11-misc/py3status:gevent - Install extra requirement dev-python/gevent to enable green threads.
 x11-misc/py3status:minimal - Don't depend on x11-misc/i3status if you don't plan to use any of its built-in modules.
 x11-misc/py3status:udev - Install extra requirement dev-python/pyudev to enable udev events monitoring on modules.
-x11-misc/qt5ct:dbus - Enable system tray and global menu support
 x11-misc/qtfm:dbus - Install the qtfm-tray removable device manager
 x11-misc/qtfm:shared - Install the libQtFM shared library and headers
 x11-misc/read-edid:vbe-mode - Build get-edid with support for legacy, VBE-based interface. Requires dev-libs/libx86.
@@ -8884,6 +8891,7 @@ x11-themes/arc-theme:cinnamon - Install theme for gnome-extra/cinnamon
 x11-themes/arc-theme:gnome-shell - Install theme for gnome-base/gnome-shell
 x11-themes/arc-theme:gtk2 - Install GTK+2 theme
 x11-themes/arc-theme:gtk3 - Install GTK+3 theme
+x11-themes/arc-theme:gtk4 - Install GTK+4 theme
 x11-themes/arc-theme:mate - Install Metacity theme for mate-base/mate
 x11-themes/arc-theme:pre-rendered - Avoid media-gfx/inkscape and media-gfx/optipng dependencies by using pre-rendered PNGs
 x11-themes/arc-theme:xfce - Install theme for xfce-base/xfwm4
