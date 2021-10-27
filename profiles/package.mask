@@ -33,18 +33,36 @@
 
 #--- END OF EXAMPLES ---
 
+# Pacho Ramos <pacho@gentoo.org> (2021-10-27)
+# Not maintained and not needed with recent pulseaudio and pipewire.
+# Removal in a month.
+media-sound/pulseaudio-modules-bt
+
+# Jakov Smolić <jsmolic@gentoo.org> (2021-10-26)
+# Fails to build with glibc-2.34, uses EAPI 5.
+# Removal on 2021-11-25. Bug #806577.
+sys-fabric/dapl
+
+# Jakov Smolić <jsmolic@gentoo.org> (2021-10-26)
+# Fails to build with glibc-2.34, broken test suite,
+# dead upstream, no revdeps.
+# Removal on 2021-11-25. Bug #806344.
+app-shells/heirloom-sh
+
+# Hans de Graaff <graaff@gentoo.org> (2021-10-26)
+# New rubygems versions check extension installation and will
+# fail to find gems when extensions are not installed correctly.
+# Not all packages in the tree have been updated for this yet.
+# Also Gentoo defaults need to be updated for this to work correctly.
+# Masked pending fixes in dev-ruby packages.
+>=dev-ruby/rubygems-3.2.22
+
 # Sam James <sam@gentoo.org> (2021-10-25)
 # Fails to build with glibc-2.34 and binutils-2.34+. Not many other
 # distros packaging this and no upstream commits since 2011. No reverse
 # dependencies.
 # bug #707848, bug #806476. Removal on 2021-11-25.
 dev-util/mutrace
-
-# Sam James <sam@gentoo.org> (2021-10-25)
-# Fails to build with glibc-2.34 and appears to be obsolete. No
-# reverse dependencies.
-# bug #806079. Removal on 2021-11-25.
-sys-libs/libhugetlbfs
 
 # Sam James <sam@gentoo.org> (2021-10-25)
 # Fails to build with glibc-2.33 and no activity upstream; seems like
@@ -490,22 +508,10 @@ dev-ml/ppx_metaquot
 # VM image data corruption bug, causing I/O errors in VMs. Bug #815379
 =app-emulation/qemu-6.1.0
 
-# Joonas Niilola <juippis@gentoo.org> (2021-09-26)
-# A library without revdeps, EAPI-5. #776901
-# Removal in ~30 days.
-media-libs/libyami
-
 # Brian Evans <grknight@gentoo.org> (2021-09-26)
 # Mask for 8.1 RC
 dev-lang/php:8.1
 virtual/httpd-php:8.1
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-25)
-# Upstream renamed the Theano project and continued as dev-python/aesara.
-# No reverse dependencies.
-# Removal on 2021-10-25.
-dev-python/theano
-dev-python/theano-pymc
 
 # Mart Raudsepp <leio@gentoo.org> (2021-09-24)
 # Experimental split media-sound/pulseaudio packages, bug #536780.
@@ -524,13 +530,6 @@ media-sound/pulseaudio-daemon
 # Mart Raudsepp <leio@gentoo.org> (2021-09-23)
 # Incompatible with c++17 abseil-cpp, no in-tree consumers yet
 media-libs/webrtc-audio-processing:1
-
-# Michał Górny <mgorny@gentoo.org> (2021-09-23)
-# Ancient version from 2016 that collides with dev-python/pyjwt.
-# Never bumped by the maintainer.  The only revdep turned out to be
-# false positive.
-# Removal on 2021-10-23.  Bug #814449.
-dev-python/python-jwt
 
 # Alfredo Tupone <tupone@gentoo.org> (2021-09-19)
 # Mask gnat-gpl-2018 and gnat-gpl-2019. Please switch
@@ -672,14 +671,6 @@ net-libs/libsoup:3.0
 # in some cases.
 # bug #772998
 ~net-misc/openntpd-6.8_p1
-
-# Sam James <sam@gentoo.org> (2021-03-01)
-# Mask new proj 8.x as it removes deprecated
-# API. Likely to break several consumers
-# which haven't yet ported.
-# bug #729098
->=sci-libs/proj-8.0.0
->=sci-geosciences/qmapshack-1.16
 
 # Lars Wendler <polynomial-c@gentoo.org> (2021-02-15)
 # Mask development versions now that they were bumped...

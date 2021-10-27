@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -42,4 +42,9 @@ BDEPEND="
 	)
 "
 
-distutils_enable_tests unittest
+distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# requires pip, does not make much sense for the users
+	jsonschema/tests/test_cli.py::TestCLIIntegration::test_license
+)
