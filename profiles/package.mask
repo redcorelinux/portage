@@ -33,10 +33,10 @@
 
 #--- END OF EXAMPLES ---
 
-# Pacho Ramos <pacho@gentoo.org> (2021-10-27)
-# Not maintained and not needed with recent pulseaudio and pipewire.
-# Removal in a month.
-media-sound/pulseaudio-modules-bt
+# Jakov Smolić <jsmolic@gentoo.org> (2021-10-30)
+# EAPI 5, no revdeps, replaced by sci-libs/eccodes
+# Removal on 2021-11-29. Bug #819111.
+sci-libs/libbufr
 
 # Jakov Smolić <jsmolic@gentoo.org> (2021-10-26)
 # Fails to build with glibc-2.34, uses EAPI 5.
@@ -560,13 +560,6 @@ sys-devel/automake:1.11
 # end up loaded into the same process together with the earlier libsoup ABI.
 # Migration to it is expected for GNOME 42, NOT to be unmasked with GNOME 41.
 net-libs/libsoup:3.0
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-09-07)
-# Mask backwards-incompatible version to avoid autodeletion of previous one.
-# Data migration is not supported upstream and can't be done automatically.
-# https://github.com/martinrotter/rssguard/releases/tag/4.0.0
-# https://github.com/martinrotter/rssguard/blob/master/resources/docs/Documentation.md#migratt
->=net-news/rssguard-4.0.0
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-09-07)
 # Masked while being tested and reverse deps aren't fully compatible

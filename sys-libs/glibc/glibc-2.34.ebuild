@@ -20,7 +20,7 @@ SLOT="2.2"
 EMULTILIB_PKG="true"
 
 # Gentoo patchset (ignored for live ebuilds)
-PATCH_VER=3
+PATCH_VER=4
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -36,7 +36,7 @@ RELEASE_VER=${PV}
 
 GCC_BOOTSTRAP_VER=20201208
 
-LOCALE_GEN_VER=2.10
+LOCALE_GEN_VER=2.22
 
 GLIBC_SYSTEMD_VER=20210729
 
