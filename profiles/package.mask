@@ -33,6 +33,24 @@
 
 #--- END OF EXAMPLES ---
 
+# Jakov Smolić <jsmolic@gentoo.org> (2021-10-31)
+# Multiple open bugs, unbuildable due to sandbox issues,
+# uses EAPI 5, no revdeps, no other distro packages this.
+# Removal on 2021-11-30. Bug #819252.
+sys-apps/frandom
+
+# Hans de Graaff <graaff@gentoo.org> (2021-10-30)
+# Obsolete slot. Use a newer slot of the same package.
+# Masked for removal in 30 days.
+dev-ruby/rmagick:0
+dev-ruby/rbnacl:4
+
+# Jakov Smolić <jsmolic@gentoo.org> (2021-10-30)
+# 9999-only ebuild, hasn't been updated in years,
+# uses EAPI 5, no revdeps.
+# Removal on 2021-11-29. Bug #819258.
+net-wireless/btcrack
+
 # Jakov Smolić <jsmolic@gentoo.org> (2021-10-30)
 # EAPI 5, no revdeps, replaced by sci-libs/eccodes
 # Removal on 2021-11-29. Bug #819111.
@@ -493,12 +511,6 @@ x11-drivers/nvidia-drivers:0/vulkan
 dev-ruby/hashie:0
 dev-ruby/thor:0
 
-# Joonas Niilola <juippis@gentoo.org> (2021-10-02)
-# A library without revdeps. Last upstream release in 2009, huge amount
-# of open bugs not fixed has led the project being forked already.
-# Bug #776895. Removal in ~30 days.
-dev-libs/rapidxml
-
 # Alfredo Tupone <tupone@gentoo.org> (2021-09-30)
 # Deprecated upstream
 # bug #815466. Removal on 2021-10-30.
@@ -506,7 +518,7 @@ dev-ml/ppx_metaquot
 
 # John Helmert III <ajak@gentoo.org> (2021-09-29)
 # VM image data corruption bug, causing I/O errors in VMs. Bug #815379
-=app-emulation/qemu-6.1.0
+=app-emulation/qemu-6.1.0-r1
 
 # Brian Evans <grknight@gentoo.org> (2021-09-26)
 # Mask for 8.1 RC
@@ -616,15 +628,6 @@ net-libs/libsoup:3.0
 # Alpha versions of fetchmail 7
 # Add support for OAUTH2 for those needing it
 =net-mail/fetchmail-7.0.0_alpha*
-
-# Sam James <sam@gentoo.org> (2021-06-01)
-# Possible issues with new ALSA release
-# See bug #793410
-=media-libs/alsa-lib-1.2.5_p20210604
-=media-libs/alsa-topology-conf-1.2.5
-=media-libs/alsa-ucm-conf-1.2.5-r1
-=media-plugins/alsa-plugins-1.2.5
-=media-sound/alsa-utils-1.2.5-r1
 
 # Michał Górny <mgorny@gentoo.org> (2021-05-31)
 # Requires removed media-libs/opencv version.
