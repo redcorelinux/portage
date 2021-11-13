@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Michael Seifert <m.seifert@digitalernachschub.de> (2021-10-23)
-# dev-python/furo isn't keyworded here
-dev-python/argon2-cffi doc
+# Sam James <sam@gentoo.org> (2021-11-05)
+# Avoid keywording unnecessary depenencies for now, bug #804115
+dev-python/scipy pythran
 
 # Sam James <sam@gentoo.org> (2021-10-16)
 # Requires dev-db/mariadb which, at last check, was broken on sparc.

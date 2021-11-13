@@ -11,7 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="$(ver_cut 1-3)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
+KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="+clang debug test elibc_glibc"
 # base targets
 IUSE+=" +libfuzzer +memprof +orc +profile +xray"
@@ -33,7 +33,8 @@ RESTRICT="!test? ( test ) !clang? ( test )"
 CLANG_SLOT=${SLOT%%.*}
 # llvm-6 for new lit options
 DEPEND="
-	>=sys-devel/llvm-6"
+	>=sys-devel/llvm-6
+	virtual/libcrypt"
 BDEPEND="
 	>=dev-util/cmake-3.16
 	clang? ( sys-devel/clang )

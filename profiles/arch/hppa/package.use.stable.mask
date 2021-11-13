@@ -17,6 +17,19 @@
 
 #--- END OF EXAMPLES ---
 
+# Rolf Eike Beer <eike@sf-mail.de> (2021-11-10)
+# The following packages have no stable keywords on hppa:
+# net-mail/courier-imap mail-mta/courier
+dev-libs/cyrus-sasl authdaemond
+
+# Sam James <sam@gentoo.org> (2021-11-03)
+# sys-apps/hwloc is not marked stable on HPPA
+sys-process/htop hwloc
+
+# Sam James <sam@gentoo.org> (2021-11-03)
+# dev-util/source-highlight is not marked stable on HPPA
+sys-devel/gdb source-highlight
+
 # Matt Turner <mattst88@gentoo.org> (2021-09-22)
 # Non-stable deps.
 app-editors/emacs gui mailutils

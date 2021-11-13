@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="cdr dbus dia exif graphicsmagick imagemagick inkjar jemalloc jpeg
 openmp postscript readline spell static-libs svg2 visio wpg"
 
@@ -110,6 +110,7 @@ pkg_pretend() {
 src_prepare() {
 	# Backport from master
 	eapply "${WORKDIR}/inkscape-1.1-musl/"*.patch
+	eapply "${FILESDIR}"/${P}-poppler-21.11.0.patch
 
 	cmake_src_prepare
 	sed -i "/install.*COPYING/d" CMakeScripts/ConfigCPack.cmake || die

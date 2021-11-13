@@ -610,6 +610,8 @@ _distutils-r1_disable_ez_setup() {
 # @DESCRIPTION:
 # Generate setup.py for pyproject.toml if requested.
 _distutils-r1_handle_pyproject_toml() {
+	[[ ${DISTUTILS_USE_SETUPTOOLS} == manual ]] && return
+
 	if [[ ! -f setup.py && -f pyproject.toml ]]; then
 		if [[ ${DISTUTILS_USE_SETUPTOOLS} != pyproject.toml ]]; then
 			eerror "No setup.py found but pyproject.toml is present.  In order to enable"
@@ -890,8 +892,7 @@ distutils-r1_python_install() {
 	# python likes to compile any module it sees, which triggers sandbox
 	# failures if some packages haven't compiled their modules yet.
 	addpredict "${EPREFIX}/usr/lib/${EPYTHON}"
-	addpredict /usr/lib/pypy3.6
-	addpredict /usr/lib/pypy3.7
+	addpredict /usr/lib/pypy3.8
 	addpredict /usr/lib/portage/pym
 	addpredict /usr/local # bug 498232
 

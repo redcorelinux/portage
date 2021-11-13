@@ -6,7 +6,10 @@ EAPI=7
 # Bumping notes: https://wiki.gentoo.org/wiki/Project:Toolchain/sys-libs/glibc
 # Please read & adapt the page as necessary if obsolete.
 
-PYTHON_COMPAT=( python3_{7,8,9,10} )
+# We avoid Python 3.10 here _for now_ (it does work!) to avoid circular dependencies
+# on upgrades as people migrate to libxcrypt.
+# https://wiki.gentoo.org/wiki/User:Sam/Portage_help/Circular_dependencies#Python_and_libcrypt
+PYTHON_COMPAT=( python3_{7,8,9} )
 TMPFILES_OPTIONAL=1
 
 inherit python-any-r1 prefix preserve-libs toolchain-funcs flag-o-matic gnuconfig \
@@ -1516,15 +1519,9 @@ pkg_preinst() {
 	# Keep around libcrypt so that Perl doesn't break when merging libxcrypt
 	# (libxcrypt is the new provider for now of libcrypt.so.{1,2}).
 	# bug #802207
-	if ! use crypt && has_version "${CATEGORY}/${PN}[crypt]"; then
+	if ! use crypt && has_version "${CATEGORY}/${PN}[crypt]" && ! has preserve-libs ${FEATURES}; then
 		PRESERVED_OLD_LIBCRYPT=1
-		preserve_old_lib /$(get_libdir)/libcrypt$(get_libname 1)
-
-		# Only copy if it exists; some people may have tiny embedded
-		# systems without headers: https://bugs.gentoo.org/802207#c16
-		if [[ -f "${EROOT}"/usr/include/crypt.h ]] ; then
-			cp "${EROOT}"/usr/include/crypt.h "${T}"/crypt.h || die
-		fi
+		cp -p "${EROOT}/$(get_libdir)/libcrypt$(get_libname 1)" "${T}/libcrypt$(get_libname 1)" || die
 	else
 		PRESERVED_OLD_LIBCRYPT=0
 	fi
@@ -1559,16 +1556,11 @@ pkg_postinst() {
 	fi
 
 	if [[ ${PRESERVED_OLD_LIBCRYPT} -eq 1 ]] ; then
+		cp -p "${T}/libcrypt$(get_libname 1)" "${EROOT}/$(get_libdir)/libcrypt$(get_libname 1)" || die
 		preserve_old_lib_notify /$(get_libdir)/libcrypt$(get_libname 1)
 
-		# Only copy if it exists; some people may have tiny embedded
-		# systems without headers: https://bugs.gentoo.org/802207#c16
-		if [[ -f "${T}"/crypt.h ]] ; then
-			cp "${T}"/crypt.h "${EROOT}"/usr/include/crypt.h || eerror "Error restoring crypt.h, please file a bug"
-		fi
-
 		elog "Please ignore a possible later error message about a file collision involving"
-		elog "/usr/include/crypt.h. We need to preserve this file for the moment to keep"
+		elog "${EROOT}/$(get_libdir)/libcrypt$(get_libname 1). We need to preserve this file for the moment to keep"
 		elog "the upgrade working, but it also needs to be overwritten when"
 		elog "sys-libs/libxcrypt is installed. See bug 802210 for more details."
 	fi
