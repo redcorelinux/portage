@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Replacement for pipewire-media-session"
@@ -75,8 +75,8 @@ pkg_postinst() {
 	if systemd_is_booted ; then
 		ewarn "pipewire-media-session.service is no longer installed. You must switch"
 		ewarn "to wireplumber.service user unit before your next logout/reboot:"
-		ewarn "systemctl --user disable --now pipewire-media-session.service"
-		ewarn "systemctl --user enable --now wireplumber.service"
+		ewarn "systemctl --user disable pipewire-media-session.service"
+		ewarn "systemctl --user --force enable wireplumber.service"
 	else
 		ewarn "Switch to WirePlumber will happen the next time gentoo-pipewire-launcher"
 		ewarn "is started (a replacement for directly calling pipewire binary)."

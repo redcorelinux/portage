@@ -141,6 +141,11 @@
     <url>https://wiki.gentoo.org/wiki/Project:ARM64</url>
     <description>The ARM64 project is devoted to getting and keeping Gentoo in good shape on the ARM AArch64 architecture.</description>
     <member>
+      <email>arthurzam@gentoo.org</email>
+      <name>Arthur Zamarin</name>
+      <role>arm64 keywording/stabilization</role>
+    </member>
+    <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>Catalyst builds for systemd and musl</role>
@@ -371,6 +376,11 @@
     <name>Binary (i.e., precompiled) package hosting</name>
     <url>https://wiki.gentoo.org/wiki/Project:Binhost</url>
     <description>The Gentoo Binhost project aims to provide readily installable, precompiled packages for a subset of configurations. Currently we are still in the conceptual planning stage.</description>
+    <member>
+      <email>blueknight@gentoo.org</email>
+      <name>Yury German</name>
+      <role>Janitor</role>
+    </member>
     <member>
       <email>bman@gentoo.org</email>
       <name>Aaron Bauman</name>
@@ -1326,11 +1336,11 @@
     <name>Hardened</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened</url>
     <description>Hardened Gentoo is a project which oversees the research, implementation, and maintenance of security oriented projects for Gentoo Linux.</description>
-    <subproject ref="musl@gentoo.org"/>
+    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="uclibc@gentoo.org"/>
-    <subproject ref="integrity@gentoo.org"/>
+    <subproject ref="integrity@gentoo.org" inherit-members="1"/>
     <subproject ref="rsbac@gentoo.org"/>
-    <subproject ref="selinux@gentoo.org"/>
+    <subproject ref="selinux@gentoo.org" inherit-members="1"/>
     <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
@@ -1362,6 +1372,10 @@
       <role>Developer</role>
     </member>
     <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
       <role>PaX markings</role>
@@ -1390,12 +1404,16 @@
       <name>Georgy Yakovlev</name>
       <role>ppc64 helper</role>
     </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
   </project>
   <project>
     <email>uclibc@gentoo.org</email>
     <name>Hardened uClibc</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened_uClibc</url>
-    <description>This subproject aims to port both tool chain and kernel hardening to uClibc based systems for a variety of architectures. The project treats uClibc as an alternative to glibc, and not necessarily as "embedded".</description>
+    <description>This subproject aims to port both tool chain and kernel hardening to uClibc based systems for a variety of architectures. The project treats uClibc as an alternative to glibc, and not necessarily as "embedded". uClibc is no longer supported.</description>
     <member is-lead="1">
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
@@ -1844,6 +1862,10 @@
       <email>tupone@gentoo.org</email>
       <name>Alfredo Tupone</name>
     </member>
+    <member>
+      <email>xgqt@gentoo.org</email>
+      <name>Maciej Barć</name>
+    </member>
   </project>
   <project>
     <email>sci-mathematics@gentoo.org</email>
@@ -1935,6 +1957,11 @@
     <name>Gentoo network monitoring and analysis project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Netmon</url>
     <description>Maintaining network monitoring and analysis libraries and programs</description>
+    <member>
+      <email>jstein@gentoo.org</email>
+      <name>Jonas Stein</name>
+      <role>liquidator</role>
+    </member>
     <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
@@ -2290,14 +2317,19 @@
       <role>ppc/ppc64 stabilization/security</role>
     </member>
     <member>
+      <email>arthurzam@gentoo.org</email>
+      <name>Arthur Zamarin</name>
+      <role>ppc/ppc64 keywording/stabilization</role>
+    </member>
+    <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>ppc/ppc64 keywording/stabilization</role>
     </member>
-    <member>
+    <member is-lead="1">
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
-      <role>everything ppc64/openpower</role>
+      <role>profiles, keywording, releng, desktop</role>
     </member>
     <member>
       <email>lu_zero@gentoo.org</email>
@@ -3012,6 +3044,10 @@
     <member>
       <email>hattya@gentoo.org</email>
       <name>Akinori Hattori</name>
+    </member>
+    <member>
+      <email>xgqt@gentoo.org</email>
+      <name>Maciej Barć</name>
     </member>
   </project>
   <project>

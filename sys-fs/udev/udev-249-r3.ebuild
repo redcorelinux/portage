@@ -116,6 +116,7 @@ src_prepare() {
 		# backport from 250 to silence musl warnings
 		"${FILESDIR}/249-sys-include-posix.patch"
 		"${FILESDIR}/249-libudev-static.patch"
+		"${FILESDIR}/249-udev-linux-headers-5-15.patch"
 	)
 	use elibc_musl && PATCHES+=( "${WORKDIR}"/musl-patches )
 
@@ -294,5 +295,6 @@ pkg_postinst() {
 		ewarn
 		ewarn "If you wish to disable this, please see the above documentation, or set"
 		ewarn "net.ifnames=0 on the kernel command line."
+		ewarn "See also: https://wiki.gentoo.org/wiki/Udev#Optional:_Disable_or_override_predictable_network_interface_naming"
 	fi
 }

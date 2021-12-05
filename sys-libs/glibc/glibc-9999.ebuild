@@ -723,6 +723,20 @@ sanity_prechecks() {
 	fi
 }
 
+upgrade_warning() {
+	if [[ ${MERGE_TYPE} != buildonly && -n ${REPLACING_VERSIONS} && -z ${ROOT} ]]; then
+		local oldv newv=$(ver_cut 1-2 ${PV})
+		for oldv in ${REPLACING_VERSIONS}; do
+			if ver_test ${oldv} -lt ${newv}; then
+				ewarn "After upgrading glibc, please restart all running processes."
+				ewarn "Be sure to include init (telinit u) or systemd (systemctl daemon-reexec)."
+				ewarn "Alternatively, reboot your system."
+				break
+			fi
+		done
+	fi
+}
+
 #
 # the phases
 #
@@ -733,6 +747,7 @@ pkg_pretend() {
 	# All the checks...
 	einfo "Checking general environment sanity."
 	sanity_prechecks
+	upgrade_warning
 }
 
 pkg_setup() {
@@ -1197,13 +1212,13 @@ run_locale_gen() {
 		root="$2"
 	fi
 
-	local locale_list="${root}/etc/locale.gen"
+	local locale_list="${root%/}/etc/locale.gen"
 
 	pushd "${ED}"/$(get_libdir) >/dev/null
 
 	if [[ -z $(locale-gen --list --config "${locale_list}") ]] ; then
 		[[ -z ${inplace} ]] && ewarn "Generating all locales; edit /etc/locale.gen to save time/space"
-		locale_list="${root}/usr/share/i18n/SUPPORTED"
+		locale_list="${root%/}/usr/share/i18n/SUPPORTED"
 	fi
 
 	set -- locale-gen ${inplace} --jobs $(makeopts_jobs) --config "${locale_list}" \
@@ -1539,6 +1554,8 @@ pkg_postinst() {
 	if ! is_crosscompile && [[ -z ${ROOT} ]] ; then
 		use compile-locales || run_locale_gen "${EROOT}/"
 	fi
+
+	upgrade_warning
 
 	# Check for sanity of /etc/nsswitch.conf, take 2
 	if [[ -e ${EROOT}/etc/nsswitch.conf ]] && ! has_version sys-auth/libnss-nis ; then

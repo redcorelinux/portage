@@ -6,9 +6,20 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-26)
-# Depends on masked sys-fabric/dapl
-sys-fabric/ofed dapl
+# Wolfgang E. Sanyer <ezzieyguywuf@gmail.com> (2021-12-01)
+# Requires pandoc, which is unstable due to various haskell dependencies
+# (including ghc)
+>=sys-apps/exa-0.10.1 man
+
+# Sam James <sam@gentoo.org> (2021-11-26)
+# Needs unpackaged asciidoctor-pdf for now
+# bug #827290
+>=app-doc/kicad-doc-6.0.0_rc1 pdf
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-23)
+# pdfannotextractor gets masked as it does not support
+# updated dev-java/pdfbox-2.0.24, Bug #803488
+app-text/texlive pdfannotextractor
 
 # Conrad Kostecki <conikost@gentoo.org> (2021-10-23)
 # Build tools is currently broken, so masking until upstream fixes
@@ -188,11 +199,6 @@ x11-libs/colord-gtk doc
 <dev-ml/llvm-ocaml-14 llvm_targets_CSKY llvm_targets_M68k
 <sys-devel/clang-14 llvm_targets_CSKY llvm_targets_M68k
 <sys-devel/llvm-14 llvm_targets_CSKY llvm_targets_M68k
-
-# Joonas Niilola <juippis@gentoo.org> (2020-12-03)
-# Doc building seem to be very random without any predictability,
-# bug #734104
-media-gfx/blender doc
 
 # Marek Szuba <marecki@gentoo.org> (2020-11-30)
 # Vendored therecipe/qt violates network sandbox + uses external binary
@@ -405,6 +411,7 @@ sys-devel/binutils-hppa64 cet
 sys-devel/gdb cet
 sys-libs/binutils-libs cet
 sys-libs/glibc cet
+sys-devel/gcc cet
 
 # Michał Górny <mgorny@gentoo.org> (2018-06-13)
 # Requires app-arch/snappy[static-libs] that is no longer available.
@@ -428,7 +435,7 @@ app-emulation/fuse backend-svga
 # Patrick McLean <chutzpah@gentoo.org> (2018-03-06)
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2020-12-25)
 # Requires dev-libs/boost-1.72 that is gone
-sys-cluster/ceph system-boost
+<sys-cluster/ceph-15 system-boost
 
 # Brian Evans <grknight@gentoo.org> (2018-03-05)
 # Mask embedded USE on virtual/mysql and friends to transition it to be obsolete
