@@ -6,6 +6,22 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Joonas Niilola <juippis@gentoo.org> (2021-12-20)
+# Broken, upstream issue/PR open since 2021-05 without reply.
+# Gentoo bug #821253
+media-video/mjpg-streamer http-management
+
+# David Seifert <soap@gentoo.org> (2021-12-19)
+# Requires GCC 8, security vulnerabilities, switch to CUDA 11,
+# consider using clang+NVPTX backend for sm_30 cards.
+# Removal in 90 days, bug #721808, #760708.
+dev-libs/cudnn cuda10-2
+
+# Thomas Deutschmann <whissi@gentoo.org> (2021-12-03)
+# Requires newer media-libs/dav1d which isn't available yet,
+# see https://bugzilla.mozilla.org/1734058
+>=www-client/firefox-95.0 system-av1
+
 # Wolfgang E. Sanyer <ezzieyguywuf@gmail.com> (2021-12-01)
 # Requires pandoc, which is unstable due to various haskell dependencies
 # (including ghc)
@@ -234,10 +250,6 @@ dev-db/mariadb columnstore
 # Required dependencies are not yet in the Gentoo ebuild tree
 # Please file a bug if this feature is needed
 dev-python/autobahn xbr
-
-# Thomas Deutschmann <whissi@gentoo.org> (2020-07-27)
-# media-video/pipewire:0/0.3 is only available for certain architectures
-www-client/firefox screencast
 
 # Stephan Hartmann <stha09@googlemail.com> (2020-06-28)
 # Mostly intended for development and not for general use.

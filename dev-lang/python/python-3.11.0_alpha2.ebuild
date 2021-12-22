@@ -62,7 +62,7 @@ BDEPEND="
 	sys-devel/autoconf-archive
 	virtual/awk
 	virtual/pkgconfig
-	verify-sig? ( app-crypt/openpgp-keys-python )
+	verify-sig? ( sec-keys/openpgp-keys-python )
 	!sys-devel/gcc[libffi(-)]"
 RDEPEND+=" !build? ( app-misc/mime-types )"
 
@@ -163,7 +163,12 @@ src_configure() {
 
 	if use pgo; then
 		local jobs=$(makeopts_jobs "${MAKEOPTS}" "$(get_nproc)")
-		export PROFILE_TASK="-m test -j${jobs} --pgo-extended -x test_gdb"
+		export PROFILE_TASK="-m test -j${jobs} --pgo-extended -x test_gdb -u-network"
+
+		# All of these seem to occasionally hang for PGO inconsistently
+		# They'll even hang here but be fine in src_test sometimes.
+		# bug #828535 (and related: bug #788022)
+		PROFILE_TASK+=" -x test_socket -x test_asyncio -x test_httpservers -x test_logging -x test_multiprocessing_fork -x test_xmlrpc"
 
 		if has_version "app-arch/rpm" ; then
 			# Avoid sandbox failure (attempts to write to /var/lib/rpm)
@@ -310,7 +315,7 @@ src_install() {
 		pax-mark m "${ED}/usr/bin/${abiver}"
 	fi
 
-	use sqlite || rm -r "${libdir}/"{sqlite3,test/test_sqlite*} || die
+	use sqlite || rm -r "${libdir}/"sqlite3 || die
 	use tk || rm -r "${ED}/usr/bin/idle${PYVER}" "${libdir}/"{idlelib,tkinter,test/test_tk*} || die
 
 	dodoc Misc/{ACKS,HISTORY,NEWS}

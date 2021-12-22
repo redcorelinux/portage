@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD-2"
 SLOT="2/$(ver_cut 1-2)" # soname version
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86 ~ppc-macos"
 IUSE="doc boost bzip2 lzma python ssl static-libs sqlite zlib"
 
 CPU_USE=(
@@ -45,7 +45,7 @@ BDEPEND="
 	$(python_gen_any_dep '
 		doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	')
-	verify-sig? ( app-crypt/openpgp-keys-botan )
+	verify-sig? ( sec-keys/openpgp-keys-botan )
 "
 
 # NOTE: Considering patching Botan?

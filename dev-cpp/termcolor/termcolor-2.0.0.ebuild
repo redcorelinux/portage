@@ -9,7 +9,7 @@ DESCRIPTION="A header-only C++ library for printing colored messages to the term
 HOMEPAGE="https://github.com/ikalnytskyi/termcolor https://termcolor.readthedocs.io"
 SRC_URI="https://github.com/ikalnytskyi/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
@@ -22,4 +22,8 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_test() {
+	"${BUILD_DIR}"/test_termcolor || die
 }
