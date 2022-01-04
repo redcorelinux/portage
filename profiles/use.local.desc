@@ -877,6 +877,7 @@ app-misc/lirc:uinput - Enable support for uinput
 app-misc/mc:edit - Compile and install the mcedit application
 app-misc/mc:sftp - Add support for sftp (uses net-libs/libssh2 for it).
 app-misc/mc:slang - Use sys-libs/slang instead of sys-libs/ncurses.
+app-misc/mime-types:nginx - Enable mime-types support for www-servers/nginx package
 app-misc/mosquitto:bridge - Enable bridge support in the MQTT broker.
 app-misc/mosquitto:persistence - Store messages and subscriptions to a file.
 app-misc/mosquitto:srv - Include SRV lookup support.
@@ -1211,11 +1212,17 @@ dev-ada/gnatcoll-db:sql - Build sql library
 dev-ada/gnatcoll-db:static-pic - Build shared library
 dev-ada/gnatcoll-db:xref - Build xref library
 dev-ada/gtkada:shared - Build gtkada as shared library
+dev-ada/gtkada:static-pic - Build static library with pic code
 dev-ada/langkit:shared - Build shared library
 dev-ada/langkit:static-pic - Build static library with pic code
 dev-ada/libadalang:static-pic - Build static library with pic code
+dev-ada/libadalang-tools:shared - Build shared library
+dev-ada/libadalang-tools:static-pic - Build static library with pic code
 dev-ada/libgpr:shared - Build shared library
 dev-ada/libgpr:static-pic - Build static library with pic code
+dev-ada/spawn:glib - Add support to dev-libs/glib-based mainloop.
+dev-ada/spawn:shared - Build shared library
+dev-ada/spawn:static-pic - Build static library with pic code
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/abseil-cpp:cxx17 - Build with -DCMAKE_CXX_STANDARD=17 (required by some revdeps)
@@ -1685,7 +1692,6 @@ dev-java/icedtea-bin:headless-awt - Don't install the X backend for AWT, needed 
 dev-java/jaxen:dom4j - Includes org.jaxen.dom4j package
 dev-java/jaxen:jdom - Includes org.jaxen.jdom package
 dev-java/jaxen:xom - Includes org.jaxen.xom package
-dev-java/jfreesvg:debug - Enable debugging during compilation.
 dev-java/jna:awt - Enables support for Java AWT
 dev-java/jna:nio-buffers - Enables support for NIO buffers
 dev-java/log4j:javamail - Build the SMTPAppender
@@ -1738,7 +1744,6 @@ dev-lang/gnat-gpl:go - Build the GCC Go language frontend.
 dev-lang/gnat-gpl:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 dev-lang/gnat-gpl:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
 dev-lang/gnat-gpl:lto - Build using Link Time Optimizations (LTO)
-dev-lang/gnat-gpl:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 dev-lang/gnat-gpl:nptl - Enable support for Native POSIX Threads Library, the new threading module (requires linux-2.6 or better usually)
 dev-lang/gnat-gpl:objc - Build support for the Objective C code language
 dev-lang/gnat-gpl:objc++ - Build support for the Objective C++ language
@@ -2235,7 +2240,6 @@ dev-libs/starpu:gcc-plugin - Enable GCC extension plugin (experimental)
 dev-libs/starpu:opencl - Enable OpenCL support
 dev-libs/starpu:spinlock-check - Enable spinlock check
 dev-libs/starpu:valgrind - Enable dev-util/valgrind support
-dev-libs/stp:python - Enable building the Python interface
 dev-libs/tinyxml:stl - Compile with TIXML_USE_STL support
 dev-libs/tntnet:server - Enable tntnet server daemon
 dev-libs/totem-pl-parser:archive - Enables ISO detection with app-arch/libarchive
@@ -2449,7 +2453,6 @@ dev-python/mpmath:matplotlib - Add support for dev-python/matplotlib
 dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/nbdime:webtools - Install web-based diff and merge tools.
 dev-python/nltk-data:extra - Install the complete set of data files. Otherwise, only files required by tests are installed.
-dev-python/numexpr:mkl - Enable support for Intel Vector Math Library, part of sci-libs/mkl.
 dev-python/pandas:full-support - Pull all packages to give pandas full support
 dev-python/paramiko:server - Enable server feature
 dev-python/pillow:imagequant - Build with Image Quantization Library support
@@ -3037,6 +3040,7 @@ games-emulation/dosbox-staging:fluidsynth - use media-sound/fluidsynth for MIDI 
 games-emulation/dosbox-staging:mt-32 - use media-libs/munt-mt32emu for MT-32 emulation
 games-emulation/dosbox-staging:network - Enable networking features (modem, ipx)
 games-emulation/dosbox-staging:opus - Support compressed audio tracks (.opus) used with CDROM images
+games-emulation/dosbox-staging:slirp - Enable Ethernet emulation using net-libs/libslirp
 games-emulation/fceux:ffmpeg - Use media-video/ffmpeg for video recording
 games-emulation/fceux:x265 - Use media-libs/x265 for video recording (HEVC)
 games-emulation/generator:sdlaudio - Enable SDL Audio
@@ -3376,10 +3380,6 @@ gui-libs/wlroots:vulkan - Enable support for the vulkan backend renderer
 gui-libs/wlroots:x11-backend - Enable support for handling input/output devices through x11-libs/libxcb
 gui-libs/xdg-desktop-portal-wlr:elogind - Enable support for rootless session via elogind
 gui-wm/hikari:X - Enable support for X11 applications (XWayland)
-gui-wm/hikari:gamma - add gamma control for redshift
-gui-wm/hikari:layershell - add support for wayland apps using layer shell
-gui-wm/hikari:screencopy - add support for screen grabbing
-gui-wm/hikari:virtual-io - enable virtual input/output support, needed for remote I/O in VNC
 gui-wm/sway:X - Enable support for X11 applications (XWayland)
 gui-wm/sway:swaybar - Install 'swaybar': sway's status bar component
 gui-wm/sway:swaybg - Install 'swaybg': allows to set a desktop background image
@@ -3902,6 +3902,7 @@ media-gfx/apngasm:zopfli - Enable support for Zopfli compression
 media-gfx/asymptote:boehm-gc - Enables using the Boehm-Demers-Weiser conservative garbage collector
 media-gfx/asymptote:context - Enables support for ConTeXt format (dev-texlive/texlive-context)
 media-gfx/asymptote:curl - Enables running remote programs via net-misc/curl
+media-gfx/asymptote:lsp - Enables Language Server Protocol
 media-gfx/asymptote:offscreen - Enables off-screen rendering
 media-gfx/asymptote:sigsegv - Enables using dev-libs/libsigsegv
 media-gfx/blender:alembic - Add support for Alembic through media-gfx/alembic.
@@ -4099,6 +4100,8 @@ media-libs/cogl:kms - Enable KMS support.
 media-libs/cogl:pango - Build cogl-pango library for x11-libs/pango integration
 media-libs/coin:exceptions - Compile with C++ exceptions
 media-libs/coin:qthelp - Build API documentation in QtHelp format
+media-libs/cubeb:rust - Use the newer rust-based audio backends if available
+media-libs/cubeb:sndio - Enable support for the media-sound/sndio backend
 media-libs/dav1d:10bit - Add support for building 10-bit and 12-bit AV1.
 media-libs/dav1d:8bit - Add support for decoding 8-bit AV1.
 media-libs/dav1d:asm - Enable custom assembly for faster decoding.
@@ -4554,13 +4557,9 @@ media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
 media-sound/drumstick:fluidsynth - Enable support for media-sound/fluidsynth
 media-sound/drumstick:network - Build Network RT backend
-media-sound/easyeffects:bs2b - Enable use of media-libs/libbs2b for the crossfeed FX
 media-sound/easyeffects:calf - Enable use of media-plugins/calf for adding various FX
 media-sound/easyeffects:doc - Install packages needed to display built-in user documentation
 media-sound/easyeffects:mda-lv2 - Enable use of media-plugins/mda-lv2 for the loudness FX
-media-sound/easyeffects:rnnoise - Enable use of media-libs/rnnoise for the neural network-based noise-reduction FX
-media-sound/easyeffects:rubberband - Enable use of media-libs/rubberband for the pitch-shifting FX
-media-sound/easyeffects:webrtc - Enable use of media-plugins/gst-plugins-webrtc for various voice-enhancement FX
 media-sound/easyeffects:zamaudio - Enable use of media-plugins/zam-plugins for the maximizer FX
 media-sound/easytag:nautilus - Build gnome-base/nautilus extension
 media-sound/ecasound:lv2 - Add support for Ladspa V2
@@ -6081,6 +6080,7 @@ net-libs/libwebsockets:smtp - Provide SMTP support
 net-libs/libwebsockets:sqlite3 - Require SQLITE3 support
 net-libs/loudmouth:asyncns - Use net-libs/libasyncns for asynchronous name resolution.
 net-libs/loudmouth:openssl - Enable dev-libs/openssl support instead of gnutls (which is the default).
+net-libs/mbedtls:cmac - Enable block cipher-based message authentication code algorithm
 net-libs/mbedtls:havege - Enable the HAVEGE random generator. Warning: the HAVEGE random generator is not suitable for virtualized environments
 net-libs/mbedtls:programs - Build PolarSSL programs
 net-libs/neon:libproxy - Add support for net-libs/libproxy
@@ -6855,11 +6855,6 @@ net-voip/yate:tdmcard - Enable TDMV API card driver
 net-voip/yate:wanpipe - Enable Wanpipe support
 net-voip/yate:wpcard - Enable Wanpipe card driver
 net-voip/yate:zaptel - Enable Zaptel driver
-net-vpn/badvpn:client - Build the badvpn-client program, a daemon that runs on endpoints of the VPN.
-net-vpn/badvpn:ncd - Build NCD, a lightweight scripting language especially suited for network configurations.
-net-vpn/badvpn:server - Build the badvpn-server program, a central server that manages the VPN network.
-net-vpn/badvpn:tun2socks - Build tun2socks, a program which implements a TUN device that forwards TCP traffic through a SOCKS5 server.
-net-vpn/badvpn:udpgw - Build udpgw, a small daemon which allows tun2socks to forward UDP traffic.
 net-vpn/i2p:nls - Adds Native Language Support using GNU gettext.
 net-vpn/i2pd:i2p-hardening - Compile with hardening on vanilla compilers/linkers
 net-vpn/libreswan:dnssec - Use DNSSEC resolver (requires net-dns/unbound)
@@ -7065,6 +7060,7 @@ sci-astronomy/stellarium:deep-sky - Install extra deep sky objects catalog (may 
 sci-astronomy/stellarium:media - Enable sound and video support
 sci-astronomy/stellarium:stars - Install extra star catalogs
 sci-astronomy/stellarium:telescope - Enable telescope control via sci-libs/indilib
+sci-astronomy/stellarium:webengine - Show online results about the selected star in an embedded window using dev-qt/qtwebengine
 sci-astronomy/swarp:cfitsio - Link with sci-libs/cfitsio
 sci-astronomy/wcslib:fits - Enable support for the FITS format through sci-libs/cfitsio
 sci-astronomy/wcslib:pgplot - Builds PGBSOX routines, needs sci-libs/pgplot library
@@ -7286,6 +7282,7 @@ sci-libs/gmsh:metis - Enables metis support
 sci-libs/gmsh:netgen - Enable 3D Frontal triangulation using netgen lib
 sci-libs/gmsh:opencascade - Enable OpenCASCADE support
 sci-libs/gmsh:petsc - Enable sci-mathematics/petsc support
+sci-libs/gmsh:shared - Install shared library and headers
 sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/cblas) instead of shipped internal version
 sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
@@ -7524,6 +7521,8 @@ sci-mathematics/rstudio:server - Build and install the RStudio server
 sci-mathematics/singular:julia - Enables interface for Singular to julia
 sci-mathematics/singular:polymake - Enable the interface to TOPCOM
 sci-mathematics/slepc:complex-scalars - Make scalars complex
+sci-mathematics/stp:cryptominisat - Enable sci-mathematics/cryptominisat support
+sci-mathematics/stp:python - Enable building the Python interface
 sci-mathematics/unuran:prng - Use sci-mathematics/prng library
 sci-mathematics/unuran:rngstreams - Use sci-mathematics/rngstreams library
 sci-mathematics/vampire:z3 - Enable support for sci-mathematics/z3
@@ -7876,6 +7875,7 @@ sys-apps/systemd:importd - Enable import daemon
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd:lz4 - Enable lz4 compression for the journal
 sys-apps/systemd:nat - Enable support for network address translation in networkd
+sys-apps/systemd:openssl - Enable use of dev-libs/openssl
 sys-apps/systemd:pkcs11 - Enable PKCS#11 support for cryptsetup and homed
 sys-apps/systemd:pwquality - Enable password quality checking in homed
 sys-apps/systemd:qrcode - Enable qrcode output support in journal
@@ -8393,7 +8393,6 @@ sys-libs/readline:utils - Install rlfe (ReadLine Front-End) helper tool -- a wra
 sys-libs/talloc:compat - Enable extra compatibility stuff
 sys-libs/timezone-data:leaps-timezone - Install the set of "right" timezones; these timezones include leap seconds when counting seconds since the epoch (while POSIX does not) as they are based on the TAI (International Atomic Time) clock
 sys-libs/timezone-data:zic-slim - Default to 'slim' file format for /usr/share/zoneinfo. Otherwise 'fat' format is used. Not all programs can handle 'slim' format'.
-sys-libs/uclibc-ng:symlink-compat - Explicitly add sym links for libdl.so.0, libm.so.0, and friends for backward compatibility with sys-libs/uclibc-ng-1.0.17 and earlier
 sys-libs/zlib:minizip - include the minizip library for quick and dirty zip extraction
 sys-libs/zlib-ng:compat - Enable compatibility to sys-libs/zlib
 sys-power/apcupsd:modbus - Enable MODBUS support over USB
@@ -8496,7 +8495,6 @@ virtual/rust:rustfmt - Install rustfmt, Rust code formatter
 virtual/ssh:minimal - Prefer net-misc/dropbear over net-misc/openssh
 virtual/wine:staging - Enable Wine-Staging's Patchset
 www-apache/mod_backtrace:unwind - Use sys-libs/libunwind to provide better resolution of function names.
-www-apache/mod_extract_forwarded:mod-proxy - Enable support for Apache's internal proxy
 www-apache/mod_musicindex:archive - Add archive support
 www-apache/mod_musicindex:cache - Add File cache support
 www-apache/mod_musicindex:mysql - Add MySQL cache support
@@ -8642,7 +8640,6 @@ www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding
 www-misc/litmus:libproxy - Support for automatic proxy configuratino management through net-libs/libproxy.
 www-misc/litmus:libxml2 - Use dev-libs/libxml2 to parse XML
 www-misc/litmus:pkcs11 - Support for PKCS #11 through PaKChoiS (dev-libs/pakchois).
-www-misc/xxv:themes - Enable more themes via x11-themes/xxv-skins
 www-plugins/lightspark:ppapi - Install the PPAPI plugin (for Chromium)
 www-plugins/lightspark:rtmp - Enable Real Time Messaging Protocol using librtmp
 www-plugins/passff-host:chrome - Install plugin for chrome (which also includes opera)
@@ -8931,6 +8928,9 @@ x11-themes/arc-theme:pre-rendered - Avoid media-gfx/inkscape and media-gfx/optip
 x11-themes/arc-theme:xfce - Install theme for xfce-base/xfwm4
 x11-themes/comix-xcursors:lefthanded - Install lefthanded version of theme in addition to default one.
 x11-themes/comix-xcursors:opaque - Install non-transparent version of theme in addition to default one.
+x11-themes/fluent-icon-theme:black - Install the black version of symbolic icons (for white color-scheme panels)
+x11-themes/fluent-icon-theme:hardlink - Hardlink duplicate icons to greatly reduce installation size
+x11-themes/fluent-icon-theme:round - Install the round version of symbolic icons
 x11-themes/gentoo-artwork:grub - Install extra sys-boot/grub themes
 x11-themes/gentoo-artwork:icons - Install icons
 x11-themes/gentoo-artwork:lilo - Install extra sys-boot/lilo themes
@@ -8940,6 +8940,21 @@ x11-themes/gtk-engines-murrine:themes - Pull in themes via x11-themes/murrine-th
 x11-themes/gtk-engines-nodoka:animation-rtl - Progressbar animation from right to left
 x11-themes/kfaenza:additional - Install additional KFaenza icons. See third homepage for details
 x11-themes/mate-themes-meta:gtk2-only - Allow dependency-resolution for a system without GTK+3
+x11-themes/tela-icon-theme:black - Install black folder version
+x11-themes/tela-icon-theme:blue - Install blue folder version
+x11-themes/tela-icon-theme:brown - Install bworn folder version
+x11-themes/tela-icon-theme:green - Install green folder version
+x11-themes/tela-icon-theme:grey - Install grey folder version
+x11-themes/tela-icon-theme:hardlink - Hardlink duplicate icons to greatly reduce installation size
+x11-themes/tela-icon-theme:kde - Install colorshceme version for KDE plasma (folder color follow the colorscheme)
+x11-themes/tela-icon-theme:manjaro - Install manjaro folder version
+x11-themes/tela-icon-theme:orange - Install orange folder version
+x11-themes/tela-icon-theme:pink - Install pink folder version
+x11-themes/tela-icon-theme:purple - Install purple folder version
+x11-themes/tela-icon-theme:red - Install red older version
+x11-themes/tela-icon-theme:standard - Install standard folder version
+x11-themes/tela-icon-theme:ubuntu - Install ubuntu folder version
+x11-themes/tela-icon-theme:yellow - Install yellow folder version
 x11-themes/vertex-theme:cinnamon - Install theme for gnome-extra/cinnamon
 x11-themes/vertex-theme:gnome-shell - Install theme for gnome-base/gnome-shell
 x11-themes/vertex-theme:mate - Install Metacity theme for mate-base/mate

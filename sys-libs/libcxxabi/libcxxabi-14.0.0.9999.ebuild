@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ HOMEPAGE="https://libcxxabi.llvm.org/"
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
 KEYWORDS=""
-IUSE="+libunwind static-libs test elibc_musl"
+IUSE="+libunwind static-libs test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -31,7 +31,7 @@ BDEPEND="
 		$(python_gen_any_dep 'dev-python/lit[${PYTHON_USEDEP}]')
 	)"
 
-LLVM_COMPONENTS=( libcxx{abi,} llvm/cmake )
+LLVM_COMPONENTS=( libcxx{abi,} llvm/cmake cmake )
 llvm.org_set_globals
 
 python_check_deps() {
@@ -91,7 +91,6 @@ multilib_src_configure() {
 }
 
 wrap_libcxx() {
-	local -x LDFLAGS="${LDFLAGS} -L${BUILD_DIR}/$(get_libdir)"
 	local CMAKE_USE_DIR=${WORKDIR}/libcxx
 	local BUILD_DIR=${BUILD_DIR}/libcxx
 	local mycmakeargs=(
@@ -113,7 +112,7 @@ wrap_libcxx() {
 
 multilib_src_test() {
 	wrap_libcxx cmake_src_compile
-	mv "${BUILD_DIR}"/libcxx/lib/libc++* "${BUILD_DIR}/$(get_libdir)/" || die
+	mv "${BUILD_DIR}"/libcxx/lib/libc++* "${BUILD_DIR}/lib/" || die
 
 	local -x LIT_PRESERVES_TMP=1
 	cmake_build check-cxxabi

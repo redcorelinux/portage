@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,8 +11,13 @@ HOMEPAGE="http://www.jedit.org"
 SRC_URI="mirror://sourceforge/${PN}/${PN}${PV}source.tar.bz2"
 
 LICENSE="BSD GPL-2"
-KEYWORDS="~amd64 ~ppc64 ~x86"
+KEYWORDS="amd64 ppc64 x86"
 SLOT="0"
+
+# Same failure with 5.4.0.ebuild:
+# See reports at /var/tmp/portage/app-editors/jedit-5.4.0/work/jEdit/build/test/reports/index.html
+# "Failure" "No tests found in org.jedit.io.Native2ASCIIEncodingTest"
+RESTRICT="test"
 
 CP_DEPEND="dev-java/jsr305:0"
 

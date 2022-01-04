@@ -10,7 +10,7 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Cheese"
 
 LICENSE="GPL-2+"
 SLOT="0/8" # subslot = libcheese soname version
-KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection test"
 RESTRICT="!test? ( test )"
 
@@ -38,7 +38,10 @@ RDEPEND="${DEPEND}
 	>=media-libs/gst-plugins-good-1.4:1.0
 
 	>=media-plugins/gst-plugins-jpeg-1.4:1.0
-	>=media-plugins/gst-plugins-v4l2-1.4:1.0
+	|| (
+		>=media-plugins/gst-plugins-v4l2-1.4:1.0
+		media-video/pipewire[gstreamer,v4l]
+	)
 	>=media-plugins/gst-plugins-vpx-1.4:1.0
 "
 

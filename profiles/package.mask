@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 ####################################################################
@@ -32,6 +32,42 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Ionen Wolkens <ionen@gentoo.org> (2022-01-03)
+# Obsolete, higan-purify is now provided by games-emulation/higan
+# as the icarus utility (bug #821121) and dev-games/higan-ananke
+# has no known uses without higan-purify (bug #821124). Further
+# stuck on gtk2 with dead HOMEPAGE / SRC_URI.
+# Removal after 2022-02-02.
+games-util/higan-purify
+dev-games/higan-ananke
+
+# Florian Schmaus <flow@gentoo.org> (2022-01-02)
+# Unmaintained, upstream gone, only packaged by
+# Gentoo, and the whole idea to unlock based on
+# bluetooth appears to be insecure. Bug #830448
+# Removal after 2022-03-01.
+sys-auth/pam_blue
+
+# Jonas Stein <jstein@gentoo.org> (2022-01-02)
+# Unmaintained and broken.
+# Removal after 2022-03-01.  Bug #830428.
+www-servers/bozohttpd
+
+# Jonas Stein <jstein@gentoo.org> (2021-12-31)
+# Removal after 2022-05-01.  Bug #830331.
+# Broken and upstream needs new maintainer.
+x11-plugins/purple-facebook
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-19)
+# java-virtuals and packages without consumers.
+# Bug #828719. Removal in 30 days.
+java-virtuals/ejb-api
+java-virtuals/saaj-api
+java-virtuals/transaction-api
+java-virtuals/xmlrpc-api
+dev-java/jsr67
+dev-java/glassfish-ejb-api
 
 # Mike Gilbert <floppym@gentoo.org> (2021-12-24)
 # Replaced by sys-apps/hwdata. Removal on 2022-01-23.
@@ -201,105 +237,10 @@ net-analyzer/amap
 # Blender compatibility (no mixed LLVM versions).
 =media-libs/osl-1.12*
 
-# William Hubbs <williamh@gentoo.org> (2021-11-30)
-# Dead upstream, no releases since 2015
-# Bug #770619; masked for removal on 2021-12-30.
-net-vpn/badvpn
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-11-30)
-# Blocks cleanup of sci-libs/fcl-0.5.0, unmaintained in Gentoo.
-# Upstream master claims to target sci-libs/fcl-0.6.1, but that
-# requires someone adopting the package.
-# Bug #770589; masked for removal on 2021-12-30.
-dev-python/python-fcl
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-11-30)
-# No revdeps, bug #774498; masked for removal on 2021-12-30.
-dev-libs/qrosscore
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-28)
-# Libraries without consumers. Removal in 30 days.
-dev-java/commons-pool
-dev-java/dict4j
-dev-java/felix-gogo-command
-dev-java/jama
-dev-java/janino
-dev-java/jchardet
-dev-java/jcommon
-dev-java/jdynamite
-dev-java/jfreesvg
-dev-java/jgrapht
-dev-java/jmdns
-dev-java/jsr225
-dev-java/jsr311-api
-dev-java/jsr322
-dev-java/jung
-dev-java/mojarra
-dev-java/neuroph
-dev-java/ognl
-dev-java/piccolo
-dev-java/portletapi
-dev-java/vldocking
-dev-java/ws-commons-util
-dev-java/xml-security
-dev-java/xmpcore
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-27)
-# XXV has been outdated and unmaintained in Gentoo for years.
-# EAPI 5, numerous QA violations.
-# Removal in 30 days. Bug #827669
-www-misc/xxv
-x11-themes/xxv-skins
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-27)
-# No activity in upstream GitHub repository since July 2013,
-# no official release tarballs, unmaintained in Gentoo, EAPI 5.
-# Removal in 30 days. Bug #827666
-www-apache/mod_vhost_ldap
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-27)
-# Upstream Web site (including release tarballs) is gone, no activity
-# in their GitHub repository since June 2012. Unmaintained in Gentoo
-# for years, EAPI 5.
-# Removal in 30 days. Bug #827663
-www-apache/mod_ldap_userdir
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-27)
-# Upstream is long gone, unmaintained in Gentoo for years, EAPI 5.
-# Removal in 30 days. Bug #827657
-www-apache/mod_extract_forwarded
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-27)
-# No upstream activity since October 2005, release tarballs
-# not available any more. Unmaintained in Gentoo, EAPI 5.
-# Removal in 30 days. Bug #827654
-www-apache/mod_evasive
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-26)
-# Library without consumers. Removal in 30 days.
-dev-java/jss
-
-# Alfredo Tupone <tupone@gentoo.org> (2021-11-26)
-# EAPI 6. Removal in 30 days. Bug @827158
-=dev-lang/gnat-gpl-2019-r2
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-25)
-# Upstream discontinued Linux support over 10 years ago so we are now
-# one major version and countless known bugs behind. No source archives
-# published for current versions. Unmaintained in Gentoo for years,
-# EAPI 5. Removal in 30 days. Bug #827522
-sci-biology/ApE
-
 # Hans de Graaff <graaff@gentoo.org> (2021-11-26)
 # Mask new rubygems version for testing. This version uses a new
 # gentoo-defaults profile, bug #789957
 >=dev-ruby/rubygems-3.2.31
-
-# Hans de Graaff <graaff@gentoo.org> (2021-11-26)
-# Old slot, obsolete since 2016. No reverse dependencies. Use the
-# newer slot instead.
-# Masked for removal in 30 days.
-dev-ruby/typhoeus:0
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-23)
 # Does not support updated dev-java/pdfbox-2.0.24, Bug #803488

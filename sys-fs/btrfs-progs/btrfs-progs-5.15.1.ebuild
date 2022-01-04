@@ -29,7 +29,7 @@ LICENSE="GPL-2"
 SLOT="0/${libbtrfs_soname}"
 IUSE="+convert doc python reiserfs static static-libs +zstd"
 
-RESTRICT=test # tries to mount repared filesystems
+RESTRICT="test" # tries to mount repaired filesystems
 
 RDEPEND="
 	dev-libs/lzo:2=
@@ -74,7 +74,7 @@ BDEPEND="
 "
 
 if [[ ${PV} == 9999 ]]; then
-	DEPEND+=" sys-devel/gnuconfig"
+	BDEPEND+=" sys-devel/gnuconfig"
 fi
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
