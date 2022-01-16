@@ -693,6 +693,7 @@ app-emulation/wine-vanilla:vulkan - Enable Vulkan drivers
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/x48:readline - Enables support for libreadline
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
+app-emulation/xen:boot-symlinks - Symlink xen.gz variants in /boot, disable on fat filesystems
 app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen:flask - Enable the Flask XSM module from NSA
 app-emulation/xen-tools:api - Build the C libxenapi bindings
@@ -1226,6 +1227,7 @@ dev-ada/spawn:static-pic - Build static library with pic code
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/abseil-cpp:cxx17 - Build with -DCMAKE_CXX_STANDARD=17 (required by some revdeps)
+dev-cpp/benchmark:lto - Optimize the build using Link Time Optimization (LTO)
 dev-cpp/eigen:cuda - Build with cuda support
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
 dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
@@ -1966,7 +1968,6 @@ dev-libs/boost:debug - Build and install only the debug version of the Boost lib
 dev-libs/boost:doc - Install the full API documentation documentation. This takes over 200MB of extra disk space.
 dev-libs/boost:nls - Build libboost_locale. This library requires compatible C library interfaces, which might not be provided by uClibc or other embedded libraries.
 dev-libs/boost:numpy - Optionally build NumPy extensions when Boost.Python is enabled
-dev-libs/boost:threads - Build multi-thread-compatible libraries instead of single-threaded only.
 dev-libs/boost:tools - Build and install the boost tools (bcp, quickbook, inspect, wave)
 dev-libs/botan:boost - use dev-libs/boost
 dev-libs/check:subunit - Enable support for the subunit unit test protocol
@@ -2800,7 +2801,6 @@ dev-util/edb-debugger:jumbo-build - Experimental jumbo (also known as unity) bui
 dev-util/edi:clang - Provide integration with sys-devel/clang and dev-util/bear for autocompletion, inline errors and information about compilation units.
 dev-util/flatpak-builder:yaml - Use libyaml for yaml support
 dev-util/geany:gtk2 - Use GTK+2 instead of GTK+3
-dev-util/geany:gtk3 - Use GTK+3 instead of GTK+2
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:ctags - Enable ctags plugin
 dev-util/geany-plugins:debugger - Enable the debugger plugin which interfaces with sys-devel/gdb
@@ -3031,7 +3031,6 @@ games-emulation/desmume:wifi - Enable support for Wi-Fi (experimental and discou
 games-emulation/dolphin:discord-presence - Enables Discord Rich Presence, show the current game on Discord
 games-emulation/dolphin:evdev - Enable evdev input support
 games-emulation/dolphin:log - Increase logging output
-games-emulation/dolphin:lto - Add support for link-time optimizations.
 games-emulation/dolphin:mgba - Enables GBA controllers emulation using libmgba.
 games-emulation/dolphin:vulkan - Enable support for Vulkan-based video backend.
 games-emulation/dosbox:core-inline - Enable memory-increasing inlines for better performance but requiring more build time
@@ -3936,10 +3935,12 @@ media-gfx/cura:usb - Access 3D printers via USB
 media-gfx/curaengine:arcus - Build with support for communication library between internal components for Ultimaker software
 media-gfx/darktable:avif - Support importing and exporting AVIF images
 media-gfx/darktable:flickr - Add support for uploading photos to flickr
+media-gfx/darktable:gamepad - Support using game controllers as input devices
 media-gfx/darktable:geolocation - Enable geotagging support
 media-gfx/darktable:gmic - Use the G'MIC image-processing framework (media-gfx/gmic), e.g. to support Colour LUTs compressed using their compression scheme
 media-gfx/darktable:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 media-gfx/darktable:lto - Enable link-time optimisations in the RawSpeed library
+media-gfx/darktable:midi - Support using MIDI input devices such as Behringer X-Touch Mini, Arturia Beatstep or Korg nanoKONTROL2, as input devices
 media-gfx/darktable:opencl - Enable opencl support
 media-gfx/darktable:tools - Install tools for generating base curves and noise profiles
 media-gfx/digikam:addressbook - Enable akonadi contact integration
@@ -4352,6 +4353,7 @@ media-libs/sdl2-mixer:mod - basic support for MOD files
 media-libs/sdl2-mixer:playtools - Install playwave and playmus tools (useful for testing)
 media-libs/sdl2-mixer:tremor - enable OGG Vorbis music via libtremor
 media-libs/sdl2-mixer:wav - support WAVE files
+media-libs/sdl2-ttf:harfbuzz - Use media-libs/harfbuzz for enhanced font rendering
 media-libs/sge:image - enable sdl-image support
 media-libs/spandsp:fixed-point - Enable fixed point support
 media-libs/speex:utils - Enables speex commandline utilities (speexenc, speexdec).
@@ -4975,6 +4977,7 @@ media-video/ffmpeg:snappy - Enable app-arch/snappy support. Required for e.g. Vi
 media-video/ffmpeg:sndio - Enable support for the media-sound/sndio backend
 media-video/ffmpeg:srt - Enable support for Secure Reliable Transport (SRT) via net-libs/srt
 media-video/ffmpeg:ssh - Enable SSH/sftp support via net-libs/libssh.
+media-video/ffmpeg:svt-av1 - Enables AV1 encoding support via media-libs/svt-av1.
 media-video/ffmpeg:twolame - Enables MP2 encoding via media-sound/twolame as an alternative to the internal encoder.
 media-video/ffmpeg:vidstab - Enables video stabilization filter using vid.stab library (media-libs/vidstab).
 media-video/ffmpeg:vpx - Enables VP8 and VP9 codec support using libvpx: Decoding does not require this to be enabled but libvpx can also be used for decoding; encoding requires this useflag to be enabled though.
@@ -6012,7 +6015,6 @@ net-libs/ldns:ed448 - Enable ED448 support
 net-libs/ldns:gost - Enable GOST support
 net-libs/libbitcoinconsensus:asm - Enable assembly for optimization
 net-libs/libbitcoinconsensus:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
-net-libs/libbtbb:wireshark-plugins - Build the wireshark plugins for bluetooth baseband sniffing
 net-libs/libetpan:liblockfile - Enable support for liblockfile library
 net-libs/libetpan:lmdb - Use dev-db/lmdb as cache DB
 net-libs/libgsasl:gcrypt - Use dev-libs/libgcrypt for low-level crypto
@@ -6631,7 +6633,7 @@ net-misc/vinagre:spice - Enable access to SPICE-enabled virtual machines
 net-misc/vinagre:ssh - Enable ssh plugin using x11-libs/vte
 net-misc/vinagre:telepathy - Enable access to remote desktop via a net-libs/telepathy-glib client
 net-misc/vino:telepathy - Enable desktop sharing through a telepathy client
-net-misc/wget:cookie_check - Enable cookie checks via net-libs/libpsl
+net-misc/wget:cookie-check - Enable cookie checks via net-libs/libpsl
 net-misc/wget:metalink - Enable support for media-libs/libmetalink
 net-misc/wget:ntlm - Enable support for NTLM (Windows-based) authorization
 net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using libuuid; otherwise use a simple RNG (random number generator)
@@ -6681,9 +6683,7 @@ net-nntp/sabnzbd:unzip - Add support for extracting zip files
 net-nntp/slrn:canlock - Add support for cancel locks via net-libs/canlock
 net-nntp/slrn:uudeview - Add support for yEnc coding and more using dev-libs/uulib
 net-nntp/tin:cancel-locks - Enable Cancel-Lock header functionality
-net-nntp/tin:etiquette - Enable the display off posting etiquettes
 net-nntp/tin:gpg - Enable app-crypt/gnupg support
-net-nntp/tin:mime - Add MIME support
 net-p2p/airdcpp-webclient:nat-pmp - Enable support for the NAT-PMP protocol
 net-p2p/airdcpp-webclient:tbb - Enable support of the TBB library to improve performance
 net-p2p/airdcpp-webclient:webui - Enable the Web UI
@@ -7125,8 +7125,8 @@ sci-electronics/gtkwave:judy - Enables Judy array support.
 sci-electronics/gtkwave:packed - Enables '#pragma pack' for data arrays (saves memory, costs time).
 sci-electronics/kicad:github - Add github support into PCB editor
 sci-electronics/kicad:ngspice - Enable circuit simulation
-sci-electronics/kicad:occ - Enable viewing 3D rendering of designs via opencascade
-sci-electronics/kicad:oce - Enable viewing 3D rendering of designs via OCE
+sci-electronics/kicad:occ - Enable viewing 3D rendering of designs via sci-libs/opencascade
+sci-electronics/kicad:oce - Enable viewing 3D rendering of designs via sci-libs/oce
 sci-electronics/kicad:pcm - Enable plugin content manager
 sci-electronics/kicad:python - Enable python scripting support
 sci-electronics/kicad-meta:minimal - Do not install extra data like 3D packages and templates.
@@ -7184,7 +7184,6 @@ sci-geosciences/qgis:serial - Enable support for serial GPS using dev-qt/qtseria
 sci-geosciences/viking:geoclue - Use app-misc/geoclue to determine current location
 sci-geosciences/viking:libexif - Use media-libs/libexif for EXIF support
 sci-geosciences/viking:oauth - Enable OAuth authentication for OSM
-sci-geosciences/viking:sqlite - Enable MBTiles support based on dev-db/sqlite
 sci-libs/ViSP:coin - Enables Coin3D support.
 sci-libs/ViSP:demos - Installs demo programs.
 sci-libs/ViSP:dmtx - Enables barcode data matrix support.
@@ -7313,7 +7312,9 @@ sci-libs/libghemical:mopac7 - Use sci-chemistry/mopac7 for semi-empirical calcul
 sci-libs/libghemical:mpqc - Use sci-chemistry/mpqc for quantum-mechanical calculations
 sci-libs/liborigin:tools - Install opj2dat command line util
 sci-libs/libsc:romio - Build with support for the ROMIO MPI-IO component
-sci-libs/libsigrok:ftdi - Enable drivers that need libftdi
+sci-libs/libsigrok:ftdi - Enable drivers that need dev-embedded/libftdi
+sci-libs/libsigrok:hidapi - Enable drivers that need dev-libs/hidapi
+sci-libs/libsigrok:nettle - Enable drivers that need dev-libs/nettle
 sci-libs/libsigrok:parport - Enable drivers that are parallel (IEEE1284) based
 sci-libs/libsigrok:serial - Enable drivers that are serial (RS232) based
 sci-libs/libsvm:tools - Install python based tool scripts for data selection and visualization with sci-visualization/gnuplot
@@ -7345,6 +7346,7 @@ sci-libs/openblas:eselect-ldso - Enable BLAS/LAPACK runtime switching
 sci-libs/openblas:index-64bit - Compile a separate INTERFACE64 OpenBLAS
 sci-libs/openblas:pthread - Build with pthread threading model
 sci-libs/openblas:relapack - Build the ReLAPACK extension to OpenBLAS
+sci-libs/opencascade:eigen - Enable support for eigenvalues through the header-only dev-cpp/eigen package.
 sci-libs/opencascade:freeimage - Enable support for image i/o via media-libs/freeimage
 sci-libs/opencascade:gles2 - Use OpenGL ES 2.0
 sci-libs/opencascade:json - Enable JSON support through dev-libs/rapidjson
@@ -7736,7 +7738,6 @@ sys-apps/flashrom:stlinkv3-spi - Enable SPI programmer using STLINK-V3
 sys-apps/flashrom:tools - Install ich_descriptor_tool, a tool for reading descriptor-mode SPI-flash images for Intel chipsets
 sys-apps/flashrom:usbblaster-spi - Enable support for Altera USB-Blaster dongles
 sys-apps/flashrom:wiki - Enable wiki informations, like supported devices etc.
-sys-apps/fwupd:agent - Enable update notification agent
 sys-apps/fwupd:amt - Build and install Intel AMT plugin
 sys-apps/fwupd:archive - Use app-arch/libarchive for archives support
 sys-apps/fwupd:dell - Enable Dell-specific support
@@ -8310,6 +8311,7 @@ sys-kernel/gentoo-kernel:hardened - Use selection of hardening options recommend
 sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
+sys-kernel/installkernel-gentoo:grub - Re-generate grub.cfg on each kernel installation
 sys-kernel/kpatch:contrib - Enable contrib kpatch services files.
 sys-kernel/kpatch:kmod - Enable a kernel module (.ko file) which provides an interface for the patch modules to register new functions for replacement.
 sys-kernel/kpatch:kpatch - Enable a command-line tool which allows a user to manage a collection of patch modules.
@@ -8870,6 +8872,8 @@ x11-misc/xmobar:xpm - Enable usage of xpm for icons
 x11-misc/xscreensaver:fonts - Install the fonts shipped with XScreenSaver that have clear licensing
 x11-misc/xscreensaver:gdk-pixbuf - Include support for the x11-libs/gdk-pixbuf library in some demos, which will make it possible for them to read GIF, JPEG, and PNG files as well
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm
+x11-misc/xscreensaver:gles - Emulate OpenGL 1.3 in terms of OpenGL ES 1.x
+x11-misc/xscreensaver:glx - Use GLX to interface OpenGL and X11 instead of EGL
 x11-misc/xscreensaver:locking - Compile in support for locking the display
 x11-misc/xscreensaver:new-login - Enable user switching support using gdmflexiserver (x11-misc/lightdm)
 x11-misc/xsr:cursor - Capture mouse cursor using x11-misc/xdotool, and place them on the screenshots using media-gfx/imagemagick
@@ -8931,6 +8935,7 @@ x11-themes/arc-theme:gtk3 - Install GTK+3 theme
 x11-themes/arc-theme:gtk4 - Install GTK+4 theme
 x11-themes/arc-theme:mate - Install Metacity theme for mate-base/mate
 x11-themes/arc-theme:pre-rendered - Avoid media-gfx/inkscape and media-gfx/optipng dependencies by using pre-rendered PNGs
+x11-themes/arc-theme:transparency - Enable transparency
 x11-themes/arc-theme:xfce - Install theme for xfce-base/xfwm4
 x11-themes/comix-xcursors:lefthanded - Install lefthanded version of theme in addition to default one.
 x11-themes/comix-xcursors:opaque - Install non-transparent version of theme in addition to default one.

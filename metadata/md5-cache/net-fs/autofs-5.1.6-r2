@@ -11,4 +11,4 @@ RDEPEND=net-libs/libnsl:= >=sys-apps/util-linux-2.20 dmalloc? ( dev-libs/dmalloc
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.6.tar.xz
 _eclasses_=linux-info	2f039741fe92bcea55c78806d16ac0f5	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8
-_md5_=cc78f83ef545df3f738bfc749b4de1be
+_md5_=9ffc4401dff653387919033583e18243

@@ -1331,9 +1331,9 @@
     <name>Hardened</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened</url>
     <description>Hardened Gentoo is a project which oversees the research, implementation, and maintenance of security oriented projects for Gentoo Linux.</description>
-    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="uclibc@gentoo.org"/>
     <subproject ref="integrity@gentoo.org" inherit-members="1"/>
+    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="rsbac@gentoo.org"/>
     <subproject ref="selinux@gentoo.org" inherit-members="1"/>
     <member>
@@ -1379,29 +1379,6 @@
       <email>zorry@gentoo.org</email>
       <name>Magnus Granberg</name>
       <role>Hardened toolchain</role>
-    </member>
-  </project>
-  <project>
-    <email>musl@gentoo.org</email>
-    <name>Hardened musl</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Hardened_musl</url>
-    <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
-    <member>
-      <email>anarchy@gentoo.org</email>
-      <name>Jory A. Pratt</name>
-    </member>
-    <member is-lead="1">
-      <email>blueness@gentoo.org</email>
-      <name>Anthony G. Basile</name>
-    </member>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>ppc64 helper</role>
-    </member>
-    <member>
-      <email>sam@gentoo.org</email>
-      <name>Sam James</name>
     </member>
   </project>
   <project>
@@ -1515,6 +1492,11 @@
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
       <role>Operations manager</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+      <role>newbie</role>
     </member>
     <member>
       <email>slashbeast@gentoo.org</email>
@@ -1745,9 +1727,9 @@
   </project>
   <project>
     <email>licenses@gentoo.org</email>
-    <name>Licenses Project</name>
+    <name>Licenses</name>
     <url>https://wiki.gentoo.org/wiki/Project:Licenses</url>
-    <description>The Licenses Project tries to make heads &amp; tails of license terms.</description>
+    <description>The Licenses project tries to make heads &amp; tails of license terms.</description>
     <member>
       <email>hanno@gentoo.org</email>
       <name>Hanno Böck</name>
@@ -1770,8 +1752,6 @@
     <name>Lisp</name>
     <url>https://wiki.gentoo.org/wiki/Project:Lisp</url>
     <description>The Lisp project handles Lisp related packages in the Gentoo package tree.</description>
-    <subproject ref="common-lisp@gentoo.org" inherit-members="1"/>
-    <subproject ref="scheme@gentoo.org" inherit-members="1"/>
   </project>
   <project>
     <email>lua@gentoo.org</email>
@@ -1845,7 +1825,7 @@
   </project>
   <project>
     <email>ml@gentoo.org</email>
-    <name>ML Project</name>
+    <name>ML</name>
     <url>https://wiki.gentoo.org/wiki/Project:ML</url>
     <description>The ML Project maintains packages related to the ML programming language family.</description>
     <member>
@@ -1913,6 +1893,29 @@
     <member>
       <email>zerochaos@gentoo.org</email>
       <name>Rick Farina</name>
+    </member>
+  </project>
+  <project>
+    <email>musl@gentoo.org</email>
+    <name>musl</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Musl</url>
+    <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
+    <member>
+      <email>anarchy@gentoo.org</email>
+      <name>Jory A. Pratt</name>
+    </member>
+    <member is-lead="1">
+      <email>blueness@gentoo.org</email>
+      <name>Anthony G. Basile</name>
+    </member>
+    <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
+      <role>ppc64 helper</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
     </member>
   </project>
   <project>
@@ -3246,6 +3249,11 @@
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
       <role>Lead</role>
+    </member>
+    <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
+      <role>minor helper, musl testing, tmpfiles</role>
     </member>
     <member>
       <email>williamh@gentoo.org</email>
