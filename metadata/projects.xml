@@ -752,11 +752,6 @@
     <name>Dotnet Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Dotnet</url>
     <description>The Dotnet Project handles Microsoft .NET Framework related packages in the Gentoo package tree.</description>
-    <member is-lead="1">
-      <email>zmedico@gentoo.org</email>
-      <name>Zac Medico</name>
-      <role>Lead</role>
-    </member>
   </project>
   <project>
     <email>ejabberd@gentoo.org</email>
@@ -1407,9 +1402,9 @@
   </project>
   <project>
     <email>ia64@gentoo.org</email>
-    <name>IA-64 Development</name>
-    <url>https://wiki.gentoo.org/wiki/Project:IA-64</url>
-    <description>The IA-64 Development Project is devoted to keeping Gentoo in good shape on the IA-64 architecture.</description>
+    <name>IA64 Development</name>
+    <url>https://wiki.gentoo.org/wiki/Project:IA64</url>
+    <description>The IA64 Development Project is devoted to keeping Gentoo in good shape on the IA64 architecture.</description>
     <member>
       <email>ago@gentoo.org</email>
       <name>Agostino Sarubbo</name>
@@ -1536,6 +1531,11 @@
     <name>Java</name>
     <url>https://wiki.gentoo.org/wiki/Project:Java</url>
     <description>We maintain everything Java-related in Gentoo, that is, most of dev-java/* and also packages in categories like dev-util, www-servers etc.</description>
+    <member>
+      <email>arthurzam@gentoo.org</email>
+      <name>Arthur Zamarin</name>
+      <role>OpenJDK bootstrapper</role>
+    </member>
     <member>
       <email>flow@gentoo.org</email>
       <name>Florian Schmaus</name>
@@ -1748,12 +1748,6 @@
     </member>
   </project>
   <project>
-    <email>lisp@gentoo.org</email>
-    <name>Lisp</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Lisp</url>
-    <description>The Lisp project handles Lisp related packages in the Gentoo package tree.</description>
-  </project>
-  <project>
     <email>lua@gentoo.org</email>
     <name>Lua Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Lua</url>
@@ -1808,10 +1802,6 @@
     <member>
       <email>kumba@gentoo.org</email>
       <name>Joshua Kinard</name>
-    </member>
-    <member>
-      <email>leio@gentoo.org</email>
-      <name>Mart Raudsepp</name>
     </member>
     <member is-lead="1">
       <email>mattst88@gentoo.org</email>

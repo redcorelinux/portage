@@ -17,7 +17,7 @@
 # functions. It can be inherited safely.
 #
 # For more information, please see the Python Guide:
-# https://dev.gentoo.org/~mgorny/python-guide/
+# https://projects.gentoo.org/python/guide/
 
 # NOTE: When dropping support for EAPIs here, we need to update
 # metadata/install-qa-check.d/60python-pyc
@@ -1250,7 +1250,8 @@ build_sphinx() {
 	sed -i -e 's:^intersphinx_mapping:disabled_&:' \
 		"${dir}"/conf.py || die
 	# not all packages include the Makefile in pypi tarball
-	sphinx-build -b html -d "${dir}"/_build/doctrees "${dir}" \
+	"${EPYTHON}" -m sphinx.cmd.build \
+		-b html -d "${dir}"/_build/doctrees "${dir}" \
 		"${dir}"/_build/html || die
 
 	HTML_DOCS+=( "${dir}/_build/html/." )
@@ -1320,6 +1321,14 @@ epytest() {
 		-Wdefault
 		# override color output
 		"--color=${color}"
+		# disable the undesirable-dependency plugins by default to
+		# trigger missing argument strips.  strip options that require
+		# them from config files.  enable them explicitly via "-p ..."
+		# if you *really* need them.
+		-p no:cov
+		-p no:flake8
+		-p no:flakes
+		-p no:pylint
 	)
 	local x
 	for x in "${EPYTEST_DESELECT[@]}"; do

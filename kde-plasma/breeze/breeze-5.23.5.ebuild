@@ -13,7 +13,7 @@ HOMEPAGE="https://invent.kde.org/plasma/breeze"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE="X"
 
 RDEPEND="
@@ -35,9 +35,7 @@ RDEPEND="
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	X? ( x11-libs/libxcb )
 "
-DEPEND="${RDEPEND}
-	>=kde-frameworks/kpackage-${KFMIN}:5
-"
+DEPEND="${RDEPEND}"
 PDEPEND="
 	>=kde-frameworks/breeze-icons-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5

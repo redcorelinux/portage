@@ -1,6 +1,20 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Viorel Munteanu <ceamac.paragon@gmail.com> (2022-02-01)
+# Binary package linked to glibc
+net-im/mattermost-desktop-bin
+
+# Ulrich Müller <ulm@gentoo.org> (2022-01-25)
+# Binary packages linked to glibc
+media-gfx/brscan4
+net-im/zoom
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2022-01-22)
+# Binary packages linked to glibc
+app-backup/tsm
+sci-electronics/labone
+
 # Marco Genasci <fedeliallalinea@gmail.com> (2022-01-06)
 # dev-db/oracle-instantclient package linked against glibc,
 # and the other packages depends on it.
@@ -15,6 +29,9 @@ dev-db/sqlcl-bin
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-01-05)
 # Binary package linked to glibc
 app-text/zotero-bin
+media-video/popcorntime-bin
+net-im/rocketchat-desktop-bin
+net-im/whatsapp-desktop-bin
 
 # Ulrich Müller <ulm@gentoo.org> (2022-01-04)
 # Emacs 23 does not support x86_64-gentoo-linux-musl systems

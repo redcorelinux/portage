@@ -1,12 +1,20 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2022-02-01)
+# sys-cluster/ucx is not keyworded on arm64
+sys-cluster/slurm ucx
+
+# Sam James <sam@gentoo.org> (2022-01-22)
+# Supports 64-bit NEON
+dev-libs/libgcrypt -cpu_flags_arm_neon
+
 # Sam James <sam@gentoo.org> (2022-01-02)
 # sys-fabric/ofed is not keyworded here
 sys-cluster/slurm ofed
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2021-11-16)
-# requires sys-apps/dbus-broker, which keyworded here.
+# requires sys-apps/dbus-broker, which is keyworded here.
 sys-apps/systemd -hostnamed-fallback
 
 # Sam James <sam@gentoo.org> (2021-10-31)

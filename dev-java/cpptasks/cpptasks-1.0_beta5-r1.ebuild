@@ -14,7 +14,7 @@ S="${WORKDIR}/${P/_beta/b}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 CP_DEPEND="
 	dev-java/ant-core:0
@@ -36,6 +36,7 @@ RDEPEND="
 "
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
+JAVA_ANT_CLASSPATH_TAGS="javac javadoc"
 
 EANT_BUILD_TARGET="jars"
 EANT_TEST_TARGET="run-tests -Djunit-available=true"

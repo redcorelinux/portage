@@ -33,6 +33,160 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-01-31)
+# Fork of media-video/atomicparsley. media-video/atomicparsley now uses this
+# fork (wez), so just switch to that. No need for a separate package for the fork.
+# Removal on 2022-02-31. bug #668708.
+media-video/atomicparsley-wez
+
+# Michał Górny <mgorny@gentoo.org> (2022-01-30)
+# NIH package with no revdeps and an awful build system that can't work
+# with PEP 517 builders.  Last release in 2017.
+# Removal on 2022-03-01.  Bug #832366.
+dev-python/python-slip
+
+# Fabian Groffen <grobian@gentoo.org> (2022-01-29)
+# Fails to compile with GCC on macOS.  No revdeps.
+# Removal on 2022-02-28.  Bug #832309.
+dev-perl/Mac-Pasteboard
+
+# Michał Górny <mgorny@gentoo.org> (2022-01-29)
+# No maintainer.  No upstream activity since Dec 2019.
+# Tests not enabled.  No revdeps.
+# Removal on 2022-02-28.  Bug #832318.
+dev-python/django-pglocks
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-01-27)
+# Java-library + java-virtual with no consumers.
+# Removal in 30 days.
+java-virtuals/script-api
+dev-java/jsr223
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-01-23)
+# Java-libraries with no consumers and depending on virtual/{jdk,jre}-1.6
+# Removal in 30 days.
+dev-java/yanfs
+dev-java/xp
+dev-java/felix-gogo-runtime
+
+# Eray Aslan <eras@gentoo.org> (2022-01-24)
+# Mask experimental software
+=mail-mta/postfix-3.8*
+
+# Mike Gilbert <floppym@gentoo.org> (2022-01-22)
+# Breaks many GNOME packages.
+# https://bugs.gentoo.org/831474
+=dev-util/meson-0.61*
+
+# Joonas Niilola <juippis@gentoo.org> (2022-01-22)
+# Served its purpose. Not supported or used by any browser anymore.
+# Bug #831819. Removal in ~30 days.
+net-misc/npapi-sdk
+
+# Georgy Yakovlev <gyakovlev@gentoo.org> (2022-01-22)
+# Vulnerable versions of rust, along with ebuilds that
+# do not build with fixed rust verions
+# removal in 7 days
+# https://bugs.gentoo.org/831638
+# https://bugs.gentoo.org/821157
+# https://bugs.gentoo.org/824066
+<dev-lang/rust-1.58.1
+<dev-lang/rust-bin-1.58.1
+<virtual/rust-1.58.1
+<www-client/seamonkey-2.53.10.2
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2022-01-22)
+# Prelink support is being removed from glibc and was
+# already somewhat broken for a while...
+# hmaccalc hard-depends on it (?).
+# Removal in 30 days.
+sys-devel/prelink
+app-crypt/hmaccalc
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-01-17)
+# Java-packages with no consumers and depending on virtual/{jdk,jre}-1.6
+# Removal in 30 days.
+dev-java/felix-shell
+dev-java/felix-utils
+dev-java/glassfish-transaction-api
+dev-java/jnlp-api
+dev-java/kxml
+dev-java/myfaces-builder-annotations
+dev-java/nanoxml
+dev-java/osgi-obr
+dev-java/tomcat-jstl-spec
+
+# Jakov Smolić <jsmolic@gentoo.org> (2022-01-19)
+# The following list of packages is still using EAPI 5
+# and has no reverse dependencies.
+# Removal on 2022-02-18.
+dev-java/ecj-gcj
+dev-java/freehep-graphicsio-tests
+dev-java/freehep-graphicsio
+dev-java/freehep-graphics2d
+dev-java/colt
+
+# James Beddek <telans@posteo.de> (2022-01-19)
+# FFmpeg 5.0 ABI/API changes break many packages.
+# Masking for tracker/tinderbox.
+>=media-video/ffmpeg-5.0
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2022-01-18)
+# KDE Release Service 5.23.90 (5.24 Beta) mask - pre-release version
+# See also: https://kde.org/announcements/plasma/5/5.23.90/
+~kde-plasma/bluedevil-5.23.90
+~kde-plasma/breeze-5.23.90
+~kde-plasma/breeze-grub-5.23.90
+~kde-plasma/breeze-gtk-5.23.90
+~kde-plasma/breeze-plymouth-5.23.90
+~kde-plasma/discover-5.23.90
+~kde-plasma/drkonqi-5.23.90
+~kde-plasma/kactivitymanagerd-5.23.90
+~kde-plasma/kde-cli-tools-5.23.90
+~kde-plasma/kde-gtk-config-5.23.90
+~kde-plasma/kdecoration-5.23.90
+~kde-plasma/kdeplasma-addons-5.23.90
+~kde-plasma/kgamma-5.23.90
+~kde-plasma/khotkeys-5.23.90
+~kde-plasma/kinfocenter-5.23.90
+~kde-plasma/kmenuedit-5.23.90
+~kde-plasma/kscreen-5.23.90
+~kde-plasma/kscreenlocker-5.23.90
+~kde-plasma/ksshaskpass-5.23.90
+~kde-plasma/ksystemstats-5.23.90
+~kde-plasma/kwallet-pam-5.23.90
+~kde-plasma/kwayland-integration-5.23.90
+~kde-plasma/kwayland-server-5.23.90
+~kde-plasma/kwin-5.23.90
+~kde-plasma/kwrited-5.23.90
+~kde-plasma/layer-shell-qt-5.23.90
+~kde-plasma/libkscreen-5.23.90
+~kde-plasma/libksysguard-5.23.90
+~kde-plasma/libkworkspace-5.23.90
+~kde-plasma/milou-5.23.90
+~kde-plasma/oxygen-5.23.90
+~kde-plasma/plasma-browser-integration-5.23.90
+~kde-plasma/plasma-desktop-5.23.90
+~kde-plasma/plasma-disks-5.23.90
+~kde-plasma/plasma-firewall-5.23.90
+~kde-plasma/plasma-integration-5.23.90
+~kde-plasma/plasma-meta-5.23.90
+~kde-plasma/plasma-nm-5.23.90
+~kde-plasma/plasma-pa-5.23.90
+~kde-plasma/plasma-sdk-5.23.90
+~kde-plasma/plasma-systemmonitor-5.23.90
+~kde-plasma/plasma-thunderbolt-5.23.90
+~kde-plasma/plasma-workspace-5.23.90
+~kde-plasma/plasma-workspace-wallpapers-5.23.90
+~kde-plasma/plasma-vault-5.23.90
+~kde-plasma/plymouth-kcm-5.23.90
+~kde-plasma/polkit-kde-agent-5.23.90
+~kde-plasma/powerdevil-5.23.90
+~kde-plasma/sddm-kcm-5.23.90
+~kde-plasma/systemsettings-5.23.90
+~kde-plasma/xdg-desktop-portal-kde-5.23.90
+~kde-plasma/xembed-sni-proxy-5.23.90
+
 # David Seifert <soap@gentoo.org> (2022-01-16)
 # Most of these packages have been merged into sys-cluster/rdma-core and
 # have long been dead and unmaintained.
@@ -175,21 +329,6 @@ net-analyzer/jmx2munin
 # Removal on 2022-01-31, bug #547208
 sys-cluster/mpich2
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-01-08)
-# Ancient versions of spyder preventing clean up of things down the tree.
-# Sadly, this means we are also going to have to say goodbye to some plugins
-# that never got ported to the newer plugin system.
-# Removal in 15 days
-<dev-python/spyder-5.1.0
-<dev-python/spyder-kernels-2.1.0
-# Stuck on spyder-4
-dev-python/spyder-line-profiler
-dev-python/spyder-memory-profiler
-# Stuck on spyder-5.0
-dev-python/spyder-notebook
-<=dev-python/spyder-unittest-0.4.1-r50
-dev-python/spyder-vim
-
 # Brian Evans <grknight@gentoo.org> (2022-01-07)
 # The main consumer, phpunit, does not initiate the new timer correctly
 # This is likely to cause issues in tests; Unmask if using for other purposes
@@ -214,15 +353,6 @@ sys-cluster/onesis
 # Removal after 2022-02-04. Bug #830588.
 games-util/springlobby
 
-# Ionen Wolkens <ionen@gentoo.org> (2022-01-03)
-# Obsolete, higan-purify is now provided by games-emulation/higan
-# as the icarus utility (bug #821121) and dev-games/higan-ananke
-# has no known uses without higan-purify (bug #821124). Further
-# stuck on gtk2 with dead HOMEPAGE / SRC_URI.
-# Removal after 2022-02-02.
-games-util/higan-purify
-dev-games/higan-ananke
-
 # Florian Schmaus <flow@gentoo.org> (2022-01-02)
 # Unmaintained, upstream gone, only packaged by
 # Gentoo, and the whole idea to unlock based on
@@ -240,20 +370,6 @@ www-servers/bozohttpd
 # Broken and upstream needs new maintainer.
 x11-plugins/purple-facebook
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-19)
-# java-virtuals and packages without consumers.
-# Bug #828719. Removal in 30 days.
-java-virtuals/ejb-api
-java-virtuals/saaj-api
-java-virtuals/transaction-api
-java-virtuals/xmlrpc-api
-dev-java/jsr67
-dev-java/glassfish-ejb-api
-
-# Mike Gilbert <floppym@gentoo.org> (2021-12-24)
-# Replaced by sys-apps/hwdata. Removal on 2022-01-23.
-sys-apps/hwids
-
 # Jonas Stein <jstein@gentoo.org> (2021-12-24)
 # Alpha version
 =app-editors/ghex-4.0.0_alpha
@@ -264,30 +380,6 @@ sys-apps/hwids
 # Removal in 90 days, bug #721808, #760708.
 <dev-util/nvidia-cuda-sdk-11
 <dev-util/nvidia-cuda-toolkit-11
-
-# Jonas Stein <jstein@gentoo.org> (2021-12-20)
-# Package is broken and obsolete.
-# Removal on 2022-02-01.  Bug #828875.
-x11-misc/3ddesktop
-
-# Jonas Stein <jstein@gentoo.org> (2021-12-20)
-# Package is broken and obsolete.
-# Removal on 2022-02-01.  Bug #464364.
-x11-misc/habak
-
-# Piotr Karbowski <slashbeast@gentoo.org> (2021-12-19)
-# No package depends on those bindings anymore.
-# Removal in 30 days.
-dev-python/pytaglib
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-12-19)
-# Outdated and not needed anymore (this was a releng workaround)
-# Removal in 30 days, please compile it yourself from app-emulation/qemu
-app-emulation/qemu-riscv64-bin
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-19)
-# Package without consumers. Bug #771693 (multiple CVEs). Removal in 30 days.
-dev-java/jackson
 
 # Mart Raudsepp <leio@gentoo.org> (2021-12-18)
 # GNOME 42 mask

@@ -16,7 +16,7 @@ S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -81,9 +81,12 @@ src_prepare() {
 
 	# remove vendored versions
 	for pkgName in ${packages[@]}; do
-		 find ./pipenv/vendor/ -name "${pkgName}*" -prune -exec rm -rvf {} + || die
-		 # package names can be foo-bar, their module will be however foo_bar
-		 find ./pipenv/vendor/ -name "${pkgName/_/-}*" -prune -exec rm -rvf {} + || die
+		# remove all packages toml* also catches tomlkit. Remove this when tomlkit is stable
+		find ./pipenv/vendor -maxdepth 1 ! -name tomlkit -name "${pkgName}*" -prune -exec rm -rvf {} + || die
+		# find ./pipenv/vendor -maxdepth 1 ! -name tomlkit -name "${pkgName}*" -print
+
+		# package names can be foo-bar, their module will be however foo_bar
+		find ./pipenv/vendor/ -maxdepth 1 ! -name tomlkit -name "${pkgName/_/-}*" -prune -exec rm -rvf {} + || die
 
 	done
 

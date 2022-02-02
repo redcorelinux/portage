@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="https://static.process-one.net/${PN}/downloads/${PV}/${P}.tgz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~ia64 ~sparc ~x86"
 REQUIRED_USE="mssql? ( odbc )"
 # TODO: Add 'tools' flag.
 IUSE="captcha debug full-xml ldap mssql mysql odbc pam postgres redis
@@ -223,7 +223,7 @@ pkg_postinst() {
 		done
 
 		ewarn "Newer versions of the ejabberd Gentoo package use /etc/ejabberd"
-		ewarn "(just as upstream) and *not* /etc/ejabber."
+		ewarn "(just as upstream) and *not* /etc/jabber."
 		ewarn "The files from /etc/jabber where copied to /etc/ejabberd."
 		ewarn "Also ejabberd's spool directory became /var/lib/ejabberd (was /var/spool/jabber)."
 		ewarn "Please check your configuration."

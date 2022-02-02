@@ -18,7 +18,7 @@ else
 	SRC_URI="https://www.wireshark.org/download/src/all-versions/${P/_/}.tar.xz"
 	S="${WORKDIR}/${P/_/}"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~ppc64 ~riscv x86"
 fi
 
 LICENSE="GPL-2"
@@ -96,6 +96,7 @@ RDEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.0-redhat.patch
 	"${FILESDIR}"/${PN}-3.4.2-cmake-lua-version.patch
+	"${FILESDIR}"/${P}-fix-build-no-zlib.patch
 )
 
 pkg_setup() {

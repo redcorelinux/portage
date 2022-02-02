@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/espeak-ng/espeak-ng/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~riscv"
 fi
 
 LICENSE="GPL-3+ Turkowski unicode"
@@ -31,7 +31,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	man? ( app-text/ronn )
+	man? ( || ( app-text/ronn-ng app-text/ronn ) )
 "
 
 DOCS=( CHANGELOG.md README.md docs )
@@ -65,11 +65,6 @@ src_configure() {
 		--disable-static
 	)
 	econf "${econf_args[@]}"
-}
-
-src_compile() {
-	# see docs/building.md
-	emake -j1
 }
 
 src_test() {
