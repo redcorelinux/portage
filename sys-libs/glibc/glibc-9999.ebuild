@@ -6,10 +6,7 @@ EAPI=7
 # Bumping notes: https://wiki.gentoo.org/wiki/Project:Toolchain/sys-libs/glibc
 # Please read & adapt the page as necessary if obsolete.
 
-# We avoid Python 3.10 here _for now_ (it does work!) to avoid circular dependencies
-# on upgrades as people migrate to libxcrypt.
-# https://wiki.gentoo.org/wiki/User:Sam/Portage_help/Circular_dependencies#Python_and_libcrypt
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 TMPFILES_OPTIONAL=1
 
 inherit python-any-r1 prefix preserve-libs toolchain-funcs flag-o-matic gnuconfig \
@@ -23,7 +20,7 @@ SLOT="2.2"
 EMULTILIB_PKG="true"
 
 # Gentoo patchset (ignored for live ebuilds)
-PATCH_VER=2
+PATCH_VER=1
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -148,13 +145,13 @@ RESTRICT="!test? ( test )"
 if [[ ${CATEGORY} == cross-* ]] ; then
 	BDEPEND+=" !headers-only? (
 		>=${CATEGORY}/binutils-2.27
-		>=${CATEGORY}/gcc-6
+		>=${CATEGORY}/gcc-6.2
 	)"
 	[[ ${CATEGORY} == *-linux* ]] && DEPEND+=" ${CATEGORY}/linux-headers"
 else
 	BDEPEND+="
 		>=sys-devel/binutils-2.27
-		>=sys-devel/gcc-6
+		>=sys-devel/gcc-6.2
 	"
 	DEPEND+=" virtual/os-headers "
 	RDEPEND+="
@@ -170,18 +167,10 @@ GENTOO_GLIBC_XFAIL_TESTS="${GENTOO_GLIBC_XFAIL_TESTS:-yes}"
 # The following tests fail due to the Gentoo build system and are thus
 # executed but ignored:
 XFAIL_TEST_LIST=(
-	# 9) Failures of unknown origin
-	tst-latepthread
-
 	# buggy test, assumes /dev/ and /dev/null on a single filesystem
 	# 'mount --bind /dev/null /chroot/dev/null' breaks it.
 	# https://sourceware.org/PR25909
 	tst-support_descriptors
-
-	# Flaky test, known to fail occasionally:
-	# https://sourceware.org/PR19329
-	# https://bugs.gentoo.org/719674#c12
-	tst-stack4
 
 	# The following tests fail only inside portage
 	# https://bugs.gentoo.org/831267
@@ -898,21 +887,9 @@ glibc_do_configure() {
 	echo
 	local myconf=()
 
-	case ${CTARGET} in
-		m68k*)
-			# setjmp() is not compatible with stack protection:
-			# https://sourceware.org/PR24202
-			myconf+=( --enable-stack-protector=no )
-			;;
-		*)
-			# Use '=strong' instead of '=all' to protect only functions
-			# worth protecting from stack smashes.
-			# '=all' is also known to have a problem in IFUNC resolution
-			# tests: https://sourceware.org/PR25680, bug #712356.
-			myconf+=( --enable-stack-protector=$(usex ssp strong no) )
-			;;
-	esac
-	myconf+=( --enable-stackguard-randomization )
+	# Use '=strong' instead of '=all' to protect only functions
+	# worth protecting from stack smashes.
+	myconf+=( --enable-stack-protector=$(usex ssp strong no) )
 
 	# Keep a whitelist of targets supporing IFUNC. glibc's ./configure
 	# is not robust enough to detect proper support:
@@ -962,7 +939,6 @@ glibc_do_configure() {
 	fi
 
 	myconf+=(
-		--without-cvs
 		--disable-werror
 		--enable-bind-now
 		--build=${CBUILD_OPT:-${CBUILD}}
@@ -1133,7 +1109,6 @@ glibc_headers_configure() {
 	myconf+=(
 		--disable-sanity-checks
 		--enable-hacker-mode
-		--without-cvs
 		--disable-werror
 		--enable-bind-now
 		--build=${CBUILD_OPT:-${CBUILD}}

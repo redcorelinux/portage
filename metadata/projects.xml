@@ -15,6 +15,10 @@
       <name>Dennis Lamm</name>
     </member>
     <member>
+      <email>matthew@gentoo.org</email>
+      <name>Matthew Smith</name>
+    </member>
+    <member>
       <email>mva@gentoo.org</email>
       <name>Vadim Misbakh-Soloviov</name>
     </member>
@@ -717,6 +721,19 @@
       <name>Michael Palimaka</name>
     </member>
     <member>
+      <email>maffblaster@gentoo.org</email>
+      <name>Matthew Marchese</name>
+      <role>General editing</role>
+    </member>
+    <member>
+      <email>mattst88@gentoo.org</email>
+      <name>Matt Turner</name>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+    <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
     </member>
@@ -1053,8 +1070,16 @@
       <name>Hans de Graaff</name>
     </member>
     <member>
+      <email>matthew@gentoo.org</email>
+      <name>Matthew Smith</name>
+    </member>
+    <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
+    </member>
+    <member>
+      <email>xgqt@gentoo.org</email>
+      <name>Maciej Barć</name>
     </member>
   </project>
   <project>
@@ -1077,24 +1102,39 @@
     <url>https://wiki.gentoo.org/wiki/Project:GSoC</url>
     <description>The central project to unite efforts for Google Summer of Code participation</description>
     <member>
+      <email>alicef@gentoo.org</email>
+      <name>Alice Ferrazzi</name>
+      <role>2022 Mentor</role>
+    </member>
+    <member>
+      <email>amadio@gentoo.org</email>
+      <name>Guilherme Amadio</name>
+      <role>2022 Mentor</role>
+    </member>
+    <member>
+      <email>arzano@gentoo.org</email>
+      <name>Max Magorsch</name>
+      <role>2022 Mentor</role>
+    </member>
+    <member>
+      <email>blueknight@gentoo.org</email>
+      <name>Yury German</name>
+      <role>2022 Administrator</role>
+    </member>
+    <member>
+      <email>dlan@gentoo.org</email>
+      <name>Yixun Lan</name>
+      <role>2022 Mentor</role>
+    </member>
+    <member>
       <email>heroxbd@gentoo.org</email>
       <name>Benda Xu</name>
-      <role>2021 Mentor</role>
+      <role>2022 Mentor</role>
     </member>
     <member>
-      <email>mattst88@gentoo.org</email>
-      <name>Matt Turner</name>
-      <role>2021 Mentor</role>
-    </member>
-    <member>
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>admin</role>
-    </member>
-    <member>
-      <email>zlogene@gentoo.org</email>
-      <name>Mikle Kolyada</name>
-      <role>admin</role>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+      <role>2022 Administrator/Mentor</role>
     </member>
   </project>
   <project>
@@ -1800,6 +1840,10 @@
       <name>Anthony G. Basile</name>
     </member>
     <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+    </member>
+    <member>
       <email>kumba@gentoo.org</email>
       <name>Joshua Kinard</name>
     </member>
@@ -1807,6 +1851,10 @@
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
       <role>Lead</role>
+    </member>
+    <member>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -1875,6 +1923,10 @@
       <email>polynomial-c@gentoo.org</email>
       <name>Lars Wendler</name>
       <role>Package Maintainer</role>
+    </member>
+    <member>
+      <email>slashbeast@gentoo.org</email>
+      <name>Piotr Karbowski</name>
     </member>
     <member>
       <email>whissi@gentoo.org</email>
@@ -2237,6 +2289,10 @@
       <role>Prefix liaison</role>
     </member>
     <member>
+      <email>mattst88@gentoo.org</email>
+      <name>Matt Turner</name>
+    </member>
+    <member>
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Member</role>
@@ -2255,11 +2311,6 @@
       <name>Thomas Sachau</name>
       <role>Mutlilib liaison</role>
     </member>
-    <member>
-      <email>vapier@gentoo.org</email>
-      <name>Mike Frysinger</name>
-      <role>Member, Sandbox developer, Documenter</role>
-    </member>
     <member is-lead="1">
       <email>zmedico@gentoo.org</email>
       <name>Zac Medico</name>
@@ -2275,12 +2326,15 @@
     <member>
       <email>dolsen@gentoo.org</email>
       <name>Brian Dolbec</name>
-      <role>Gentooolkit, Mirrorselect, Esearch, Layman, Gentoo-keys</role>
+      <role>gentoolkit, mirrorselect, esearch, layman, gentoo-keys</role>
     </member>
     <member>
       <email>idl0r@gentoo.org</email>
       <name>Christian Ruppert</name>
-      <role>Gentoolkit-dev</role>
+    </member>
+    <member>
+      <email>mattst88@gentoo.org</email>
+      <name>Matt Turner</name>
     </member>
     <member>
       <email>zmedico@gentoo.org</email>
@@ -2499,6 +2553,10 @@
     <member>
       <email>juippis@gentoo.org</email>
       <name>Joonas Niilola</name>
+    </member>
+    <member>
+      <email>matthew@gentoo.org</email>
+      <name>Matthew Smith</name>
     </member>
     <member is-lead="1">
       <email>mgorny@gentoo.org</email>
@@ -2721,12 +2779,20 @@
       <role>can do keywording</role>
     </member>
     <member>
+      <email>jsmolic@gentoo.org</email>
+      <name>Jakov Smolić</name>
+    </member>
+    <member>
       <email>marecki@gentoo.org</email>
       <name>Marek Szuba</name>
     </member>
     <member>
       <email>nerdboy@gentoo.org</email>
       <name>Steve Arnold</name>
+    </member>
+    <member>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -3385,6 +3451,10 @@
       <name>Jakov Smolić</name>
     </member>
     <member>
+      <email>matthew@gentoo.org</email>
+      <name>Matthew Smith</name>
+    </member>
+    <member>
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
     </member>
@@ -3577,10 +3647,6 @@
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
       <role>Lead</role>
-    </member>
-    <member>
-      <email>remi@gentoo.org</email>
-      <name>Rémi Cardona</name>
     </member>
     <member>
       <email>sarnex@gentoo.org</email>

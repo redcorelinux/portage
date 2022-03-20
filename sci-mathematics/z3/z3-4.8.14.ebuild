@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,7 +15,7 @@ S=${WORKDIR}/z3-${P}
 
 SLOT="0/4.8"
 LICENSE="MIT"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm arm64 ~ppc ppc64 ~riscv x86"
 IUSE="doc examples gmp isabelle java python"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -25,6 +25,10 @@ DEPEND="${RDEPEND}
 	java? ( >=virtual/jdk-1.8 )"
 BDEPEND="
 	doc? ( app-doc/doxygen )"
+
+PATCHES=(
+	"${FILESDIR}/${P}-libatomic.patch" #bug 835003
+)
 
 CMAKE_BUILD_TYPE=RelWithDebInfo
 
