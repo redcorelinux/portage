@@ -518,6 +518,11 @@
       <name>Naohiro Aota</name>
       <role>Japanese Support</role>
     </member>
+    <member>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
+      <role>Chinese Support; knows some Japanese too</role>
+    </member>
   </project>
   <project>
     <email>cluster@gentoo.org</email>
@@ -2138,11 +2143,6 @@
       <name>Michael Palimaka</name>
       <role>Git</role>
     </member>
-    <member is-lead="1">
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>Merging GitHub PRs, api.g.o updates</role>
-    </member>
     <member>
       <email>NP-Hardass@gentoo.org</email>
       <name>Adam Feldman</name>
@@ -3206,9 +3206,10 @@
     <description>The Security Project's mission is to ensure that vulnerabilities in software accessible through the Portage tree are found and fixed in a timely manner, so that our users remain protected against known vulnerabilities.</description>
     <subproject ref="security-audit@gentoo.org"/>
     <subproject ref="security-kernel@gentoo.org"/>
-    <member>
+    <member is-lead="1">
       <email>ajak@gentoo.org</email>
       <name>John Helmert III</name>
+      <role>Deputy lead</role>
     </member>
     <member is-lead="1">
       <email>bman@gentoo.org</email>
@@ -3218,10 +3219,6 @@
     <member>
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
-    </member>
-    <member>
-      <email>whissi@gentoo.org</email>
-      <name>Thomas Deutschmann</name>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -3548,6 +3545,10 @@
     <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
+    </member>
+    <member>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
     </member>
   </project>
   <project>

@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
 
 RDEPEND="
 	>=dev-python/aws-xray-sdk-python-0.93[${PYTHON_USEDEP}]
@@ -55,6 +55,10 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+PATCHES=(
+	"${FILESDIR}"/moto-3.1.1-32bit-time_t.patch
+)
+
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
@@ -70,6 +74,7 @@ python_test() {
 		# Needs network (or docker?) but not marked as such, bug #807031
 		# TODO: report upstream
 		tests/test_batch/test_batch_jobs.py::test_terminate_job
+		tests/test_batch/test_batch_jobs.py::test_cancel_pending_job
 		tests/test_batch/test_batch_jobs.py::test_cancel_running_job
 		tests/test_batch/test_batch_jobs.py::test_dependencies
 		tests/test_batch/test_batch_jobs.py::test_container_overrides
