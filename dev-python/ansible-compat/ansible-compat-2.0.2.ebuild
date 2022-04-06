@@ -9,12 +9,12 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Contains functions that facilitate working with various versions of Ansible"
-HOMEPAGE="https://pypi.org/project/ansible-compat/ https://github.com/ansible-community/ansible-compat/"
+HOMEPAGE="https://pypi.org/project/ansible-compat/ https://github.com/ansible/ansible-compat/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~riscv"
 
 RDEPEND="
 	>=app-admin/ansible-base-2.9.0[${PYTHON_USEDEP}]

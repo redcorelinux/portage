@@ -85,7 +85,7 @@ selinux? ( sec-policy/selinux-postgresql )
 "
 
 pkg_setup() {
-	llvm_pkg_setup
+	use llvm && llvm_pkg_setup
 
 	use server && CONFIG_CHECK="~SYSVIPC" linux-info_pkg_setup
 
@@ -103,7 +103,7 @@ src_prepare() {
 	sed 's/@install_bin@/install -c/' -i src/Makefile.global.in || die
 
 	use server || eapply "${FILESDIR}/${PN}-14_rc1-no-server.patch"
-	use server && eapply "${FILESDIR}/postgres-llvm14.patch"
+	use llvm && eapply "${FILESDIR}/postgres-llvm14.patch"
 
 	if use pam ; then
 		sed "s/\(#define PGSQL_PAM_SERVICE \"postgresql\)/\1-${SLOT}/" \
