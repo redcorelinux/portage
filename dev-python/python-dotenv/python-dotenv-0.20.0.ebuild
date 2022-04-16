@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 
 inherit distutils-r1
 
@@ -14,12 +14,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 DEPEND="
 	test? (
 		>=dev-python/click-5[${PYTHON_USEDEP}]
-		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 		>=dev-python/sh-1.09[${PYTHON_USEDEP}]
 	)
@@ -28,6 +27,19 @@ DEPEND="
 DOCS=( CHANGELOG.md README.md )
 
 distutils_enable_tests pytest
+
+python_test() {
+	local EPYTEST_IGNORE=()
+	# remove when https://github.com/theskumar/python-dotenv/pull/397
+	# is merged
+	if ! has_version "dev-python/ipython[${PYTHON_USEDEP}]"; then
+		EPYTEST_IGNORE+=(
+			tests/test_ipython.py
+		)
+	fi
+
+	epytest
+}
 
 python_install() {
 	distutils-r1_python_install

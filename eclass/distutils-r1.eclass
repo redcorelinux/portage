@@ -98,6 +98,10 @@ esac
 #
 # - flit - flit_core backend
 #
+# - hatchling - hatchling backend (from hatch)
+#
+# - jupyter - jupyter_packaging backend
+#
 # - pdm - pdm.pep517 backend
 #
 # - poetry - poetry-core backend
@@ -151,6 +155,13 @@ esac
 #     ${DISTUTILS_DEPS}"
 # @CODE
 
+# @ECLASS_VARIABLE: GPEP517_TESTING
+# @USER_VARIABLE
+# @DESCRIPTION:
+# Enable in make.conf to test building via dev-python/gpep517 instead of
+# inline Python snippets.  dev-python/gpep517 needs to be installed
+# first.
+
 if [[ ! ${_DISTUTILS_R1} ]]; then
 
 [[ ${EAPI} == 6 ]] && inherit eutils xdg-utils
@@ -185,15 +196,23 @@ _distutils_set_globals() {
 		case ${DISTUTILS_USE_PEP517} in
 			flit)
 				bdep+='
-					dev-python/flit_core[${PYTHON_USEDEP}]'
+					>=dev-python/flit_core-3.7.1[${PYTHON_USEDEP}]'
+				;;
+			hatchling)
+				bdep+='
+					>=dev-python/hatchling-0.22.0[${PYTHON_USEDEP}]'
+				;;
+			jupyter)
+				bdep+='
+					>=dev-python/jupyter_packaging-0.11.1[${PYTHON_USEDEP}]'
 				;;
 			pdm)
 				bdep+='
-					dev-python/pdm-pep517[${PYTHON_USEDEP}]'
+					>=dev-python/pdm-pep517-0.12.3[${PYTHON_USEDEP}]'
 				;;
 			poetry)
 				bdep+='
-					dev-python/poetry-core[${PYTHON_USEDEP}]'
+					>=dev-python/poetry-core-1.0.8[${PYTHON_USEDEP}]'
 				;;
 			setuptools)
 				bdep+='
@@ -406,7 +425,7 @@ distutils_enable_sphinx() {
 	_DISTUTILS_SPHINX_PLUGINS=( "${@}" )
 
 	local deps autodoc=1 d
-	deps="dev-python/sphinx[\${PYTHON_USEDEP}]"
+	deps=">=dev-python/sphinx-4.4.0[\${PYTHON_USEDEP}]"
 	for d; do
 		if [[ ${d} == --no-autodoc ]]; then
 			autodoc=
@@ -430,13 +449,15 @@ distutils_enable_sphinx() {
 			use doc || return 0
 
 			local p
-			for p in dev-python/sphinx "${_DISTUTILS_SPHINX_PLUGINS[@]}"; do
+			for p in ">=dev-python/sphinx-4.4.0" \
+				"${_DISTUTILS_SPHINX_PLUGINS[@]}"
+			do
 				python_has_version "${p}[${PYTHON_USEDEP}]" ||
 					return 1
 			done
 		}
 	else
-		deps="dev-python/sphinx"
+		deps=">=dev-python/sphinx-4.4.0"
 	fi
 
 	sphinx_compile_all() {
@@ -519,7 +540,7 @@ distutils_enable_tests() {
 			test_pkg=">=dev-python/nose-1.3.7-r4"
 			;;
 		pytest)
-			test_pkg=">=dev-python/pytest-6.2.5-r2"
+			test_pkg=">=dev-python/pytest-7.0.1"
 			;;
 		setup.py)
 			;;
@@ -731,6 +752,42 @@ distutils_install_for_testing() {
 	esetup.py install "${add_args[@]}" "${@}"
 }
 
+# @FUNCTION: distutils_write_namespace
+# @USAGE: <namespace>...
+# @DESCRIPTION:
+# Write the __init__.py file for the requested namespace into PEP517
+# install tree, in order to fix running tests when legacy namespace
+# packages are installed (dev-python/namespace-*).
+#
+# This function must only be used in python_test().  The created file
+# will automatically be removed upon leaving the test phase.
+distutils_write_namespace() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if [[ ! ${DISTUTILS_USE_PEP517} ]]; then
+		die "${FUNCNAME} is available only in PEP517 mode"
+	fi
+	if [[ ${EBUILD_PHASE} != test || ! ${BUILD_DIR} ]]; then
+		die "${FUNCNAME} should only be used in python_test"
+	fi
+
+	local namespace
+	for namespace; do
+		if [[ ${namespace} == *[./]* ]]; then
+			die "${FUNCNAME} does not support nested namespaces at the moment"
+		fi
+
+		local path=${BUILD_DIR}/install$(python_get_sitedir)/${namespace}/__init__.py
+		if [[ -f ${path} ]]; then
+			die "Requested namespace ${path} exists already!"
+		fi
+		cat > "${path}" <<-EOF || die
+			__path__ = __import__('pkgutil').extend_path(__path__, __name__)
+		EOF
+		_DISTUTILS_POST_PHASE_RM+=( "${path}" )
+	done
+}
+
 # @FUNCTION: _distutils-r1_disable_ez_setup
 # @INTERNAL
 # @DESCRIPTION:
@@ -812,6 +869,15 @@ distutils-r1_python_prepare_all() {
 	if [[ ! ${DISTUTILS_USE_PEP517} ]]; then
 		_distutils-r1_disable_ez_setup
 		_distutils-r1_handle_pyproject_toml
+
+		case ${DISTUTILS_USE_SETUPTOOLS} in
+			no)
+				eqawarn "Non-PEP517 builds are deprecated for ebuilds using plain distutils."
+				eqawarn "Please migrate to DISTUTILS_USE_PEP517=setuptools."
+				eqawarn "Please see Python Guide for more details:"
+				eqawarn "  https://projects.gentoo.org/python/guide/distutils.html"
+				;;
+		esac
 	fi
 
 	if [[ ${DISTUTILS_IN_SOURCE_BUILD} && ! ${DISTUTILS_SINGLE_IMPL} ]]
@@ -911,6 +977,12 @@ _distutils-r1_backend_to_key() {
 		flit_core.buildapi|flit.buildapi)
 			echo flit
 			;;
+		hatchling.build)
+			echo hatchling
+			;;
+		jupyter_packaging.build_api)
+			echo jupyter
+			;;
 		pdm.pep517.api)
 			echo pdm
 			;;
@@ -938,16 +1010,20 @@ _distutils-r1_get_backend() {
 	if [[ -f pyproject.toml ]]; then
 		# if pyproject.toml exists, try getting the backend from it
 		# NB: this could fail if pyproject.toml doesn't list one
-		build_backend=$(
-			"${EPYTHON}" - 3>&1 <<-EOF
-				import os
-				import tomli
-				print(tomli.load(open("pyproject.toml", "rb"))
-						.get("build-system", {})
-						.get("build-backend", ""),
-					file=os.fdopen(3, "w"))
-			EOF
-		)
+		if [[ ${GPEP517_TESTING} ]]; then
+			build_backend=$(gpep517 get-backend)
+		else
+			build_backend=$(
+				"${EPYTHON}" - 3>&1 <<-EOF
+					import os
+					import tomli
+					print(tomli.load(open("pyproject.toml", "rb"))
+							.get("build-system", {})
+							.get("build-backend", ""),
+						file=os.fdopen(3, "w"))
+				EOF
+			)
+		fi
 	fi
 	if [[ -z ${build_backend} && ${DISTUTILS_USE_PEP517} == setuptools &&
 		-f setup.py ]]
@@ -1013,30 +1089,45 @@ distutils_pep517_install() {
 
 	local build_backend=$(_distutils-r1_get_backend)
 	einfo "  Building the wheel for ${PWD#${WORKDIR}/} via ${build_backend}"
-	local wheel=$(
-		"${EPYTHON}" - 3>&1 >&2 <<-EOF || die "Wheel build failed"
-			import ${build_backend%:*}
-			import os
-			print(${build_backend/:/.}.build_wheel(os.environ['WHEEL_BUILD_DIR']),
-				file=os.fdopen(3, 'w'))
-		EOF
-	)
+	if [[ ${GPEP517_TESTING} ]]; then
+		local wheel=$(
+			gpep517 build-wheel --backend "${build_backend}" \
+					--output-fd 3 \
+					--wheel-dir "${WHEEL_BUILD_DIR}" 3>&1 >&2 ||
+				die "Wheel build failed"
+		)
+	else
+		local wheel=$(
+			"${EPYTHON}" - 3>&1 >&2 <<-EOF || die "Wheel build failed"
+				import ${build_backend%:*}
+				import os
+				print(${build_backend/:/.}.build_wheel(os.environ['WHEEL_BUILD_DIR']),
+					file=os.fdopen(3, 'w'))
+			EOF
+		)
+	fi
 	[[ -n ${wheel} ]] || die "No wheel name returned"
 
 	einfo "  Installing the wheel to ${root}"
-	# NB: --compile-bytecode does not produce the correct paths,
-	# and python_optimize doesn't handle being called outside D,
-	# so we just defer compiling until the final merge
-	# NB: we override sys.prefix & sys.exec_prefix because otherwise
-	# installer would use virtualenv's prefix
-	local -x PYTHON_PREFIX=${EPREFIX}/usr
-	"${EPYTHON}" - -d "${root}" "${WHEEL_BUILD_DIR}/${wheel}" --no-compile-bytecode \
-			<<-EOF || die "installer failed"
-		import os, sys
-		sys.prefix = sys.exec_prefix = os.environ["PYTHON_PREFIX"]
-		from installer.__main__ import main
-		main(sys.argv[1:])
-	EOF
+	if [[ ${GPEP517_TESTING} ]]; then
+		gpep517 install-wheel --destdir="${root}" --interpreter="${PYTHON}" \
+				--prefix="${EPREFIX}/usr" "${WHEEL_BUILD_DIR}/${wheel}" ||
+			die "Wheel install failed"
+	else
+		# NB: --compile-bytecode does not produce the correct paths,
+		# and python_optimize doesn't handle being called outside D,
+		# so we just defer compiling until the final merge
+		# NB: we override sys.prefix & sys.exec_prefix because otherwise
+		# installer would use virtualenv's prefix
+		local -x PYTHON_PREFIX=${EPREFIX}/usr
+		"${EPYTHON}" - -d "${root}" "${WHEEL_BUILD_DIR}/${wheel}" --no-compile-bytecode \
+				<<-EOF || die "installer failed"
+			import os, sys
+			sys.prefix = sys.exec_prefix = os.environ["PYTHON_PREFIX"]
+			from installer.__main__ import main
+			main(sys.argv[1:])
+		EOF
+	fi
 
 	# remove installed licenses
 	find "${root}$(python_get_sitedir)" \
@@ -1046,7 +1137,11 @@ distutils_pep517_install() {
 	# clean the build tree; otherwise we may end up with PyPy3
 	# extensions duplicated into CPython dists
 	if [[ ${DISTUTILS_USE_PEP517:-setuptools} == setuptools ]]; then
-		esetup.py clean -a
+		if [[ ${GPEP517_TESTING} ]]; then
+			rm -rf build || die
+		else
+			esetup.py clean -a
+		fi
 	fi
 }
 
@@ -1067,7 +1162,13 @@ distutils-r1_python_compile() {
 	# call setup.py build when using setuptools (either via PEP517
 	# or in legacy mode)
 	if [[ ${DISTUTILS_USE_PEP517:-setuptools} == setuptools ]]; then
-		if [[ ! ${DISTUTILS_USE_PEP517} ]]; then
+		if [[ ${GPEP517_TESTING} ]]; then
+			if [[ -d build ]]; then
+				eqawarn "A 'build' directory exists already.  Artifacts from this directory may"
+				eqawarn "be picked up by setuptools when building for another interpreter."
+				eqawarn "Please remove this directory prior to building."
+			fi
+		elif [[ ! ${DISTUTILS_USE_PEP517} ]]; then
 			_distutils-r1_copy_egg_info
 		fi
 
@@ -1078,7 +1179,21 @@ distutils-r1_python_compile() {
 			jobs=$(( nproc + 1 ))
 		fi
 
-		esetup.py build -j "${jobs}" "${@}"
+		if [[ ${DISTUTILS_USE_PEP517} && ${GPEP517_TESTING} ]]; then
+			# issue build_ext only if it looks like we have something
+			# to build; setuptools is expensive to start
+			# see extension.py for list of suffixes
+			# .pyx is added for Cython
+			if [[ -n $(
+				find '(' -name '*.c' -o -name '*.cc' -o -name '*.cpp' \
+					-o -name '*.cxx' -o -name '*.c++' -o -name '*.m' \
+					-o -name '*.mm' -o -name '*.pyx' ')' -print -quit
+			) ]]; then
+				esetup.py build_ext -j "${jobs}" "${@}"
+			fi
+		else
+			esetup.py build -j "${jobs}" "${@}"
+		fi
 	fi
 
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
@@ -1239,7 +1354,10 @@ distutils-r1_python_install() {
 		# are already in scriptdir
 		rm -r "${root}${scriptdir}" || die
 		if [[ ${DISTUTILS_SINGLE_IMPL} ]]; then
-			mv "${root}$(python_get_scriptdir)" "${root}${scriptdir}" || die
+			local wrapped_scriptdir=${root}$(python_get_scriptdir)
+			if [[ -d ${wrapped_scriptdir} ]]; then
+				mv "${wrapped_scriptdir}" "${root}${scriptdir}" || die
+			fi
 		fi
 	else
 		local root=${D%/}/_${EPYTHON}
@@ -1406,9 +1524,14 @@ distutils-r1_run_phase() {
 	esac
 
 	local -x LDSHARED="${CC} ${ldopts}" LDCXXSHARED="${CXX} ${ldopts}"
+	local _DISTUTILS_POST_PHASE_RM=()
 
 	"${@}"
 	local ret=${?}
+
+	if [[ -n ${_DISTUTILS_POST_PHASE_RM} ]]; then
+		rm "${_DISTUTILS_POST_PHASE_RM[@]}" || die
+	fi
 
 	cd "${_DISTUTILS_INITIAL_CWD}" || die
 	return "${ret}"
@@ -1580,7 +1703,7 @@ _distutils-r1_check_namespace_pth() {
 		ewarn "read our documentation on reliable handling of namespaces and update"
 		ewarn "the ebuild accordingly:"
 		ewarn
-		ewarn "  https://wiki.gentoo.org/wiki/Project:Python/Namespace_packages"
+		ewarn "  https://projects.gentoo.org/python/guide/concept.html#namespace-packages"
 	fi
 }
 

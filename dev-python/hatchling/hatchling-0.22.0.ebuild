@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 
 inherit distutils-r1
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}/backend
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~m68k ~ppc ~riscv ~s390 ~sparc"
 
 RDEPEND="
 	>=dev-python/editables-0.2[${PYTHON_USEDEP}]
@@ -38,7 +38,10 @@ BDEPEND="
 		dev-python/atomicwrites[${PYTHON_USEDEP}]
 		dev-python/click[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
+		dev-python/platformdirs[${PYTHON_USEDEP}]
 		dev-python/rich[${PYTHON_USEDEP}]
+		dev-python/tomli-w[${PYTHON_USEDEP}]
+		dev-python/virtualenv[${PYTHON_USEDEP}]
 	)
 "
 
@@ -65,5 +68,5 @@ python_test() {
 	# and hatchling
 	cd "${WORKDIR}/${MY_P}" || die
 	local -x PYTHONPATH="src:${PYTHONPATH}"
-	epytest -x tests/backend
+	epytest tests/backend
 }

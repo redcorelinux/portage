@@ -11,7 +11,7 @@ SRC_URI="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v${PV}/$
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
 IUSE="cron fuse lto nls static-libs +threads +tools"
 
 RDEPEND="
@@ -30,6 +30,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.42.13-fix-build-cflags.patch #516854
 
 	# Upstream patches (can usually removed with next version bump)
+	"${FILESDIR}"/${P}-parallel-make.patch
 )
 
 pkg_setup() {

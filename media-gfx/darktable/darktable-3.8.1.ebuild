@@ -31,7 +31,7 @@ else
 			l10n_uk? ( https://docs.darktable.org/usermanual/${DOC_PV}/uk/${PN}_user_manual.pdf -> ${PN}-usermanual-${DOC_PV}.uk.pdf )
 		)"
 
-	KEYWORDS="~amd64 ~arm64 -x86"
+	KEYWORDS="amd64 ~arm64 -x86"
 	LANGS=" de eo es fi fr he hu it ja pl pt-BR sl uk zh-CN"
 fi
 
@@ -47,6 +47,7 @@ BDEPEND="dev-util/intltool
 	nls? ( sys-devel/gettext )
 	test? ( >=dev-python/jsonschema-3.2.0 )"
 DEPEND="dev-db/sqlite:3
+	dev-libs/icu:=
 	dev-libs/json-glib
 	dev-libs/libxml2:2
 	>=dev-libs/pugixml-1.8:0=

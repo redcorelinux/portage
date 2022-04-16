@@ -1157,7 +1157,7 @@
     </member>
   </project>
   <project>
-    <email>guru@gentoo.org</email>
+    <email>guru-devs@gentoo.org</email>
     <name>GURU</name>
     <url>https://wiki.gentoo.org/wiki/Project:GURU</url>
     <description>Ebuild repository entirely maintained by Gentoo users</description>
@@ -3709,6 +3709,10 @@
     <member>
       <email>dlan@gentoo.org</email>
       <name>Yixun Lan</name>
+    </member>
+    <member>
+      <email>flow@gentoo.org</email>
+      <name>Florian Schmaus</name>
     </member>
   </project>
   <project>

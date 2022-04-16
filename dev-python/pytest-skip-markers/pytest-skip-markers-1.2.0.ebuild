@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
-DESCRIPTION=""
+DESCRIPTION="A Pytest plugin which implements a few useful skip markers"
 HOMEPAGE="
 	https://pytest-skip-markers.readthedocs.io/en/latest/
 	https://github.com/saltstack/pytest-skip-markers
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/saltstack/${PN}/archive/refs/tags/${PV}.tar.gz -> ${
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/pytest-6.0.0[${PYTHON_USEDEP}]

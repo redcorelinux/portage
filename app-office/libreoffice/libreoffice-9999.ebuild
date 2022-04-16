@@ -269,6 +269,10 @@ BDEPEND="
 	virtual/pkgconfig
 	clang? (
 		|| (
+			(
+				sys-devel/clang:14
+				sys-devel/llvm:14
+				=sys-devel/lld-14*	)
 			(	sys-devel/clang:13
 				sys-devel/llvm:13
 				=sys-devel/lld-13*	)
@@ -504,7 +508,7 @@ src_configure() {
 		--with-system-ucpp
 		--with-tls=nss
 		--with-vendor="Gentoo Foundation"
-		--with-webdav
+		--with-webdav="neon"
 		--with-x
 		--without-fonts
 		--without-myspell-dicts
@@ -563,9 +567,9 @@ src_configure() {
 			--with-ant-home="${ANT_HOME}"
 		)
 		if has_version "dev-java/openjdk:11"; then
-			myeconfargs+=( -with-jdk-home="${EPREFIX}/usr/$(get_libdir)/openjdk-11" )
+			myeconfargs+=( --with-jdk-home="${EPREFIX}/usr/$(get_libdir)/openjdk-11" )
 		elif has_version "dev-java/openjdk-bin:11"; then
-			myeconfargs+=( --with-jdk-home="/opt/openjdk-bin-11" )
+			myeconfargs+=( --with-jdk-home="${EPREFIX}/opt/openjdk-bin-11" )
 		fi
 
 		use libreoffice_extensions_scripting-beanshell && \

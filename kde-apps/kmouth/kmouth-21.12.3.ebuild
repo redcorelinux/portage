@@ -13,7 +13,7 @@ HOMEPAGE="https://apps.kde.org/kmouth/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="
@@ -33,3 +33,5 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-use-KDECompilerSettings.patch" ) # bug 838193

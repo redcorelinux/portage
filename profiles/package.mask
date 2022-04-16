@@ -33,15 +33,113 @@
 
 #--- END OF EXAMPLES ---
 
+# Marek Szuba <marecki@gentoo.org> (2022-04-14)
+# Singularity has been renamed upstream to Apptainer. Therefore, up-to-date
+# versions of this software are now available as app-containers/apptainer.
+sys-cluster/singularity
+
+# Sam James <sam@gentoo.org> (2022-04-13)
+# 2.35.2 was a quick release to mitigate a security issue (bug #838127), but
+# introduces problems of its own with e.g. Portage. bug #838223. Pending
+# investigation both on the Portage side and potentially upstream (as there's
+# at least some UX issues with 2.35.2+ with the new "safe directory" mechanism).
+# Earlier versions are still safe as long as you do not use git commands
+# on a local repository controlled by a user you do not trust.
+=dev-vcs/git-2.35.2
+=dev-vcs/git-2.35.3
+
+# Conrad Kostecki <conikost@gentoo.org> (2022-04-13)
+# Abandoned by upstream, does not work correctly anymore.
+# Removal on 2022-06-13. Bug #832431.
+x11-plugins/pidgin-telegram
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-13)
+# Unmaintained.  Last release in 2017, the Gentoo ebuild has not been
+# even bumped to it.  Requires old dev-lang/spidermonkey that requires
+# Python 2.7.
+# Removal on 2022-05-13.  Bug #838139.
+media-video/gxine
+
+# Hans de Graaff <graaff@gentoo.org> (2022-04-12)
+# dev-ruby/nokogumbo is now part of dev-ruby/nokogiri and nokogiri
+# versions still supporting a separate nokogumbo have known security
+# issues. nokogumbo's only reverse dependency is dev-ruby/sanitize:5,
+# but a newer slot is available.
+dev-ruby/nokogumbo
+dev-ruby/sanitize:5
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-11)
+# Tests are broken once again.  Last activity in Jan 2020, last release
+# in Aug 2019.  No revdeps.
+# Removal on 2022-05-11.  Bug #832317.
+dev-python/ctypescrypto
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. Uses GTK+ 2. No reverse dependencies.
+# Removal on 2022-05-10
+x11-misc/gcolor2
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. No reverse dependencies.
+# Removal on 2022-05-10
+net-misc/vinagre
+net-misc/vino
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream (last release in 2004). No reverse dependencies.
+# Removal on 2022-05-10
+net-misc/grdesktop
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. EAPI 5. Only reverse dependency is gnome-extra/gnome-utils.
+# Removal on 2022-05-10
+gnome-extra/gnome-search-tool
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. No reverse dependencies.
+# Removal on 2022-05-10
+gnome-extra/filemanager-actions
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. No reverse dependencies.
+# Removal on 2022-05-10
+app-office/pinpoint
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead package upstream. Only reverse dependency is gnome-extra/gnome-utils.
+# Removal on 2022-05-10
+app-admin/gnome-system-log
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-10)
+# Dead (meta)packagesupstream. No reverse dependencies.
+# Removal on 2022-05-10
+gnome-extra/gnome-utils
+
+# David Seifert <soap@gentoo.org> (2022-04-10)
+# Unmaintained, last release upstream 16 years ago, Fedora dropped it,
+# relies on sys-libs/db, low quality port to EAPI 6, removal on 2022-05-10.
+net-p2p/syrep
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-10)
+# Last release in 2016.  Last git commit in 2020.  No revdeps.
+# Removal on 2022-05-10.  Bug #837641.
+dev-python/repoze-sphinx-autointerface
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-09)
+# A test runner specific to zope packages that was never really used
+# (only as a mistaken test-dep).  No revdeps left.
+# Removal on 2022-05-09.  Bug #837530.
+dev-python/zope-testrunner
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-06)
+# Dead package upstream. No reverse dependencies.
+# Removal on 2022-05-06
+dev-util/nemiver
+
 # David Seifert <soap@gentoo.org> (2022-04-06)
 # Unsupported branches, no consumers left, removal on 2023-01-01.
 sys-devel/automake:1.13
 sys-devel/automake:1.15
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2022-04-05)
-# First version with py3 buildsystem support.
-# May be succeeded quickly by another snapshot.
-~dev-qt/qtwebengine-5.15.3_p20220330
 
 # Sergey Popov <pinkbyte@gentoo.org> (2022-04-05)
 # Upstream is dead long time ago
@@ -175,124 +273,12 @@ sci-biology/GBrowse
 # tries to fetch and install all dependencies locally).
 ~dev-python/jaraco-packaging-9.0.0
 
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Unmaintaned, broken packages, no revdeps.
-# Bugs 832618, 731720, 713684,
-# 733662, 741082, and many others.
-# Removal on 2022-04-16.
-net-wireless/yatebts
-net-wireless/srslte
-net-wireless/gr-scan
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Unmaintaned, broken library with no revdeps.
-# Removal on 2022-04-16. Bug #643444. Bug #749639. Bug #684758.
-net-libs/libosmocore
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# 9999-only ebuilds, various other QA issues (no python
-# 3.10, using deprecated EAPI, ...)
-# Removal on 2022-04-15.
-net-libs/libmirisdr
-media-sound/deinvert
-net-wireless/gr-m2k
-net-wireless/libm2k
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Python packages with no revdeps, tests are not
-# enabled, not ported to python 3.10
-# Removal on 2022-04-15.
-net-wireless/soapy_power
-dev-python/simplesoapy
-dev-python/simplespectral
-
-# Fabian Groffen <grobian@gentoo.org> (2022-03-16)
-# little activity upstream, doesn't work with PHP 8.0
-# Removal in 30 days
-www-apps/agendav
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-03-16)
-# Java library without consumers.
-# Removal in 30 days. Bug #835389.
-dev-java/android-util
-
-# Michał Górny <mgorny@gentoo.org> (2022-03-15)
-# No maintainer.  This package is repeatedly non-bumpable due to missing
-# upstream tags.  No revdeps.
-# Removal on 2022-04-14.  Bug #835352.
-dev-python/sphinx-jinja
-
-# Sam James <sam@gentoo.org> (2022-03-15)
-# No reverse dependencies, stuck on deprecated EAPI 5.
-# Removal on 2022-04-15. bug #835350.
-dev-java/headius-options
-
-# Matthew Smith <matthew@gentoo.org> (2022-03-14)
-# Dead upstream, multiple open bugs.
-# Bug #835162. Removal on 2022-04-13.
-net-im/corebird
-
 # John Helmert III <ajak@gentoo.org> (2022-03-13)
 # Arti is not a production-ready Tor client. According to upstream, "do
 # not use this program yet if you seriously need anonymity, privacy,
 # security, or stability." Feel free to unmask if this is not a
 # necessity.
 net-p2p/arti
-
-# Alfredo Tupone <tupone@gentoo.org> (2022-03-13)
-# No revdeps, last update on 2011
-# Removal on 2022-04-13.
-www-apps/rocketwiki-lqfb
-
-# David Seifert <soap@gentoo.org> (2022-03-12)
-# Unmaintained, no revdeps in tree, no other distro packages this,
-# HOMEPAGE gone, stuck on deprecated (and soon-to-stop-working)
-# cmake-utils. bug #725610, #732056, #834117.
-# Removal on 2022-04-11.
-sys-apps/rtl-entropy
-
-# David Seifert <soap@gentoo.org> (2022-03-12)
-# Unmaintained, no revdeps in tree, no other distro packages this,
-# wrong dependencies, out of date, stuck on deprecated
-# (and soon-to-stop-working) cmake-utils. bug #702980, #834121.
-# Removal on 2022-04-11.
-net-wireless/rtl_power_fftw
-
-# Sam James <sam@gentoo.org> (2022-03-11)
-# No maintainer, out of date, stuck on deprecated
-# (and soon-to-stop-working) cmake-utils. bug #774480.
-# Removal on 2022-04-11.
-dev-libs/processor-trace
-
-# Sam James <sam@gentoo.org> (2022-03-11)
-# Significant number of open bugs including unaddressed security issues;
-# out of date; stuck on deprecated (and soon-to-stop-working) cmake-utils
-# eclass. See bug #834113. Removal on 2022-04-11.
-dev-db/mysql-cluster
-
-# Sam James <sam@gentoo.org> (2022-03-09)
-# EAPI 5, out-of-date. Not packaged by any other distributions.
-# Removal on 2022-04-09.
-dev-java/edtftpj
-
-# Sam James <sam@gentoo.org> (2022-03-09)
-# Depends on very-old slot of SpiderMonkey which shouldn't be
-# used with untrusted input (vulnerable to lots of security bugs).
-# No reverse dependencies and no updates upstream for a long while.
-# Stuck on EAPI 5 too. Removal on 2022-04-09. bug #832313.
-dev-perl/JavaScript-SpiderMonkey
-
-# Matthew Smith <matthew@gentoo.org> (2022-03-08)
-# Dead upstream, multiple vulnerabilities.
-# Try the fork media-gfx/prusaslicer instead.
-# Bug #834739. Removal on 2022-04-07.
-media-gfx/slic3r
-
-# Sam James <sam@gentoo.org> (2022-03-07)
-# Python 3.6 was declared end-of-life by upstream on 2021-11-04.
-# Please migrate to a newer Python version/slot or use a virtualenv
-# if still needed. Removal on 2022-04-07.
-dev-lang/python:3.6
 
 # Stephan Hartmann <sultan@gentoo.org> (2022-04-01)
 # Dev channel releases are only for people who
@@ -324,11 +310,6 @@ dev-lang/python:3.6
 <app-doc/kicad-doc-6.0.2
 
 # Jonas Stein <jstein@gentoo.org> (2022-02-11)
-# Blocks gtk2 removal, which is EOL
-# Removal after 2022-04-01.  Bug #833145.
-x11-misc/gtk2fontsel
-
-# Jonas Stein <jstein@gentoo.org> (2022-02-11)
 # Not usable anymore
 # Removal after 2022-06-01.  Bug #833144.
 x11-misc/i855crt
@@ -343,18 +324,13 @@ x11-misc/sisctrl
 # Removal after 2022-07-01.  Bug #832953.
 x11-misc/easystroke
 
-# Jonas Stein <jstein@gentoo.org> (2022-02-06)
-# Dead upstream, unmaintained, open bugs.
-# Removal after 2022-04-01.  Bug #832808.
-app-misc/emelfm2
-
 # Eray Aslan <eras@gentoo.org> (2022-01-24)
 # Mask experimental software
 =mail-mta/postfix-3.8*
 
 # James Beddek <telans@posteo.de> (2022-01-19)
 # FFmpeg 5.0 ABI/API changes break many packages.
-# Masking for tracker/tinderbox.
+# Masking for tracker/tinderbox. Bug #831437
 >=media-video/ffmpeg-5.0
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2022-01-15)
@@ -371,18 +347,6 @@ app-misc/emelfm2
 # The main consumer, phpunit, does not initiate the new timer correctly
 # This is likely to cause issues in tests; Unmask if using for other purposes
 >=dev-php/PHP_Timer-5.0
-
-# Jonas Stein <jstein@gentoo.org> (2021-12-24)
-# Alpha version
-=app-editors/ghex-4.0.0_alpha
-
-# Michał Górny <mgorny@gentoo.org> (2021-12-18)
-# EOL kernel with known vulnerabilities.  Please move to one of the LTS
-# branches.  Bug #829491.
-=sys-kernel/gentoo-kernel-5.14*
-=sys-kernel/gentoo-kernel-bin-5.14*
-=sys-kernel/vanilla-kernel-5.14*
-=virtual/dist-kernel-5.14*
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2021-12-14)
 # AT&T decided to roll back community changes in March 2020
@@ -406,13 +370,6 @@ app-misc/emelfm2
 # Does not support updated dev-java/pdfbox-2.0.24, Bug #803488
 # Blocks (CVE-2018-11797, CVE-2021-{27807,27906,31811,31812})
 dev-tex/pdfannotextractor
-
-# Mike Pagano <mpagano@gentoo.org> (2021-11-18)
-# Bug introduced in this version that can
-# cause system freeze with data loss.
-# Bug #824558.
-=sys-kernel/gentoo-sources-5.14.19
-=sys-kernel/vanilla-sources-5.14.19
 
 # Ionen Wolkens <ionen@gentoo.org> (2021-10-09)
 # Vulkan beta driver branch aimed at Vulkan developers for testing
@@ -439,20 +396,6 @@ media-libs/webrtc-audio-processing:1
 # sys-devel/automake version 1.11 is EOL and is only useful for testing
 # old de-ANSI-fication/ansi2knr/AM_C_PROTOTYPES code. Please uninstall.
 sys-devel/automake:1.11
-
-# Alice Ferrazzi <alicef@gentoo.org> (2021-09-16)
-# Regression in POSIX CPU timers.
-# Please upgrade your gentoo-sources.
-# Adding affected vanilla-sources
-# https://www.spinics.net/lists/stable/msg499206.html
-=sys-kernel/gentoo-sources-5.14.4
-=sys-kernel/gentoo-sources-5.13.17
-=sys-kernel/gentoo-sources-5.10.65
-=sys-kernel/gentoo-sources-5.4.146
-=sys-kernel/vanilla-sources-5.14.4
-=sys-kernel/vanilla-sources-5.13.17
-=sys-kernel/vanilla-sources-5.10.65
-=sys-kernel/vanilla-sources-5.4.146
 
 # Mart Raudsepp <leio@gentoo.org> (2021-09-15)
 # New major parallel-installable release which needs special care to not
