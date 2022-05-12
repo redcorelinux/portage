@@ -3,6 +3,7 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
+VALA_MIN_API_VERSION="0.54"
 
 inherit gnome.org gnome2-utils meson python-any-r1 vala xdg
 
@@ -12,7 +13,7 @@ HOMEPAGE="https://wiki.gnome.org/Design/Apps/Contacts"
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="telepathy"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 
 VALA_DEPEND="
 	$(vala_depend)

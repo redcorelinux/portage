@@ -11,12 +11,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Game of action and puzzle solving by KDE"
-HOMEPAGE="https://apps.kde.org/kgoldrunner/
-https://games.kde.org/games/kgoldrunner/"
+HOMEPAGE="https://apps.kde.org/kgoldrunner/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

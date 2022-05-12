@@ -123,17 +123,6 @@ sci-physics/root -cudnn
 mail-client/thunderbird -eme-free
 www-client/firefox -eme-free
 
-# Mart Raudsepp <leio@gentoo.org> (2020-03-01)
-# dev-util/sysprof-capture is keyworded on amd64
-x11-wm/mutter -sysprof
-dev-libs/gjs -sysprof
-dev-libs/glib -sysprof
-gnome-extra/cjs -sysprof
-x11-libs/gtk+ -sysprof
-net-libs/libsoup -sysprof
-x11-libs/pango -sysprof
-gui-libs/gtk -sysprof
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-02-26)
 # Vulkan is available on amd64.
 dev-qt/qt3d -vulkan
@@ -291,6 +280,7 @@ sys-boot/grub:2 -grub_platforms_xen-32
 # Mike Gilbert <floppym@gentoo.org> (2015-09-05)
 # sys-boot/gnu-efi is not supported on all archs.
 sys-apps/systemd -gnuefi
+sys-apps/systemd-utils -boot
 
 # Ben de Groot <yngwin@gentoo.org> (2015-03-15)
 # media-libs/libbdplus is keyworded on amd64, so unmask the useflag
@@ -350,6 +340,7 @@ app-arch/zpaq -jit
 # webrtc-audio-processing is only supported on x86/amd64. Possibly arm can be
 # added.
 media-sound/pulseaudio -webrtc-aec
+media-sound/pulseaudio-daemon -webrtc-aec
 
 # Bernard Cafarelli <voyageur@gentoo.org> (2012-02-27)
 # Masked in base profile, supported on this arch
@@ -409,11 +400,6 @@ media-libs/smpeg cpu_flags_x86_mmx
 
 # x86_64 opts are enabled with USE sse. so masking the rest
 media-sound/mpg123 cpu_flags_x86_mmx cpu_flags_x86_3dnow cpu_flags_x86_3dnowext
-
-# Alistair Bush <ali_bush@gentoo.org> (2007-05-08)
-# Mask doc flag for fop as nearly impossible to
-# run javadoc target.  see #177585
-dev-java/fop:0 doc
 
 # Alexis Ballier <aballier@gentoo.org> (2008-08-08)
 # x86 asm only, it won't be built on amd64 if mmx useflag is enabled but that

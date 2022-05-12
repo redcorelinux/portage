@@ -25,7 +25,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="PSF-2"
 SLOT="${PYVER}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="bluetooth build examples gdbm hardened libedit lto +ncurses pgo +readline +sqlite +ssl test tk wininst +xml"
 RESTRICT="!test? ( test )"
 
@@ -82,6 +82,8 @@ VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/python.org.asc
 
 # large file tests involve a 2.5G file being copied (duplicated)
 CHECKREQS_DISK_BUILD=5500M
+
+QA_PKGCONFIG_VERSION=${PYVER}
 
 pkg_pretend() {
 	use test && check-reqs_pkg_pretend

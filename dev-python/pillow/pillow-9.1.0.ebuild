@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 PYTHON_REQ_USE='tk?,threads(+)'
 
 inherit distutils-r1 toolchain-funcs virtualx
@@ -19,14 +19,14 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples imagequant +jpeg jpeg2k lcms test tiff tk truetype webp xcb zlib"
 REQUIRED_USE="test? ( jpeg jpeg2k tiff truetype )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	imagequant? ( media-gfx/libimagequant:0 )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? ( media-libs/libjpeg-turbo )
 	jpeg2k? ( media-libs/openjpeg:2= )
 	lcms? ( media-libs/lcms:2= )
 	tiff? ( media-libs/tiff:0=[jpeg,zlib] )

@@ -15,7 +15,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~arm -x86"
+	KEYWORDS="amd64 ~arm -x86"
 	UPSTREAM_VER=2
 	SECURITY_VER=
 	GENTOO_VER=
@@ -34,7 +34,7 @@ else
 fi
 
 DESCRIPTION="The Xen virtual machine monitor"
-HOMEPAGE="https://www.xenproject.org"
+HOMEPAGE="https://xenproject.org"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug efi flask"

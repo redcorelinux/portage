@@ -15,7 +15,7 @@ DESCRIPTION="Library for encryption handling"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~ppc64 ~riscv x86"
 IUSE="+fancyviewer"
 
 RDEPEND="
@@ -35,6 +35,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
+
+PATCHES=( "${FILESDIR}/${P}-gcc-12.patch" ) # bug 839921
 
 src_configure() {
 	local mycmakeargs=(

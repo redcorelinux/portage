@@ -54,9 +54,13 @@ IUSE="cet guile lzma multitarget nls +python +server source-highlight test vanil
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 # ia64 kernel crashes when gdb testsuite is running
+# in fact, gdb's test suite needs some work to get passing.
+# See e.g. https://sourceware.org/gdb/wiki/TestingGDB.
+# As of 11.2, on amd64: "# of unexpected failures    8600"
 RESTRICT="
 	ia64? ( test )
 	!test? ( test )
+	test
 "
 
 RDEPEND="
@@ -65,6 +69,7 @@ RDEPEND="
 	>=sys-libs/ncurses-5.2-r2:0=
 	>=sys-libs/readline-7:0=
 	sys-libs/zlib
+	elibc_glibc? ( net-libs/libnsl:= )
 	lzma? ( app-arch/xz-utils )
 	python? ( ${PYTHON_DEPS} )
 	guile? ( >=dev-scheme/guile-2.0 )
@@ -231,13 +236,13 @@ src_install() {
 
 	docinto gdb
 	dodoc gdb/CONTRIBUTE gdb/README gdb/MAINTAINERS \
-		gdb/NEWS gdb/ChangeLog gdb/PROBLEMS
+		gdb/NEWS gdb/PROBLEMS
 	docinto sim
-	dodoc sim/{ChangeLog,MAINTAINERS,README-HACKING}
+	dodoc sim/{MAINTAINERS,README-HACKING}
 
 	if use server ; then
 		docinto gdbserver
-		dodoc gdbserver/{ChangeLog,README}
+		dodoc gdbserver/README
 	fi
 
 	if [[ -n ${PATCH_VER} ]] ; then
@@ -245,7 +250,7 @@ src_install() {
 	fi
 
 	# Remove shared info pages
-	rm -f "${ED}"/usr/share/info/{annotate,bfd,configure,standards}.info*
+	rm -f "${ED}"/usr/share/info/{annotate,bfd,configure,ctf-spec,standards}.info*
 
 	if use python; then
 		python_optimize "${ED}"/usr/share/gdb/python/gdb

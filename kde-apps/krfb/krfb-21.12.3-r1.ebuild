@@ -13,7 +13,7 @@ HOMEPAGE="https://apps.kde.org/krfb/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~ppc64 ~riscv x86"
 IUSE="wayland"
 
 COMMON_DEPEND="
@@ -61,12 +61,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
 "
-BDEPEND="
-	wayland? ( || (
-		>=dev-qt/qtwaylandscanner-${QTMIN}:5
-		<dev-qt/qtwayland-5.15.3:5
-	) )
-"
+BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-21.12.2-optional-pipewire.patch"

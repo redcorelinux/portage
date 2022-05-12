@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
 
 RDEPEND="
 	dev-python/cons[${PYTHON_USEDEP}]
@@ -63,6 +63,7 @@ python_test() {
 }
 
 python_compile() {
+	esetup.py build_py
 	distutils-r1_python_compile
 	rm "${BUILD_DIR}/install$(python_get_sitedir)/bin/__init__.py" || die
 }

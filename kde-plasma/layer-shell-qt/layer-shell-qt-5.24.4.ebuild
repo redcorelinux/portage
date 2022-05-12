@@ -11,7 +11,7 @@ DESCRIPTION="Qt component to allow applications make use of Wayland wl-layer-she
 
 LICENSE="LGPL-3+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE=""
 
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
@@ -30,10 +30,7 @@ DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
 "
 BDEPEND="
-	|| (
-		>=dev-qt/qtwaylandscanner-${QTMIN}:5
-		<dev-qt/qtwayland-5.15.3:5
-	)
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "

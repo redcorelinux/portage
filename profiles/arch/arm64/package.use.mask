@@ -1,6 +1,14 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Matt Turnbull <sparky@bluefang-logic.com> (2022-05-05)
+# Cinnamon is not keyworded. Bug 842033
+x11-themes/arc-theme cinnamon
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-18)
+# app-text/nuspell is not keyworded
+app-text/enchant nuspell
+
 # Adel Kara Slimane <adel.ks@zegrapher.com> (2022-03-14)
 # Untested useflag on other arches, needs keywording
 media-video/ffmpeg vmaf
@@ -108,6 +116,7 @@ media-sound/bluez-alsa man
 # gnuefi + systemd-boot works on arm64
 # bug #729720
 sys-apps/systemd -gnuefi
+sys-apps/systemd-utils -boot
 
 # Joonas Niilola <juippis@gentoo.org> (2021-01-15)
 # Dependency not keyworded on this arch.

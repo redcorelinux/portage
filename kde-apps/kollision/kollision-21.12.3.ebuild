@@ -10,12 +10,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Simple ball dodging game"
-HOMEPAGE="https://apps.kde.org/kollision/
-https://games.kde.org/games/kollision/"
+HOMEPAGE="https://apps.kde.org/kollision/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

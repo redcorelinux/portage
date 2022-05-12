@@ -11,11 +11,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="KDE Atomic Entertainment Game"
-HOMEPAGE="https://apps.kde.org/katomic/ https://games.kde.org/games/katomic/"
+HOMEPAGE="https://apps.kde.org/katomic/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

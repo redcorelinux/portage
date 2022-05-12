@@ -1,6 +1,22 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Nickolas Raymond Kaczynski <nrk@disroot.org> (2022-04-24)
+# Dependencies are missing keywords
+media-libs/imlib2 svg heif
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-18)
+# app-text/nuspell is not keyworded
+app-text/enchant nuspell
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-16)
+# net-misc/freerdp is not keyworded
+dev-libs/weston rdp
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-16)
+# sys-auth/seatd is not keyworded
+dev-libs/weston seatd
+
 # Lars Wendler <polynomial-c@gentoo.org> (2022-04-01)
 # gnome-base/librsvg missing keywords
 media-libs/freetype svg
@@ -321,6 +337,7 @@ net-libs/gnutls test-full
 # Michał Górny <mgorny@gentoo.org> (2017-08-07)
 # Requires USE=bluetooth that is masked in this profile.
 media-sound/pulseaudio native-headset ofono-headset
+media-sound/pulseaudio-daemon native-headset ofono-headset
 net-misc/ofono dundee
 
 # Michał Górny <mgorny@gentoo.org> (2017-08-07)
@@ -447,10 +464,6 @@ sci-visualization/gnuplot libcerf
 # Pacho Ramos <pacho@gentoo.org> (2014-04-12)
 # Missing keywords, bug #507490
 net-misc/modemmanager mbim
-
-# Pacho Ramos <pacho@gentoo.org> (2014-03-15)
-# Missing keywords, bug #504672
->=net-misc/vinagre-3.10 rdp
 
 # Pacho Ramos <pacho@gentoo.org> (2014-02-22)
 # Missing keywords, bug #495250

@@ -33,6 +33,294 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2022-05-11)
+# A backport with no revdeps left.
+# Removal on 2022-06-10.  Bug #843791.
+dev-python/backports-entry_points_selectable
+
+# David Seifert <soap@gentoo.org> (2022-05-11)
+# Declared EOL by upstream at the end of 2020, no revdeps, last version
+# has many issues. Removal on 2022-06-10. Bug #741846, #770760.
+media-gfx/nvidia-texture-tools
+
+# Florian Schmaus <flow@gentoo.org> (2022-05-10)
+# Was split by upstream (and us) into
+# net-analyzer/gsa and net-analyzer/gsad.
+# Removal on 2022-06-10.
+net-analyzer/greenbone-security-assistant
+
+# Florian Schmaus <flow@gentoo.org> (2022-05-10)
+# Functionality now in net-analyzer/ospd-openvas.
+# Removal on 2022-06-10.
+net-analyzer/ospd
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-05-06)
+# Unused java library. Removal on 2022-06-06
+dev-java/commons-jxpath
+
+# Michał Górny <mgorny@gentoo.org> (2022-05-07)
+# The current version is severely outdated and blocks upgrade
+# of dependencies.  Packaging a new release poses serious problems.
+# Removal on 2022-06-06.  Bug #836282.
+dev-db/pgadmin4
+
+# Hans de Graaff <graaff@gentoo.org> (2022-05-07)
+# Old slot without reverse dependencies. Originally introduced for
+# dev-ruby/gherkin but no longer used there. Upgrade to the new slotted
+# version. Masked for removal in 30 days.
+dev-ruby/c21e:1
+
+# Michał Górny <mgorny@gentoo.org> (2022-05-06)
+# The "better quality" dependencies of Mailman.  These packages were
+# generally fixed by the Python team but they have no reverse
+# dependencies.  If you need them, please let us know and we'll keep
+# them.
+# Removal on 2022-06-05.  Bug #842888.
+dev-python/authheaders
+dev-python/django-allauth
+dev-python/django-appconf
+dev-python/django-debug-toolbar
+dev-python/flufl-bounce
+dev-python/flufl-i18n
+dev-python/lazr-config
+dev-python/lazr-delegates
+dev-python/python3-openid
+dev-python/rcssmin
+dev-python/rjsmin
+dev-python/robot-detection
+
+# Michał Górny <mgorny@gentoo.org> (2022-05-06)
+# Mailman along with a bunch of dependencies that are of bad quality.
+# At the very least, the Mailman packages need a dedicated maintainer.
+# Their Python dependencies can be maintained by the Python team
+# if someone takes care of getting the tests working.
+# Removal on 2022-06-05.  Bug #842888.
+dev-python/aiosmtpd
+dev-python/django-compressor
+dev-python/django-extensions
+dev-python/django-gravatar2
+dev-python/django-haystack
+dev-python/django-picklefield
+dev-python/django-q
+dev-python/falcon
+dev-python/flufl-testing
+net-mail/django-mailman3
+net-mail/mailman
+net-mail/mailmanclient
+net-mail/mailman-meta
+net-mail/hyperkitty
+net-mail/postorius
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-05-04)
+# Unused java libraries and useless java-virtual. Removal on 2022-06-04
+dev-java/glassfish-jms-api
+dev-java/sun-jms
+java-virtuals/jms
+
+# Pacho Ramos <pacho@gentoo.org> (2022-05-03)
+# Waiting for keywording and adapting reverse deps. Bug #816135.
+>=sys-apps/xdg-desktop-portal-gtk-1.14.0
+sys-apps/xdg-desktop-portal-gnome
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-30)
+# Masked for testing. Apparently causes crashes. Bug #841857.
+>=x11-libs/libX11-1.8
+
+# Joonas Niilola <juippis@gentoo.org> (2022-04-29)
+# Apparently the "b" in version means "beta". 3.24 is available, we
+# should update to that. #841437
+~sci-physics/bullet-3.22b
+
+# Conrad Kostecki <conikost@gentoo.org> (2022-04-27)
+# Old base package for jabber services, which is not being used anymore,
+# as jabber services do now use their own user instead of generic jabber user.
+# Removal in 30 days on 2022-05-27.
+net-im/jabber-base
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-22)
+# Blocks removal of vulnerable dev-java/guava:20, bug #833309.
+# Removal on 2022-05-30
+dev-util/checkstyle
+app-emacs/jde
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-26)
+# Dead package. No reverse dependencies.
+# Removal on 2022-05-26
+gnome-base/gnome-vfs
+
+# Mike Pagano <mpagano@gentoo.org> (2022-04-26)
+# These kernels contain a major regression that causes power button
+# to stop working, apparently making it impossible to leave suspend
+# on some laptops without a (difficult) hard reset.
+~sys-kernel/gentoo-sources-5.10.111
+=sys-kernel/gentoo-sources-5.10.112
+~sys-kernel/gentoo-sources-5.15.34
+=sys-kernel/gentoo-sources-5.15.35
+~sys-kernel/gentoo-sources-5.16.20
+~sys-kernel/gentoo-sources-5.17.3
+=sys-kernel/gentoo-sources-5.17.4
+~sys-kernel/vanilla-sources-5.10.112
+~sys-kernel/vanilla-sources-5.15.35
+~sys-kernel/vanilla-sources-5.17.4
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-26)
+# These kernels contain a major regression that causes power button
+# to stop working, apparently making it impossible to leave suspend
+# on some laptops without a (difficult) hard reset.
+~sys-kernel/gentoo-kernel-5.10.111
+=sys-kernel/gentoo-kernel-5.10.112
+~sys-kernel/gentoo-kernel-5.15.34
+=sys-kernel/gentoo-kernel-5.15.35
+~sys-kernel/gentoo-kernel-5.16.20
+~sys-kernel/gentoo-kernel-5.17.3
+=sys-kernel/gentoo-kernel-5.17.4
+~sys-kernel/gentoo-kernel-bin-5.10.111
+=sys-kernel/gentoo-kernel-bin-5.10.112
+~sys-kernel/gentoo-kernel-bin-5.15.34
+=sys-kernel/gentoo-kernel-bin-5.15.35
+~sys-kernel/gentoo-kernel-bin-5.16.20
+~sys-kernel/gentoo-kernel-bin-5.17.3
+=sys-kernel/gentoo-kernel-bin-5.17.4
+~sys-kernel/vanilla-kernel-5.10.111
+~sys-kernel/vanilla-kernel-5.10.112
+~sys-kernel/vanilla-kernel-5.15.34
+~sys-kernel/vanilla-kernel-5.15.35
+~sys-kernel/vanilla-kernel-5.16.20
+~sys-kernel/vanilla-kernel-5.17.3
+~sys-kernel/vanilla-kernel-5.17.4
+~virtual/dist-kernel-5.10.111
+~virtual/dist-kernel-5.15.34
+~virtual/dist-kernel-5.16.20
+~virtual/dist-kernel-5.17.3
+
+# Alfredo Tupone <tupone@gentoo.org> (2022-04-27)
+# New release of janestreet packages need to tested
+dev-ml/sexplib0:0/0.15
+dev-ml/base:0/0.15
+dev-ml/stdio:0/0.15
+dev-ml/ppx_sexp_conv:0/0.15
+dev-ml/ppx_enumerate:0/0.15
+dev-ml/ppx_compare:0/0.15
+dev-ml/ppx_hash:0/0.15
+dev-ml/ppx_cold:0/0.15
+dev-ml/parsexp:0/0.15
+dev-ml/ppx_base:0/0.15
+dev-ml/ppx_fields_conv:0/0.15
+dev-ml/ppx_here:0/0.15
+dev-ml/ppx_let:0/0.15
+dev-ml/ppx_sexp_message:0/0.15
+dev-ml/ppx_sexp_value:0/0.15
+dev-ml/ppx_assert:0/0.15
+dev-ml/ppx_optcomp:0/0.15
+dev-ml/time_now:0/0.15
+dev-ml/ppx_inline_test:0/0.15
+dev-ml/ppx_bench:0/0.15
+dev-ml/splittable_random:0/0.15
+dev-ml/base_quickcheck:0/0.15
+dev-ml/ppx_bin_prot:0/0.15
+dev-ml/ppx_custom_printf:0/0.15
+dev-ml/ppx_disable_unused_warnings:0/0.15
+dev-ml/ppx_expect:0/0.15
+dev-ml/ppx_fixed_literal:0/0.15
+dev-ml/ppx_log:0/0.15
+dev-ml/ppx_module_timer:0/0.15
+dev-ml/ppx_optional:0/0.15
+dev-ml/ppx_stable:0/0.15
+dev-ml/ppx_string:0/0.15
+dev-ml/typerep:0/0.15
+dev-ml/ppx_typerep_conv:0/0.15
+dev-ml/variantslib:0/0.15
+dev-ml/ppx_variants_conv:0/0.15
+dev-ml/ppx_jane:0/0.15
+dev-ml/int_repr:0/0.15
+dev-ml/base_bigstring:0/0.15
+dev-ml/ppx_js_style:0/0.15
+dev-ml/core:0/0.15
+dev-ml/core_kernel:0/0.15
+dev-ml/sexp_pretty:0/0.15
+dev-ml/expect_test_helpers_core:0/0.15
+dev-ml/timezone:0/0.15
+dev-ml/core_unix:0/0.15
+dev-ml/textutils_kernel:0/0.15
+dev-ml/textutils:0/0.15
+dev-ml/async_kernel:0/0.15
+dev-ml/protocol_version_header:0/0.15
+dev-ml/async_rpc_kernel:0/0.15
+dev-ml/async_unix:0/0.15
+dev-ml/async:0/0.15
+dev-ml/async_extra:0/0.15
+dev-ml/core_bench:0/0.15
+dev-ml/patience_diff:0/0.15
+dev-util/patdiff:0/0.15
+
+# Hans de Graaff <graaff@gentoo.org> (2022-04-23)
+# Obsolete slots that are no longer used by current
+# dev-ruby/rqrcode versions and has no use on its own.
+# Masked for removal in 30 days.
+dev-ruby/rqrcode_core:0
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-22)
+# Unused java library. Removal on 2022-05-24.
+dev-java/jgraph
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-22)
+# Obsolete namespace packages.  PEP 420 implicit namespaces are now
+# the preferred solution.  Upgrade the reverse dependencies to get
+# these packages unmerged.
+# Removal on 2022-05-09.
+dev-python/namespace-google
+dev-python/namespace-lazr
+dev-python/namespace-paste
+dev-python/namespace-repoze
+dev-python/namespace-ruamel
+dev-python/namespace-sphinxcontrib
+dev-python/namespace-zope
+
+# Hans de Graaff <graaff@gentoo.org> (2022-04-22)
+# Obsolete slots that are no longer used by current
+# dev-ruby/simplecov versions and have no use on their own.
+# Masked for removal in 30 days.
+dev-ruby/simplecov-html:0.10
+dev-ruby/simplecov-html:0.11
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-19)
+# Release of the source-based ebuild is from 2014. At the moment
+# impossible to provide source-based ebuild for the current version.
+# Up-to-date binary package exists. Removal on 2022-05-30
+app-text/jabref
+dev-java/glazedlists
+dev-java/jempbox
+dev-java/microba
+dev-java/spin
+
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-17)
+# Unused java libraries. Removal in 30 days.
+dev-java/boot-bin
+dev-java/eclipsito
+dev-java/gcj-jdk
+dev-java/japitools
+dev-java/jboss-marshalling
+dev-java/jdbc-mssqlserver
+dev-java/jsr250
+dev-java/maven-hawtjni-plugin
+dev-java/mimepull
+dev-java/oracle-javamail
+dev-java/xjavac
+
+# David Seifert <soap@gentoo.org> (2022-04-17)
+# Dead library, part of >=sys-fs/e2fsprogs-1.46.5 now, bug #806875,
+# removal on 2022-05-17.
+# (If you hit blockers, please run:
+# $ emerge --deselect sys-libs/e2fsprogs-libs
+# This is necessary as your world file should not contain dependencies.)
+sys-libs/e2fsprogs-libs
+
+# Michał Górny <mgorny@gentoo.org> (2022-04-17)
+# Unmaintained in Gentoo.  Pending a bump since January.  Non-trivial
+# to test.  No revdeps.
+# Removal on 2022-05-17.  Bug #838895.
+dev-python/pymssql
+
 # Marek Szuba <marecki@gentoo.org> (2022-04-14)
 # Singularity has been renamed upstream to Apptainer. Therefore, up-to-date
 # versions of this software are now available as app-containers/apptainer.
@@ -45,8 +333,7 @@ sys-cluster/singularity
 # at least some UX issues with 2.35.2+ with the new "safe directory" mechanism).
 # Earlier versions are still safe as long as you do not use git commands
 # on a local repository controlled by a user you do not trust.
-=dev-vcs/git-2.35.2
-=dev-vcs/git-2.35.3
+>=dev-vcs/git-2.35.2
 
 # Conrad Kostecki <conikost@gentoo.org> (2022-04-13)
 # Abandoned by upstream, does not work correctly anymore.
@@ -68,205 +355,20 @@ media-video/gxine
 dev-ruby/nokogumbo
 dev-ruby/sanitize:5
 
-# Michał Górny <mgorny@gentoo.org> (2022-04-11)
-# Tests are broken once again.  Last activity in Jan 2020, last release
-# in Aug 2019.  No revdeps.
-# Removal on 2022-05-11.  Bug #832317.
-dev-python/ctypescrypto
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. Uses GTK+ 2. No reverse dependencies.
-# Removal on 2022-05-10
-x11-misc/gcolor2
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. No reverse dependencies.
-# Removal on 2022-05-10
-net-misc/vinagre
-net-misc/vino
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream (last release in 2004). No reverse dependencies.
-# Removal on 2022-05-10
-net-misc/grdesktop
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. EAPI 5. Only reverse dependency is gnome-extra/gnome-utils.
-# Removal on 2022-05-10
-gnome-extra/gnome-search-tool
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. No reverse dependencies.
-# Removal on 2022-05-10
-gnome-extra/filemanager-actions
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. No reverse dependencies.
-# Removal on 2022-05-10
-app-office/pinpoint
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead package upstream. Only reverse dependency is gnome-extra/gnome-utils.
-# Removal on 2022-05-10
-app-admin/gnome-system-log
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-10)
-# Dead (meta)packagesupstream. No reverse dependencies.
-# Removal on 2022-05-10
-gnome-extra/gnome-utils
-
-# David Seifert <soap@gentoo.org> (2022-04-10)
-# Unmaintained, last release upstream 16 years ago, Fedora dropped it,
-# relies on sys-libs/db, low quality port to EAPI 6, removal on 2022-05-10.
-net-p2p/syrep
-
-# Michał Górny <mgorny@gentoo.org> (2022-04-10)
-# Last release in 2016.  Last git commit in 2020.  No revdeps.
-# Removal on 2022-05-10.  Bug #837641.
-dev-python/repoze-sphinx-autointerface
-
-# Michał Górny <mgorny@gentoo.org> (2022-04-09)
-# A test runner specific to zope packages that was never really used
-# (only as a mistaken test-dep).  No revdeps left.
-# Removal on 2022-05-09.  Bug #837530.
-dev-python/zope-testrunner
-
-# Matt Turner <mattst88@gentoo.org> (2022-04-06)
-# Dead package upstream. No reverse dependencies.
-# Removal on 2022-05-06
-dev-util/nemiver
-
 # David Seifert <soap@gentoo.org> (2022-04-06)
 # Unsupported branches, no consumers left, removal on 2023-01-01.
 sys-devel/automake:1.13
 sys-devel/automake:1.15
-
-# Sergey Popov <pinkbyte@gentoo.org> (2022-04-05)
-# Upstream is dead long time ago
-# SRC_URI and HOMEPAGE are gone(bug #680362)
-# Has file collision with dev-util/bcc(bug #834093)
-# Suggested modern replacement is incorporated in dev-util/bcc
-# Removal in 30 days
-app-misc/ttysnoop
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-04)
-# Last upstream activities in 2009.
-# Fails to compile with java 11 or higher (bug #831262).
-# Removal in 30 days.
-net-misc/jrdesktop
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-03)
-# Java library without consumers.
-# Multiple vulnerabilities (bug #719146).
-# Removal in 30 days.
-dev-java/log4j
-
-# Matt Turner <mattst88@gentoo.org> (2022-03-27)
-# Dead package. Homepage doesn't resolve. Unmaintained in Gentoo for at
-# least 6 years.
-# Removal on 2022-05-02
-app-pda/gtkpod
 
 # Ulrich Müller <ulm@gentoo.org> (2022-04-01)
 # Illegal instruction errors seen by several users.
 # Masked for testing. (bug #835930)
 >=net-im/zoom-5.10
 
-# Matt Turner <mattst88@gentoo.org> (2022-03-27)
-# Dead package. No reverse dependencies.
-# Removal on 2022-04-27
-dev-util/fix-la-relink-command
-
-# Matt Turner <mattst88@gentoo.org> (2022-03-27)
-# Dead package. No reverse dependencies since 2017.
-# Removal on 2022-04-27
-dev-libs/gtx
-
-# Matt Turner <mattst88@gentoo.org> (2022-03-27)
-# Dead package. See https://blogs.gnome.org/hughsie/2014/10/30/appdata-tools-is-dead/
-# Bug #680552
-# Removal on 2022-04-27
-dev-util/appdata-tools
-
-# Matt Turner <mattst88@gentoo.org> (2022-03-27)
-# GNOME 2 era packages. No reverse dependencies.
-# Removal on 2022-04-27
-dev-perl/gnome2-canvas
-dev-perl/Gtk2-Ex-PodViewer
-dev-perl/Gtk2-Ex-PrintDialog
-dev-perl/Gtk2-Ex-Simple-List
-dev-perl/Gtk2-ImageView
-
-# Conrad Kostecki <conikost@gentoo.org> (2022-03-27)
-# Long abandoned upstream, multiple bugs open,
-# no other major distro carries this anymore and
-# depends on deprecated jabber-base.
-# Bug #632622, #655566, #716850, removal on 2022-04-27.
-net-im/gg-transport
-
-# David Seifert <soap@gentoo.org> (2022-03-27)
-# Long abandoned upstreams, segfaults, bunch of tests fail,
-# no other major distro carries this anymore.
-# Bug #631320, #740484, #830090, #836278, removal on 2022-04-26.
-media-libs/libtaginfo
-media-sound/xnoise
-
-# Piotr Karbowski <slashbeast@gentoo.org> (2022-03-25)
-# Abandoned upstream, officialy limited to kernel 5.6,
-# no longer builds with kernel >=5.14. Use kernel's
-# CONFIG_USB_RTL8152 and CONFIG_USB_USBNET since 5.13.
-# Removal on 2022-04-25.
-net-misc/realtek-r8152
-
-# Marc Schiffbauer <mschiff@gentoo.org> (2022-03-22)
-# Unmaintained upstream. No reverse dependencies.
-# Removal on 2022-04-23.
-dev-libs/bareos-fastlzlib
-
-# Sam James <sam@gentoo.org> (2022-03-22)
-# Abandoned upstream (archived many years ago), fails
-# to build with modern versions of gnupg, and is
-# stuck on EAPI 5. No reverse dependencies.
-# bug #835388, bug #828948, bug #733010.
-# Maintainers welcome to take over.
-# Removal on 2022-04-22.
-app-crypt/seahorse-sharing
-
-# David Seifert <soap@gentoo.org> (2022-03-21)
-# Unmaintained, EAPI 5, no revdeps in tree.
-# Bug #786093, removal on 2022-04-20.
-dev-java/freehep-graphicsbase
-dev-java/freehep-io
-dev-java/glassfish-interceptor-api
-dev-java/gnu-classpath
-dev-java/invokebinder
-dev-java/java-apicheck
-dev-java/jboss-marshalling-river
-dev-java/jboss-marshalling-serial
-
-# David Seifert <soap@gentoo.org> (2022-03-21)
-# EAPI 5, last release 15 years ago, QA permission issues, no other
-# distro packages this.
-# Bug #553404, #835364, removal on 2022-04-20.
-media-video/mplayer-sh
-
-# David Seifert <soap@gentoo.org> (2022-03-20)
-# Added and then left unmaintained by author, no revdeps in tree,
-# stuck on kernel 4.19, distribution model unlikely a good fit for
-# Gentoo, QA issues, blocks automake-1.15 removal, build issues.
-# Bug #725746, #728154, #835693, removal on 2022-04-19.
-sys-cluster/lustre
-
 # David Seifert <soap@gentoo.org> (2022-03-20)
 # Mask gcc-8 branch (ended upstream support). Please switch
 # to a fresher gcc branch.
 <sys-devel/gcc-9
-
-# David Seifert <soap@gentoo.org> (2022-03-19)
-# Unmaintained, no revdeps in tree, not even on latest version, EAPI 5,
-# typical 'webapp' smell, last upstream release more than 9 years ago.
-# Bug #402849, #513594, #690042, #828702, removal on 2022-04-18.
-sci-biology/GBrowse
 
 # Michał Górny <mgorny@gentoo.org> (2022-03-18)
 # The new version breaks building docs w/o Internet access (because it
@@ -280,11 +382,11 @@ sci-biology/GBrowse
 # necessity.
 net-p2p/arti
 
-# Stephan Hartmann <sultan@gentoo.org> (2022-04-01)
+# Stephan Hartmann <sultan@gentoo.org> (2022-05-06)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
 # and accept a more unstable release.
->=www-client/chromium-102
+>=www-client/chromium-103
 
 # Anton Fischl <github@fischl-online.de> (2022-02-23)
 # Version 2.5.* is not meant for production according to upstream
@@ -313,11 +415,6 @@ net-p2p/arti
 # Not usable anymore
 # Removal after 2022-06-01.  Bug #833144.
 x11-misc/i855crt
-
-# Jonas Stein <jstein@gentoo.org> (2022-02-09)
-# Upstream is 404, open bugs, not maintained.
-# Removal after 2022-05-01.  Bug #832954.
-x11-misc/sisctrl
 
 # Jonas Stein <jstein@gentoo.org> (2022-02-08)
 # Not maintained, open bugs, upstream outdated.
@@ -381,12 +478,6 @@ x11-drivers/nvidia-drivers:0/vulkan
 # Masked for erratic behaviour
 # https://bugs.exim.org/show_bug.cgi?id=2813
 =mail-mta/exim-4.95-r1
-
-# Mart Raudsepp <leio@gentoo.org> (2021-09-24)
-# Experimental split media-sound/pulseaudio packages, bug #536780.
-media-libs/libpulse
-media-sound/pulseaudio-daemon
->=media-sound/pulseaudio-15.0-r100
 
 # Mart Raudsepp <leio@gentoo.org> (2021-09-23)
 # Incompatible with c++17 abseil-cpp, no in-tree consumers yet

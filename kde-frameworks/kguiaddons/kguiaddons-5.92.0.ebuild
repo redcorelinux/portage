@@ -10,7 +10,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE="wayland X"
 
 # slot op: includes qpa/qplatformnativeinterface.h
@@ -30,12 +30,7 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	X? ( x11-libs/libxcb )
 "
-BDEPEND="
-	wayland? ( || (
-		>=dev-qt/qtwaylandscanner-${QTMIN}:5
-		<dev-qt/qtwayland-5.15.3:5
-	) )
-"
+BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(

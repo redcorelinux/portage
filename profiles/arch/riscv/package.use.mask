@@ -1,6 +1,29 @@
 # Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2022-05-08)
+# Requires dev-util/pahole.
+sys-kernel/gentoo-kernel debug
+sys-kernel/vanilla-kernel debug
+
+# Marek Szuba <marecki@gmail.com> (2022-04-30)
+# net-wireless/sdrplay contains prebuilt binaries, currently available
+# upstream only for amd64/x86 and arm
+net-wireless/gr-osmosdr sdrplay
+
+# Yixun Lan <dlan@gentoo.org> (2022-04-30)
+# net-misc/memcached has test failure (bug #811477)
+net-ftp/proftpd memcache
+
+# Jakov Smolić <jsmolic@gentoo.org> (2022-04-24)
+# sys-libs/db is being deprecated (bug #837629)
+# so avoid keywording 4.8 slot
+dev-lisp/clisp berkdb
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-18)
+# app-text/nuspell is not keyworded
+app-text/enchant nuspell
+
 # Jakov Smolić <jsmolic@gentoo.org> (2022-04-07)
 # Depends on sys-cluster/ceph which pulls in valgrind, which is
 # unavailable on riscv currently
@@ -45,10 +68,6 @@ sys-fs/multipath-tools rbd
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2022-01-16)
 # requires sys-apps/dbus-broker, which is keyworded here.
 sys-apps/systemd -hostnamed-fallback
-
-# Yongxinag Liang <tanekliang@gmail.com> (2021-12-30)
-# untested.
-net-misc/vinagre spice
 
 # Alexey Sokolov <alexey+gentoo@asokolov.org> (2012-12-25)
 # Requires dev-qt/qtwebengine
@@ -128,9 +147,7 @@ dev-lang/ruby xemacs
 # Yixun Lan <dlan@gentoo.org> (2021-08-20)
 # dependencies not keyworded/tested
 gnome-extra/sushi office
-gnome-base/gnome-control-center v4l
-gnome-base/gnome-shell telepathy browser-extension
-gnome-base/gdm accessibility
+gnome-base/gnome-shell browser-extension
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
 # dependencies not keyworded/tested

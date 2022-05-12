@@ -24,7 +24,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	inherit gnome.org
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 SRC_URI+="
 	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${PATCHSET_VERSION}.tar.bz2
@@ -77,6 +77,9 @@ PATCHES=(
 
 	# Don't bother copying Python's libraries (bug #798942)
 	"${WORKDIR}"/${PN}-2.9.12-dont-copy-python-ldflags.patch
+
+	# https://bugs.gentoo.org/839804
+	"${FILESDIR}"/libxml2-2.9.13-testapi-missing-xml.patch
 )
 
 src_unpack() {

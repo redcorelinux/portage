@@ -11,12 +11,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Tactical one or two player game"
-HOMEPAGE="https://apps.kde.org/kjumpingcube/
-https://games.kde.org/games/kjumpingcube/"
+HOMEPAGE="https://apps.kde.org/kjumpingcube/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

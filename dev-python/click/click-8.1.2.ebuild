@@ -20,14 +20,15 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ppc ppc64 ~riscv ~s390 sparc x86 ~x64-macos"
 IUSE="examples"
 
 distutils_enable_sphinx docs \
 	'>=dev-python/docutils-0.14' \
 	dev-python/pallets-sphinx-themes \
 	dev-python/sphinxcontrib-log_cabinet \
-	dev-python/sphinx-issues
+	dev-python/sphinx-issues \
+	dev-python/sphinx-tabs
 distutils_enable_tests pytest
 
 python_install_all() {

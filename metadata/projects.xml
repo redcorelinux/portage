@@ -22,16 +22,16 @@
       <email>mva@gentoo.org</email>
       <name>Vadim Misbakh-Soloviov</name>
     </member>
+    <member>
+      <email>slashbeast@gentoo.org</email>
+      <name>Piotr Karbowski</name>
+    </member>
   </project>
   <project>
     <email>alsa-bugs@gentoo.org</email>
     <name>ALSA Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:ALSA</url>
     <description>The Gentoo ALSA Project maintains packages released by ALSA upstream.</description>
-    <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
-    </member>
   </project>
   <project>
     <email>amd64@gentoo.org</email>
@@ -45,10 +45,6 @@
     <member>
       <email>bman@gentoo.org</email>
       <name>Aaron Bauman</name>
-    </member>
-    <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
     </member>
     <member>
       <email>jsmolic@gentoo.org</email>
@@ -291,17 +287,6 @@
       <email>perfinion@gentoo.org</email>
       <name>Jason Zaman</name>
       <role>General maintenance</role>
-    </member>
-  </project>
-  <project>
-    <email>security-audit@gentoo.org</email>
-    <name>Security Audit Project</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Auditing</url>
-    <description>The Security Audit Project is focused upon auditing packages for security issues. The aim of the project is to audit as many of the packages available through Gentoo Linux stable Portage tree as possible for potential flaws.</description>
-    <member is-lead="1">
-      <email>zx2c4@gentoo.org</email>
-      <name>Jason A. Donenfeld</name>
-      <role>Lead</role>
     </member>
   </project>
   <project>
@@ -768,12 +753,6 @@
       <name>Mikle Kolyada</name>
       <role>Minion</role>
     </member>
-  </project>
-  <project>
-    <email>dotnet@gentoo.org</email>
-    <name>Dotnet Project</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Dotnet</url>
-    <description>The Dotnet Project handles Microsoft .NET Framework related packages in the Gentoo package tree.</description>
   </project>
   <project>
     <email>ejabberd@gentoo.org</email>
@@ -1382,14 +1361,14 @@
       <role>Hardened sources, Hardened uClibc, Hardened musl</role>
     </member>
     <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
-      <role>Hardened sources</role>
-    </member>
-    <member>
       <email>chutzpah@gentoo.org</email>
       <name>Patrick McLean</name>
       <role>PaX markings</role>
+    </member>
+    <member>
+      <email>concord@gentoo.org</email>
+      <name>Kenton Groombridge</name>
+      <role>SELinux</role>
     </member>
     <member>
       <email>klondike@gentoo.org</email>
@@ -1479,6 +1458,11 @@
     <description>The Gentoo Infrastructure project provides and develops services for the Gentoo developer and user community, ensuring availability, security, and functionality.</description>
     <subproject ref="github@gentoo.org"/>
     <subproject ref="overlays@gentoo.org"/>
+    <member>
+      <email>ajak@gentoo.org</email>
+      <name>John Helmert III</name>
+      <role>newbie</role>
+    </member>
     <member>
       <email>alicef@gentoo.org</email>
       <name>Alice Ferrazzi</name>
@@ -1655,11 +1639,6 @@
       <role>Member (Kernel, gentoo-sources, hardened-sources, genpatches)</role>
     </member>
     <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
-      <role>Member (Kernel, mm-sources, vanilla-sources)</role>
-    </member>
-    <member>
       <email>mpagano@gentoo.org</email>
       <name>Mike Pagano</name>
       <role>Member (Kernel, gentoo-sources, genpatches)</role>
@@ -1782,6 +1761,20 @@
     <member>
       <email>ulm@gentoo.org</email>
       <name>Ulrich Müller</name>
+    </member>
+  </project>
+  <project>
+    <email>loong@gentoo.org</email>
+    <name>LoongArch Development</name>
+    <url>https://wiki.gentoo.org/wiki/Project:LoongArch</url>
+    <description>The LoongArch Development Project is devoted to keeping Gentoo in good shape on the LoongArch architecture.</description>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+    </member>
+    <member>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
     </member>
   </project>
   <project>
@@ -2718,10 +2711,6 @@
       <name>Andreas Sturmlechner</name>
     </member>
     <member>
-      <email>dilfridge@gentoo.org</email>
-      <name>Andreas K. Hüttel</name>
-    </member>
-    <member>
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Deputy Lead</role>
@@ -3011,6 +3000,11 @@
     <name>SELinux</name>
     <url>https://wiki.gentoo.org/wiki/Project:SELinux</url>
     <description>This project manages SELinux support in Gentoo. This includes providing kernels with SELinux support, providing patches to userland utilities, writing strong Gentoo-specific default profiles, and maintaining a good default set of policies.</description>
+    <member>
+      <email>concord@gentoo.org</email>
+      <name>Kenton Groombridge</name>
+      <role>Documentation, Policy</role>
+    </member>
     <member is-lead="1">
       <email>perfinion@gentoo.org</email>
       <name>Jason Zaman</name>
@@ -3196,7 +3190,6 @@
     <name>Security Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Security</url>
     <description>The Security Project's mission is to ensure that vulnerabilities in software accessible through the Portage tree are found and fixed in a timely manner, so that our users remain protected against known vulnerabilities.</description>
-    <subproject ref="security-audit@gentoo.org"/>
     <subproject ref="security-kernel@gentoo.org"/>
     <member is-lead="1">
       <email>ajak@gentoo.org</email>
@@ -3244,11 +3237,6 @@
     <member>
       <email>aballier@gentoo.org</email>
       <name>Alexis Ballier</name>
-    </member>
-    <member is-lead="1">
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
-      <role>Lead (Project lead, Audacious and plugins, libnjb)</role>
     </member>
     <member>
       <email>chutzpah@gentoo.org</email>
@@ -3369,29 +3357,17 @@
     <url>https://wiki.gentoo.org/wiki/Project:Toolchain</url>
     <description>Manages gcc/binutils/glibc and other toolchain-related packages</description>
     <subproject ref="crossdev@gentoo.org"/>
-    <member>
-      <email>blueness@gentoo.org</email>
-      <name>Anthony G. Basile</name>
-    </member>
-    <member>
+    <member is-lead="1">
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
     </member>
     <member>
-      <email>kumba@gentoo.org</email>
-      <name>Joshua Kinard</name>
-    </member>
-    <member>
-      <email>lu_zero@gentoo.org</email>
-      <name>Luca Barbato</name>
+      <email>floppym@gentoo.org</email>
+      <name>Mike Gilbert</name>
     </member>
     <member>
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
-    </member>
-    <member>
-      <email>nerdboy@gentoo.org</email>
-      <name>Steve Arnold</name>
     </member>
     <member>
       <email>sam@gentoo.org</email>
@@ -3401,21 +3377,13 @@
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
     </member>
-    <member is-lead="1">
+    <member>
       <email>tamiko@gentoo.org</email>
       <name>Matthias Maier</name>
     </member>
     <member>
-      <email>vapier@gentoo.org</email>
-      <name>Mike Frysinger</name>
-    </member>
-    <member>
-      <email>williamh@gentoo.org</email>
-      <name>William Hubbs</name>
-    </member>
-    <member>
-      <email>zlogene@gentoo.org</email>
-      <name>Mikle Kolyada</name>
+      <email>xen0n@gentoo.org</email>
+      <name>WANG Xuerui</name>
     </member>
     <member>
       <email>zorry@gentoo.org</email>
@@ -3507,6 +3475,10 @@
     <url>https://wiki.gentoo.org/wiki/Project:Vim</url>
     <description>The Vim Project maintains Vim-related packages.</description>
     <member>
+      <email>marecki@gentoo.org</email>
+      <name>Marek Szuba</name>
+    </member>
+    <member>
       <email>monsieurp@gentoo.org</email>
       <name>Patrice Clement</name>
     </member>
@@ -3519,6 +3491,10 @@
     <subproject ref="openstack@gentoo.org"/>
     <subproject ref="xen@gentoo.org"/>
     <member>
+      <email>ajak@gentoo.org</email>
+      <name>John Helmert III</name>
+    </member>
+    <member>
       <email>dlan@gentoo.org</email>
       <name>Yixun Lan</name>
     </member>
@@ -3529,6 +3505,10 @@
     <member>
       <email>lu_zero@gentoo.org</email>
       <name>Luca Barbato</name>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
     </member>
     <member>
       <email>tamiko@gentoo.org</email>
@@ -3752,11 +3732,6 @@
     <member is-lead="1">
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
-      <role>Member (*)</role>
-    </member>
-    <member>
-      <email>chainsaw@gentoo.org</email>
-      <name>Tony Vroon</name>
       <role>Member (*)</role>
     </member>
     <member>

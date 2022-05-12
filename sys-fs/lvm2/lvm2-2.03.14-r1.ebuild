@@ -12,7 +12,7 @@ SRC_URI="ftp://sourceware.org/pub/lvm2/${PN/lvm/LVM}.${PV}.tgz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="readline static static-libs systemd lvm2create-initrd sanlock selinux +udev +thin device-mapper-only"
 REQUIRED_USE="device-mapper-only? ( !lvm2create-initrd !sanlock !thin )
 	static? ( !systemd !udev )
@@ -206,14 +206,12 @@ src_compile() {
 }
 
 src_install() {
-	local inst INSTALL_TARGETS
-	INSTALL_TARGETS=( install install_tmpfiles_configuration )
+	local inst
+	local INSTALL_TARGETS=( install install_tmpfiles_configuration )
 	# install systemd related files only when requested, bug #522430
-	use systemd && INSTALL_TARGETS+=( install_systemd_units install_systemd_generators )
+	use systemd && INSTALL_TARGETS+=( systemdutildir="$(systemd_get_utildir)" install_systemd_units install_systemd_generators )
 	use device-mapper-only && INSTALL_TARGETS=( install_device-mapper )
-	for inst in ${INSTALL_TARGETS[@]}; do
-		emake V=1 DESTDIR="${D}" ${inst}
-	done
+	emake V=1 DESTDIR="${D}" "${INSTALL_TARGETS[@]}"
 
 	newinitd "${FILESDIR}"/device-mapper.rc-2.02.105-r2 device-mapper
 	newconfd "${FILESDIR}"/device-mapper.conf-1.02.22-r3 device-mapper

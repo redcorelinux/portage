@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs
+inherit autotools elisp-common readme.gentoo-r1 toolchain-funcs
 
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
@@ -75,7 +75,7 @@ RDEPEND="app-emacs/emacs-common[games?,gui(-)?]
 		x11-misc/xbitmaps
 		gsettings? ( >=dev-libs/glib-2.28.6 )
 		gif? ( media-libs/giflib:0= )
-		jpeg? ( virtual/jpeg:0= )
+		jpeg? ( media-libs/libjpeg-turbo:0= )
 		png? ( >=media-libs/libpng-1.4:0= )
 		svg? ( >=gnome-base/librsvg-2.0 )
 		tiff? ( media-libs/tiff:0 )
@@ -169,15 +169,6 @@ src_prepare() {
 }
 
 src_configure() {
-	strip-flags
-	filter-flags -pie					#526948
-
-	if use ia64; then
-		replace-flags "-O[2-9]" -O1		#325373
-	else
-		replace-flags "-O[3-9]" -O2
-	fi
-
 	local myconf
 
 	if use alsa; then

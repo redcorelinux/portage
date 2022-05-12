@@ -6,6 +6,18 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Joonas Niilola <juippis@gentoo.org> (2022-05-03)
+# sndio is currently broken in Gentoo, #842420.
+# system-python-libs is HIGHLY EXPERIMENTAL according to upstream, and
+# still being worked on in Gentoo.
+>=www-client/firefox-100.0 sndio system-python-libs
+
+# Piotr Karbowski <slashbeast@gentoo.org> (2022-04-29)
+# There's a bug with gnutls support leading TLS certificates
+# validation failures on some certificates that are otherwise valid.
+# https://github.com/aria2/aria2/issues/1636
+net-misc/aria2 gnutls
+
 # Matt Turner <mattst88@gentoo.org> (2022-03-25)
 # Depends on libsoup:3.0
 >=gnome-base/gvfs-1.50 http
@@ -13,10 +25,6 @@
 # Craig Andrews <candrews@gentoo.org> (2022-03-25)
 # Requires as of yet unreleased QUIC support in OpenSSL
 net-libs/ngtcp2 openssl
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2022-03-07)
-# Requires PMASKED dev-libs/device-atlas-api-c, bug #770499
-net-proxy/haproxy device-atlas
 
 # Sam James <sam@gentoo.org> (2022-03-02)
 # Needs masked version of ogre (>=1.12), bug #825330
@@ -85,11 +93,6 @@ media-video/mjpg-streamer http-management
 # pdfannotextractor gets masked as it does not support
 # updated dev-java/pdfbox-2.0.24, Bug #803488
 app-text/texlive pdfannotextractor
-
-# Conrad Kostecki <conikost@gentoo.org> (2021-10-23)
-# Build tools is currently broken, so masking until upstream fixes
-# See https://voidpoint.io/terminx/eduke32/-/issues/206
-games-fps/eduke32 tools
 
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2021-10-16)
 # openjfx for openjdk17 is not yet available
@@ -420,10 +423,6 @@ dev-python/pandas doc
 # solution is found, e.g., transition to a free font package.
 app-text/ghostscript-gpl l10n_ja
 
-# Michał Górny <mgorny@gentoo.org> (2019-03-21)
-# x11-wm/afterstep is slated for removal.
-<x11-terms/aterm-1.0.1-r5 background
-
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-03-05)
 # Not keyworded on non-x86 arches
 app-admin/conserver freeipmi
@@ -477,7 +476,7 @@ sci-libs/ipopt hsl
 net-fs/samba ceph
 
 # Jan Ziak <0xe2.0x9a.0x9b@gmail.com> (2018-03-14)
-# Mask local USE flag to satisfy repoman
+# media-libs/svgalib is not keyworded everywhere
 app-emulation/fuse backend-svga
 
 # Patrick McLean <chutzpah@gentoo.org> (2018-03-06)
@@ -604,13 +603,6 @@ dev-java/icedtea cacao jamvm
 # forward porting this patch is non-trivial, mask for now
 >=net-wireless/wpa_supplicant-2.5 wimax
 
-# Justin Lecher <jlec@gentoo.org> (2015-09-22)
-# Downloads files during installation
-# https://bugs.gentoo.org/show_bug.cgi?id=533876
-# Bernd Waibel <waebbl-gentoo@posteo.net> (2021-03-26)
-# Fixed in vtk-9
-<sci-libs/vtk-9 examples
-
 # James Le Cuirot <chewi@gentoo.org> (2015-08-18)
 # gcc[awt] is only used by gcj-jdk[awt] and that isn't needed by
 # anything in the tree. The toolchain folks aren't keen to support it
@@ -716,10 +708,6 @@ sci-libs/mathgl octave
 # Mask pdnsd's Linux-specific USE flags.
 net-dns/pdnsd urandom
 
-# Raúl Porcel <armin76@gentoo.org> (2011-02-13)
-# Masked until devs know how to use repoman
-<media-video/mplayer-9999 bluray
-
 # Tomas Touceda <chiiph@gentoo.org> (2010-04-13)
 # Masked because libsvm module is broken with this release on every arch.
 dev-lisp/clisp svm
@@ -728,14 +716,14 @@ dev-lisp/clisp svm
 # Don't use system-wide mode unless you *really* know what you're doing.
 # Keep it masked here so that I don't need to manage two versions every time.
 media-sound/pulseaudio system-wide
+media-sound/pulseaudio-daemon system-wide
 
 # Alexis Ballier <aballier@gentoo.org> (2011-02-16)
 # Win32 specific useflag for vlc. Can be used for cross-compiling.
 media-video/vlc directx
 
 # Ross Charles Campbell <rossbridger.cc@gmail.com> (2020-09-21)
-# Since >=dev-games/ogre-1.11.2 is masked, mask contribovis USE to
-# make repoman happy
+# Since >=dev-games/ogre-1.11.2 is masked, mask contribovis USE.
 media-libs/opencv contribovis
 
 # Tobias Klausmann <klausman@gentoo.org> (2021-04-16)

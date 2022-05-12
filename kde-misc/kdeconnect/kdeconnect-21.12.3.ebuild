@@ -17,7 +17,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect.kcm/"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="bluetooth pulseaudio X"
 
 RESTRICT="test"
@@ -68,10 +68,7 @@ RDEPEND="${DEPEND}
 	net-fs/sshfs
 "
 BDEPEND="
-	|| (
-		>=dev-qt/qtwaylandscanner-${QTMIN}:5
-		<dev-qt/qtwayland-5.15.3:5
-	)
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
 "
 

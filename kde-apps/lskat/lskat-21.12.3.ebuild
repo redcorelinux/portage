@@ -11,12 +11,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Skat game by KDE"
-HOMEPAGE="https://apps.kde.org/lskat/
-https://games.kde.org/games/lskat/"
+HOMEPAGE="https://apps.kde.org/lskat/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

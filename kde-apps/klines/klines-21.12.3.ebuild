@@ -11,11 +11,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="A little KDE game about balls and how to get rid of them"
-HOMEPAGE="https://apps.kde.org/klines/ https://games.kde.org/games/klines/"
+HOMEPAGE="https://apps.kde.org/klines/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="

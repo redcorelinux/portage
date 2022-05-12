@@ -13,7 +13,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/inkscape/inkscape.git"
 else
 	SRC_URI="https://media.inkscape.org/dl/resources/file/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="SVG based generic vector-drawing program"
@@ -73,7 +73,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] )
 	)
 	jemalloc? ( dev-libs/jemalloc )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? ( media-libs/libjpeg-turbo:= )
 	readline? ( sys-libs/readline:= )
 	spell? ( app-text/gspell )
 	visio? (

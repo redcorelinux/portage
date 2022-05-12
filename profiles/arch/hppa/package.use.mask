@@ -4,6 +4,24 @@
 # NOTE: When masking a USE flag due to missing keywords, please file a keyword
 # request bug for the hppa arch.
 
+# Matt Turner <mattst88@gentoo.org> (2022-05-07)
+# app-crypt/gcr is not keyworded
+app-crypt/pinentry gtk
+dev-libs/libgdata crypt
+
+# Nickolas Raymond Kaczynski <nrk@disroot.org> (2022-04-24)
+# Dependencies are missing keywords
+media-libs/imlib2 svg heif jpegxl
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# Requires dev-util/pahole.
+sys-kernel/gentoo-kernel debug
+sys-kernel/vanilla-kernel debug
+
+# Matt Turner <mattst88@gentoo.org> (2022-04-18)
+# app-text/nuspell is not keyworded
+app-text/enchant nuspell
+
 # Lars Wendler <polynomial-c@gentoo.org> (2022-04-01)
 # gnome-base/librsvg missing keywords
 media-libs/freetype svg
@@ -185,9 +203,8 @@ app-emacs/elscreen wanderlust
 net-im/pidgin gadu
 
 # Jeroen Roovers <jer@gentoo.org> (2020-01-28)
-# sys-apps/systemd is not stable
 # media-libs/libilbc has not been ported to HPPA
-net-analyzer/wireshark ilbc sdjournal
+net-analyzer/wireshark ilbc
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2020-01-26)
 # media-libs/libheif is not keyworded
@@ -248,10 +265,6 @@ sys-libs/glibc systemtap
 # Göktürk Yüksek <gokturk@gentoo.org> (2017-08-15)
 # Requires java
 app-forensics/sleuthkit java
-
-# Michał Górny <mgorny@gentoo.org> (2017-08-08)
-# Requires USE=seccomp that is masked in this profile.
-net-libs/gnutls test-full
 
 # Jeroen Roovers <jer@gentoo.org> (2017-02-04)
 # media-libs/libilbc has not been ported to HPPA
@@ -349,6 +362,7 @@ dev-libs/libpcre jit
 # Jeroen Roovers <jer@gentoo.org> (2014-02-18)
 # OSS is the only kernel audio interface that works on HPPA
 media-sound/pulseaudio equalizer -oss
+media-sound/pulseaudio-daemon equalizer -oss
 
 # Jeroen Roovers <jer@gentoo.org> (2012-05-21)
 # media-sound/lilypond has problems running mpost (bug #416961)

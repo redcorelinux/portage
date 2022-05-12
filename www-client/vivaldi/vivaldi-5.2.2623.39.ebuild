@@ -96,7 +96,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -132,6 +132,7 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
 	x11-libs/pango[X]
+	|| ( gui-libs/gtk:4 x11-libs/gtk+:3 )
 	proprietary-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "

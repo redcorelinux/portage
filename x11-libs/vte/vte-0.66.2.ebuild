@@ -3,8 +3,8 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_{8..10} )
-VALA_USE_DEPEND="vapigen"
 VALA_MIN_API_VERSION="0.48"
+VALA_MAX_API_VERSION="0.54"
 
 inherit gnome.org meson python-any-r1 vala xdg
 
@@ -53,6 +53,8 @@ PATCHES=(
 )
 
 src_prepare() {
+	use elibc_musl && eapply "${FILESDIR}"/${PN}-0.66.2-musl-W_EXITCODE.patch
+
 	if ! use vanilla; then
 		# Part of https://src.fedoraproject.org/rpms/vte291/raw/f31/f/vte291-cntnr-precmd-preexec-scroll.patch
 		# Adds OSC 777 support for desktop notifications in gnome-terminal or elsewhere

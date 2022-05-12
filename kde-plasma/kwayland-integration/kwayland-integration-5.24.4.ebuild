@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/kwayland-integration"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 IUSE=""
 
 RESTRICT="test" # bug 668872
@@ -40,9 +40,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	|| (
-		>=dev-qt/qtwaylandscanner-${QTMIN}:5
-		<dev-qt/qtwayland-5.15.3:5
-	)
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	virtual/pkgconfig
 "

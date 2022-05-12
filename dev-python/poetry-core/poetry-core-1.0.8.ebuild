@@ -16,13 +16,13 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 
 # check inside src/poetry/core/_vendor/vendor.txt
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]
-	dev-python/lark-parser[${PYTHON_USEDEP}]
+	dev-python/lark[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyparsing[${PYTHON_USEDEP}]
 	dev-python/pyrsistent[${PYTHON_USEDEP}]

@@ -25,7 +25,7 @@ fi
 
 LICENSE="public-domain"
 SLOT="3"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug doc icu +readline secure-delete static-libs tcl test tools"
 if [[ "${PV}" == "9999" ]]; then
 	PROPERTIES="live"
@@ -357,6 +357,11 @@ multilib_src_test() {
 	fi
 
 	local -x SQLITE_HISTORY="${T}/sqlite_history_${ABI}"
+
+	# e_uri.test tries to open files in /.
+	# https://bugs.gentoo.org/839798
+	local SANDBOX_PREDICT=${SANDBOX_PREDICT}
+	addpredict "/test.db:/ÿ.db"
 
 	emake HAVE_TCL="$(usex tcl 1 "")" $(use debug && echo fulltest || echo test)
 }

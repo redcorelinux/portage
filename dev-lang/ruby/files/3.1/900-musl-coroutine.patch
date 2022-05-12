@@ -1,4 +1,4 @@
-Adapted for Gentoo version 3.0.2
+Adapted for Gentoo version 2.7.4
 
 From b570e7de87aaad8c903176d835e8124127f627b3 Mon Sep 17 00:00:00 2001
 From: Andrew Aladjev <aladjev.andrew@gmail.com>
@@ -17,7 +17,7 @@ index ab5d532c103b..084f0936c006 100644
 @@ -2364,7 +2364,10 @@
              rb_cv_coroutine=copy
          ],
-         [
+         [*], [
 -            rb_cv_coroutine=ucontext
 +            AC_CHECK_FUNCS([getcontext swapcontext makecontext],
 +                [rb_cv_coroutine=ucontext],
@@ -26,3 +26,16 @@ index ab5d532c103b..084f0936c006 100644
          ]
      )
      AC_MSG_RESULT(${rb_cv_coroutine})
+diff --git a/coroutine/copy/Context.c b/coroutine/copy/Context.c
+index c1b4144e9857..94a7f57f7d89 100644
+--- a/coroutine/copy/Context.c
++++ b/coroutine/copy/Context.c
+@@ -5,6 +5,8 @@
+  *  Copyright, 2019, by Samuel Williams.
+ */
+ 
++#include <sys/types.h>
++
+ #include "Context.h"
+ 
+ // http://gcc.gnu.org/onlinedocs/gcc/Alternate-Keywords.html

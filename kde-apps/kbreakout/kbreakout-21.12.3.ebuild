@@ -10,12 +10,11 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Breakout-like game by KDE"
-HOMEPAGE="https://apps.kde.org/kbreakout/
-https://games.kde.org/games/kbreakout/"
+HOMEPAGE="https://apps.kde.org/kbreakout/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 IUSE=""
 
 DEPEND="
