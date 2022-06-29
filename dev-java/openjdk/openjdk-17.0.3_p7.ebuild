@@ -8,6 +8,7 @@ inherit check-reqs eapi8-dosym flag-o-matic java-pkg-2 java-vm-2 multiprocessing
 # variable name format: <UPPERCASE_KEYWORD>_XPAK
 ARM64_XPAK="17.0.2_p8" # musl bootstrap install
 PPC64_XPAK="17.0.1_p12" # big-endian bootstrap tarball
+RISCV_XPAK="17.0.3_p7"
 X86_XPAK="17.0.1_p12"
 
 # Usage: bootstrap_uri <keyword> <version> [extracond]
@@ -37,13 +38,15 @@ SRC_URI="
 		$(bootstrap_uri arm64 ${ARM64_XPAK} elibc_musl)
 		$(bootstrap_uri ppc64 ${PPC64_XPAK} big-endian)
 		$(bootstrap_uri x86 ${X86_XPAK})
+		$(bootstrap_uri riscv ${RISCV_XPAK})
 	)
+	riscv? ( https://dev.gentoo.org/~arthurzam/distfiles/dev-java/openjdk/openjdk-17.0.3-riscv.patch.xz )
 "
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv x86"
 
-IUSE="alsa big-endian cups debug doc examples gentoo-vm headless-awt javafx +jbootstrap selinux source system-bootstrap systemtap"
+IUSE="alsa big-endian cups debug doc examples +gentoo-vm headless-awt javafx +jbootstrap selinux source system-bootstrap systemtap"
 
 REQUIRED_USE="
 	javafx? ( alsa !headless-awt )
@@ -128,6 +131,8 @@ pkg_setup() {
 	openjdk_check_requirements
 	java-vm-2_pkg_setup
 
+	[[ ${MERGE_TYPE} == "binary" ]] && return
+
 	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
@@ -154,17 +159,16 @@ pkg_setup() {
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
 	else
-		if [[ ${MERGE_TYPE} != "binary" ]]; then
-			JDK_HOME=$(best_version dev-java/openjdk-bin:${SLOT})
-			[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
-			JDK_HOME=${JDK_HOME#*/}
-			JDK_HOME=${EPREFIX}/opt/${JDK_HOME%-r*}
-			export JDK_HOME
-		fi
+		JDK_HOME=$(best_version dev-java/openjdk-bin:${SLOT})
+		[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
+		JDK_HOME=${JDK_HOME#*/}
+		JDK_HOME=${EPREFIX}/opt/${JDK_HOME%-r*}
+		export JDK_HOME
 	fi
 }
 
 src_prepare() {
+	use riscv && eapply "${WORKDIR}"/openjdk-17.0.3-riscv.patch
 	default
 	chmod +x configure || die
 }
@@ -212,6 +216,8 @@ src_configure() {
 		--enable-headless-only=$(usex headless-awt yes no)
 		$(tc-is-clang && echo "--with-toolchain-type=clang")
 	)
+
+	use riscv && myconf+=( --with-boot-jdk-jvmargs="-Djdk.lang.Process.launchMechanism=vfork" )
 
 	if use javafx; then
 		local zip="${EPREFIX}/usr/$(get_libdir)/openjfx-${SLOT}/javafx-exports.zip"
@@ -298,16 +304,4 @@ src_install() {
 
 pkg_postinst() {
 	java-vm-2_pkg_postinst
-
-	if use gentoo-vm ; then
-		ewarn "WARNING! You have enabled the gentoo-vm USE flag, making this JDK"
-		ewarn "recognised by the system. This will almost certainly break"
-		ewarn "many java ebuilds as they are not ready for openjdk-${SLOT}"
-	else
-		ewarn "The experimental gentoo-vm USE flag has not been enabled so this JDK"
-		ewarn "will not be recognised by the system. For example, simply calling"
-		ewarn "\"java\" will launch a different JVM. This is necessary until Gentoo"
-		ewarn "fully supports Java ${SLOT}. This JDK must therefore be invoked using its"
-		ewarn "absolute location under ${EPREFIX}/usr/$(get_libdir)/${PN}-${SLOT}."
-	fi
 }

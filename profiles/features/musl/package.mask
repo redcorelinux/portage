@@ -1,6 +1,14 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Stefan Strogin <steils@gentoo.org> (2022-06-29)
+# Binary package linked against glibc
+net-im/element-desktop-bin
+
+# Florian Schmaus <flow@gentoo.org> (2022-06-05)
+# Binary package linked against glibc, bug #832932
+sys-block/hpssacli
+
 # Sam James <sam@gentoo.org> (2022-04-23)
 # Binary package linked against glibc, bug #832615
 net-print/cnijfilter2
@@ -185,6 +193,7 @@ app-text/zotero-bin
 media-video/popcorntime-bin
 net-im/rocketchat-desktop-bin
 net-im/whatsapp-desktop-bin
+net-im/wazzapp-bin
 sci-misc/jupyterlab-desktop-bin
 sci-misc/netlogo-bin
 sci-electronics/eagle

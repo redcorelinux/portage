@@ -67,6 +67,8 @@ src_prepare() {
 	eapply "${FILESDIR}/${P}-ar.patch"
 	eapply "${FILESDIR}/${P}-strsignal.patch"
 	eapply "${FILESDIR}/${P}-process-test-qa.patch"
+	eapply "${FILESDIR}/${P}-autoloads-parallell-make.patch"
+	eapply "${FILESDIR}/${P}-no-lock-on-finder-inf.patch"
 
 	eapply_user
 

@@ -51,6 +51,9 @@ BDEPEND="
 		dev-python/sphinx[${PYTHON_USEDEP}]
 	') )
 	libffi? ( virtual/pkgconfig )
+	test? (
+		sys-apps/which
+	)
 "
 # There are no file collisions between these versions but having :0
 # installed means llvm-config there will take precedence.
@@ -64,7 +67,7 @@ PDEPEND="
 "
 
 LLVM_COMPONENTS=( llvm cmake third-party )
-LLVM_MANPAGES=pregenerated
+LLVM_MANPAGES=1
 LLVM_PATCHSET=${PV}
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
@@ -139,7 +142,7 @@ check_distribution_components() {
 
 				all_targets+=( "${l}" )
 			fi
-		done < <(ninja -t targets all)
+		done < <(${NINJA} -t targets all)
 
 		while read -r l; do
 			my_targets+=( "${l}" )

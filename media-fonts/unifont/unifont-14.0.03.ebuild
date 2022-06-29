@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~loong ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="fontforge utils"
 
 BDEPEND="
@@ -37,8 +37,10 @@ src_compile() {
 		CFLAGS="${CFLAGS}"
 		INSTALL="${INSTALL-install}"
 	)
+
 	if use fontforge || use utils; then
-		emake "${buildargs[@]}"
+		# -j1 for bug #843584
+		emake -j1 "${buildargs[@]}"
 	fi
 }
 

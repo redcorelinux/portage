@@ -10,7 +10,7 @@ SRC_URI="https://github.com/storaged-project/udisks/releases/download/${P}/${P}.
 
 LICENSE="LGPL-2+ GPL-2+"
 SLOT="2"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
 IUSE="acl +daemon debug elogind +introspection lvm nls selinux systemd vdo zram"
 
 REQUIRED_USE="
@@ -129,6 +129,8 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	udev_reload
+
 	# TODO: obsolete with tmpfiles_process?
 	# mkdir -p "${EROOT}"/run #415987
 

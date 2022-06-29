@@ -4,7 +4,7 @@
 EAPI=6
 
 PYTHON_COMPAT=( python3_{8,9} )
-USE_RUBY="ruby26 ruby25 ruby24"
+USE_RUBY="ruby27 ruby26"
 DISTUTILS_OPTIONAL=1
 WANT_AUTOMAKE="none"
 GENTOO_DEPEND_ON_PERL="no"
@@ -90,7 +90,7 @@ want_apache
 
 pkg_setup() {
 	if use berkdb ; then
-		local apu_bdb_version="$(${EPREFIX}/usr/bin/apu-1-config --includes \
+		local apu_bdb_version="$("${EPREFIX}"/usr/bin/apu-1-config --includes \
 			| grep -Eoe '-I${EPREFIX}/usr/include/db[[:digit:]]\.[[:digit:]]' \
 			| sed 's:.*b::')"
 		einfo

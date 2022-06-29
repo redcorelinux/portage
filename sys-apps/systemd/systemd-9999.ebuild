@@ -2,10 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 # Avoid QA warnings
 TMPFILES_OPTIONAL=1
+UDEV_OPTIONAL=1
+
+QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/systemd/systemd.git"
@@ -20,13 +23,13 @@ else
 	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
-inherit bash-completion-r1 linux-info meson-multilib pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
+inherit bash-completion-r1 flag-o-matic linux-info meson-multilib pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
 
 DESCRIPTION="System and service manager for Linux"
-HOMEPAGE="https://www.freedesktop.org/wiki/Software/systemd"
+HOMEPAGE="http://systemd.io/"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
@@ -117,7 +120,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=acct-user/systemd-resolve-0-r1
 	>=acct-user/systemd-timesync-0-r1
 	>=sys-apps/baselayout-2.2
-	selinux? ( sec-policy/selinux-base-policy[systemd] )
+	selinux? (
+		sec-policy/selinux-base-policy[systemd]
+		sec-policy/selinux-ntp
+	)
 	sysv-utils? (
 		!sys-apps/openrc[sysv-utils(-)]
 		!sys-apps/sysvinit
@@ -254,6 +260,21 @@ src_prepare() {
 src_configure() {
 	# Prevent conflicts with i686 cross toolchain, bug 559726
 	tc-export AR CC NM OBJCOPY RANLIB
+
+	# Broken with FORTIFY_SOURCE=3 without a patch. We have to revert
+	# the upstream patch for it because it breaks Clang: bug #841770.
+	#
+	# Our toolchain sets F_S=2 by default w/ >= -O2, so we need
+	# to unset F_S first, then explicitly set 2, to negate any default
+	# and anything set by the user if they're choosing 3 (or if they've
+	# modified GCC to set 3).
+	#
+	if is-flagq '-O[23]' || is-flagq '-Ofast' ; then
+		# We can't unconditionally do this b/c we fortify needs
+		# some level of optimisation.
+		filter-flags -D_FORTIFY_SOURCE=3
+		append-cppflags -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
+	fi
 
 	python_setup
 

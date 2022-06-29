@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	SLOT="0/9999"
 else
 	SRC_URI="https://gitlab.freedesktop.org/${PN}/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 	SLOT="0/$(ver_cut 2)"
 fi
 
@@ -58,7 +58,6 @@ src_configure() {
 	local emesonargs=(
 		"-Dxcb-errors=disabled"
 		"-Dexamples=false"
-		"-Dwerror=false"
 		-Drenderers=$(usex vulkan 'gles2,vulkan' gles2)
 		-Dxwayland=$(usex X enabled disabled)
 		-Dbackends=drm,libinput$(usex x11-backend ',x11' '')

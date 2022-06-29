@@ -52,7 +52,7 @@ ADDONS_SRC=(
 	# not packaged in Gentoo, https://www.netlib.org/fp/dtoa.c
 	"${ADDONS_URI}/dtoa-20180411.tgz"
 	# not packaged in Gentoo, https://skia.org/
-	"${ADDONS_URI}/skia-m97-a7230803d64ae9d44f4e1282444801119a3ae967.tar.xz"
+	"${ADDONS_URI}/skia-m103-b301ff025004c9cd82816c86c547588e6c24b466.tar.xz"
 	"base? (
 		${ADDONS_URI}/commons-logging-1.2-src.tar.gz
 		${ADDONS_URI}/ba2930200c9f019c2d93a8c88c651a0f-flow-engine-0.9.4.zip
@@ -250,6 +250,8 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	acct-group/libreoffice
+	acct-user/libreoffice
 	!app-office/libreoffice-bin
 	!app-office/libreoffice-bin-debug
 	media-fonts/liberation-fonts
@@ -421,6 +423,10 @@ src_configure() {
 		CXX=${CHOST}-g++
 		NM=gcc-nm
 		RANLIB=gcc-ranlib
+
+		# Apparently the Clang flags get used even for GCC builds sometimes.
+		# bug #838115
+		sed -i -e "s/-flto=thin/-flto/" solenv/gbuild/platform/com_GCC_defs.mk || die
 	fi
 
 	if use custom-cflags ; then
@@ -649,6 +655,9 @@ EOF
 			dosym -r ${loprogdir}/__pycache__/${pyc} $(python_get_sitedir)/__pycache__/${pyc}
 		done < <(find "${D}"${lodir}/program -type f -name ${py/.py/*.pyc} -print0)
 	done
+
+	newinitd "${FILESDIR}/libreoffice.initd" libreoffice
+	newconfd "${FILESDIR}/libreoffice.confd" libreoffice
 }
 
 pkg_postinst() {

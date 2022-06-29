@@ -96,7 +96,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -104,6 +104,7 @@ RDEPEND="
 	virtual/rust
 	<dev-python/semantic_version-3[${PYTHON_USEDEP}]
 	>=dev-python/semantic_version-2.8.2[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-3.7.4.3[${PYTHON_USEDEP}]
 "
 BDEPEND="

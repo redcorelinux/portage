@@ -11,7 +11,7 @@ SRC_URI="https://github.com/tpm2-software/${PN}/releases/download/${PV}/${P}.tar
 
 LICENSE="BSD-2"
 SLOT="0/3"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
 IUSE="doc +fapi +openssl mbedtls static-libs test"
 
 RESTRICT="!test? ( test )"
@@ -91,5 +91,9 @@ multilib_src_install() {
 
 pkg_postinst() {
 	tmpfiles_process tpm2-tss-fapi.conf
+	udev_reload
+}
+
+pkg_postrm() {
 	udev_reload
 }

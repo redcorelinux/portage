@@ -68,19 +68,19 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-x86_64-pc-windows-gnu-0.4.0"
 DISTUTILS_USE_PEP517=maturin
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit cargo distutils-r1
 
 DESCRIPTION="Python wrapper for Brave's adblocking library, which is written in Rust"
 HOMEPAGE="https://github.com/ArniDagur/python-adblock"
 SRC_URI="
-	https://github.com/ArniDagur/python-adblock/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/ArniDagur/python-adblock/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	$(cargo_crate_uris)"
 S="${WORKDIR}/python-${P}"
 
 LICENSE="Apache-2.0 BSD MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 
 BDEPEND="test? ( dev-python/toml[${PYTHON_USEDEP}] )"
 

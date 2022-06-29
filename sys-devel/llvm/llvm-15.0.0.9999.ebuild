@@ -64,7 +64,7 @@ PDEPEND="
 "
 
 LLVM_COMPONENTS=( llvm cmake third-party )
-LLVM_MANPAGES=build
+LLVM_MANPAGES=1
 LLVM_PATCHSET=9999-r3
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
@@ -139,7 +139,7 @@ check_distribution_components() {
 
 				all_targets+=( "${l}" )
 			fi
-		done < <(ninja -t targets all)
+		done < <(${NINJA} -t targets all)
 
 		while read -r l; do
 			my_targets+=( "${l}" )
@@ -222,6 +222,7 @@ get_distribution_components() {
 			count
 			not
 			yaml-bench
+			UnicodeNameMappingGenerator
 
 			# tools
 			bugpoint

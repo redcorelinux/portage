@@ -106,6 +106,7 @@ COMMON_DEPEND="
 		x11-libs/libXScrnSaver
 		x11-libs/libXext
 		x11-libs/libXinerama
+		x11-libs/libXpresent
 		x11-libs/libXrandr
 		opengl? (
 			x11-libs/libXdamage
@@ -146,8 +147,8 @@ src_configure() {
 	tc-export CC PKG_CONFIG AR
 
 	if use raspberry-pi; then
-		append-cflags -I"${SYSROOT%/}${EPREFIX}/opt/vc/include"
-		append-ldflags -L"${SYSROOT%/}${EPREFIX}/opt/vc/lib"
+		append-cflags -I"${ESYSROOT}/opt/vc/include"
+		append-ldflags -L"${ESYSROOT}/opt/vc/lib"
 	fi
 
 	local mywafargs=(

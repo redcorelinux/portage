@@ -4,7 +4,7 @@
 EAPI=8
 
 # python is needed by xcb-0.8.2 until update to >=0.10
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="xml(+)"
 inherit cargo desktop flag-o-matic git-r3 python-any-r1 xdg
 
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
-	>=virtual/rust-1.56"
+	>=virtual/rust-1.61"
 
 QA_FLAGS_IGNORED="
 	usr/bin/${PN}
@@ -39,7 +39,7 @@ src_unpack() {
 }
 
 src_compile() {
-	filter-flags '-flto*' # undefined references with ring crate and more
+	filter-lto # undefined references with ring crate and more
 
 	cargo_src_compile --bins # note: configure --bins would skip tests
 }

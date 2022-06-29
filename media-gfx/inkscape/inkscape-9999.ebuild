@@ -17,12 +17,12 @@ else
 fi
 
 DESCRIPTION="SVG based generic vector-drawing program"
-HOMEPAGE="https://inkscape.org/"
+HOMEPAGE="https://inkscape.org/ https://gitlab.com/inkscape/inkscape/"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-IUSE="cdr dbus dia exif graphicsmagick imagemagick inkjar jemalloc jpeg
-openmp postscript readline spell svg2 test visio wpg"
+IUSE="cdr dia exif graphicsmagick imagemagick inkjar jemalloc jpeg
+openmp postscript readline spell svg2 test visio wpg X"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -31,6 +31,7 @@ BDEPEND="
 	>=dev-util/intltool-0.40
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
+	test? ( virtual/imagemagick-tools )
 "
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-text/poppler-0.57.0:=[cairo]
@@ -48,16 +49,18 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/gdl:3
 	dev-libs/popt
 	media-gfx/potrace
+	media-libs/libepoxy
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/lcms:2
 	media-libs/libpng:0=
 	net-libs/libsoup:2.4
 	sci-libs/gsl:=
-	x11-libs/libX11
-	>=x11-libs/pango-1.37.2
-	x11-libs/gtk+:3
+	>=x11-libs/pango-1.44
+	x11-libs/gtk+:3[X?]
+	X? ( x11-libs/libX11 )
 	$(python_gen_cond_dep '
+		dev-python/cssselect[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		media-gfx/scour[${PYTHON_USEDEP}]
 	')
@@ -66,7 +69,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		dev-libs/librevenge
 		media-libs/libcdr
 	)
-	dbus? ( dev-libs/dbus-glib )
 	exif? ( media-libs/libexif )
 	imagemagick? (
 		!graphicsmagick? ( media-gfx/imagemagick:=[cxx] )
@@ -106,9 +108,12 @@ RESTRICT="!test? ( test )"
 S="${WORKDIR}/${MY_P}"
 
 pkg_pretend() {
-	if [[ ${MERGE_TYPE} != binary ]] && use openmp; then
-		tc-has-openmp || die "Please switch to an openmp compatible compiler"
-	fi
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+	python-single-r1_pkg_setup
 }
 
 src_unpack() {
@@ -138,7 +143,6 @@ src_configure() {
 		-DWITH_INTERNAL_2GEOM=ON
 		-DBUILD_TESTING=$(usex test)
 		-DWITH_LIBCDR=$(usex cdr)
-		-DWITH_DBUS=$(usex dbus)
 		-DWITH_IMAGE_MAGICK=$(usex imagemagick $(usex !graphicsmagick)) # requires ImageMagick 6, only IM must be enabled
 		-DWITH_GRAPHICS_MAGICK=$(usex graphicsmagick $(usex imagemagick)) # both must be enabled to use GraphicsMagick
 		-DWITH_GNU_READLINE=$(usex readline)
@@ -150,13 +154,22 @@ src_configure() {
 		-DWITH_SVG2=$(usex svg2)
 		-DWITH_LIBVISIO=$(usex visio)
 		-DWITH_LIBWPG=$(usex wpg)
+		-DWITH_X11=$(usex X)
 	)
 
 	cmake_src_configure
 }
 
 src_test() {
-	cmake_build -j1 check
+	local myctestargs=(
+		# render_text*: needs patched Cairo / maybe upstream changes
+		# not yet in a release.
+		# test_lpe/test_lpe64: precision differences b/c of new GCC?
+		# cli_export-png-color-mode-gray-8_png_check_output: ditto?
+		-E "(render_test-use|render_test-glyph-y-pos|render_text-glyphs-combining|render_text-glyphs-vertical|render_test-rtl-vertical|test_lpe|test_lpe64|cli_export-png-color-mode-gray-8_png_check_output)"
+	)
+
+	cmake_src_test -j1
 }
 
 src_install() {

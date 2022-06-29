@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs #autotools
+inherit elisp-common readme.gentoo-r1 toolchain-funcs #autotools
 
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
@@ -33,7 +33,7 @@ else
 	fi
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
@@ -169,15 +169,6 @@ src_prepare() {
 }
 
 src_configure() {
-	strip-flags
-	filter-flags -pie					#526948
-
-	if use ia64; then
-		replace-flags "-O[2-9]" -O1		#325373
-	else
-		replace-flags "-O[3-9]" -O2
-	fi
-
 	local myconf
 
 	if use alsa; then

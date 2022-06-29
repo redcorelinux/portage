@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit optfeature python-single-r1 toolchain-funcs xdg
+inherit optfeature multiprocessing python-single-r1 toolchain-funcs xdg
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -29,10 +29,10 @@ REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}"
 RESTRICT="!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )"
 
+# dlopen: fontconfig,libglvnd
 RDEPEND="
 	${PYTHON_DEPS}
 	media-libs/fontconfig
-	media-libs/freetype:2
 	media-libs/harfbuzz:=
 	media-libs/lcms:2
 	media-libs/libglvnd[X?]
@@ -71,7 +71,9 @@ PATCHES=(
 src_prepare() {
 	default
 
-	sed -i "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" setup.py || die
+	sed -e "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" \
+		-e "/num_workers = /s/=.*/= $(makeopts_jobs)/" \
+		-i setup.py || die
 
 	if use !transfer; then
 		sed -i 's/rs_cflag =/& []#/;/files.*rsync/d' setup.py || die
@@ -82,7 +84,7 @@ src_prepare() {
 	rm kitty_tests/utmp.py || die
 
 	# test may fail/hang depending on environment and shell initialization scripts
-	rm kitty_tests/ssh.py || die
+	rm kitty_tests/{shell_integration,ssh}.py || die
 
 	# skip docs for live version
 	[[ ${PV} != 9999 ]] || sed -i '/exists.*_build/,/docs(ddir)/d' setup.py || die

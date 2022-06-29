@@ -18,7 +18,7 @@ REQUIRED_USE="
 	test? ( wayland )"
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 
 # gnome-settings-daemon is build checked, but used at runtime only for org.gnome.settings-daemon.peripherals.keyboard gschema
 # xorg-server is needed at build and runtime with USE=wayland for Xwayland
@@ -79,6 +79,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	gnome-extra/zenity
+
+	!<gui-libs/gtk-4.6.4:4
+	!<x11-libs/gtk+-3.24.34:3
 "
 DEPEND="${DEPEND}
 	x11-base/xorg-proto
@@ -174,6 +177,7 @@ src_test() {
 }
 
 pkg_postinst() {
+	use udev && udev_reload
 	xdg_pkg_postinst
 	gnome2_schemas_update
 }

@@ -27,7 +27,7 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT=${MY_PV%%[.+]*}
+SLOT=$(ver_cut 1)
 
 SRC_URI="
 	$(abi_uri arm)
@@ -41,7 +41,7 @@ SRC_URI="
 DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 LICENSE="GPL-2-with-classpath-exception"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
+KEYWORDS="amd64 ~arm arm64 ppc64 ~x64-macos"
 IUSE="alsa cups headless-awt selinux source"
 
 RDEPEND="

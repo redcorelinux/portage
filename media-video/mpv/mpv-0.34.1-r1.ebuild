@@ -16,7 +16,7 @@ HOMEPAGE="https://mpv.io/ https://github.com/mpv-player/mpv"
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux"
+	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ppc ppc64 ~riscv x86 ~amd64-linux"
 	DOCS=( RELEASE_NOTES )
 else
 	EGIT_REPO_URI="https://github.com/mpv-player/mpv.git"
@@ -146,8 +146,8 @@ src_configure() {
 	tc-export CC PKG_CONFIG AR
 
 	if use raspberry-pi; then
-		append-cflags -I"${SYSROOT%/}${EPREFIX}/opt/vc/include"
-		append-ldflags -L"${SYSROOT%/}${EPREFIX}/opt/vc/lib"
+		append-cflags -I"${ESYSROOT}/opt/vc/include"
+		append-ldflags -L"${ESYSROOT}/opt/vc/lib"
 	fi
 
 	local mywafargs=(

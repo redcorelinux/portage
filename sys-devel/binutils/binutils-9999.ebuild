@@ -148,16 +148,23 @@ toolchain-binutils_pkgversion() {
 }
 
 src_configure() {
+	# See https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html
+	# Avoid really confusing logs from subconfigure spam, makes logs far
+	# more legible.
+	MAKEOPTS="--output-sync=line ${MAKEOPTS}"
+
 	# Setup some paths
 	LIBPATH=/usr/$(get_libdir)/binutils/${CTARGET}/${PV}
 	INCPATH=${LIBPATH}/include
 	DATAPATH=/usr/share/binutils-data/${CTARGET}/${PV}
+
+	# see Note [tooldir hack for ldscripts]
 	if is_cross ; then
 		TOOLPATH=/usr/${CHOST}/${CTARGET}
+		BINPATH=${TOOLPATH}/binutils-bin/${PV}
 	else
-		TOOLPATH=/usr/${CTARGET}
+		BINPATH=/usr/${CTARGET}/binutils-bin/${PV}
 	fi
-	BINPATH=${TOOLPATH}/binutils-bin/${PV}
 
 	# Make sure we filter $LINGUAS so that only ones that
 	# actually work make it through, bug #42033
@@ -175,7 +182,7 @@ src_configure() {
 	done
 	echo
 
-	cd "${MY_BUILDDIR}"
+	cd "${MY_BUILDDIR}" || die
 	local myconf=()
 
 	if use plugins ; then
@@ -242,13 +249,26 @@ src_configure() {
 		--enable-install-libiberty
 		# Available from 2.35 on
 		--enable-textrel-check=warning
+
+		# Available from 2.39 on
+		--enable-warn-execstack
+		--enable-warn-rwx-segments
+		# TODO: Available from 2.39+ on but let's try the warning on for a bit
+		# first... (--enable-warn-execstack)
+		# Could put it under USE=hardened?
+		#--enable-default-execstack
+
+		# Things to think about
+		#--enable-deterministic-archives
+
 		# Works better than vapier's patch, bug #808787
 		--enable-new-dtags
+
+		--disable-jansson
 		--disable-werror
 		--with-bugurl="$(toolchain-binutils_bugurl)"
 		--with-pkgversion="$(toolchain-binutils_pkgversion)"
 		$(use_enable static-libs static)
-		${EXTRA_ECONF}
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
 		--disable-{gdb,libdecnumber,readline,sim}
 		# Strip out broken static link flags.
@@ -276,8 +296,7 @@ src_configure() {
 		fi
 	fi
 
-	echo ./configure "${myconf[@]}"
-	"${S}"/configure "${myconf[@]}" || die
+	ECONF_SOURCE="${S}" econf "${myconf[@]}" || die
 
 	# Prevent makeinfo from running if doc is unset.
 	if ! use doc ; then
@@ -291,11 +310,15 @@ src_compile() {
 	cd "${MY_BUILDDIR}" || die
 
 	# see Note [tooldir hack for ldscripts]
-	emake tooldir="${EPREFIX}${TOOLPATH}" all
+	if is_cross ; then
+		emake V=1 tooldir="${EPREFIX}${TOOLPATH}" all
+	else
+		emake V=1 all
+	fi
 
 	# only build info pages if the user wants them
 	if use doc ; then
-		emake info
+		emake V=1 info
 	fi
 
 	# we nuke the manpages when we're left with junk
@@ -309,7 +332,7 @@ src_test() {
 	# bug #637066
 	filter-flags -Wall -Wreturn-type
 
-	emake -k check
+	emake -k V=1 check
 }
 
 src_install() {
@@ -318,7 +341,8 @@ src_install() {
 	cd "${MY_BUILDDIR}" || die
 
 	# see Note [tooldir hack for ldscripts]
-	emake DESTDIR="${D}" tooldir="${EPREFIX}${LIBPATH}" install
+	emake V=1 DESTDIR="${D}" tooldir="${EPREFIX}${LIBPATH}" install
+
 	rm -rf "${ED}"/${LIBPATH}/bin || die
 	use static-libs || find "${ED}" -name '*.la' -delete
 
@@ -462,3 +486,11 @@ pkg_postrm() {
 #   ${TOOLPATH}: /usr/${CHOST} (or /usr/${CHOST}/${CTARGET} for cross-case)
 # - at install-time set scriptdir to point to slotted location:
 #   ${LIBPATH}: /usr/$(get_libdir)/binutils/${CTARGET}/${PV}
+#
+# Now, this would all be very nice except for the fact that the changed
+# directory makes libtool re-link libraries during the install phase.
+# It uses libraries from the system installation to do that (bad)
+# and fails if it cant handle these (e.g. newer LTO version than in
+# current gcc, see bugs 834720 and 838925).
+#
+# So, we apply this whole hack only for cross builds.

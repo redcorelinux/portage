@@ -27,7 +27,7 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT=${MY_PV%%[.+]*}
+SLOT=$(ver_cut 1)
 
 SRC_URI="
 	$(abi_uri aarch64 arm64)
@@ -42,7 +42,7 @@ SRC_URI="
 DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 LICENSE="GPL-2-with-classpath-exception"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
+KEYWORDS="amd64 ~arm arm64 ppc64 ~x64-macos"
 IUSE="alsa cups +gentoo-vm headless-awt selinux source"
 
 RDEPEND="
@@ -133,16 +133,4 @@ src_install() {
 
 pkg_postinst() {
 	java-vm-2_pkg_postinst
-
-	if use gentoo-vm ; then
-		ewarn "WARNING! You have enabled the gentoo-vm USE flag, making this JDK"
-		ewarn "recognised by the system. This will almost certainly break"
-		ewarn "many java ebuilds as they are not ready for openjdk-${SLOT}"
-	else
-		ewarn "The experimental gentoo-vm USE flag has not been enabled so this JDK"
-		ewarn "will not be recognised by the system. For example, simply calling"
-		ewarn "\"java\" will launch a different JVM. This is necessary until Gentoo"
-		ewarn "fully supports Java ${SLOT}. This JDK must therefore be invoked using its"
-		ewarn "absolute location under ${EPREFIX}/opt/${P}."
-	fi
 }

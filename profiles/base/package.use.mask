@@ -6,11 +6,45 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# James Le Cuirot <chewi@gentoo.org> (2022-06-25)
+# This flag concerns an x86-specific problem.
+sys-libs/glibc stack-realign
+sys-libs/ncurses stack-realign
+
+# Matt Turner <mattst88@gentoo.org> (2022-06-21)
+# Depends on old spidermonkey:68. Upstream recommends using Duktape or Webkit
+# for PAC parsing. See https://github.com/libproxy/libproxy/pull/139
+>=net-libs/libproxy-0.4.18 spidermonkey
+
+# Michał Górny <mgorny@gentoo.org> (2022-06-02)
+# dev-python/jaraco-packaging is masked for removal.  Bug #834534.
+dev-python/jaraco-classes doc
+dev-python/jaraco-collections doc
+dev-python/jaraco-functools doc
+dev-python/jaraco-logging doc
+dev-python/jaraco-stream doc
+dev-python/jaraco-text doc
+dev-python/jsonpickle doc
+dev-python/keyring doc
+
+# Maciej Barć <xgqt@gentoo.org> (2022-05-31)
+# "doc" require old version of dev-python/antlr4-python3-runtime (4.9.3)
+# and dev-python/sphinx (4.4.0), both already removed from the repository tree
+# Upstream bug: https://github.com/coq/coq/issues/15956
+>=sci-mathematics/coq-8.15.0 doc
+
+# Stephan Hartmann <sultan@gentoo.org> (2022-05-29)
+# Not ready for general use.
+>=www-client/chromium-104 pgo
+
+# Michał Górny <mgorny@gentoo.org> (2022-05-25)
+# dev-python/sphinxcontrib-openapi is masked for removal.
+dev-python/jupyter_server doc
+
 # Joonas Niilola <juippis@gentoo.org> (2022-05-03)
-# sndio is currently broken in Gentoo, #842420.
 # system-python-libs is HIGHLY EXPERIMENTAL according to upstream, and
 # still being worked on in Gentoo.
->=www-client/firefox-100.0 sndio system-python-libs
+>=www-client/firefox-100.0 system-python-libs
 
 # Piotr Karbowski <slashbeast@gentoo.org> (2022-04-29)
 # There's a bug with gnutls support leading TLS certificates
@@ -30,11 +64,6 @@ net-libs/ngtcp2 openssl
 # Needs masked version of ogre (>=1.12), bug #825330
 >=dev-games/mygui-3.4.1 ogre
 
-# Sam James <sam@gentoo.org> (2022-02-21)
-# Needs build system love to make LLVM support work.
-# bug #745915
-sci-libs/symengine llvm
-
 # Marek Szuba <marecki@gentoo.org> (2022-02-07)
 # Deprecated back-end with known stability and data-corruption issues,
 # likely to be removed in gramps-5.2.0.
@@ -52,6 +81,7 @@ media-video/wireplumber system-service
 # runtime crashes. The effect of using USE=custom-cflags globally in make.conf
 # isn't the same as it is for just glibc specifically.
 sys-libs/glibc custom-cflags
+sys-devel/gcc custom-cflags
 
 # Sam James <sam@gentoo.org> (2022-01-12)
 # Unmask PCH for now for GCC to avoid unnecessary rebuilds
@@ -60,8 +90,6 @@ sys-libs/glibc custom-cflags
 <sys-devel/gcc-10.4:10 -pch
 =sys-devel/gcc-9* -pch
 =sys-devel/gcc-8* -pch
-=sys-devel/gcc-7* -pch
-=sys-devel/gcc-6* -pch
 
 # John Helmert III <ajak@gentoo.org> (2021-12-31)
 # Rizin tests require a tarball of binaries of ambiguous license.
@@ -136,11 +164,6 @@ dev-lang/rust parallel-compiler
 # Mask experimental options.
 gui-libs/gtk ffmpeg vulkan
 
-# Marek Szuba <marecki@gentoo.org> (2021-07-14)
-# Even on a clean install, 8 phdf5 tests fail (Bug #808612)
-# Mask for further study.
->=sci-libs/hdf5-1.12.1 mpi
-
 # Sam James <sam@gentoo.org> (2021-07-24)
 # USE=exec-static-trampoline can break consumers due to
 # faulty assumptions. Masked for now due to the possibility
@@ -191,10 +214,6 @@ net-analyzer/wireshark lto
 # Fails to build right now
 # bug #651740
 net-misc/openssh debug
-
-# Michał Górny <mgorny@gentoo.org> (2021-03-06)
-# LLVM 9 has been removed.
-<dev-util/perf-5.15 clang
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-02-17)
 # PCRE JIT support via dev-libs/libpcre2[jit] is only available for certain architectures
@@ -433,10 +452,6 @@ app-admin/conserver freeipmi
 # (bug #674364)
 sys-apps/memtest86+ floppy
 
-# Michał Górny <mgorny@gentoo.org> (2018-11-28)
-# Requires last-rited games-server/ut2003-ded.
-games-fps/ut2003 dedicated
-
 # Alfredo Tupone <tupone@gentoo.org> (2018-11-18)
 # go brokes build of gnat-gpl
 dev-lang/gnat-gpl go
@@ -479,11 +494,6 @@ net-fs/samba ceph
 # media-libs/svgalib is not keyworded everywhere
 app-emulation/fuse backend-svga
 
-# Patrick McLean <chutzpah@gentoo.org> (2018-03-06)
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2020-12-25)
-# Requires dev-libs/boost-1.72 that is gone
-<sys-cluster/ceph-15 system-boost
-
 # Brian Evans <grknight@gentoo.org> (2018-03-05)
 # Mask embedded USE on virtual/mysql and friends to transition it to be obsolete
 virtual/mysql embedded
@@ -505,16 +515,6 @@ dev-db/mysql client-libs
 # This flag can be sensibly enabled only on macos.
 # Can be unmasked in prefix/darwin/macos profiles. Bug #637482
 media-video/ffmpeg appkit
-
-# James Le Cuirot <chewi@gentoo.org> (2017-12-17)
-# Georgy Yakovlev <gyakovlev@gentoo.org (2021-10-08)
-# Java 9+ is not yet fully supported on Gentoo. Having a masked
-# gentoo-vm flag allows us to provide it without it breaking Gentoo
-# packages. Those who wish to experiment with it as a fully recognised
-# Gentoo JVM can unmask the flag.
-dev-java/openjdk-jre-bin:17 gentoo-vm
-dev-java/openjdk-bin:17 gentoo-vm
-dev-java/openjdk:17 gentoo-vm
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (2017-09-09)
 # Potentially destructive. Use it only if you know what you're doing.
@@ -561,8 +561,6 @@ net-fs/samba system-heimdal
 # Robin H. Johnson <robbat2@gentoo.org> (2016-12-04)
 # Additional HAProxy functionality waiting for related stuff to land in the
 # tree.
-# bug #541042 - lua 5.3
-net-proxy/haproxy lua
 # bug (none) - 51Degrees
 net-proxy/haproxy 51degrees
 # bug (none) - WURFL
@@ -602,14 +600,6 @@ dev-java/icedtea cacao jamvm
 # Rick Farina <zerochaos@gentoo.org> (2015-10-06)
 # forward porting this patch is non-trivial, mask for now
 >=net-wireless/wpa_supplicant-2.5 wimax
-
-# James Le Cuirot <chewi@gentoo.org> (2015-08-18)
-# gcc[awt] is only used by gcj-jdk[awt] and that isn't needed by
-# anything in the tree. The toolchain folks aren't keen to support it
-# and it should probably only be used if you really know what you're
-# doing *and* your name is gnu_andrew. ;) See bug #531900.
-sys-devel/gcc awt
-dev-java/gcj-jdk awt
 
 # Mike Gilbert <floppym@gentoo.org> (2015-05-16)
 # dev-lang/python[berkdb] fails with recent multilib sys-libs/db (bug 519584).

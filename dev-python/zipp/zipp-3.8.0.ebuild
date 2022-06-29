@@ -5,7 +5,7 @@
 EAPI=7
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
 
 inherit distutils-r1
 
@@ -23,9 +23,6 @@ BDEPEND="
 	)
 "
 
-distutils_enable_sphinx docs \
-	">=dev-python/jaraco-packaging-3.2" \
-	">=dev-python/rst-linker-1.9"
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(

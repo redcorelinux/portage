@@ -1,4 +1,4 @@
-# Copyright 2002-2021 Gentoo Authors
+# Copyright 2002-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: toolchain-funcs.eclass
@@ -453,6 +453,9 @@ econf_build() {
 tc-ld-is-gold() {
 	local out
 
+	# Ensure ld output is in English.
+	local -x LC_ALL=C
+
 	# First check the linker directly.
 	out=$($(tc-getLD "$@") --version 2>&1)
 	if [[ ${out} == *"GNU gold"* ]] ; then
@@ -482,6 +485,9 @@ tc-ld-is-gold() {
 # Return true if the current linker is set to lld.
 tc-ld-is-lld() {
 	local out
+
+	# Ensure ld output is in English.
+	local -x LC_ALL=C
 
 	# First check the linker directly.
 	out=$($(tc-getLD "$@") --version 2>&1)
@@ -569,11 +575,12 @@ tc-ld-force-bfd() {
 	fi
 }
 
-# @FUNCTION: tc-has-openmp
+# @FUNCTION: _tc-has-openmp
+# @INTERNAL
 # @USAGE: [toolchain prefix]
 # @DESCRIPTION:
 # See if the toolchain supports OpenMP.
-tc-has-openmp() {
+_tc-has-openmp() {
 	local base="${T}/test-tc-openmp"
 	cat <<-EOF > "${base}.c"
 	#include <omp.h>
@@ -593,6 +600,16 @@ tc-has-openmp() {
 	return ${ret}
 }
 
+# @FUNCTION: tc-has-openmp
+# @DEPRECATED: tc-check-openmp
+# @USAGE: [toolchain prefix]
+# @DESCRIPTION:
+# See if the toolchain supports OpenMP.  This function is deprecated and will be
+# removed on 2023-01-01.
+tc-has-openmp() {
+	_tc-has-openmp "$@"
+}
+
 # @FUNCTION: tc-check-openmp
 # @DESCRIPTION:
 # Test for OpenMP support with the current compiler and error out with
@@ -600,8 +617,21 @@ tc-has-openmp() {
 # OpenMP support that has been requested by the ebuild. Using this function
 # to test for OpenMP support should be preferred over tc-has-openmp and
 # printing a custom message, as it presents a uniform interface to the user.
+#
+# You should test for any necessary OpenMP support in pkg_pretend in order to
+# warn the user of required toolchain changes.  You must still check for OpenMP
+# support at build-time, e.g.
+# @CODE
+# pkg_pretend() {
+#	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+# }
+#
+# pkg_setup() {
+#	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+# }
+# @CODE
 tc-check-openmp() {
-	if ! tc-has-openmp; then
+	if ! _tc-has-openmp; then
 		eerror "Your current compiler does not support OpenMP!"
 
 		if tc-is-gcc; then

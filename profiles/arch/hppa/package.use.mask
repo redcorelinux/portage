@@ -4,6 +4,16 @@
 # NOTE: When masking a USE flag due to missing keywords, please file a keyword
 # request bug for the hppa arch.
 
+# Sergey Torokhov <torokhov-s-a@yandex.ru> (2022-06-22)
+# media-libs/libjxl is not keyworded
+# bug https://bugs.gentoo.org/853628
+media-gfx/gimp jpegxl
+
+# Sam James <sam@gentoo.org> (2022-05-17)
+# sci-libs/sundials fails to build tests on HPPA
+# bug #845222
+sci-mathematics/octave sundials
+
 # Matt Turner <mattst88@gentoo.org> (2022-05-07)
 # app-crypt/gcr is not keyworded
 app-crypt/pinentry gtk
@@ -140,10 +150,6 @@ dev-util/cppcheck z3
 # media-sound/lash not keyworded, bug #736725
 media-sound/fluidsynth lash
 
-# Cédric Krier <cedk@gentoo.org> (2020-11-10)
-# virtual/rust has no hppa keyword
-dev-vcs/mercurial rust
-
 # Joonas Niilola <juippis@gentoo.org> (2020-10-08)
 # Dependency not keyworded on this arch.
 dev-libs/efl avif heif lua_single_target_luajit physics
@@ -188,7 +194,7 @@ media-video/ffmpeg dav1d libaribb24 libtesseract vidstab
 
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-11)
 # media-gfx/nvidia-texture-tools, media-libs/allegro not keyworded on hppa
-media-libs/devil allegro nvtt
+media-libs/devil allegro
 
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-09)
 # dependencies not keyworded

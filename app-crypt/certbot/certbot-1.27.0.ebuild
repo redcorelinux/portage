@@ -11,7 +11,7 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
 fi
 S=${WORKDIR}/${P}/${PN}
 
@@ -22,6 +22,8 @@ HOMEPAGE="https://github.com/certbot/certbot https://letsencrypt.org/"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+
+IUSE="selinux"
 
 RDEPEND="
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
@@ -34,6 +36,7 @@ RDEPEND="
 	dev-python/pyrfc3339[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	dev-python/zope-component[${PYTHON_USEDEP}]
-	dev-python/zope-interface[${PYTHON_USEDEP}]"
+	dev-python/zope-interface[${PYTHON_USEDEP}]
+	selinux? ( sec-policy/selinux-certbot )"
 
 distutils_enable_tests pytest

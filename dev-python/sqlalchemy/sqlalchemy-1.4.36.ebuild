@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
 PYTHON_REQ_USE="sqlite?"
 
 inherit distutils-r1 optfeature
@@ -23,7 +23,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="examples +sqlite test"
 
 BDEPEND="
@@ -51,6 +51,10 @@ python_test() {
 	)
 	[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=(
 		test/ext/test_associationproxy.py::ProxyHybridTest::test_msg_fails_on_cls_access
+	)
+	[[ ${EPYTHON} == python3.11 ]] && EPYTEST_DESELECT+=(
+		# https://github.com/sqlalchemy/sqlalchemy/issues/8019
+		test/engine/test_logging.py::TransactionContextLoggingTest::test_log_messages_have_correct_metadata_echo
 	)
 	if ! has_version "dev-python/greenlet[${PYTHON_USEDEP}]"; then
 		EPYTEST_DESELECT+=(
@@ -89,6 +93,5 @@ pkg_postinst() {
 		dev-python/mysqlclient \
 		dev-python/pymysql \
 		dev-python/mysql-connector-python
-	optfeature "mssql support" dev-python/pymssql
 	optfeature "postgresql support" dev-python/psycopg:2
 }

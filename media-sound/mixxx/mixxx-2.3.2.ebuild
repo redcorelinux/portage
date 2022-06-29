@@ -151,7 +151,17 @@ src_install() {
 	local locale
 	for locale in ${PLOCALES} ; do
 		if use l10n_${locale} ; then
-			dodoc ${DISTDIR}/${PN}-manual-$(ver_cut 1-2)-${locale/ja/ja-JP}.pdf
+			dodoc "${DISTDIR}"/${PN}-manual-$(ver_cut 1-2)-${locale/ja/ja-JP}.pdf
 		fi
 	done
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	udev_reload
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	udev_reload
 }

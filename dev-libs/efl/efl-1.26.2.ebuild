@@ -10,7 +10,7 @@ DOCS_DIR="${S}/doc"
 LUA_REQ_USE="deprecated(+)"
 LUA_COMPAT=( lua5-{1,2} luajit )
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit docs lua-single meson python-any-r1 xdg
 
@@ -123,7 +123,8 @@ RDEPEND="${LUA_DEPS}
 	xpm? ( x11-libs/libXpm )
 	xpresent? ( x11-libs/libXpresent )
 	zeroconf? ( net-dns/avahi )"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	wayland? ( dev-libs/wayland-protocols )"
 BDEPEND="${PYTHON_DEPS}
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )

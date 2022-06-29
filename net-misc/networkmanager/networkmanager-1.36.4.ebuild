@@ -30,7 +30,7 @@ REQUIRED_USE="
 	?? ( syslog systemd )
 "
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv ~sparc x86"
 
 COMMON_DEPEND="
 	sys-apps/util-linux[${MULTILIB_USEDEP}]
@@ -41,7 +41,10 @@ COMMON_DEPEND="
 	systemd? ( >=sys-apps/systemd-209:0= )
 	>=dev-libs/glib-2.40:2[${MULTILIB_USEDEP}]
 	introspection? ( >=dev-libs/gobject-introspection-0.10.3:= )
-	selinux? ( sys-libs/libselinux )
+	selinux? (
+		sec-policy/selinux-networkmanager
+		sys-libs/libselinux
+	)
 	audit? ( sys-process/audit )
 	teamd? (
 		>=dev-libs/jansson-2.7:=
@@ -90,6 +93,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	>=sys-kernel/linux-headers-3.18
 	net-libs/libndp[${MULTILIB_USEDEP}]
+	ppp? ( elibc_musl? ( net-libs/ppp-defs ) )
 "
 BDEPEND="
 	dev-util/gdbus-codegen

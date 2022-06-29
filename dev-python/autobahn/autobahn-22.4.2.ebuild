@@ -11,15 +11,17 @@ inherit distutils-r1 optfeature
 MY_P=${PN}-$(ver_rs 3 -)
 
 DESCRIPTION="WebSocket and WAMP for Twisted and Asyncio"
-HOMEPAGE="https://pypi.org/project/autobahn/
+HOMEPAGE="
 	https://crossbar.io/autobahn/
-	https://github.com/crossbario/autobahn-python"
+	https://github.com/crossbario/autobahn-python/
+	https://pypi.org/project/autobahn/
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 SLOT="0"
 LICENSE="MIT"
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="amd64 arm arm64 ~riscv x86"
 IUSE="test xbr"
 RESTRICT="!test? ( test )"
 
@@ -47,7 +49,6 @@ BDEPEND="
 		>=dev-python/service_identity-18.1.0[${PYTHON_USEDEP}]
 		>=dev-python/pynacl-1.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pytrie-0.4[${PYTHON_USEDEP}]
-		>=dev-python/pyqrcode-1.2.1[${PYTHON_USEDEP}]
 		>=dev-python/cffi-1.14.5[${PYTHON_USEDEP}]
 		>=dev-python/argon2-cffi-20.1.0[${PYTHON_USEDEP}]
 		>=dev-python/passlib-1.7.4[${PYTHON_USEDEP}]
@@ -82,15 +83,16 @@ python_prepare_all() {
 }
 
 python_test() {
+	rm -rf autobahn || die
+
 	einfo "Testing all, cryptosign using twisted"
 	local -x USE_TWISTED=true
-	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
 	"${EPYTHON}" -m twisted.trial autobahn || die "Tests failed with ${EPYTHON}"
 	unset USE_TWISTED
 
 	einfo "RE-testing cryptosign and component_aio using asyncio"
 	local -x USE_ASYNCIO=true
-	epytest autobahn/wamp/test/test_wamp_{cryptosign,component_aio}.py
+	epytest --pyargs autobahn.wamp.test.test_wamp_{cryptosign,component_aio}
 	unset USE_ASYNCIO
 
 	rm -f twisted/plugins/dropin.cache || die

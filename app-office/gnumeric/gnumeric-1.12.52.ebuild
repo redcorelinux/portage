@@ -4,14 +4,14 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{7..10} )
 
-inherit gnome.org libtool python-r1 xdg
+inherit autotools gnome.org python-r1 xdg
 
 DESCRIPTION="The GNOME Spreadsheet"
 HOMEPAGE="http://www.gnumeric.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="+introspection libgda perl"
 REQUIRED_USE="introspection? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -56,12 +56,18 @@ BDEPEND="
 	>=dev-util/intltool-0.35.0
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/${P}-slibtool.patch" # 791610
+)
+
 src_prepare() {
 	default
 
 	# Manage gi overrides ourselves
 	sed '/SUBDIRS/ s/introspection//' -i Makefile.{am,in} || die
-	elibtoolize
+
+	# Changed from 'elibtoolize' for bug # 791610
+	eautoreconf
 }
 
 src_configure() {

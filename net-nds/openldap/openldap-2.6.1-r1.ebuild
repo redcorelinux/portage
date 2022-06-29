@@ -21,7 +21,7 @@ SRC_URI="
 LICENSE="OPENLDAP GPL-2"
 # Subslot added for bug #835654
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 
 IUSE_DAEMON="argon2 +cleartext crypt experimental minimal samba tcpd"
 IUSE_OVERLAY="overlays perl autoca"
@@ -281,7 +281,7 @@ openldap_upgrade_howto() {
 	i="${l}.raw"
 	eerror " 1. /etc/init.d/slapd stop"
 	eerror " 2. slapcat -l ${i}"
-	eerror " 3. egrep -v '^(entry|context)CSN:' <${i} >${l}"
+	eerror " 3. grep -E -v '^(entry|context)CSN:' <${i} >${l}"
 	eerror " 4. mv /var/lib/openldap-data/ /var/lib/openldap-data-backup/"
 	eerror " 5. emerge --update \=net-nds/${PF}"
 	eerror " 6. etc-update, and ensure that you apply the changes"
@@ -648,7 +648,7 @@ multilib_src_install() {
 		configfile="${ED}"/etc/openldap/slapd.conf
 
 		# populate with built backends
-		ebegin "populate config with built backends"
+		einfo "populate config with built backends"
 		for x in "${ED}"/usr/$(get_libdir)/openldap/openldap/back_*.so; do
 			einfo "Adding $(basename ${x})"
 			sed -e "/###INSERTDYNAMICMODULESHERE###$/a# moduleload\t$(basename ${x})" -i "${configfile}" || die
@@ -657,7 +657,6 @@ multilib_src_install() {
 		use prefix || fowners root:ldap /etc/openldap/slapd.conf
 		fperms 0640 /etc/openldap/slapd.conf
 		cp "${configfile}" "${configfile}".default || die
-		eend $?
 
 		# install our own init scripts and systemd unit files
 		einfo "Install init scripts"

@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm64 ~hppa ~ia64 sparc x86 ~amd64-linux ~x86-linux"
 IUSE="cairo doc icu java jpeg lapack lto minimal nls openmp perl png prefix profile readline test tiff tk X"
 
 REQUIRED_USE="
@@ -55,7 +55,7 @@ DEPEND="
 		x11-libs/pango:=
 	)
 	icu? ( dev-libs/icu:= )
-	jpeg? ( virtual/jpeg )
+	jpeg? ( media-libs/libjpeg-turbo:= )
 	lapack? ( virtual/lapack )
 	perl? ( dev-lang/perl )
 	png? ( media-libs/libpng:= )

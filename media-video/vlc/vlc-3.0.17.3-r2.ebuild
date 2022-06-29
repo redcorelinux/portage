@@ -20,7 +20,7 @@ else
 	else
 		SRC_URI="https://download.videolan.org/pub/videolan/testing/${MY_P}/${MY_P}.tar.xz"
 	fi
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv -sparc ~x86"
+	KEYWORDS="amd64 ~arm arm64 ppc ppc64 ~riscv -sparc x86"
 fi
 inherit autotools flag-o-matic lua-single toolchain-funcs virtualx xdg
 
@@ -442,9 +442,6 @@ src_configure() {
 		# Bug 569774
 		replace-flags -Os -O2
 	fi
-
-	# VLC now requires C++11 after commit 4b1c9dcdda0bbff801e47505ff9dfd3f274eb0d8
-	append-cxxflags -std=c++11
 
 	if use omxil; then
 		# bug #723006

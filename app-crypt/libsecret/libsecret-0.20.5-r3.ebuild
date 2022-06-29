@@ -20,7 +20,7 @@ REQUIRED_USE="
 	gtk-doc? ( crypt )
 "
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
 
 DEPEND="
 	>=dev-libs/glib-2.44:2[${MULTILIB_USEDEP}]
@@ -72,7 +72,7 @@ dbus_run() {
 
 tpm2_run_with_emulator() {
 	export XDG_CONFIG_HOME=${T}/.config/swtpm
-	${BROOT}/usr/share/swtpm/swtpm-create-user-config-files || die
+	"${BROOT}"/usr/share/swtpm/swtpm-create-user-config-files || die
 
 	mkdir -p ${XDG_CONFIG_HOME}/mytpm1 || die
 	swtpm_setup_args=(

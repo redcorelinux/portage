@@ -12,7 +12,7 @@ HOMEPAGE="https://community.kde.org/ISOImageWriter"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="GPL-3"
@@ -32,3 +32,5 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-missing-headers.patch" ) # bug 842657

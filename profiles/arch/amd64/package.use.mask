@@ -17,6 +17,18 @@
 
 #--- END OF EXAMPLES ---
 
+# James Le Cuirot <chewi@gentoo.org> (2022-06-25)
+# Allow stack to be realigned for compatibility with older 32-bit binaries.
+sys-libs/glibc -stack-realign
+sys-libs/ncurses -stack-realign
+
+# Unmask media-libs/libxmp here
+media-sound/qmmp -xmp
+
+# Kai-Chun Ning <kaichun.ning@gmail.com> (2022-05-23)
+# Need intel-hybrid-codec-driver, which only works on amd64
+x11-libs/libva-intel-driver -hybrid
+
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2021-11-01)
 # requires sys-apps/dbus-broker, which is keyworded here.
 sys-apps/systemd -hostnamed-fallback
@@ -208,7 +220,7 @@ media-video/mpv -vulkan
 
 # Nick Sarnie <sarnex@gentoo.org> (2018-04-29)
 # media-libs/vulkan-loader and app-emulation/vkd3d are keyworded on amd64
-app-emulation/wine-staging -vkd3d -vulkan
+app-emulation/wine-staging -vulkan
 app-emulation/wine-vanilla -vkd3d -vulkan
 
 # Richard Yao <ryao@gentoo.org> (2018-04-16)

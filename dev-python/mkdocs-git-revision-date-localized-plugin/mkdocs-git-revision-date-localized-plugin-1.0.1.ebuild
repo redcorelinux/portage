@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517="setuptools"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
@@ -25,7 +25,7 @@ SRC_URI="https://github.com/timvink/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv ~x86"
+KEYWORDS="amd64 ~riscv x86"
 
 RDEPEND="
 	>=dev-python/Babel-2.7.0[${PYTHON_USEDEP}]

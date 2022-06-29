@@ -64,7 +64,7 @@ LICENSE="
 	samba? ( GPL-3 )
 "
 if [ "${PV#9999}" = "${PV}" ] ; then
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 fi
 
 # Options to use as use_enable in the foo[:bar] form.
@@ -287,6 +287,7 @@ RDEPEND="${RDEPEND}
 "
 
 DEPEND="${RDEPEND}
+	amf? ( media-libs/amf-headers )
 	ladspa? ( >=media-libs/ladspa-sdk-1.13-r2[${MULTILIB_USEDEP}] )
 	v4l? ( sys-kernel/linux-headers )
 "
@@ -295,7 +296,6 @@ DEPEND="${RDEPEND}
 BDEPEND+="
 	>=sys-devel/make-3.81
 	virtual/pkgconfig
-	amf? ( media-libs/amf-headers )
 	cpu_flags_x86_mmx? ( || ( >=dev-lang/nasm-2.13 >=dev-lang/yasm-1.3 ) )
 	cuda? ( >=sys-devel/clang-7[llvm_targets_NVPTX] )
 	doc? ( sys-apps/texinfo )

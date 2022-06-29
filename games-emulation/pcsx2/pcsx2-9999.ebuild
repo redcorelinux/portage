@@ -24,6 +24,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/xz-utils
+	app-arch/zstd:=
 	dev-cpp/rapidyaml:=
 	dev-libs/glib:2
 	dev-libs/libaio
@@ -64,9 +65,7 @@ pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary && $(tc-getCC) == *gcc* ]]; then
 		# -mxsave flag is needed when GCC >= 8.2 is used
 		# https://bugs.gentoo.org/685156
-		if [[ $(gcc-major-version) -gt 8 || $(gcc-major-version) == 8 && $(gcc-minor-version) -ge 2 ]]; then
-			append-flags -mxsave
-		fi
+		append-flags -mxsave
 	fi
 }
 
@@ -74,14 +73,12 @@ src_prepare() {
 	cmake_src_prepare
 
 	# unbundle, use sed over patch for less chances to break -9999
-	# (zstd is only used by libzip, so can remove entirely)
+	# note: gentoo's zstd lacks a cmake module which upstream tries to use
 	sed -e '/add_subdir.*cubeb/c\find_package(cubeb REQUIRED)' \
-		-e '/add_subdir.*libchdr/c\pkg_check_modules(chdr REQUIRED IMPORTED_TARGET libchdr)' \
-		-e '/add_subdir.*libzip/c\find_package(libzip REQUIRED)' \
-		-e '/add_subdir.*zstd/d' \
+		-e '/add_subdir.*libchdr/c\pkg_check_modules(chdr REQUIRED IMPORTED_TARGET libchdr)\nalias_library(chdr-static PkgConfig::chdr)' \
+		-e '/system_library.*zstd/,/endif()/c\pkg_check_modules(zstd REQUIRED IMPORTED_TARGET libzstd)\nalias_library(Zstd::Zstd PkgConfig::zstd)' \
 		-e '/compile_options(\(cubeb\|chdr-static\|speex\)/d' \
 		-i cmake/SearchForStuff.cmake || die
-	sed -i 's/chdr-static/PkgConfig::chdr/' pcsx2/CMakeLists.txt || die
 
 	# pulseaudio is only used for usb-mic, not audio output
 	use pulseaudio || > cmake/FindPulseAudio.cmake || die
@@ -103,9 +100,9 @@ src_configure() {
 		-DDISABLE_SETCAP=TRUE
 		-DENABLE_TESTS=$(usex test)
 		-DPACKAGE_MODE=TRUE
-		-DQT_BUILD=FALSE # TODO
+		-DQT_BUILD=FALSE # TODO when qt6 is in tree
 		-DSDL2_API=TRUE # conditionally needed if wxGTK[sdl], cmake/ApiValidation.cmake
-		-DUSE_SYSTEM_YAML=TRUE
+		-DUSE_SYSTEM_LIBS=TRUE
 		-DUSE_VTUNE=FALSE
 		-DXDG_STD=TRUE
 	)

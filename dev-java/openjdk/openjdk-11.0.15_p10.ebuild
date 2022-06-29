@@ -43,7 +43,7 @@ SRC_URI="
 "
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv x86"
 
 IUSE="alsa big-endian cups debug doc examples headless-awt javafx +jbootstrap selinux source system-bootstrap systemtap"
 
@@ -130,6 +130,8 @@ pkg_setup() {
 	openjdk_check_requirements
 	java-vm-2_pkg_setup
 
+	[[ ${MERGE_TYPE} == "binary" ]] && return
+
 	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
@@ -142,7 +144,6 @@ pkg_setup() {
 			fi
 		done
 	else
-		[[ ${MERGE_TYPE} == "binary" ]] && return
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
 	fi

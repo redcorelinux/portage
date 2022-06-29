@@ -127,7 +127,7 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	jack? ( virtual/jack )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? ( media-libs/libjpeg-turbo:0 )
 	kate? ( media-libs/libkate )
 	libass? (
 		media-libs/fontconfig:1.0
@@ -440,9 +440,6 @@ src_configure() {
 		# Bug 569774
 		replace-flags -Os -O2
 	fi
-
-	# VLC now requires C++11 after commit 4b1c9dcdda0bbff801e47505ff9dfd3f274eb0d8
-	append-cxxflags -std=c++11
 
 	if use omxil; then
 		# bug #723006
