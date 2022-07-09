@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit mount-boot
+inherit mount-boot toolchain-funcs
 
 MY_PV=${PV/_/-}
 
@@ -29,12 +29,19 @@ BDEPEND="
 S=${WORKDIR}/memtest86plus-${MY_PV}
 
 src_prepare() {
-	sed -i -e "s#/sbin/mkdosfs#mkfs.vfat#" build{32,64}/Makefile || die
-	sed -i -e "s/^AS = as/AS +=/" -e "/^CC/d" build{32,64}/Makefile || die
+	sed -i \
+		-e 's#/sbin/mkdosfs#mkfs.vfat#' \
+		-e 's/^AS = as/AS +=/' \
+		-e '/^CC/d' \
+		-e 's/objcopy/$(OBJCOPY)/' \
+		-e 's/shell size/shell $(SIZE)/' \
+		build{32,64}/Makefile || die
 	default
 }
 
 src_compile() {
+	tc-export OBJCOPY
+	export SIZE=$(tc-getPROG SIZE size)
 	pushd build32
 		use bios32 && emake memtest.bin
 		use efi32 && emake memtest.efi
@@ -44,7 +51,7 @@ src_compile() {
 	pushd build64
 		use bios64 && emake memtest.bin
 		use efi64 && emake memtest.efi
-		use iso32 && emake iso
+		use iso64 && emake iso
 	popd
 }
 

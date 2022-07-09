@@ -4,10 +4,6 @@
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in package.use.mask
 
-# Brian Evans <grknight@gentoo.org> (2022-06-28)
-# Needs newer igbinary stable with target
-dev-php/pecl-redis php_targets_php8-1
-
 # Matt Turner <mattst88@gentoo.org> (2022-05-11)
 # app-text/pandoc is not stable
 app-text/nuspell doc
@@ -110,7 +106,7 @@ app-emulation/winetricks test
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-12-21)
 # For bleeding edge features and testing, not generally suitable
 # for stable systems
-dev-lang/rust miri nightly profiler system-bootstrap
+dev-lang/rust nightly profiler system-bootstrap
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2019-12-09)
 # Declared experimental, and dev-cpp/websocketpp not stable yet

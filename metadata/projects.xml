@@ -236,6 +236,10 @@
     <name>Apache Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Apache</url>
     <description>The Apache project is responsible for maintaining the Apache httpd server in Gentoo, and many of its modules. We also maintain a build infrastructure so that other modules may be easily added in a standard way to Apache.</description>
+    <member is-lead="1">
+      <email>graaff@gentoo.org</email>
+      <name>Hans de Graaff</name>
+    </member>
   </project>
   <project>
     <email>artwork@gentoo.org</email>
@@ -633,6 +637,11 @@
     <url>https://wiki.gentoo.org/wiki/Project:Council</url>
     <description>The elected Gentoo Council decides on global issues and policies that affect multiple projects in Gentoo.</description>
     <member>
+      <email>ajak@gentoo.org</email>
+      <name>John Helmert III</name>
+      <role>Council member</role>
+    </member>
+    <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
       <role>Council member</role>
@@ -640,11 +649,6 @@
     <member>
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
-      <role>Council member</role>
-    </member>
-    <member>
-      <email>marecki@gentoo.org</email>
-      <name>Marek Szuba</name>
       <role>Council member</role>
     </member>
     <member>
