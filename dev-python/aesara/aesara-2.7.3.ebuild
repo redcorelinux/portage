@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
 
 RDEPEND="
 	dev-python/cons[${PYTHON_USEDEP}]
@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/logical-unification[${PYTHON_USEDEP}]
 	dev-python/minikanren[${PYTHON_USEDEP}]
 	dev-python/filelock[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.17.0[${PYTHON_USEDEP}]
+	<dev-python/numpy-1.23[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/scipy[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
