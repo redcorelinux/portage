@@ -27,7 +27,16 @@ RDEPEND="
 	dev-util/lttng-ust:0
 	dev-db/sqlite"
 
+QA_PREBUILT="*"
+
 S="${WORKDIR}/Radarr"
+
+src_prepare() {
+	default
+
+	# https://github.com/dotnet/runtime/issues/57784
+	rm libcoreclrtraceptprovider.so Radarr.Update/libcoreclrtraceptprovider.so || die
+}
 
 src_install() {
 	newinitd "${FILESDIR}/${PN}.init" ${PN}

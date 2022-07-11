@@ -33,6 +33,24 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2022-07-11)
+# Unmaintained, companion lib of dev-cpp/commoncpp2 which has already
+# been removed, fails with USE=-ssl, no revdeps, upstream mostly dead.
+# Bug #830581, removal on 2022-08-10.
+dev-libs/ucommon
+
+# Brian Evans <grknight@gentoo.org> (2022-07-11)
+# The database behind this extension is no longer available
+# Please migrate to dev-php/maxmind-db-reader optionally with its
+# bundled extension. Bug 857636
+# Removal on 2022-08-10.
+dev-php/pecl-geoip
+
+# David Seifert <soap@gentoo.org> (2022-07-11)
+# Crashes with latest emboss, no other distro packages this,
+# ancient release, bug #361411, removal on 2022-08-10.
+sci-biology/transfac
+
 # Sam James <sam@gentoo.org> (2022-07-10)
 # Broken with autoconf 2.70+, stuck on EAPI 6, plenty
 # of concerning warnings. Even Debian's fork isn't
