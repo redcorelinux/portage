@@ -86,6 +86,7 @@ src_configure() {
 		-DENABLE_OCTOCLOCK="$(usex octoclock)"
 		-DPYTHON_EXECUTABLE="${PYTHON}"
 		-DPKG_DOC_DIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DUHD_VERSION="${PV}"
 	)
 	cmake_src_configure
 }
@@ -129,4 +130,12 @@ src_install() {
 	fi
 	insinto /usr/share/${PN}
 	doins -r "${WORKDIR}/images"
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
