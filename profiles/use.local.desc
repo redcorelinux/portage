@@ -827,8 +827,6 @@ app-misc/gramps:rcs - Adds support for family tree archives via dev-vcs/rcs
 app-misc/gramps:reports - All external software that is needed for graphical reports will be installed
 app-misc/graphlcd-base:fontconfig - Add support for media-libs/fontconfig font names.
 app-misc/graphlcd-base:freetype - Add support for media-libs/freetype.
-app-misc/graphlcd-base:graphicsmagick - Add support for media-gfx/graphicsmagick.
-app-misc/graphlcd-base:imagemagick - Add support for media-gfx/imagemagick.
 app-misc/irtrans-irserver:mono - Enable mono support
 app-misc/jdupes:dedupe - Enable deduplication support
 app-misc/jdupes:lowmem - Enable support for low-memory operation
@@ -3470,8 +3468,8 @@ kde-apps/kget:mms - Enable MMS (Microsoft Media Server) plugin through media-lib
 kde-apps/kig:geogebra - Support files created by sci-mathematics/geogebra-bin
 kde-apps/kig:scripting - Support Python scripting
 kde-apps/kio-extras:X - Enable support for XCursor thumbnails via x11-libs/libX11
-kde-apps/kio-extras:activities - Enable activities kioslave and fileitem plugin
-kde-apps/kio-extras:man - Enable manpages kioslave
+kde-apps/kio-extras:activities - Enable activities KIO worker and fileitem plugin
+kde-apps/kio-extras:man - Enable manpages KIO worker
 kde-apps/kio-extras:nfs - Enable NFS support using net-libs/libtirpc
 kde-apps/kio-extras:phonon - Enable file audio preview plugin using media-libs/phonon
 kde-apps/kio-extras:sftp - Enable SFTP protocol support using net-libs/libssh
