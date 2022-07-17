@@ -13,6 +13,7 @@ DESCRIPTION="Highly flexible server for git directory version tracker, Gentoo fo
 HOMEPAGE="https://cgit.gentoo.org/proj/gitolite-gentoo.git"
 if [[ ${PV} != *9999 ]]; then
 	SRC_URI="mirror://gentoo/${P}.tar.bz2"
+	SRC_URI+=" https://github.com/sitaramc/gitolite/commit/5df2b817255ee919991da6c310239e08c8fcc1ae.patch"
 	KEYWORDS="amd64 x86"
 else
 	SRC_URI=""
@@ -38,6 +39,10 @@ RDEPEND="
 	vim-syntax? ( app-vim/gitolite-syntax )
 	selinux? ( sec-policy/selinux-gitosis )
 "
+
+PATCHES=(
+	"${DISTDIR}"/5df2b817255ee919991da6c310239e08c8fcc1ae.patch
+)
 
 src_prepare() {
 	default
