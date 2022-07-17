@@ -6671,7 +6671,7 @@ net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using
 net-misc/wget2:brotli - Enable support for brotli compression
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
 net-misc/wget2:http2 - Enable HTTP/2.0 support via net-libs/nghttp2
-net-misc/wget2:lzip - Enable app-arch/lzip support
+net-misc/wget2:lzip - Enable app-arch/lzip support via app-arch/lzlib
 net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
 net-misc/wget2:valgrind - Depend on dev-util/valgrind for test suite
@@ -8877,6 +8877,7 @@ x11-misc/albert:python-extensions - Install default python extensions system-wid
 x11-misc/albert:statistics - Enable local statistics
 x11-misc/albert:virtualbox - Enable app-emulation/virtualbox extension
 x11-misc/alock:doc - Build and install manpage with app-text/asciidoc.
+x11-misc/appmenu-gtk-module:gtk2 - Build module for GTK+2
 x11-misc/autorandr:launcher - Install the launcher, i.e., an alternative to the udev/systemd hooks
 x11-misc/bumblebee:bbswitch - Add dependency on sys-power/bbswitch for PM feature
 x11-misc/clipmenu:dmenu - Use dmenu as default launcher
