@@ -33,10 +33,6 @@
 
 #--- END OF EXAMPLES ---
 
-# Robin H. Johnson <robbat2@gentoo.org> (2022-07-23)
-# Prepare to re-introduce into the tree
-app-emulation/ganeti
-
 # Sam James <sam@gentoo.org> (2022-07-22)
 # Monolithic mask for dev-haskell/* packages which have no reverse dependencies,
 # are broken, or severely out of date. The aim is to have the Haskell overlay
@@ -206,7 +202,6 @@ dev-haskell/listlike
 dev-haskell/logict-state
 dev-haskell/lrucache
 dev-haskell/maccatcher
-dev-haskell/markdown-unlit
 dev-haskell/mersenne-random-pure64
 dev-haskell/mime
 dev-haskell/mime-mail
@@ -611,6 +606,7 @@ dev-ml/async_extra:0/0.15
 dev-ml/core_bench:0/0.15
 dev-ml/patience_diff:0/0.15
 dev-util/patdiff:0/0.15
+=dev-ml/alcotest-1.6.0*
 
 # Sam James <sam@gentoo.org> (2022-04-13)
 # 2.35.2 was a quick release to mitigate a security issue (bug #838127), but
