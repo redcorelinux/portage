@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mquinson/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -21,6 +21,7 @@ RDEPEND="app-text/opensp
 	dev-perl/Locale-gettext
 	dev-perl/Pod-Parser
 	dev-perl/SGMLSpm
+	dev-perl/Syntax-Keyword-Try
 	dev-perl/TermReadKey
 	dev-perl/Text-WrapI18N
 	dev-perl/Unicode-LineBreak
@@ -37,7 +38,7 @@ BDEPEND="app-text/docbook-xml-dtd:4.1.2
 		virtual/latex-base
 	)"
 
-PATCHES=( "${FILESDIR}"/${PN}-man.patch )
+PATCHES=( "${FILESDIR}"/${P}-man.patch )
 
 DIST_TEST="do"
 
