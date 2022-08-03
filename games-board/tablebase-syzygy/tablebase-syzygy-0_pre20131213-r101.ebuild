@@ -53,7 +53,7 @@ pkg_nofetch() {
 	einfo "After downloading, place all K*.rtbw and K*.rtbz files in your"
 	einfo "DISTDIR directory."
 	einfo "(For the tablebases with up to 6 pieces, there should be"
-	einfo "$(set -- ${A}; echo $#) files in total.)"
+	einfo "$(echo ${A} | wc -w) files in total.)"
 }
 
 pkg_pretend() {

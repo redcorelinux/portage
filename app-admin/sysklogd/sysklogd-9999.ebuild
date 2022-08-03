@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 inherit flag-o-matic systemd toolchain-funcs
 
@@ -18,7 +18,7 @@ fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="logger logrotate"
+IUSE="logger logrotate systemd"
 # Needs network access
 RESTRICT="test"
 
@@ -28,12 +28,15 @@ DEPEND="
 		!>=sys-apps/util-linux-2.34-r3[logger]
 	)
 "
-RDEPEND="
-	${DEPEND}
-	logrotate? ( app-admin/logrotate )
-"
+RDEPEND="${DEPEND}
+	logrotate? ( app-admin/logrotate )"
 
 DOCS=( ChangeLog.md README.md )
+
+pkg_setup() {
+	append-lfs-flags
+	tc-export CC
+}
 
 src_prepare() {
 	default
@@ -42,16 +45,12 @@ src_prepare() {
 }
 
 src_configure() {
-	append-lfs-flags
-	tc-export CC
-
 	local myeconfargs=(
 		--disable-static
 		--runstatedir="${EPREFIX}"/run
-		--with-systemd=$(systemd_get_systemunitdir)
 		$(use_with logger)
+		$(use_with systemd systemd $(systemd_get_systemunitdir))
 	)
-
 	econf "${myeconfargs[@]}"
 }
 
@@ -80,7 +79,6 @@ pkg_postinst() {
 		elog "functionality that does no longer require a running cron daemon."
 		elog "So we no longer install any log rotation cron files for sysklogd."
 	fi
-
 	if [[ -n ${REPLACING_VERSIONS} ]] && ver_test ${REPLACING_VERSIONS} -lt 2.1 ; then
 		elog "Starting with version 2.1 sysklogd no longer provides klogd."
 		elog "syslogd now also logs kernel messages."

@@ -4,14 +4,13 @@
 EAPI=8
 
 inherit flag-o-matic
-
-if [[ ${PV} == 9999 ]] ; then
+if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/nano.git"
-	inherit autotools git-r3
+	inherit git-r3 autotools
 else
 	MY_P="${PN}-${PV/_}"
 	SRC_URI="https://www.nano-editor.org/dist/v${PV:0:1}/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 DESCRIPTION="GNU GPL'd Pico clone with more functionality"
@@ -25,13 +24,10 @@ LIB_DEPEND="
 	>=sys-libs/ncurses-5.9-r1:=[unicode(+)?]
 	sys-libs/ncurses:=[static-libs(+)]
 	magic? ( sys-apps/file[static-libs(+)] )
-	nls? ( virtual/libintl )
-"
+	nls? ( virtual/libintl )"
 RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )"
-DEPEND="
-	${RDEPEND}
-	static? ( ${LIB_DEPEND} )
-"
+DEPEND="${RDEPEND}
+	static? ( ${LIB_DEPEND} )"
 BDEPEND="
 	nls? ( sys-devel/gettext )
 	virtual/pkgconfig
@@ -43,16 +39,14 @@ REQUIRED_USE="
 
 src_prepare() {
 	default
-
-	if [[ ${PV} == 9999 ]] ; then
+	if [[ ${PV} == "9999" ]] ; then
 		eautoreconf
 	fi
 }
 
 src_configure() {
 	use static && append-ldflags -static
-
-	local myconfargs=(
+	local myconf=(
 		--bindir="${EPREFIX}"/bin
 		--htmldir=/trash
 		$(use_enable !minimal color)
@@ -66,14 +60,12 @@ src_configure() {
 		$(use_enable unicode utf8)
 		$(use_enable minimal tiny)
 	)
-
-	econf "${myconfargs[@]}"
+	econf "${myconf[@]}"
 }
 
 src_install() {
 	default
-
-	# Don't use "${ED}" here or things break (#654534)
+	# don't use "${ED}" here or things break (#654534)
 	rm -r "${D}"/trash || die
 
 	dodoc doc/sample.nanorc
@@ -81,7 +73,6 @@ src_install() {
 	dodoc doc/faq.html
 	insinto /etc
 	newins doc/sample.nanorc nanorc
-
 	if ! use minimal ; then
 		# Enable colorization by default.
 		sed -i \
@@ -95,16 +86,15 @@ src_install() {
 		rmdir "${ED}"${rcdir}/extra || die
 
 		insinto "${rcdir}"
-		newins "${FILESDIR}/gentoo.nanorc-r1" gentoo.nanorc
+		doins "${FILESDIR}/gentoo.nanorc"
 	fi
 
 	use split-usr && dosym ../../bin/nano /usr/bin/nano
 }
 
 pkg_postrm() {
-	[[ -n ${REPLACED_BY_VERSION} ]] && return
-
 	local e
+	[[ -n ${REPLACED_BY_VERSION} ]] && return
 	e=$(unset EDITOR; . "${EROOT}"/etc/profile &>/dev/null; echo "${EDITOR}")
 	if [[ ${e##*/} == nano ]]; then
 		ewarn "The EDITOR variable is still set to ${e}."
