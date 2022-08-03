@@ -72,7 +72,6 @@ DEPEND="${COMMON_DEPEND}
 
 BDEPEND="
 	app-text/xmlto
-	sys-devel/gettext
 	virtual/pkgconfig
 	gtk? ( dev-util/glib-utils )
 	nls? (
@@ -147,12 +146,12 @@ multilib_src_configure() {
 
 	if multilib_is_native_abi; then
 		# both must be enabled to use GraphicsMagick
-		if use imagemagick && use graphicsmagick; then
+		if use graphicsmagick; then
 			myeconfargs+=(
 				--with-graphicsmagick
 				--without-imagemagick
 			)
-		elif ! use graphicsmagick && use imagemagick; then
+		elif use imagemagick; then
 			myeconfargs+=(
 				--with-imagemagick
 				--without-graphicsmagick
