@@ -3,6 +3,16 @@
 
 EAPI=8
 
+# Generate using https://github.com/thesamesam/sam-gentoo-scripts/blob/main/niche/generate-cmake-docs
+# Set to 1 if prebuilt, 0 if not
+# (the construct below is to allow overriding from env for script)
+CMAKE_DOCS_PREBUILT=${CMAKE_DOCS_PREBUILT:-1}
+CMAKE_DOCS_PREBUILT_DEV=sam
+CMAKE_DOCS_VERSION=$(ver_cut 1-3)
+# Default to generating docs (inc. man pages) if no prebuilt; overridden later
+# See bug #784815
+CMAKE_DOCS_USEFLAG="+doc"
+
 # TODO RunCMake.LinkWhatYouUse fails consistently w/ ninja
 # ... but seems fine as of 3.22.3?
 # TODO ... but bootstrap sometimes(?) fails with ninja now. bug #834759.
@@ -16,10 +26,17 @@ MY_P="${P/_/-}"
 DESCRIPTION="Cross platform Make"
 HOMEPAGE="https://cmake.org/"
 if [[ ${PV} == 9999 ]] ; then
-	inherit git-r3
+	CMAKE_DOCS_PREBUILT=0
+
 	EGIT_REPO_URI="https://gitlab.kitware.com/cmake/cmake.git"
+	inherit git-r3
 else
 	SRC_URI="https://cmake.org/files/v$(ver_cut 1-2)/${MY_P}.tar.gz"
+
+	if [[ ${CMAKE_DOCS_PREBUILT} == 1 ]] ; then
+		SRC_URI+=" !doc? ( https://dev.gentoo.org/~${CMAKE_DOCS_PREBUILT_DEV}/distfiles/${CATEGORY}/${PN}/${PN}-${CMAKE_DOCS_VERSION}-docs.tar.xz )"
+	fi
+
 	if [[ ${PV} != *_rc* ]] ; then
 		VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/bradking.asc
 		inherit verify-sig
@@ -35,9 +52,13 @@ else
 	fi
 fi
 
+[[ ${CMAKE_DOCS_PREBUILT} == 1 ]] && CMAKE_DOCS_USEFLAG="doc"
+
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="CMake"
 SLOT="0"
-IUSE="doc emacs ncurses qt5 test"
+IUSE="${CMAKE_DOCS_USEFLAG} emacs ncurses qt5 test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -66,23 +87,21 @@ BDEPEND+="
 	test? ( app-arch/libarchive[zstd] )
 "
 
-S="${WORKDIR}/${MY_P}"
-
 SITEFILE="50${PN}-gentoo.el"
 
 PATCHES=(
-	# prefix
+	# Prefix
 	"${FILESDIR}"/${PN}-3.16.0_rc4-darwin-bundle.patch
 	"${FILESDIR}"/${PN}-3.14.0_rc3-prefix-dirs.patch
 	"${FILESDIR}"/${PN}-3.19.1-darwin-gcc.patch
 
-	# handle gentoo packaging in find modules
+	# Handle gentoo packaging in find modules
 	"${FILESDIR}"/${PN}-3.17.0_rc1-FindBLAS.patch
 	# Next patch needs to be reworked
 	#"${FILESDIR}"/${PN}-3.17.0_rc1-FindLAPACK.patch
 	"${FILESDIR}"/${PN}-3.5.2-FindQt4.patch
 
-	# respect python eclasses
+	# Respect python eclasses
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonLibs.patch
 	"${FILESDIR}"/${PN}-3.9.0_rc2-FindPythonInterp.patch
 
@@ -113,7 +132,7 @@ cmake_src_bootstrap() {
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
 		git-r3_src_unpack
-	elif ! use verify-sig || [[ ${PV} == *_rc ]] ; then
+	elif ! use verify-sig || [[ ${PV} == *_rc* ]] ; then
 		default
 	else
 		cd "${DISTDIR}" || die
@@ -132,20 +151,21 @@ src_prepare() {
 	cmake_src_prepare
 
 	if [[ ${CHOST} == *-darwin* ]] ; then
-		# disable Xcode hooks, bug #652134
+		# Disable Xcode hooks, bug #652134
 		sed -i -e 's/cm\(\|Global\|Local\)XCode[^.]\+\.\(cxx\|h\)//' \
 			Source/CMakeLists.txt || die
 		sed -i -e '/define CMAKE_USE_XCODE/s/XCODE/NO_XCODE/' \
 			-e '/cmGlobalXCodeGenerator.h/d' \
 			Source/cmake.cxx || die
-		# disable isysroot usage with GCC, we've properly instructed
+
+		# Disable isysroot usage with GCC, we've properly instructed
 		# where things are via GCC configuration and ldwrapper
 		sed -i -e '/cmake_gnu_set_sysroot_flag/d' \
 			Modules/Platform/Apple-GNU-*.cmake || die
-		# disable isysroot usage with clang as well
+		# Disable isysroot usage with clang as well
 		sed -i -e '/_SYSROOT_FLAG/d' \
 			Modules/Platform/Apple-Clang.cmake || die
-		# don't set a POSIX standard, system headers don't like that, #757426
+		# Don't set a POSIX standard, system headers don't like that, #757426
 		sed -i -e 's/^#if !defined(_WIN32) && !defined(__sun)/& \&\& !defined(__APPLE__)/' \
 			Source/cmLoadCommandCommand.cxx \
 			Source/cmStandardLexer.h \
@@ -193,7 +213,7 @@ src_compile() {
 }
 
 src_test() {
-	# fix OutDir and SelectLibraryConfigurations tests
+	# Fix OutDir and SelectLibraryConfigurations tests
 	# these are altered thanks to our eclass
 	sed -i -e 's:^#_cmake_modify_IGNORE ::g' \
 		"${S}"/Tests/{OutDir,CMakeOnly/SelectLibraryConfigurations}/CMakeLists.txt \
@@ -225,6 +245,11 @@ src_test() {
 src_install() {
 	cmake_src_install
 
+	# If USE=doc, there'll be newly generated docs which we install instead.
+	if ! use doc && [[ ${CMAKE_DOCS_PREBUILT} == 1 ]] ; then
+		doman "${WORKDIR}"/${PN}-${CMAKE_DOCS_VERSION}-docs/man*/*.[0-8]
+	fi
+
 	if use emacs; then
 		elisp-install ${PN} Auxiliary/cmake-mode.el Auxiliary/cmake-mode.elc
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
@@ -244,6 +269,7 @@ src_install() {
 
 pkg_postinst() {
 	use emacs && elisp-site-regen
+
 	if use qt5; then
 		xdg_icon_cache_update
 		xdg_desktop_database_update
@@ -253,6 +279,7 @@ pkg_postinst() {
 
 pkg_postrm() {
 	use emacs && elisp-site-regen
+
 	if use qt5; then
 		xdg_icon_cache_update
 		xdg_desktop_database_update
