@@ -7,9 +7,9 @@ inherit go-module systemd
 
 DESCRIPTION="An open source, self-hosted implementation of the Tailscale control server"
 HOMEPAGE="https://github.com/juanfont/headscale"
+DEPS_URIS=( https://dev.gentoo.org/~{dlan,jsmolic}/distfiles/net-vpn/headscale/${P}-deps.tar.xz )
 SRC_URI="https://github.com/juanfont/headscale/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~jsmolic/distfiles/net-vpn/headscale/${P}-deps.tar.xz
-"
+	${DEPS_URIS[@]}"
 
 LICENSE="BSD Apache-2.0 MIT"
 SLOT="0"
