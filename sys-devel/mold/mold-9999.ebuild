@@ -32,6 +32,11 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	# https://bugs.gentoo.org/865837
+	"${FILESDIR}"/mold-1.4.1-tbb-flags-stripping.patch
+)
+
 pkg_pretend() {
 	# Requires a c++20 compiler, see #831473
 	if [[ ${MERGE_TYPE} != binary ]]; then
@@ -62,16 +67,6 @@ src_prepare() {
 	if ! has_version -d 'sys-libs/glibc[static-pie(+)]'; then
 		rm test/elf/{,ifunc-}static-pie.sh || die
 	fi
-
-	# Don't require python
-	sed -i '/find_package(Python3/d' CMakeLists.txt || die
-	sed -i '/add_dependencies/d' CMakeLists.txt || die
-	cat <<EOF>git-hash.cc
-#include <string>
-namespace mold {
-std::string mold_git_hash = "gentoo-${PVR}";
-}
-EOF
 }
 
 src_configure() {

@@ -36,6 +36,8 @@ PATCHES=(
 	# Allows us to rm the tests as before. Will be included in next
 	# release.
 	"${FILESDIR}"/mold-1.4.1-glob-tests.patch
+	# https://bugs.gentoo.org/865837
+	"${FILESDIR}"/mold-1.4.1-tbb-flags-stripping.patch
 )
 
 pkg_pretend() {
@@ -69,9 +71,13 @@ src_prepare() {
 		rm test/elf/{,ifunc-}static-pie.sh || die
 	fi
 
-	# Don't require python
-	sed -i '/find_package(Python3/d' CMakeLists.txt || die
-	sed -i '/add_dependencies/d' CMakeLists.txt || die
+	# Don't require python. The next release has this script rewritten
+	# in CMake and so this can be dropped.
+	sed -e '/find_package(Python3/d' \
+		-e '/add_dependencies/d' \
+		-e '/UpdateGitHash/,/)/d' \
+		-i CMakeLists.txt || die
+	rm update-git-hash.py || die
 	cat <<EOF>git-hash.cc
 #include <string>
 namespace mold {
