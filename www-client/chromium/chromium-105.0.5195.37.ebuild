@@ -263,7 +263,7 @@ pre_build_checks() {
 
 	# Check build requirements, bug #541816 and bug #471810 .
 	CHECKREQS_MEMORY="4G"
-	CHECKREQS_DISK_BUILD="11G"
+	CHECKREQS_DISK_BUILD="12G"
 	tc-is-cross-compiler && CHECKREQS_DISK_BUILD="14G"
 	if use lto || use pgo; then
 		CHECKREQS_MEMORY="9G"
@@ -887,17 +887,6 @@ chromium_configure() {
 		if tc-is-cross-compiler; then
 			export BUILD_CXXFLAGS+=" -Wno-unknown-warning-option"
 			export BUILD_CFLAGS+=" -Wno-unknown-warning-option"
-		fi
-	fi
-
-	# Disable opaque pointers, https://crbug.com/1316298
-	if tc-is-clang; then
-		if test-flag-CXX -Xclang -no-opaque-pointers; then
-			append-flags -Xclang -no-opaque-pointers
-			if tc-is-cross-compiler; then
-				export BUILD_CXXFLAGS+=" -Xclang -no-opaque-pointers"
-				export BUILD_CFLAGS+=" -Xclang -no-opaque-pointers"
-			fi
 		fi
 	fi
 
