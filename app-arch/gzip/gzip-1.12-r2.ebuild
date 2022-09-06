@@ -21,6 +21,7 @@ KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv 
 IUSE="pic static"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-gzip )"
+RDEPEND="!app-arch/pigz[symlink(-)]"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.3.8-install-symlinks.patch"
@@ -42,8 +43,23 @@ src_install() {
 	docinto txt
 	dodoc algorithm.doc gzip.doc
 
+	# Avoid conflict with app-arch/ncompress
+	rm "${ED}"/usr/bin/uncompress || die
+
 	# keep most things in /usr, just the fun stuff in /
 	dodir /bin
-	mv "${ED}"/usr/bin/{gunzip,gzip,uncompress,zcat} "${ED}"/bin/ || die
+	mv "${ED}"/usr/bin/{gunzip,gzip,zcat} "${ED}"/bin/ || die
 	sed -e "s:${EPREFIX}/usr:${EPREFIX}:" -i "${ED}"/bin/gunzip || die
+}
+
+pkg_postinst() {
+	if [[ -n ${REPLACING_VERSIONS} ]]; then
+		local ver
+		for ver in ${REPLACING_VERSIONS}; do
+			if ver_test "${ver}" -lt "1.12-r2"; then
+				ewarn "This package no longer installs 'uncompress'."
+				ewarn "Please use 'gzip -d' to decompress .Z files."
+			fi
+		done
+	fi
 }
