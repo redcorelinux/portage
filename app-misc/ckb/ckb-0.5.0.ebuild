@@ -13,7 +13,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/ckb-next/ckb-next.git"
 else
 	SRC_URI="https://github.com/ckb-next/ckb-next/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/${PN}-next-${PV}"
 fi
 
@@ -23,7 +23,7 @@ IUSE="systemd"
 
 RDEPEND="
 	dev-libs/libdbusmenu-qt
-	dev-libs/quazip:0=
+	dev-libs/quazip:0=[qt5(+)]
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

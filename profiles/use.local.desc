@@ -2174,6 +2174,8 @@ dev-libs/ppl:cdd - Build the ppl_lcdd program for vertex/facet enumeration accep
 dev-libs/ppl:lpsol - Build the ppl_lpsol linear program solver that uses sci-mathematics/glpk for its input routines
 dev-libs/qcoro5:network - Build dev-qt/qtnetwork support
 dev-libs/qcoro5:websockets - Build dev-qt/qtwebsockets support
+dev-libs/quazip:qt5 - Build with Qt5 support
+dev-libs/quazip:qt6 - Build with Qt6 support
 dev-libs/raft:zfs - ZFS support
 dev-libs/serd:tools - Build command line utilities
 dev-libs/serdisplib:tools - Build optional tools.
@@ -7767,6 +7769,7 @@ sys-apps/cpu-x:opencl - Use the virtual/opencl library
 sys-apps/cpu-x:pci - Use the sys-apps/pciutils library for PCI info
 sys-apps/dbus:elogind - Use sys-auth/elogind for session tracking.
 sys-apps/dbus:systemd - Build with sys-apps/systemd at_console support
+sys-apps/dbus-broker:apparmor - Enable AppArmor support
 sys-apps/dbus-broker:launcher - dbus-daemon compatibility launcher
 sys-apps/debianutils:installkernel - Install /sbin/installkernel script (for Linux). installkernel is required whenever a kernel will be installed via make install
 sys-apps/dtc:yaml - support .yaml-encoded device trees
