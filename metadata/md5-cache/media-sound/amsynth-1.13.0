@@ -4,6 +4,7 @@ DEPEND=alsa? ( media-libs/alsa-lib:= media-sound/alsa-utils ) dssi? ( media-libs
 DESCRIPTION=Virtual analogue synthesizer
 EAPI=8
 HOMEPAGE=https://github.com/amsynth/amsynth
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=xdg
 IUSE=alsa dssi gtk jack lash lv2 nsm oss vst
 KEYWORDS=~amd64 ~ppc ~x86
