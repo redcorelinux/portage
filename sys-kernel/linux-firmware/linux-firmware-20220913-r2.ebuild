@@ -316,8 +316,8 @@ pkg_preinst() {
 	fi
 
 	# Fix 'symlink is blocked by a directory' Bug #871315
-	if has_version "<${CATEGORY}/${PN}-20220913" ; then
-		rm -rf "${ROOT}"/lib/firmware/qcom/LENOVO/21BX
+	if has_version "<${CATEGORY}/${PN}-20220913-r2" ; then
+		rm -rf "${EROOT}"/lib/firmware/qcom/LENOVO/21BX
 	fi
 
 	# Make sure /boot is available if needed.
@@ -338,11 +338,6 @@ pkg_postinst() {
 			break
 		fi
 	done
-
-	# Fix 'symlink is blocked by a directory' Bug #871315
-	if has_version "<${CATEGORY}/${PN}-20220913" ; then
-		rm -rf "${ROOT}"/lib/firmware/qcom/LENOVO/21BX
-	fi
 
 	# Don't forget to umount /boot if it was previously mounted by us.
 	use initramfs && mount-boot_pkg_postinst
