@@ -13,8 +13,8 @@ LICENSE="GPL-2"
 
 # The subslot is the value of $soname_num obtained from
 # upstream's config/version script.
-SLOT="0/7"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+SLOT="0/8"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="data doc fltk gmp test threads X"
 RESTRICT="!test? ( test )"
 
@@ -48,6 +48,15 @@ src_prepare() {
 		-e "s:\$d = \$0:\$d = '${EPREFIX}/usr/share/doc/${PF}':" \
 		-e 's:"acroread":"xdg-open":' \
 		doc/gphelp.in || die "Failed to fix doc dir"
+
+	# These tests fail when LaTeX is not installed (which we don't
+	# require without USE=doc), most likely due to output formatting
+	# issues but I haven't deleted my LaTeX installation to check.
+	# There's no real upstream support for enabling/disabling the LaTeX
+	# docs, so this is probably the correctest way to skip these tests.
+	if ! use doc; then
+		rm src/test/{in,32}/help || die
+	fi
 }
 
 src_configure() {
@@ -65,13 +74,13 @@ src_configure() {
 	fi
 
 	# sysdatadir installs a pari.cfg stuff which is informative only.
-	# It is supposed to be for "architecture-dependent" data.
-	# It needs to be easily discoverable for downstream packages such as gp2c.
-	# We set LD to "" so that it is set to the value of the compiler used
-	# which is how a normal end user is expected to configure it. pari's build
-	# system do not cope very well with a naked linker, it is expecting a
-	# compiler driver. See https://bugs.gentoo.org/722090
-	LD="" ./Configure \
+	# It is supposed to be for "architecture-dependent" data.  It needs
+	# to be easily discoverable for downstream packages such as gp2c.
+	# We set LD="" and DLLD="$CC" so that the "shared library linker"
+	# always gets set to the value of the compiler used. Pari's build
+	# system does not cope very well with a naked linker, it is
+	# expecting a compiler driver. See bugs 722090 and 871117.
+	LD="" DLLD="$(tc-getCC)" ./Configure \
 		--prefix="${EPREFIX}"/usr \
 		--datadir="${EPREFIX}/usr/share/${PN}" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
@@ -88,11 +97,7 @@ src_configure() {
 }
 
 src_compile() {
-	local mymake=""
-	use hppa && \
-		mymake=DLLD\="${EPREFIX}"/usr/bin/gcc\ DLLDFLAGS\=-shared\ -Wl,-soname=\$\(LIBPARI_SONAME\)\ -lm
-
-	emake ${mymake} gp
+	emake gp
 
 	if use doc; then
 		# To prevent sandbox violations by metafont
