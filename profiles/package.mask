@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2022-09-29)
+# Unfetchable mirror-restricted distfile.  No action from maintainer
+# in over a year.
+# Removal on 2022-10-29.  Bug #789477.
+games-simulation/bcs-demo
+
 # Stephan Hartmann <sultan@gentoo.org> (2022-09-26)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
@@ -556,11 +562,12 @@ sys-devel/automake:1.11
 # New major parallel-installable release which needs special care to not
 # end up loaded into the same process together with the earlier libsoup ABI.
 # Migration to it is expected for GNOME 42, NOT to be unmasked with GNOME 41.
+>=dev-util/devhelp-43
 >=gnome-extra/gnome-calculator-43
 media-libs/libshumate
-net-libs/uhttpmock:1.0
 net-libs/libsoup:3.0
 net-libs/rest:1.0
+net-libs/uhttpmock:1.0
 net-libs/webkit-gtk:4.1
 sci-geosciences/geocode-glib:2
 
