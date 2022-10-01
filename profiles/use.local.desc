@@ -1247,6 +1247,7 @@ dev-cpp/libjson-rpc-cpp:http-server - Build support for HTTP server using net-li
 dev-cpp/libjson-rpc-cpp:redis-client - Build support for Redis client using dev-libs/hiredis
 dev-cpp/libjson-rpc-cpp:redis-server - Build support for Redis server using dev-libs/hiredis
 dev-cpp/libjson-rpc-cpp:stubgen - Build header stub code generator (needed for development and when pregenerated headers are not bundled)
+dev-cpp/muParser:wchar - Add support for wide character (wchar_t)
 dev-cpp/opentelemetry-cpp:jaeger - Include the jaeger exporter
 dev-cpp/opentelemetry-cpp:prometheus - include the Prometheus Client in the SDK
 dev-cpp/sdbus-c++:systemd - Use external libsystemd instead of statically-linked build
@@ -8211,6 +8212,9 @@ sys-devel/clang:default-compiler-rt - Use compiler-rt instead of libgcc as the d
 sys-devel/clang:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
 sys-devel/clang:default-lld - Use lld as the default linker for clang
 sys-devel/clang:static-analyzer - Install the Clang static analyzer
+sys-devel/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
+sys-devel/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+sys-devel/clang-common:default-lld - Use lld as the default linker for clang
 sys-devel/clang-runtime:compiler-rt - Install sys-libs/compiler-rt for -rtlib=compiler-rt
 sys-devel/clang-runtime:libcxx - Install sys-libs/libcxx for -stdlib=libc++
 sys-devel/clang-runtime:openmp - Install sys-libs/libomp for -fopenmp support
