@@ -33,6 +33,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam Jaems <sam@gentoo.org> (2022-10-04)
+# Please upgrade to >= portage-3.0.37 for binpkg fixes.
+# bug #870283, bug #874771.
+=sys-apps/portage-3.0.31
+=sys-apps/portage-3.0.32
+=sys-apps/portage-3.0.33
+=sys-apps/portage-3.0.34
+=sys-apps/portage-3.0.35
+=sys-apps/portage-3.0.36
+
 # Matt Turner <mattst88@gentoo.org> (2022-10-01)
 # Depends on lots of unmaintained packages:
 # 	- app-text/gnome-doc-utils
@@ -416,6 +426,7 @@ sys-devel/automake:1.11
 # end up loaded into the same process together with the earlier libsoup ABI.
 # Migration to it is expected for GNOME 42, NOT to be unmasked with GNOME 41.
 >=app-arch/file-roller-43
+>=app-text/libgepub-0.7.0
 >=dev-libs/gjs-1.74
 >=dev-libs/libgweather-4.2.0
 >=dev-python/nautilus-python-4.0
