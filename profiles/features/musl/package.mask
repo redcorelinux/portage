@@ -1,8 +1,23 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2022-10-04)
+# Packages with dubious sys-libs/glibc dependencies (non-binary) but
+# masking for now to allow musl profiles to graduate from exp->dev.
+dev-db/pgbouncer
+dev-libs/cgreen
+media-sound/xwax
+net-analyzer/gvmd
+net-analyzer/gvm-libs
+net-analyzer/openvas-scanner
+net-misc/grive
+net-print/pnm2ppa
+net-wireless/neard
+sys-apps/noexec
+
 # Petr Vaněk <arkamar@atlas.cz> (2022-09-23)
 # Musl does not implement rresvport function, bugs #713810 and #713376.
+app-admin/clustershell
 app-shells/pdsh
 net-analyzer/ipcad
 
@@ -60,6 +75,8 @@ net-misc/sitecopy
 # Latest version doesn't build on musl
 # bug #831363
 =sys-libs/efivar-38
+app-crypt/pesign
+sys-kernel/kpatch
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-01-05)
 # Binary package linked to glibc (rolling mask, use for all such binpkgs)
@@ -123,10 +140,12 @@ media-video/makemkv
 media-video/popcorntime-bin
 net-im/discord-bin
 net-im/element-desktop-bin
+net-im/gitter-bin
 net-im/mattermost-desktop-bin
 net-im/rocketchat-desktop-bin
 net-im/skypeforlinux
 net-im/skype-dbus-mock
+net-im/slack
 net-im/teams
 net-im/telegram-desktop-bin
 net-im/wazzapp-bin
@@ -165,6 +184,7 @@ www-client/vivaldi
 www-client/vivaldi-snapshot
 www-plugins/chrome-binary-plugins
 x11-misc/xflux
+x11-misc/xflux-gui
 
 # Ulrich Müller <ulm@gentoo.org> (2022-01-04, 2022-07-31)
 # Emacs 23 does not support x86_64-gentoo-linux-musl systems
@@ -193,6 +213,7 @@ dev-libs/level-zero
 app-doc/kicad-doc
 app-i18n/man-pages-l10n
 app-text/po4a
+dev-vcs/git-annex
 games-strategy/colobot
 www-apps/ikiwiki
 
