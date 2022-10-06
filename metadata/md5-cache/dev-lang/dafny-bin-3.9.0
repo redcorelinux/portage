@@ -8,5 +8,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/userspace-rcu dev-util/lttng-ust sci-mathematics/z3
 REQUIRED_USE=elibc_glibc
 SLOT=0
-SRC_URI=https://github.com/dafny-lang/dafny/releases/download/v3.7.3/dafny-3.7.3-x64-ubuntu-16.04.zip
-_md5_=7cd43c612f572e71cf0a286481f19b64
+SRC_URI=https://github.com/dafny-lang/dafny/releases/download/v3.9.0/dafny-3.9.0-x64-ubuntu-16.04.zip
+_md5_=d62878b80bafd83a9e5cb3933bacc01d

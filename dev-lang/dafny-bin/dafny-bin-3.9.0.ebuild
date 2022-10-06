@@ -9,7 +9,7 @@ SRC_URI="https://github.com/dafny-lang/dafny/releases/download/v${PV}/dafny-${PV
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64"  # Binaries are compiled only for x86_64.
+KEYWORDS="-* ~amd64"
 REQUIRED_USE="elibc_glibc"
 
 RDEPEND="
@@ -28,7 +28,8 @@ src_prepare() {
 	# Remove bundled z3.
 	# NOTICE: New versions do not need the bundled one but older versions
 	# hardcoded the path relative to "dafny" binary.
-	# While bumping make sure to verify that system's "z3" is used.
+	# While bumping make sure to verify that system's "z3" is used
+	# by, for example, compiling/verifying a simple dafny program.
 	rm -r z3 || die
 }
 
