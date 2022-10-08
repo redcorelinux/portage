@@ -64,10 +64,12 @@ BDEPEND="
 S="${WORKDIR}/lib${P}"
 
 src_prepare() {
+	default
+
 	sed -Ee 's:(XSLT_STYLESHEET = ).*:\1/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl:' \
 		-i Makefile.in Makefile-man.am || die
+
 	eautoreconf
-	default
 }
 
 src_configure() {
