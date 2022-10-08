@@ -7,9 +7,12 @@
 dev-db/pgbouncer
 dev-libs/cgreen
 media-sound/xwax
+net-analyzer/gsad
+net-analyzer/gvm
 net-analyzer/gvmd
 net-analyzer/gvm-libs
 net-analyzer/openvas-scanner
+net-analyzer/ospd-openvas
 net-misc/grive
 net-print/pnm2ppa
 net-wireless/neard
@@ -171,6 +174,9 @@ sys-block/hpssacli
 sys-block/megacli
 sys-power/dptfxtract
 www-apps/chromedriver-bin
+www-apps/grafana-bin
+www-apps/jellyfin
+www-apps/kibana-bin
 www-client/chromium-bin
 www-client/google-chrome
 www-client/google-chrome-beta
