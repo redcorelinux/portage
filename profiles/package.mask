@@ -33,6 +33,19 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2022-10-08)
+# This package is not really required for anything, as it being missing
+# only disables enforcing install_requires.  At the same time, it being
+# installed causes unexpected verbose output that randomly breaks more
+# susceptible test suites (e.g. dev-python/pythran).
+# Removal on 2022-11-07.  Bug #876082.
+dev-python/setuptools-declarative-requirements
+
+# Michał Górny <mgorny@gentoo.org> (2022-10-08)
+# The test suite is broken since at least March.  No revdeps.
+# Removal on 2022-11-07.  Bug #834656.
+dev-python/kazoo
+
 # Matt Turner <mattst88@gentoo.org> (2022-10-07)
 # Unstable release. Masked for testing.
 >=x11-libs/cairo-1.17
@@ -44,13 +57,6 @@
 # bug #731070, bug #802108, bug #875164.
 # Use media-sound/mpd if looking for a modern alternative. Removal on 2022-11-07.
 media-sound/rplay
-
-# Mike Gilbert <floppym@gentoo.org> (2022-10-05)
-# Implements the obsolete BOOTP protocol; use DHCP instead.
-# No activity upstream for over two decades.
-# Fails to build with -Werror=implicit-function-declaration (#875536).
-# Removal on 2022-11-04.
-net-misc/netkit-bootpd
 
 # Matt Turner <mattst88@gentoo.org> (2022-10-01)
 # Unmaintained upstream. Last commit was 10 years ago today.
