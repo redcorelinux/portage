@@ -7848,7 +7848,6 @@ sys-apps/hwloc:cairo - Enable the Cairo back-end of hwloc's lstopo command
 sys-apps/hwloc:cpuid - Enable the cpuid-based architecture specific support (x86 component)
 sys-apps/hwloc:cuda - Enable CUDA device discovery using libcudart
 sys-apps/hwloc:gl - Enable GL display device discovery (NVCtrl)
-sys-apps/hwloc:netloc - Enable Netloc
 sys-apps/hwloc:numa - Add support for numa memory allocation
 sys-apps/hwloc:nvml - Enable the NVML device discovery
 sys-apps/hwloc:pci - Enable PCI device discovery using libpci
@@ -8404,7 +8403,6 @@ sys-kernel/linux-firmware:initramfs - Create and install initramfs for early mic
 sys-kernel/linux-firmware:redistributable - Install also non-free (but redistributable) firmware files
 sys-kernel/linux-firmware:savedconfig - Allows individual selection of firmware files
 sys-kernel/linux-firmware:unknown-license - Install firmware files whose license is unknown
-sys-kernel/linux-headers:experimental-loong - Add experimental LoongArch patchset
 sys-kernel/mips-sources:experimental - Apply experimental (80xx) patches.
 sys-kernel/mips-sources:ip27 - Enables additional support for SGI Origin (IP27)
 sys-kernel/mips-sources:ip28 - Enables additional support for SGI Indigo2 Impact R10000 (IP28)
