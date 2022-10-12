@@ -33,6 +33,20 @@
 
 #--- END OF EXAMPLES ---
 
+# Matt Turner <mattst88@gentoo.org> (2022-10-12)
+# Unmaintained and archived upstream. Last release in 2017.
+# Bug #597960.
+# Removal on 2022-11-12
+net-im/empathy
+
+# Sam James <sam@gentoo.org> (2022-10-12)
+# Upstream has withdrawn these releases because of a (yet unexplained)
+# "significant regression".
+# See https://mta.openssl.org/pipermail/openssl-announce/2022-October/000237.html.
+# and https://github.com/openssl/openssl/issues/19389.
+=dev-libs/openssl-1.1.1r
+=dev-libs/openssl-3.0.6
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-10-10)
 # Unused Java library. Removal on 2022-11-10.
 dev-java/objenesis-test
