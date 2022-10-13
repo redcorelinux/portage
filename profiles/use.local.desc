@@ -2809,6 +2809,7 @@ dev-util/glade:gjs - Build catalog support for dev-libs/gjs widgets.
 dev-util/glade:webkit - Build catalog support for net-libs/webkit-gtk:4 widgets.
 dev-util/global:vim - Integrate the GNU GLOBAL source code tag system with Vim
 dev-util/gnome-builder:clang - Provide integration with sys-devel/clang for best possible C/C++ autocompletion, semantic highlighting, symbol resolving, and diagnostics support
+dev-util/gnome-builder:d-spy - Provide D-Bus debugging functionality via dev-util/d-spy
 dev-util/gnome-builder:devhelp - Provide API docs browsing and integration via dev-util/devhelp
 dev-util/gnome-builder:flatpak - Enable support for flatpak applications using sys-apps/flatpak
 dev-util/gnome-builder:git - Provide support for the Git version control system via dev-libs/libgit2-glib (such as setup of Git for New Project, direct cloning for Open Project and changed lines indicators in the editor gutter)
@@ -6429,14 +6430,8 @@ net-misc/electron-cash:sync - Enable plugin to sync wallet metadata across multi
 net-misc/electron-cash:vkb - Enable plugin for virtual keyboard
 net-misc/electrum:cli - Enables the CLI interface
 net-misc/electrum:qrcode - Enable QR code scanning with media-gfx/zbar
-net-misc/electrum-ltc:audio_modem - Enable plugin to support Audio Modem
 net-misc/electrum-ltc:cli - Enables the CLI interface
-net-misc/electrum-ltc:cosign - Enable plugin to support multisig wallets between multiple Electrum clients
-net-misc/electrum-ltc:digitalbitbox - Enable plugin to support Digital Bitbox hardware wallet
-net-misc/electrum-ltc:email - Enable plugin to support emailing invoices
 net-misc/electrum-ltc:qrcode - Enable QR code scanning with media-gfx/zbar
-net-misc/electrum-ltc:sync - Enable plugin to sync wallet metadata across multiple Electrum clients
-net-misc/electrum-ltc:vkb - Enable plugin for virtual keyboard
 net-misc/etherdfs:tsr - Build the TSR program for DOS, which acts as a client.
 net-misc/ethflop:tsr - Build the TSR program for DOS, which acts as a client.
 net-misc/eventd:libcanberra - Enable plugin for sounds via media-libs/libcanberra
