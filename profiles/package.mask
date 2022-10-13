@@ -33,6 +33,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Joshua Kinard <kumba@gentoo.org> (2022-10-13)
+# Difficult-to-resolve build issues on modern toolchains,
+# not publicly maintained, developer contact is difficult,
+# and project website has SSL certificate issues.
+# Bug #838109.
+# Removal on 2022-11-13
+net-misc/spread
+
 # Matt Turner <mattst88@gentoo.org> (2022-10-12)
 # Unmaintained and archived upstream. Last release in 2017.
 # Bug #597960.
@@ -245,12 +253,6 @@ media-sound/pulseaudio-modules-bt
 # 0.24 removed from Gentoo's git tree, this ebuild is useless. Removal
 # in 30 days. #870355
 x11-themes/e-flat-theme
-
-# Joonas Niilola <juippis@gentoo.org> (2022-09-15)
-# Upstream split this font into separate packages: media-fonts/
-# source-code-pro, source-sans, source-serif. The current non-split
-# version is broken. Removal in 30 days. #865103
-media-fonts/source-pro
 
 # Mike Gilbert <floppym@gentoo.org> (2022-09-12)
 # repoman is no longer maintained and has been removed from the portage
