@@ -17,7 +17,7 @@ else
 	SRC_URI="https://github.com/jrfonseca/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-inherit ${GIT_ECLASS} distutils-r1
+inherit ${GIT_ECLASS} distutils-r1 virtualx
 
 DESCRIPTION="Interactive viewer for Graphviz dot files"
 HOMEPAGE="https://github.com/jrfonseca/xdot.py"
@@ -30,5 +30,15 @@ DEPEND="
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	media-gfx/graphviz
+	test? ( x11-libs/gtk+:3 )
 "
 RDEPEND="${DEPEND}"
+
+run_test() {
+	cd tests && "${EPYTHON}" ../test.py *.dot graphs/*.gv
+	return "${?}"
+}
+
+python_test() {
+	virtx run_test
+}
