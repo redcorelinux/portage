@@ -51,7 +51,6 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-test-memcmp.patch
 )
 
 pkg_setup() {
