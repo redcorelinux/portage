@@ -2468,6 +2468,7 @@ dev-python/qiskit-terra:visualization - Enable visualization modules
 dev-python/rarfile:compressed - Enables the module to support compressed v3 archives by calling the app-arch/unrar.
 dev-python/rfc3986:idna - enable support for the IDNA specification (RFC 5891)
 dev-python/rpyc:gdb - Run tests depending on sys-devel/gdb
+dev-python/rpyc:gevent - Use dev-python/gevent for GeventServer
 dev-python/rpyc:numpy - Run tests depending on dev-python/numpy, dev-python/pandas
 dev-python/scipy:pythran - Use dev-python/pythran to accelerate runtime
 dev-python/scipy:sparse - Adds support for sparse solving with sci-libs/umfpack
@@ -3208,7 +3209,6 @@ games-simulation/flightgear:gdal - Enable alternative terrain engine based on pa
 games-simulation/flightgear:qt5 - Build Qt5 launcher application
 games-simulation/flightgear:udev - Enable event-based Input devices through virtual/udev
 games-simulation/flightgear:utils - Build various utilities (fgpanel, fgviewer among others)
-games-simulation/openrct2:lightfx - Enables LightFX for better lightning effects.
 games-simulation/openrct2:scripting - Enable the dev-lang/duktape scripting engine for executing user scripts.
 games-simulation/openttd:allegro - Add support for Allegro
 games-simulation/openttd:dedicated - Build only the openttd server, and not the client.
