@@ -5,13 +5,15 @@ EAPI=8
 
 inherit autotools toolchain-funcs
 
+MY_P="${P}-src"
 DESCRIPTION="A makefile framework for writing simple makefiles for complex tasks"
 HOMEPAGE="https://trac.netlabs.org/kbuild/wiki"
-SRC_URI="https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}-src.tar.xz"
+#SRC_URI="ftp://ftp.netlabs.org/pub/${PN}/${MY_P}.tar.gz"
+SRC_URI="https://dev.gentoo.org/~polynomial-c/${MY_P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-#KEYWORDS="~amd64 ~x86"	# for testing only.  This version is buggy
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 BDEPEND="
@@ -27,8 +29,14 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.1.5-gentoo-docdir.patch"
 	"${FILESDIR}/${PN}-0.1.9998_pre20120806-qa.patch"
 	"${FILESDIR}/${PN}-0.1.9998_pre20110817-kash-link-pthread.patch"
+	"${FILESDIR}/${PN}-0.1.9998.3499-gold.patch"
+
+	# Please check on version bumps if this can be removed
+	"${FILESDIR}/${PN}-0.1.9998.3499-kash-no_separate_parser_allocator.patch"
+
 	"${FILESDIR}/${PN}-0.1.9998.3572-fix-bison.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3572-fix-lto.patch"
+	"${FILESDIR}/${PN}-0.1.9998.3499-implicit-function-declaration.patch"
 )
 
 pkg_setup() {
