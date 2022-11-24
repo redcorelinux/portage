@@ -6,6 +6,11 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Sam James <sam@gentoo.org> (2022-11-24)
+# Depends on old dev-lang/spidermonkey:68, bug #807772
+# Particularly unwise given it parses data from network.
+net-libs/libproxy spidermonkey
+
 # Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-24)
 # Metamail last rited
 app-text/crm114 mimencode
@@ -62,13 +67,6 @@ dev-python/pyotherside qt6
 # Sam James <sam@gentoo.org> (2022-10-08)
 # Older versions of libvirt need a vulnerable version of wireshark
 <app-emulation/libvirt-8.0.0 wireshark-plugins
-
-# Sam James <sam@gentoo.org> (2022-10-07)
-# media-sound/rplay is masked for removal.
-x11-wm/fvwm3 rplay
-x11-wm/ctwm rplay
-x11-wm/fvwm rplay
-x11-wm/vtwm rplay
 
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-10-07)
 # Cannot test and fix pax-kernel related bugs on a current grsec kernel
