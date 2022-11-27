@@ -9,7 +9,7 @@ if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.code.sf.net/p/zsh/code"
 else
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 	SRC_URI="https://www.zsh.org/pub/${P}.tar.xz
 		https://www.zsh.org/pub/old/${P}.tar.xz
 		mirror://sourceforge/${PN}/${P}.tar.xz
@@ -24,7 +24,7 @@ HOMEPAGE="https://www.zsh.org/"
 
 LICENSE="ZSH gdbm? ( GPL-2 )"
 SLOT="0"
-IUSE="caps debug doc examples gdbm maildir pcre static unicode"
+IUSE="caps debug doc examples gdbm maildir pcre static"
 
 RDEPEND="
 	>=sys-libs/ncurses-5.1:0=
@@ -34,8 +34,10 @@ RDEPEND="
 		>=dev-libs/libpcre-3.9
 		static? ( >=dev-libs/libpcre-3.9[static-libs] )
 	)
-	gdbm? ( sys-libs/gdbm:= )
-	!<sys-apps/baselayout-2.4.1
+	gdbm? (
+		sys-libs/gdbm:=
+		static? ( sys-libs/gdbm:=[static-libs] )
+	)
 "
 DEPEND="sys-apps/groff
 	${RDEPEND}"
@@ -52,8 +54,12 @@ if [[ ${PV} == *9999 ]] ; then
 fi
 
 PATCHES=(
-	"${FILESDIR}/${P}-non_interactive_shell_regression_fix.patch"
-	"${FILESDIR}/${P}-performance_regression_fix.patch" #839900
+	# Add openrc specific options for init.d completion
+	"${FILESDIR}"/${PN}-5.3-init.d-gentoo.diff
+	# Please refer gentoo bug #833981
+	"${FILESDIR}"/${PN}-5.9-musl-V09datetime-test-fix.patch
+	# bug #869539
+	"${FILESDIR}"/${PN}-5.9-clang-15-configure.patch
 )
 
 src_prepare() {
@@ -63,9 +69,6 @@ src_prepare() {
 		mv Doc/zshall.1 Doc/zshall.1.soelim || die
 		soelim Doc/zshall.1.soelim > Doc/zshall.1 || die
 	fi
-
-	# add openrc specific options for init.d completion
-	eapply "${FILESDIR}"/${PN}-5.3-init.d-gentoo.diff
 
 	default
 
@@ -86,11 +89,11 @@ src_configure() {
 		--enable-site-fndir="${EPREFIX}"/usr/share/zsh/site-functions
 		--enable-function-subdirs
 		--with-tcsetpgrp
-		--with-term-lib="$(usex unicode 'tinfow ncursesw' 'tinfo ncurses')"
+		--enable-multibyte
+		--with-term-lib='tinfow ncursesw'
 		$(use_enable maildir maildir-support)
 		$(use_enable pcre)
 		$(use_enable caps cap)
-		$(use_enable unicode multibyte)
 		$(use_enable gdbm)
 	)
 
@@ -138,6 +141,19 @@ src_compile() {
 }
 
 src_test() {
+	# Fixes tests A03quoting.ztst B03print.ztst on musl
+	# Please refer:
+	# https://www.zsh.org/mla/workers/2021/msg00805.html
+	# Test E02xtrace fails on musl, so we are removing it.
+	# Closes: https://bugs.gentoo.org/833981
+	if use elibc_musl ; then
+		unset LC_ALL
+		unset LC_COLLATE
+		unset LC_NUMERIC
+		unset LC_MESSAGES
+		unset LANG
+		rm "${S}"/Test/E02xtrace.ztst || die
+	fi
 	addpredict /dev/ptmx
 	local i
 	for i in C02cond.ztst V08zpty.ztst X02zlevi.ztst Y01completion.ztst Y02compmatch.ztst Y03arguments.ztst ; do
