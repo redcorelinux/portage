@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Piotr Karbowski <slashbeast@gentoo.org> (2022-11-29)
+# Multiple stability issues, deadlocks on exit, broken API.
+# Bug #883559
+=net-p2p/qbittorrent-4.5.0
+
 # John Helmert III <ajak@gentoo.org> (2022-11-27)
 # Unmaintained upstream, several unresolved public vulnerabilities,
 # Removal in 30 days. Bug #882773.
@@ -42,11 +47,6 @@ www-servers/boa
 # Broke API for C++, causes massive carnage for consumers.
 # Bug #883223.
 ~dev-libs/glib-2.74.2
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Unresolved LICENSE issue for 3 years now.
-# Removal on 2022-12-27.  Bug #694708.
-app-admin/helm
 
 # Michał Górny <mgorny@gentoo.org> (2022-11-27)
 # Broken with OpenSSL-3.  Last upstream activity in 2021, no reply
