@@ -291,7 +291,8 @@ fi
 
 #---->> DEPEND <<----
 
-RDEPEND="sys-libs/zlib
+RDEPEND="
+	sys-libs/zlib
 	virtual/libiconv
 	nls? ( virtual/libintl )
 "
@@ -322,7 +323,8 @@ BDEPEND="
 	test? (
 		>=dev-util/dejagnu-1.4.4
 		>=sys-devel/autogen-5.5.4
-	)"
+	)
+"
 DEPEND="${RDEPEND}"
 
 if [[ ${PN} == gcc && ${PV} == *_p* ]] ; then
@@ -806,7 +808,7 @@ make_gcc_hard() {
 			gcc_hard_flags+=" -DDEF_GENTOO_SCP"
 		fi
 		if _tc_use_if_iuse default-znow ; then
-			# The define DEF_GENTOO_NZOW is checked in 23_all_DEF_GENTOO_ZNOW-z-now.patch
+			# The define DEF_GENTOO_ZNOW is checked in 23_all_DEF_GENTOO_ZNOW-z-now.patch
 			einfo "Updating gcc to request symbol resolution at start (-z now) ..."
 			gcc_hard_flags+=" -DDEF_GENTOO_ZNOW"
 		fi
