@@ -759,14 +759,12 @@ app-i18n/ibus:gtk2 - Enable the GTK-2 input method module
 app-i18n/ibus:gtk3 - Enable the GTK-3 input method module
 app-i18n/ibus:gtk4 - Enable the GTK-4 input method module
 app-i18n/ibus:unicode - Enable support for Unicode choice
-app-i18n/ibus-chewing:gconf - Enable support for gnome-base/gconf
 app-i18n/ibus-handwrite:zinnia - Enable support for app-i18n/zinnia
 app-i18n/ibus-libpinyin:boost - Compile against dev-libs/boost libraries
 app-i18n/ibus-libpinyin:opencc - Enable support for app-i18n/opencc
 app-i18n/ibus-pinyin:boost - Enable support for dev-libs/boost
 app-i18n/ibus-sunpinyin:gui - Install graphical user interface tool (ibus-setup-sunpinyin)
 app-i18n/im-chooser:xfce - Enable support for XFCE panel
-app-i18n/imsettings:gconf - Enable support for gnome-base/gconf
 app-i18n/imsettings:xfconf - Enable support for xfce-base/xfconf
 app-i18n/librime:debug - Enable debugging (including logging of input of RIME input methods)
 app-i18n/mozc:fcitx4 - Enable support for app-i18n/fcitx 4
@@ -8999,7 +8997,6 @@ x11-terms/aterm:xgetdefault - Enable resources via X instead of aterm small vers
 x11-terms/gnome-terminal:gnome-shell - Integrate with gnome-base/gnome-shell search
 x11-terms/gnome-terminal:nautilus - Build gnome-base/nautilus extension
 x11-terms/guake:utempter - Include utmp management support via sys-libs/libutempter
-x11-terms/kitty:transfer - Enable transfer kitten using net-libs/librsync
 x11-terms/mlterm:brltty - Enable support for app-accessibility/brltty
 x11-terms/mlterm:fcitx - Enable support for app-i18n/fcitx
 x11-terms/mlterm:harfbuzz - Enable support for OpenType Layout (media-libs/harfbuzz)
