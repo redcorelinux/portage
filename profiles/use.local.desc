@@ -194,6 +194,8 @@ app-alternatives/awk:busybox - Symlink to sys-apps/busybox
 app-alternatives/awk:gawk - Symlink to sys-apps/gawk
 app-alternatives/awk:mawk - Symlink to sys-apps/mawk (warning: mawk is not fully POSIX-compliant)
 app-alternatives/awk:nawk - Symlink to sys-apps/nawk
+app-alternatives/bc:gh - Symlink to bc-gh from sci-calculators/bc-gh
+app-alternatives/bc:gnu - Symlink to GNU bc (sys-devel/bc)
 app-alternatives/bzip2:lbzip2 - Symlink to app-arch/lbzip2.
 app-alternatives/bzip2:pbzip2 - Symlink to app-arch/pbzip2.
 app-alternatives/bzip2:reference - Symlink to app-arch/bzip2.
@@ -201,6 +203,8 @@ app-alternatives/cpio:gnu - Symlink to GNU cpio (app-arch/cpio)
 app-alternatives/cpio:libarchive - Symlink to bsdcpio from app-arch/libarchive
 app-alternatives/gzip:pigz - Symlink to app-arch/pigz.
 app-alternatives/gzip:reference - Symlink to app-arch/gzip.
+app-alternatives/lex:flex - Symlink to sys-devel/flex.
+app-alternatives/lex:reflex - Symlink to sys-devel/reflex.
 app-alternatives/sh:bash - Symlink to app-shells/bash
 app-alternatives/sh:dash - Symlink to app-shells/dash
 app-alternatives/sh:ksh - Symlink to app-shells/ksh
@@ -208,6 +212,9 @@ app-alternatives/sh:lksh - Symlink to lksh from app-shells/mksh
 app-alternatives/sh:mksh - Symlink to mksh from app-shells/mksh
 app-alternatives/tar:gnu - Symlink to GNU tar (app-arch/tar)
 app-alternatives/tar:libarchive - Symlink to bsdtar from app-arch/libarchive
+app-alternatives/yacc:bison - Symlink to sys-devel/bison.
+app-alternatives/yacc:byacc - Symlink to dev-util/byacc.
+app-alternatives/yacc:reference - Symlink to dev-util/yacc.
 app-antivirus/clamav:clamapp - Build applications (clamscan, clamd, clamdscan, clamonacc (also has its own USE flag), sigtool, clambc, clamav-milter (also requires milter USE flag), clamdtop, clamsubmit, clamconf).
 app-antivirus/clamav:clamdtop - A Top like tool which shows what clamd is currently scanning amongst other things
 app-antivirus/clamav:clamonacc - Build the clamonacc on-access scanner
@@ -459,6 +466,11 @@ app-editors/neovim:lto - Build with Link Time Optimization (LTO)
 app-editors/neovim:nvimpager - Install nvimpager symlink to less.sh macro
 app-editors/neovim:tui - Build the neovim unix tui
 app-editors/okteta:designer - Build plugins for dev-qt/designer
+app-editors/pluma-plugins:bracketcompletion - Auto complete bracket pairs
+app-editors/pluma-plugins:codecomment - Comment code blocks
+app-editors/pluma-plugins:smartspaces - Insert smart spaces
+app-editors/pluma-plugins:synctex - Enable synctex support for pdflatex
+app-editors/pluma-plugins:terminal - Embed a terminal in the bottom pane
 app-editors/qhexedit2:gui - Install Qt5 hex editor
 app-editors/tea:aspell - Enable spellchecking using app-text/aspell
 app-editors/tea:hunspell - Enable spellchecking using app-text/hunspell
