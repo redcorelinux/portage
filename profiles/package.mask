@@ -33,6 +33,22 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-12-07)
+# HOMEPAGE & remote-id are for a different project, SRC_URI is gone,
+# only results on Google are for Gentoo mirrors, EAPI 6. Removal on 2023-01-07.
+# bug #630264, bug #655964, bug #750071.
+dev-vcs/git-pimp
+
+# Sam James <sam@gentoo.org> (2022-12-07)
+# These versions have been masked for testing since 2014(!). These versions
+# had a controversial licence change and therefore had limited adoption.
+# See also the old 2021-05-30-deprecate-old-bdb-slots news item for
+# additional context.
+# Removal on 2023-01-07.
+=sys-libs/db-6.1*
+=sys-libs/db-6.2*
+=sys-libs/db-18.1*
+
 # Naohiro Aota <naota@gentoo.org> (2022-12-07)
 # Masked for removal in 30 days. Depends on gnome-base/gconf. Last release
 # in 2011. See bug #873880.
@@ -143,6 +159,7 @@ dev-util/cucumber-core:3.2
 dev-util/cucumber-expressions
 dev-util/cucumber-tag_expressions
 dev-util/cucumber-wire:0
+dev-util/protobuf-cucumber
 
 # Hans de Graaff <graaff@gentoo.org> (2022-12-01)
 # Old slot without dependencies on it. Blocks removal of
@@ -823,15 +840,6 @@ app-office/texmacs
 # people may still find it useful. It is masked to prevent accidental
 # use. See bugs 603346 and 604998 for more information.
 app-admin/amazon-ec2-init
-
-# Robin H. Johnson <robbat2@gentoo.org> (2014-08-04)
-# Masked for testing, presently fails upstream testsuite:
-# FAIL:07:02:35 (00:00:00) db_dump/db_load(./TESTDIR.3/recd001.db:child killed: kill signal): expected 0, got 1
-# FAIL:07:02:35 (00:00:00) Dump/load of ./TESTDIR.3/recd001.db failed.
-# FAIL:07:02:35 (00:00:00) db_verify_preop: expected 0, got 1
-=sys-libs/db-6.1*
-=sys-libs/db-6.2*
-=sys-libs/db-18.1*
 
 # Mike Gilbert <floppym@gentoo.org> (2014-03-04)
 # Dev channel releases are only for people who are developers or want more
