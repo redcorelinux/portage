@@ -265,13 +265,13 @@ app-backup/bacula:bacula-nodir - Disable building of director
 app-backup/bacula:bacula-nosd - Disable building of storage daemon
 app-backup/bacula:batch-insert - Enable batch insert into data base
 app-backup/bacula:logwatch - Install support files for logwatch
-app-backup/bareos:ceph - Enable ceph support
+app-backup/bareos:ceph - Enable sys-cluster/ceph support
 app-backup/bareos:clientonly - Only install file-daemon (client)
 app-backup/bareos:director - Install director
-app-backup/bareos:glusterfs - Enable glusterfs storage backend
-app-backup/bareos:jansson - JSON API support using JANSSON for director
-app-backup/bareos:lmdb - enable build of LMDB support for faster accurate backup
-app-backup/bareos:logwatch - Install support files for logwatch
+app-backup/bareos:glusterfs - Enable sys-cluster/glusterfs storage backend
+app-backup/bareos:jansson - JSON API support using dev-libs/jansson for director
+app-backup/bareos:lmdb - enable build of dev-db/lmdb support for faster accurate backup
+app-backup/bareos:logwatch - Install support files for sys-apps/logwatch
 app-backup/bareos:ndmp - Enable support for NDMP (Network Data Management Protocol)
 app-backup/bareos:scsi-crypto - Enable low level SCSI crypto support
 app-backup/bareos:storage-daemon - Install storage daemon (bareos-sd)
@@ -7966,7 +7966,6 @@ sys-apps/portage:rsync-verify - Enable full-tree cryptographic verification of G
 sys-apps/portage:xattr - Preserve extended attributes (filesystem-stored metadata) when installing files. Usually only required for hardened systems.
 sys-apps/ppc64-diag:rtas - Add support for the Run Time Abstraction Services (RTAS)
 sys-apps/proot:care - Build dynamic CARE binary (more info - https://proot-me.github.io)
-sys-apps/qingy:opensslcrypt - Encrypt communications between qingy and its GUI using dev-libs/openssl
 sys-apps/razercfg:gui - Installs GUI configuration utility and status bar applet. Requires dev-python/PyQt5
 sys-apps/rng-tools:jitterentropy - Enable Jitter RNG entropy support
 sys-apps/rng-tools:nistbeacon - Enable NIST beacon entropy support
@@ -8991,6 +8990,7 @@ x11-misc/sent:savedconfig - Without a saved config.h, this package depends on me
 x11-misc/spacefm:video-thumbnails - Support video thumbnails with media-video/ffmpegthumbnailer
 x11-misc/stalonetray:graceful-exit - use non-portable hack to exit gracefully on signal
 x11-misc/tint2:battery - Enable battery status plugin
+x11-misc/tint2:sanitize - Enable ASAN
 x11-misc/tint2:tint2conf - Build/Install tint2conf as well
 x11-misc/urxvt-perls:deprecated - Install scripts which have been marked as deprecated by upstream
 x11-misc/vnc2swf:x11vnc - Install script that depends on x11vnc
