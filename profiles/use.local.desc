@@ -1263,6 +1263,7 @@ dev-ada/libgpr:static-pic - Build static library with pic code
 dev-ada/spawn:glib - Add support to dev-libs/glib-based mainloop.
 dev-ada/spawn:shared - Build shared library
 dev-ada/spawn:static-pic - Build static library with pic code
+dev-ada/templates-parser:shared - Build shared library
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/abseil-cpp:cxx17 - Build with -DCMAKE_CXX_STANDARD=17 (required by some revdeps)
@@ -1306,7 +1307,6 @@ dev-db/mariadb:server - Build the server program
 dev-db/mariadb:sphinx - Add suport for the sphinx full-text search engine
 dev-db/mariadb:sst-mariabackup - Add tools needed to support the mariabackup SST method
 dev-db/mariadb:sst-rsync - Add tools needed to support the rsync SST method
-dev-db/mariadb:sst-xtrabackup - Add tools needed to support the xtrabackup and xtrabackup-v2 SST methods
 dev-db/mariadb:systemtap - Build support for profiling and tracing using dev-util/systemtap
 dev-db/mariadb:test - Install upstream testsuites for end use.
 dev-db/mariadb:tokudb - Add support for TokuDB storage engine
