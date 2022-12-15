@@ -6852,8 +6852,6 @@ net-print/kyocera-1x2x-mfp-driver:rastertokpsl-fix - Use custom wrapper script t
 net-proxy/haproxy:51degrees - Device Detection using 51 Degrees
 net-proxy/haproxy:net_ns - Enable network namespace support (CONFIG_NET_NS)
 net-proxy/haproxy:pcre-jit - Use JIT support for PCRE
-net-proxy/haproxy:pcre2 - Enable PCRE2 RegEx support
-net-proxy/haproxy:pcre2-jit - Use JIT support for PCRE2
 net-proxy/haproxy:prometheus-exporter - Also build the prometheus exporter
 net-proxy/haproxy:slz - Use dev-libs/libslz compression library
 net-proxy/haproxy:tools - Install additional tools (halog, iprange)
@@ -8300,6 +8298,7 @@ sys-devel/gcc:objc - Build support for the Objective C code language
 sys-devel/gcc:objc++ - Build support for the Objective C++ language
 sys-devel/gcc:objc-gc - Build support for the Objective C code language Garbage Collector
 sys-devel/gcc:pgo - Build GCC using Profile Guided Optimization (PGO)
+sys-devel/gcc:rust - Build support for the Rust language, installs gccrs.
 sys-devel/gcc:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...)
 sys-devel/gcc:ssp - Build packages with stack smashing protector on by default
 sys-devel/gcc:systemtap - enable systemtap static probe points
