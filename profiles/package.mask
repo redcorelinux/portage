@@ -434,7 +434,6 @@ dev-libs/ocl-icd
 # app-office/sc: bug #877051, last release in 2002
 # net-libs/ortp: bug #874003, last bumped in 2014
 # net-nntp/brag: revdep of app-text/uudeview
-# net-vpn/vtun: bug #875443, last bumped in 2012, last release in 2016
 # sys-apps/fakeroot-ng: bug #851543, last release in 2013
 # sys-apps/pmount-gui: bug #776397, last bumped in 2013, commit in 2019
 # www-apache/mod_common_redirect: bug #874660, bumped in 2010, repo gone
@@ -445,7 +444,6 @@ app-emulation/dlx
 app-office/sc
 net-libs/ortp
 net-nntp/brag
-net-vpn/vtun
 sys-apps/fakeroot-ng
 sys-apps/pmount-gui
 www-apache/mod_common_redirect
@@ -632,12 +630,6 @@ dev-python/pytest-html
 # Dead upstream
 # Removal after 2023-01-01.  Bug #881249.
 net-mail/vchkuser
-
-# Matthew Smith <matthew@gentoo.org> (2022-11-13)
-# Please update to Erlang/OTP 25. Removal in 30 days.
-# Bug #864543
-<dev-lang/erlang-25
-<net-misc/rabbitmq-server-3.11.0
 
 # Jaco Kroon <jaco@uls.co.za> (2022-11-05)
 # Some potentially breaking changes here, please check the UPGRADE.txt file.
