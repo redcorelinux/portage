@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby26 ruby27 ruby30"
+USE_RUBY="ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.md"
 
@@ -18,7 +18,7 @@ DESCRIPTION="A template language aiming to reduce the syntax to the essential pa
 HOMEPAGE="http://slim-lang.com/"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 arm arm64 ~hppa ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86"
 SLOT="$(ver_cut 1)"
 IUSE="doc"
 

@@ -3,8 +3,10 @@
 
 EAPI=8
 
+ECM_HANDBOOK=optional
+ECM_TEST=true
 KDE_ORG_CATEGORY=network
-KFMIN=5.96.0
+KFMIN=5.99.0
 QTMIN=5.15.5
 inherit ecm plasma-mobile.kde.org
 
@@ -15,13 +17,14 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+ handbook? ( CC-BY-SA-4.0 )"
 SLOT="0"
 
 DEPEND="
 	app-text/cmark:=
+	>=dev-libs/kirigami-addons-0.6:5
 	dev-libs/qcoro5
-	dev-libs/qtkeychain:=
+	dev-libs/qtkeychain:=[qt5(+)]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
@@ -36,17 +39,22 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-frameworks/knotifications-${KFMIN}:5[qml]
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5[qml]
 	media-libs/kquickimageeditor:5
 	>=net-libs/libquotient-0.6
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-frameworks/purpose-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5[qml]
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-crash-notification-settings.patch" # KDE-bug #462853
+	"${FILESDIR}/${P}-hide-dev-settings-loading.patch" # KDE-bug #462900
+)
