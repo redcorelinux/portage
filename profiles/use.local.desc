@@ -1238,6 +1238,8 @@ app-text/zathura:synctex - Use libsynctex to get latex codeline from pdf
 app-text/zathura-meta:cb - Install plug-in for ComicBook support
 app-vim/gentoo-syntax:ignore-glep31 - Remove GLEP 31 (UTF-8 file encodings) settings
 app-xemacs/xemacs-packages-all:mule - Add multi-language support to XEmacs
+dev-ada/aws:shared - Build shared library
+dev-ada/aws:wsdl - Used to convert ada to wsdl
 dev-ada/gnatcoll-bindings:shared - Build shared library
 dev-ada/gnatcoll-bindings:static-pic - Build shared library
 dev-ada/gnatcoll-core:shared - Build shared library
@@ -8164,6 +8166,7 @@ sys-devel/clang:static-analyzer - Install the Clang static analyzer
 sys-devel/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
 sys-devel/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
 sys-devel/clang-common:default-lld - Use lld as the default linker for clang
+sys-devel/clang-common:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 sys-devel/clang-common:stricter - Default to stricter behavior known from newer clang versions, turning more warnings into errors
 sys-devel/clang-runtime:compiler-rt - Install sys-libs/compiler-rt for -rtlib=compiler-rt
 sys-devel/clang-runtime:libcxx - Install sys-libs/libcxx for -stdlib=libc++
@@ -8308,7 +8311,7 @@ sys-fs/lessfs:filelog - Enable the ability to log to a file instead of syslog
 sys-fs/lessfs:memtrace - Enable leefs to create a report regarding the memory allocation. This feature should be used for debugging purposes to avoid performance degradation
 sys-fs/loop-aes:extra-ciphers - Enable extra ciphers
 sys-fs/loop-aes:keyscrub - Protects the encryption key in memory but takes more cpu resources
-sys-fs/lvm2:lvm - Build all of LVM2, not just device-mapper
+sys-fs/lvm2:lvm - Build all of LVM2 including daemons and tools like lvchange, not just the device-mapper library (for other packages to use). If your system uses LVM2 for managing disks and partitions, enable this flag.
 sys-fs/lvm2:lvm2create-initrd - Install lvm2create_initrd script and pull in sys-apps/makedev for the /sbin/MAKEDEV command
 sys-fs/lvm2:sanlock - Enable lvmlockd with support for sanlock
 sys-fs/lvm2:thin - Support for thin volumes
