@@ -58,6 +58,12 @@ x11-misc/xowl
 x11-wm/xoat
 
 # Michał Górny <mgorny@gentoo.org> (2022-12-24)
+# Obsolete package with broken tests.  Last released in 2018, last
+# activity in 2021.  No reverse dependencies.
+# Removal on 2023-01-23.  Bug #888147.
+dev-python/ndg-httpsclient
+
+# Michał Górny <mgorny@gentoo.org> (2022-12-24)
 # RobotOS is suffering from serious lack of manpower in Gentoo.
 # While the packages are being bumped, the bugs reported against them
 # are not being addressed.  Whenever tests are present, they are often
@@ -908,11 +914,6 @@ dev-ruby/vcr:3
 # are developers or want more experimental features
 # and accept a more unstable release.
 >=www-client/chromium-110
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2022-12-03)
-# No purpose anymore after <dev-libs/boost-1.80 cleanup.
-# Removal on 2022-12-16
-dev-util/boost-build
 
 # Hans de Graaff <graaff@gentoo.org> (2022-12-03)
 # Obsolete slot without reverse dependencies. Use a newer faraday
