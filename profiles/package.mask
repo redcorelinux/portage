@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2022-12-25)
+# Last release in 2018. Poor quality C extension code. Package
+# consistently segfaults on it tests with the latest ruby versions.
+# No reverse dependencies. Removal in 30 days.
+dev-ruby/hiredis
+
 # Ionen Wolkens <ionen@gentoo.org> (2022-12-24)
 # Upstream dropped wxGTK support in >=games-emulation/pcsx2-1.7.3773,
 # and it now always requires Qt6. Masked given Qt6 is also masked in
@@ -505,12 +511,6 @@ ros-meta/vision_opencv
 ros-meta/vision_visp
 ros-meta/visualization_tutorials
 ros-meta/viz
-
-# Michał Górny <mgorny@gentoo.org> (2022-12-23)
-# Does not build against current MySQL libraries.  Last release in 2012.
-# No reverse dependencies.
-# Removal on 2023-01-22.  Bug #692562.
-dev-tcltk/mysqltcl
 
 # Michał Górny <mgorny@gentoo.org> (2022-12-23)
 # Packages that still use dev-python/nose and have no revdeps.
