@@ -13,7 +13,7 @@ SRC_URI+=" verify-sig? ( https://download.savannah.gnu.org/releases/lzip/${PN}/$
 
 LICENSE="libstdc++" # fancy form of GPL-2+ with library exception
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 x86"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz )"
 
@@ -32,4 +32,9 @@ src_configure() {
 
 	# not autotools-based
 	./configure "${myconf[@]}" || die
+}
+
+src_install() {
+	emake DESTDIR="${D}" install install-man
+	einstalldocs
 }
