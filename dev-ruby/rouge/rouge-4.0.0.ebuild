@@ -26,7 +26,7 @@ ruby_add_bdepend "doc? ( dev-ruby/redcarpet )
 	dev-ruby/yard
 "
 
-ruby_add_rdepend "dev-ruby/redcarpet"
+ruby_add_rdepend "dev-ruby/redcarpet !<dev-ruby/rouge-3.30.0-r1"
 
 all_ruby_prepare() {
 	rm -f tasks/{check/style,update/changelog}.rake || die
