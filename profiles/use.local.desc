@@ -95,6 +95,7 @@ app-admin/pass-otp:qrcode - Add support for qrcodes using media-gfx/qrencode
 app-admin/passwordsafe:qr - Enable QR code password display
 app-admin/passwordsafe:xml - Enable XML import support
 app-admin/passwordsafe:yubikey - Enable support for Yubikey
+app-admin/perl-cleaner:pkgcore - Use sys-apps/pkgcore instead of sys-apps/portage and app-portage/portage-utils.
 app-admin/puppet:augeas - Enable augeas support
 app-admin/puppet:diff - Enable diff support
 app-admin/puppet:rrdtool - Enable rrdtool support
@@ -242,7 +243,6 @@ app-arch/libarchive:bzip2 - Allow accessing bzip2-compressed archives through li
 app-arch/libarchive:e2fsprogs - Use file flags from sys-fs/e2fsprogs headers instead of virtual/os-headers headers
 app-arch/libarchive:nettle - Use dev-libs/nettle as crypto backend
 app-arch/p7zip:rar - Enable support for non-free rar decoder
-app-arch/pigz:symlink - Install symlinks which override app-arch/gzip implementation
 app-arch/rar:all-sfx - Install all SFX (Self-Extracting) files rather than just the native format (allows creation of Windows EXEs on Linux ELF systems)
 app-arch/tar:minimal - just install `tar`
 app-arch/unzip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
@@ -1773,7 +1773,7 @@ dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
 dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
 dev-lang/python:libedit - Link readline extension against dev-libs/libedit instead of sys-libs/readline
 dev-lang/python:lto - Optimize the build using Link Time Optimization (LTO)
-dev-lang/python:pgo - Optimize the build using Profile Guided Optimization (PGO)
+dev-lang/python:pgo - Optimize the build using Profile Guided Optimization (PGO) by running Python's test suite and collecting statistics based on its performance. This will take longer to build.
 dev-lang/python:valgrind - Disable pymalloc when running under dev-util/valgrind is detected (may incur minor performance penalty even when valgrind is not used)
 dev-lang/python:wininst - Install Windows executables required to create an executable installer for MS Windows
 dev-lang/python-exec:native-symlinks - Install generic symlinks like python and python3. If this flag is disabled, only versioned python3.X executables will be available to end users and ebuilds not using python eclasses.
