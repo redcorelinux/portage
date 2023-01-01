@@ -11,10 +11,6 @@
 # fragility to Portage which relies on pax-utils' scanelf heavily. bug #815877.
 app-misc/pax-utils seccomp
 
-# Sam James <sam@gentoo.org> (2022-12-29)
-# Needs yet-unpackaged libxmlpp-5.0, bug #888898
-www-client/elinks javascript
-
 # Ionen Wolkens <ionen@gentoo.org> (2022-12-29)
 # Blocks eventual cleanup of <dev-util/glslang-1.3.231, and the same
 # functionality can be got through USE=shaderc without direct usage.
@@ -50,12 +46,6 @@ app-text/crm114 mimencode
 # Guillermo Joandet <gjoandet@gmail.com> (2022-11-22)
 # app-text/pandoc is not keyworded on most architectures
 net-libs/gssdp man
-
-# Matt Turner <mattst88@gentoo.org> (2022-09-26)
-# Requires nautilus-43.0 which is keyworded everywhere
->=app-arch/file-roller-43.0 nautilus
->=app-text/evince-43.0 nautilus
->=x11-terms/gnome-terminal-3.46 nautilus
 
 # Sam James <sam@gentoo.org> (2022-11-19)
 # Needs long-EOL dev-lang/spidermonkey:60 (which also needs python:2.7).
