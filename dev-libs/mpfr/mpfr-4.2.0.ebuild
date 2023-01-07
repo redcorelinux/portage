@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -58,7 +58,7 @@ PATCHES=(
 HTML_DOCS=( doc/FAQ.html )
 
 src_unpack() {
-	verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.asc}
+	use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.asc}
 
 	# Avoid src_unpack noise from patches
 	unpack ${MY_P}.tar.xz

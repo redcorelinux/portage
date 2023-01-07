@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ fi
 LICENSE="GPL-2+ MIT"
 SLOT="0/${PV}"
 IUSE="+ocamlopt"
-
+RESTRICT="strip"
 # NOTICE:
 # Theoretically luv <= 0.5.8 is pinned but it is because of mingw issues
 RDEPEND="
