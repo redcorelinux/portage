@@ -423,7 +423,6 @@ app-editors/bluefish:spell - Enable spell checking capabilities via enchant libr
 app-editors/emacs:athena - Enable the MIT Athena widget set (x11-libs/libXaw)
 app-editors/emacs:dynamic-loading - Enable loading of dynamic libraries (modules) at runtime
 app-editors/emacs:games - Support shared score files for games
-app-editors/emacs:gconf - Use gnome-base/gconf to read the system font name
 app-editors/emacs:gfile - Use gfile (dev-libs/glib) for file notification
 app-editors/emacs:gmp - Use the GNU multiple precision arithmetic library (dev-libs/gmp) instead of the bundled mini-gmp subset
 app-editors/emacs:gsettings - Use gsettings (dev-libs/glib) to read the system font name
@@ -2992,6 +2991,17 @@ games-emulation/generator:sdlaudio - Enable SDL Audio
 games-emulation/hatari:capsimage - Use dev-libs/spsdeclib to read .IPF, .RAW, and .CTR disk images
 games-emulation/hatari:portmidi - Use media-libs/portmidi as an alternative MIDI backend
 games-emulation/higan:gtk - Use GTK3 (Qt5 if disabled) user interface backend
+games-emulation/jgemu:bsnes - Install bsnes for Super Nintendo
+games-emulation/jgemu:cega - Install Cega for SG-1000, Sega Master System and Game Gear
+games-emulation/jgemu:gambatte - Install Gambatte for Game Boy and Game Boy Color
+games-emulation/jgemu:jollycv - Install JollyCV for ColecoVision
+games-emulation/jgemu:mednafen - Install Mednafen for Atari Lynx, Nintendo Virtual Boy, NEC PC Engine, NEC SuperGrafx, Sony PlayStation, Sega Saturn, Super Nintendo, Neo Geo Pocket and WonderSwan
+games-emulation/jgemu:melonds - Install MelonDS for Nintendo DS
+games-emulation/jgemu:mgba - Install mGBA for Game Boy Advance
+games-emulation/jgemu:nestopia - Install Nestopia for Nintendo Entertainment System
+games-emulation/jgemu:prosystem - Install ProSystem for Atari 7800
+games-emulation/jgemu:sameboy - Install SameBoy for Game Boy and Game Boy Color
+games-emulation/jgemu:vecx - Install Vecx for Vectrex
 games-emulation/m64py:7z - Ensure support for .7z archives.
 games-emulation/m64py:rar - Ensure support for .rar archives.
 games-emulation/mgba:discord - Enable Discord RPC support
