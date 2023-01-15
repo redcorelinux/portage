@@ -6574,9 +6574,11 @@ net-misc/streamtuner:xiph - Enable xiph.org plug-in.
 net-misc/stunnel:stunnel3 - Install the stunnel3 wrapper.
 net-misc/tigervnc:dri3 - Build with DRI3 support
 net-misc/tigervnc:drm - Build with DRM support
+net-misc/tigervnc:java - Build TigerVNC Java viewer
 net-misc/tigervnc:server - Build TigerVNC server
-net-misc/turbovnc:client - Build the client (vncviewer)
+net-misc/tigervnc:viewer - Build TigerVNC viewer
 net-misc/turbovnc:server - Build the server (vncserver, Xvnc)
+net-misc/turbovnc:viewer - Build the viewer (vncviewer)
 net-misc/uftp:server - Install uftp server daemon
 net-misc/vde:pcap - Enable the pcap-based plugin that allows creating a switch against a real interface.
 net-misc/wget:cookie-check - Enable cookie checks via net-libs/libpsl
@@ -6631,15 +6633,11 @@ net-news/sfeed:theme-mono-highlight - Use mono_highlight theme
 net-news/sfeed:theme-newsboat - Use newsboat theme
 net-news/sfeed:theme-templeos - Use templeos theme
 net-nntp/nzbget:parcheck - Enable support for checking PAR archives
-net-nntp/sabnzbd:7za - Add support for extracting 7za files
-net-nntp/sabnzbd:rar - Add support for extracting rar files
-net-nntp/sabnzbd:unzip - Add support for extracting zip files
 net-nntp/slrn:canlock - Add support for cancel locks via net-libs/canlock
 net-nntp/slrn:uudeview - Add support for yEnc coding and more using dev-libs/uulib
 net-nntp/tin:cancel-locks - Enable Cancel-Lock header functionality
 net-nntp/tin:gpg - Enable app-crypt/gnupg support
 net-nntp/tin:libtls - Prefer dev-libs/libretls as SSL/TLS provider (ineffective with USE=-ssl)
-net-nntp/tin:pcre2 - Use dev-libs/libpcre2 instead of dev-libs/libpcre
 net-p2p/airdcpp-webclient:nat-pmp - Enable support for the NAT-PMP protocol
 net-p2p/airdcpp-webclient:tbb - Enable support of the TBB library to improve performance
 net-p2p/airdcpp-webclient:webui - Enable the Web UI
