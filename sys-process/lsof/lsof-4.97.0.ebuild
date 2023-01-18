@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic
+inherit autotools flag-o-matic toolchain-funcs
 
 MY_P="${P/-/_}"
 DESCRIPTION="Lists open files for running Unix processes"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/lsof-org/lsof/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="lsof"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc"
 IUSE="rpc selinux"
 
 RDEPEND="
@@ -37,6 +37,11 @@ src_prepare() {
 src_configure() {
 	export ac_cv_header_rpc_rpc_h=$(usex rpc)
 	export ac_cv_header_selinux_selinux_h=$(usex selinux)
+
+	if use rpc ; then
+		append-cppflags $($(tc-getPKG_CONFIG) libtirpc --cflags)
+		append-libs $($(tc-getPKG_CONFIG) libtirpc --libs)
+	fi
 
 	[[ ${CHOST} == *-solaris2.11 ]] && append-cppflags -DHAS_PAD_MUTEX
 
