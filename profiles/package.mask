@@ -33,6 +33,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Bernd Waibel <waebbl-gentoo@posteo.net> (2023-01-28)
+# Possible security issues, obsolete. Use OpenEXR-3 / Imath instead.
+# No revdeps and consumers left in ::gentoo
+# Removal in 30 days. Bug #892375
+media-libs/ilmbase
+
+# Hans de Graaff <graaff@gentoo.org> (2023-01-28)
+# No upstream releases since 2010. No longer maintained
+# upstream. ruby27-only package. Masked for removal on 2023-02-27.
+dev-ruby/ruby_gntp
+
 # Mike Gilbert <floppym@gentoo.org> (2023-01-28)
 # No upstream releases since 2008.
 # No Gentoo maintainer since 2009.
@@ -850,6 +861,7 @@ dev-python/pyside6-tools
 # Jimi Huotari <chiitoo@gentoo.org> (2022-08-02)
 # Masked for testing. The split of some packages may still
 # change. bug #838970.
+>=app-editors/retext-8.0.0
 dev-python/PyQt6
 dev-python/PyQt6-WebEngine
 dev-qt/qt5compat:6
