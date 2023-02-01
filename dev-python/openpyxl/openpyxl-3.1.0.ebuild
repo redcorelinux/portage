@@ -28,9 +28,9 @@ BDEPEND="
 	test? (
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP},tiff,jpeg]
-		dev-python/py[${PYTHON_USEDEP}]
 	)
 "
 
-distutils_enable_sphinx doc
+distutils_enable_sphinx doc \
+	dev-python/sphinx_rtd_theme
 distutils_enable_tests pytest

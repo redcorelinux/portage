@@ -2060,6 +2060,7 @@ dev-libs/openobex:irda - Enable IrDA support
 dev-libs/opensc:ctapi - Use CT-API for accessing Smartcard hardware
 dev-libs/opensc:notify - Enable notifications
 dev-libs/opensc:openct - Use dev-libs/openct (and CT-API) for accessing Smartcard hardware
+dev-libs/opensc:openpace - Use dev-libs/openpace for EAC version 2 support
 dev-libs/opensc:pcsc-lite - Use sys-apps/pcsc-lite (and PC/SC API) for accessing Smartcard hardware
 dev-libs/opensc:secure-messaging - Enable secure messaging
 dev-libs/openssl:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
@@ -7280,7 +7281,6 @@ sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
-sci-libs/hipFFT:benchmark - Build and install benchmark programs hipfft-rider.
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/indilib:websocket - Enable support for WebSocket protocol
