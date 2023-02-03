@@ -11,19 +11,18 @@ WINE_MONO=7.4.0
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/wine-staging/wine-staging.git"
-	WINE_EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
+	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
 else
 	(( $(ver_cut 2) )) && WINE_SDIR=$(ver_cut 1).x || WINE_SDIR=$(ver_cut 1).0
-	SRC_URI="
-		https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz
-		https://github.com/wine-staging/wine-staging/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz"
+	S="${WORKDIR}/wine-${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
-S="${WORKDIR}/wine-${PV}"
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
-HOMEPAGE="https://wiki.winehq.org/Wine-Staging"
+DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
+HOMEPAGE="
+	https://www.winehq.org/
+	https://gitlab.winehq.org/wine/wine/"
 
 LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
@@ -125,7 +124,7 @@ IDEPEND=">=app-eselect/eselect-wine-2"
 QA_TEXTRELS="usr/lib/*/wine/i386-unix/*.so" # uses -fno-PIC -Wl,-z,notext
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.17-noexecstack.patch
+	"${FILESDIR}"/${PN}-7.0-noexecstack.patch
 	"${FILESDIR}"/${PN}-7.20-unwind.patch
 )
 
@@ -148,36 +147,7 @@ pkg_pretend() {
 	fi
 }
 
-src_unpack() {
-	if [[ ${PV} == *9999 ]]; then
-		EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
-		git-r3_src_unpack
-
-		EGIT_COMMIT=$(<"${EGIT_CHECKOUT_DIR}"/staging/upstream-commit) || die
-		EGIT_REPO_URI=${WINE_EGIT_REPO_URI}
-		EGIT_CHECKOUT_DIR=${S}
-		einfo "Fetching Wine commit matching the current patchset by default (${EGIT_COMMIT})"
-		git-r3_src_unpack
-	else
-		default
-	fi
-}
-
 src_prepare() {
-	local staging=(
-		./patchinstall.sh DESTDIR="${S}"
-		--all
-		--backend=eapply
-		--no-autoconf
-		-W winemenubuilder-Desktop_Icon_Path #652176
-		${MY_WINE_STAGING_CONF}
-	)
-
-	# source patcher in a subshell so can use eapply as a backend
-	ebegin "Running ${staging[*]}"
-	( cd ../${P}/patches && . "${staging[@]}" )
-	eend ${?} || die "Failed to apply the patchset"
-
 	# sanity check, bumping these has a history of oversights
 	local geckomono=$(sed -En '/^#define (GECKO|MONO)_VER/{s/[^0-9.]//gp}' \
 		dlls/appwiz.cpl/addons.c || die)
