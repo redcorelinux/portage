@@ -1,16 +1,16 @@
 # Copyright 2006-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake systemd xdg-utils
+inherit cmake tmpfiles systemd xdg-utils
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/transmission/transmission"
 else
 	MY_PV="${PV/_beta/-beta.}"
-	MY_P="${PN}-${MY_PV}+r634b1e8fc1"
+	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
@@ -31,7 +31,7 @@ ACCT_DEPEND="
 	acct-group/transmission
 	acct-user/transmission
 "
-BDEPEND="${ACCT_DEPEND}
+BDEPEND="
 	virtual/pkgconfig
 	nls? (
 		gtk? ( sys-devel/gettext )
@@ -68,12 +68,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	${ACCT_DEPEND}
 "
-
-src_prepare() {
-	cmake_src_prepare
-	# https://github.com/transmission/transmission/issues/3901
-	rm -f libtransmission/version.h || die
-}
 
 src_configure() {
 	local mycmakeargs=(
@@ -124,10 +118,7 @@ src_install() {
 	insinto /usr/lib/sysctl.d
 	doins "${FILESDIR}"/60-transmission.conf
 
-	if [[ ${EUID} == 0 ]]; then
-		diropts -o transmission -g transmission
-	fi
-	keepdir /var/lib/transmission
+	newtmpfiles "${FILESDIR}"/transmission-daemon.tmpfiles transmission-daemon.conf
 }
 
 pkg_postrm() {
@@ -142,4 +133,5 @@ pkg_postinst() {
 		xdg_desktop_database_update
 		xdg_icon_cache_update
 	fi
+	tmpfiles_process transmission-daemon.conf
 }
