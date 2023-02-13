@@ -1306,7 +1306,6 @@ dev-cpp/opentelemetry-cpp:jaeger - Include the jaeger exporter
 dev-cpp/opentelemetry-cpp:prometheus - include the Prometheus Client in the SDK
 dev-cpp/sdbus-c++:systemd - Use external libsystemd instead of statically-linked build
 dev-cpp/sdbus-c++:tools - Install interface stub code generator
-dev-cpp/sourcetrail:examples - Install example projects.
 dev-db/etcd:server - Installs etcd daemon
 dev-db/firebird:server - Install the server components of Firebird, not just the client
 dev-db/firebird:xinetd - Install ClassicServer
@@ -1829,6 +1828,7 @@ dev-libs/antlr-c:debugger - Compiles debug info into the library
 dev-libs/appstream:apt - Enables Debians APT support
 dev-libs/appstream-glib:fonts - Enable fonts support for appstream-builder.
 dev-libs/appstream-glib:stemmer - Add word stemming via dev-libs/snowball-stemmer.
+dev-libs/apr:old-kernel - Enable compatibility with older kernels
 dev-libs/apr:older-kernels-compatibility - Enable binary compatibility with older kernels
 dev-libs/apr:urandom - Use /dev/urandom instead of /dev/random
 dev-libs/apr-util:nss - Install apr_crypto_nss module
@@ -3344,6 +3344,7 @@ gui-libs/wlroots:vulkan - Enable support for the vulkan backend renderer
 gui-libs/wlroots:x11-backend - Enable support for handling input/output devices through x11-libs/libxcb
 gui-libs/xdg-desktop-portal-wlr:elogind - Enable support for rootless session via elogind
 gui-wm/gamescope:pipewire - Enable screen capture via PipeWire
+gui-wm/gamescope:wsi-layer - Enable the WSI layer (required for HDR)
 gui-wm/hikari:X - Enable support for X11 applications (XWayland)
 gui-wm/sway:X - Enable support for X11 applications (XWayland)
 gui-wm/sway:grimshot - Install 'grimshot': script for taking screenshots
@@ -7908,7 +7909,6 @@ sys-apps/util-linux:tty-helpers - install the mesg/wall/write tools for talking 
 sys-apps/watchdog:nfs - enable support for checking nfs mounts
 sys-apps/xinetd:rpc - support RPC services
 sys-auth/elogind:cgroup-hybrid - Use hybrid cgroup hierarchy (OpenRC's default) instead of unified.
-sys-auth/google-authenticator-libpam-hardened:qrcode - Display QRcode after setup to accomodate automatic setup of OTP client apps.
 sys-auth/munge:gcrypt - Use libgcrypt instead of openssl
 sys-auth/nss-pam-ldapd:pynslcd - Install the python implementation along with the standard implementation
 sys-auth/nss-pam-ldapd:utils - Install the command-line utilities
