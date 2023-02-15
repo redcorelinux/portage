@@ -360,9 +360,6 @@ multilib_src_install_all() {
 		rm -f "${ED}${rootprefix}/${sbin}"/resolvconf || die
 	fi
 
-	rm "${ED}"/etc/init.d/README || die
-	rm "${ED}${rootprefix}"/lib/systemd/system-generators/systemd-sysv-generator || die
-
 	if ! use sysv-utils; then
 		rm "${ED}${rootprefix}/${sbin}"/{halt,init,poweroff,reboot,runlevel,shutdown,telinit} || die
 		rm "${ED}"/usr/share/man/man1/init.1 || die
