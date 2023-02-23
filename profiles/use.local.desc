@@ -5777,9 +5777,9 @@ net-im/spectrum2:whatsapp - Enables the WhatsApp backend, based on net-im/transw
 net-im/teams:swiftshader - Install SwiftShader OpenGL libaries.
 net-im/teams:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 net-im/teams:system-mesa - Use the system-wide media-libs/mesa instead of bundled.
-net-im/telegram-desktop:enchant - Enable the app-text/aspell spell-checking backend
+net-im/telegram-desktop:enchant - Use the app-text/aspell spell-checking backend instead of app-text/hunspell
 net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (overrides fontconfig)
-net-im/telegram-desktop:hunspell - Enable the app-text/hunspell spell-checking backend
+net-im/telegram-desktop:hunspell - Enable the app-text/hunspell spell-checking backend (deprecated)
 net-im/telegram-desktop:qt6 - Build with Qt6 support
 net-im/telegram-desktop:qt6-imageformats - Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats
 net-im/telepathy-connection-managers:gadu - Enable Gadu Gadu protocol support.
@@ -8495,7 +8495,7 @@ sys-process/cronie:anacron - Install the periodic anacron command scheduler.
 sys-process/fcron:debug - Enable debug code and output. Since version 3.0.5 this will no longer force foreground execution, and fcron will be able to run as a service properly.
 sys-process/fcron:mta - Enable mta support for sending emails from fcron
 sys-process/fcron:pam - Enable PAM support for fcron. This means that fcron will pass through the "fcron" stack before executing the jobs, and fcrontab will use the "fcrontab" stack to authenticate the user before editing its crontab file.
-sys-process/fcron:system-crontab - Set up fcron to respect /etc/crontab and /etc/cron.d. If this flag is disabled, /etc/cron.d and /etc/crontab will be ignored, but /etc/cron.{hourly,daily,weekly,monthly} will still be respected.
+sys-process/fcron:system-crontab - Set up fcron to respect /etc/crontab and /etc/cron.d. If this flag is disabled, /etc/cron.d and /etc/crontab will be ignored, but /etc/cron.{hourly,daily,weekly,monthly} will still be respected. Also this creates /usr/bin/crontab symlink.
 sys-process/htop:delayacct - Enable Linux delay accounting support via dev-libs/libnl
 sys-process/htop:hwloc - Use sys-apps/hwloc for CPU affinity support
 sys-process/htop:openvz - Enable openvz support
