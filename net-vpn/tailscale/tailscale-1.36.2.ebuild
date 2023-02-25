@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,10 +6,10 @@ inherit go-module systemd tmpfiles
 
 # These settings are obtained by running ./build_dist.sh shellvars` in
 # the upstream repo.
-VERSION_MINOR="1.32"
-VERSION_SHORT="1.32.2"
-VERSION_LONG="1.32.2-t54e8fa172"
-VERSION_GIT_HASH="54e8fa172b725b354598daaa7007d261fd932d10"
+VERSION_MINOR="1.36"
+VERSION_SHORT="1.36.2"
+VERSION_LONG="1.36.2-t0438c67e2"
+VERSION_GIT_HASH="0438c67e2517c78feeaf0d9f61ea2a6303dd875c"
 
 DESCRIPTION="Tailscale vpn client"
 HOMEPAGE="https://tailscale.com"
