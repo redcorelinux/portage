@@ -25,7 +25,10 @@ else
 	SRC_URI="https://github.com/darktable-org/${PN}/releases/download/release-${MY_PV}/${MY_P}.tar.xz
 		doc? (
 			https://docs.darktable.org/usermanual/${DOC_PV}/en/${PN}_user_manual.pdf -> ${PN}-usermanual-${DOC_PV}.en.pdf
-			l10n_uk? ( https://docs.darktable.org/usermanual/${DOC_PV}/uk/${PN}_user_manual.pdf -> ${PN}-usermanual-${DOC_PV}.uk.pdf )
+			l10n_uk? (
+				https://docs.darktable.org/usermanual/${DOC_PV}/uk/${PN}_user_manual.pdf
+					-> ${PN}-usermanual-${DOC_PV}.uk.pdf
+			)
 		)"
 
 	KEYWORDS="~amd64 ~arm64 -x86"
@@ -95,6 +98,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.2_cmake-march-autodetection.patch
 	"${FILESDIR}"/${PN}-3.4.0_jsonschema-automagic.patch
 	"${FILESDIR}"/${PN}-3.4.1_libxcf-cmake.patch
+	"${FILESDIR}"/${PN}-4.2.1_cmake-musl.patch
 )
 
 S="${WORKDIR}/${P/_/~}"
@@ -136,6 +140,8 @@ src_configure() {
 		-DCUSTOM_CFLAGS=ON
 		-DDONT_USE_INTERNAL_LUA=ON
 		-DRAWSPEED_ENABLE_LTO=$(usex lto)
+		-DRAWSPEED_ENABLE_WERROR=OFF
+		-DRAWSPEED_MUSL_SYSTEM=$(usex elibc_musl)
 		-DTESTBUILD_OPENCL_PROGRAMS=OFF
 		-DUSE_AVIF=$(usex avif)
 		-DUSE_CAMERA_SUPPORT=$(usex gphoto2)

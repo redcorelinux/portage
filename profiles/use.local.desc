@@ -1202,7 +1202,6 @@ app-text/stardict:wordnet - Enable wordnet plugin to find similar English words 
 app-text/stardict:xdxfparse - Enable plugin to parse dictionaries in xdxf (XML Dictionary eXchange Format)
 app-text/stardict:youdaodict - Enable youdao.com network plugin (for Chinese language)
 app-text/sword:clucene - Use dev-cpp/clucene for lucene search support
-app-text/sword-modules:esoteric - Install modules with no linguistic content, in unknown languages etc.
 app-text/tessdata_best:osd - Enable support orientation and script detection.
 app-text/tessdata_fast:osd - Enable support orientation and script detection.
 app-text/tessdata_legacy:math - Enable support for recognition of equations.
@@ -4541,7 +4540,6 @@ media-sound/deadbeef:shellexec - Define custom shell commands that can be called
 media-sound/deadbeef:supereq - Enable equalizer
 media-sound/denemo:alsa - Enable alsa support through media-libs/alsa-lib
 media-sound/denemo:aubio - Enable media-libs/aubio support
-media-sound/denemo:fluidsynth - Enable Fluidsynth MIDI software synthesis using media-sound/fluidsynth
 media-sound/denemo:jack - Enable jack support through virtual/jack
 media-sound/denemo:portaudio - Enable support for media-libs/portaudio
 media-sound/denemo:portmidi - Enable support for the media-libs/portmidi backend
