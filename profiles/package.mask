@@ -33,12 +33,10 @@
 
 #--- END OF EXAMPLES ---
 
-# Joonas Niilola <juippis@gentoo.org> (2023-02-28)
-# Bash and therefore ebuild syntax highlight seems broken. 
-# Bug #898446.
-=app-editors/gvim-9.0.1341
-=app-editors/vim-9.0.1341
-=app-editors/vim-core-9.0.1341
+# Michał Górny <mgorny@gentoo.org> (2023-02-28)
+# Unmaintained.  Last (keep-alive) commit in 2019.  Suffers from bitrot.
+# Removal on 2023-03-30.  Bug #885713.
+net-im/ekg2
 
 # Mike Pagano <mpagano@gentoo.org> (2023-02-27)
 # Mask =www-servers/nginx-unit-1.29.0-r1 for testing
@@ -467,11 +465,6 @@ net-p2p/vuze-coreplugins
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2022-12-19)
 # This version currently is not compatible with kernel build (yet)
 ~dev-util/bindgen-0.63.0
-
-# Sam James <sam@gentoo.org> (2022-12-09)
-# Breaks compilation of reverse dependencies with broken pkgconfig (pc) file
-# bug #885075, https://github.com/libarchive/libarchive/issues/1766
-=app-arch/libarchive-3.6.2
 
 # Stephan Hartmann <sultan@gentoo.org> (2023-01-15)
 # Dev channel releases are only for people who
