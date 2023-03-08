@@ -17,7 +17,7 @@ IUSE="libevent lua +ssl test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	dev-libs/boost:=
+	dev-libs/boost:=[nls]
 	dev-libs/openssl:=
 	libevent? ( dev-libs/libevent )
 "
@@ -27,7 +27,6 @@ BDEPEND=""
 REQUIRED_USE="
 	test? ( ssl )
 "
-MAKEOPTS+=" -j1"
 
 PATCHES=(
 	"${FILESDIR}/thrift-0.16.0-network-tests.patch"
