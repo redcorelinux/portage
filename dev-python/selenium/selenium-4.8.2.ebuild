@@ -25,7 +25,7 @@ SRC_URI+="
 	)
 "
 
-KEYWORDS="~amd64 ~ppc ~sparc"
+KEYWORDS="~amd64 ~ppc ~riscv ~sparc ~x86"
 LICENSE="Apache-2.0"
 SLOT="0"
 
@@ -37,6 +37,11 @@ RDEPEND="
 	>=dev-python/trio-websocket-0.9[${PYTHON_USEDEP}]
 	<dev-python/urllib3-2[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/pytest-mock[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
