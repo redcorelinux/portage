@@ -44,12 +44,16 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_PROJSYNC=$(usex curl)
-		-DBUILD_BENCHMARKS=OFF
 		-DENABLE_CURL=$(usex curl)
 		-DENABLE_TIFF=$(usex tiff)
 	)
 
-	use test && mycmakeargs+=( -DUSE_EXTERNAL_GTEST=ON )
+	if use test ; then
+		mycmakeargs+=(
+			-DUSE_EXTERNAL_GTEST=ON
+			-DBUILD_BENCHMARKS=OFF
+		)
+	fi
 
 	cmake_src_configure
 }
