@@ -435,12 +435,6 @@ net-p2p/vuze-coreplugins
 # This version currently is not compatible with kernel build (yet)
 ~dev-util/bindgen-0.63.0
 
-# Stephan Hartmann <sultan@gentoo.org> (2023-01-15)
-# Dev channel releases are only for people who
-# are developers or want more experimental features
-# and accept a more unstable release.
->=www-client/chromium-111
-
 # Matt Turner <mattst88@gentoo.org> (2022-11-16)
 # Packages or their dependencies have not been ported to libsoup:3.0, while
 # other non-slotted dependencies have been.
@@ -531,7 +525,7 @@ dev-qt/qtwebsockets:6
 # James Beddek <telans@posteo.de> (2022-01-19)
 # FFmpeg 5.0 ABI/API changes break many packages.
 # Masking for tracker/tinderbox. Bug #831437
-=media-video/ffmpeg-5*
+>=media-video/ffmpeg-5
 >=media-sound/spek-0.8.5
 
 # Brian Evans <grknight@gentoo.org> (2022-01-07)
