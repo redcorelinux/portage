@@ -33,6 +33,53 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2023-03-19)
+# Last release over 7.5 years ago, repo link broken and redirects to
+# homepage, build system is a mess, fails with modern C.
+# Removal on 2023-04-18. Bug #802729, #862414, #876993, #880577.
+x11-wm/subtle
+
+# David Seifert <soap@gentoo.org> (2023-03-19)
+# Last release over 5 years ago, fails with modern C, no revdeps in
+# tree.
+# Removal on 2023-04-18. Bug #884407.
+dev-ruby/ruby-xslt
+
+# David Seifert <soap@gentoo.org> (2023-03-19)
+# Last release over 10 years ago, fails with modern C, no revdeps in
+# tree.
+# Removal on 2023-04-18. Bug #587222, #884409.
+dev-ruby/tidy-ext
+
+# David Seifert <soap@gentoo.org> (2023-03-19)
+# Upstream disappeared, last release over 8 years ago, fails with modern
+# C, no revdeps in tree.
+# Removal on 2023-04-18. Bug #713784, #895686.
+dev-ruby/sigar
+
+# David Seifert <soap@gentoo.org> (2023-03-19)
+# Apache NIH make, long abandoned upstream, forked reboot went nowhere.
+# Last release over 2 years ago, fails with modern C and no revdeps in
+# tree. Removal on 2023-04-18. Bug #880401.
+dev-util/dmake
+
+# Hans de Graaff <graaff@gentoo.org> (2023-03-19)
+# ruby27-only package without reverse dependencies. No recent activity
+# upstream and last supported ruby version is 2.5. Masked for removal on
+# 2023-04-19.
+dev-ruby/bit-struct
+
+# Obsolete slot using an older version of faraday. Use the newer slot
+# instead. Masked for removal on 2023-04-19.
+dev-ruby/elasticsearch:6
+dev-ruby/elasticsearch-api:6
+dev-ruby/elasticsearch-transport:6
+
+# Hans de Graaff <graaff@gentoo.org> (2023-03-19)
+# Last upstream activity 5 years ago, no longer works with modern
+# Cucumber. Masked for removal on 2023-04-19.
+dev-ruby/fivemat
+
 # David Seifert <soap@gentoo.org> (2023-03-18)
 # Upstream disappeared, last release over 20 years ago, only Gentoo
 # still carries this, breaks with modern C under Clang, no revdeps.
@@ -75,7 +122,7 @@ dev-ruby/six
 
 # Alfredo Tupone <tupone@gentoo.org> (2023-03-14)
 # Masked for removal in 30 days.
-# Bug #895824, no rev dep 
+# Bug #895824, no rev dep
 dev-tcltk/tkzinc
 
 # David Seifert <soap@gentoo.org> (2023-03-12)
