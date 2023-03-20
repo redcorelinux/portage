@@ -181,6 +181,7 @@ dev-ruby/net-http-persistent:3
 >=media-gfx/eog-44_beta
 >=media-gfx/gnome-font-viewer-44_rc
 >=net-libs/glib-networking-2.76_beta
+>=net-libs/webkit-gtk-2.40.0
 >=net-misc/gnome-connections-44_rc
 >=net-misc/gnome-remote-desktop-44_rc
 >=sci-geosciences/gnome-maps-44_rc
@@ -356,17 +357,6 @@ app-eselect/eselect-opencascade
 # No revdeps.
 # Removal on 2023-03-21.  Bug #895342.
 dev-python/flask-script
-
-# Michał Górny <mgorny@gentoo.org> (2023-02-17)
-# Merged into dev-python/pytest-cov in 2020.  No revdeps left.
-# Removal on 2023-03-19.  Bug #895120.
-dev-python/cov-core
-
-# Michał Górny <mgorny@gentoo.org> (2023-02-17)
-# Broken against the current package versions in ::gentoo.  Upstream
-# inactive.  No revdeps.
-# Removal on 2023-03-19.  Bug #865931.
-dev-python/pytest-flake8
 
 # Florian Schmaus <flow@gentoo.org> (2023-02-09)
 # Leftovers from net-im/jabber-base. Unused and obsolete.
