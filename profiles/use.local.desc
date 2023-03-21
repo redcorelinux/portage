@@ -3030,6 +3030,7 @@ games-emulation/mupen64plus-core:new-dynarec - Enable new experimental dynamic r
 games-emulation/mupen64plus-core:opencv - Support video capture via media-libs/opencv
 games-emulation/mupen64plus-core:osd - Overlay emulator messages using on-screen-display
 games-emulation/mupen64plus-video-glide64mk2:hires - Support hi-resolution textures (requires dev-libs/boost)
+games-emulation/pcsx2:backtrace - Display a backtrace on crash using sys-libs/libbacktrace
 games-emulation/pcsx2:sndio - Enable support for the media-sound/sndio backend
 games-emulation/pcsx2:vulkan - Enable support for Vulkan
 games-emulation/pcsxr:archive - Support compressed files (via libarchive)
@@ -8968,7 +8969,7 @@ x11-themes/tela-icon-theme:dracula - Install dracula folder version
 x11-themes/tela-icon-theme:green - Install green folder version
 x11-themes/tela-icon-theme:grey - Install grey folder version
 x11-themes/tela-icon-theme:hardlink - Hardlink duplicate icons to greatly reduce installation size
-x11-themes/tela-icon-theme:kde - Install colorshceme version for KDE plasma (folder color follow the colorscheme)
+x11-themes/tela-icon-theme:kde - Install dynamic color version for KDE plasma (folder color follows the colorscheme)
 x11-themes/tela-icon-theme:manjaro - Install manjaro folder version
 x11-themes/tela-icon-theme:nord - Install nord folder version
 x11-themes/tela-icon-theme:orange - Install orange folder version
