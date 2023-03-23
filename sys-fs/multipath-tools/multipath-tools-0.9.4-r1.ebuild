@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic linux-info systemd tmpfiles toolchain-funcs udev
+inherit linux-info systemd tmpfiles toolchain-funcs udev
 
 DESCRIPTION="Device mapper target autoconfig"
 HOMEPAGE="http://christophe.varoqui.free.fr/"
@@ -34,19 +34,22 @@ CONFIG_CHECK="~DM_MULTIPATH"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.9.4-test-fix.patch
+	"${FILESDIR}"/${PN}-0.9.4-remove-Werror.patch
 )
 
 myemake() {
 	local myemakeargs=(
 		prefix="${EPREFIX}"
+		usr_prefix="${EPREFIX}/usr"
 		LIB="$(get_libdir)"
 		RUN=run
 		plugindir="${EPREFIX}/$(get_libdir)/multipath"
 		unitdir="$(systemd_get_systemunitdir)"
-		libudevdir="${EPREFIX}/$(get_udevdir)"
-		pkgconfdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig"
+		libudevdir="${EPREFIX}$(get_udevdir)"
 		GENTOO_CFLAGS="${CFLAGS}"
 		GENTOO_CPPFLAGS="${CPPFLAGS}"
+		FORTIFY_OPT=
+		OPTFLAGS=
 		FAKEVAR=1
 		V=1
 	)
@@ -63,9 +66,6 @@ src_prepare() {
 
 src_compile() {
 	tc-export CC
-
-	append-flags -Wno-error
-
 	myemake
 }
 
@@ -78,10 +78,6 @@ src_install() {
 
 	myemake DESTDIR="${ED}" install
 
-	rmdir "${ED}"/usr/include
-	rmdir "${ED}"/usr/share
-	mv "${ED}"/include "${ED}"/usr/include || die
-	mv "${ED}"/share "${ED}"/usr/share || die
 	einstalldocs
 
 	newinitd "${FILESDIR}"/multipathd-r1.rc multipathd
