@@ -2674,7 +2674,6 @@ dev-scheme/kawa:krl - Build BRL emulation and KRL
 dev-scheme/kawa:sax - Assume SAX2 is available with dev-java/sax
 dev-scheme/kawa:servlets - Build support for generating servlets with Java servletapi
 dev-scheme/kawa:swing - Assume Swing is available
-dev-scheme/kawa:xqtests - Support XQuery Test Suite
 dev-scheme/mit-scheme:blowfish - Compile with blowfish encryption support
 dev-scheme/racket:chez - Build Racket on Chez (Racket CS)
 dev-scheme/racket:futures - Enable racket/future library for fine-grained hardware parallelism
@@ -3941,11 +3940,6 @@ media-gfx/fbida:X - Install the Motif based image viewer "ida"
 media-gfx/fbida:fbcon - Install the framebuffer image viewer "fbi"
 media-gfx/fbida:ghostscript - Install the framebuffer ghostscript viewer "fbgs"
 media-gfx/fdm-materials:embedded - Build for Ultimaker Embedded software
-media-gfx/fim:bmp - Enable BMP file support
-media-gfx/fim:dia - Enable DIA file support via app-office/dia
-media-gfx/fim:imagemagick - Use convert from media-gfx/imagemagick as fallback file opener
-media-gfx/fim:pcx - Enable PCX file support
-media-gfx/fim:xfig - Enable FIG file support via media-gfx/xfig
 media-gfx/fontforge:truetype-debugger - Enable truetype debugger in fontforge
 media-gfx/fontforge:woff2 - Enable support for WOFF2 format
 media-gfx/fotowall:webcam - Enable webcam support
@@ -5773,9 +5767,6 @@ net-im/spectrum2:purple - Enables the libpurple backend, based on net-im/pidgin.
 net-im/spectrum2:sms - Enables the SMS backend, based on app-mobilephone/smstools.
 net-im/spectrum2:twitter - Enables the Twitter backend.
 net-im/spectrum2:whatsapp - Enables the WhatsApp backend, based on net-im/transwhat.
-net-im/teams:swiftshader - Install SwiftShader OpenGL libaries.
-net-im/teams:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
-net-im/teams:system-mesa - Use the system-wide media-libs/mesa instead of bundled.
 net-im/telegram-desktop:enchant - Use the app-text/aspell spell-checking backend instead of app-text/hunspell
 net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (overrides fontconfig)
 net-im/telegram-desktop:hunspell - Enable the app-text/hunspell spell-checking backend (old flag)
@@ -8561,6 +8552,7 @@ www-apps/postfixadmin:vacation - Install vacation.pl script and dependencies
 www-apps/redmine:markdown - Enable support for Markdown
 www-apps/redmine:minimagick - Enable image processing support via dev-ruby/mini_magick
 www-apps/redmine:passenger - Enable support for www-apache/passenger
+www-apps/redmine:standalone - Enable standalone mode with www-servers/puma
 www-apps/roundup:jinja - Enable Jinja2 support
 www-apps/roundup:markdown - Enable markdown rendering
 www-apps/roundup:pyjwt - Enable jwt tokens for login
