@@ -33,6 +33,37 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2023-03-28)
+# Unfetchable, the homepage is gone.  Last updated in 2020.
+# Removal on 2023-04-27.  Bug #831304.
+net-analyzer/netio
+
+# Michał Górny <mgorny@gentoo.org> (2023-03-28)
+# Unfetchable due to untrusted TLS certificate.  The game doesn't seem
+# to work anyway (displays blank window).
+# Removal on 2023-04-27.  Bug #835858.
+games-rpg/coe2
+
+# Michał Górny <mgorny@gentoo.org> (2023-03-28)
+# No upstream activity since Jan 2019.  The current version fails
+# to build.  Multiple other bugs reported.
+# Removal on 2023-04-27.  Bug #902069.
+acct-group/shellinaboxd
+acct-user/shellinaboxd
+www-misc/shellinabox
+
+# Michał Górny <mgorny@gentoo.org> (2023-03-28)
+# Unmaintained.  The current Gentoo version is from 2017 and has
+# multiple build failures reported.
+# Removal on 2023-04-27.  Bug #721816.
+app-editors/le
+
+# Michał Górny <mgorny@gentoo.org> (2023-03-28)
+# No py3.11 support, package already patched for 3.10.  Last release
+# in 2018.  No revdeps.
+# Removal on 2023-04-27.  Bug #894604.
+dev-python/picobox
+
 # Sam James <sam@gentoo.org> (2023-03-27)
 # The upstream tzinfo maintainers recommend using 2023a for now because of the
 # disruption regarding Lebanon's DST change. See https://lore.kernel.org/distributions/87cz4u2gmj.fsf@gentoo.org/T/#u.
@@ -251,12 +282,6 @@ sys-power/dptfxtract
 # Major update.  Multiple packages are known to be broken.
 # Masked for further testing.
 >=dev-python/cython-3
-
-# Matt Turner <mattst88@gentoo.org> (2023-02-25)
-# Packages are unmaintained and archived upstream.
-# Removal on 2023-03-27. Bug #897748
-gnome-extra/seahorse-nautilus
-x11-libs/libcryptui
 
 # Ben Kohler <bkohler@gentoo.org> (2023-01-30)
 # Breaks too many revdeps for now
