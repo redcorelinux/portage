@@ -26,7 +26,7 @@ LICENSE="imagemagick"
 # Please check this on bumps, SONAME is often not updated! Use abidiff on old/new.
 # If ABI is broken, change the bit after the '-'.
 SLOT="0/$(ver_cut 1-3)-43"
-IUSE="bzip2 corefonts +cxx djvu fftw fontconfig fpx graphviz hdri heif jbig jpeg jpeg2k lcms lqr lzma opencl openexr openmp pango perl +png postscript q32 q8 raw static-libs svg test tiff truetype webp wmf X xml zip zlib"
+IUSE="bzip2 corefonts +cxx djvu fftw fontconfig fpx graphviz hdri heif jbig jpeg jpeg2k jpegxl lcms lqr lzma opencl openexr openmp pango perl +png postscript q32 q8 raw static-libs svg test tiff truetype webp wmf X xml zip zlib"
 
 REQUIRED_USE="corefonts? ( truetype )
 	svg? ( xml )
@@ -48,6 +48,7 @@ RDEPEND="
 	jbig? ( >=media-libs/jbigkit-2:= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	jpeg2k? ( >=media-libs/openjpeg-2.1.0:2 )
+	jpegxl? ( >=media-libs/libjxl-0.6 )
 	lcms? ( media-libs/lcms:2= )
 	lqr? ( media-libs/liblqr )
 	opencl? ( virtual/opencl )
@@ -172,7 +173,7 @@ src_configure() {
 		$(use_with jbig)
 		$(use_with jpeg)
 		$(use_with jpeg2k openjp2)
-		--without-jxl
+		$(use_with jpegxl jxl)
 		$(use_with lcms)
 		$(use_with lqr)
 		$(use_with lzma)
