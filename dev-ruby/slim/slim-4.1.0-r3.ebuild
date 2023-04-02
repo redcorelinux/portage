@@ -15,11 +15,11 @@ RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 inherit ruby-fakegem
 
 DESCRIPTION="A template language aiming to reduce the syntax to the essential parts"
-HOMEPAGE="http://slim-lang.com/"
-LICENSE="MIT"
+HOMEPAGE="https://slim-template.github.io/"
 
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86"
+LICENSE="MIT"
 SLOT="$(ver_cut 1)"
+KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86"
 IUSE="doc"
 
 ruby_add_rdepend ">=dev-ruby/tilt-2.0.6:* =dev-ruby/tilt-2.0*:*
