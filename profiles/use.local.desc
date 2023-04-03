@@ -2433,6 +2433,7 @@ dev-python/pyside6:webengine - Build QtWebEngine and QtWebEngineWidgets modules
 dev-python/pyside6:websockets - Build QtWebSockets module
 dev-python/pyside6:widgets - Build QtWidgets module
 dev-python/pyside6:xml - Build QtXml module
+dev-python/pytables:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 dev-python/python-lsp-server:all-plugins - Pull in all optional plugins
 dev-python/python-mpd:twisted - Enable twisted support
 dev-python/python-stdnum:vies - Enable VIES
@@ -2470,6 +2471,7 @@ dev-python/twisted:conch - include Twisted SSHv2 implementation
 dev-python/twisted:http2 - include http2 support
 dev-python/twisted:serial - include serial port support
 dev-python/urllib3:brotli - Enable support for brotli compression
+dev-python/websockets:native-extensions - Compiles native C extensions
 dev-python/zeep:async - Add async support
 dev-qt/designer:declarative - Build the qdeclarativeview plugin
 dev-qt/linguist-tools:qml - Enable QML support in lupdate
@@ -5297,7 +5299,6 @@ net-analyzer/nmap:ndiff - Install the ndiff utility
 net-analyzer/nmap:nping - Install the nping utility
 net-analyzer/nmap:nse - Include support for the Nmap Scripting Engine (NSE)
 net-analyzer/nmap:symlink - Install symlink to nc
-net-analyzer/nmap:system-lua - Use dev-lang/lua instead of the bundled liblua
 net-analyzer/nmap:zenmap - Install the GTK+ based nmap GUI, zenmap
 net-analyzer/nrpe:command-args - Build support for specifying the command-line arguments from the Nagios/Icinga master. Make sure you understand the implications of this flag as it can be a security risk.
 net-analyzer/nsca:crypt - Build support for crypted communication with nsca, through dev-libs/libmcrypt. It's recommended not to disable this flag unless all the communication will be handled in an absolutely safe environment.
