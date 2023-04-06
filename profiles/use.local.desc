@@ -2186,9 +2186,6 @@ dev-lisp/gcl:ansi - Build a GCL with ANSI support (else build a traditional CLtL
 dev-lisp/gcl:athena - Build xgcl - an interface to x11-libs/libXaw
 dev-lisp/sbcl:capstone - Enable disassembly support with dev-libs/capstone
 dev-lua/lua-cjson:internal-fpconv - Enable internal number conversion routines, can increase overall performance by up to 50%
-dev-ml/dose3:parmap - Adds multi-core CPU support via dev-ml/parmap.
-dev-ml/dose3:rpm4 - Adds support for handling rpm4 files.
-dev-ml/dose3:zip - Adds support for handling zip files.
 dev-ml/lablgtk:glade - Enable gnome-base/libglade bindings compilation
 dev-ml/lablgtk:gnomecanvas - Enable gnome-base/libgnomecanvas bindings compilation
 dev-ml/lablgtk:sourceview - Enable GtkSourceView (x11-libs/gtksourceview) support
@@ -4020,8 +4017,12 @@ media-gfx/netgen:opencascade - Enable OpenCASCADE support
 media-gfx/nomacs:opencv - Build support for media-libs/opencv
 media-gfx/nomacs:plugins - Build officially support plugins
 media-gfx/openclipart:gzip - Compresses clip art using gzip
+media-gfx/openscad:egl - Build using EGL instead of GLX
+media-gfx/openscad:experimental - Enable experimental features
 media-gfx/openscad:gamepad - Add support for gamepads through dev-qt/qtgamepad
-media-gfx/openscad:headless - Build a binary without GUI
+media-gfx/openscad:gui - Enable or disable building of the GUI
+media-gfx/openscad:hidapi - Build in support for HID-Class devices using dev-libs/hidapi
+media-gfx/openscad:mimalloc - Build using dev-libs/mimalloc as memory allocator
 media-gfx/openscad:spacenav - Add support for space navigator devices through dev-libs/libspnav
 media-gfx/openvdb:abi10-compat - Disables newer features to maintain compatibility with ABI10
 media-gfx/openvdb:abi8-compat - Disables newer features to maintain compatibility with ABI8
