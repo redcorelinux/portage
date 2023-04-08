@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2023-04-08)
+# Last release in 2008. Upstream is gone. No reverse dependencies. No tests.
+# Removal on 2023-05-08
+dev-ruby/allison
+
 # Michał Górny <mgorny@gentoo.org> (2023-04-07)
 # No Python 3.11 support and the ebuild is not running the test suite.
 # Still uses deprecated dev-python/toml (upstream).  No revdeps.
@@ -155,11 +160,6 @@ dev-ruby/flickraw
 # bug #810493, bug #903532.
 # Removal on 2023-04-28.
 kde-apps/kross-interpreters
-
-# Sam James <sam@gentoo.org> (2023-03-29)
-# Only supports imminently-EOL ruby27.
-# Removal on 2023-04-28.  Bug #903499.
-net-misc/mikutter
 
 # Hans de Graaff <graaff@gentoo.org> (2023-03-29)
 # ruby27-only package. app-text/ronn-ng is a drop-in replacement.  it is
