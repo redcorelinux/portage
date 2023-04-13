@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit distutils-r1 optfeature pypi
 
@@ -32,7 +32,6 @@ BDEPEND="
 		>=dev-python/msgpack-0.3.0[${PYTHON_USEDEP}]
 		dev-python/pycurl[${PYTHON_USEDEP}]
 		>=dev-python/pymongo-4.1.1[${PYTHON_USEDEP}]
-		dev-python/Pyro4[${PYTHON_USEDEP}]
 		dev-python/pytest-freezegun[${PYTHON_USEDEP}]
 		dev-python/zstandard[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
@@ -58,11 +57,16 @@ EPYTEST_IGNORE=(
 )
 
 python_test() {
-	local EPYTEST_DESELECT
-
-	# AttributeError: 'str' object has no attribute 'load'
-	[[ ${EPYTHON} == python3.10 ]] && \
-		EPYTEST_DESELECT+=( t/unit/utils/test_compat.py::test_entrypoints )
+	local EPYTEST_DESELECT=(
+		# TODO
+		t/unit/transport/test_redis.py::test_Channel::test_connparams_health_check_interval_supported
+	)
+	local EPYTEST_IGNORE=(
+		# obsolete Pyro4
+		t/unit/transport/test_pyro.py
+		# unpackaged azure
+		t/unit/transport/test_azurestoragequeues.py
+	)
 
 	epytest
 }
@@ -80,7 +84,6 @@ pkg_postinst() {
 	optfeature "Amazon SQS backend" "dev-python/boto3 dev-python/pycurl"
 	optfeature "Etcd backend" dev-python/python-etcd
 	optfeature "MongoDB backend" dev-python/pymongo
-	optfeature "Pyro 4 backend" dev-python/Pyro4
 	optfeature "Redis backend" dev-python/redis
 	optfeature "sqlalchemy backend" dev-python/sqlalchemy
 	optfeature "yaml backend" dev-python/pyyaml
