@@ -15,8 +15,7 @@ LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT MPL-2
 SLOT="0"
 
 # rust does not use *FLAGS from make.conf, silence portage warning
-# update with proper path to binaries this crate installs, omit leading /
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_unpack() {
 	git-r3_src_unpack
@@ -31,6 +30,12 @@ src_prepare() {
 src_configure() {
 	cargo_gen_config
 	cargo_src_configure --frozen
+}
+
+src_test() {
+	# Integration tests require root
+	# https://github.com/cloud-hypervisor/cloud-hypervisor/issues/5388
+	cargo_src_test --bins
 }
 
 src_install() {
