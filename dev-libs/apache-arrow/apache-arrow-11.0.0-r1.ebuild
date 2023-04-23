@@ -23,7 +23,7 @@ SRC_URI="
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="brotli bzip2 compute dataset json lz4 parquet re2 snappy ssl test zlib zstd"
+IUSE="brotli bzip2 compute dataset +json lz4 parquet re2 snappy ssl test zlib zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -48,6 +48,7 @@ DEPEND="${RDEPEND}
 	dev-cpp/xsimd
 	json? ( dev-libs/rapidjson )
 	test? (
+		dev-libs/boost
 		dev-cpp/gflags
 		dev-cpp/gtest
 	)
@@ -56,7 +57,8 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="test? (
 		json
 		parquet? ( zstd )
-	)"
+	)
+	ssl? ( json )"
 
 S="${WORKDIR}/${P}/cpp"
 
