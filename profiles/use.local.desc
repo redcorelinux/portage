@@ -2196,6 +2196,7 @@ dev-lisp/ecls:precisegc - Use type information during garbage collection (experi
 dev-lisp/gcl:ansi - Build a GCL with ANSI support (else build a traditional CLtL1 image)
 dev-lisp/gcl:athena - Build xgcl - an interface to x11-libs/libXaw
 dev-lisp/sbcl:capstone - Enable disassembly support with dev-libs/capstone
+dev-lisp/sbcl:system-bootstrap - Bootstrap SBCL using either system SBCL installation or dev-lisp/clisp
 dev-lua/lua-cjson:internal-fpconv - Enable internal number conversion routines, can increase overall performance by up to 50%
 dev-ml/lablgtk:glade - Enable gnome-base/libglade bindings compilation
 dev-ml/lablgtk:gnomecanvas - Enable gnome-base/libgnomecanvas bindings compilation
@@ -2444,7 +2445,7 @@ dev-python/pyside6:widgets - Build QtWidgets module
 dev-python/pyside6:xml - Build QtXml module
 dev-python/pytables:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 dev-python/python-lsp-server:all-plugins - Pull in all optional plugins
-dev-python/python-mpd:twisted - Enable twisted support
+dev-python/python-mpd2:twisted - Enable twisted support
 dev-python/python-stdnum:vies - Enable VIES
 dev-python/pyudev:qt5 - Install PyQt5 bindings
 dev-python/pyzmq:drafts - Enable draft API support
@@ -9085,6 +9086,8 @@ xfce-base/xfce4-settings:xklavier - Enable keyboard layout selection support usi
 xfce-base/xfdesktop:thunar - Build support for desktop icons (for example, launchers and folders)
 xfce-base/xfwm4:xpresent - Enable the XPresent extension for sync to vblank
 xfce-extra/xfce4-clipman-plugin:qrcode - Enable support for media-gfx/qrencode
+xfce-extra/xfce4-mixer:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
+xfce-extra/xfce4-mixer:sndio - Enable media-sound/sndio backend.
 xfce-extra/xfce4-mpc-plugin:libmpd - Build using media-libs/libmpd backend, instead of native fallback which is preferred
 xfce-extra/xfce4-pulseaudio-plugin:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
 xfce-extra/xfce4-pulseaudio-plugin:libcanberra - Enable sound event support using media-libs/libcanberra
