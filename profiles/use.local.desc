@@ -2135,6 +2135,7 @@ dev-libs/quazip:qt6 - Build with Qt6 support
 dev-libs/raft:zfs - ZFS support
 dev-libs/serd:tools - Build command line utilities
 dev-libs/serdisplib:tools - Build optional tools.
+dev-libs/sexp:cli - Build sexp console application
 dev-libs/simdjson:all-impls - Enable all implementations rather than only onem
 dev-libs/simdjson:tools - Build and install extra command line tools
 dev-libs/softhsm:gost - Enable gost algorithm
@@ -8528,6 +8529,7 @@ sys-power/nvclock:nvcontrol - Add NVCONTROL support for OpenGL options
 sys-power/suspend:crypt - Allows suspend and resume from encrypted disk
 sys-process/atop:modules - Build netatop kernel module and install netatopd daemon.
 sys-process/audit:gssapi - Enable GSSAPI support
+sys-process/audit:io-uring - Enable support for io-uring. Doesn't need the library but needs at least kernel 5.1.
 sys-process/bottom:battery - Include support for laptop battery information
 sys-process/bottom:gpu - Include support for GPU temperature and memory usage information
 sys-process/bottom:zfs - Include support for ZFS ARC memory usage information
