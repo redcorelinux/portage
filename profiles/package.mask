@@ -57,6 +57,7 @@ media-gfx/curaengine
 # Out of date by several versions. Many unresolved security
 # vulnerabilities. Lack of manpower/interest in keeping it up to date.
 # Removal on 2023-06-03.
+# Chromium-based bin alternatives: google-chrome, microsoft-edge & vivaldi.
 www-client/chromium-bin
 
 # Sam James <sam@gentoo.org> (2023-05-03)
@@ -73,6 +74,7 @@ dev-python/thunarx-python
 
 # Sam James <sam@gentoo.org> (2023-05-01)
 # Breaks dev-python/scipy build. See bug #905396 and https://github.com/serge-sans-paille/gast/issues/74.
+=dev-python/pythran-0.13.0
 =dev-python/gast-0.5.4
 
 # Sam James <sam@gentoo.org> (2023-05-01)
