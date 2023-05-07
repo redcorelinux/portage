@@ -1271,7 +1271,15 @@ run_locale_gen() {
 		locale_list="${root%/}/usr/share/i18n/SUPPORTED"
 	fi
 
-	set -- locale-gen ${inplace} --jobs $(makeopts_jobs) --config "${locale_list}" \
+	# bug 736794: we need to be careful with the parallelization... the number of
+	# processors saved in the environment of a binary package may differ strongly
+	# from the number of processes available during postinst
+	local mygenjobs="$(makeopts_jobs)"
+	if [[ "${EMERGE_FROM}" == "binary" ]] ; then
+		mygenjobs="$(nproc)"
+	fi
+
+	set -- locale-gen ${inplace} --jobs "${mygenjobs}" --config "${locale_list}" \
 		--destdir "${root}"
 	echo "$@"
 	"$@"
@@ -1567,6 +1575,9 @@ glibc_sanity_check() {
 pkg_preinst() {
 	# nothing to do if just installing headers
 	just_headers && return
+
+	einfo "Checking general environment sanity."
+	sanity_prechecks
 
 	# prepare /etc/ld.so.conf.d/ for files
 	mkdir -p "${EROOT}"/etc/ld.so.conf.d
