@@ -195,10 +195,8 @@ net-im/cawbird
 # - reported at bottom of bug #904247 and bug #904263
 # - app-misc/tmux: https://github.com/tmux/tmux/issues/3531
 # - sys-apps/openrc: https://github.com/OpenRC/openrc/issues/619
-=sys-libs/ncurses-6.4_p20230408
-=sys-libs/ncurses-6.4_p20230415
-=sys-libs/ncurses-6.4_p20230418
 =sys-libs/ncurses-6.4_p20230424
+=sys-libs/ncurses-6.4_p20230506
 
 # Michał Górny <mgorny@gentoo.org> (2023-04-13)
 # Lack of support for Python 3.11.  The current version is from 2016.
@@ -277,11 +275,6 @@ dev-python/cbor
 # - net-im/whatsapp-for-linux::guru (a simple app using webkit2gtk)
 # Removal on 2023-05-09
 net-im/wazzapp-bin
-
-# Matthew Thode <prometheanfire@gentoo.org> (2023-04-08)
-# upstream has been dead for nearly five years
-# Removal on 2023-05-07
-app-admin/mcollective
 
 # John Helmert III <ajak@gentoo.org> (2023-04-08)
 # i3-gaps has been meregd into upstream i3. Use x11-wm/i3 instead.
