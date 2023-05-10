@@ -33,6 +33,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2023-05-10)
+# A major reverse depndency (kde-apps/libkexiv2) does not yet build against this
+# so mask for now, see bug #906087 and bug #906090.
+=media-gfx/exiv2-0.28.0
+
+# Sam James <sam@gentoo.org> (2023-05-10)
+# Lots of package breakage as usual for new versions. Masked until most/all
+# reverse dependencies are fixed. Tracker bug is bug #906077.
+=dev-libs/libfmt-10*
+
 # Matt Turner <mattst88@gentoo.org> (2023-05-08)
 # Package is unmaintained and appears quite dead. Last release in 2020. Broken
 # with stable glib-2.76. Depends on app-text/enchant:0.
@@ -90,13 +100,6 @@ dev-python/thunarx-python
 # Breaks dev-python/scipy build. See bug #905396 and https://github.com/serge-sans-paille/gast/issues/74.
 =dev-python/pythran-0.13.0
 =dev-python/gast-0.5.4
-
-# Sam James <sam@gentoo.org> (2023-05-01)
-# Masked for testing. Other distros seem to have hit a bunch of new test
-# failures in various applications, and initially there were ABI issues in .0.
-# Also, the failure case for bug #745162 needs retesting to see if the patch
-# should be rebased or just dropped.
->=dev-libs/libxml2-2.11.0
 
 # John Helmert III <ajak@gentoo.org> (2023-04-30)
 # STARTTLS vulnerability, depends on gtk+:2, practically unmainatined
