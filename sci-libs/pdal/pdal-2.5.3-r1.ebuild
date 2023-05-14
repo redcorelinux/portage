@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="A C++ library for translating and manipulating point cloud data"
 HOMEPAGE="https://pdal.io/"
-SRC_URI="https://github.com/PDAL/PDAL/releases/download/${PV}/PDAL-${PV}-src.tar.gz"
+SRC_URI="https://github.com/PDAL/PDAL/releases/download/${PV}/PDAL-${PV}-src.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0/15"
@@ -38,7 +38,7 @@ DEPEND="
 S="${WORKDIR}/PDAL-${PV}-src"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix-opt-abseil.patch
+	"${FILESDIR}/${PN}-2.4.3-fix-gdal37.patch"
 )
 
 src_configure() {

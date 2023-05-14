@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/PDAL/PDAL/releases/download/${PV}/PDAL-${PV}-src.tar
 
 LICENSE="BSD"
 SLOT="0/14"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="postgres test"
 RESTRICT="!test? ( test )"
 
@@ -37,6 +37,12 @@ DEPEND="
 
 S="${WORKDIR}/PDAL-${PV}-src"
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-test.patch"
+	"${FILESDIR}/${P}-fix-gcc13.patch"
+	"${FILESDIR}/${P}-fix-gdal37.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_PLUGIN_PGPOINTCLOUD="$(usex postgres)"
@@ -48,8 +54,9 @@ src_configure() {
 
 src_test() {
 	local myctestargs=(
-		--exclude-regex '(pgpointcloudtest|pdal_io_bpf_base_test|pdal_io_bpf_zlib_test|pdal_filters_overlay_test|pdal_filters_stats_test|pdal_app_plugin_test|pdal_merge_test|pdal_filters_colorinterp_test|pdal_io_optech_test|pdal_utils_test)'
+		--exclude-regex '(pgpointcloudtest|pdal_io_bpf_base_test|pdal_io_bpf_zlib_test|pdal_filters_overlay_test|pdal_filters_stats_test|pdal_app_plugin_test|pdal_merge_test)'
 		--output-on-failure
+		-j1
 	)
 
 	cmake_src_test
