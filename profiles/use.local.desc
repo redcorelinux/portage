@@ -54,11 +54,9 @@ app-admin/conky:lua-rsvg - Enable if you want Lua RSVG bindings
 app-admin/conky:math - Enable support for glibc's libm math library
 app-admin/conky:moc - Enable monitoring of music played by media-sound/moc
 app-admin/conky:mpd - Enable monitoring of music controlled by media-sound/mpd
-app-admin/conky:nano-syntax - Enable syntax highlighting for app-editors/nano
 app-admin/conky:nvidia - Enable reading of nvidia card temperature sensors via x11-drivers/nvidia-drivers
 app-admin/conky:portmon - Enable support for tcp (ip4) port monitoring
 app-admin/conky:thinkpad - Enable support for IBM/Lenovo notebooks
-app-admin/conky:weather-metar - Enable support for metar weather service
 app-admin/conky:webserver - Enable support to act as a webserver serving conkys output using net-libs/libmicrohttpd
 app-admin/conky:xmms2 - Enable monitoring of music played by media-sound/xmms2
 app-admin/conserver:freeipmi - Compile in FreeIPMI support via sys-libs/freeipmi
@@ -6133,6 +6131,7 @@ net-libs/xrootd:fuse - Enable the sys-fs/fuse filesystem driver
 net-libs/xrootd:http - Enable http protocol support
 net-libs/xrootd:libxml2 - Use dev-libs/libxml2 for XML parsing (preferred) instead of bundled tinyxml
 net-libs/xrootd:server - Install xrootd server and related plug-ins
+net-libs/xrootd:xrdec - Enable erasure coding support (XrdEc plugin) with dev-libs/isa-l
 net-libs/zeromq:drafts - Build draft API, which may change at any time without any notice, and is therefore not recommended for normal use.
 net-libs/zeromq:libbsd - Use strlcpy() from dev-libs/libbsd instead of internal implementation.
 net-libs/zeromq:pgm - Build PGM (Pragmatic General Multicast)extention, a protocol for reliable multicast transport of data over IP networks.
