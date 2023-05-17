@@ -63,12 +63,6 @@ games-emulation/pcsxr
 gnome-extra/gucharmap:0
 
 # Matt Turner <mattst88@gentoo.org> (2023-05-11)
-# Console version of stardict which is masked for removal. Only reverse
-# dependencies are app-dicts/stardict-* (via stardict.eclass).
-# Bug #905901. Removal on 2023-06-11
-app-text/sdcv
-
-# Matt Turner <mattst88@gentoo.org> (2023-05-11)
 # Dictionaries for app-text/stardict which is masked for removal.
 # Bug #905901. Removal on 2023-06-11
 app-dicts/stardict-cdict-en-zh-big5
@@ -125,13 +119,6 @@ app-text/stardict
 # with stable glib-2.76. Depends on app-text/enchant:0.
 # Bug #905954. Removal on 2023-06-08
 net-im/mcabber
-
-# Matt Turner <mattst88@gentoo.org> (2023-05-08)
-# Package is unmaintained and appears quite dead (e.g. SSL certificate for the
-# homepage expired in 2021). Only version is a snapshot from 2021. No Python
-# 3.11 support. Depends on app-text/enchant:0.
-# Bug #905955. Removal on 2023-06-08
-net-irc/kvirc
 
 # Michał Górny <mgorny@gentoo.org> (2023-05-05)
 # The Gentoo packages are severely out of date, and they haven't been
