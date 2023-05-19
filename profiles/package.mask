@@ -32,6 +32,37 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# David Seifert <soap@gentoo.org> (2023-05-19)
+# Depends on obsolete app-portage/g-sorcery.
+# Removal on 2023-06-18.
+app-portage/gs-elpa
+
+# David Seifert <soap@gentoo.org> (2023-05-19)
+# Abandoned, NIH library only used by other obsolete packages like gkeys
+# and layman, use app-crypt/gpgme[python] as a proper upstream
+# supported gpg library. Removal on 2023-06-18.
+dev-python/pyGPG
+
+# David Seifert <soap@gentoo.org> (2023-05-19)
+# Abandoned, replaced by 'eselect repository', tons of open bugs.
+# Removal on 2023-06-18. Bug #761199.
+app-portage/layman
+
+# David Seifert <soap@gentoo.org> (2023-05-19)
+# Depends on app-portage/layman. Removal on 2023-06-18.
+app-portage/g-sorcery
+
+# David Seifert <soap@gentoo.org> (2023-05-19)
+# EAPI 6, abandoned, never went anywhere, long obsolete with
+# app-crypt/gkeys removal.
+# Use these instead:
+# sec-keys/openpgp-keys-gentoo-auth
+# sec-keys/openpgp-keys-gentoo-developers
+# sec-keys/openpgp-keys-gentoo-release
+# Removal on 2023-06-18. Bug #566782, #659822
+app-crypt/gentoo-keys
+
 # Thomas Beierlein <tomjbe@gentoo.org> (2023-05-17)
 # Functionality got integrated into >=net-wireless/gnuradio-3.10
 # itself. See
