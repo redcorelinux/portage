@@ -13,7 +13,7 @@ SRC_URI+=" verify-sig? ( mirror://gnupg/${PN}/${P}.tar.bz2.sig )"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="caps efl emacs gtk keyring ncurses qt5 wayland X"
 
 DEPEND="
@@ -49,7 +49,7 @@ DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.0.0-AR.patch"
-	"${FILESDIR}/${PN}-1.2.1-automagic-capslock.patch" # bug #819939, bug ##837719
+	"${FILESDIR}/${PN}-1.2.1-automagic-capslock.patch" # bug #819939, bug #837719
 )
 
 src_prepare() {
