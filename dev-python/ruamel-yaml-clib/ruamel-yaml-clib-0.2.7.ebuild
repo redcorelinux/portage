@@ -30,15 +30,11 @@ BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.2.7-clang-16.patch
-)
-
 src_unpack() {
 	default
 	mv "${MY_P}" ruamel_yaml_clib || die
 }
 
 src_configure() {
-	cythonize -3 _ruamel_yaml.pyx || die
+	cython -f -3 _ruamel_yaml.pyx || die
 }
