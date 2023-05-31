@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2023-05-31)
+# Unmaintained.  Last commit in 2020.  Does not work with Python 3.12.
+# No revdeps.
+# Removal on 2023-06-30.  Bug #907495.
+dev-python/http-parser
+
 # Sam James <sam@gentoo.org> (2023-05-29)
 # Masked until enough reverse dependencies are fixed, bug #901257.
 =media-video/ffmpeg-6*
@@ -237,12 +243,6 @@ net-dns/ldns-utils
 # The server was removed on 2021-08-24 with commit
 # 7a1e8a90fa8a09a84741dc8ef5f774d92ae8433c
 acct-group/resin
-
-# Conrad Kostecki <conikost@gentoo.org> (2023-04-23)
-# Very old package, does not build with modern compilers.
-# It provides BOOTP support, predecessor of DHCP.
-# Removal on 2023-05-23. Bugs #894128, #884335
-sys-boot/netboot
 
 # Jakov Smolić <jsmolic@gentoo.org> (2023-04-21)
 # Does not support python 3.11, uses deprecated dev-python/future,
