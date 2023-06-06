@@ -14,7 +14,7 @@ else
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-ocserv )"
 	SRC_URI="https://www.infradead.org/ocserv/download/${P}.tar.xz
 		verify-sig? ( https://www.infradead.org/ocserv/download/${P}.tar.xz.sig )"
-	KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Openconnect SSL VPN server"
@@ -82,6 +82,11 @@ src_configure() {
 		$(use_with tcpd libwrap)
 	)
 	econf "${myconf[@]}"
+}
+
+src_test() {
+	addwrite /proc
+	default
 }
 
 src_install() {
