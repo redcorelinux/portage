@@ -20,7 +20,7 @@ SRC_URI="$(rust_all_arch_uris ${MY_P})
 
 LICENSE="|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4 UoI-NCSA"
 SLOT="stable"
-#KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="clippy cpu_flags_x86_sse2 doc prefix rust-analyzer rust-src rustfmt"
 
 DEPEND=""
@@ -204,6 +204,11 @@ multilib_src_install() {
 
 	# BUG: installs x86_64 binary on other arches
 	rm -f "${ED}/opt/${P}/lib/rustlib/"*/bin/rust-llvm-dwp || die
+
+	# libLLVM must NOT be stripped
+	# it's not present on all arches, but if present and stripped rustc will segfault.
+	# https://github.com/rust-lang/rust/issues/112286
+	dostrip -x *libLLVM-*
 }
 
 pkg_postinst() {
