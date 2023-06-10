@@ -33,6 +33,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2023-06-10)
+# Integrated into media-libs/gst-plugins-bad[vaapi]. Please use that instead.
+# Removal in 14 days.
+media-plugins/gst-plugins-va
+
+# Michał Górny <mgorny@gentoo.org> (2023-06-10)
+# Renamed to dev-python/pypdf.  No revdeps left.
+# Removal on 2023-07-10.  Bug #908227.
+dev-python/PyPDF2
+
 # Michał Górny <mgorny@gentoo.org> (2023-06-09)
 # Requires dev-python/nose.  Last activity in 2013.  No reverse
 # dependencies left.
@@ -470,6 +480,7 @@ dev-python/pyside6-tools
 >=app-editors/retext-8.0.0
 dev-python/PyQt6
 dev-python/PyQt6-WebEngine
+dev-qt/qt3d:6
 dev-qt/qt5compat:6
 dev-qt/qtbase:6
 dev-qt/qtcharts:6

@@ -2628,11 +2628,11 @@ dev-qt/qttools:designer - Build Qt Designer
 dev-qt/qttools:distancefieldgenerator - Build Qt Distance Field Generator
 dev-qt/qttools:linguist - Build Qt Linguist
 dev-qt/qttools:pixeltool - Build Qt Pixeltool
+dev-qt/qttools:qattributionsscanner - Build Qt Source Code Attribution Scanner
 dev-qt/qttools:qdbus - Build the Qt D-Bus Interface and D-Bus Viewer
+dev-qt/qttools:qdiag - Build Qt Diag
 dev-qt/qttools:qdoc - Build Qt Documentation Generator
-dev-qt/qttools:qtattributionsscanner - Build Qt Source Code Attribution Scanner
-dev-qt/qttools:qtdiag - Build Qt Diag
-dev-qt/qttools:qtplugininfo - Build Qt Plugin Info
+dev-qt/qttools:qplugininfo - Build Qt Plugin Info
 dev-qt/qtvirtualkeyboard:handwriting - Adds handwriting recognition integration support
 dev-qt/qtwayland:vulkan - Enable support for Vulkan-based server buffer integration
 dev-qt/qtwebchannel:qml - Build QML/QtQuick bindings and imports
@@ -4074,7 +4074,7 @@ media-gfx/shotwell:opencv - Enable face detection via media-libs/opencv
 media-gfx/skanpage:ocr - Enable support for Optical Character Recognition via app-text/tesseract
 media-gfx/solvespace:system-mimalloc - Use system dev-libs/mimalloc instead of vendored library
 media-gfx/ueberzugpp:opencv - Use media-libs/opencv for additional image formats and OpenCL accelerated scaling
-media-gfx/ueberzugpp:wayland - Enable wayland support (only usable with some wlroots-based compositors)
+media-gfx/ueberzugpp:wayland - Enable wayland support (proper window positioning is only supported with some compositors)
 media-gfx/xpaint:pgf - Support for loading PGF images
 media-gfx/xsane:ocr - Enable support for Optical Character Recognition reader
 media-gfx/yafaray:fastmath - Enable mathematic approximations to make code faster
