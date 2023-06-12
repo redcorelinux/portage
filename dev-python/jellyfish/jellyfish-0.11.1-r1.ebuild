@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{9..11} )
 
@@ -74,3 +75,7 @@ KEYWORDS="amd64 ~ppc64 ~riscv x86"
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/jellyfish/_rustyfish.*.so"
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.11.2-maturin-1.patch"
+)
