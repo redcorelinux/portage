@@ -9,17 +9,12 @@ inherit elisp
 DESCRIPTION="Conveniently define themes for GNU Emacs"
 HOMEPAGE="https://github.com/jasonm23/autothemer"
 
-if [[ ${PV} == *9999* ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/jasonm23/autothemer.git"
-else
-	# Recompressed from NonGNU ELPA.
-	SRC_URI="https://dev.gentoo.org/~arsen/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
+# Recompressed from NonGNU ELPA.
+SRC_URI="https://dev.gentoo.org/~arsen/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=app-emacs/dash-2.10.0
@@ -35,4 +30,4 @@ DOCS=(
 	function-reference.md
 )
 
-elisp-enable-tests ert "${S}"/tests -l tests/"${PN}"-tests.el
+elisp-enable-tests ert "${S}"/tests -l "${PN}"-tests.el

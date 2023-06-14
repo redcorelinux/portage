@@ -6,7 +6,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="dockapp that displays how much data you've received on each eth and ppp device"
 SRC_URI="mirror://sourceforge/wmdownload/${P}.tar.gz"
-HOMEPAGE="https://wmdownload.sourceforge.net/"
+HOMEPAGE="http://wmdownload.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="0"

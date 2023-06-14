@@ -27,9 +27,7 @@ RDEPEND="
 "
 # the build system uses custom build script that uses distutils to build
 # C extensions, sigh
-# Cython-3: https://github.com/python-zeroconf/python-zeroconf/issues/1183
 BDEPEND="
-	<dev-python/cython-3[${PYTHON_USEDEP}]
 	>=dev-python/cython-0.29.32[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-65.6.3[${PYTHON_USEDEP}]
 	test? (
@@ -38,8 +36,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-export REQUIRE_CYTHON=1
 
 python_test() {
 	local -x SKIP_IPV6=1

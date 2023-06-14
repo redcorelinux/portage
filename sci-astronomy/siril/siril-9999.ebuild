@@ -13,18 +13,19 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://gitlab.com/free-astro/${PN}.git"
 else
 	SRC_URI="https://gitlab.com/free-astro/siril/-/archive/${PV/_/-}/${PN}-${PV/_/-}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
 LICENSE="GPL-3+ Boost-1.0"
 SLOT="0"
-IUSE="curl exif ffmpeg heif jpeg libconfig openmp png raw tiff wcs"
+IUSE="curl ffmpeg heif jpeg libconfig openmp png raw tiff wcs"
 
 DEPEND="
 	>=dev-libs/glib-2.56.0:2
 	>=dev-libs/json-glib-1.2.6
 	dev-libs/sleef:=
+	>=media-gfx/exiv2-0.25
 	media-libs/librtprocess:=
 	>=media-libs/opencv-4.4.0:=
 	sci-libs/cfitsio
@@ -33,7 +34,6 @@ DEPEND="
 	x11-libs/cairo
 	>=x11-libs/gtk+-3.20.0:3
 	curl? ( net-misc/curl )
-	exif? ( >=media-gfx/exiv2-0.25 )
 	ffmpeg? ( media-video/ffmpeg:= )
 	heif? ( media-libs/libheif )
 	libconfig? ( >=dev-libs/libconfig-1.4[cxx] )
@@ -46,8 +46,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
-BDEPEND="dev-util/cmake
-	x11-base/xorg-proto"
+BDEPEND="x11-base/xorg-proto"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-docfiles.patch"
@@ -67,7 +66,6 @@ src_configure() {
 	local emesonargs=(
 		-Dffms2=false
 		-Dcriterion=false
-		$(meson_use exif exiv2)
 		$(meson_use ffmpeg)
 		$(meson_use heif libheif)
 		$(meson_use jpeg libjpeg)

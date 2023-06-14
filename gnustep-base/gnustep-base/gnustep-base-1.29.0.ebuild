@@ -6,7 +6,7 @@ EAPI=8
 inherit gnustep-base toolchain-funcs
 
 DESCRIPTION="A library of general-purpose, non-graphical Objective C objects"
-HOMEPAGE="https://gnustep.github.io"
+HOMEPAGE="http://www.gnustep.org"
 SRC_URI="https://github.com/gnustep/libs-base/releases/download/base-${PV//./_}/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1"

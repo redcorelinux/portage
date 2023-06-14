@@ -34,7 +34,7 @@ BDEPEND="
 	dev-qt/linguist-tools:5
 	virtual/pkgconfig
 "
-RDEPEND="
+DEPEND="
 	dev-libs/tinyxml2:=
 	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
@@ -50,7 +50,6 @@ RDEPEND="
 	dev-qt/qtquickcontrols2:5
 	>=dev-qt/qtsingleapplication-2.6.1_p20171024[X]
 	dev-qt/qtsvg:5
-	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
 	dev-qt/qtxmlpatterns:5
 	>=media-libs/alsa-lib-1.0.0
@@ -61,13 +60,12 @@ RDEPEND="
 	media-libs/opus
 	media-sound/lame
 	sys-libs/zlib:=
-"
-# dev-cpp/gtest is required even when tests are disabled!
-DEPEND="
-	${RDEPEND}
 
-	dev-cpp/gtest
+	test? (
+		dev-cpp/gtest
+	)
 "
+RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-uncompressed-man-pages.patch"

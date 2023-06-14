@@ -6,7 +6,7 @@ EAPI=8
 inherit webapp
 
 DESCRIPTION="Web-based storage application where all your data is under your own control"
-HOMEPAGE="https://owncloud.com/"
+HOMEPAGE="https://owncloud.org"
 SRC_URI="https://download.owncloud.com/server/stable/${P}.tar.bz2"
 LICENSE="AGPL-3"
 

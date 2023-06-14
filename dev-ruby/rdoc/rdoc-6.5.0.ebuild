@@ -71,7 +71,7 @@ all_ruby_compile() {
 }
 
 each_ruby_compile() {
-	LANG=C.UTF-8 ${RUBY} -S rake generate || die
+	${RUBY} -S rake generate || die
 }
 
 all_ruby_install() {

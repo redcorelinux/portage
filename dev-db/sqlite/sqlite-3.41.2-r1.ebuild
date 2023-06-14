@@ -14,9 +14,9 @@ if [[ ${PV} == 9999 ]]; then
 	S="${WORKDIR}"/${PN}
 	PROPERTIES="live"
 else
-	printf -v SRC_PV "%u%02u%02u%02u" $(ver_rs 1- " ")
+	SRC_PV="$(printf "%u%02u%02u%02u" $(ver_rs 1- " "))"
 	DOC_PV="${SRC_PV}"
-	#printf -v DOC_PV "%u%02u%02u00" $(ver_rs 1-3 " ")
+	#DOC_PV="$(printf "%u%02u%02u00" $(ver_rs 1-3 " "))"
 
 	SRC_URI="
 		https://sqlite.org/2023/${PN}-src-${SRC_PV}.zip
