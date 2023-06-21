@@ -3,15 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 DISTUTILS_USE_PEP517=maturin
 
 CRATES="
 	Inflector-0.11.4
 	adler-1.0.2
-	ahash-0.7.6
 	aho-corasick-0.7.20
 	aho-corasick-1.0.1
+	android-tzdata-0.1.1
 	android_system_properties-0.1.5
 	anes-0.1.6
 	annotate-snippets-0.6.1
@@ -27,40 +27,40 @@ CRATES="
 	atty-0.2.14
 	autocfg-1.1.0
 	base64-0.13.1
+	base64-0.21.2
 	bincode-1.3.3
 	bitflags-1.3.2
 	bitflags-2.3.1
-	bstr-1.4.0
-	bumpalo-3.12.2
+	bstr-1.5.0
+	bumpalo-3.13.0
 	cachedir-0.3.0
 	cast-0.3.0
 	cc-1.0.79
 	cfg-if-1.0.0
 	chic-1.2.2
-	chrono-0.4.24
+	chrono-0.4.26
 	ciborium-0.2.1
 	ciborium-io-0.2.1
 	ciborium-ll-0.2.1
-	clap-3.2.25
-	clap-4.2.7
-	clap_builder-4.2.7
-	clap_complete-4.2.3
+	clap-4.3.1
+	clap_builder-4.3.1
+	clap_complete-4.3.1
 	clap_complete_command-0.5.1
-	clap_complete_fig-4.2.0
-	clap_complete_nushell-0.1.10
-	clap_derive-4.2.0
-	clap_lex-0.2.4
-	clap_lex-0.4.1
+	clap_complete_fig-4.3.1
+	clap_complete_nushell-0.1.11
+	clap_derive-4.3.1
+	clap_lex-0.5.0
 	clearscreen-2.0.1
 	colorchoice-1.0.0
 	colored-2.0.0
 	configparser-3.0.2
-	console-0.15.5
+	console-0.15.7
 	console_error_panic_hook-0.1.7
 	console_log-1.0.0
 	core-foundation-sys-0.8.4
+	countme-3.0.1
 	crc32fast-1.3.2
-	criterion-0.4.0
+	criterion-0.5.1
 	criterion-plot-0.5.0
 	crossbeam-channel-0.5.8
 	crossbeam-deque-0.8.3
@@ -68,6 +68,9 @@ CRATES="
 	crossbeam-utils-0.8.15
 	crunchy-0.2.2
 	ctor-0.1.26
+	darling-0.20.1
+	darling_core-0.20.1
+	darling_macro-0.20.1
 	diff-0.1.13
 	difflib-0.4.0
 	dirs-4.0.0
@@ -97,9 +100,11 @@ CRATES="
 	hermit-abi-0.1.19
 	hermit-abi-0.2.6
 	hermit-abi-0.3.1
+	hex-0.4.3
 	hexf-parse-0.2.1
 	iana-time-zone-0.1.56
 	iana-time-zone-haiku-0.1.2
+	ident_case-1.0.1
 	idna-0.3.0
 	ignore-0.4.20
 	imperative-1.0.4
@@ -108,12 +113,12 @@ CRATES="
 	inotify-sys-0.1.5
 	insta-1.29.0
 	instant-0.1.12
-	io-lifetimes-1.0.10
+	io-lifetimes-1.0.11
 	is-macro-0.2.2
 	is-terminal-0.4.7
 	itertools-0.10.5
 	itoa-1.0.6
-	js-sys-0.3.62
+	js-sys-0.3.63
 	kqueue-1.0.7
 	kqueue-sys-1.0.3
 	lalrpop-util-0.20.0
@@ -124,26 +129,26 @@ CRATES="
 	libc-0.2.144
 	libmimalloc-sys-0.1.33
 	linked-hash-map-0.5.6
-	linux-raw-sys-0.3.7
-	log-0.4.17
+	linux-raw-sys-0.3.8
+	log-0.4.18
 	matches-0.1.10
 	memchr-2.5.0
 	memoffset-0.8.0
 	mimalloc-0.1.37
 	minimal-lexical-0.2.1
 	miniz_oxide-0.7.1
-	mio-0.8.6
+	mio-0.8.8
 	natord-1.0.9
 	nextest-workspace-hack-0.1.0
 	nix-0.26.2
 	nohash-hasher-0.2.0
 	nom-7.1.3
-	notify-5.1.0
+	notify-5.2.0
 	num-bigint-0.4.3
 	num-integer-0.1.45
 	num-traits-0.2.15
 	num_cpus-1.15.0
-	once_cell-1.17.1
+	once_cell-1.17.2
 	oorandom-11.1.3
 	option-ext-0.2.0
 	os_str_bytes-6.5.0
@@ -156,10 +161,12 @@ CRATES="
 	peg-macros-0.8.1
 	peg-runtime-0.8.1
 	pep440_rs-0.3.9
+	pep508_rs-0.1.5
 	percent-encoding-2.2.0
 	phf-0.11.1
 	phf_codegen-0.11.1
 	phf_generator-0.11.1
+	phf_macros-0.11.1
 	phf_shared-0.11.1
 	pin-project-lite-0.2.9
 	plotters-0.3.4
@@ -172,10 +179,11 @@ CRATES="
 	pretty_assertions-1.3.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.56
+	proc-macro2-1.0.59
+	pyproject-toml-0.6.0
 	quick-junit-0.3.2
 	quick-xml-0.26.0
-	quote-1.0.27
+	quote-1.0.28
 	rand-0.8.5
 	rand_core-0.6.4
 	rayon-1.7.0
@@ -183,9 +191,9 @@ CRATES="
 	redox_syscall-0.2.16
 	redox_syscall-0.3.5
 	redox_users-0.4.3
-	regex-1.8.1
+	regex-1.8.3
 	regex-automata-0.1.10
-	regex-syntax-0.7.1
+	regex-syntax-0.7.2
 	result-like-0.4.6
 	result-like-derive-0.4.6
 	ring-0.16.20
@@ -207,19 +215,20 @@ CRATES="
 	serde_derive-1.0.163
 	serde_derive_internals-0.26.0
 	serde_json-1.0.96
-	serde_spanned-0.6.1
+	serde_spanned-0.6.2
+	serde_with-3.0.0
+	serde_with_macros-3.0.0
 	shellexpand-3.1.0
 	similar-2.2.1
 	siphasher-0.3.10
 	smallvec-1.10.0
-	smawk-0.3.1
 	spin-0.5.2
 	static_assertions-1.1.0
 	strsim-0.10.0
 	strum-0.24.1
 	strum_macros-0.24.3
 	syn-1.0.109
-	syn-2.0.15
+	syn-2.0.18
 	syn-ext-0.4.0
 	tempfile-3.5.0
 	terminfo-0.8.0
@@ -227,20 +236,22 @@ CRATES="
 	test-case-3.1.0
 	test-case-core-3.1.0
 	test-case-macros-3.1.0
-	textwrap-0.16.0
 	thiserror-1.0.40
 	thiserror-impl-1.0.40
 	thread_local-1.1.7
 	tikv-jemalloc-sys-0.5.3+5.3.0-patched
 	tikv-jemallocator-0.5.0
 	time-0.1.45
+	time-0.3.21
+	time-core-0.1.1
+	time-macros-0.2.9
 	tiny-keccak-2.0.2
 	tinytemplate-1.2.1
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.1
-	toml-0.7.3
-	toml_datetime-0.6.1
-	toml_edit-0.19.8
+	toml-0.7.4
+	toml_datetime-0.6.2
+	toml_edit-0.19.10
 	tracing-0.1.37
 	tracing-attributes-0.1.24
 	tracing-core-0.1.31
@@ -253,29 +264,28 @@ CRATES="
 	unic-ucd-ident-0.9.0
 	unic-ucd-version-0.9.0
 	unicode-bidi-0.3.13
-	unicode-ident-1.0.8
-	unicode-linebreak-0.1.4
+	unicode-ident-1.0.9
 	unicode-normalization-0.1.22
 	unicode-width-0.1.10
 	untrusted-0.7.1
 	ureq-2.6.2
 	url-2.3.1
 	utf8parse-0.2.1
-	uuid-1.3.2
+	uuid-1.3.3
 	version_check-0.9.4
 	wait-timeout-0.2.0
 	walkdir-2.3.3
 	wasi-0.10.0+wasi-snapshot-preview1
 	wasi-0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-0.2.85
-	wasm-bindgen-backend-0.2.85
-	wasm-bindgen-futures-0.4.35
-	wasm-bindgen-macro-0.2.85
-	wasm-bindgen-macro-support-0.2.85
-	wasm-bindgen-shared-0.2.85
-	wasm-bindgen-test-0.3.35
-	wasm-bindgen-test-macro-0.3.35
-	web-sys-0.3.62
+	wasm-bindgen-0.2.86
+	wasm-bindgen-backend-0.2.86
+	wasm-bindgen-futures-0.4.36
+	wasm-bindgen-macro-0.2.86
+	wasm-bindgen-macro-support-0.2.86
+	wasm-bindgen-shared-0.2.86
+	wasm-bindgen-test-0.3.36
+	wasm-bindgen-test-macro-0.3.36
+	web-sys-0.3.63
 	webpki-0.22.0
 	webpki-roots-0.22.6
 	which-4.4.0
@@ -285,7 +295,6 @@ CRATES="
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
 	windows-0.48.0
-	windows-sys-0.42.0
 	windows-sys-0.45.0
 	windows-sys-0.48.0
 	windows-targets-0.42.2
@@ -311,14 +320,14 @@ CRATES="
 "
 
 LIBCST_COMMIT="80e4c1399f95e5beb532fdd1e209ad2dbb470438"
-RUSTPYTHON_PARSER_COMMIT="335780aeeac1e6fcd85994ba001d7b8ce99fcf65"
+RUSTPYTHON_COMMIT="08ebbe40d7776cac6e3ba66277d435056f2b8dca"
 declare -A GIT_CRATES=(
 	[libcst]="https://github.com/charliermarsh/LibCST;${LIBCST_COMMIT};LibCST-%commit%/native/libcst"
-	[rustpython-ast]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_PARSER_COMMIT};RustPython-Parser-%commit%/ast"
-	[rustpython-format]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_PARSER_COMMIT};RustPython-Parser-%commit%/format"
-	[rustpython-literal]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_PARSER_COMMIT};RustPython-Parser-%commit%/literal"
-	[rustpython-parser]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_PARSER_COMMIT};RustPython-Parser-%commit%/parser"
-	[ruff_text_size]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_PARSER_COMMIT};RustPython-Parser-%commit%/ruff_text_size"
+	[ruff_text_size]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_COMMIT};RustPython-Parser-%commit%/ruff_text_size"
+	[rustpython-ast]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_COMMIT};RustPython-Parser-%commit%/ast"
+	[rustpython-format]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_COMMIT};RustPython-Parser-%commit%/format"
+	[rustpython-literal]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_COMMIT};RustPython-Parser-%commit%/literal"
+	[rustpython-parser]="https://github.com/astral-sh/RustPython-Parser;${RUSTPYTHON_COMMIT};RustPython-Parser-%commit%/parser"
 	[unicode_names2]="https://github.com/youknowone/unicode_names2;4ce16aa85cbcdd9cc830410f1a72ef9a235f2fde"
 )
 
@@ -338,11 +347,11 @@ SRC_URI="
 # use cargo-license for a more accurate license picture
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions Artistic-2 BSD BSD-2 Boost-1.0 CC0-1.0 ISC LGPL-3+ MIT MPL-2.0 Unicode-DFS-2016 Unlicense WTFPL-2 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64"
+#KEYWORDS="~amd64"
 
 BDEPEND="
 	dev-util/patchelf
-	>=virtual/rust-1.69
+	>=virtual/rust-1.70
 "
 
 # rust does not use *FLAGS from make.conf, silence portage warning
