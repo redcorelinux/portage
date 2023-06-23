@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2023-06-23)
+# Deprecated package. Renamed to dev-ruby/optimist by upstream. No
+# reverse dependencies. Masked for removal on 2023-07-23.
+dev-ruby/trollop
+
 # Sam James <sam@gentoo.org> (2023-06-23)
 # Segfaults with non-bison yacc.
 =app-shells/bash-5.2_p15-r4
@@ -224,6 +229,7 @@ dev-python/ntlm-auth
 ~virtual/perl-Getopt-Long-2.540.0
 ~virtual/perl-HTTP-Tiny-0.82.0
 ~virtual/perl-HTTP-Tiny-0.83.0_rc
+~virtual/perl-HTTP-Tiny-0.86.0
 ~virtual/perl-IO-1.520.0
 ~virtual/perl-IO-Compress-2.204.0
 ~virtual/perl-IO-Socket-IP-0.410.100_rc
@@ -239,6 +245,7 @@ dev-python/ntlm-auth
 ~virtual/perl-MIME-Base64-3.160.100_rc
 ~virtual/perl-Module-CoreList-5.202.305.200
 ~virtual/perl-Module-CoreList-5.202.306.170
+~virtual/perl-Module-CoreList-5.202.306.230
 ~virtual/perl-Net-Ping-2.760.0
 ~virtual/perl-parent-0.241.0
 ~virtual/perl-podlators-5.10.0
