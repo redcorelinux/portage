@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs toolchain-funcs unpacker
 
-DRIVER_PV="530.30.02"
+DRIVER_PV="520.61.05"
 
 DESCRIPTION="NVIDIA CUDA Toolkit (compiler and friends)"
 HOMEPAGE="https://developer.nvidia.com/cuda-zone"
@@ -15,29 +15,30 @@ S="${WORKDIR}"
 LICENSE="NVIDIA-CUDA"
 SLOT="0/${PV}"
 KEYWORDS="-* ~amd64 ~amd64-linux"
-IUSE="debugger nsight profiler rdma vis-profiler sanitizer"
+IUSE="debugger nsight profiler vis-profiler sanitizer"
 RESTRICT="bindist mirror"
 
 # since CUDA 11, the bundled toolkit driver (== ${DRIVER_PV}) and the
-# actual required minimum driver version are different.
+# actual required minimum driver version are different. Lowering the
+# bound helps Kepler sm_35 and sm_37 users.
+# https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions
 RDEPEND="
-	<sys-devel/gcc-13_pre[cxx]
-	>=x11-drivers/nvidia-drivers-525.60.13
+	<sys-devel/gcc-12_pre[cxx]
+	>=x11-drivers/nvidia-drivers-450.80.02
 	nsight? (
 		dev-libs/libpfm
 		dev-libs/wayland
+		dev-qt/qtwayland:6
 		|| (
 			dev-libs/openssl-compat:1.1.1
-			dev-libs/openssl:0/1.1
+			=dev-libs/openssl-1.1.1*
 		)
 		media-libs/tiff-compat:4
 		sys-libs/zlib
 	)
-	rdma? ( sys-cluster/rdma-core )
 	vis-profiler? (
 		>=virtual/jre-1.8:*
 	)"
-BDEPEND="nsight? ( dev-util/patchelf )"
 
 QA_PREBUILT="opt/cuda/*"
 CHECKREQS_DISK_BUILD="15000M"
@@ -47,9 +48,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# ATTENTION: change requires revbump, see link below for supported GCC # versions
-	# https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#system-requirements
-	local cuda_supported_gcc="8.5 9.4 9.5 10 10.3 10.4 11 11.1 11.2 11.3 12 12.1 12.2"
+	# ATTENTION: change requires revbump
+	local cuda_supported_gcc="8.5 9.5 10 11"
 
 	sed \
 		-e "s:CUDA_SUPPORTED_GCC:${cuda_supported_gcc}:g" \
@@ -67,9 +67,8 @@ src_install() {
 
 	# Install standard sub packages
 	local builddirs=(
-		builds/cuda_{cccl,cudart,cuobjdump,cuxxfilt,demo_suite,nvcc,nvdisasm,nvml_dev,nvprune,nvrtc,nvtx,opencl}
-		builds/lib{cublas,cufft,cufile,curand,cusolver,cusparse,npp,nvjitlink,nvjpeg}
-		builds/nvidia_fs
+		builds/cuda_{cccl,cudart,cuobjdump,cuxxfilt,memcheck,nvcc,nvdisasm,nvml_dev,nvprune,nvrtc,nvtx}
+		builds/lib{cublas,cufft,curand,cusolver,cusparse,npp,nvjpeg}
 		$(usex profiler "builds/cuda_nvprof builds/cuda_cupti builds/cuda_profiler_api" "")
 		$(usex vis-profiler "builds/cuda_nvvp" "")
 		$(usex debugger "builds/cuda_gdb" "")
@@ -125,7 +124,6 @@ src_install() {
 		eend $?
 	fi
 
-	use debugger && ldpathextradirs+=":${ecudadir}/extras/Debugger/lib64"
 	use profiler && ldpathextradirs+=":${ecudadir}/extras/CUPTI/lib64"
 
 	if use vis-profiler; then
@@ -147,24 +145,20 @@ src_install() {
 		local exes=(
 			${ncu_dir}/ncu
 			${ncu_dir}/ncu-ui
+			${ncu_dir}/nv-nsight-cu
+			${ncu_dir}/nv-nsight-cu-cli
 			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/libexec/QtWebEngineProcess
 			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/CrashReporter
 			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/OpenGLVersionChecker
-			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/QdstrmImporter
 			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/ncu-ui
 			${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/ncu-ui.bin
-			${ncu_dir}/target/linux-desktop-glibc_2_11_3-x64/TreeLauncherSubreaper
 			${ncu_dir}/target/linux-desktop-glibc_2_11_3-x64/TreeLauncherTargetLdPreloadHelper
+			${ncu_dir}/target/linux-desktop-glibc_2_11_3-x64/TreeLauncherSubreaper
 			${ncu_dir}/target/linux-desktop-glibc_2_11_3-x64/ncu
 		)
 
-		dobin builds/integration/nsight-compute/{ncu,ncu-ui}
+		dobin builds/integration/nsight-compute/{ncu,ncu-ui,nv-nsight-cu,nv-nsight-cu-cli}
 		eend $?
-
-		# remove rdma libs (unless USE=rdma)
-		if ! use rdma; then
-			rm -r "${ED}"/${cudadir}/${ncu_dir}/host/target-linux-x64/CollectX || die
-		fi
 
 		local nsys_dir=$(grep -o 'nsight-systems-[0-9][0-9\.]*' -m1 manifests/cuda_x86_64.xml)
 		ebegin "Installing ${nsys_dir}"
@@ -188,11 +182,6 @@ src_install() {
 			${nsys_dir}/target-linux-x64/python/bin/python
 		)
 
-		# remove rdma libs (unless USE=rdma)
-		if ! use rdma; then
-			rm -r "${ED}"/${cudadir}/${nsys_dir}/target-linux-x64/CollectX || die
-		fi
-
 		dobin builds/integration/nsight-systems/{nsight-sys,nsys,nsys-exporter,nsys-ui}
 		eend $?
 
@@ -200,10 +189,6 @@ src_install() {
 		for f in "${exes[@]}"; do
 			fperms +x ${cudadir}/${f}
 		done
-
-		# fix broken RPATHs
-		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/libarrow.so || die
-		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/libarrow.so || die
 
 		# remove foreign archs (triggers SONAME warning, #749903)
 		rm -r "${ED}"/${cudadir}/${ncu_dir}/target/linux-desktop-glibc_2_19_0-ppc64le || die
@@ -216,6 +201,9 @@ src_install() {
 		rm "${ED}"/${cudadir}/${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/libssl.so* || die
 		rm "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/libssl.so* || die
 
+		# unbundle libz
+		rm "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/libz.so* || die
+
 		# unbundle libpfm
 		rm "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/libpfm.so* || die
 
@@ -227,33 +215,9 @@ src_install() {
 		# TODO: unbundle sqlite
 	fi
 
-	exes=(
-			extras/demo_suite/bandwidthTest
-			extras/demo_suite/busGrind
-			extras/demo_suite/deviceQuery
-			extras/demo_suite/nbody
-			extras/demo_suite/oceanFFT
-			extras/demo_suite/randomFog
-			extras/demo_suite/vectorAdd
-	)
-
-	# remove rdma libs (unless USE=rdma)
-	if ! use rdma; then
-		rm "${ED}"/${cudadir}/targets/x86_64-linux/lib/libcufile_rdma* || die
-	fi
-
-	# set executable bit on demo_suite binaries
-	for f in "${exes[@]}"; do
-		fperms +x ${cudadir}/${f}
-	done
-
 	# Add include and lib symlinks
-	dosym targets/x86_64-linux/include ${ecudadir}/include
-	dosym targets/x86_64-linux/lib ${ecudadir}/lib64
-
-	# Remove bad symlinks
-	rm "${ED}"/${cudadir}/targets/x86_64-linux/include/include || die
-	rm "${ED}"/${cudadir}/targets/x86_64-linux/lib/lib64 || die
+	dosym targets/x86_64-linux/include ${cudadir}/include
+	dosym targets/x86_64-linux/lib ${cudadir}/lib64
 
 	newenvd - 99cuda <<-EOF
 		PATH=${ecudadir}/bin${pathextradirs}
@@ -266,6 +230,7 @@ src_install() {
 	newins - 80${PN} <<-EOF
 		SEARCH_DIRS_MASK="${ecudadir}"
 	EOF
+	# TODO: Add pkgconfig files for installed libraries
 }
 
 pkg_postinst_check() {
