@@ -5508,6 +5508,8 @@ net-dns/hash-slinger:ipsec - Enable support for IPSECKEY records (ipseckey)
 net-dns/hash-slinger:openpgp - Enable support for OPENPGPKEY records (openpgpkey)
 net-dns/hash-slinger:ssh - Enable support for SSHFP records (sshfp)
 net-dns/idnkit:liteonly - Compile and install lite library only
+net-dns/inadyn:mbedtls - Use net-libs/mbedtls as tls provider.
+net-dns/inadyn:openssl - Use dev-libs/openssl as tls provider.
 net-dns/knot:cookies - Enable the DNS cookie module (RFC 7873)
 net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
