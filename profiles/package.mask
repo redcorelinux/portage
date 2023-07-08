@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2023-07-08)
+# Obsolete component for dev-util/cucumber. Discontinued upstream.
+# No reverse dependencies. Masked for removal on 2023-08-08.
+dev-ruby/c21e
+
 # Hans de Graaff <graaff@gentoo.org> (2023-07-06)
 # Last release in 2012. Upstream is gone. No reverse dependencies.
 # Masked for removal on 2023-08-06.
@@ -49,7 +54,9 @@ dev-perl/Gtk2-Notify
 >=gnome-extra/gnome-system-monitor-45_alpha
 >=gui-libs/gtk-4.11
 >=gui-libs/libadwaita-1.4_alpha
+>=media-gfx/gnome-font-viewer-45_alpha
 >=net-misc/gnome-remote-desktop-45_alpha
+>=sys-apps/baobab-45_alpha
 
 # Michael Orlitzky <mjo@gentoo.org> (2023-07-05)
 # I suspect I was its only user, and I'm not a user any more. Upstream
@@ -279,11 +286,6 @@ dev-java/netty
 # Obsolete and insecure SageMath (out of tree) dependency.
 # Removal on 2023-07-04.
 sci-mathematics/flintqs
-
-# Michał Górny <mgorny@gentoo.org> (2023-06-03)
-# Obsoleted by dev-python/pyspnego.  No revdeps left.
-# Removal on 2023-07-03.  Bug #895004.
-dev-python/ntlm-auth
 
 # Bernd Waibel <waebbl-gentoo@posteo.net> (2023-05-31)
 # Mask this version for uptime soversion issue. There will be an updated release
