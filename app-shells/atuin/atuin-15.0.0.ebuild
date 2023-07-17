@@ -310,7 +310,7 @@ CRATES="
 	zeroize_derive-1.4.2
 "
 
-inherit bash-completion-r1 cargo
+inherit cargo shell-completion
 
 DESCRIPTION="Shell history manager supporting encrypted synchronisation"
 HOMEPAGE="https://github.com/ellie/atuin"
@@ -323,7 +323,7 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT MPL-2.
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND=">=dev-lang/rust-1.67.1"
+BDEPEND=">=virtual/rust-1.67.1"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -358,10 +358,6 @@ src_install() {
 	dodoc -r "${DOCS[@]}"
 
 	newbashcomp "completions/${PN}.bash" "${PN}"
-
-	insinto /usr/share/zsh/site-functions
-	doins "completions/_${PN}"
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins "completions/${PN}.fish"
+	dozshcomp "completions/_${PN}"
+	dofishcomp "completions/${PN}.fish"
 }
