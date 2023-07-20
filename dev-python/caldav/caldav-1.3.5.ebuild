@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="|| ( GPL-3 Apache-2.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/icalendar[${PYTHON_USEDEP}]
@@ -28,6 +28,11 @@ RDEPEND="
 	>=dev-python/recurring-ical-events-2.0.0[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/vobject[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/tzlocal[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
