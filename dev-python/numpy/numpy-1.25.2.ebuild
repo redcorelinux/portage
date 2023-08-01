@@ -17,12 +17,13 @@ HOMEPAGE="
 	https://github.com/numpy/numpy/
 	https://pypi.org/project/numpy/
 "
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-1.25.2-patches.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
 IUSE="lapack"
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc64 ~s390 ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 RDEPEND="
@@ -34,7 +35,6 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	>=dev-util/meson-1.1.0
-	<dev-python/cython-3[${PYTHON_USEDEP}]
 	>=dev-python/cython-0.29.30[${PYTHON_USEDEP}]
 	lapack? (
 		virtual/pkgconfig
@@ -51,9 +51,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.25.0_rc1-meson-pyproject.toml.patch
-	"${FILESDIR}"/${PN}-1.25.0-skip-python3.12-irrelevant-tests.patch
-	"${FILESDIR}"/${PN}-1.25.0-fix-long-double-check.patch
+	"${WORKDIR}"/${PN}-1.25.2-patches
 )
 
 distutils_enable_tests pytest
@@ -76,17 +74,38 @@ python_configure_all() {
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# very disk-and-memory-hungry
-		lib/tests/test_io.py::test_large_zip
+		# Very disk-and-memory-hungry
+		lib/tests/test_io.py::TestSaveTxt::test_large_zip
+		lib/tests/test_io.py::TestSavezLoad::test_closing_fid
+		lib/tests/test_io.py::TestSavezLoad::test_closing_zipfile_after_load
 
-		# precision problems
+		# Precision problems
 		core/tests/test_umath_accuracy.py::TestAccuracy::test_validate_transcendentals
 
-		# runs the whole test suite recursively, that's just crazy
+		# Runs the whole test suite recursively, that's just crazy
 		core/tests/test_mem_policy.py::test_new_policy
 
+		# XXX: I've no idea why this ends up being needed in deselect and not ignore
 		typing/tests/test_typing.py
+		# Uses huge amount of memory
+		core/tests/test_mem_overlap.py
 	)
+
+	if [[ ${EPYTHON} == python3.12 ]]; then
+		EPYTEST_DESELECT+=(
+			typing/tests/test_isfile.py::TestIsFile::test_isfile
+			tests/test_public_api.py::test_all_modules_are_expected_2
+			tests/test_public_api.py::test_api_importable
+
+			random/tests/test_extending.py
+			tests/test_ctypeslib.py
+		)
+
+		EPYTEST_IGNORE+=(
+			random/tests/test_extending.py
+			tests/test_ctypeslib.py
+		)
+	fi
 
 	if [[ ${EPYTHON} == pypy3 ]]; then
 		EPYTEST_DESELECT+=(
@@ -96,8 +115,7 @@ python_test() {
 	fi
 
 	if use arm && [[ $(uname -m || echo "unknown") == "armv8l" ]] ; then
-		# Degenerate case. arm32 chroot on arm64.
-		# bug #774108
+		# Degenerate case of arm32 chroot on arm64, bug #774108
 		EPYTEST_DESELECT+=(
 			core/tests/test_cpu_features.py::Test_ARM_Features::test_features
 		)
@@ -114,6 +132,17 @@ python_test() {
 		)
 	fi
 
+	if use hppa ; then
+		EPYTEST_DESELECT+=(
+			# TODO: Get selectedrealkind updated!
+			# bug #907228
+			# https://github.com/numpy/numpy/issues/3424 (https://github.com/numpy/numpy/issues/3424#issuecomment-412369029)
+			# https://github.com/numpy/numpy/pull/21785
+			f2py/tests/test_kind.py::TestKind::test_real
+			f2py/tests/test_kind.py::TestKind::test_quad_precision
+		)
+	fi
+
 	if [[ $(tc-endian) == "big" ]] ; then
 		# https://github.com/numpy/numpy/issues/11831 and bug #707116
 		EPYTEST_DESELECT+=(
@@ -121,6 +150,7 @@ python_test() {
 			'f2py/tests/test_return_character.py::TestFReturnCharacter::test_all_f90[t1]'
 			'f2py/tests/test_return_character.py::TestFReturnCharacter::test_all_f90[s1]'
 			'f2py/tests/test_return_character.py::TestFReturnCharacter::test_all_f77[t1]'
+			f2py/tests/test_kind.py::TestKind::test_int
 		)
 	fi
 
