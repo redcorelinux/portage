@@ -1,10 +1,11 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="sqlite,xml(+)"
+DISTUTILS_USE_PEP517=standalone
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 xdg-utils
@@ -15,38 +16,46 @@ SRC_URI="https://gajim.org/downloads/$(ver_cut 1-2)/${P/_p/-}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
-IUSE="+crypt geolocation jingle omemo remote rst +spell upnp +webp"
-S="${WORKDIR}/${P%_p2}"
+# KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
+# Gajim depends now on omemo-dr. Add KEYWORDS again,
+# when https://bugs.gentoo.org/912285 is fixed.
+
+KEYWORDS="~amd64"
+IUSE="+crypt geolocation jingle remote rst +spell upnp +webp"
 
 COMMON_DEPEND="
 	dev-libs/gobject-introspection[cairo(+)]
 	>=x11-libs/gtk+-3.22:3[introspection]
-	x11-libs/gtksourceview:4"
+	x11-libs/gtksourceview:4[introspection]"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
 	virtual/pkgconfig
+	>=x11-libs/pango-1.5.0
 	>=sys-devel/gettext-0.17-r1"
 RDEPEND="${COMMON_DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/idna[${PYTHON_USEDEP}]
-		>=dev-python/nbxmpp-3.0.0[${PYTHON_USEDEP}]
-		<dev-python/nbxmpp-4.0.0[${PYTHON_USEDEP}]
+		>=dev-python/nbxmpp-4.2.2[${PYTHON_USEDEP}]
+		<dev-python/nbxmpp-5.0.0[${PYTHON_USEDEP}]
 		dev-python/precis-i18n[${PYTHON_USEDEP}]
 		dev-python/pyasn1[${PYTHON_USEDEP}]
 		dev-python/pycairo[${PYTHON_USEDEP}]
 		dev-python/pycurl[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
-		dev-python/pyopenssl[${PYTHON_USEDEP}]
 		x11-libs/libXScrnSaver
 		app-crypt/libsecret[crypt,introspection]
 		dev-python/keyring[${PYTHON_USEDEP}]
 		>=dev-python/secretstorage-3.1.1[${PYTHON_USEDEP}]
 		dev-python/css-parser[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
-		net-libs/libsoup:2.4[introspection]
+		net-libs/libsoup:3.0[introspection]
 		media-libs/gsound[introspection]
 		dev-python/pillow[${PYTHON_USEDEP}]
+		dev-python/jaraco-classes[${PYTHON_USEDEP}]
+		dev-python/python-axolotl[${PYTHON_USEDEP}]
+		dev-python/qrcode[${PYTHON_USEDEP}]
+		dev-python/cryptography[${PYTHON_USEDEP}]
+		dev-python/omemo-dr[${PYTHON_USEDEP}]
 		crypt? (
 			dev-python/pycryptodome[${PYTHON_USEDEP}]
 			>=dev-python/python-gnupg-0.4.0[${PYTHON_USEDEP}] )
@@ -57,12 +66,6 @@ RDEPEND="${COMMON_DEPEND}
 			media-libs/gst-plugins-base:1.0[introspection]
 			media-libs/gst-plugins-ugly:1.0
 			media-plugins/gst-plugins-gtk
-		)
-		omemo? (
-			dev-python/jaraco-classes[${PYTHON_USEDEP}]
-			dev-python/python-axolotl[${PYTHON_USEDEP}]
-			dev-python/qrcode[${PYTHON_USEDEP}]
-			dev-python/cryptography[${PYTHON_USEDEP}]
 		)
 		remote? (
 			>=dev-python/dbus-python-1.2.0[${PYTHON_USEDEP}]
@@ -76,12 +79,16 @@ RDEPEND="${COMMON_DEPEND}
 		upnp? ( net-libs/gupnp-igd:0[introspection] )
 	')"
 
-src_install() {
-	distutils-r1_src_install
+python_compile() {
+	distutils-r1_python_compile
+	./pep517build/build_metadata.py -o dist/metadata
+}
 
-	# avoid precompressed man pages
-	rm -r "${D}/usr/share/man"
-	doman data/*.1
+python_install() {
+	distutils-r1_python_install
+	./pep517build/install_metadata.py dist/metadata --prefix="${D}/usr"
+
+	gzip -d "${ED}"/usr/share/man/man1/*.gz || die
 }
 
 pkg_postinst() {
