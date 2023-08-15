@@ -2349,6 +2349,7 @@ dev-python/frozenlist:native-extensions - Compile native C extensions (speedups,
 dev-python/httpx:cli - Install the CLI "httpx" client.
 dev-python/hypothesis:cli - Install a CLI tool used to write tests.
 dev-python/icalendar:doc - Generate examples and other extra documentation
+dev-python/immutables:native-extensions - Compiles native "C" extensions (speedups, instead of using Python fallback code).
 dev-python/ipython:nbconvert - Enable support for converting notebooks to various formats using app-text/pandoc
 dev-python/ipython:notebook - Install requirements for the web notebook based on dev-python/tornado
 dev-python/jaraco-text:cli - Install dependencies needed for CLI tools (Rust warning!)
@@ -8649,7 +8650,6 @@ www-client/microsoft-edge-beta:mip - Install Microsoft Information Protection pl
 www-client/microsoft-edge-dev:mip - Install Microsoft Information Protection plugin.
 www-client/netsurf:bmp - Bitmap (BMP and ICO) image support via media-libs/libnsbmp
 www-client/netsurf:gtk - Build GTK3 GUI
-www-client/netsurf:gtk2 - Build GTK2 GUI
 www-client/netsurf:psl - Use public suffix list from media-libs/libnspsl to detect supercookies (recommended)
 www-client/netsurf:rosprite - RISC OS Sprite bitmap image support via media-libs/librosprite
 www-client/netsurf:svgtiny - Use media-libs/libsvgtiny instead of gnome-base/librsvg for SVG support
