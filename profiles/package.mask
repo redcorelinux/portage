@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2023-08-28)
+# A shim that is no longer needed.  No reverse dependencies.
+# Removal on 2023-09-27.  Bug #906516.
+dev-python/pytz_deprecation_shim
+
 # Sam James <sam@gentoo.org> (2023-08-26)
 # 'AttributeError: NoneType object has no attribute cname' regression
 # See bug #913062, https://github.com/cython/cython/issues/5643, and
@@ -202,12 +207,6 @@ app-accessibility/espeak
 sys-apps/systemd-tmpfiles
 sys-boot/systemd-boot
 sys-fs/udev
-
-# Matt Turner <mattst88@gentoo.org> (2023-07-24)
-# Unmaintained. Looks pretty dead upstream (last commit 1.5 years ago, last tag
-# 3 years ago, last non-alpha release in 2015). Depends on app-text/enchant:0.
-# Removal on 2023-08-24. Bug #905956.
-net-im/vacuum
 
 # Michał Górny <mgorny@gentoo.org> (2023-07-24)
 # Incompatible with modern dev-python/matplotlib versions.  No upstream
