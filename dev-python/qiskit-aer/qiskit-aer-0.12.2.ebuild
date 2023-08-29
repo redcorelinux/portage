@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 
@@ -30,6 +31,7 @@ SLOT="0"
 # with the option to switch between reference/openblas implementation runtime (eselect-ldso).
 DEPEND="
 	>=dev-python/numpy-1.16.3[${PYTHON_USEDEP}]
+	<dev-cpp/nlohmann_json-3.10.3
 	>=dev-cpp/nlohmann_json-3.1.1
 	>=dev-libs/spdlog-1.9.2:=
 	>=dev-cpp/muParserX-4.0.8
@@ -38,7 +40,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/qiskit-terra-0.21.0[${PYTHON_USEDEP}]
+	>=dev-python/qiskit-terra-0.25.1-r1[${PYTHON_USEDEP}]
 	>=dev-python/scipy-1.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -86,7 +88,7 @@ pkg_setup() {
 python_prepare_all() {
 	export DISABLE_CONAN="ON"
 	export DISABLE_DEPENDENCY_INSTALL="ON"
-	#export SKBUILD_CONFIGURE_OPTIONS=""
+	export SKBUILD_CONFIGURE_OPTIONS="-DTEST_JSON=1"
 
 	distutils-r1_python_prepare_all
 }
@@ -94,15 +96,14 @@ python_prepare_all() {
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
-		test/terra/states/test_aer_statevector.py::TestAerStatevector::test_drawings
 		test/terra/states/test_aer_state.py::TestAerState::test_appply_diagonal
-		test/terra/states/test_aer_state.py::TestAerState::test_appply_measure
 		test/terra/states/test_aer_state.py::TestAerState::test_appply_reset
 
-		# TODO: GLIBCXX_ASSERTIONS, bug #897758
-		test/terra/backends/aer_simulator/test_algorithms.py::TestAlgorithms::test_extended_stabilizer_sparse_output_probs
-		test/terra/backends/aer_simulator/test_options.py::TestOptions::test_mps_options
-		test/terra/backends/aer_simulator/test_fusion.py::TestGateFusion::test_parallel_fusion_diagonal
+		# requires qiskit_qasm3_import
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_1___automatic____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_2___statevector____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_3___matrix_product_state____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_4___extended_stabilizer____CPU__
 	)
 
 	# From tox.ini/tests.yml in CI
