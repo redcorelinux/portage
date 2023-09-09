@@ -413,6 +413,8 @@ acct-group/spi
 >=dev-cpp/gtkmm-4.11
 >=dev-libs/gjs-1.77
 >=dev-libs/glib-2.77
+>=dev-libs/gobject-introspection-1.77
+>=dev-libs/gobject-introspection-common-1.77
 >=dev-libs/libdex-0.3.0
 >=dev-util/gdbus-codegen-2.77
 >=dev-util/glib-utils-2.77
@@ -800,7 +802,7 @@ app-office/texmacs
 # If you still use one of these old toolchain packages, please upgrade (and
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
-<sys-libs/glibc-2.36-r5
+<sys-libs/glibc-2.37-r3
 <sys-libs/binutils-libs-2.40
 <sys-devel/binutils-2.40
 <sys-devel/binutils-hppa64-2.40
