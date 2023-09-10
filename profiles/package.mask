@@ -34,6 +34,12 @@
 #--- END OF EXAMPLES ---
 
 # Hans de Graaff <graaff@gentoo.org> (2023-09-10)
+# Obsolete slot that no longer has any reverse dependencies. Not
+# compatible with openssl 3. Use the newer slot instead. Masked for
+# removal on 2023-10-10.
+dev-ruby/net-ssh:6
+
+# Hans de Graaff <graaff@gentoo.org> (2023-09-10)
 # Obsolete slot that no longer has any reverse dependencies. Use the
 # newer slot instead. Masked for removal on 2023-10-10.
 dev-ruby/mail:2.7
@@ -456,6 +462,7 @@ acct-group/spi
 >=dev-libs/gobject-introspection-1.77
 >=dev-libs/gobject-introspection-common-1.77
 >=dev-libs/libdex-0.3.0
+>=dev-libs/libportal-0.7
 >=dev-util/gdbus-codegen-2.77
 >=dev-util/glib-utils-2.77
 >=games-puzzle/gnome-sudoku-45_alpha
