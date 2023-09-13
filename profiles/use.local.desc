@@ -2588,6 +2588,7 @@ dev-qt/qtbase:gui - Build Qt6Gui module
 dev-qt/qtbase:libinput - Enable support for input devices via dev-libs/libinput
 dev-qt/qtbase:libproxy - Use net-libs/libproxy for automatic HTTP/SOCKS proxy configuration
 dev-qt/qtbase:network - Build Qt6Network module
+dev-qt/qtbase:renderdoc - Enable support for capturing graphic's API calls using media-gfx/renderdoc
 dev-qt/qtbase:sql - Build Qt6Sql module
 dev-qt/qtbase:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtbase:widgets - Build Qt6Widgets module
@@ -2629,6 +2630,7 @@ dev-qt/qtscript:scripttools - Build the QtScriptTools module (requires QtWidgets
 dev-qt/qtscxml:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtsensors:qml - Build QML bindings
 dev-qt/qtspeech:flite - Enable text-to-speech synthesizer plugin using app-accessibility/flite engine
+dev-qt/qtspeech:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtspeech:speechd - Enable text-to-speech synthesizer plugin using app-accessibility/speech-dispatcher engine
 dev-qt/qttools:assistant - Build Qt Assistant
 dev-qt/qttools:clang - Enable using libclang for code parsing (linguist/qdoc)
@@ -3604,6 +3606,7 @@ kde-plasma/plasma-meta:desktop-portal - Enable sys-apps/xdg-desktop-portal backe
 kde-plasma/plasma-meta:discover - Pull in resources management GUI; a centralised GHNS alternative and optional sys-apps/fwupd frontend
 kde-plasma/plasma-meta:display-manager - Pull in a graphical display manager
 kde-plasma/plasma-meta:firewall - Pull in kde-plasma/plasma-firewall for system firewall administration
+kde-plasma/plasma-meta:flatpak - Pull in kde-plasma/flatpak-kcm for flatpak permissions administration
 kde-plasma/plasma-meta:grub - Pull in Breeze theme for sys-boot/grub
 kde-plasma/plasma-meta:gtk - Enable Breeze widget style and system settings module for GTK+
 kde-plasma/plasma-meta:kwallet - Enable support for KWallet auto-unlocking via kde-plasma/kwallet-pam
@@ -4252,6 +4255,7 @@ media-libs/libpano13:suitesparse - Use Sparse Levenberg Marquardt algorithm inst
 media-libs/libplacebo:glslang - Use dev-util/glslang to compile GLSL
 media-libs/libplacebo:lcms - Add support for color management via media-libs/lcms
 media-libs/libplacebo:shaderc - Use media-libs/shaderc to compile GLSL
+media-libs/libplacebo:xxhash - Use dev-libs/xxhash to speed up internal hashing
 media-libs/libpng:apng - support unofficial APNG (Animated PNG) spec
 media-libs/libprojectm:gles2 - Provide support for OpenGL ES 2 and 3
 media-libs/libpulse:asyncns - Use libasyncns for asynchronous name resolution.
