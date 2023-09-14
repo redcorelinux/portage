@@ -33,6 +33,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2023-09-14)
+# No longer a test dependency of dev-python/textdistance, now fails tests
+# with the latest numpy. Upstream inactive and we already need patching for
+# python 3.10 compatibility. No other reverse dependencies.
+# Bug: https://bugs.gentoo.org/887845
+# Removal on 2023-10-14
+dev-python/abydos
+
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2023-09-11)
 # Dead project accumulating open bugs and incompatibilities.
 #
@@ -452,12 +460,6 @@ acct-group/spi
 # for catalyst-4. Questions or bug reports about catalyst-3
 # may or may not lead to useful results.
 <dev-util/catalyst-4
-
-# Joonas Niilola <juippis@gentoo.org> (2023-07-12)
-# Testing. An upgrade from 102 isn't recommended due to downgrading
-# most likely not being possible. Back up your profile before
-# attempting. Fresh install should be fine. Bug #910229
->=mail-client/thunderbird-115.0
 
 # Michał Górny <mgorny@gentoo.org> (2023-07-12)
 # Having scikit-build-core installed still breaks building setuptools
