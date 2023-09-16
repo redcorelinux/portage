@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="OpenSSL Provider for TPM2 integration"
 HOMEPAGE="https://github.com/tpm2-software/tpm2-openssl"
 SRC_URI="https://github.com/tpm2-software/tpm2-openssl/releases/download/${PV}/${P}.tar.gz"
@@ -18,13 +20,23 @@ RDEPEND="
 	>=dev-libs/openssl-3:="
 DEPEND="${RDEPEND}
 	test? (
-		app-crypt/swtpm[gnutls]
+		app-crypt/swtpm[gnutls(+)]
 		app-crypt/tpm2-abrmd
 		app-crypt/tpm2-tools
 	)"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	sys-devel/autoconf-archive
+	virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}"/${P}-tests-include-base-provider-required-to-load-ecparam.patch )
+PATCHES=(
+	"${FILESDIR}/${P}-tests-include-base-provider-required-to-load-ecparam.patch"
+	"${FILESDIR}/${P}-build-Fix-undefined-references-when-using-slibtool.patch"
+)
+
+src_prepare() {
+	eautoreconf
+	default
+}
 
 src_test() {
 	dbus_run() {
