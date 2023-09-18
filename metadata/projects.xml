@@ -2255,22 +2255,6 @@
     <name>Proctors</name>
     <url>https://wiki.gentoo.org/wiki/Project:Proctors</url>
     <description>The Proctors make sure our communication mediums are a friendly and productive place.</description>
-    <member>
-      <email>dolsen@gentoo.org</email>
-      <name>Brian Dolbec</name>
-    </member>
-    <member>
-      <email>leio@gentoo.org</email>
-      <name>Mart Raudsepp</name>
-    </member>
-    <member>
-      <email>rich0@gentoo.org</email>
-      <name>Richard Freeman</name>
-    </member>
-    <member>
-      <email>tamiko@gentoo.org</email>
-      <name>Matthias Maier</name>
-    </member>
   </project>
   <project>
     <email>prolog@gentoo.org</email>
