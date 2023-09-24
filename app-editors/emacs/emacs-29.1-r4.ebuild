@@ -32,7 +32,7 @@ else
 		SRC_URI="https://alpha.gnu.org/gnu/emacs/pretest/${PN}-${PV/_/-}.tar.xz"
 	fi
 	# Patchset from proj/emacs-patches.git
-	SRC_URI+=" https://dev.gentoo.org/~ulm/emacs/${P}-patches-3.tar.xz"
+	SRC_URI+=" https://dev.gentoo.org/~ulm/emacs/${P}-patches-4.tar.xz"
 	PATCHES=("${WORKDIR}/patch")
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
@@ -48,6 +48,7 @@ IUSE="acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm g
 X_DEPEND="x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
+	x11-libs/libXcomposite
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXi
@@ -194,11 +195,6 @@ src_prepare() {
 		has ccache ${FEATURES} || has distcc ${FEATURES} && tc-is-gcc \
 			&& export LIBRARY_PATH=$("$(tc-getCC)" -print-search-dirs \
 				| sed -n '/^libraries:/{s:^[^/]*::;p}')
-	fi
-
-	if use small-ja-dic; then
-		# Remove pre-built dictionary https://debbugs.gnu.org/66125
-		rm -rf lisp/leim/ja-dic || die
 	fi
 
 	default
