@@ -15,22 +15,21 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc 
 IUSE="dbi judy minimal selinux test"
 RESTRICT="!test? ( test )"
 
-# <gawk-3.1.6 makes tests fail.
 RDEPEND="
 	acct-group/dictd
 	acct-user/dictd
 	>=sys-apps/coreutils-6.10
-	dev-libs/libmaa
+	dev-libs/libmaa:=
 	sys-libs/zlib
 	dbi? ( dev-db/libdbi )
 	judy? ( dev-libs/judy )
 "
 DEPEND="${RDEPEND}"
+# <gawk-3.1.6 makes tests fail.
 BDEPEND="
 	>=sys-apps/gawk-3.1.6
 	sys-devel/flex
 	app-alternatives/yacc
-	test? ( !~sys-apps/gawk-4.2.1 )
 "
 RDEPEND+=" selinux? ( sec-policy/selinux-dictd )"
 
@@ -47,9 +46,9 @@ PATCHES=(
 	"${FILESDIR}"/dictd-1.10.11-colorit-nopp-fix.patch
 	"${FILESDIR}"/dictd-1.12.0-build.patch
 	"${FILESDIR}"/dictd-1.13.0-lex.patch
-	"${FILESDIR}"/dictd-1.13.0-libtool.patch # 818535
-	"${FILESDIR}"/dictd-1.13.0-version.patch # 852884
-	"${FILESDIR}"/dictd-1.13.0-stack-smashing.patch # 908998
+	"${FILESDIR}"/dictd-1.13.0-libtool.patch # bug #818535
+	"${FILESDIR}"/dictd-1.13.1-version.patch # bug #852884
+	"${FILESDIR}"/dictd-1.13.0-stack-smashing.patch # bug #908998
 )
 
 src_prepare() {
@@ -69,7 +68,6 @@ src_configure() {
 
 src_compile() {
 	# -j1 for bug #743292
-
 	if use minimal; then
 		emake -j1 dictfmt dictzip dictzip
 	else

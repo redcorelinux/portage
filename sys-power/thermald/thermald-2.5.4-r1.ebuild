@@ -30,10 +30,9 @@ DOCS=( thermal_daemon_usage.txt README.txt )
 
 CONFIG_CHECK="~PERF_EVENTS_INTEL_RAPL ~X86_INTEL_PSTATE ~INTEL_POWERCLAMP ~INT340X_THERMAL ~ACPI_THERMAL_REL ~INT3406_THERMAL"
 
-src_prepare() {
-	sed -i -e "/group=/s/power/wheel/g" \
-		data/org.freedesktop.thermald.conf || die
+PATCHES=( "${FILESDIR}/${P}-ioctl.patch" )
 
+src_prepare() {
 	sed -i -e '/tdrundir/s@\$localstatedir/run@\$runstatedir@' \
 		configure.ac || die
 
@@ -45,6 +44,7 @@ my_src_configure() {
 	ECONF_SOURCE="${S}" econf \
 		--disable-werror \
 		--runstatedir="${EPREFIX}"/run \
+		--with-dbus-power-group=wheel \
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
 }
 
