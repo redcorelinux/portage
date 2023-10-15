@@ -9,12 +9,13 @@ S="${WORKDIR}"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~loong ppc64 x86"
 
 RDEPEND="
 	!sys-kernel/installkernel-gentoo
 	|| (
-		sys-apps/systemd
+		sys-apps/systemd[gnuefi(-)]
+		sys-apps/systemd[boot(-)]
 		sys-apps/systemd-utils[boot]
 	)
 "
@@ -29,6 +30,6 @@ src_install() {
 	EOF
 
 	exeinto /usr/lib/kernel/install.d/
-	newexe "${FILESDIR}/${PF}-00-00machineid-directory.install" \
+	newexe "${FILESDIR}/${PN}-2-r2-00-00machineid-directory.install" \
 		00-00machineid-directory.install
 }
