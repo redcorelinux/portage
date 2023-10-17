@@ -12,16 +12,16 @@ CRATES="
 	Inflector@0.11.4
 	adler@1.0.2
 	ahash@0.8.3
-	aho-corasick@1.1.1
+	aho-corasick@1.1.2
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
 	annotate-snippets@0.6.1
 	annotate-snippets@0.9.1
-	anstream@0.5.0
+	anstream@0.6.4
 	anstyle-parse@0.2.1
 	anstyle-query@1.0.0
-	anstyle-wincon@2.1.0
+	anstyle-wincon@3.0.1
 	anstyle@1.0.2
 	anyhow@1.0.75
 	argfile@0.1.6
@@ -46,8 +46,8 @@ CRATES="
 	ciborium-io@0.2.1
 	ciborium-ll@0.2.1
 	ciborium@0.2.1
-	clap@4.4.5
-	clap_builder@4.4.5
+	clap@4.4.6
+	clap_builder@4.4.6
 	clap_complete@4.4.0
 	clap_complete_command@0.5.1
 	clap_complete_fig@4.4.0
@@ -103,6 +103,7 @@ CRATES="
 	form_urlencoded@1.2.0
 	fs-err@2.9.0
 	fsevent-sys@4.1.0
+	getopts@0.2.21
 	getrandom@0.2.10
 	glob@0.3.1
 	globset@0.4.13
@@ -126,7 +127,7 @@ CRATES="
 	inotify-sys@0.1.5
 	inotify@0.9.6
 	insta-cmd@0.4.0
-	insta@1.33.0
+	insta@1.34.0
 	instant@0.1.12
 	is-macro@0.3.0
 	is-terminal@0.4.9
@@ -143,6 +144,8 @@ CRATES="
 	lexical-parse-integer@0.8.6
 	lexical-util@0.8.5
 	libc@0.2.147
+	libcst@1.1.0
+	libcst_derive@1.1.0
 	libmimalloc-sys@0.1.35
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.5
@@ -200,7 +203,7 @@ CRATES="
 	pretty_assertions@1.4.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.67
+	proc-macro2@1.0.69
 	pyproject-toml@0.7.0
 	quick-junit@0.3.3
 	quick-xml@0.29.0
@@ -214,10 +217,12 @@ CRATES="
 	redox_syscall@0.3.5
 	redox_users@0.4.3
 	regex-automata@0.1.10
-	regex-automata@0.3.8
+	regex-automata@0.3.9
+	regex-automata@0.4.3
 	regex-syntax@0.6.29
 	regex-syntax@0.7.5
-	regex@1.9.5
+	regex-syntax@0.8.2
+	regex@1.10.2
 	result-like-derive@0.4.6
 	result-like@0.4.6
 	ring@0.16.20
@@ -235,7 +240,7 @@ CRATES="
 	scopeguard@1.2.0
 	sct@0.7.0
 	seahash@4.1.0
-	semver@1.0.19
+	semver@1.0.20
 	serde-wasm-bindgen@0.6.0
 	serde@1.0.188
 	serde_derive@1.0.188
@@ -248,7 +253,7 @@ CRATES="
 	sharded-slab@0.1.4
 	shellexpand@3.1.0
 	shlex@1.2.0
-	similar@2.2.1
+	similar@2.3.0
 	siphasher@0.3.11
 	smallvec@1.11.1
 	spin@0.5.2
@@ -259,7 +264,7 @@ CRATES="
 	strum_macros@0.25.2
 	syn-ext@0.4.0
 	syn@1.0.109
-	syn@2.0.37
+	syn@2.0.38
 	tempfile@3.8.0
 	term@0.7.0
 	termcolor@1.2.0
@@ -273,6 +278,8 @@ CRATES="
 	thread_local@1.1.7
 	tikv-jemalloc-sys@0.5.4+5.3.0-patched
 	tikv-jemallocator@0.5.4
+	time-core@0.1.0
+	time@0.3.20
 	tiny-keccak@2.0.2
 	tinytemplate@1.2.1
 	tinyvec@1.6.0
@@ -297,6 +304,8 @@ CRATES="
 	unicode-normalization@0.1.22
 	unicode-width@0.1.11
 	unicode-xid@0.2.4
+	unicode_names2@1.2.0
+	unicode_names2_generator@1.2.0
 	untrusted@0.7.1
 	ureq@2.8.0
 	url@2.4.1
@@ -353,13 +362,8 @@ CRATES="
 	yansi@0.5.1
 "
 
-declare -A GIT_CRATES=(
-	[libcst]='https://github.com/Instagram/LibCST;03179b55ebe7e916f1722e18e8f0b87c01616d1f;LibCST-%commit%/native/libcst'
-	[libcst_derive]='https://github.com/Instagram/LibCST;03179b55ebe7e916f1722e18e8f0b87c01616d1f;LibCST-%commit%/native/libcst_derive'
-	[unicode_names2]='https://github.com/youknowone/unicode_names2;4ce16aa85cbcdd9cc830410f1a72ef9a235f2fde;unicode_names2-%commit%'
-)
-
 inherit distutils-r1 cargo
+
 DESCRIPTION="An extremely fast Python linter, written in Rust"
 HOMEPAGE="
 	https://beta.ruff.rs/docs
