@@ -17,3 +17,5 @@ IUSE="debug test"
 RESTRICT="!test? ( test )"
 
 S=${WORKDIR}/HIPCC-rocm-${PV}
+
+RDEPEND="!<dev-util/hip-5.7"
