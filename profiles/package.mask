@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-10-23)
+# Java libraries. No reverse dependencies.
+# Removal on 2023-11-23.
+dev-java/apache-rat-core
+dev-java/apache-rat-tasks
+
 # Michał Górny <mgorny@gentoo.org> (2023-10-23)
 # Broken on Python 3.11.  Archived upstream since 2020.  No revdeps.
 # Removal on 2023-11-22.  Bug #896886.
@@ -114,18 +120,6 @@ app-text/coolreader
 # does not have real releases (snapshot-only).
 # Removal on 2023-11-09.
 dev-libs/libchdr
-
-# Patrick Lauer <patrick@gentoo.org> (2023-10-09)
-# ROCm 5.7 doesn't reliably work yet.
-=dev-util/rocm-cmake-5.7.0
-=dev-libs/roct-thunk-interface-5.7.0
-=dev-libs/rocm-device-libs-5.7.0
-=dev-libs/rocm-comgr-5.7.0
-=dev-libs/rocr-runtime-5.7.0
-=dev-libs/rocm-opencl-runtime-5.7.0
-=dev-util/rocminfo-5.7.0
-=dev-util/hip-5.7.0
-=dev-util/hipcc-5.7.0
 
 # David Seifert <soap@gentoo.org> (2023-10-08)
 # Upstream long gone, unmaintained, EAPI 6, only Gentoo still packages
