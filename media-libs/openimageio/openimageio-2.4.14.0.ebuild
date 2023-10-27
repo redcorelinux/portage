@@ -18,6 +18,7 @@ SRC_URI="
 		https://github.com/AcademySoftwareFoundation/openexr-images/archive/${TEST_OEXR_IMAGE_COMMIT}.tar.gz -> ${PN}-oexr-test-image-${TEST_OEXR_IMAGE_COMMIT}.tar.gz
 	)
 "
+S="${WORKDIR}/OpenImageIO-${PV}"
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1-2)"
@@ -107,6 +108,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	use dicom || rm -r "${S}/src/dicom.imageio/" || die
 	cmake_src_prepare
 	cmake_comment_add_subdirectory src/fonts
 
@@ -161,9 +163,7 @@ src_configure() {
 
 	if use gui; then
 		mycmakeargs+=( -DENABLE_IV=ON -DUSE_OPENGL=ON -DUSE_QT=ON )
-		if use qt6; then
-			mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Qt5=ON )
-		else
+		if ! use qt6; then
 			mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Qt6=ON )
 		fi
 	else
