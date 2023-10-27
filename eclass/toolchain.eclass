@@ -1539,13 +1539,13 @@ gcc_do_filter_flags() {
 	if ver_test -lt 13.6 ; then
 		# These aren't supported by the just-built compiler either.
 		filter-flags -fharden-compares -fharden-conditional-branches \
-			-fharden-control-flow-redundancy -fhardcfr-skip-leaf \
-			-fhardcfr-check-exceptions -fhardcfr-check-returning-calls \
-			'-fhardcfr-check-noreturn-calls=*'
+			-fharden-control-flow-redundancy -fno-harden-control-flow-redundancy \
+			-fhardcfr-skip-leaf -fhardcfr-check-exceptions \
+			-fhardcfr-check-returning-calls '-fhardcfr-check-noreturn-calls=*'
+	else
+		# Makes things painfully slow and no real benefit for the compiler.
+		append-flags $(test-flags-CC -fno-harden-control-flow-redundancy)
 	fi
-
-	# Makes things painfully slow and no real beenfit for the compiler.
-	append-flags $(test-flags-CC -fno-harden-control-flow-redundancy)
 
 	# Please use USE=lto instead (bug #906007).
 	filter-lto

@@ -2803,7 +2803,7 @@ dev-util/geany-plugins:gtkspell - Use gtkspell for dictionary support in GeanyVC
 dev-util/geany-plugins:markdown - Enable the markdown plugin
 dev-util/geany-plugins:pretty-printer - Enable pretty-printer plugin
 dev-util/geany-plugins:scope - Enable the scope plugin which is a graphical GDB front-end
-dev-util/geany-plugins:soup - Enable updatechecker and geniuspaste plugins which require net-libs/libsoup
+dev-util/geany-plugins:webhelper - Enable webhelper plugin
 dev-util/geany-plugins:workbench - Enable workbench plugin
 dev-util/glade:gjs - Build catalog support for dev-libs/gjs widgets.
 dev-util/glade:webkit - Build catalog support for net-libs/webkit-gtk:4 widgets.
@@ -7249,7 +7249,9 @@ sci-libs/caffe2:openmp - Use OpenMP for parallel code
 sci-libs/caffe2:qnnpack - Use QNNPACK
 sci-libs/caffe2:tensorpipe - Use tensorpipe
 sci-libs/caffe2:xnnpack - Use XNNPACK
-sci-libs/cantera:cti - Install CTI tools (ck2cti, ck2yaml, ctml_writer) for conversion of Chemkin files to Cantera format
+sci-libs/cantera:cti - Install conversion tools (ck2cti, ck2yaml, ctml_writer) from Chemkin to Cantera format
+sci-libs/cantera:hdf5 - Add HDF5 container files support
+sci-libs/cantera:python - Install Python bindings and conversion tools from Chemkin to Cantera format
 sci-libs/cddlib:tools - Add a few executables and tests for cddlib
 sci-libs/ceres-solver:cxsparse - Enable simple support for sparse matrix algebra from sci-libs/cxsparse with no LAPACK dependencies
 sci-libs/ceres-solver:gflags - Use dev-cpp/gflags for flag parsing
