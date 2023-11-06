@@ -10,9 +10,7 @@ libbtrfs_soname=0
 
 if [[ ${PV} != 9999 ]]; then
 	MY_PV="v${PV/_/-}"
-	# XXX: Drop .respun after 6.6
-	# https://lore.kernel.org/linux-btrfs/20231103201408.GN11264@twin.jikos.cz/T/#u
-	SRC_URI="https://www.kernel.org/pub/linux/kernel/people/kdave/${PN}/${PN}-${MY_PV}.tar.xz -> ${PN}-${MY_PV}.respun.tar.xz"
+	SRC_URI="https://www.kernel.org/pub/linux/kernel/people/kdave/${PN}/${PN}-${MY_PV}.tar.xz"
 
 	if [[ ${PV} != *_rc* ]] ; then
 		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
@@ -83,10 +81,6 @@ BDEPEND="
 if [[ ${PV} == 9999 ]]; then
 	BDEPEND+=" sys-devel/gnuconfig"
 fi
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.6-fix-ioctl-typo.patch
-)
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
