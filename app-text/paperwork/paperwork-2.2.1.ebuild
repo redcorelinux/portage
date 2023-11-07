@@ -33,6 +33,7 @@ RDEPEND="~app-text/openpaperwork-core-${PV}[${PYTHON_USEDEP}]
 	x11-libs/libnotify[introspection]"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]
+	sys-apps/which
 	sys-devel/gettext"
 
 S=${WORKDIR}/paperwork-${PV}/${PN}-gtk
@@ -41,7 +42,7 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
 src_prepare() {
 	default
-	cp -a "${WORKDIR}"/${PN}-gtk ${WORKDIR}/paperwork-${PV}/
+	cp -a "${WORKDIR}"/${PN}-gtk "${WORKDIR}"/paperwork-${PV}/
 }
 
 python_compile() {
