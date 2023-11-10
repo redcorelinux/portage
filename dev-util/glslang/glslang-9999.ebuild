@@ -20,7 +20,7 @@ DESCRIPTION="Khronos reference front-end for GLSL and ESSL, and sample SPIR-V ge
 HOMEPAGE="https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/ https://github.com/KhronosGroup/glslang"
 
 LICENSE="BSD"
-SLOT="0/12"
+SLOT="0/13"
 
 # Bug 698850
 RESTRICT="test"
@@ -31,7 +31,9 @@ BDEPEND="${PYTHON_DEPS}
 
 DEPEND="~dev-util/spirv-tools-99999999:=[${MULTILIB_USEDEP}]"
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.236-Install-static-libs.patch" )
+PATCHES=( "${FILESDIR}"/${PN}-1.3.236-Install-static-libs.patch
+		  "${FILESDIR}"/${PN}-1.3.238-Fix-cmake-targets.patch
+)
 
 multilib_src_configure() {
 	local mycmakeargs=(
