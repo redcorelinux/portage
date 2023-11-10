@@ -10,7 +10,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/KhronosGroup/${PN}.git"
 	inherit git-r3
 else
-	SNAPSHOT_COMMIT="sdk-${PV}.0"
+	SNAPSHOT_COMMIT="vulkan-sdk-${PV}.0"
 	SRC_URI="https://github.com/KhronosGroup/${PN}/archive/${SNAPSHOT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 	S="${WORKDIR}/${PN}-${SNAPSHOT_COMMIT}"
@@ -25,14 +25,18 @@ SLOT="0/12"
 # Bug 698850
 RESTRICT="test"
 
-BDEPEND="${PYTHON_DEPS}"
+BDEPEND="${PYTHON_DEPS}
+	~dev-util/spirv-tools-99999999:=[${MULTILIB_USEDEP}]
+"
+
+DEPEND="~dev-util/spirv-tools-99999999:=[${MULTILIB_USEDEP}]"
 
 PATCHES=( "${FILESDIR}/${PN}-1.3.236-Install-static-libs.patch" )
 
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_PCH=OFF
-		-DALLOW_EXTERNAL_SPIRV_TOOLS=1
+		-DALLOW_EXTERNAL_SPIRV_TOOLS=ON
 	)
 	cmake_src_configure
 }
