@@ -1093,7 +1093,6 @@ app-text/calibre:font-subsetting - Enable font subsetting support
 app-text/calibre:speech - Enable text-to-speech support
 app-text/calibre:system-mathjax - Use a system copy of mathjax
 app-text/calibre:unrar - Enable support for comic books compressed with the non-free Rar format
-app-text/coolreader:wxwidgets - Use x11-libs/wxGTK instead of Qt5
 app-text/crengine-ng:chm - Support chm format
 app-text/crengine-ng:fribidi - Support bidirectional text by dev-libs/fribidi
 app-text/crengine-ng:harfbuzz - Use media-libs/harfbuzz for kerning and ligatures
@@ -2150,6 +2149,8 @@ dev-libs/qhotkey:qt6 - Use Qt6 dependencies
 dev-libs/quazip:qt5 - Build with Qt5 support
 dev-libs/quazip:qt6 - Build with Qt6 support
 dev-libs/raft:zfs - ZFS support
+dev-libs/rocksdb:numa - Enable NUMA support
+dev-libs/rocksdb:tbb - Enable support for dev-cpp/tbb
 dev-libs/sentry-native:breakpad - Use dev-util/breakpad as the crash handler
 dev-libs/sentry-native:curl - Enable support for automated uploading of crash reports
 dev-libs/serd:tools - Build command line utilities
