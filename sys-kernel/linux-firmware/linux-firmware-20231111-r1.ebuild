@@ -19,7 +19,7 @@ else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -100,6 +100,7 @@ src_unpack() {
 }
 
 src_prepare() {
+
 	use deduplicate && export LINUX_FIRMWARE_DO_DEDUPE=1
 	default
 
