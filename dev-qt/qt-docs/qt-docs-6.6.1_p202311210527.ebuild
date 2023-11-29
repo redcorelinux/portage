@@ -10,7 +10,7 @@ HOMEPAGE="https://doc.qt.io/"
 
 LICENSE="FDL-1.3"
 SLOT="6"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="+examples +html +qch"
 REQUIRED_USE="|| ( examples html qch )"
 
@@ -97,7 +97,7 @@ qt6_docs_generate_metadata() {
 		+webengine/qtpdf:
 		+webengine/qtwebengine
 		+websockets/qtwebsockets
-		-webview/qtwebview
+		+webview/qtwebview
 	)
 
 	local entry operator use subdir package exception modules uris
