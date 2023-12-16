@@ -219,24 +219,6 @@ media-plugins/gst-transcoder
 # Performance regression. Bug #916713.
 =dev-db/mydumper-0.15.1.3
 
-# Michael Orlitzky <mjo@gentoo.org> (2023-10-31)
-# Sabayon upstream (dead). No meaningful maintenance since we
-# switched to git. All other aws-*-tools packages were removed
-# in 2018. Removal on or after 2023-12-01.
-app-admin/aws-elb-tools
-
-# Guilherme Amadio <amadio@gentoo.org> (2023-10-30)
-# net-libs/xrootd-ceph was split from net-libs/xrootd as a git
-# submodule, but has been merged back to the main repository in
-# net-libs/xrootd-5.6.0. Please switch to net-libs/xrootd[ceph]
-# instead of net-libs/xrootd-ceph. Removal on 2023-11-30.
-net-libs/xrootd-ceph
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2023-10-28)
-# Fails to build with glibc-2.38 (and musl).  No maintainer.
-# Removal on 2023-11-28.  Bug #713402
-app-editors/fte
-
 # Michał Górny <mgorny@gentoo.org> (2023-10-27)
 # dev-games/cegui is unmaintained, does not support Python 3.11 and has
 # a ton of open bugs.  It is only used by games-rpg/sumwars.  CeGUI has
@@ -248,27 +230,10 @@ dev-games/cegui
 games-rpg/sumwars
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Non-installable since the distfile is gone and the package
-# is mirror-restricted.
-# Removal on 2023-11-25.  Bug #753515.
-games-strategy/defcon-demo
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
 # An unmaintained programming language with last release in 2009.
 # Multiple bugs reported.  No revdeps.
 # Removal on 2023-11-25.
 dev-lang/ferite
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Obsolete package for GRUB 1.x.  No updates since 2009, multiple bugs
-# reported.
-# Removal on 2023-11-25.  Bug #912684.
-media-gfx/grub-splashes
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Dead (and discouraged prior to death).  No revdeps.
-# Removal on 2023-11-25.  Bug #912879.
-dev-php/securimage
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-26)
 # Not installable due to conflict with sys-apps/coreutils.
@@ -283,27 +248,6 @@ dev-libs/busybee
 dev-libs/libe
 dev-libs/libpo6
 dev-libs/libtreadstone
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Fails to compile with modern C++ compilers.  Last release in 2011.
-# No revdeps.
-# Removal on 2023-11-25.  Bug #722006.
-sci-electronics/freehdl
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Incompatible with Cython 3.  Last commit in 2016.  No revdeps.
-# Removal on 2023-11-25.  Bug #898696.
-dev-python/plyr
-
-# Marek Szuba <marecki@gentoo.org> (2023-10-26)
-# Upstream uses a massive home-made Makefile which has since the beginning
-# required massive amounts of patching to make it behave reasonably
-# (as well as to fix the problems which ostensibly led upstream to
-# abandoning CMake, and which they immediately re-introduced in their NIH
-# solution) and which if anything have only got worse since then. One,
-# optional, reverse dependency in the tree.
-# Removal on 2023-11-26. Bug #916289.
-media-gfx/gmic
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-10-23)
 # Java libraries. No reverse dependencies.
@@ -320,11 +264,6 @@ dev-java/apache-rat-tasks
 # date and incompatible with Perl 5.38. No reverse dependencies.
 # Removal on 2023-11-15.
 dev-perl/PathTools
-
-# Mart Raudsepp <leio@gentoo.org> (2023-10-14)
-# The database used by this music fingerprint library has been defunct for
-# a while. Removal on 2023-11-13. Bug #915190.
-media-libs/libofa
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-14)
 # media-video/transcode is dead for many years.  We already piled up
