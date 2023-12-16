@@ -143,11 +143,6 @@ dev-python/backcall
 # Removal on 2023-12-30.  Bug #918899.
 dev-python/frozendict
 
-# Sam James <sam@gentoo.org> (2023-11-29)
-# Breaks dev-python/passlib (bug #918708). This release has also now been
-# yanked from pypi: https://github.com/pyca/bcrypt/issues/677.
-=dev-python/bcrypt-4.1.0
-
 # John Helmert III <ajak@gentoo.org> (2023-11-25)
 # Multiple vulnerabilities, unmaintained upstream and in Gentoo.
 # subtitleripper included as sole reverse dependency, similarly
@@ -252,19 +247,6 @@ dev-perl/PathTools
 # =dev-python/setuptools-scm-8.0.1 broke compatibility hard but reverted
 # the changes in 8.0.2.
 ~dev-python/setuptools-scm-8.0.1
-
-# Jaco Kroon <jaco@uls.co.za> (2023-09-19)
-# Joonas Niilola <juippis@gentoo.org> (2023-09-21)
-# DAHDI is not suited for a rolling-release distribution. Upstream releases new
-# versions sporadically and it may take multiple years between them. Old
-# versions are constantly broken with newer kernels, requiring heavy patching
-# downstream. Has no active maintainer in Gentoo. If you use DAHDI and have
-# some ideas how to help, please see bug #914477.
-# Removal on 2024-03-01.
-net-libs/libpri
-net-misc/dahdi
-net-misc/dahdi-tools
-net-misc/openr2
 
 # Sam James <sam@gentoo.org> (2023-09-09)
 # OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
