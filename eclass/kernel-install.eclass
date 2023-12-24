@@ -430,6 +430,12 @@ kernel-install_test() {
 	> "${T}"/empty-file || die
 	mkdir -p "${T}"/empty-directory || die
 
+	local compress="gzip"
+	if [[ ${KERNEL_IUSE_GENERIC_UKI} ]] && use generic-uki; then
+		# Test with same compression method as the generic initrd
+		compress="xz -9e --check=crc32"
+	fi
+
 	dracut \
 		--conf "${T}"/empty-file \
 		--confdir "${T}"/empty-directory \
@@ -439,6 +445,7 @@ kernel-install_test() {
 		--omit "${omit_mods[*]}" \
 		--nostrip \
 		--no-early-microcode \
+		--compress="${compress}" \
 		"${T}/initrd" "${version}" || die
 
 	kernel-install_create_qemu_image "${T}/fs.img"
@@ -546,6 +553,20 @@ kernel-install_pkg_pretend() {
 			elog
 			elog "    emerge --config ${CATEGORY}/${PN}:${SLOT}"
 		fi
+	fi
+
+	if ! use initramfs && ! has_version "${CATEGORY}/${PN}[-initramfs]"; then
+		ewarn
+		ewarn "WARNING: The standard configuration of the Gentoo distribution"
+		ewarn "kernels requires an initramfs! You have disabled the initramfs"
+		ewarn "USE flag and as a result dracut was not pulled in as a dependency."
+		ewarn "Please ensure that you are either overriding the standard"
+		ewarn "configuration or that an alternative initramfs generation plugin"
+		ewarn "is installed for your installkernel implementation!"
+		ewarn
+		ewarn "This is an advanced use case, you are on your own to ensure"
+		ewarn "that your system is bootable!"
+		ewarn
 	fi
 }
 
