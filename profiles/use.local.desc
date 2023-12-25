@@ -756,6 +756,11 @@ app-i18n/fcitx:presage - Enable presage for word predication (not stable)
 app-i18n/fcitx:server - Build a fcitx as server, disable this option if you want to use fcitx as an embedded library
 app-i18n/fcitx:table - Install table input methods for Simplified Chinese
 app-i18n/fcitx:xkb - Enable support for XKB (required for fcitx-xkb, fcitx-xkbdbus, part of fcitx-keyboard)
+app-i18n/fcitx-chinese-addons:cloudpinyin - Build cloud pinyin addon
+app-i18n/fcitx-chinese-addons:gui - Enable GUI support (qt5 or qt6)
+app-i18n/fcitx-chinese-addons:opencc - Enable support for conversion between Traditional and Simplified Chinese
+app-i18n/fcitx-chinese-addons:qt5 - Enable configure qt5
+app-i18n/fcitx-chinese-addons:webengine - Enable built-in browser using dev-qt/qtwebengine
 app-i18n/fcitx-configtool:config-qt - Enable fcitx5-config-qt
 app-i18n/fcitx-configtool:kcm - Enable KDE KCM support
 app-i18n/fcitx-configtool:test - Enable Test
@@ -765,6 +770,7 @@ app-i18n/fcitx-gtk:gtk4 - Enable support for GTK 4
 app-i18n/fcitx-gtk:onlyplugin - Build only plugin
 app-i18n/fcitx-gtk:snooper - Enable key snooper for gtk app
 app-i18n/fcitx-libpinyin:dictionary-manager - Install dictionary manager
+app-i18n/fcitx-lua:dlopen - Use dlopen to load lua library
 app-i18n/fcitx-qt:onlyplugin - Build only plugin
 app-i18n/fcitx-qt:qt6 - Build support for QT6
 app-i18n/fcitx-qt:staticplugin - Build plugin as static
@@ -1925,7 +1931,6 @@ dev-libs/gmime:smime - Enable experimental S/MIME support
 dev-libs/gmp:cpudetection - Enables runtime CPU detection (useful for binpkgs, compatibility on other CPUs). This only works on amd64/x86 at present. If this flag is enabled, GMP will work on a variety of amd64/x86 CPUs and load accelerated routines for use at runtime depending on the CPU in use. This makes it suitable for binary packages (binpkgs). If this flag is disabled, GMP will be tuned for the CPU being used at build-time and may not be usable on other machines.
 dev-libs/gmp:pic - Force static libraries to be built as PIC to avoid TEXTRELs.
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
-dev-libs/hidapi:fox - Build a x11-libs/fox GUI
 dev-libs/imath:large-stack - Enables code to take advantage of large stack support
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
@@ -3823,7 +3828,6 @@ mail-mta/exim:dmarc - Adds support for DMARC
 mail-mta/exim:dnsdb - Adds support for a DNS search for a record whose domain name is the supplied query
 mail-mta/exim:dovecot-sasl - Adds support for Dovecot's authentication
 mail-mta/exim:dsn - Adds support for Delivery Status Notifications (DSN)
-mail-mta/exim:exiscan-acl - Patch providing support for content scanning
 mail-mta/exim:lmtp - Adds support for lmtp
 mail-mta/exim:mbx - Adds support for UW's mbx format
 mail-mta/exim:pkcs11 - Require pkcs11 support in net-libs/gnutls with USE=gnutls
@@ -3832,8 +3836,6 @@ mail-mta/exim:proxy - Add support for being behind a proxy, such as HAProxy
 mail-mta/exim:redis - Adds support for querying dev-db/redis
 mail-mta/exim:spf - Adds support for Sender Policy Framework
 mail-mta/exim:srs - Adds support for Sender Rewriting Scheme
-mail-mta/exim:srs-alt - Use mail-filter/libsrs_alt to implement SRS support
-mail-mta/exim:srs-native - Use Exim's built-in SRS support to implement SRS support
 mail-mta/exim:tdb - Use sys-libs/tdb for internal database storage (such as hints database)
 mail-mta/exim:tpda - Adds support for Transport Post-Delivery Actions
 mail-mta/msmtp:daemon - Build/install msmtpd MTA daemon
