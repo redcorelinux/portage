@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools bash-completion-r1 linux-info tmpfiles udev
+inherit autotools bash-completion-r1 flag-o-matic linux-info tmpfiles udev
 
 DESCRIPTION="mirror/replicate block-devices across a network-connection"
 HOMEPAGE="https://www.linbit.com/drbd"
@@ -13,7 +13,7 @@ S="${WORKDIR}/${P/_/}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="pacemaker split-usr +udev xen"
+IUSE="pacemaker +udev xen"
 
 DEPEND="
 	pacemaker? ( sys-cluster/pacemaker )
@@ -23,8 +23,9 @@ RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/flex"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9.15.1-run-lock.patch
+	#"${FILESDIR}"/${PN}-9.15.1-run-lock.patch
 	"${FILESDIR}"/${PN}-9.23.1-respect-flags.patch
+	"${FILESDIR}"/${PN}-9.25.0-missing-stdint.patch
 )
 
 pkg_setup() {
@@ -70,8 +71,18 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch, bug #863728
+	# https://github.com/LINBIT/drbd-utils/issues/40
+	filter-lto
+
 	local myeconfargs=(
 		--localstatedir="${EPREFIX}"/var
+		# don't autodetect systemd/sysv; install systemd and use our own openrc
+		--with-initscripttype=systemd
+		# only used for systemdunitdir and for udevdir; the latter breaks
+		# merged-usr interop
+		PKG_CONFIG=/bin/false
+		--with-systemdunitdir="${EPREFIX}"/usr/lib/systemd/system
 		--with-bashcompletion
 		--with-distro=gentoo
 		--with-prebuiltman
@@ -100,8 +111,6 @@ src_install() {
 
 	keepdir /var/lib/drbd
 	rm -r "${ED}"/var/run || die
-
-	newtmpfiles scripts/drbd.tmpfiles.conf drbd.conf
 
 	# bug #698304
 	dodir /lib/drbd
