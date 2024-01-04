@@ -1,10 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KFMIN=5.106.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
@@ -13,7 +12,7 @@ HOMEPAGE="https://invent.kde.org/plasma/flatpak-kcm"
 
 LICENSE="GPL-2 LGPL-2.1+"
 SLOT="5"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 IUSE=""
 
 DEPEND="
@@ -26,6 +25,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=sys-apps/flatpak-0.11.8
 "
 RDEPEND="${DEPEND}
