@@ -4322,26 +4322,30 @@ media-libs/openal:pipewire - Enable support for the media-video/pipewire audio b
 media-libs/openal:sndio - Enable support for the media-sound/sndio backend
 media-libs/opencolorio:apps - Build the OCIO command line apps
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
-media-libs/opencv:contribcvv - CVV module requires Qt5
-media-libs/opencv:contribdnn - DNN module contrib requires tiny dnn
-media-libs/opencv:contribfreetype - Enable Drawing UTF-8 strings with freetype/harfbuzz
-media-libs/opencv:contribhdf - HDF module requires sci-libs/hdf5
-media-libs/opencv:contribovis - Enable Ogre vision module support
-media-libs/opencv:contribsfm - SFM module requires eigen, gflags, and glog
-media-libs/opencv:contribxfeatures2d - Enables xfeatures2d and autodownload of samples in contrib
+media-libs/opencv:contribcvv - Enable CVV in contrib (requires Qt5)
+media-libs/opencv:contribdnn - Enable DNN module contrib (requires tinydnn)
+media-libs/opencv:contribfreetype - Enable Drawing UTF-8 strings with media-libs/freetype&media-libs/harfbuzz
+media-libs/opencv:contribhdf - Enable HDF module (requires sci-libs/hdf5)
+media-libs/opencv:contribovis - Enable OGRE vision module support (dev-games/ogre)
+media-libs/opencv:contribsfm - Enable SFM module (requires USE="eigen gflags glog")
+media-libs/opencv:contribxfeatures2d - Enable xfeatures2d in contrib
 media-libs/opencv:cuda - Enable NVIDIA Cuda computations support (Experimental!)
-media-libs/opencv:dnnsamples - Download dnn caffeemodel samples
+media-libs/opencv:cudnn - Enable support for nVidia cuDNN library
+media-libs/opencv:dnnsamples - Enable dnn caffeemodel samples
 media-libs/opencv:download - Enable download during cmake configure
 media-libs/opencv:eigen - Enable usage of dev-cpp/eigen for computations
 media-libs/opencv:features2d - Enable features2d module
 media-libs/opencv:gdal - Enable support for sci-libs/gdal library
-media-libs/opencv:gflags - Use Google's C++ argument parsing library
-media-libs/opencv:glog - Use Google's C++ loggin library
+media-libs/opencv:gflags - Use Google's C++ argument parsing library (dev-cpp/gflags)
+media-libs/opencv:glog - Use Google's C++ logging library (dev-cpp/glog)
 media-libs/opencv:gtk3 - Enable x11-libs/gtk+:3 support
 media-libs/opencv:lto - Build using Link Time Optimizations (LTO)
+media-libs/opencv:non-free - Enable non-free components
 media-libs/opencv:opencvapps - Enable compilation with opencvapps
+media-libs/opencv:tbb - Enable multithreading with the Intel Threads Building Block (dev-cpp/tbb)
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
+media-libs/opencv:video_cards_intel - Enable Video Acceleration API for hardware decoding for Intel cards
 media-libs/opencv:vtk - Build new 3D visualization module viz based on sci-libs/vtk
 media-libs/openexr:large-stack - Enables code to take advantage of large stack support.
 media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
@@ -7009,6 +7013,7 @@ sci-astronomy/sextractor:modelfit - Enable profile model fitting, needs sci-libs
 sci-astronomy/siril:libconfig - Require dev-libs/libconfig to read old configuration files
 sci-astronomy/siril:wcs - Add supprt astrometry features using sci-astronomy/wcslib
 sci-astronomy/stellarium:deep-sky - Install extra deep sky objects catalog (may affect performance)
+sci-astronomy/stellarium:lens-distortion - Enable lens distortion estimator plugin
 sci-astronomy/stellarium:media - Enable sound and video support
 sci-astronomy/stellarium:scripting - Enable JS scripting via dev-qt/qtscript in Qt5 or using Qml via dev-qt/qtdeclarative in Qt6
 sci-astronomy/stellarium:show-my-sky - Enable a better atmosphere model via sci-astronomy/calcmysky
