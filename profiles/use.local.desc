@@ -4339,7 +4339,6 @@ media-libs/opencv:gdal - Enable support for sci-libs/gdal library
 media-libs/opencv:gflags - Use Google's C++ argument parsing library (dev-cpp/gflags)
 media-libs/opencv:glog - Use Google's C++ logging library (dev-cpp/glog)
 media-libs/opencv:gtk3 - Enable x11-libs/gtk+:3 support
-media-libs/opencv:lto - Build using Link Time Optimizations (LTO)
 media-libs/opencv:non-free - Enable non-free components
 media-libs/opencv:opencvapps - Enable compilation with opencvapps
 media-libs/opencv:tbb - Enable multithreading with the Intel Threads Building Block (dev-cpp/tbb)
@@ -4366,8 +4365,9 @@ media-libs/opus:custom-modes - Enable non-Opus modes, e.g. 44.1 kHz and 2^n fram
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
+media-libs/osl:gui - Build the osltoy binary (with Qt5)
 media-libs/osl:partio - Use media-libs/partio
-media-libs/osl:qt5 - Build the osltoy binary
+media-libs/osl:qt6 - Build the osltoy binary (with Qt6)
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/phonon:vlc - Install VLC Phonon backend
 media-libs/phonon-gstreamer:network - Enable network streaming support via libsoup
@@ -6034,6 +6034,7 @@ net-libs/pjproject:libyuv - Include libyuv in the build
 net-libs/pjproject:openh264 - Include Open H.264 support in the build
 net-libs/pjproject:resample - Include resampling implementations in the build
 net-libs/pjproject:silk - Include SILK support in the build
+net-libs/pjproject:srtp - Enable support for encrypted voice transmission (secure RTP)
 net-libs/pjproject:v4l2 - Include Video4Linux v2 support in the build
 net-libs/pjproject:vpx - Include VP8 and VP9 codec support in the build
 net-libs/pjproject:webrtc - Enable WebRTC support
@@ -7409,6 +7410,7 @@ sci-libs/vtk:gdal - Support for gdal formated data
 sci-libs/vtk:imaging - Building Imaging modules
 sci-libs/vtk:las - Build support for LiDAR files
 sci-libs/vtk:logging - Build the logging module
+sci-libs/vtk:opencascade - Enable OpenCASCADE support
 sci-libs/vtk:openvdb - Build support to handle VDB data files
 sci-libs/vtk:pdal - Build support to handle point cloud data files
 sci-libs/vtk:qt6 - Use Qt6 packages instead of Qt5
@@ -7900,7 +7902,7 @@ sys-auth/pambase:securetty - Enable pam_securetty module in the login stack. Not
 sys-auth/pambase:sha512 - Switch Linux-PAM's pam_unix module to use sha512 for passwords hashes rather than MD5. This option requires sys-libs/pam version 1.0.1 built against sys-libs/glibc version 2.7, if it's built against an earlier version, it will silently be ignored, and MD5 hashes will be used. All the passwords changed after this USE flag is enabled will be saved to the shadow file hashed using SHA512 function. The password previously saved will be left untouched. Please note that while SHA512-hashed passwords will still be recognised if the USE flag is removed, the shadow file will not be compatible with systems using an earlier glibc version.
 sys-auth/pambase:systemd - Use pam_systemd module to register user sessions in the systemd control group hierarchy.
 sys-auth/pambase:yescrypt - Switch Linux-PAM's pam_unix module to use yescrypt for passwords hashes rather than MD5
-sys-auth/polkit:daemon - Build polkitd in addition to libpolkit. Those using sys-apps/dbus-broker may wish to disable this flag.
+sys-auth/polkit:daemon - Build polkitd in addition to libpolkit.
 sys-auth/polkit:duktape - Use dev-lang/duktape instead of dev-lang/spidermonkey as JavaScript engine
 sys-auth/polkit:systemd - Use sys-apps/systemd for session tracking
 sys-auth/seatd:builtin - Enable embedded server in libseat
