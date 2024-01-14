@@ -9,13 +9,19 @@ inherit cmake desktop flag-o-matic optfeature python-single-r1 xdg
 
 DESCRIPTION="Desktop publishing (DTP) and layout program"
 HOMEPAGE="https://www.scribus.net/"
-SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${PV}/${P}.tar.xz"
-S="${WORKDIR}/${P}"
+
+if [[ "${PV}" == *9999* ]] ; then
+	EGIT_REPO_URI="https://github.com/scribusproject/scribus"
+	inherit git-r3
+else
+	SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${PV}/${P}.tar.xz"
+	S="${WORKDIR}/${P}"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+boost debug examples graphicsmagick hunspell +minimal osg +pdf scripts +templates tk"
+IUSE="+boost debug examples graphicsmagick +minimal osg +pdf scripts +templates tk"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	tk? ( scripts )"
@@ -23,6 +29,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 # osg
 # couple of third_party libs bundled
 DEPEND="${PYTHON_DEPS}
+	app-text/hunspell:=
 	app-text/libmspub
 	app-text/libqxp
 	app-text/poppler:=
@@ -30,13 +37,9 @@ DEPEND="${PYTHON_DEPS}
 	dev-libs/icu:0=
 	dev-libs/librevenge
 	dev-libs/libxml2
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5[-gles2-only]
-	dev-qt/qtnetwork:5
-	dev-qt/qtopengl:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[cups,gui,network,opengl,xml,widgets]
+	dev-qt/qtsvg:6
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/harfbuzz:0=[icu]
@@ -52,9 +55,9 @@ DEPEND="${PYTHON_DEPS}
 	net-print/cups
 	sys-libs/zlib[minizip]
 	x11-libs/cairo[X,svg(+)]
+	x11-libs/libxcb
 	boost? ( dev-libs/boost:= )
 	graphicsmagick? ( media-gfx/graphicsmagick:= )
-	hunspell? ( app-text/hunspell:= )
 	osg? ( dev-games/openscenegraph:= )
 	pdf? ( app-text/podofo:0= )
 	scripts? (
@@ -72,31 +75,19 @@ BDEPEND="
 "
 
 PATCHES=(
-	# non(?)-upstreamable
 	"${FILESDIR}"/${PN}-1.5.8-cmake.patch # bug 886251
 	"${FILESDIR}"/${PN}-1.5.3-fpic.patch
-	"${FILESDIR}"/${PN}-1.5.8-findhyphen-1.patch
-	"${FILESDIR}"/${PN}-1.5.6-findhyphen.patch
+	"${FILESDIR}"/${PN}-1.7.0-findhyphen.patch
+	"${FILESDIR}"/${PN}-1.7.0-remove-hello-world-test.patch
+	"${FILESDIR}"/${PN}-1.7.0-dont-install-thirdparty-license.patch
+	"${FILESDIR}"/${PN}-1.7.0-fix-icon-version.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
 
+	# for safety remove files that we patched out
 	rm -r scribus/third_party/hyphen || die
-
-	sed \
-		-e "/^\s*unzip\.[ch]/d" \
-		-e "/^\s*ioapi\.[ch]/d" \
-		-i scribus/CMakeLists.txt Scribus.pro || die
-	rm scribus/ioapi.[ch] || die
-
-	sed \
-		-e 's:\(${CMAKE_INSTALL_PREFIX}\):./\1:g' \
-		-i resources/templates/CMakeLists.txt || die
-
-	sed \
-		-e "/^add_subdirectory(ui\/qml)/s/^/#DONT/" \
-		-i scribus/CMakeLists.txt || die # nothing but a bogus Hello World test
 }
 
 src_configure() {
@@ -114,7 +105,6 @@ src_configure() {
 		-DWANT_DEBUG=$(usex debug)
 		-DWANT_NOEXAMPLES=$(usex !examples)
 		-DWANT_GRAPHICSMAGICK=$(usex graphicsmagick)
-		-DWANT_HUNSPELL=$(usex hunspell)
 		-DWANT_HEADERINSTALL=$(usex !minimal)
 		-DWANT_NOOSG=$(usex !osg)
 		-DWITH_PODOFO=$(usex pdf)
@@ -152,7 +142,7 @@ src_install() {
 		newicon -s $size resources/iconsets/artwork/icon_${size}x${size}.png scribus-${SLOT}.png
 	done
 	newicon -s 64 resources/iconsets/artwork/icon_32x32@2x.png scribus-${SLOT}.png
-	newicon resources/iconsets/1_5_1/scribus.png scribus-${SLOT}.png
+	newicon resources/iconsets/1_7_0/scribus-icon.svg scribus-${SLOT}.png
 	newmenu scribus.desktop scribus-${SLOT}.desktop
 }
 
