@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	EGIT_COMMIT="vulkan-sdk-${PV}"
 	SRC_URI="https://github.com/zeux/volk/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv"
 	S="${WORKDIR}"/${PN}-${EGIT_COMMIT}
 fi
 
@@ -23,8 +23,10 @@ SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="~dev-util/vulkan-headers-${PV}
-	~media-libs/vulkan-loader-${PV}"
+RDEPEND="~media-libs/vulkan-loader-${PV}:=[${MULTILIB_USEDEP}]"
+DEPEND="${RDEPEND}
+	~dev-util/vulkan-headers-${PV}
+"
 
 multilib_src_configure() {
 	local mycmakeargs=(
