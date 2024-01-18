@@ -24,7 +24,7 @@ fi
 IUSE="+audio +alsa +analog +digital channels ctrlport doc dtv examples fec +filter grc iio jack modtool network oss performance-counters portaudio +qt5 sdl soapy test trellis uhd vocoder +utils wavelet zeromq"
 
 #RESTRICT="!test? ( test )"
-#Tests are known broken right now
+# https://github.com/gnuradio/gnuradio/issues/7085
 RESTRICT="test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -87,11 +87,11 @@ RDEPEND="${PYTHON_DEPS}
 		$(python_gen_cond_dep 'dev-python/PyQt5[opengl,${PYTHON_USEDEP}]')
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
-		x11-libs/qwt:6[qt5(+)]
+		x11-libs/qwt:6=[qt5(+)]
 		dev-qt/qtwidgets:5
 	)
 	soapy? (
-		$(python_gen_cond_dep 'net-wireless/soapysdr[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'net-wireless/soapysdr:=[${PYTHON_USEDEP}]')
 	)
 	sdl? ( >=media-libs/libsdl-1.2.0 )
 	trellis? ( dev-python/scipy )
@@ -224,7 +224,8 @@ src_install() {
 }
 
 src_test() {
-	virtx cmake_src_test
+	# skip test which needs internet
+	virtx cmake_src_test -E metainfo_test
 }
 
 pkg_postinst() {
