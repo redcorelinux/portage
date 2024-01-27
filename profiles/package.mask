@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Fabian Groffen <grobian@gentoo.org> (2024-01-26)
+# compilation issues, no reverse dependencies in the tree
+# bugs #885057, #875410, #847211
+# Removal on 2024-02-26
+mail-filter/libsrs_alt
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-01-24)
 # app-misc/ddcutil-2.1.0 causes core-dump crashes in
 # kde-plasma/powerdevil[brightness-control].
@@ -67,13 +73,6 @@ dev-python/pymilter
 # Not required anymore since 4.14 is EOL, handled within the kernel
 # nowadays. Removal on 2024-02-20.
 net-wireless/crda
-
-# Mike Pagano <mpagano@gentoo.org> (2024-01-20)
-# Masked for testing. Modifications to USE=savedconfig
-# to only install files from there instead of
-# deleting them afterwards.
-# bug #913049.
-=sys-kernel/linux-firmware-20240115-r1
 
 # David Seifert <soap@gentoo.org> (2024-01-18)
 # Unmaintained set of packages. Overall, TensorFlow is ill-suited for
