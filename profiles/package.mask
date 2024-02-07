@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Joonas Niilola <juippis@gentoo.org> (2024-02-07)
+# The webpage it was built to scrape isn't online anymore.
+# Removal: 2024-03-08.  Bug #924007.
+net-misc/buka
+
 # Michał Górny <mgorny@gentoo.org> (2024-02-03)
 # Doesn't work with Flask 3, and is abandoned upstream.  It can be
 # trivially replaced by a local function.  No revdeps.
@@ -134,11 +139,6 @@ dev-python/pytest-fixture-config
 dev-python/pytest-shutil
 dev-python/pytest-verbose-parametrize
 dev-python/pytest-virtualenv
-
-# Viorel Munteanu <ceamac@gentoo.org> (2024-01-08)
-# Masked for removal due to licensing issues and possible GPL infringement.
-# Removal: 2024-02-07.  Bug #766129.
-x11-misc/albert
 
 # Michał Górny <mgorny@gentoo.org> (2024-01-07)
 # A Gentoo fork of an abandoned library that was historically used

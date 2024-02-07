@@ -3423,6 +3423,7 @@ gui-apps/waypipe:ffmpeg - Link with ffmpeg to allow buffer displays using video 
 gui-apps/waypipe:systemtap - Enable SystemTAP/DTrace tracing
 gui-apps/wayvnc:gbm - enable GPU-side screencopy (experimental)
 gui-apps/wayvnc:tracing - Trace kernel and memory calls
+gui-apps/wf-recorder:pulseaudio - Enable support for audio capture via PulseAudio
 gui-libs/gtk:broadway - Enable the GDK Broadway backend.
 gui-libs/gtk:cloudproviders - Enable GtkPlacesSidebar to access cloud services
 gui-libs/gtk:colord - Use x11-misc/colord for color management in printing
@@ -8545,7 +8546,6 @@ www-apps/cgit:lua - Enable support for Lua scripting
 www-apps/drupal:uploadprogress - Install dev-php/pecl-uploadprogress package
 www-apps/gitea:acct - User and group management via acct-*/git packages
 www-apps/hugo:extended - Enable SASS/SCSS and WebP encoding support
-www-apps/hugo:sass - (deprecated) Enable SASS/SCSS support
 www-apps/icingaweb2:apache2-server - Adds support for the apache2-server
 www-apps/icingaweb2:fpm - Adds FPM support to php
 www-apps/icingaweb2:nginx - Adds support for nginx
@@ -8801,8 +8801,6 @@ x11-libs/vte:systemd - Support moving terminal child processes to their own syst
 x11-libs/wxGTK:gstreamer - Enable the wxMediaCtrl class for playing audio and video through gstreamer.
 x11-libs/wxGTK:sdl - Use Simple Directmedia Layer (media-libs/libsdl) for audio.
 x11-libs/xapp:mate - Install status applet for mate-base/mate
-x11-misc/albert:debug - Enable debugging informations
-x11-misc/albert:python-extensions - Install default python extensions system-wide
 x11-misc/alock:doc - Build and install manpage with app-text/asciidoc.
 x11-misc/appmenu-gtk-module:gtk2 - Build module for GTK+2
 x11-misc/autorandr:launcher - Install the launcher, i.e., an alternative to the udev/systemd hooks
