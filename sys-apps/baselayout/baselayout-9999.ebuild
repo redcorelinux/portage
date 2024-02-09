@@ -67,11 +67,23 @@ multilib_layout() {
 					continue
 				fi
 				if ! use split-usr && [[ ${prefix} = ${EROOT}/ ]]; then
+					# for the special case of riscv multilib, we drop the
+					# second part of two-component libdirs, e.g. lib64/lp64
 					libdir="${libdir%%/*}"
 					dir="${prefix}${libdir}"
-					einfo "symlinking ${dir} to usr/${libdir}"
-					ln -s usr/${libdir} ${dir} ||
-						die "Unable to make ${dir} symlink"
+					if [[ -h "${dir}" ]] ; then
+						if use riscv ; then
+							# with riscv we get now double entries so we
+							# need to ignore already existing symlinks
+							einfo "symlink ${dir} already exists (riscv)"
+						else
+							die "symlink ${dir} already exists"
+						fi
+					else
+						einfo "symlinking ${dir} to usr/${libdir}"
+						ln -s usr/${libdir} ${dir} ||
+							die "Unable to make ${dir} symlink"
+					fi
 				else
 					einfo "creating directory ${dir}"
 					mkdir -p "${dir}" ||
