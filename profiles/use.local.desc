@@ -2460,6 +2460,7 @@ dev-python/mkdocs-material:social - Install the dependencies of the "social" plu
 dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/multidict:native-extensions - Compile native C extensions (speedups, instead of using Python fallback code).
 dev-python/mypy:native-extensions - Compiles native C extensions (speedups, instead of using Python fallback code).
+dev-python/netaddr:cli - Provide a command-line interface
 dev-python/pandas:full-support - Pull all packages to give pandas full support
 dev-python/paramiko:server - Enable server feature
 dev-python/peewee:native-extensions - Compiles native C extension for more complete SQLite3 support.
@@ -3903,6 +3904,7 @@ mail-mta/postfix:eai - Add support for SMTPUTF8
 mail-mta/postfix:ldap-bind - Add support for binding to LDAP backend using dev-libs/cyrus-sasl
 mail-mta/postfix:lmdb - Add support for using dev-db/lmdb for lookup tables
 mail-mta/postfix:memcached - Add support for using net-misc/memcached for lookup tables
+mail-mta/postfix:mongodb - Add support for using dev-db/mongodb for lookup tables
 mail-mta/qpsmtpd:postfix - create user with permissions for proper postfix interaction
 mail-mta/ssmtp:mta - Install symlinks for sendmail-compatible MTA.
 mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment.
