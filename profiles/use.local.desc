@@ -1855,6 +1855,7 @@ dev-lang/php:fpm - Enable the FastCGI Process Manager SAPI
 dev-lang/php:gd - Enable the Image Processing and GD extension (requires media-libs/libjpeg-turbo and media-libs/libpng)
 dev-lang/php:inifile - Add dbm support for .ini files
 dev-lang/php:intl - Enables the intl extension for extended internalization support
+dev-lang/php:ipv6 - Support IPv6 connectivity in fopen and friends, and v6 address conversions in functions like inet_pton and inet_ntop.
 dev-lang/php:jit - Enable PCRE JIT support
 dev-lang/php:ldap-sasl - Add SASL support for the PHP LDAP extension using dev-libs/cyrus-sasl
 dev-lang/php:lmdb - Enable support for dev-db/lmdb db backend
@@ -3371,7 +3372,6 @@ gnome-extra/cjs:sysprof - Enable profiling data capture support using dev-util/s
 gnome-extra/eiciel:nautilus - Build gnome-base/nautilus extension
 gnome-extra/evolution-data-server:berkdb - sys-libs/db support needed to migrate old (pre-3.13 evolution versions) addressbook data
 gnome-extra/evolution-data-server:gnome-online-accounts - Enable net-libs/gnome-online-accounts based Google authentication support
-gnome-extra/evolution-data-server:oauth - Enable internal OAuth2 authentication support for Google and Outlook.com. If gnome-online-accounts is enabled a nd used, this is not necessary, but both can be supported at the same time with different setup at runtime
 gnome-extra/evolution-data-server:oauth-gtk3 - Enable internal OAuth2 authentication for GTK+3 applications (libedataserverui-*.so) support for Google and Outlook.com. If gnome-online-accounts is enabled and used, this is not necessary, but both can be supported at the same time with different setup at runtime
 gnome-extra/evolution-data-server:oauth-gtk4 - Enable internal OAuth2 authentication for GTK 4 applications (libedataserverui4-*.so) support for Google and Outlook.com. If gnome-online-accounts is enabled and used, this is not necessary, but both can be supported at the same time with different setup at runtime
 gnome-extra/evolution-data-server:weather - Enable optional weather calendar support
@@ -5619,6 +5619,7 @@ net-dns/pdns:tools - Build optional tools (dnsscan, dnsscope, etc..).
 net-dns/pdns-recursor:dnstap - Enable support for dnstap
 net-dns/pdns-recursor:sodium - Use dev-libs/libsodium for cryptography
 net-dns/pdnsd:urandom - Linux-only: use /dev/urandom (pseudo-random number generation) instead of the default use of random() PRNG.
+net-dns/rbldnsd:ipv6 - Support listening on ipv6 addresses and ipv6 database entries.
 net-dns/resolvconf-symlink:symlink - Actually replace /etc/resolv.conf with a symlink. Without this flag, the ebuild is a no-op.
 net-dns/unbound:dnscrypt - Enable DNSCrypt support
 net-dns/unbound:dnstap - Enable dnstap support
