@@ -2889,6 +2889,11 @@ dev-util/google-perftools:largepages - Use (experimental) larger pages for tcmal
 dev-util/google-perftools:largepages64k - Use (experimental) 64K pages for tcmalloc, this increases memory usage, but should speed up the allocation/free operations.
 dev-util/google-perftools:minimal - Only build the tcmalloc_minimal library, ignoring the heap checker and the profilers.
 dev-util/google-perftools:optimisememory - To build libtcmalloc with smaller internal caches.
+dev-util/google-perftools:pagesize-128k - Use 128K page size for tcmalloc. Larger size makes tcmalloc faster, at the cost of using more space (due to internal fragmentation)
+dev-util/google-perftools:pagesize-16k - Use 16K page size for tcmalloc. Larger size makes tcmalloc faster, at the cost of using more space (due to internal fragmentation)
+dev-util/google-perftools:pagesize-256k - Use 256K page size for tcmalloc. Larger size makes tcmalloc faster, at the cost of using more space (due to internal fragmentation)
+dev-util/google-perftools:pagesize-32k - Use 32K page size for tcmalloc. Larger size makes tcmalloc faster, at the cost of using more space (due to internal fragmentation)
+dev-util/google-perftools:pagesize-64k - Use 64K page size for tcmalloc. Larger size makes tcmalloc faster, at the cost of using more space (due to internal fragmentation)
 dev-util/heaptrack:gui - Install Qt5-based analyzer tool
 dev-util/hfstospell:clang - Use different logic in ebuild when clang is used
 dev-util/intel-graphics-compiler:vc - Enable VectorCompiler for a better performance.
@@ -3367,6 +3372,7 @@ gnome-base/nautilus:cloudproviders - Enable the cloudproviders support
 gnome-base/nautilus:gstreamer - Enable the Audio/Video file properties page
 gnome-base/nautilus:previewer - Use gnome-extra/sushi to preview files from the file mananger
 gnome-base/nautilus:sendto - Enable the nautilus-sendto extension to send files to various locations/devices
+gnome-extra/cinnamon:desktop-portal - Enable sys-apps/xdg-desktop-portal backend implementation for Cinnamon
 gnome-extra/cinnamon-control-center:gnome-online-accounts - Enable configuration panel for net-libs/gnome-online-accounts accounts
 gnome-extra/cinnamon-control-center:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 gnome-extra/cjs:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
@@ -3585,6 +3591,8 @@ kde-apps/ktp-common-internals:otr - Enable support for encrypted conversations u
 kde-apps/ktp-common-internals:sso - Enable support for Single sign-on through KAccounts
 kde-apps/ktp-text-ui:speech - Enable incoming messages to be read out using text-to-speech
 kde-apps/kwave:qtmedia - Enable playback via Qt5Multimedia
+kde-apps/libkcddb:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
+kde-apps/libkcompactdisc:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
 kde-apps/libkleo:fancyviewer - Use kde-apps/kpimtextedit for an improved audit log viewer
 kde-apps/libksane:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
@@ -6439,6 +6447,7 @@ net-misc/kafkacat:json - Enable json support
 net-misc/kea:openssl - Use dev-libs/openssl instead of dev-libs/botan
 net-misc/kea:samples - Install sample configuration files
 net-misc/kea:shell - Install kea-shell text management client for Control Agent
+net-misc/kio-zeroconf:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 net-misc/knock:server - Installs the knockd server daemon.
 net-misc/libteam:zmq - Build witch net-libs/zeromq support
 net-misc/lldpd:cdp - Enable Cisco Discovery Protocol
@@ -8816,7 +8825,8 @@ x11-libs/vte:icu - Enable legacy charset support using dev-libs/icu
 x11-libs/vte:systemd - Support moving terminal child processes to their own systemd user scopes to avoid terminal getting killed due to child causing OOM
 x11-libs/wxGTK:gstreamer - Enable the wxMediaCtrl class for playing audio and video through gstreamer.
 x11-libs/wxGTK:sdl - Use Simple Directmedia Layer (media-libs/libsdl) for audio.
-x11-libs/xapp:mate - Install status applet for mate-base/mate
+x11-libs/xapp:mate - Install integrations for mate-base/mate
+x11-libs/xapp:xfce - Install integrations for xfce-base/xfce4-meta
 x11-misc/alock:doc - Build and install manpage with app-text/asciidoc.
 x11-misc/appmenu-gtk-module:gtk2 - Build module for GTK+2
 x11-misc/autorandr:launcher - Install the launcher, i.e., an alternative to the udev/systemd hooks
