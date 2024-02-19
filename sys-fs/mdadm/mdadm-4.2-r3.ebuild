@@ -1,32 +1,38 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit flag-o-matic multilib systemd toolchain-funcs udev
+
+inherit flag-o-matic systemd toolchain-funcs udev
 
 DESCRIPTION="Tool for running RAID systems - replacement for the raidtools"
 HOMEPAGE="https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/"
-DEB_PF="4.1-3"
+DEB_PF="4.2~rc2-7"
 SRC_URI="https://www.kernel.org/pub/linux/utils/raid/mdadm/${P/_/-}.tar.xz
 		mirror://debian/pool/main/m/mdadm/${PN}_${DEB_PF}.debian.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
 [[ "${PV}" = *_rc* ]] || \
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86"
-IUSE="static"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="static systemd +udev"
 
-BDEPEND="virtual/pkgconfig
-	app-arch/xz-utils"
-RDEPEND=">=sys-apps/util-linux-2.16"
-DEPEND="${RDEPEND}"
+REQUIRED_USE="static? ( !udev )"
+
+BDEPEND="app-arch/xz-utils
+	virtual/pkgconfig"
+DEPEND="udev? ( virtual/libudev:= )"
+RDEPEND="${DEPEND}
+	>=sys-apps/util-linux-2.16"
 
 # The tests edit values in /proc and run tests on software raid devices.
 # Thus, they shouldn't be run on systems with active software RAID devices.
 RESTRICT="test"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.4-sysmacros.patch #580188
+	"${FILESDIR}/${PN}"-3.4-sysmacros.patch #580188
+	"${FILESDIR}/${PN}"-4.2-in_initrd-collision.patch #830461
+	"${FILESDIR}/${PN}"-4.2-mdadm_env.patch #628968
 )
 
 mdadm_emake() {
@@ -51,6 +57,10 @@ mdadm_emake() {
 
 src_compile() {
 	use static && append-ldflags -static
+
+	# CPPFLAGS won't work for this
+	use udev || append-cflags -DNO_LIBUDEV
+
 	mdadm_emake all
 }
 
@@ -83,6 +93,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	udev_reload
 	if ! systemd_is_booted; then
 		if [[ -z ${REPLACING_VERSIONS} ]] ; then
 			# Only inform people the first time they install.
@@ -91,4 +102,8 @@ pkg_postinst() {
 			elog "	rc-update add mdraid boot"
 		fi
 	fi
+}
+
+pkg_postrm() {
+	udev_reload
 }
