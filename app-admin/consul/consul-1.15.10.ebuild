@@ -6,7 +6,7 @@ inherit go-module systemd
 
 DESCRIPTION="A tool for service discovery, monitoring and configuration"
 HOMEPAGE="https://www.consul.io"
-GIT_COMMIT="8e803db6b98d10b2d310800f2aef7e20d3add03c"
+GIT_COMMIT="a8dca2405236750fc23fb31dac21507882d111f6"
 
 SRC_URI="https://github.com/zmedico/consul/archive/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz"
 
