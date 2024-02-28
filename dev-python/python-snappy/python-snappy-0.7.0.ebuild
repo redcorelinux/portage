@@ -16,7 +16,7 @@ HOMEPAGE="
 "
 
 LICENSE="BSD"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 SLOT="0"
 
 RDEPEND="
