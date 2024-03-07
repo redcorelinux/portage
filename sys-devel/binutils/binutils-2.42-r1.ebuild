@@ -270,7 +270,7 @@ src_configure() {
 		$(use_with zstd)
 
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
-		--disable-{gdb,libdecnumber,readline,sim}
+		--disable-{gdb,gdbserver,libdecnumber,readline,sim}
 		# Strip out broken static link flags: https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
 		# Change SONAME to avoid conflict across {native,cross}/binutils, binutils-libs. bug #666100
@@ -373,6 +373,10 @@ src_compile() {
 
 src_test() {
 	cd "${MY_BUILDDIR}" || die
+
+	# https://sourceware.org/PR31327
+	local -x XZ_OPT="-T1"
+	local -x XZ_DEFAULTS="-T1"
 
 	# bug #637066
 	filter-flags -Wall -Wreturn-type

@@ -2475,7 +2475,6 @@ dev-python/mkdocs-material:social - Install the dependencies of the "social" plu
 dev-python/msgpack:native-extensions - Compiles native "C" extensions (speedups, instead of using python fallback code).
 dev-python/multidict:native-extensions - Compile native C extensions (speedups, instead of using Python fallback code).
 dev-python/mypy:native-extensions - Compiles native C extensions (speedups, instead of using Python fallback code).
-dev-python/netaddr:cli - Provide a command-line interface
 dev-python/pandas:full-support - Pull all packages to give pandas full support
 dev-python/paramiko:server - Enable server feature
 dev-python/peewee:native-extensions - Compiles native C extension for more complete SQLite3 support.
@@ -8012,6 +8011,7 @@ sys-block/fio:gnuplot - Install tools for generating gnuplots
 sys-block/fio:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-block/fio:nfs - Enable NFS support
 sys-block/fio:numa - Enable numa support
+sys-block/fio:pandas - Install dependencies for complex python scripts
 sys-block/fio:rbd - Enable Rados block device support via sys-cluster/ceph
 sys-block/fio:rdma - Enable infiniband support via sys-cluster/rdma-core
 sys-block/fio:tcmalloc - Link against dev-util/google-perftools by default which will speed up USE=rbd up to 20%
