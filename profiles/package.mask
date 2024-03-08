@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-03-08)
+# A library without reverse dependencies.
+# Removal on: 2024-04-07.  Bug #926486.
+dev-libs/yascreen
+
 # Ulrich Müller <ulm@gentoo.org> (2024-03-06)
 # Inactive upstream maintainer. Needs porting to PEP 517 (or better,
 # from Python to Emacs Lisp) and from layman to repository.eselect.
@@ -48,7 +53,9 @@ kde-misc/gmail-feed
 
 # Florian Schmaus <flow@gentoo.org> (2024-03-01)
 # TexLive 2023 is currently masked for testing.
-# Please report bugs via https://bugs.gentoo.org
+# Please report issues by creating a new bug report at
+# https://bugs.gentoo.org instead of commenting on the
+# tracking bug #836779 (https://bugs.gentoo.org/836779).
 >=app-text/dvipsk-2023.03.11_p66203
 >=app-text/dvisvgm-3.2
 >=app-text/ps2pkm-1.8_p20230311
@@ -654,11 +661,6 @@ dev-python/debugpy
 # Removal on 2024-03-08.  Bug #806079.
 sys-libs/libhugetlbfs
 
-# Joonas Niilola <juippis@gentoo.org> (2024-02-07)
-# The webpage it was built to scrape isn't online anymore.
-# Removal: 2024-03-08.  Bug #924007.
-net-misc/buka
-
 # Michał Górny <mgorny@gentoo.org> (2024-02-03)
 # Doesn't work with Flask 3, and is abandoned upstream.  It can be
 # trivially replaced by a local function.  No revdeps.
@@ -825,10 +827,6 @@ net-misc/openr2
 =sys-libs/ncurses-6.4_p20230424
 =sys-libs/ncurses-6.4_p20230506
 =sys-libs/ncurses-6.4_p20230527
-
-# Eray Aslan <eras@gentoo.org> (2023-04-12)
-# Mask experimental software
-=mail-mta/postfix-3.9*
 
 # Ionen Wolkens <ionen@gentoo.org> (2023-03-30)
 # NVIDIA dropped support for the 390.xx branch in December 2022[1].
