@@ -11,13 +11,12 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea files"
 HOMEPAGE="https://www.gpxsee.org/ https://github.com/tumic0/GPXSee"
-IUSE="qt6"
 SRC_URI="https://github.com/tumic0/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
-
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+IUSE="qt6"
 
 RDEPEND="
 	qt6? (
