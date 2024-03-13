@@ -21,16 +21,19 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/dask-2024.3.0[${PYTHON_USEDEP}]
 	>=dev-python/pyarrow-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pandas-2[${PYTHON_USEDEP}]
 "
+# TODO: make pandas depend on pyarrow unconditionally?  we're having
+# transitive deps here.
 BDEPEND="
 	dev-python/versioneer[${PYTHON_USEDEP}]
 	test? (
+		dev-libs/apache-arrow[parquet,snappy]
 		dev-python/pyarrow[parquet,${PYTHON_USEDEP}]
 	)
 "
