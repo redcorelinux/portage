@@ -58,6 +58,7 @@ DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
 PATCHES=(
 	"${FILESDIR}/${PN}-1.0.0-AR.patch"
 	"${FILESDIR}/${PN}-1.3.0-automagic.patch" # bug #819939, bug #837719
+	"${FILESDIR}/${PN}-1.3.0-ifdef-qt.patch"
 )
 
 src_prepare() {
@@ -127,10 +128,10 @@ src_install() {
 
 	rm "${ED}"/usr/bin/pinentry || die
 
+	# The preferred Qt implementation upstream gets installed as just 'qt'.
+	# Make a symlink for eselect-pinentry and friends.
 	if use qt6 ; then
 		dosym pinentry-qt /usr/bin/pinentry-qt6
-	elif use qt6 ; then
-		dosym pinentry-qt /usr/bin/pinentry-qt5
 	fi
 }
 
