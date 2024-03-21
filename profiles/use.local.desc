@@ -1311,6 +1311,8 @@ dev-ada/gpr-unit-provider:shared - Build shared library
 dev-ada/gpr-unit-provider:static-pic - Build static library with pic code
 dev-ada/gtkada:shared - Build gtkada as shared library
 dev-ada/gtkada:static-pic - Build static library with pic code
+dev-ada/lal-refactor:shared - Build shared library
+dev-ada/lal-refactor:static-pic - Build static library with pic code
 dev-ada/langkit:shared - Build shared library
 dev-ada/langkit:static-pic - Build static library with pic code
 dev-ada/libadalang:static-pic - Build static library with pic code
@@ -7670,6 +7672,9 @@ sci-physics/pythia:hepmc2 - Adds support for High Energy Physics Monte Carlo Gen
 sci-physics/pythia:hepmc3 - Adds support for High Energy Physics Monte Carlo Generators 3 sci-physics/hepmc
 sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics/lhapdf
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
+sci-physics/rivet:hepmc2 - Build with HepMC2
+sci-physics/rivet:hepmc3 - Build with HepMC3
+sci-physics/rivet:zlib - Build with zlib
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
 sci-physics/root:cudnn - Enable support for nVidia cuDNN library
