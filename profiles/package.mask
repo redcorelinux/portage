@@ -33,6 +33,36 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-04-06)
+# Dead upstream for many years, in a state of decay and no revdeps.
+# Removal on 2024-05-06.  Bug #926193
+net-im/telepathy-connection-managers
+net-libs/sofia-sip
+net-libs/telepathy-accounts-signon
+net-libs/telepathy-farstream
+net-libs/telepathy-qt
+net-voip/telepathy-gabble
+net-voip/telepathy-rakia
+net-voip/telepathy-salut
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-04-06)
+# Dead upstream, as is the whole telepathy stack. Some parts depend on
+# dev-qt/qtwebengine:5.
+# Removal on 2024-05-06.  Bug #926679
+kde-apps/ktp-accounts-kcm
+kde-apps/ktp-approver
+kde-apps/ktp-auth-handler
+kde-apps/ktp-common-internals
+kde-apps/ktp-contact-list
+kde-apps/ktp-contact-runner
+kde-apps/ktp-desktop-applets
+kde-apps/ktp-filetransfer-handler
+kde-apps/ktp-kded-module
+kde-apps/ktp-send-file
+kde-apps/ktp-text-ui
+kde-apps/plasma-telepathy-meta
+net-libs/telepathy-logger-qt
+
 # James Le Cuirot <chewi@gentoo.org> (2024-04-05)
 # Dead upstream and broken beyond repair. Removal on 2024-05-05. Bug #928591.
 games-board/xmille
@@ -701,7 +731,7 @@ sci-libs/mpir
 ~net-libs/kdsoap-2.2.0
 ~net-libs/kdsoap-ws-discovery-client-0.4.0
 ~net-libs/signon-ui-0.15_p20231016
-~net-libs/accounts-qt-1.16_p20220803
+~net-libs/accounts-qt-1.17
 ~net-libs/accounts-qml-0.7_p20231028
 ~net-libs/signon-oauth2-0.25_p20210102
 =net-libs/signond-8.61-r100
