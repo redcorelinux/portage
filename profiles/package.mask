@@ -33,6 +33,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-04-11)
+# Contains a bug that could render the kernel fail to boot.
+# https://lore.kernel.org/oe-lkp/202403221630.2692c998-oliver.sang@intel.com/
+# The fix is:
+# https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e7d24c0aa8e678f41457d1304e2091cac6fd1a2e
+=sys-kernel/gentoo-kernel-6.6.26
+=sys-kernel/gentoo-kernel-bin-6.6.26
+=sys-kernel/vanilla-kernel-6.6.26
+=virtual/dist-kernel-6.6.26
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-04-08)
 # Obsolete java-vm, bugs #848804 #830248.
 # Removal on 2024-05-08
@@ -159,11 +169,6 @@ x11-libs/scw
 # Deprecated upstream and the URL no longer works.
 # Removal on 2024-04-25.  Bug #926550.
 sys-firmware/bluez-firmware
-
-# Michał Górny <mgorny@gentoo.org> (2024-03-26)
-# Wrapper library that's stuck on Qt5.  No reverse dependencies left.
-# Removal on 2024-04-25.  Bug #926548.
-dev-python/anyqt
 
 # Michał Górny <mgorny@gentoo.org> (2024-03-26)
 # Unfinished package from 2021 that was added as a short-lived
@@ -323,23 +328,9 @@ games-engines/renpy
 net-misc/econnman
 sci-chemistry/mdtraj
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-03-10)
-# Archived upstream, latest release is 3 years old. One test
-# failure with python 3.11, more with python 3.12.
-# Removal on: 2024-04-10.  Bug #920439
-sci-libs/scikit-optimize
-
 # Eray Aslan <eras@gentoo.org> (2024-03-10)
 # Mask experimental software
 =mail-mta/postfix-3.10*
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-03-09)
-# Requires pyside2/shiboken2, which is unmaintained upstream and
-# not compatible with llvm-16 and up or python-3.12 and up.
-# No upstream activity for 2 years.
-# dev-python/QtPy is an alternative that does support Qt6.
-# Removal on: 2024-04-09.  Bug #926548
-dev-python/anyqt
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-03-08)
 # A library without reverse dependencies.
