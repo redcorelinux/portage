@@ -18,7 +18,7 @@ if [[ ${PV} = *9999 ]]; then
 	S="${WORKDIR}/freecad-${PV}"
 else
 	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/FreeCAD-${PV}"
 fi
 
@@ -98,6 +98,7 @@ RDEPEND="
 			' python3_{10..11} )
 		)
 		qt6? (
+			sci-libs/opencascade[-inspector(-)]
 			designer? ( dev-qt/qttools:6[designer] )
 			dev-qt/qt5compat:6
 			dev-qt/qttools:6[widgets]
@@ -180,6 +181,11 @@ src_prepare() {
 	sed -e 's/Exec=FreeCAD/Exec=freecad/' -i src/XDGData/org.freecadweb.FreeCAD.desktop || die
 
 	find "${S}" -type f -exec dos2unix -q {} \; || die "failed to convert to unix line endings"
+
+	if has_version ">=dev-python/shiboken6-6.7.0"; then
+		# https://bugs.gentoo.org/929973
+		eapply "${FILESDIR}/${PN}-0.21.2-shiboken-6.7.0.patch"
+	fi
 
 	cmake_src_prepare
 }

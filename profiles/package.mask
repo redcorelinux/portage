@@ -33,6 +33,15 @@
 
 #--- END OF EXAMPLES ---
 
+# Matthew Smith <matthew@gentoo.org> (2024-04-15)
+# Unexpected ABI break, bug #930039
+=dev-libs/tree-sitter-0.22.4
+
+# Fabian Groffen <grobian@gentoo.org> (2024-04-13)
+# Python wrapper around liblmsensors, no reverse dependencies
+# Removal on 2024-05-13, bug #929495
+dev-python/PySensors
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-04-12)
 # EAPI6. Fails to compile with go versions in tree. Upstream is archived.
 # Uses deprecated go eclasses. Maintainer needed, no rev deps.
@@ -258,88 +267,12 @@ dev-ruby/atomic
 # https://github.com/containers/buildah/issues/5320
 =app-containers/buildah-1.34.0
 
-# Eli Schwartz <eschwartz93@gmail.com> (2024-03-14)
-# Deprecated, doesn't work with python 3.12. Unmaintained with last
-# serious release in 2019, and another release in 2024 that claims
-# to support python 3.12 but fails tests if you actually do. No
-# route to making it work with python 3.13 at all, and upstream
-# explicitly states that future "like Python 2, is now done". The
-# package is entirely redundant to packages not supporting python
-# 2 anymore, and the ones that do support it should be using
-# dev-python/six instead, anyways.  Bug #888271
-# Removal on 2024-04-13.
-dev-python/future
-
-# Petr Vaněk <arkamar@gentoo.org> (2024-03-13)
-# dev-libs/hyperscan upstream is inactive [1], please switch to more portable,
-# drop-in replacement dev-libs/vectorscan.
-# [1] https://github.com/intel/hyperscan/issues/421
-# Removal: 2024-04-12.
-dev-libs/hyperscan
-
-# Alfredo Tupone <tupone@gentoo.org> (2024-03-12)
-# Not more needed, >=sci-visualization/dash-2.11 provide
-# direct integration with jupyter nodebook
-# Removal on 2024-04-11.
-sci-visualization/jupyter-dash
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-03-12)
-# Unused java libraries. Removal on 2024-04-11.
-dev-java/ant-eclipse-ecj
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-03-10)
-# Unused java libraries. The ant tasks are now provided by dev-java/ant.
-# Removal on 2024-04-09.
-dev-java/ant-apache-regexp
-dev-java/ant-apache-log4j
-dev-java/ant-apache-xalan2
-dev-java/ant-commons-logging
-dev-java/ant-swing
-dev-java/ant-junit4
-dev-java/ant-testutil
-dev-java/ant-junitlauncher
-dev-java/ant-jai
-dev-java/ant-commons-net
-dev-java/ant-apache-bsf
-dev-java/ant-jmf
-dev-java/ant-apache-oro
-dev-java/ant-javamail
-dev-java/ant-junit
-dev-java/ant-jdepend
-dev-java/ant-antlr
-dev-java/ant-apache-bcel
-dev-java/ant-apache-resolver
-dev-java/ant-jsch
-dev-java/ant-xz
-dev-java/gnu-jaf
-dev-java/failureaccess
-
-# Michał Górny <mgorny@gentoo.org> (2024-03-10)
-# Packages that still require <dev-python/cython-3 and do not promise
-# a fix anytime soon.
-#
-# dev-python/python-efl: econnman as revdep, bug #925692.
-# dev-python/pygame_sdl2: also py3.12, bug #911781
-# games-engines/renpy: also py3.12, bug #925693
-# sci-chemistry/mdtraj: also py3.12, PEP517, bug #911646.
-#
-# Includes their few reverse dependencies and their exclusive
-# dependencies without Python 3.12 support.
-#
-# Removal on 2024-04-09.
-dev-python/astunparse
-dev-python/pygame_sdl2
-dev-python/python-efl
-games-engines/renpy
-net-misc/econnman
-sci-chemistry/mdtraj
-
 # Eray Aslan <eras@gentoo.org> (2024-03-10)
 # Mask experimental software
 =mail-mta/postfix-3.10*
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-02-28)
-# KDE Plasma 6.0.3, Gear 24.02.1 and Frameworks 6.0.0 mask
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-04-14)
+# KDE Plasma 6.0.3, Gear 24.02.2 and Frameworks 6.1.0 mask
 #
 # Don't do anything unless you're intentionally moving to Plasma 6, which is
 # masked still for a reason. If you get this message just from conflicts where
@@ -357,77 +290,77 @@ sci-chemistry/mdtraj
 #   - file a bug after making sure none exists yet for your issue
 # - runtime bugs: https://community.kde.org/Plasma/Plasma_6#How_to_use/test_it
 #   - work with upstream and help test patches using /etc/portage/patches
-~kde-frameworks/frameworkintegration-6.0.0
-~kde-frameworks/attica-6.0.0
-~kde-frameworks/bluez-qt-6.0.0
-~kde-frameworks/breeze-icons-6.0.0
-~kde-frameworks/extra-cmake-modules-6.0.0
-~kde-frameworks/karchive-6.0.0
-~kde-frameworks/kcalendarcore-6.0.0
-~kde-frameworks/kcodecs-6.0.0
-~kde-frameworks/kconfig-6.0.0
-~kde-frameworks/kcoreaddons-6.0.0
-~kde-frameworks/kdbusaddons-6.0.0
-~kde-frameworks/kdnssd-6.0.0
-~kde-frameworks/kguiaddons-6.0.0
-~kde-frameworks/kholidays-6.0.0
-~kde-frameworks/ki18n-6.0.0
-~kde-frameworks/kidletime-6.0.0
-~kde-frameworks/kirigami-6.0.0
-~kde-frameworks/kitemmodels-6.0.0
-~kde-frameworks/kitemviews-6.0.0
-~kde-frameworks/kplotting-6.0.0
-~kde-frameworks/kquickcharts-6.0.0
-~kde-frameworks/ktexttemplate-6.0.0
-~kde-frameworks/kuserfeedback-6.0.0
-~kde-frameworks/kwidgetsaddons-6.0.0
-~kde-frameworks/kwindowsystem-6.0.0
-~kde-frameworks/modemmanager-qt-6.0.0
-~kde-frameworks/networkmanager-qt-6.0.0
-~kde-frameworks/prison-6.0.0
-~kde-frameworks/solid-6.0.0
-~kde-frameworks/sonnet-6.0.0
-~kde-frameworks/syntax-highlighting-6.0.0
-~kde-frameworks/threadweaver-6.0.0
-~kde-frameworks/kauth-6.0.0
-~kde-frameworks/kcolorscheme-6.0.0
-~kde-frameworks/kcompletion-6.0.0
-~kde-frameworks/kcontacts-6.0.0
-~kde-frameworks/kcrash-6.0.0
-~kde-frameworks/kdoctools-6.0.0
-~kde-frameworks/kfilemetadata-6.0.0
-~kde-frameworks/kimageformats-6.0.0
-~kde-frameworks/kjobwidgets-6.0.0
-~kde-frameworks/knotifications-6.0.0
-~kde-frameworks/kpackage-6.0.0
-~kde-frameworks/kpeople-6.0.0
-~kde-frameworks/kpty-6.0.0
-~kde-frameworks/kstatusnotifieritem-6.0.0
-~kde-frameworks/ksvg-6.0.0
-~kde-frameworks/kunitconversion-6.0.0
-~kde-frameworks/syndication-6.0.0
-~kde-frameworks/baloo-6.0.0
-~kde-frameworks/kbookmarks-6.0.0
-~kde-frameworks/kcmutils-6.0.0
-~kde-frameworks/kconfigwidgets-6.0.0
-~kde-frameworks/kdav-6.0.0
-~kde-frameworks/kdeclarative-6.0.0
-~kde-frameworks/kded-6.0.0
-~kde-frameworks/kdesu-6.0.0
-~kde-frameworks/kglobalaccel-6.0.0
-~kde-frameworks/kiconthemes-6.0.0
-~kde-frameworks/kio-6.0.0
-~kde-frameworks/knewstuff-6.0.0
-~kde-frameworks/knotifyconfig-6.0.0
-~kde-frameworks/kparts-6.0.0
-~kde-frameworks/krunner-6.0.0
-~kde-frameworks/kservice-6.0.0
-~kde-frameworks/ktexteditor-6.0.0
-~kde-frameworks/ktextwidgets-6.0.0
-~kde-frameworks/kwallet-6.0.0
-~kde-frameworks/kxmlgui-6.0.0
-~kde-frameworks/purpose-6.0.0
-~kde-frameworks/qqc2-desktop-style-6.0.0
+~kde-frameworks/frameworkintegration-6.1.0
+~kde-frameworks/attica-6.1.0
+~kde-frameworks/bluez-qt-6.1.0
+~kde-frameworks/breeze-icons-6.1.0
+~kde-frameworks/extra-cmake-modules-6.1.0
+~kde-frameworks/karchive-6.1.0
+~kde-frameworks/kcalendarcore-6.1.0
+~kde-frameworks/kcodecs-6.1.0
+~kde-frameworks/kconfig-6.1.0
+~kde-frameworks/kcoreaddons-6.1.0
+~kde-frameworks/kdbusaddons-6.1.0
+~kde-frameworks/kdnssd-6.1.0
+~kde-frameworks/kguiaddons-6.1.0
+~kde-frameworks/kholidays-6.1.0
+~kde-frameworks/ki18n-6.1.0
+~kde-frameworks/kidletime-6.1.0
+~kde-frameworks/kirigami-6.1.0
+~kde-frameworks/kitemmodels-6.1.0
+~kde-frameworks/kitemviews-6.1.0
+~kde-frameworks/kplotting-6.1.0
+~kde-frameworks/kquickcharts-6.1.0
+~kde-frameworks/ktexttemplate-6.1.0
+~kde-frameworks/kuserfeedback-6.1.0
+~kde-frameworks/kwidgetsaddons-6.1.0
+~kde-frameworks/kwindowsystem-6.1.0
+~kde-frameworks/modemmanager-qt-6.1.0
+~kde-frameworks/networkmanager-qt-6.1.0
+~kde-frameworks/prison-6.1.0
+~kde-frameworks/solid-6.1.0
+~kde-frameworks/sonnet-6.1.0
+~kde-frameworks/syntax-highlighting-6.1.0
+~kde-frameworks/threadweaver-6.1.0
+~kde-frameworks/kauth-6.1.0
+~kde-frameworks/kcolorscheme-6.1.0
+~kde-frameworks/kcompletion-6.1.0
+~kde-frameworks/kcontacts-6.1.0
+~kde-frameworks/kcrash-6.1.0
+~kde-frameworks/kdoctools-6.1.0
+~kde-frameworks/kfilemetadata-6.1.0
+~kde-frameworks/kimageformats-6.1.0
+~kde-frameworks/kjobwidgets-6.1.0
+~kde-frameworks/knotifications-6.1.0
+~kde-frameworks/kpackage-6.1.0
+~kde-frameworks/kpeople-6.1.0
+~kde-frameworks/kpty-6.1.0
+~kde-frameworks/kstatusnotifieritem-6.1.0
+~kde-frameworks/ksvg-6.1.0
+~kde-frameworks/kunitconversion-6.1.0
+~kde-frameworks/syndication-6.1.0
+~kde-frameworks/baloo-6.1.0
+~kde-frameworks/kbookmarks-6.1.0
+~kde-frameworks/kcmutils-6.1.0
+~kde-frameworks/kconfigwidgets-6.1.0
+~kde-frameworks/kdav-6.1.0
+~kde-frameworks/kdeclarative-6.1.0
+~kde-frameworks/kded-6.1.0
+~kde-frameworks/kdesu-6.1.0
+~kde-frameworks/kglobalaccel-6.1.0
+~kde-frameworks/kiconthemes-6.1.0
+~kde-frameworks/kio-6.1.0
+~kde-frameworks/knewstuff-6.1.0
+~kde-frameworks/knotifyconfig-6.1.0
+~kde-frameworks/kparts-6.1.0
+~kde-frameworks/krunner-6.1.0
+~kde-frameworks/kservice-6.1.0
+~kde-frameworks/ktexteditor-6.1.0
+~kde-frameworks/ktextwidgets-6.1.0
+~kde-frameworks/kwallet-6.1.0
+~kde-frameworks/kxmlgui-6.1.0
+~kde-frameworks/purpose-6.1.0
+~kde-frameworks/qqc2-desktop-style-6.1.0
 ~kde-plasma/bluedevil-6.0.3
 ~kde-plasma/breeze-6.0.3
 ~kde-plasma/breeze-grub-6.0.3
@@ -747,12 +680,6 @@ sci-chemistry/mdtraj
 # Test failure in watchpoints.dem, undefined function FresnelC.
 ~sci-visualization/gnuplot-6.0.0
 
-# Michał Górny <mgorny@gentoo.org> (2024-02-07)
-# Does not build anymore.  Carries a large stack of patches already.
-# Last upstream activity in late 2020.  No reverse dependencies left.
-# Removal on 2024-03-08.  Bug #806079.
-sys-libs/libhugetlbfs
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-01-24)
 # app-misc/ddcutil-2.1.0 causes core-dump crashes in
 # kde-plasma/powerdevil[brightness-control].
@@ -842,19 +769,6 @@ sys-libs/libhugetlbfs
 # Sam James <sam@gentoo.org> (2023-10-06)
 # Breaks building scipy: https://github.com/cython/cython/issues/5748
 =dev-python/cython-3.0.3
-
-# Jaco Kroon <jaco@uls.co.za> (2023-09-19)
-# Joonas Niilola <juippis@gentoo.org> (2023-09-21)
-# DAHDI is not suited for a rolling-release distribution. Upstream releases new
-# versions sporadically and it may take multiple years between them. Old
-# versions are constantly broken with newer kernels, requiring heavy patching
-# downstream. Has no active maintainer in Gentoo. If you use DAHDI and have
-# some ideas how to help, please see bug #914477.
-# Removal on 2024-03-01.
-net-libs/libpri
-net-misc/dahdi
-net-misc/dahdi-tools
-net-misc/openr2
 
 # Sam James <sam@gentoo.org> (2023-09-09)
 # OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
