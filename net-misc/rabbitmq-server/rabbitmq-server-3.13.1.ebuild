@@ -14,7 +14,7 @@ SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/${
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 x86"
+KEYWORDS="amd64 ~arm64 x86"
 RESTRICT="test"
 
 # See https://www.rabbitmq.com/which-erlang.html for Erlang version
@@ -40,7 +40,11 @@ pkg_setup() {
 }
 
 src_compile() {
-	emake all docs dist
+	# Disable parallel make
+	# https://bugs.gentoo.org/930093
+	# https://bugs.gentoo.org/930098
+	# https://bugs.gentoo.org/930133
+	emake -j1 all docs dist
 }
 
 src_install() {
