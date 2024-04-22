@@ -56,7 +56,6 @@
     <name>ARM Development</name>
     <url>https://wiki.gentoo.org/wiki/Project:ARM</url>
     <description>The ARM Development Project is devoted to keeping Gentoo in good shape on the ARM architecture.</description>
-    <subproject ref="arm64@gentoo.org" inherit-members="1"/>
     <member>
       <email>ago@gentoo.org</email>
       <name>Agostino Sarubbo</name>
@@ -1262,11 +1261,6 @@
       <role>SELinux</role>
     </member>
     <member>
-      <email>klondike@gentoo.org</email>
-      <name>Francisco Blas Izquierdo Riera</name>
-      <role>Documentation, PR</role>
-    </member>
-    <member>
       <email>perfinion@gentoo.org</email>
       <name>Jason Zaman</name>
       <role>SELinux</role>
@@ -2390,10 +2384,6 @@
     <member>
       <email>kensington@gentoo.org</email>
       <name>Michael Palimaka</name>
-    </member>
-    <member>
-      <email>pesa@gentoo.org</email>
-      <name>Davide Pesavento</name>
     </member>
   </project>
   <project>
