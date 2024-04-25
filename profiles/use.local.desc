@@ -873,7 +873,6 @@ app-misc/fastfetch:ddcutil - Use app-misc/ddcutil to query monitor settings
 app-misc/fastfetch:drm - Enables support for X.org's x11-libs/libdrm
 app-misc/fastfetch:nvidia-gpu - Enables extra support for NVIDIA GPU
 app-misc/fastfetch:osmesa - Enables offscreen rendering support from media-libs/mesa
-app-misc/fastfetch:pci - Enables reading GPU via sys-apps/pciutils
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xfce - Enables support for XFCE config
 app-misc/fastfetch:xrandr - Enables support for Xrandr
@@ -5926,7 +5925,6 @@ net-im/toxic:notification - Enables desktop notifications with libnotify, with s
 net-im/toxic:qrcode - Enables QR code support
 net-im/toxic:sound - Enables audio calling
 net-im/toxic:video - Enables video calling
-net-im/zoom:bundled-libjpeg-turbo - Use bundled libturbojpeg instead of media-libs/libjpeg-turbo
 net-im/zoom:bundled-qt - Use bundled Qt and icu instead of system-wide libs
 net-im/zoom:opencl - Use OpenCL for virtual background support (virtual/opencl)
 net-irc/anope:ldap - Build LDAP modules for e.g. opertypes
@@ -6442,6 +6440,7 @@ net-misc/frr:nhrp - Build Next Hop Resolution Protocol daemon
 net-misc/frr:ospfapi - Build OSPFAPI support
 net-misc/frr:pam - Add support for PAM (via sys-libs/pam) to the Virtual Terminal Interface Shell (vtysh)
 net-misc/frr:rpki - Enable RPKI
+net-misc/geckodriver:unchained - Apply the geckodriver-unchained patch, for Gecko-based non-Firefox browsers (e.g. Librewolf)
 net-misc/gerbera:curl - Support HTTP media sources (e.g. internet radio)
 net-misc/gerbera:exiv2 - Use media-gfx/exiv2 to extract EXIF information
 net-misc/gerbera:ffmpegthumbnailer - Enable video thumbnail support with media-video/ffmpegthumbnailer
@@ -6932,6 +6931,7 @@ net-vpn/frp:client - Build and install frp client (frpc)
 net-vpn/frp:server - Build and install frp server (frps)
 net-vpn/i2pd:i2p-hardening - Compile with hardening on vanilla compilers/linkers
 net-vpn/libreswan:dnssec - Use DNSSEC resolver (requires net-dns/unbound)
+net-vpn/libreswan:ikev1 - Enable the IKEv1 protocol
 net-vpn/networkmanager-sstp:gtk4 - Use gui-libs/gtk for GUI support.
 net-vpn/networkmanager-strongswan:gtk4 - Use GTK4 instead of GTK3.
 net-vpn/ocserv:otp - Enable support for one-time passwords
@@ -7853,10 +7853,12 @@ sys-apps/hwloc:cairo - Enable the Cairo back-end of hwloc's lstopo command
 sys-apps/hwloc:cpuid - Enable the cpuid-based architecture specific support (x86 component)
 sys-apps/hwloc:cuda - Enable CUDA device discovery using libcudart
 sys-apps/hwloc:gl - Enable GL display device discovery (NVCtrl)
+sys-apps/hwloc:l0 - Enable oneAPI Level Zero device discovery
 sys-apps/hwloc:numa - Add support for numa memory allocation
 sys-apps/hwloc:nvml - Enable the NVML device discovery
 sys-apps/hwloc:pci - Enable PCI device discovery using libpci
 sys-apps/hwloc:plugins - Build hwloc components as plugins so that the hwloc core library does not directly depend on their dependencies (for instance the libpci library)
+sys-apps/hwloc:rocm - Enable AMD RSMI device discovery
 sys-apps/hwloc:xml - use libxml2 for XML support, instead of a custom minimalistic support
 sys-apps/ibm-powerpc-utils:rtas - Add support for the Run Time Abstraction Services (RTAS)
 sys-apps/iotools:make-symlinks - Generate sub-command symlinks to iotools -- note that a lot are simple like "xor"
