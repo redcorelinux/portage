@@ -33,6 +33,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2024-05-06)
+# Long-deprecated upstream, replaced by (unpackaged) Twitter::API.
+# Twitter's API has changed at least once since the last release of Net::Twitter.
+# Removal on 2024-06-05.  Bug #931295.
+dev-perl/Net-Twitter
+
+# Sam James <sam@gentoo.org> (2024-05-06)
+# Incompatible with latest last.fm APIs, hence useless.
+# Removal on 2024-06-05.  Bug #928115.
+media-libs/lastfmlib
+
 # Michał Górny <mgorny@gentoo.org> (2024-05-05)
 # A library last bumped in 2010.  Homepage gone.  No revdeps.
 # Removal on 2024-06-04.  Bug #909527.
@@ -43,13 +54,6 @@ dev-games/poker-eval
 # and hacks already.  No reverse dependencies.
 # Removal on 2024-06-04.  Bug #909581.
 dev-games/hawknl
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-05)
-# Effectively unmaintained.  Unpatched vulnerability reported
-# in February.  The Python counterpart is even more outdated.
-# Removal on 2024-06-04.  Bug #924129.
-dev-python/ovs
-net-misc/openvswitch
 
 # Michał Górny <mgorny@gentoo.org> (2024-05-05)
 # An unmaintained fork of an unmaintained DNS server.  All successive
