@@ -1,6 +1,10 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (2024-05-08)
+# Requires sys-devel/{clang,llvm}:16.
+dev-lang/python jit
+
 # Robin H. Johnson <robbat2@gentoo.org) (2024-03-13)
 # sys-cluster/corosync not yet keyworded, niche use case for mdadm
 sys-fs/mdadm corosync
@@ -482,10 +486,6 @@ gnome-base/gnome classic extras
 # Pacho Ramos <pacho@gentoo.org> (2013-12-02)
 # Missing keywords, bug #493156
 media-libs/libgphoto2 serial
-
-# Pacho Ramos <pacho@gentoo.org> (2013-11-28)
-# Missing keywords, bug #492820
-net-im/telepathy-connection-managers sipe
 
 # Pacho Ramos <pacho@gentoo.org> (2013-07-20)
 # Keywords pending, bug #476710
