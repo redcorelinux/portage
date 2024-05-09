@@ -4,8 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_TESTED=( pypy3 python3_{10..12} )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_13 )
+PYTHON_TESTED=( pypy3 python3_{10..13} )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 
 inherit distutils-r1 pypi
 
@@ -42,5 +42,5 @@ python_test() {
 	fi
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p freezer
+	epytest -p freezegun
 }

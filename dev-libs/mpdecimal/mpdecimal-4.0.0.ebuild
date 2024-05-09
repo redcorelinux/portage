@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="BSD-2"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cxx test"
 RESTRICT="!test? ( test )"
 
@@ -47,7 +47,9 @@ src_configure() {
 		$(use_enable cxx)
 	)
 
-	local -x LDXXFLAGS="${LDFLAGS}"
+	# more sigh
+	# https://bugs.gentoo.org/931599
+	local -x LDXXFLAGS="${LDFLAGS}" LD="${CC}" LDXX="${CXX}"
 	econf "${myconf[@]}"
 }
 
