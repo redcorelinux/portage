@@ -33,7 +33,7 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="
-	bluetooth build debug +ensurepip examples gdbm jit libedit
+	bluetooth build debug +ensurepip examples gdbm +gil jit libedit
 	+ncurses pgo +readline +sqlite +ssl test tk valgrind
 "
 REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
@@ -239,6 +239,7 @@ src_configure() {
 			-m test
 			"-j$(makeopts_jobs)"
 			--pgo-extended
+			--verbose3
 			-u-network
 
 			# We use a timeout because of how often we've had hang issues
@@ -299,6 +300,7 @@ src_configure() {
 		--with-wheel-pkg-dir="${EPREFIX}"/usr/lib/python/ensurepip
 
 		$(use_with debug assertions)
+		$(use_enable gil)
 		$(use_enable jit experimental-jit)
 		$(use_enable pgo optimizations)
 		$(use_with readline readline "$(usex libedit editline readline)")
@@ -408,6 +410,7 @@ src_test() {
 	local -x LOGNAME=buildbot
 
 	local test_opts=(
+		--verbose3
 		-u-network
 		-j "$(makeopts_jobs)"
 
