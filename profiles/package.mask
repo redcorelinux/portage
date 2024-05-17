@@ -33,6 +33,48 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-05-17)
+# Superseded by dev-python/pathable.  No revdeps.
+# Removal on 2024-06-16.  Bug #932103.
+dev-python/dictpath
+
+# Michał Górny <mgorny@gentoo.org> (2024-05-17)
+# Unmaintained.  Last activity in 2020.  Redundant to stdlib.
+# No revdeps.
+# Removal on 2024-06-16.  Bug #932096.
+dev-python/cached-property
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-17)
+# EAPI=6, no maintainer, fails to compile.
+# Removal on 2024-06-16.  Bugs #932097, #542244, #742965.
+x11-plugins/pidgintex
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-17)
+# EAPI=6, no maintainer, fails to compile.
+# Removal on 2024-06-16.  Bugs #932095, #768072, #777747.
+app-forensics/air
+
+# Sam James <sam@gentoo.org> (2024-05-17)
+# Breaks dev-util/pkgcheck at least, masked pending investigation (bug #932093)
+=dev-python/tree-sitter-0.22.2
+
+# Sam James <sam@gentoo.org> (2024-05-17)
+# Needs adaptation to new build system (bug #932092).
+=net-libs/libupnpp-0.26.4
+
+# Michał Górny <mgorny@gentoo.org> (2024-05-17)
+# A Python < 3.3 backport of shutil.which().  No revdeps left.
+# Removal on 2024-06-16.  Bug #932088.
+dev-python/whichcraft
+
+# Eli Schwartz <eschwartz93@gmail.com> (2024-05-17)
+# Last updated in 2007, has no reverse dependencies, is unmaintained upstream
+# (in 2010 a version 4 alpha was released using cmake, the project has seen no
+# other activity upstream). Fails to build with dash, lto.
+# Bug #862669, #890423.
+# Removal on 2024-06-16.
+sci-libs/beagle
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-05-14)
 # Breaks build of revdeps.
 ~app-text/poppler-24.05.0
@@ -320,12 +362,6 @@ dev-go/twofactor
 # Upstream gone, unfetchable, stuck on EAPI 6. Bug 605796
 # Removal on 2024-05-18
 sci-visualization/spectromatic
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-04-12)
-# EAPI6. Fails to compile with go versions in tree. Upstream is archived.
-# Uses deprecated go eclasses. Maintainer needed, no rev deps.
-# Removal: 2024-05-12.  Bugs #794913, #679348, #771072, #844607.
-app-emulation/runv
 
 # Michał Górny <mgorny@gentoo.org> (2024-04-11)
 # Contains a bug that could render the kernel fail to boot.
