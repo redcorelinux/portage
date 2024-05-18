@@ -33,6 +33,31 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-18)
+# EAPI=6, no reverse dependencies, dead homepage, has issues
+# with modern C, maintainer needed.
+# Removal on 2024-06-17.  Bugs #932168, #906348, #895028, #870640.
+dev-lang/srf
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-18)
+# EAPI6. Fails to compile with go versions in tree. Upstream is archived.
+# Uses deprecated go eclasses. Maintainer needed, no rev deps.
+# Removal on 2024-06-17.  Bugs #932166, #844604, #679832.
+app-emulation/hyperd
+
+# Michał Górny <mgorny@gentoo.org> (2024-05-18)
+# Another abandoned project in the middle of a line of forks.
+# Broken with Python 3.12, with pytest 8 and with numpy 2.  Last
+# upstream activity in September 2023, but bugs remained unanswered
+# before that.
+# Removal on 2024-06-17.  Bug #929433.
+dev-python/aesara
+
+# Michał Górny <mgorny@gentoo.org> (2024-05-18)
+# Superseded by dev-python/pdm-backend.  No revdeps left.
+# Removal on 2024-06-17.  Bug #932160.
+dev-python/pdm-pep517
+
 # Michał Górny <mgorny@gentoo.org> (2024-05-17)
 # Superseded by dev-python/pathable.  No revdeps.
 # Removal on 2024-06-16.  Bug #932103.
@@ -53,10 +78,6 @@ x11-plugins/pidgintex
 # EAPI=6, no maintainer, fails to compile.
 # Removal on 2024-06-16.  Bugs #932095, #768072, #777747.
 app-forensics/air
-
-# Sam James <sam@gentoo.org> (2024-05-17)
-# Breaks dev-util/pkgcheck at least, masked pending investigation (bug #932093)
-=dev-python/tree-sitter-0.22.2
 
 # Sam James <sam@gentoo.org> (2024-05-17)
 # Needs adaptation to new build system (bug #932092).
@@ -357,11 +378,6 @@ dev-dotnet/ndesk-dbus-glib
 # Removal on 2024-05-19, bug #930249
 dev-go/qr
 dev-go/twofactor
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-04-18)
-# Upstream gone, unfetchable, stuck on EAPI 6. Bug 605796
-# Removal on 2024-05-18
-sci-visualization/spectromatic
 
 # Michał Górny <mgorny@gentoo.org> (2024-04-11)
 # Contains a bug that could render the kernel fail to boot.
