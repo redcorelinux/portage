@@ -97,7 +97,7 @@ src_install() {
 
 	# install a default configuration file
 	insinto /etc/vim
-	doins "${FILESDIR}"/sysinit.vim
+	newins "${FILESDIR}"/sysinit.vim-r1 sysinit.vim
 
 	# conditionally install a symlink for nvimpager
 	if use nvimpager; then
