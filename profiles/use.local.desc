@@ -512,7 +512,6 @@ app-emacs/emacs-w3m:gzip-el - Compress bundled Emacs Lisp source
 app-emacs/flim:oauth2 - Support OAuth2 authentication (app-emacs/oauth2)
 app-emacs/gap-mode:completion - Install GAP backend for app-emacs/company-mode to "complete anything."
 app-emacs/gap-mode:lint - Support automatically linting GAP code via app-emacs/flycheck and dev-gap/gaplint.
-app-emacs/magit:libgit - Use libgit (app-emacs/libegit2)
 app-emacs/mu-cite:bbdb - Include support for app-emacs/bbdb
 app-emacs/org-mode:odt-schema - Install non-free schema files for OpenDocument Text exporter
 app-emacs/remember:bbdb - Include support for app-emacs/bbdb
@@ -2836,6 +2835,7 @@ dev-util/babeltrace:elfutils - Build the dev-util/lttng-ust debug information fi
 dev-util/babeltrace:plugins - Build support for Babeltrace 2 Python plugins
 dev-util/bpftool:caps - Use sys-libs/libcap to enable unprivileged run support
 dev-util/bpftool:llvm - Use sys-devel/llvm
+dev-util/breakpad:tools - Build tools
 dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
 dev-util/cargo-audit:fix - Add support for 'fix' subcommand (experimental)
@@ -3541,6 +3541,7 @@ kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
 kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
 kde-apps/kdegraphics-meta:screencast - Pull in kde-apps/spectacle for screenshot/screenrecording support
+kde-apps/kdegraphics-meta:webengine - Enable page scanning support via media-gfx/skanpage
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
 kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphin via kde-apps/dolphin-plugins-dropbox
@@ -3570,6 +3571,7 @@ kde-apps/kig:scripting - Support Python scripting
 kde-apps/kio-extras:X - Enable support for XCursor thumbnails via x11-libs/libX11
 kde-apps/kio-extras:activities - Enable activities KIO worker and fileitem plugin
 kde-apps/kio-extras:ios - Enable AFC (Apple File Conduit) KIO worker for iOS devices support
+kde-apps/kio-extras:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/kio-extras:man - Enable manpages KIO worker
 kde-apps/kio-extras:nfs - Enable NFS support using net-libs/libtirpc
 kde-apps/kio-extras:phonon - Enable file audio preview plugin using media-libs/phonon
@@ -3618,6 +3620,7 @@ kde-apps/libkcompactdisc:kf6compat - Disable components colliding with KF6, depe
 kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
 kde-apps/libkgapi:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkleo:fancyviewer - Use kde-apps/kpimtextedit for an improved audit log viewer
+kde-apps/libksane:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libksane:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 kde-apps/mailcommon:designer - Build plugins for dev-qt/designer
 kde-apps/marble:aprs - Enable support for APRS data sources
@@ -5763,6 +5766,7 @@ net-fs/openafs:pthreaded-ubik - Enable installation of pthreaded ubik applicatio
 net-fs/openafs:supergroups - Enable support for nested pts groups.
 net-fs/openafs:tsm - Enable use of the Tivoli TSM API libraries from app-backup/tsm for butc support. AMD64 only.
 net-fs/openafs:ubik-read-while-write - Enable vlserver read from db cache during write locks (EXPERIMENTAL)
+net-fs/s3backer:nbd - Support export as an nbd device
 net-fs/s3fs:gnutls - Enable net-libs/gnutls crypto backend
 net-fs/s3fs:nettle - Use dev-libs/nettle network functions with GnuTLS.
 net-fs/s3fs:nss - Enable dev-libs/nss crypto backend
@@ -5907,6 +5911,8 @@ net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (ove
 net-im/telegram-desktop:qt6 - Build with Qt6 support
 net-im/telegram-desktop:qt6-imageformats - Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats
 net-im/tkabber:plugins - Enables installation the extra plugins
+net-im/tokodon:mpv - Use media-libs/mpvqt instead of dev-qt/qtmultimedia for video playback (default)
+net-im/tokodon:webengine - Use dev-qt/qtwebengine for built-in authentication page (default is external browser)
 net-im/toxic:audio-notify - Enables native sound notifications
 net-im/toxic:games - Enables some small mini-games
 net-im/toxic:llvm - Enables support for LLVM Address Sanitizer
