@@ -106,6 +106,7 @@ src_prepare() {
 	local PATCHES=(
 		"${FILESDIR}/freerdp-2.11.2-clang.patch"
 		"${FILESDIR}/freerdp-2.11-Revert-codec-encode-messages-considering-endianness.patch"
+		"${FILESDIR}/freerdp-2.11.7-type-mismatch.patch"
 	)
 	cmake_src_prepare
 }
@@ -125,6 +126,9 @@ option_client() {
 src_configure() {
 	# bug #881695
 	filter-lto
+
+	# https://bugs.gentoo.org/927731
+	append-cflags $(test-flags-CC -Wno-error=incompatible-pointer-types)
 
 	local mycmakeargs=(
 		-Wno-dev

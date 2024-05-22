@@ -243,11 +243,6 @@ app-emacs/basic-toolkit
 app-emacs/buffer-extension
 app-emacs/windows
 
-# Matt Turner <mattst88@gentoo.org> (2024-04-25)
-# Masked for testing
-=dev-util/intel_clc-24.1*
-=media-libs/mesa-24.1*
-
 # Michał Górny <mgorny@gentoo.org> (2024-04-23)
 # No py3.12, no tests, no maintainer.  Also no revdeps.
 # Removal on 2024-05-23.  Bug #929513.
@@ -492,7 +487,7 @@ sec-keys/openpgp-keys-jiatan
 ~kde-frameworks/kxmlgui-6.2.0
 ~kde-frameworks/purpose-6.2.0
 ~kde-frameworks/qqc2-desktop-style-6.2.0
-~kde-plasma/bluedevil-6.0.5
+~kde-plasma/bluedevil-6.0.5.1
 ~kde-plasma/breeze-6.0.5
 ~kde-plasma/breeze-grub-6.0.5
 ~kde-plasma/breeze-gtk-6.0.5
