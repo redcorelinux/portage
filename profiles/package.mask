@@ -39,6 +39,23 @@
 ~virtual/perl-Archive-Tar-3.20.10_rc
 ~virtual/perl-autodie-2.370.0
 ~virtual/perl-bignum-0.670.0
+~virtual/perl-Compress-Raw-Bzip2-2.212.0
+~virtual/perl-CPAN-Meta-Requirements-2.143.0
+~virtual/perl-Data-Dumper-2.189.0
+~virtual/perl-DB_File-1.859.0
+~virtual/perl-Devel-PPPort-3.720.0
+~virtual/perl-Exporter-5.780.0
+~virtual/perl-ExtUtils-CBuilder-0.280.240
+~virtual/perl-ExtUtils-Manifest-1.750.0
+~virtual/perl-File-Spec-3.900.0
+~virtual/perl-HTTP-Tiny-0.88.0
+~virtual/perl-IO-1.550.0
+~virtual/perl-IO-Compress-2.212.0
+~virtual/perl-IO-Socket-IP-0.420.0
+~virtual/perl-IO-Zlib-1.150.0
+~virtual/perl-Math-BigInt-2.3.2
+~virtual/perl-Math-BigInt-FastCalc-0.501.800
+~virtual/perl-Math-BigRat-2.3.2
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-05-23)
 # EAPI=6, maintainer-needed, dead HOMEPAGE, fails to compile.
@@ -254,47 +271,10 @@ app-i18n/skkserv
 # Removal: 2024-05-26.  Bug #912842.
 net-misc/ttytter
 
-# Maciej Barć <xgqt@gentoo.org> (2024-04-25)
-# Mask "app-emacs/windows" and reverse dependencies.
-# Very old package failing to compile with modern GNU Emacs.
-# Additionally all 3 packages do not have any definitive repository nor VCS.
-# Open bugs: #930655
-# Removal on 2024-05-25.
-app-emacs/basic-toolkit
-app-emacs/buffer-extension
-app-emacs/windows
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# No py3.12, no tests, no maintainer.  Also no revdeps.
-# Removal on 2024-05-23.  Bug #929513.
-dev-python/sphinxcontrib-newsfeed
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Integrated into >=dev-python/pytest-5.0.  No revdeps.
-# Removal on 2024-05-23.  Bug #929496.
-dev-python/pytest-faulthandler
-
 # Michał Górny <mgorny@gentoo.org> (2024-04-23)
 # Broken with py3.12.  Last commit upstream in 2021.  No revdeps.
 # Removal on 2024-05-23.  Bug #929484.
 dev-python/pyannotate
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# No py3.12, broken.  Upstream literally tells people to use a fork
-# "for the time being".  No revdeps.
-# Removal on 2024-05-23.  Bug #929461.
-dev-python/kafka-python
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained.  No py3.12, failing tests.  Last upstream activity
-# in 2020, triggered by our previous last rites.  No revdeps.
-# Removal on 2024-05-23.  Bug #929445.
-dev-python/cgroup-utils
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained Sphinx theme.  Last commit in 2021.  No revdeps.
-# Removal on 2024-05-23.  Bug #929458.
-dev-python/guzzle_sphinx_theme
 
 # Michał Górny <mgorny@gentoo.org> (2024-04-23)
 # Unmaintained in Gentoo.  Lacking tests, py3.12 support, outdated.
@@ -303,56 +283,11 @@ dev-python/guzzle_sphinx_theme
 dev-python/fuse-python
 
 # Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained.  Last release in 2003.  Carries a ton of patches.
-# Removal on 2024-05-23.  Bug #928731.
-net-analyzer/tcpstat
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Added in 2005 and not updated since.  Homepage and source mirrors
-# are gone.  Needs patches to even build.
-# Removal on 2024-05-23.  Bug #928594.
-media-video/vstrip
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Obsolete Pidgin plugin.  Last supported in 2008, removed from plugin
-# list in 2019.
-# Removal on 2024-05-23.  Bug #928578.
-net-im/librvp
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained GTK+2 application.  Last update in 2005.
-# Alternatives include media-sound/fmit and media-sound/lingot.
-# Removal on 2024-05-23.  Bug #928512.
-media-sound/pitchtune
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Ancient.  Homepage gone.  There are many alternative network testing
-# tools, such as net-misc/iperf.
-# Removal on 2024-05-23.  Bug #928133.
-net-analyzer/gensink
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# An old, unmaintained theme.  The last revdep stopped using it.
-# Removal on 2024-05-23.  Bug #927764.
-dev-python/sphinx-py3doc-enhanced-theme
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained in Gentoo and seriously outdated.  EAPI 6.  No revdeps.
-# There seem to be an up-to-date ebuilds in ::mva.
-# Removal on 2024-05-23.  Bug #928070.
-dev-util/android-ndk
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
 # Unmaintained in Gentoo and seriously outdated.  Its only reverse
 # dependency is app-admin/testdisk, and the current TestDisk versions
 # do not build against this version anyway
 # Removal on 2024-05-23.  Bug #927076.
 app-forensics/libewf
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Superseded by dev-python/tinycss2.  No revdeps.
-# Removal on 2024-05-23.  Bug #930503.
-dev-python/tinycss
 
 # Matthew Smith <matthew@gentoo.org> (2024-04-23)
 # Security issues (Bug #920682).
