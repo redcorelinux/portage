@@ -33,7 +33,7 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="
-	big-endian bluetooth build +debug +ensurepip examples gdbm +gil jit
+	bluetooth build +debug +ensurepip examples gdbm +gil jit
 	libedit +ncurses pgo +readline +sqlite +ssl test tk valgrind
 "
 REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
@@ -250,9 +250,9 @@ src_configure() {
 	)
 
 	# Arch-specific skips.  See #931888 for a collection of these.
-	case ${ARCH} in
-		alpha)
-			test_opts+=(
+	case ${CHOST} in
+		alpha*)
+			COMMON_TEST_SKIPS+=(
 				-x test_builtin
 				-x test_capi
 				-x test_cmath
@@ -262,36 +262,37 @@ src_configure() {
 				-x test_math
 				-x test_numeric_tower
 				-x test_random
+				-x test_statistics
 				# bug 653850
 				-x test_resource
 				-x test_strtod
 			)
 			;;
-		ia64)
-			test_opts+=(
+		ia64*)
+			COMMON_TEST_SKIPS+=(
 				-x test_ctypes
 				-x test_external_inspection
 			)
 			;;
-		mips)
-			test_opts+=(
+		mips*)
+			COMMON_TEST_SKIPS+=(
 				-x test_ctypes
 				-x test_external_inspection
 				-x test_statistics
 			)
 			;;
-		ppc64)
-			if use big-endian; then
-				test_opts+=( -x test_descr )
-			fi
+		powerpc64-*) # big endian
+			COMMON_TEST_SKIPS+=(
+				-x test_descr
+			)
 			;;
-		riscv)
-			test_opts+=(
+		riscv*)
+			COMMON_TEST_SKIPS+=(
 				-x test_urllib2
 			)
 			;;
-		sparc)
-			test_opts+=(
+		sparc*)
+			COMMON_TEST_SKIPS+=(
 				# bug 788022
 				-x test_multiprocessing_fork
 				-x test_multiprocessing_forkserver
@@ -303,6 +304,22 @@ src_configure() {
 			)
 			;;
 	esac
+
+	# musl-specific skips
+	use elibc_musl && COMMON_TEST_SKIPS+=(
+		# various musl locale deficiencies
+		-x test__locale
+		-x test_c_locale_coercion
+		-x test_locale
+		-x test_re
+
+		# known issues with find_library on musl
+		# https://bugs.python.org/issue21622
+		-x test_ctypes
+
+		# fpathconf, ttyname errno values
+		-x test_os
+	)
 
 	if use pgo; then
 		local profile_task_flags=(
@@ -339,13 +356,13 @@ src_configure() {
 		)
 
 		# Arch-specific skips.  See #931888 for a collection of these.
-		case ${ARCH} in
-			alpha)
+		case ${CHOST} in
+			alpha*)
 				profile_task_flags+=(
 					-x test_os
 				)
 				;;
-			hppa)
+			hppa*)
 				profile_task_flags+=(
 					-x test_descr
 					# bug 931908
@@ -353,25 +370,39 @@ src_configure() {
 					-x test_os
 				)
 				;;
-			ia64)
+			ia64*)
 				profile_task_flags+=(
 					-x test_signal
 				)
 				;;
-			ppc64)
-				if use big-endian; then
-					profile_task_flags+=(
-						# bug 931908
-						-x test_exceptions
-					)
-				fi
+			powerpc64-*) # big endian
+				profile_task_flags+=(
+					# bug 931908
+					-x test_exceptions
+				)
 				;;
-			riscv)
+			riscv*)
 				profile_task_flags+=(
 					-x test_statistics
 				)
 				;;
 		esac
+
+		# musl-specific skips
+		use elibc_musl && profile_task_flags+=(
+			# various musl locale deficiencies
+			-x test__locale
+			-x test_c_locale_coercion
+			-x test_locale
+			-x test_re
+
+			# known issues with find_library on musl
+			# https://bugs.python.org/issue21622
+			-x test_ctypes
+
+			# fpathconf, ttyname errno values
+			-x test_os
+		)
 
 		if has_version "app-arch/rpm" ; then
 			# Avoid sandbox failure (attempts to write to /var/lib/rpm)

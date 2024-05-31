@@ -752,9 +752,6 @@ app-forensics/aide:curl - Use curl for http,https and ftp backends
 app-forensics/aide:e2fs - Enable support for checking file attributes on ext2/ext3/ext4 filesystems
 app-forensics/chkrootkit:cron - Install cron script for weekly rootkit scans
 app-forensics/honggfuzz:clang - Enable clang support (pull sys-libs/blocksruntime dependency).
-app-forensics/libewf:bfio - Enables libbfio for chaining file in file handling
-app-forensics/libewf:fuse - Enable fuse support for ewfmount
-app-forensics/libewf:uuid - Enable UUID support in the ewftools
 app-forensics/lynis:cron - Install /etc/cron.* files
 app-forensics/sleuthkit:aff - Enable extra aff formats
 app-forensics/sleuthkit:ewf - Enable libewf support
@@ -2573,7 +2570,7 @@ dev-python/python-mpd2:twisted - Enable twisted support
 dev-python/python-stdnum:vies - Enable VIES
 dev-python/pyudev:qt5 - Install PyQt5 bindings
 dev-python/pyzmq:drafts - Enable draft API support
-dev-python/qiskit-terra:visualization - Enable visualization modules
+dev-python/qiskit:visualization - Enable visualization modules
 dev-python/rarfile:compressed - Enables the module to support compressed v3 archives by calling the app-arch/unrar.
 dev-python/reedsolo:native-extensions - Compile native C extensions.
 dev-python/rfc3986:idna - enable support for the IDNA specification (RFC 5891)
@@ -2954,6 +2951,7 @@ dev-util/ostree:sodium - Use libsodium for ed25519
 dev-util/ostree:soup - Use libsoup for networking
 dev-util/perf:babeltrace - Enable dev-util/babeltrace support
 dev-util/perf:bpf - Enable support for eBPF features with dev-libs/libbpf
+dev-util/perf:capstone - Use dev-libs/capstone for disassembly support
 dev-util/perf:clang - Enable builtin clang and LLVM support
 dev-util/perf:doc - Build documentation and man pages. With this USE flag disabled, the --help parameter for perf and its sub-tools will not be available. This is optional because it depends on a few documentation handling tools that are not always welcome on user systems.
 dev-util/perf:libpfm - Enable dev-libs/libpfm support
@@ -2985,7 +2983,6 @@ dev-util/schroot:zfs - Enable support for chroots using ZFS shapshots/clones
 dev-util/sdl-jstest:sdl - Enable media-libs/libsdl2 based input test
 dev-util/sdl-jstest:sdl1 - Enable media-libs/libsdl based input test
 dev-util/sysprof:unwind - Use sys-libs/libunwind to unwind the stack
-dev-util/trace-cmd:udis86 - Enable support for dev-libs/udis86 disassembler library
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/watchman:python - Install pywatchman bindings and the watchman-{wait,make} utils
