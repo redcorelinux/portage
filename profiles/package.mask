@@ -33,6 +33,24 @@
 
 #--- END OF EXAMPLES ---
 
+# Mike Gilbert <floppym@gentoo.org> (2024-06-01)
+# Abandoned upstream. No Gentoo maintainer since 2021.
+# Plugin system seems quite broken (bug 887119).
+# Removal on 2024-07-01.
+sys-fs/reiser4progs
+sys-libs/libaal
+
+# Hans de Graaff <graaff@gentoo.org> (2024-06-01)
+# Old ruby31-only slots. Please use a newer slot of these
+# packages. Masked for removal on 2024-07-01.
+dev-ruby/elasticsearch:6.8.3
+dev-ruby/elasticsearch-api:6.8.3
+dev-ruby/elasticsearch-transport:6.8.3
+dev-ruby/mimemagic:0
+dev-ruby/puppet_forge:2
+dev-ruby/puppet_forge:4
+dev-ruby/rspec-rails:5
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-05-31)
 # EAPI=6, maintainer-needed, incorrect LICENSE, fails to compile with
 # clang.
@@ -45,9 +63,10 @@ net-mail/gnubiff
 app-emulation/phpvirtualbox
 
 # Sam James <sam@gentoo.org> (2024-05-29)
-# OpenPGP key of malicious xz co-maintainer. This key is no longer used
-# by any ebuilds in tree. Removal on 2024-06-29.
-# Bug #928134.
+# OpenPGP key of malicious upstream xz co-maintainer. This key is no longer
+# used by any ebuilds in tree. Removal on 2024-06-29. This package was already
+# masked a while ago but is now being removed. See the bug for details
+# on the gap. Bug #928134 (GLSA-202403-04).
 sec-keys/openpgp-keys-jiatan
 
 # Sam James <sam@gentoo.org> (2024-05-28)
@@ -789,10 +808,6 @@ sec-keys/openpgp-keys-jiatan
 # for catalyst-4. Questions or bug reports about catalyst-3
 # may or may not lead to useful results.
 <dev-util/catalyst-4
-
-# Matt Turner <mattst88@gentoo.org> (2023-07-06)
-# GNOME 45 mask
->=gnome-extra/gnome-logs-45_alpha
 
 # Michał Górny <mgorny@gentoo.org> (2023-06-21)
 # suitesparseconfig-7.0.0 fails to build with multilib enabled
