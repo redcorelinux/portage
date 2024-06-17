@@ -33,6 +33,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-06-17)
+# A compatibility shim for ancient versions of flake8.  Upstream project
+# is gone.  No revdeps.
+# Removal on 2024-07-17.  Bug #934466.
+dev-python/flake8-polyfill
+
+# Hans de Graaff <graaff@gentoo.org> (2024-06-17)
+# Obsolete slot with failing tests. Use the newer slot instead. No
+# reverse dependencies. Masked for removal on 2024-07-17.
+dev-ruby/net-imap:0
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-06-16)
 # No release since 2021-06-10 and effectively declared unmaintained by
 # upstream since then; now conflicting with Plasma 6 by pulling in old
@@ -45,12 +56,6 @@ kde-plasma/ksysguard
 # kf5-portingaids, as well as conflicting kde-apps in slot 5. bug #760555
 # Removal on 2024-07-24.
 kde-apps/kopete
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-15)
-# EAPI=6, fetch restricted, and the file not available to download
-# any more.
-# Removal on 2024-07-15.  Bug #934368.
-net-print/kyocera-1x2x-mfp-driver
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-15)
 # EAPI=6, no reverse dependencies, not packaged on other distributions,
@@ -481,31 +486,6 @@ dev-util/stepman
 # Short-lived side-by-side release, now unnecessary as it moved back to
 # kde-apps/kio-extras:5. Removal on 2024-06-04.
 kde-apps/kio-extras-kf5
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-18)
-# EAPI=6, no reverse dependencies, dead homepage, has issues
-# with modern C, maintainer needed.
-# Removal on 2024-06-17.  Bugs #932168, #906348, #895028, #870640.
-dev-lang/srf
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-18)
-# EAPI6. Fails to compile with go versions in tree. Upstream is archived.
-# Uses deprecated go eclasses. Maintainer needed, no rev deps.
-# Removal on 2024-06-17.  Bugs #932166, #844604, #679832.
-app-emulation/hyperd
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-18)
-# Another abandoned project in the middle of a line of forks.
-# Broken with Python 3.12, with pytest 8 and with numpy 2.  Last
-# upstream activity in September 2023, but bugs remained unanswered
-# before that.
-# Removal on 2024-06-17.  Bug #929433.
-dev-python/aesara
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-18)
-# Superseded by dev-python/pdm-backend.  No revdeps left.
-# Removal on 2024-06-17.  Bug #932160.
-dev-python/pdm-pep517
 
 # Sam James <sam@gentoo.org> (2024-04-28)
 # Masked for testing. Tracker bug: bug #930805.
