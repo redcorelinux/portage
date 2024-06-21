@@ -11,16 +11,21 @@ SRC_URI="https://github.com/gpoore/${PN}/archive/v${PV}.tar.gz
 	-> ${P}.tar.gz"
 S="${WORKDIR}"/${P}/source
 
-SLOT="0"
 LICENSE="|| ( BSD LPPL-1.3 )"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+SLOT="0"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="doc"
 
 RDEPEND="
 	dev-python/pygments
 	dev-texlive/texlive-latexextra
 "
-BDEPEND="doc? ( dev-texlive/texlive-fontsextra )"
+BDEPEND="
+	doc? (
+		dev-texlive/texlive-fontsextra
+		dev-texlive/texlive-latexextra
+	)
+"
 
 DOCS=( ../CHANGES.md ../README.md )
 

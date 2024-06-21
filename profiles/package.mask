@@ -33,6 +33,47 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-06-21)
+# An obsolete timezone distribution for Python.  No revdeps left.
+# Removal on 2024-07-21.  Bug #934681.
+dev-python/pytzdata
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-21)
+# EAPI=6, not maintained in gentoo for a long time, fails to
+# configure.
+# Removal on 2024-07-21.  Bugs #934680, #677444, #898100.
+sci-astronomy/aatm
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-21)
+# Last dev-php/* EAPI=6 packages, and reverse dependencies of them.
+# composer has active security vulnerabilities. Others are waiting
+# for version bumps, and unbundling of dependencies.
+# Removal on 2024-07-21.  Bugs #934666.
+dev-php/phpDocumentor
+dev-php/phpcov
+dev-php/phpdepend
+dev-php/phpdocumentor-reflection-common
+dev-php/phpdocumentor-reflection-docblock
+dev-php/phpdocumentor-type-resolver
+dev-php/stringparser_bbcode
+dev-php/symfony-config
+dev-php/symfony-console
+dev-php/symfony-dependency-injection
+dev-php/symfony-event-dispatcher
+dev-php/symfony-yaml
+dev-php/composer
+
+# Hans de Graaff <graaff@gentoo.org> (2024-06-21)
+# Obsolete slot. Please use a newer slot instead.
+# Masked for removal on 2024-07-21.
+dev-ruby/public_suffix:4
+
+# Martin Dummer <martin.dummer@gmx.net> (2024-06-21)
+# Upstream dead, was an optional package for a reverse dependency
+# which is gone.
+# Removal on 2024-07-21.  Bug #791904
+media-video/vdr2jpeg
+
 # James Le Cuirot <chewi@gentoo.org> (2024-06-20)
 # Ancient, dead upstream, X11-based, probably doesn't work any more, and there
 # are better ways of running games in different sessions now.
