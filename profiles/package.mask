@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-23)
+# EAPI=6, waiting for a version bump, no reverse-dependencies.
+# Removal on 2024-07-23.  Bugs #934756, #924303.
+sci-astronomy/scamp
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-22)
 # EAPI=6, no reverse-dependencies, various issues with modern C,
 # installs libtools files.
@@ -410,6 +415,7 @@ dev-ml/async_rpc_kernel:0/0.17
 dev-ml/async_log:0/0.17
 dev-ml/textutils:0/0.17
 dev-ml/async:0/0.17
+>=dev-ml/labltk-8.06.14
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
 # EAPI=6, waiting for a version bump, not maintained for many years.
@@ -540,11 +546,6 @@ sec-keys/openpgp-keys-jiatan
 # release in 2011. No reverse dependencies. Masked for removal on
 # 20240-06-26.
 dev-ruby/uconv
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-05-20)
-# Short-lived side-by-side release, now unnecessary as it moved back to
-# kde-apps/kio-extras:5. Removal on 2024-06-04.
-kde-apps/kio-extras-kf5
 
 # Sam James <sam@gentoo.org> (2024-04-28)
 # Masked for testing. Tracker bug: bug #930805.
