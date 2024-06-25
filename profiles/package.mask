@@ -33,6 +33,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2024-06-25)
+# Subvolume printing is broken: https://github.com/kdave/btrfs-progs/issues/829
+=sys-fs/btrfs-progs-6.9.1
+
+# Sam James <sam@gentoo.org> (2024-06-25)
+# The symbol versioning "fix" breaks anything built with 3.0.0.
+=dev-libs/libassuan-3.0.1
+
 # NHOrus <jy6x2b32pie9@yahoo.com> (2024-06-24)
 # Masked for removal in 30 days.
 # It's a dependency of cinelerra, written for cinelerra.
