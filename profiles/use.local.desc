@@ -54,11 +54,13 @@ app-admin/conky:lua-imlib - Enable if you want Lua Imlib2 bindings
 app-admin/conky:lua-rsvg - Enable if you want Lua RSVG bindings
 app-admin/conky:math - Enable support for glibc's libm math library
 app-admin/conky:moc - Enable monitoring of music played by media-sound/moc
+app-admin/conky:mouse-events - Enable support for mouse events"
 app-admin/conky:mpd - Enable monitoring of music controlled by media-sound/mpd
 app-admin/conky:nvidia - Enable reading of nvidia card temperature sensors via x11-drivers/nvidia-drivers
 app-admin/conky:portmon - Enable support for tcp (ip4) port monitoring
 app-admin/conky:thinkpad - Enable support for IBM/Lenovo notebooks
 app-admin/conky:webserver - Enable support to act as a webserver serving conkys output using net-libs/libmicrohttpd
+app-admin/conky:xinput - Enable support for Xinput 2 (slow)
 app-admin/conky:xmms2 - Enable monitoring of music played by media-sound/xmms2
 app-admin/conserver:freeipmi - Compile in FreeIPMI support via sys-libs/freeipmi
 app-admin/diradm:automount - Support for automount data in LDAP
@@ -686,7 +688,7 @@ app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using de
 app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vkd3d-proton
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
-app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
+app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix (note that this requires the default top-level Z: drive to be kept for out-of-prefix files to be readable)
 app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-proton:gecko - Enable mshtml support using app-emulation/wine-gecko
 app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
