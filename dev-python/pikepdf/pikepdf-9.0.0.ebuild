@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="big-endian"
 
 # Check QPDF_MIN_VERSION in pyproject.toml on bumps, as well as
@@ -58,11 +58,19 @@ distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# fragile to system load
 	tests/test_image_access.py::test_random_image
+	tests/test_image_access.py::test_image_save_compare
+	tests/test_image_access.py::test_palette_nonrgb
 )
 
 src_prepare() {
-	sed -e '/-n auto/d' -i pyproject.toml || die
+	local PATCHES=(
+		# https://github.com/pikepdf/pikepdf/commit/6831e87bb94322b7ca53964a57ba575861b5916c
+		"${FILESDIR}/${P}-py313.patch"
+	)
+
 	distutils-r1_src_prepare
+
+	sed -e '/-n auto/d' -i pyproject.toml || die
 }
 
 python_test() {
