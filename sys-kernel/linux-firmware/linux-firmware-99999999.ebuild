@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit dist-kernel-utils linux-info mount-boot savedconfig multiprocessing
+inherit dist-kernel-utils linux-info mount-boot savedconfig
 
 # In case this is a real snapshot, fill in commit below.
 # For normal, tagged releases, leave blank
@@ -271,7 +271,17 @@ src_prepare() {
 }
 
 src_install() {
-	./copy-firmware.sh $(usex deduplicate '' '--ignore-duplicates') -v "${ED}/lib/firmware" || die
+
+	local FW_OPTIONS=( "-v" )
+
+	if use compress-xz; then
+		FW_OPTIONS+=( "--xz" )
+	elif use compress-zstd; then
+		FW_OPTIONS+=( "--zstd" )
+	fi
+	! use deduplicate && FW_OPTIONS+=( "--ignore-duplicates" )
+	FW_OPTIONS+=( "${ED}/lib/firmware" )
+	./copy-firmware.sh "${FW_OPTIONS[@]}" || die
 
 	pushd "${ED}/lib/firmware" &>/dev/null || die
 
@@ -316,36 +326,6 @@ src_install() {
 	echo "# Remove files that shall not be installed from this list." > "${S}"/${PN}.conf || die
 	find * ! -type d >> "${S}"/${PN}.conf || die
 	save_config "${S}"/${PN}.conf
-
-	if use compress-xz || use compress-zstd; then
-		einfo "Compressing firmware ..."
-		local target
-		local ext
-		local compressor
-
-		if use compress-xz; then
-			ext=xz
-			compressor="xz -T1 -C crc32"
-		elif use compress-zstd; then
-			ext=zst
-			compressor="zstd -15 -T1 -C -q --rm"
-		fi
-
-		# rename symlinks
-		while IFS= read -r -d '' f; do
-			# skip symlinks pointing to directories
-			[[ -d ${f} ]] && continue
-
-			target=$(readlink "${f}")
-			[[ $? -eq 0 ]] || die
-			ln -sf "${target}".${ext} "${f}" || die
-			mv -T "${f}" "${f}".${ext} || die
-		done < <(find . -type l -print0) || die
-
-		find . -type f ! -path "./amd-ucode/*" -print0 | \
-			xargs -0 -P $(makeopts_jobs) -I'{}' ${compressor} '{}' || die
-
-	fi
 
 	popd &>/dev/null || die
 

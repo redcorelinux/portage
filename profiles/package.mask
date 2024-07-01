@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-07-01)
+# Refuses to boot if initramfs was built with an older systemd version
+# that enabled "cgroups v1".  Bug #935261.
+>=sys-apps/systemd-256
+
 # Sam James <sam@gentoo.org> (2024-06-25)
 # Subvolume printing is broken: https://github.com/kdave/btrfs-progs/issues/829
 =sys-fs/btrfs-progs-6.9.1
@@ -427,6 +432,8 @@ dev-ml/async_log:0/0.17
 dev-ml/textutils:0/0.17
 dev-ml/async:0/0.17
 >=dev-ml/labltk-8.06.14
+dev-ml/patience_diff:0/0.17
+>=dev-ml/ppx_deriving-6.0.2
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
 # EAPI=6, waiting for a version bump, not maintained for many years.
