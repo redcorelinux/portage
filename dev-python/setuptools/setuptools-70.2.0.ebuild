@@ -21,7 +21,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -47,6 +47,7 @@ BDEPEND="
 			>=dev-python/filelock-3.4.0[${PYTHON_USEDEP}]
 			>=dev-python/jaraco-envs-2.2[${PYTHON_USEDEP}]
 			>=dev-python/jaraco-path-3.2.0[${PYTHON_USEDEP}]
+			dev-python/jaraco-test[${PYTHON_USEDEP}]
 			dev-python/pip[${PYTHON_USEDEP}]
 			dev-python/pip-run[${PYTHON_USEDEP}]
 			dev-python/pyproject-hooks[${PYTHON_USEDEP}]
@@ -55,12 +56,9 @@ BDEPEND="
 			dev-python/pytest-subprocess[${PYTHON_USEDEP}]
 			dev-python/pytest-timeout[${PYTHON_USEDEP}]
 			dev-python/pytest-xdist[${PYTHON_USEDEP}]
-			dev-python/tomli[${PYTHON_USEDEP}]
+			>=dev-python/tomli-w-1.0.0[${PYTHON_USEDEP}]
 			>=dev-python/virtualenv-20[${PYTHON_USEDEP}]
 		' "${PYTHON_TESTED[@]}")
-		$(python_gen_cond_dep '
-			>=dev-python/tomli-w-1.0.0[${PYTHON_USEDEP}]
-		' 3.10)
 	)
 "
 # setuptools-scm is here because installing plugins apparently breaks stuff at
