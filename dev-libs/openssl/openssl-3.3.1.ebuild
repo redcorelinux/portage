@@ -23,7 +23,7 @@ else
 	"
 
 	if [[ ${PV} != *_alpha* && ${PV} != *_beta* ]] ; then
-		KEYWORDS="~amd64"
+		KEYWORDS="~amd64 ~mips ~sparc ~x86"
 	fi
 fi
 
@@ -57,6 +57,8 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
+	# bug 936311, drop on next version bump
+	"${FILESDIR}"/${P}-riscv.patch
 )
 
 pkg_setup() {
