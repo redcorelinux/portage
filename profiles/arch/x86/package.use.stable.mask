@@ -17,10 +17,12 @@
 
 #--- END OF EXAMPLES ---
 
-# Joonas Niilola <juippis@gentoo.org> (2024-07-21)
-# Mask temporarily on stable x86 until keywords catch up.
-# Bug#936291
->=mail-client/thunderbird-115.13.0 system-librnp
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-07-21)
+# Need as-yet-unkeyworded KF6-based counterparts (bug #934361)
+kde-apps/libkcddb kf6compat
+kde-apps/libkcompactdisc kf6compat
+kde-apps/libksane kf6compat
+net-misc/kio-zeroconf kf6compat
 
 # Matt Turner <mattst88@gentoo.org> (2024-07-14)
 # spirv-llvm-translator < 17 is not stable on x86.
