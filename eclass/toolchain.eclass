@@ -1924,12 +1924,21 @@ toolchain_src_test() {
 
 	# Use a subshell to allow meddling with flags just for the testsuite
 	(
+		# Unexpected warnings confuse the tests.
+		filter-flags -W*
+
 		# Workaround our -Wformat-security default which breaks
 		# various tests as it adds unexpected warning output.
-		append-flags -Wno-format-security -Wno-format
+		# (Only for C/C++ here to avoid noise for Fortran.)
+		append-cflags -Wno-format-security -Wno-format
+		append-cxxflags -Wno-format-security -Wno-format
 		# Workaround our -Wtrampolines default which breaks
 		# tests too.
 		append-flags -Wno-trampolines
+
+		# Avoid confusing tests like Fortran/C interop ones where
+		# CFLAGS are used.
+		append-flags -Wno-complain-wrong-lang
 
 		# Issues with Ada tests:
 		# gnat.dg/align_max.adb
@@ -1947,16 +1956,26 @@ toolchain_src_test() {
 		# Go doesn't support this and causes noisy warnings
 		filter-flags -Wbuiltin-declaration-mismatch
 
-		local suppress_warn="/-Wno-format/-Wno-format-security/-Wno-trampolines"
-		GCC_TESTS_RUNTESTFLAGS+=" --target_board=unix\{${suppress_warn}"
 		# TODO: Does this handle s390 (-m31) correctly?
-		is_multilib && GCC_TESTS_RUNTESTFLAGS+=",-m32/${suppress_warn}"
-		GCC_TESTS_RUNTESTFLAGS+="\}"
+		is_multilib && GCC_TESTS_RUNTESTFLAGS+=" --target_board=unix{,-m32}"
 
 		# nonfatal here as we die if the comparison below fails. Also, note that
 		# the exit code of targets other than 'check' may be unreliable.
+		#
+		# CFLAGS and so on are repeated here because of tests vs building test
+		# deps like libbacktrace.
 		nonfatal emake -C "${WORKDIR}"/build -k "${GCC_TESTS_CHECK_TARGET}" \
-			RUNTESTFLAGS="${GCC_TESTS_RUNTESTFLAGS}" \
+			RUNTESTFLAGS=" \
+				${GCC_TESTS_RUNTESTFLAGS} \
+				CFLAGS_FOR_TARGET='${CFLAGS_FOR_TARGET:-${CFLAGS}}' \
+				CXXFLAGS_FOR_TARGET='${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}' \
+				LDFLAGS_FOR_TARGET='${LDFLAGS_FOR_TARGET:-${LDFLAGS}}' \
+				CFLAGS='${CFLAGS}' \
+				CXXFLAGS='${CXXFLAGS}' \
+				FCFLAGS='${FCFLAGS}' \
+				FFLAGS='${FFLAGS}' \
+				LDFLAGS='${LDFLAGS}' \
+			" \
 			CFLAGS_FOR_TARGET="${CFLAGS_FOR_TARGET:-${CFLAGS}}" \
 			CXXFLAGS_FOR_TARGET="${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}" \
 			LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}" \
