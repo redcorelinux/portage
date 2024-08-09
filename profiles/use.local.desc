@@ -877,6 +877,7 @@ app-misc/ebusd:mqtt - Enable support for connecting to MQTT.
 app-misc/fastfetch:chafa - Enables text/graphics renderer with media-gfx/chafa
 app-misc/fastfetch:ddcutil - Use app-misc/ddcutil to query monitor settings
 app-misc/fastfetch:drm - Enables support for X.org's x11-libs/libdrm
+app-misc/fastfetch:elf - Use libelf to extract strings from binaries
 app-misc/fastfetch:osmesa - Enables offscreen rendering support from media-libs/mesa
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xfce - Enables support for XFCE config
@@ -8297,6 +8298,7 @@ sys-fs/android-file-transfer-linux:zune - Enable support for Microsoft Zune
 sys-fs/avfs:webdav - Allow mounting WebDAV shares via net-libs/neon
 sys-fs/bcachefs-tools:fuse - Enable bcachefs FUSE support (experimental!)
 sys-fs/btrfs-progs:convert - Build ext2 conversion utility (btrfs-convert)
+sys-fs/btrfs-progs:experimental - Enable unstable and experimental features and install btrfs-corrupt-block, as needed by xfstests
 sys-fs/btrfs-progs:reiserfs - Enable reiserfs support in btrfs-convert tool.
 sys-fs/btrfs-progs:static - Build static binaries in addition to the dynamic ones
 sys-fs/btrfsmaintenance:systemd - Enable systemd services and timers instead of cron timers
