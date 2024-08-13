@@ -33,11 +33,20 @@
 
 #--- END OF EXAMPLES ---
 
-# Joonas Niilola <juippis@gentoo.org> (2024-08-11)
-# Issues building any Firefox version with 0.27.0. Most likely a
-# faulty version release, but bumped it as package.masked so no one
-# else will. https://github.com/mozilla/cbindgen/issues/990
-=dev-util/cbindgen-0.27.0
+# Ionen Wolkens <ionen@gentoo.org> (2024-08-11)
+# >=1.1.14 enables usage of explicit sync (with >=nvidia-drivers-560
+# and compositors that supports like kwin-6), which currently seems
+# to be causing too many problems ranging from application crashes
+# and potential VRAM leaking (even with the fixes in 1.1.15) and may
+# be better left masked for the time being. It can hwoever solve
+# flicking/stutter issues on some setups so users may want to unmask
+# if heavily affected (bug #937773).
+>=gui-libs/egl-wayland-1.1.14
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-08-11)
+# HOMEPAGE and SRC_URI return 404, Gentoo is last distribution.
+# Removal on 2024-09-10.  Bugs #937775, #675028.
+media-sound/SmarTagger
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-08-10)
 # Mask KF6-based version for now until actual KF6-based consumers
@@ -225,19 +234,6 @@ gui-wm/hikari
 # Removal on 2024-08-12.
 dev-ruby/rspectacular
 
-# Michał Górny <mgorny@gentoo.org> (2024-07-12)
-# Obsoleted by dev-python/pytest-freezer (usually a drop-in replacement).
-# No reverse dependencies left.
-# Removal on 2024-08-11.  Bug #934604.
-dev-python/pytest-freezegun
-
-# Jaco Kroon <jaco@uls.co.za> (2024-07-11)
-# Superseded by xl2tpd, this no longer has any operational advantage over
-# xl2tpd.  If you need help you're welcome to contact me (jkroon on
-# libera.chat).
-# Removal on 2024-08-11. bugs: #414901, #768075, #919269
-net-dialup/openl2tp
-
 # Leonardo Hernández Hernández <leohdz172@proton.me> (2024-07-07)
 # New major ffmpeg version. Tracker bug #928905.
 >=media-video/ffmpeg-7.0
@@ -267,14 +263,6 @@ net-dialup/openl2tp
 ~dev-vcs/mercurial-6.7.1
 ~dev-vcs/mercurial-6.7.2
 ~dev-vcs/mercurial-6.7.3
-
-# Viorel Munteanu <ceamac@gentoo.org> (2024-06-11)
-# dev-php/pear, dev-php/PEAR-* and their reverse dependencies: mask for removal
-# in 30 days.
-# They are all unmaintained, most of the ebuilds are still EAPI 6, and together
-# they have around 40 bugs.
-# Removal: 2024-08-11.  Bug #933998.
-dev-php/PEAR-Mail_mimeDecode
 
 # Alfredo Tupone <tupone@gentoo.org> (2024-06-09)
 # Not ready for testing
