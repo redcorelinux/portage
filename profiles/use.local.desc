@@ -1238,6 +1238,7 @@ app-text/qpdfview:synctex - Add support for searching TeX sources
 app-text/robodoc:examples - Installs usage examples in /usr/share for Perl
 app-text/sdcv:darkterm - Improve readability of color output on terminals with dark background.
 app-text/sigil:plugins - Installed needed Python packages for using Sigil plugins
+app-text/sigil:system-mathjax - Use the system-wide dev-libs/mathjax instead of bundled
 app-text/sword:clucene - Use dev-cpp/clucene for lucene search support
 app-text/tessdata_best:osd - Enable support orientation and script detection.
 app-text/tessdata_fast:osd - Enable support orientation and script detection.
@@ -3112,6 +3113,7 @@ games-emulation/desmume:openal - Use media-libs/openal for microphone input
 games-emulation/desmume:wifi - Enable support for Wi-Fi (experimental and discouraged)
 games-emulation/dolphin:discord-presence - Enables Discord Rich Presence, show the current game on Discord
 games-emulation/dolphin:evdev - Enable evdev input support
+games-emulation/dolphin:llvm - Enables LLVM support, for disassembly
 games-emulation/dolphin:log - Increase logging output
 games-emulation/dolphin:mgba - Enables GBA controllers emulation using libmgba.
 games-emulation/dosbox:core-inline - Enable memory-increasing inlines for better performance but requiring more build time
