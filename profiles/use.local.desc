@@ -1521,12 +1521,9 @@ dev-embedded/sdcc:z80n - Add support for Zilog Z80N
 dev-embedded/u-boot-tools:envtools - Build only the target-side environment tools
 dev-embedded/urjtag:ftd2xx - Enable support for USB FTDI chips via dev-embedded/libftd2xx
 dev-embedded/urjtag:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
-dev-games/godot:bullet - Enable the sci-physics/bullet module
 dev-games/godot:deprecated - Enable support for deprecated features
 dev-games/godot:raycast - Enable the raycast Editor module using media-libs/embree
-dev-games/godot:runner - Build an additional binary optimized for running games (only relevant with USE=tools)
 dev-games/godot:tools - Enable the Godot Editor for game development
-dev-games/godot:webm - Enable the WebM module
 dev-games/guichan:allegro - Build the Allegro frontend
 dev-games/mygui:l10n_ru - Install some additional russian docs if 'doc' useflag enabled
 dev-games/mygui:ogre - Use the ogre render subsystem. (cannot combine with opengl)
@@ -7992,7 +7989,7 @@ sys-apps/watchdog:nfs - enable support for checking nfs mounts
 sys-apps/xdg-desktop-portal:flatpak - Enable sys-apps/flatpak integration
 sys-apps/xdg-desktop-portal:seccomp - Use sys-apps/bubblewrap (which requires seccomp) to sandbox some functionality like icon handling
 sys-apps/xinetd:rpc - support RPC services
-sys-auth/elogind:cgroup-hybrid - Use hybrid cgroup hierarchy (OpenRC's default) instead of unified.
+sys-auth/elogind:cgroup-hybrid - Use hybrid cgroup hierarchy instead of unified (OpenRC's default).
 sys-auth/munge:gcrypt - Use libgcrypt instead of openssl
 sys-auth/nss-pam-ldapd:pynslcd - Install the python implementation along with the standard implementation
 sys-auth/nss-pam-ldapd:utils - Install the command-line utilities
