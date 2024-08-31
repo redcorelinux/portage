@@ -24,6 +24,9 @@ SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
+	experimental? (
+		https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.experimental.tar.xz
+	)
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	amd64? (
@@ -46,7 +49,7 @@ SRC_URI+="
 S=${WORKDIR}/${MY_P}
 
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="debug hardened"
+IUSE="debug experimental hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
 	hppa? ( savedconfig )
@@ -81,21 +84,15 @@ src_prepare() {
 
 	# prepare the default config
 	case ${ARCH} in
+		arm | hppa | loong | riscv | sparc)
+			> .config || die
+		;;
 		amd64)
 			cp "${DISTDIR}/kernel-x86_64-fedora.config.${CONFIG_VER}" .config || die
-			;;
-		arm)
-			return
 			;;
 		arm64)
 			cp "${DISTDIR}/kernel-aarch64-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
-			;;
-		hppa)
-			return
-			;;
-		loong)
-			return
 			;;
 		ppc)
 			# assume powermac/powerbook defconfig
@@ -105,12 +102,6 @@ src_prepare() {
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
-			;;
-		riscv)
-			return
-			;;
-		sparc)
-			return
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
