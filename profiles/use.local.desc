@@ -3647,7 +3647,6 @@ kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/designer
 kde-frameworks/kimageformats:eps - Support the EPS graphics file format
 kde-frameworks/kinit:caps - Capabilities support for improved security and better OOM handling
 kde-frameworks/kio:designer - Build plugins for dev-qt/designer
-kde-frameworks/kio:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-frameworks/kio:kwallet - Enable permanent storage of passwords for kpasswdserver with kde-frameworks/kwallet
 kde-frameworks/kitemmodels:qml - Enable QML support via dev-qt/qtdeclarative
 kde-frameworks/kitemviews:designer - Build plugins for dev-qt/designer
@@ -7703,6 +7702,7 @@ sci-visualization/labplot:origin - Enable support for reading OriginLab OPJ proj
 sci-visualization/labplot:root - Enable support for CERN's ROOT file type
 sci-visualization/labplot:serial - Enable support for RS232 serial ports using dev-qt/qtserialport
 sci-visualization/labplot:share - Enable support for a share menu using kde-frameworks/purpose
+sci-visualization/labplot:xlsx - Enable support for importing/exporting Microsoft Excel files (.xlsx) via dev-libs/qxlsx
 sci-visualization/paraview:boost - Enable the usage of dev-libs/boost
 sci-visualization/paraview:cg - Add support for nvidia's cg shaders
 sci-visualization/paraview:nvcontrol - Add NVCONTROL support for OpenGL options
@@ -8414,8 +8414,10 @@ sys-libs/compiler-rt-sanitizers:libfuzzer - Build fuzzing runtime.
 sys-libs/compiler-rt-sanitizers:lsan - Build Leak Sanitizer runtime.
 sys-libs/compiler-rt-sanitizers:memprof - Build memory profiler runtime.
 sys-libs/compiler-rt-sanitizers:msan - Build Memory Sanitizer runtime.
+sys-libs/compiler-rt-sanitizers:nsan - Build Numerical Sanitizer runtime.
 sys-libs/compiler-rt-sanitizers:orc - Build ORC runtime.
 sys-libs/compiler-rt-sanitizers:profile - Build profiling runtime.
+sys-libs/compiler-rt-sanitizers:rtsan - Build Realtime Sanitizer runtime.
 sys-libs/compiler-rt-sanitizers:safestack - Build SafeStack runtime.
 sys-libs/compiler-rt-sanitizers:scudo - Build Scudo Hardened Allocator.
 sys-libs/compiler-rt-sanitizers:shadowcallstack - Build ShadowCallStack.

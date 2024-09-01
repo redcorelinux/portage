@@ -13,7 +13,7 @@ DESCRIPTION="Lightweight user interface framework for mobile and convergent appl
 HOMEPAGE="https://techbase.kde.org/Kirigami"
 
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="openmp"
 
 # requires package to already be installed
@@ -26,7 +26,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 RDEPEND="${DEPEND}
-	examples? ( !${CATEGORY}/${PN}:5[examples] )
+	examples? ( !${CATEGORY}/${PN}:5[examples(-)] )
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
