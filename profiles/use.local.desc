@@ -3533,7 +3533,6 @@ kde-apps/gwenview:fits - Enable support for NASA's sci-libs/cfitsio library
 kde-apps/gwenview:mpris - Enable support for MPRIS2 interface, requiring dev-qt/qtdbus as dependency.
 kde-apps/gwenview:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/k3b:webengine - Use dev-qt/qtwebengine for fancy k3bdiskinfoview
-kde-apps/kaccounts-providers:webengine - Enable Nextcloud KAccounts plugin using dev-qt/qtwebengine
 kde-apps/kalarm:pim - Enable birthday import, email functions etc. using kde-apps/akonadi
 kde-apps/kalzium:editor - Enable the embedded molecule editor/viewer
 kde-apps/kalzium:solver - Enable the equation solver
@@ -3617,11 +3616,9 @@ kde-apps/marble:shapefile - Enable support for ESRI shapefiles
 kde-apps/marble:webengine - Use dev-qt/qtwebengine for embedded web browser
 kde-apps/okular:crypt - Enable support for password-encrypted documents via kde-frameworks/kwallet
 kde-apps/okular:epub - Enable E-Book support via app-text/ebook-tools
-kde-apps/okular:image-backend - Enable image viewing support
 kde-apps/okular:markdown - Enable Markdown support via app-text/discount
 kde-apps/okular:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
 kde-apps/okular:phonon - Enable sound support via media-libs/phonon
-kde-apps/okular:plucker - Enable Plucker E-Book for Palm OS devices support
 kde-apps/okular:qml - Install Okular Qml components
 kde-apps/okular:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/parley:webengine - Build browser integration for the editor, requires dev-qt/qtwebengine
@@ -6038,7 +6035,7 @@ net-libs/gnutls:sslv2 - Support for the old/insecure SSLv2 protocol
 net-libs/gnutls:sslv3 - Support for the old/insecure SSLv3 protocol
 net-libs/gnutls:test-full - Enable full test mode
 net-libs/gnutls:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
-net-libs/gnutls:tools - Build extra tools
+net-libs/gnutls:tools - Build cli tools such as gnutls-cli, certtool and oscptool
 net-libs/gssdp:man - Generate man page for tools
 net-libs/libetpan:liblockfile - Enable support for liblockfile library
 net-libs/libetpan:lmdb - Use dev-db/lmdb as cache DB
