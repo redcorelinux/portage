@@ -69,6 +69,10 @@
       <name>Anthony G. Basile</name>
     </member>
     <member>
+      <email>ceamac@gentoo.org</email>
+      <name>Viorel Munteanu</name>
+    </member>
+    <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
       <role>Release engineering</role>
@@ -118,6 +122,10 @@
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
       <role>Catalyst builds for systemd and musl</role>
+    </member>
+    <member>
+      <email>ceamac@gentoo.org</email>
+      <name>Viorel Munteanu</name>
     </member>
     <member>
       <email>flow@gentoo.org</email>
@@ -1295,25 +1303,6 @@
     <member>
       <email>gienah@gentoo.org</email>
       <name>Mark Wright</name>
-    </member>
-  </project>
-  <project>
-    <email>ia64@gentoo.org</email>
-    <name>IA64 Development</name>
-    <url>https://wiki.gentoo.org/wiki/Project:IA64</url>
-    <description>The IA64 Development Project is devoted to keeping Gentoo in good shape on the IA64 architecture.</description>
-    <member>
-      <email>ago@gentoo.org</email>
-      <name>Agostino Sarubbo</name>
-      <role>Security bugs primarily</role>
-    </member>
-    <member>
-      <email>hattya@gentoo.org</email>
-      <name>Akinori Hattori</name>
-    </member>
-    <member>
-      <email>vapier@gentoo.org</email>
-      <name>Mike Frysinger</name>
     </member>
   </project>
   <project>
