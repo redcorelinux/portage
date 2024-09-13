@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-09-10)
+# ia64 only package. Since we drop ia64, we can remove this package.
+# Removal on 2024-10-10.  Bug #939298.
+sys-apps/salinfo
+
 # Ulrich Müller <ulm@gentoo.org> (2024-09-12)
 # Pretest versions, masked for testing.
 <app-editors/emacs-30.0.9999:30-vcs
@@ -152,6 +157,7 @@ sci-physics/qmeq
 ~media-gfx/skanpage-23.08.5
 ~sys-block/partitionmanager-23.08.5
 ~sys-libs/kpmcore-23.08.5
+<media-libs/pulseaudio-qt-1.4.0
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-09-07)
 # Plasma 6 is not planned to be going stable on x86.
