@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Eli Schwartz <eschwartz@gentoo.org> (2024-09-19)
+# Breaks parallel builds with fatal compiler errors.
+# Bug #939798, #939875.
+=dev-python/setuptools-75.0.0
+=dev-python/setuptools-75.1.0
+
 # Hans de Graaff <graaff@gentoo.org> (2024-09-14)
 # Obsolete slots that were used for older cucumber version but that no
 # longer have reverse dependencies. Removal on 2024-10-14.
@@ -387,6 +393,7 @@ dev-scheme/guile:3.0
 >=media-gfx/graphviz-12.0.0-r100
 >=media-sound/lilypond-2.24.4-r100
 >=net-analyzer/alive-2.0.5-r100
+>=net-irc/weechat-4.4.2-r100
 >=net-mail/mailutils-3.17-r100
 >=sci-electronics/geda-1.10.2-r100
 >=sci-electronics/gwave-20190116-r100
