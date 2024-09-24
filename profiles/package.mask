@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Eli Schwartz <eschwartz@gentoo.org> (2024-09-22)
+# Unmaintained, abandoned upstream, does not compile with GCC 14.
+# Removal on 2024-10-22.  Bug #874732.
+dev-util/biew
+
 # Sam James <sam@gentoo.org> (2024-09-22)
 # GCC 11 and older no longer receive upstream support or fixes for
 # bugs. Please switch to a newer GCC version using gcc-config.
@@ -307,13 +312,6 @@ dev-scheme/guile:3.0
 >=dev-scheme/guile-gi-0.3.2-r100
 >=media-sound/denemo-2.6.0-r100
 >=dev-scheme/skribilo-0.10.0-r100
-
-# Eli Schwartz <eschwartz@gentoo.org> (2024-08-15)
-# Abandoned upstream since 2011, unmaintained in gentoo since 2017. Tons of
-# patches, breaks again with GCC 14. Severe QA issues, automagic dependencies,
-# sole reverse dependency wants to remove it anyway.
-# Removal on 2024-09-14. Bug #829229, #854900, #863959, #880839, #882265, #931102, #914924.
-app-text/cuneiform
 
 # Ionen Wolkens <ionen@gentoo.org> (2024-08-11)
 # >=1.1.14 enables usage of explicit sync (with >=nvidia-drivers-560
