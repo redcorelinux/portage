@@ -33,6 +33,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-10-05)
+# Masked for removal in 30 days. Broken since KF6 incapacitated
+# breeze-icons-rcc, but no one even complained. Upstream porting
+# effort stalled indefinitely:
+# https://invent.kde.org/office/kexi/-/issues/152
+# Removal on 2024-11-04.
+app-office/kexi
+dev-db/kdb
+dev-libs/kproperty
+dev-libs/kreport
+kde-frameworks/breeze-icons-rcc
+
 # Sebastian Pipping <sping@gentoo.org> (2024-10-03)
 # Masked for removal in 30 days.  Last release in 2021,
 # last commit two years ago, has open bugs, .. (bug #940725).
@@ -60,12 +72,6 @@ dev-python/brython
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-09-28)
 # Nothing depends on it. Removal on 2024-10-28.
 dev-java/ant-core
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-25)
-# Fails on deprecated config options from eclass, except that if we
-# update them, then all existing packages break.
-# https://github.com/scikit-build/scikit-build-core/issues/912
-=dev-python/rapidfuzz-3.10.0
 
 # Eli Schwartz <eschwartz@gentoo.org> (2024-09-22)
 # Unmaintained, abandoned upstream, does not compile with GCC 14.
@@ -161,18 +167,6 @@ sci-physics/qmeq
 <kde-plasma/khotkeys-5.27.50:5
 <kde-plasma/libkworkspace-5.27.50:5
 <kde-plasma/xembed-sni-proxy-5.27.50:5
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-09-04)
-# Unmaintained upstream, latest media-libs/phonon release incompatible.
-# Removal on 2024-10-04.
-media-libs/phonon-gstreamer
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-09-04)
-# KF5 Porting aids (from KDElibs4). No more, or PMASKED revdeps.
-# Removal on 2024-10-04. Bug #755956
-kde-frameworks/khtml
-kde-frameworks/kjs
-kde-frameworks/kross
 
 # Fabian Groffen <grobian@gentoo.org> (2024-09-02)
 # exim_tinydb utility crashes due to invalid free() (used in startup script)
@@ -554,9 +548,9 @@ media-plugins/kodi-game-libretro-dosbox
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
 <sys-libs/glibc-2.38-r10
-<sys-libs/binutils-libs-2.40
-<sys-devel/binutils-2.40
-<sys-devel/binutils-hppa64-2.40
+<sys-libs/binutils-libs-2.42
+<sys-devel/binutils-2.42
+<sys-devel/binutils-hppa64-2.42
 
 # Michael Orlitzky <mjo@gentoo.org> (2017-01-07)
 # This package has some dangerous quality and security issues, but
