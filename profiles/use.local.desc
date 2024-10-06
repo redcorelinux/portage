@@ -1086,7 +1086,7 @@ app-office/scribus:templates - Document templates
 app-office/scribus:tk - Install tk based scripts e.g. FontSample.py
 app-office/skrooge:activities - Enable kactivities support
 app-office/texmacs:netpbm - Add support for media-libs/netpbm
-app-office/texstudio:video - Use phonon for video embedding
+app-office/texstudio:video - Enable video player in pdf files
 app-pda/gtkpod:clutter - Enable clutter support for displaying coverart
 app-portage/conf-update:colordiff - Use colors when displaying diffs (app-misc/colordiff)
 app-portage/eix:debug - Build with upstream's CXXFLAGS/LDFLAGS for debugging support; not recommended for normal use.
@@ -2493,7 +2493,7 @@ dev-python/pyarrow:parquet - Enables read/write parquet data format
 dev-python/pyglet:image - Enable support for image formats other than PNG and BMP
 dev-python/pymongo:native-extensions - Compiles native C extensions
 dev-python/pymongo:test-full - Run test suite in full, including tests that run a local database instance.
-dev-python/pyopengl_accelerate:numpy - Building NumPy native format handlers.
+dev-python/pyopengl-accelerate:numpy - Building NumPy native format handlers.
 dev-python/pypax:ptpax - Enable PT_PAX_FLAGS support.
 dev-python/pypax:xtpax - Enable XATTR_PAX_FLAGS support.
 dev-python/pypy:full-stdlib - Install complete stdlib as necessary to use PyPy for general purpose programs. By default, only a limited subset that is used when building PyPy3 executables is installed. Note that PyPy2.7's stdlib contains multiple known vulnerabilities.
@@ -8039,6 +8039,7 @@ sys-boot/lilo:device-mapper - Enable support for device-mapper from sys-fs/lvm2
 sys-boot/lilo:minimal - Do not install the dolilo helper script
 sys-boot/lilo:pxeserial - Avoid character echo on PXE serial console
 sys-boot/plymouth:drm - Provides abstraction to the DRM drivers (intel, nouveau and vmwgfx at this moment)
+sys-boot/plymouth:freetype - Build with freetype support (if enabled, used for encryption prompts)
 sys-boot/plymouth:pango - Adds support for printing text on splash screen and text prompts, e.g. for password
 sys-boot/plymouth:split-usr - Enable this if /bin and /usr/bin are separate directories
 sys-boot/refind:btrfs - Builds the EFI binary btrfs filesystem driver
