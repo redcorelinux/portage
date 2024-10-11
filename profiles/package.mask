@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-10-10)
+# Gentoo package not updated for 4 years now.  No tests upstream.
+# No revdeps.
+# Removal on 2024-11-09.  Bug #941245.
+dev-python/beagle
+
 # Yongxiang Liang <tanekliang@gmail.org> (2024-10-10)
 # Fcitx 4 has been archived. Users can upgrade to Fcitx 5
 app-i18n/fcitx-anthy:4
@@ -233,10 +239,6 @@ sci-chemistry/mopac7
 # Sam James <sam@gentoo.org> (2024-09-10)
 # Breaks libstdc++ with a casing issue: https://gcc.gnu.org/PR116657
 =sys-libs/timezone-data-2024b
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-09-09)
-# No revdeps for years, KF5-based. Removal on 2024-10-09.
-net-libs/libmediawiki
 
 # Alfredo Tupone <tupone@gentoo.org> (2024-06-09)
 # These packages are no more needed. Use dev-ml/dune-private-libs
