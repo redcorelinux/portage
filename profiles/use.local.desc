@@ -1883,6 +1883,10 @@ dev-lang/php:xmlreader - Enable the XMLReader extension
 dev-lang/php:xmlwriter - Enable the XMLWriter extension
 dev-lang/php:xslt - Build the XSL extension
 dev-lang/polyml:portable - Build the portable interpreter version of Poly/ML instead of native
+dev-lang/pypy:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
+dev-lang/pypy:full-stdlib - Install complete stdlib as necessary to use PyPy for general purpose programs. By default, only a limited subset that is used when building PyPy3 executables is installed. Note that PyPy2.7's stdlib contains multiple known vulnerabilities.
+dev-lang/pypy:symlink - Install "pypy3" symlink, making this PyPy slot the default PyPy3 implementation that is used for building Gentoo packages.
+dev-lang/pypy:test-install - Install the test suite packages, that are required to run tests in a few reverse dependencies.
 dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
 dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
 dev-lang/python:jit - Enable experimental Just-In-Time compilation support.
@@ -4212,6 +4216,7 @@ media-libs/clutter:gtk - Use gdk-pixbuf from x11-libs/gtk+ as image rendering ba
 media-libs/cogl:kms - Enable KMS support.
 media-libs/cogl:pango - Build cogl-pango library for x11-libs/pango integration
 media-libs/coin:exceptions - Compile with C++ exceptions
+media-libs/coin:qch - Install API documentation in QCH format
 media-libs/coin:qthelp - Build API documentation in QtHelp format
 media-libs/cubeb:sndio - Enable support for the media-sound/sndio backend
 media-libs/dav1d:10bit - Add support for building 10-bit and 12-bit AV1.
@@ -4455,6 +4460,7 @@ media-libs/osl:qt6 - Build the osltoy binary (with Qt6)
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/portmidi:test-programs - Install various example programs
 media-libs/quarter:designer - Install plugin for dev-qt/designer
+media-libs/quarter:qch - Install API documentation in QCH format
 media-libs/quarter:qthelp - Build API documentation in QtHelp format
 media-libs/quirc:opencv - Build tools requiring media-libs/opencv (inspect-opencv,quirc-demo-opencv)
 media-libs/quirc:sdl - Build tools requiring media-libs/sdl-gfx (inspect, quirc-demo)
@@ -7164,6 +7170,7 @@ sci-geosciences/mapserver:geos - Enable sci-libs/geos library support
 sci-geosciences/mapserver:postgis - Enable dev-db/postgis support
 sci-geosciences/merkaartor:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration
 sci-geosciences/merkaartor:webengine - Enable dev-qt/qtwebengine in some plugins
+sci-geosciences/merkaartor:zbar - Enable barcode support in MWalkingPapersBackground/GeoImage via media-gfx/zbar
 sci-geosciences/owntracks-recorder:crypt - Enable support for payload encryption with dev-libs/libsodium
 sci-geosciences/owntracks-recorder:greenwich - Enable support for the OwnTracks Greenwich firmware
 sci-geosciences/owntracks-recorder:http - Enable support for the built-in HTTP REST API
