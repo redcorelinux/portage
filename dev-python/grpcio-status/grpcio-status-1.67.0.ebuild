@@ -16,10 +16,8 @@ HOMEPAGE="
 	https://pypi.org/project/grpcio-status/
 "
 SRC_URI="
-	test? (
-		https://github.com/grpc/grpc/archive/v${PV}.tar.gz
-			-> ${MY_P}.gh.tar.gz
-	)
+	https://github.com/grpc/grpc/archive/v${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
 "
 S=${WORKDIR}/${MY_P}/src/python/grpcio_status
 
@@ -32,6 +30,11 @@ RDEPEND="
 	>=dev-python/googleapis-common-protos-1.5.5[${PYTHON_USEDEP}]
 	<dev-python/protobuf-python-6[${PYTHON_USEDEP}]
 	>=dev-python/protobuf-python-5.26.1[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/coverage[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
