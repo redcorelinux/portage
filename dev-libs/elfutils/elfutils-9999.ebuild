@@ -28,7 +28,7 @@ fi
 
 LICENSE="|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )"
 SLOT="0"
-IUSE="bzip2 debuginfod lzma nls static-libs test +utils valgrind zstd"
+IUSE="bzip2 debuginfod lzma nls static-libs stacktrace test +utils valgrind zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -43,6 +43,7 @@ RDEPEND="
 		net-misc/curl[static-libs?,${MULTILIB_USEDEP}]
 	)
 	lzma? ( >=app-arch/xz-utils-5.0.5-r1[static-libs?,${MULTILIB_USEDEP}] )
+	stacktrace? ( dev-util/sysprof )
 	zstd? ( app-arch/zstd:=[static-libs?,${MULTILIB_USEDEP}] )
 	elibc_musl? (
 		dev-libs/libbsd
@@ -96,6 +97,7 @@ multilib_src_configure() {
 		$(use_enable nls)
 		$(multilib_native_use_enable debuginfod)
 		$(use_enable debuginfod libdebuginfod)
+		$(multilib_native_use_enable stacktrace)
 		$(use_enable valgrind valgrind-annotations)
 
 		# explicitly disable thread safety, it's not recommended by upstream
