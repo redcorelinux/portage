@@ -33,6 +33,15 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2024-11-08)
+# Obsolete slot. Use a newer slot instead. Removal on 2024-12-08.
+dev-ruby/faker:2
+
+# Hans de Graaff <graaff@gentoo.org> (2024-11-08)
+# Obsolete slot. Use a newer slot instead. The included jquery-ui
+# version is no longer supported upstream. Removal on 2024-12-08.
+dev-ruby/jquery-ui-rails:6
+
 # Alfredo Tupone <tupone@gentoo.org> (2024-11-07)
 # No more used (caffe2 used to)
 # Removal on 2024-12-07.  Bug #942972.
@@ -272,11 +281,6 @@ app-i18n/kcm-fcitx
 =dev-qt/qtwebsockets-6.8.0*
 =dev-qt/qtwebview-6.8.0*
 
-# Hans de Graaff <graaff@gentoo.org> (2024-10-06)
-# Obsolete slot without reverse dependencies. Use the newer slot
-# instead. Removal on 2024-11-08.
-dev-ruby/base64:0.1
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-10-05)
 # This version is known to break on certain systems. At the
 # same time it fixes several reported issues. Masked until
@@ -284,29 +288,12 @@ dev-ruby/base64:0.1
 # See also: https://github.com/gentoo/gentoo/pull/36091
 ~sys-boot/plymouth-24.004.60
 
-# Sebastian Pipping <sping@gentoo.org> (2024-10-03)
-# Masked for removal in 30 days.  Last release in 2021,
-# last commit two years ago, has open bugs, .. (bug #940725).
-# Also removing its two dependencies that have no other
-# reverse dependencies in Gentoo or known use outside of Lurch.
-net-libs/libaxc
-net-libs/libomemo
-x11-plugins/lurch
-
 # Sam James <sam@gentoo.org> (2024-09-30)
 # GCC 10 and older no longer receive upstream support or fixes for
 # bugs. Please switch to a newer GCC version using gcc-config.
 # The lowest supported version of GCC is GCC 11.
 <sys-devel/gcc-11
 <sys-devel/kgcc64-11
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-29)
-# This package has not been updated since Python 3.11.2.  It bundles
-# part of Python stdlib that's most likely vulnerable by now, as well
-# as some third-party packages.  And it really needs a dedicated
-# maintainer.
-# Removal on 2024-10-29.  Bug #910612.
-dev-python/brython
 
 # Robin H. Johnson <robbat2@gentoo.org> (2024-09-22)
 # Upstream testing release; fails some tests as well here
@@ -339,6 +326,7 @@ dev-python/brython
 >=dev-util/gdbus-codegen-2.80
 >=gnome-base/gnome-shell-46
 >=gnome-extra/gnome-shell-extensions-46
+>=gnome-extra/gnome-shell-frippery-46
 >=gnome-base/nautilus-46
 >=dev-libs/gobject-introspection-1.80
 >=dev-libs/gobject-introspection-common-1.80
