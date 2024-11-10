@@ -1118,6 +1118,7 @@ app-shells/bash:plugins - Add support for loading builtins at runtime via 'enabl
 app-shells/bash-completion:eselect - Support blacklisting of completions via 'eselect bashcomp'. This enables custom Gentoo patching of upstream completion loader.
 app-shells/mksh:lksh - variant that uses POSIX-compliant arithmetics with the host “long” data type and is automatically in POSIX mode when called as /bin/sh
 app-shells/nushell:plugins - Build official plugins
+app-shells/nushell:system-clipboard - System clipboard support in `reedline`
 app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote copy) for authoring websites. sftp is a much more secure protocol and is preferred.
 app-shells/shish:diet - Use dev-libs/dietlibc
 app-text/atril:caja - Enable property page extension in mate-base/caja
@@ -4308,6 +4309,7 @@ media-libs/libheif:gdk-pixbuf - Enable x11-libs/gdk-pixbuf plugin
 media-libs/libheif:go - Enable building dev-lang/go code/examples
 media-libs/libheif:rav1e - Use media-video/rav1e for AVIF encoding
 media-libs/libheif:svt-av1 - Use media-libs/svt-av1 for SVT-AV1 encoding
+media-libs/libheif:webp - Enable high-quality YCbCr/RGB color space conversion algorithms
 media-libs/libheif:x265 - Use media-libs/x265 for HEIF encoding
 media-libs/libjxl:gdk-pixbuf - Build a gdk-pixbuf loader.
 media-libs/libjxl:jpeg - Enable full support for JPEG images. When disabled, only lossless conversion between JPEG and JPEG-XL is supported.
@@ -4330,7 +4332,6 @@ media-libs/libpulse:doc - Build the doxygen-described API documentation.
 media-libs/libpulse:glib - Add support to dev-libs/glib-based mainloop for the libpulse client library, to allow using libpulse on glib-based programs.
 media-libs/libsdl:joystick - Control joystick support (disable at your own risk)
 media-libs/libsdl:sound - Control audio support (disable at your own risk)
-media-libs/libsdl:tslib - Build with tslib support for touchscreen devices
 media-libs/libsdl:video - Control video support (disable at your own risk)
 media-libs/libsdl2:fcitx - Enable support for app-i18n/fcitx
 media-libs/libsdl2:gles1 - include OpenGL ES 1.0 support
@@ -6013,6 +6014,7 @@ net-libs/libgsasl:ntlm - Add support for Microsoft's NTLM mechanism using net-li
 net-libs/libiio:aio - Enable asynchronous IO support
 net-libs/libiscsi:rdma - Enable infiniband support via sys-cluster/rdma-core
 net-libs/libisds:openssl - Use dev-libs/openssl as crypto backend instead of app-crypt/gpgme and dev-libs/libgcrypt
+net-libs/libktorrent:xfs - Enable XFS specific disk preallocation support via sys-fs/xfsprogs
 net-libs/libmicrohttpd:epoll - Support epoll() system call
 net-libs/libmicrohttpd:eventfd - Use EventFD for efficient inter-thread communication
 net-libs/libmicrohttpd:thread-names - Assign thread names to internal threads, useful for dependent apps debugging
@@ -8378,6 +8380,7 @@ sys-kernel/vanilla-kernel:initramfs - Build initramfs along with the kernel.
 sys-libs/binutils-libs:64-bit-bfd - Support 64-bit targets even on 32-bit hosts (is ignored on 64-bit hosts)
 sys-libs/binutils-libs:cet - Enable Intel Control-flow Enforcement Technology.
 sys-libs/binutils-libs:multitarget - Enable all possible targets in libbfd
+sys-libs/compiler-rt:atomic-builtins - Compile atomic builtins into compiler-rt.builtins. This is needed on systems without GCC/libatomic, but requires using Clang to build.
 sys-libs/compiler-rt:clang - Force building using installed clang (rather than the default CC/CXX).
 sys-libs/compiler-rt-sanitizers:asan - Build Address Sanitizer runtime.
 sys-libs/compiler-rt-sanitizers:cfi - Build Control Flow Integrity runtime.
