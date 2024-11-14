@@ -33,6 +33,35 @@
 
 #--- END OF EXAMPLES ---
 
+# Michael Orlitzky <mjo@gentoo.org> (2024-11-13)
+# PHP 8.1.x no longer receives bug fixes unless they address security
+# issues. That means no build fixes, no updates for modern compilers,
+# and no tweaks for newer versions of dependencies. We can't really
+# afford to maintain our own little fork of this, so it's time to
+# upgrade (sorry). With it goes any unmaintained PECL packages
+# that don't support 8.2 or newer.
+dev-lang/php:8.1
+dev-php/pecl-dbase
+dev-php/pecl-gnupg
+dev-php/pecl-http
+dev-php/pecl-lzf
+dev-php/pecl-mcrypt
+dev-php/pecl-memcache
+dev-php/pecl-oauth
+dev-php/pecl-pam
+dev-php/pecl-ps
+dev-php/pecl-psr
+dev-php/pecl-raphf
+dev-php/pecl-timezonedb
+dev-php/pecl-translit
+dev-php/pecl-uuid
+dev-php/pecl-zmq
+dev-php/realpath_turbo
+dev-php/snuffleupagus
+dev-php/swoole
+=virtual/httpd-php-8.1
+<www-apps/icingaweb2-2.12.1-r1
+
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2024-11-10)
 # Fails to build with gcc-14. Horrible code. Not touched by a
 # maintainer since 2010. Bugs 729134, 870541, 909625, 933773
@@ -284,9 +313,11 @@ app-i18n/kcm-fcitx
 >=net-libs/webkit-gtk-2.46.0
 
 # Ionen Wolkens <ionen@gentoo.org> (2024-10-08)
-# Masked for testing and (mostly) to avoid upgrade noise given
-# PyQt6-6.7.x is known broken with it and depends on <6.8. Feel
-# free to unmask early if not using PyQt6.
+# Masked for testing, and odds are (at this point) that 6.8.0 will
+# never be unmasked and will skip to 6.8.1 instead given the large
+# amount of regressions there's been..
+=dev-python/PyQt6-6.8.0_pre*
+=dev-python/PyQt6-WebEngine-6.8.0_pre*
 =dev-python/pyside6-6.8.0*
 =dev-python/pyside6-tools-6.8.0*
 =dev-python/shiboken6-6.8.0*
