@@ -5436,6 +5436,7 @@ net-analyzer/rrdtool:graph - Enable support for graphing functions
 net-analyzer/rrdtool:rados - Enable support for librados from sys-cluster/ceph
 net-analyzer/rrdtool:rrdcached - Build support for write-caching daemon
 net-analyzer/rrdtool:rrdcgi - Build rrdcgi support
+net-analyzer/rustscan:nmap - Installs net-analyzer/nmap
 net-analyzer/sancp:sguil - Enable sguil (The Analyst Console for Network Security Monitoring) support
 net-analyzer/sarg:doublecheck - Make sarg double check the data it manipulates and output a warning if an error is found
 net-analyzer/sarg:gd - Enable support for graphs in reports through media-libs/gd
@@ -8815,7 +8816,6 @@ x11-libs/pango:sysprof - Enable profiling data capture support using dev-util/sy
 x11-libs/pixman:loongson2f - Enable Loongson2f MMI optimizations.
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-libs/qwt:designer - Installs dev-qt/designer plugin.
-x11-libs/qwt:mathml - Use the MathML renderer of the Qt solutions package.
 x11-libs/qwt:polar - Install the QwtPolar headers
 x11-libs/tslib:evdev - Build experimental input module
 x11-libs/tslib:uinput - Provide alternative ts_uinput evdev device
