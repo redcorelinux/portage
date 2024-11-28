@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-27)
+# Replaced by sys-boot/woeusb-ng, which has more recent upstream
+# activity and optional GUI support.
+# Removal on 2024-12-24.
+sys-boot/woeusb
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-11-25)
 # 7.X series is masked for removal. Please migrate to 8.X series.
 <sci-electronics/kicad-8
@@ -170,7 +176,6 @@ dev-php/pecl-psr
 dev-php/pecl-raphf
 dev-php/pecl-timezonedb
 dev-php/pecl-translit
-dev-php/pecl-uuid
 dev-php/pecl-zmq
 dev-php/realpath_turbo
 dev-php/snuffleupagus
