@@ -1311,8 +1311,31 @@ toolchain_src_configure() {
 				confgcc+=( --enable-shared --disable-threads )
 				;;
 			nvptx*)
-				# "LTO is not supported for this target"
-				confgcc+=( --disable-lto )
+				needed_libc=newlib
+				confgcc+=(
+					# "LTO is not supported for this target"
+					--disable-lto
+				)
+
+				# --enable-as-accelerator-for= seems to disable
+				# installing nvtpx-none-cc etc, so we have to
+				# avoid passing that for the stage1-build that
+				# crossdev does. If we pass it unconditionally,
+				# we can't build newlib after building stage1 gcc.
+				if has_version ${CATEGORY}/${PN} ; then
+					confgcc+=(
+						# It's unlikely that anyone will want
+						# to build nvptx-none as a pure standalone
+						# toolchain (which will be single-threaded, etc).
+						#
+						# If someone really wants it, we can see about
+						# adding a USE=offload or similar based on CTARGET
+						# for cross targets. But for now, we always assume
+						# we're being built as an offloading compiler (accelerator).
+						--enable-as-accelerator-for=${CHOST}
+						--disable-sjlj-exceptions
+					)
+				fi
 				;;
 		esac
 
@@ -1389,7 +1412,7 @@ toolchain_src_configure() {
 	# __cxa_atexit is "essential for fully standards-compliant handling of
 	# destructors", but apparently requires glibc.
 	case ${CTARGET} in
-		*-elf|*-eabi)
+		nvptx*|*-elf|*-eabi)
 			confgcc+=( --with-newlib )
 			;;
 		*-musl*)
@@ -1545,6 +1568,12 @@ toolchain_src_configure() {
 	# particular need this over --libdir for bug #255315.
 	[[ ${CTARGET} == *-darwin* ]] && \
 		confgcc+=( --enable-version-specific-runtime-libs )
+
+	# TODO: amdgcn-amdhsa?
+	[[ ${CTARGET} == x86_64* ]] && confgcc+=(
+		--enable-offload-defaulted
+		--enable-offload-targets=nvptx-none
+	)
 
 	### library options
 
@@ -1965,6 +1994,9 @@ gcc_do_filter_flags() {
 			die "Varying l1-cache-size found, aborting (bug #915389, gcc PR#111768)"
 		fi
 	fi
+
+	# https://gcc.gnu.org/PR100431
+	filter-flags -Werror=format-security
 
 	if ver_test -lt 13.6 ; then
 		# These aren't supported by the just-built compiler either.
@@ -2665,6 +2697,24 @@ gcc_movelibs() {
 		done
 		fix_libtool_libdir_paths "${LIBPATH}/${MULTIDIR}"
 	done
+
+	# Without this, we end up either unable to find the libgomp spec/archive, or
+	# we underlink and can't find gomp_nvptx_main (presumably because we can't find the plugin)
+	# https://src.fedoraproject.org/rpms/gcc/blob/02c34dfa3627ef05d676d30e152a66e77b58529b/f/gcc.spec#_1445
+	if [[ ${CTARGET} == nvptx* ]] && has_version ${CATEGORY}/${PN} ; then
+		rm -rf "${ED}"/usr/libexec/gcc/nvptx-none/${GCCMAJOR}/install-tools
+		rm -rf "${ED}"/usr/libexec/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/{install-tools,plugin,cc1,cc1plus,f951}
+		rm -rf "${ED}"/usr/lib/gcc/nvptx-none/${GCCMAJOR}/{install-tools,plugin}
+		rm -rf "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/{install-tools,plugin,include-fixed}
+		mv "${ED}"/usr/nvptx-none/lib/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/
+		mv "${ED}"/usr/nvptx-none/lib/mgomp/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mgomp/
+		mv "${ED}"/usr/nvptx-none/lib/mptx-3.1/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mptx-3.1/
+		mv "${ED}"/usr/nvptx-none/lib/mgomp/mptx-3.1/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mgomp/mptx-3.1/
+		mv "${ED}"/usr/lib/gcc/nvptx-none/${GCCMAJOR}/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/ || die
+		mv "${ED}"/usr/lib/gcc/nvptx-none/${GCCMAJOR}/mgomp/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mgomp/ || die
+		mv "${ED}"/usr/lib/gcc/nvptx-none/${GCCMAJOR}/mptx-3.1/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mptx-3.1/ || die
+		mv "${ED}"/usr/lib/gcc/nvptx-none/${GCCMAJOR}/mgomp/mptx-3.1/*.{a,spec} "${ED}"/usr/lib/gcc/${CHOST}/${GCCMAJOR}/accel/nvptx-none/mgomp/mptx-3.1/ || die
+	fi
 
 	# We remove directories separately to avoid this case:
 	#	mv SRC/lib/../lib/*.o DEST
