@@ -2974,6 +2974,7 @@ dev-util/poke:nbd - Enable poking at networked block devices via sys-libs/libnbd
 dev-util/poke:pvm-profiling - Enable profiling in the PVM
 dev-util/pycharm-community:bundled-jdk - Use bundled jdk
 dev-util/pycharm-professional:bundled-jdk - Use bundled jdk
+dev-util/pycharm-professional:bundled-xvfb - Use bundled Xvfb
 dev-util/ropper:z3 - Enable Z3 contraint solver support
 dev-util/scanmem:gui - Enable the GameConqueror GUI
 dev-util/sccache:azure - Enable Azure Blob Storage support
@@ -7048,6 +7049,7 @@ net-wireless/wpa_supplicant:wep - Add support for Wired Equivalent Privacy (depr
 net-wireless/wpa_supplicant:wimax - Add support for Wimax EAP-PEER authentication algorithm
 net-wireless/wpa_supplicant:wps - Add support for Wi-Fi Protected Setup
 sci-astronomy/cpl:gasgano - Enable support for sci-astronomy/gasgano file organizer
+sci-astronomy/kstars:opencv - Enable contrast type focus measures via media-libs/opencv
 sci-astronomy/kstars:password - Store passwords securely via dev-libs/qtkeychain
 sci-astronomy/kstars:wcs - Enable support for World Coordinate System library using wcslib
 sci-astronomy/psfex:plplot - Build with sci-libs/plplot to allow diagnostic plots during processing
