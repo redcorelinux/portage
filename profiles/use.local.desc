@@ -743,6 +743,7 @@ app-emulation/xen-tools:system-qemu - Using app-emulation/qemu instead of the bu
 app-emulation/xen-tools:system-seabios - Using sys-firmware/seabios instead of the bundled one
 app-emulation/xtrs:ls-dos - Install LS-DOS disk images for Model 4P
 app-eselect/eselect-php:fpm - Enable the FastCGI Process Manager SAPI
+app-eselect/eselect-repository:mercurial - Support mercurial sync-type.
 app-eselect/eselect-wine:xdg - Set XDG_DATA_DIRS to use the selected wine.desktop, allows e.g. 'xdg-open my.exe' for file managers
 app-forensics/afflib:fuse - Enable extra fuse thingies
 app-forensics/afflib:qemu - Enable qemu stuff
@@ -8507,6 +8508,7 @@ sys-process/procps:elogind - Use sys-auth/elogind for session tracking.
 sys-process/procps:kill - Build the kill program
 sys-process/procps:modern-top - Enables new startup defaults of top. Keeps old defaults if disabled
 sys-process/procps:ncurses - Build programs that use ncurses: top, slabtop, watch
+sys-process/procps:skill - Build the skill and snice programs
 sys-process/systemd-cron:cron-boot - Include support for the boot timer.
 sys-process/systemd-cron:etc-crontab-systemd - Use dedicated /etc/crontab-systemd instead of parsing /etc/crontab
 sys-process/systemd-cron:minutely - Support /etc/cron.minutely
