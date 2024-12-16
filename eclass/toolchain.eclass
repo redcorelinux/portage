@@ -979,6 +979,9 @@ toolchain_setup_ada() {
 				latest_ada_bootstrap="${latest_ada_bootstrap#dev-lang/ada-bootstrap-}"
 				latest_ada_bootstrap=$(ver_cut 1 ${latest_ada_bootstrap})
 				ada_bootstrap="${latest_ada_bootstrap}"
+
+				export ADA_INCLUDE_PATH="${BROOT}/usr/lib/ada-bootstrap/usr/lib/gcc/${CHOST}/${ada_bootstrap}/adainclude::${ADA_INCLUDE_PATH}"
+				export ADA_OBJECTS_PATH="${BROOT}/usr/lib/ada-bootstrap/usr/lib/gcc/${CHOST}/${ada_bootstrap}/adalib:${ADA_OBJECTS_PATH}"
 			fi
 
 			ada_bootstrap_type=ada-bootstrap
@@ -1320,8 +1323,13 @@ toolchain_src_configure() {
 	confgcc+=( --enable-lto )
 
 	# Build compiler itself using LTO
-	if tc_version_is_at_least 9.1 && _tc_use_if_iuse lto ; then
-		BUILD_CONFIG_TARGETS+=( bootstrap-lto )
+	if tc_use_if_iuse lto ; then
+		# GCC 11 at least has a -Wlto-type-mismatch issue with Ada
+		if ! tc_version_is_at_least 12.1 && is_ada ; then
+			:;
+		elif tc_version_is_at_least 9.1 ; then
+			BUILD_CONFIG_TARGETS+=( bootstrap-lto )
+		fi
 	fi
 
 	if tc_version_is_at_least 12 && _tc_use_if_iuse cet && [[ -z ${CLANG_DISABLE_CET_HACK} && ${CTARGET} == x86_64-*-gnu* ]] ; then
