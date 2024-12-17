@@ -13,7 +13,7 @@ declare -A GIT_CRATES=(
 	[version-ranges]='https://github.com/astral-sh/pubgrub;57832d0588fbb7aab824813481104761dc1c7740;pubgrub-%commit%/version-ranges'
 )
 
-RUST_MIN_VER="1.80.1"
+RUST_MIN_VER="1.81.0"
 
 inherit cargo check-reqs
 
@@ -46,7 +46,7 @@ LICENSE+="
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
