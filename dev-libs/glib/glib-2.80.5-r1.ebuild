@@ -22,7 +22,7 @@ INTROSPECTION_BUILD_DIR="${WORKDIR}/${INTROSPECTION_P}-build"
 
 LICENSE="LGPL-2.1+"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="dbus debug +elf doc +introspection +mime selinux static-libs sysprof systemtap test utils xattr"
 RESTRICT="!test? ( test )"
 
@@ -191,12 +191,12 @@ src_prepare() {
 	# Link the glib source to the introspection subproject directory so it can be built there first
 	if use introspection ; then
 		ln -s "${S}" "${INTROSPECTION_SOURCE_DIR}/subprojects/glib"
-	fi
 
-	# bug #946578
-	cd "${INTROSPECTION_SOURCE_DIR}" || die
-	eapply "${FILESDIR}"/glib-2.80.5-gobject-introspection-1.80.patch
-	cd "${S}" || die
+		# bug #946578
+		cd "${INTROSPECTION_SOURCE_DIR}" || die
+		eapply "${FILESDIR}"/glib-2.80.5-gobject-introspection-1.80.patch
+		cd "${S}" || die
+	fi
 
 	default
 	gnome2_environment_reset
