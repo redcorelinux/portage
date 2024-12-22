@@ -977,6 +977,7 @@ app-misc/sphinx:id64 - use 64-bit document and word IDs
 app-misc/sphinx:mariadb - Add mariadb database support
 app-misc/sphinx:stemmer - Enable language stemming support
 app-misc/task:sync - Enable "task sync" support
+app-misc/tmux:sixel - Enable sixel support
 app-misc/tmux:utempter - Include libutempter support
 app-misc/tracker:miners - Install the app-misc/tracker-miners package for actual data mining support for tracker
 app-misc/tracker:stemmer - Add word stemming via dev-libs/snowball-stemmer.
@@ -3778,6 +3779,7 @@ llvm-runtimes/compiler-rt-sanitizers:safestack - Build SafeStack runtime.
 llvm-runtimes/compiler-rt-sanitizers:scudo - Build Scudo Hardened Allocator.
 llvm-runtimes/compiler-rt-sanitizers:shadowcallstack - Build ShadowCallStack.
 llvm-runtimes/compiler-rt-sanitizers:tsan - Build Thread Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:tysan - Build Type Sanitizer runtime.
 llvm-runtimes/compiler-rt-sanitizers:ubsan - Build Undefined Behavior Sanitizer runtime.
 llvm-runtimes/compiler-rt-sanitizers:xray - Build XRay runtime.
 llvm-runtimes/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
