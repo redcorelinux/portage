@@ -3475,6 +3475,7 @@ gui-wm/gamescope:libei - Enable emulated input using dev-libs/libei
 gui-wm/gamescope:pipewire - Enable screen capture via PipeWire
 gui-wm/gamescope:wsi-layer - Enable the WSI layer (required for HDR)
 gui-wm/hyprland:legacy-renderer - Enable legacy renderer
+gui-wm/hyprland:qtutils - Install Hyprland QT utility apps
 gui-wm/sway:X - Enable support for X11 applications (XWayland)
 gui-wm/sway:swaybar - Install 'swaybar': sway's status bar component
 gui-wm/sway:swaynag - Install 'swaynag': shows a message with buttons
@@ -6718,12 +6719,10 @@ net-p2p/amule:daemon - Enable amule daemon
 net-p2p/amule:remote - Enable remote controlling of the client
 net-p2p/amule:stats - Enable statistic reporting
 net-p2p/bitcoin-core:berkdb - Support legacy wallets in Berkeley DB format
-net-p2p/bitcoin-core:bitcoin-cli - Build and install bitcoin-cli command line interface
 net-p2p/bitcoin-core:cli - Build and install bitcoin-cli command line interface
 net-p2p/bitcoin-core:daemon - Build and install bitcoind daemon
 net-p2p/bitcoin-core:external-signer - Include support for external wallet signer programs
 net-p2p/bitcoin-core:gui - Build and install Bitcoin-Qt GUI
-net-p2p/bitcoin-core:libs - Build and install libbitcoinconsensus
 net-p2p/bitcoin-core:nat-pmp - Enable NAT-PMP port forwarding
 net-p2p/bitcoin-core:qrcode - Enable generation of QR Codes for receiving payments
 net-p2p/bitcoin-core:sqlite - Support descriptor wallets in SQLite format
