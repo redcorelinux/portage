@@ -2409,7 +2409,6 @@ dev-python/pymongo:test-full - Run test suite in full, including tests that run 
 dev-python/pyopengl-accelerate:numpy - Building NumPy native format handlers.
 dev-python/pypax:ptpax - Enable PT_PAX_FLAGS support.
 dev-python/pypax:xtpax - Enable XATTR_PAX_FLAGS support.
-dev-python/pypy:full-stdlib - Install complete stdlib as necessary to use PyPy for general purpose programs. By default, only a limited subset that is used when building PyPy3 executables is installed. Note that PyPy2.7's stdlib contains multiple known vulnerabilities.
 dev-python/pypy-exe:low-memory - Build using PyPy with the engine configured towards low memory footprint. This makes it possible to build PyPy using ~3.5G of RAM on amd64 and ~half of that on x86, at the cost of lengthened build time.
 dev-python/pypy3:test-install - Install the test suite packages, that are required to run tests in a few reverse dependencies.
 dev-python/pypy3_10-exe:low-memory - Build using PyPy with the engine configured towards low memory footprint. This makes it possible to build PyPy using ~3.5G of RAM on amd64 and ~half of that on x86, at the cost of lengthened build time.
@@ -4463,11 +4462,10 @@ media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with M
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
 media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
 media-libs/openimageio:fits - Enable support for NASA's sci-libs/cfitsio library
-media-libs/openimageio:gui - Build iv (with Qt5)
+media-libs/openimageio:gui - Build iv with dev-qt/qtbase
 media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
 media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
 media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
-media-libs/openimageio:qt6 - Build iv with Qt6
 media-libs/openimageio:tools - Build the command-line tools
 media-libs/opensubdiv:glew - Enable support for OpenGL Extension Wrangler Library (media-libs/glew)
 media-libs/opensubdiv:glfw - Build all example files that uses (media-libs/glfw)
@@ -5743,7 +5741,6 @@ net-firewall/shorewall:lite4 - Installs everything needed to just *run* an IPv4 
 net-firewall/shorewall:lite6 - Installs everything needed to just *run* an IPv6 compiled firewall script created with net-firewall/shorewall ipv6 USE flag
 net-firewall/ufw:examples - Example ufw config files
 net-firewall/ufw:ipv6 - IPv6 support for iptables
-net-fs/autofs:dmalloc - Enable debugging with the dmalloc library
 net-fs/autofs:ldap - Install LDAP module
 net-fs/autofs:libtirpc - Use TiRPC library instead of SunRPC
 net-fs/autofs:mount-locking - Enable locking to prevent corruption of /etc/mtab in the presence of concurrent auto-mounting. If enabled, recursive auto-mounting (eg. using autofs to bind or loop mount a filesystem which is itself auto-mounted) is not possible.
@@ -6215,7 +6212,6 @@ net-mail/mailutils:clients - Build client programs - frm maidag mail sieve messa
 net-mail/mailutils:kyotocabinet - Enable Kyoto Cabinet database support
 net-mail/mailutils:servers - Build server programs - imap4d pop3d comsatd
 net-mail/mailutils:tokyocabinet - Enable Tokyo Cabinet database support
-net-mail/mboxgrep:dmalloc - Enable debugging using dev-libs/dmalloc
 net-mail/mu:emacs - Install the mu4e mail client
 net-mail/notmuch:apidoc - Provide doxygen generated API docs
 net-mail/notmuch:crypt - Support decryption and verification of PGP/MIME messages and in Emacs UI - encryption; support also S/MIME signature verification since version 0.22
@@ -6584,8 +6580,6 @@ net-misc/openssh-contrib:security-key - Include builtin U2F/FIDO support
 net-misc/openssh-contrib:ssl - Enable additional crypto algorithms via OpenSSL
 net-misc/openssh-contrib:xmss - Enable XMSS post-quantum authentication algorithm
 net-misc/openvswitch:monitor - Build the Python and GUI dependent monitor applications
-net-misc/owncloud-client:dolphin - Install the kde-apps/dolphin extension
-net-misc/owncloud-client:nautilus - Install the gnome-base/nautilus extension
 net-misc/packETH:cli - Build and install packETHcli
 net-misc/plowshare:view-captcha - View captcha with aview
 net-misc/ps3mediaserver:multiuser - Allow renderer customization per-user.
@@ -7121,7 +7115,6 @@ sci-biology/mothur:gsl - Use sci-libs/gsl to support diversity estimates for est
 sci-biology/mothur:hdf5 - Support Biom format 2.0 for the biom.info command via sci-libs/hdf5.
 sci-biology/newick-utils:xml - Uses dev-libs/libxml2 to handle ornaments
 sci-biology/ucsc-genome-browser:server - Install genome browser Web application. If this flag is off, only libraries and utilities from the suite are installed.
-sci-biology/yass:dmalloc - Enable debugging with the dmalloc library
 sci-biology/yass:lowmem - Build for environments with low amounts of memory
 sci-calculators/datamash:linux-crypto - Use Linux kernel cryptographic API
 sci-calculators/datamash:openssl - Use dev-libs/openssl for hash routines instead of internal gnulib
@@ -7453,12 +7446,13 @@ sci-libs/sundials:superlumt - Build with sci-libs/superlu_mt
 sci-libs/superlu_mt:int64 - Build the 64 bits integer library
 sci-libs/symengine:arb - Add support for arb (sci-mathematics/arb)
 sci-libs/symengine:benchmarks - Build benchmarks
-sci-libs/symengine:boost - Add support for boost integers(dev-libs/boost)
+sci-libs/symengine:boost - Add support for boost integers (dev-libs/boost)
 sci-libs/symengine:ecm - Add support for ECM integer factorization library (sci-mathematics/gmp-ecm)
-sci-libs/symengine:flint - Add support for (sci-mathematics/flint)
+sci-libs/symengine:flint - Add support for sci-mathematics/flint
 sci-libs/symengine:llvm - Build with LLVM
-sci-libs/symengine:mpc - Add support for multiprecision complex arithmetic(dev-libs/mpc)
-sci-libs/symengine:mpfr - Add support for multiprecision floating point rouding(dev-libs/mpfr)
+sci-libs/symengine:mpc - Add support for multiprecision complex arithmetic (dev-libs/mpc)
+sci-libs/symengine:mpfr - Add support for multiprecision floating point rounding (dev-libs/mpfr)
+sci-libs/symengine:primesieve - Add support for sci-mathematics/primesieve
 sci-libs/trilinos:adolc - Add support for adolc (sci-libs/adolc)
 sci-libs/trilinos:all-packages - Enable all supported Trilinos packages (per default only a subset is built)
 sci-libs/trilinos:arprec - Add support for arprec (sci-libs/arprec)
