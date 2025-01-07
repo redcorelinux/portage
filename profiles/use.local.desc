@@ -496,7 +496,6 @@ app-editors/vscodium:egl - Use EGL platform, enables smooth rending in high refr
 app-editors/vscodium:wayland - Run in wayland mode under wayland sessions, xwayland otherwise. This flag doesn't affect x11 sessions.
 app-editors/xemacs:athena - Chooses the MIT Athena widget set
 app-editors/xemacs:bignum - Support for OpenSSL bignum implementation
-app-editors/xemacs:dnd - Enables support for the x11-libs/dnd drag-n-drop library
 app-editors/xemacs:pop - Support POP for mail retrieval
 app-editors/xemacs:xim - Enable X11 XiM input method
 app-editors/zed:gles - Use simplified OpenGLES instead of full-scale OpenGL
@@ -4473,12 +4472,11 @@ media-libs/opus:osce - Enable Opus Speech Coding Enhancement (OSCE)
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
-media-libs/osl:gui - Build the osltoy binary (with Qt5)
+media-libs/osl:gui - Build the osltoy binary
 media-libs/osl:libcxx - Build against llvm-runtimes/libcxx when using clang
 media-libs/osl:nofma - Do not use Fuse-Multiply-Add operations
 media-libs/osl:optix - Add support for NVIDIA's OptiX Raytracing Engine
 media-libs/osl:partio - Use media-libs/partio
-media-libs/osl:qt6 - Build the osltoy binary (with Qt6)
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/portmidi:test-programs - Install various example programs
 media-libs/quarter:designer - Install plugin for dev-qt/designer
@@ -4867,7 +4865,8 @@ media-sound/qmmp:cue - enable CUE sheet parsing
 media-sound/qmmp:dbus - Enable DBus notifiications and MPRIS support
 media-sound/qmmp:enca - Detects the character encoding automatically
 media-sound/qmmp:game - Enable Game music support
-media-sound/qmmp:gnome - Enable Gnome hotkey support (requires Qt5DBus)
+media-sound/qmmp:gnome - Enable Gnome hotkey support (requires QtDBus)
+media-sound/qmmp:libxmp - Enable module files renderer (modplug replacement) via media-libs/libxmp
 media-sound/qmmp:lyrics - Fetch track lyrics from the web
 media-sound/qmmp:midi - Enable midi support using wildmidi library
 media-sound/qmmp:notifier - Enable qmmps' notifier system
@@ -5897,7 +5896,6 @@ net-im/telegram-desktop:enchant - Use the app-text/enchant spell-checking backen
 net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (overrides fontconfig)
 net-im/telegram-desktop:libdispatch - Use dev-libs/libdispatch to speed up concurrent code execution
 net-im/telegram-desktop:qt6 - Build with Qt6 support
-net-im/telegram-desktop:qt6-imageformats - Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats
 net-im/tkabber:plugins - Enables installation the extra plugins
 net-im/tokodon:mpv - Use media-libs/mpvqt instead of dev-qt/qtmultimedia for video playback (default)
 net-im/tokodon:webengine - Use dev-qt/qtwebengine for built-in authentication page (default is external browser)
@@ -7264,6 +7262,7 @@ sci-libs/coinor-cppad:eigen - Add support for Eigen (dev-cpp/eigen)
 sci-libs/coinor-cppad:ipopt - Add support for IPOPT (sci-libs/ipopt)
 sci-libs/coinor-symphony:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/coinor-utils:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
+sci-libs/composable-kernel:profiler - Build and install the Composable Kernal profiler (ckProfiler)
 sci-libs/dealii:adolc - Adds support for ADOL-C (sci-libs/adolc)
 sci-libs/dealii:arborx - Adds support for ARBORX (sci-libs/arborx)
 sci-libs/dealii:arpack - Adds support for ARPACK (sci-libs/arpack)
@@ -7326,6 +7325,7 @@ sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
 sci-libs/hipSOLVER:sparse - Build hipSOLVER with sparse functionality (sci-libs/cholmod)
+sci-libs/hipSPARSE:benchmark - Build and install hipsparse-bench.
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/indilib:websocket - Enable support for WebSocket protocol
@@ -7362,6 +7362,10 @@ sci-libs/mathgl:octave - Add bindings for sci-mathematics/octave
 sci-libs/matio:sparse - Extend formats for sparse matrix (not matlab)
 sci-libs/metis:double-precision - Use double- rather than single-precision floating-point representation
 sci-libs/metis:int64 - Use 64- rather than 32-bit integer representation (needed for > 2^31 vertices)
+sci-libs/miopen:composable-kernel - Use composable-kernel for GEMM-like and reduction-like operators.
+sci-libs/miopen:hipblaslt - Use hipBLASLt for some non-batched and strided batched problems.
+sci-libs/miopen:rocblas - Build with rocBLAS support
+sci-libs/miopen:roctracer - Build with roctracer support
 sci-libs/mumps:metis - Enable matrix ordering with METIS (sci-libs/metis, sci-libs/parmetis)
 sci-libs/mumps:scotch - Enable matrix ordering with sci-libs/scotch
 sci-libs/netcdf:blosc - Allow using blosc compression via dev-libs/c-blosc
@@ -7401,6 +7405,7 @@ sci-libs/plplot:octave - Add bindings for sci-mathematics/octave
 sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
 sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
+sci-libs/rocBLAS:hipblaslt - Build with hipBLASLt for some non-batched and strided batched problems on gfx12.
 sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
 sci-libs/rocFFT:benchmark - Build and install rocfft benchmark tools.
 sci-libs/rocFFT:perfscripts - Install rocfft-perf performance visualization suite.
@@ -8592,6 +8597,7 @@ www-client/firefox:system-libvpx - Use the system-wide media-libs/libvpx instead
 www-client/firefox:system-png - Use the system-wide media-libs/libpng instead of bundled (requires APNG patches)
 www-client/firefox:system-webp - Use the system-wide media-libs/libwebp instead of bundled
 www-client/firefox:wasm - Sandbox certain third-party libraries through WebAssembly using RLBox
+www-client/firefox:wasm-sandbox - Sandbox certain third-party libraries through WebAssembly using RLBox
 www-client/firefox:wifi - Enable necko-wifi for NetworkManager integration, and access point MAC address scanning for better precision with opt-in geolocation services
 www-client/firefox-bin:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
 www-client/jd:migemo - Enable migemo support for Japanese
