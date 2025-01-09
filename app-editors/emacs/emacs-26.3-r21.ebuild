@@ -105,7 +105,7 @@ SITEFILE="20${EMACS_SUFFIX}-gentoo.el"
 PATCHES=("${WORKDIR}/patch")
 
 # Suppress false positive QA warnings #898304
-QA_CONFIG_IMPL_DECL_SKIP=( malloc_{set,get}_state MIN )
+QA_CONFIG_IMPL_DECL_SKIP=( malloc_{get,set}_state )
 
 src_prepare() {
 	default
@@ -321,7 +321,7 @@ src_install() {
 	X	   (while (and (cdr q) (not (string-match re (cadr q))))
 	X	     (setq q (cdr q)))
 	X	   (setcdr q (cons dir (delete dir (cdr q))))
-	X	   (setenv "INFOPATH" (mapconcat 'identity (cdr p) ":"))))))
+	X	   (setenv "INFOPATH" (mapconcat #'identity (cdr p) ":"))))))
 	EOF
 	elisp-site-file-install "${T}/${SITEFILE}" || die
 
