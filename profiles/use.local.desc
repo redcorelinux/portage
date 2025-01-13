@@ -1930,7 +1930,6 @@ dev-libs/apr:old-kernel - Enable compatibility with older kernels
 dev-libs/apr:urandom - Use /dev/urandom instead of /dev/random
 dev-libs/apr-util:nss - Install apr_crypto_nss module
 dev-libs/apr-util:openssl - Install apr_crypto_openssl module
-dev-libs/atcore:gui - Build test GUI
 dev-libs/bitset:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations
 dev-libs/boehm-gc:large - optimize for large heap size (also increases max root sets)
 dev-libs/boost:context - Build and install the Boost.Context (and Boost.Fiber) library and all other Boost libraries that depend on it
@@ -2916,7 +2915,6 @@ dev-util/ostree:archive - Use libarchive
 dev-util/ostree:dracut - Install dracut module
 dev-util/ostree:gpg - Enable GPG support
 dev-util/ostree:grub - Enable grub configuration generator
-dev-util/ostree:httpd - Enable ostree trivial-httpd entrypoint
 dev-util/ostree:libmount - Use libmount
 dev-util/ostree:sodium - Use libsodium for ed25519
 dev-util/ostree:soup - Use libsoup for networking
