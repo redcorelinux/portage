@@ -47,7 +47,7 @@ SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="amd64 ~arm64"
+	KEYWORDS="amd64 arm64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -179,6 +179,9 @@ BDEPEND="
 		llvm-core/clang:${LLVM_SLOT}
 		llvm-core/llvm:${LLVM_SLOT}
 		llvm-core/lld:${LLVM_SLOT}
+		official? (
+			!ppc64? ( llvm-runtimes/compiler-rt-sanitizers:${LLVM_SLOT}[cfi] )
+		)
 	')
 	pgo? (
 		>=dev-python/selenium-3.141.0
@@ -1085,7 +1088,11 @@ chromium_configure() {
 		# Allow building against system libraries in official builds
 		sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
 			tools/generate_shim_headers/generate_shim_headers.py || die
-		myconf_gn+=" is_cfi=${use_lto}"
+		if use ppc64; then
+			myconf_gn+=" is_cfi=no" # requires llvm-runtimes/compiler-rt-sanitizers[cfi]
+		else
+			myconf_gn+=" is_cfi=${use_lto}"
+		fi
 		# Don't add symbols to build
 		myconf_gn+=" symbol_level=0"
 	fi
