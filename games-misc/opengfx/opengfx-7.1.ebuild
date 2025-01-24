@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} python3_13t )
 
-inherit python-any-r1
+inherit python-any-r1 toolchain-funcs
 
 DESCRIPTION="OpenGFX data files for OpenTTD"
 HOMEPAGE="https://wiki.openttd.org/en/Basesets/OpenGFX https://github.com/OpenTTD/OpenGFX"
@@ -29,31 +29,29 @@ PATCHES=(
 )
 
 src_compile() {
-	local myemakeargs=(
+	myemakeargs=(
 		GIMP=""
 		PYTHON="${EPYTHON}"
+		CC="$(tc-getCC)"
+
+		# Make logs verbose
+		_V=
+		_E=echo
 	)
 
 	emake "${myemakeargs[@]}" all
 }
 
 src_test() {
-	local myemakeargs=(
-		GIMP=""
-		PYTHON="${EPYTHON}"
-	)
-
 	emake "${myemakeargs[@]}" check
 }
 
 src_install() {
-	local myemakeargs=(
+	myemakeargs+=(
 		DO_NOT_INSTALL_README="true"
 		DO_NOT_INSTALL_LICENSE="true"
 		DO_NOT_INSTALL_CHANGELOG="true"
-		GIMP=""
 		INSTALL_DIR="${ED}/usr/share/openttd/baseset/"
-		PYTHON="${EPYTHON}"
 	)
 
 	emake "${myemakeargs[@]}" install
