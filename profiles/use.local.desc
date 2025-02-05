@@ -8198,6 +8198,7 @@ sys-devel/binutils:gprofng - Enable the next-generation gprofng profiler
 sys-devel/binutils:multitarget - Adds support to binutils for cross compiling (does not work with gas)
 sys-devel/binutils:pgo - Build binutils with Profile Guided Optimization (PGO) and LTO
 sys-devel/binutils:plugins - Enable plugin support in tools
+sys-devel/binutils:xxhash - Use dev-libs/xxhash for --build-id=xx support
 sys-devel/binutils-apple:classic - Use nm, otool, etc. from this ebuild instead of llvm-based tools
 sys-devel/binutils-apple:lto - Add support for Link-Time Optimization with LLVM
 sys-devel/binutils-config:native-symlinks - Install native symlinks like 'as' or 'ar' to /usr/bin. Otherwise keep only ${CTARGET}-as and friends.
@@ -8751,7 +8752,7 @@ x11-base/xorg-server:xvfb - Build the Xvfb server
 x11-base/xwayland:libei - Enable emulated input using dev-libs/libei
 x11-base/xwayland:unwind - Enable libunwind usage for backtraces
 x11-base/xwayland:xcsecurity - Build Security extension
-x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (Turing/Ampere+ GPUs only, aka GTX 1650+ -- recommended with >=560.xx drivers if usable)
+x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (Turing/Ampere+ GPUs only, aka GTX 1650+ -- recommended with >=560.xx drivers if usable and it may be required for 50xx Blackwell+ GPUs)
 x11-drivers/nvidia-drivers:persistenced - Install the persistence daemon for keeping devices state when unused (e.g. for headless)
 x11-drivers/nvidia-drivers:powerd - Install the NVIDIA dynamic boost support daemon (only useful with specific laptops, ignore if unsure)
 x11-drivers/nvidia-drivers:static-libs - Install the XNVCtrl static library for accessing sensors and other features
