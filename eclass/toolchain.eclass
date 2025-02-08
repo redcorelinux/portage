@@ -299,7 +299,8 @@ tc_has_feature() {
 if [[ ${PN} != kgcc64 && ${PN} != gcc-* ]] ; then
 	IUSE+=" debug +cxx"
 	IUSE+=" +fortran" TC_FEATURES+=( fortran )
-	IUSE+=" doc hardened multilib objc"
+	IUSE+=" doc" TC_FEATURES+=( doc )
+	IUSE+=" hardened multilib objc"
 	IUSE+=" pgo"
 	IUSE+=" objc-gc" TC_FEATURES+=( objc-gc )
 	IUSE+=" libssp objc++"
@@ -380,6 +381,11 @@ BDEPEND="
 		>=sys-devel/autogen-5.5.4
 	)
 "
+
+if tc_has_feature doc ; then
+	BDEPEND+=" doc? ( app-text/doxygen )"
+fi
+
 DEPEND="${RDEPEND}"
 
 if [[ ${PN} == gcc && ${PV} == *_p* ]] ; then
@@ -2347,22 +2353,18 @@ gcc_do_make() {
 	pushd "${WORKDIR}"/build >/dev/null || die
 	emake "${emakeargs[@]}" ${GCC_MAKE_TARGET}
 
-	if ! is_crosscompile && _tc_use_if_iuse cxx && _tc_use_if_iuse doc ; then
-		if type -p doxygen > /dev/null ; then
-			cd "${CTARGET}"/libstdc++-v3/doc || die
-			emake doc-man-doxygen
+	if ! is_crosscompile && _tc_use_if_iuse cxx && tc_has_feature doc && _tc_use_if_iuse doc ; then
+		cd "${CTARGET}"/libstdc++-v3/doc || die
+		emake doc-man-doxygen
 
-			# Clean bogus manpages. bug #113902
-			find -name '*_build_*' -delete || die
+		# Clean bogus manpages. bug #113902
+		find -name '*_build_*' -delete || die
 
-			# Blow away generated directory references. Newer versions of gcc
-			# have gotten better at this, but not perfect. This is easier than
-			# backporting all of the various doxygen patches. bug #486754
-			find -name '*_.3' -exec grep -l ' Directory Reference ' {} + | \
-				xargs rm -f
-		else
-			ewarn "Skipping libstdc++ manpage generation since you don't have doxygen installed"
-		fi
+		# Blow away generated directory references. Newer versions of gcc
+		# have gotten better at this, but not perfect. This is easier than
+		# backporting all of the various doxygen patches. bug #486754
+		find -name '*_.3' -exec grep -l ' Directory Reference ' {} + | \
+			xargs rm -f
 	fi
 
 	popd >/dev/null || die
