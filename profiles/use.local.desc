@@ -539,7 +539,7 @@ app-emulation/crossover-bin:capi - Enable ISDN support via CAPI
 app-emulation/crossover-bin:osmesa - Add support for OpenGL in bitmaps using libOSMesa
 app-emulation/crossover-bin:pcap - Support packet capture software (e.g. wireshark)
 app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
-app-emulation/dxvk:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/dxvk:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/dxvk:d3d10 - Enable support for DirectX 10 (d3d10.dll)
 app-emulation/dxvk:d3d11 - Enable support for DirectX 11 (d3d11.dll)
 app-emulation/dxvk:d3d8 - Enable support for DirectX 8 (d3d8.dll)
@@ -683,11 +683,11 @@ app-emulation/virtualbox-kvm:vboxwebsrv - Build and install the VirtualBox webse
 app-emulation/virtualbox-kvm:vde - Support for VDE networking via net-misc/vde
 app-emulation/virtualbox-kvm:vmmraw - Enable 32-bit support on a 64-bit kernel.
 app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using dev-util/spirv-tools
-app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vkd3d-proton
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
 app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix (note that this requires the default top-level Z: drive to be kept for out-of-prefix files to be readable)
-app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-proton:gecko - Enable mshtml support using app-emulation/wine-gecko
 app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
 app-emulation/wine-proton:osmesa - Enable off-screen rendering (OpenGL in bitmaps) support
@@ -696,7 +696,7 @@ app-emulation/wine-proton:sdl - Enable gamepad support using media-libs/libsdl2
 app-emulation/wine-proton:vkd3d - Enable DirectX 12 support using app-emulation/vkd3d
 app-emulation/wine-proton:wow64 - Enable running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, *may* have worse/unusable OpenGL performance or other issues compared to USE=abi_x86_32, also lacks 16bit support) -- still need dev-util/mingw64-toolchain with abi_x86_32 which itself does not need multilib
 app-emulation/wine-staging:capi - Enable ISDN support using net-libs/libcapi
-app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-staging:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-staging:gecko - Enable mshtml support using app-emulation/wine-gecko
 app-emulation/wine-staging:mingw - Build PE files using a MinGW toolchain for better compatibility
@@ -709,7 +709,7 @@ app-emulation/wine-staging:samba - Pull in net-fs/samba with winbind for NTLM au
 app-emulation/wine-staging:sdl - Enable gamepad support using media-libs/libsdl2
 app-emulation/wine-staging:wow64 - Enable running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, *may* have worse/unusable OpenGL performance or other issues compared to USE=abi_x86_32, also lacks 16bit support) -- still need dev-util/mingw64-toolchain with abi_x86_32 which itself does not need multilib
 app-emulation/wine-vanilla:capi - Enable ISDN support using net-libs/libcapi
-app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-vanilla:gecko - Enable mshtml support using app-emulation/wine-gecko
 app-emulation/wine-vanilla:mingw - Build PE files using a MinGW toolchain for better compatibility
@@ -2964,6 +2964,7 @@ dev-util/sysprof:unwind - Use sys-libs/libunwind to unwind the stack
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/watchman:python - Install pywatchman bindings and the watchman-{wait,make} utils
+dev-util/xxdiff:scripts - Install python helper scripts
 dev-vcs/cvs:server - Enable server support
 dev-vcs/darcs:curl - Use libcurl for HTTP support.
 dev-vcs/darcs:terminfo - Use the terminfo package for enhanced console support.
@@ -6344,7 +6345,6 @@ net-misc/electrum:qrcode - Enable QR code scanning with media-gfx/zbar
 net-misc/electrum-ltc:cli - Enables the CLI interface
 net-misc/electrum-ltc:qrcode - Enable QR code scanning with media-gfx/zbar
 net-misc/etherdfs:tsr - Install the precompiled TSR program for DOS, which acts as a client.
-net-misc/ethflop:tsr - Build the TSR program for DOS, which acts as a client.
 net-misc/eventd:libcanberra - Enable plugin for sounds via media-libs/libcanberra
 net-misc/eventd:libnotify - Enable plugin to relay events to notification daemon (Note: not required for local notifications via net-misc/eventd)
 net-misc/eventd:notification - Enable plugin to display on-screen notifications
@@ -6625,6 +6625,7 @@ net-misc/tigervnc:java - Build TigerVNC Java viewer
 net-misc/tigervnc:server - Build TigerVNC server
 net-misc/tigervnc:viewer - Build TigerVNC viewer
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
+net-misc/turbovnc:dri3 - Build with DRI3 support
 net-misc/turbovnc:server - Build the server (vncserver, Xvnc)
 net-misc/turbovnc:viewer - Build the viewer (vncviewer)
 net-misc/uftp:server - Install uftp server daemon
