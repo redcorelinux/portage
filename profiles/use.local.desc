@@ -474,6 +474,7 @@ app-editors/helix:grammar - Build and install grammar language files
 app-editors/jasspa-microemacs:nanoemacs - Build NanoEmacs instead of MicroEmacs
 app-editors/joe:xterm - Enable full xterm clipboard support
 app-editors/leafpad:emacs - Enable Emacs key theme
+app-editors/logseq-desktop-bin:wayland - Run in wayland mode under wayland sessions, xwayland otherwise. This flag doesn't affect x11 sessions.
 app-editors/mousepad:shortcuts - Build the "shortcuts" plugin
 app-editors/nano:debug - Enable debug messages and assert warnings. Note that these will all be sent straight to stderr rather than some logging facility.
 app-editors/nano:justify - Enable justify/unjustify functions for text formatting.
@@ -2534,6 +2535,7 @@ dev-python/qtpy:qml - Build bindings for the QtQml
 dev-python/qtpy:quick - Build bindings for the QtQuick
 dev-python/qtpy:quick3d - Build bindings for the QtQuick3D
 dev-python/qtpy:remoteobjects - Pull in bindings for the QtRemoteObjects module
+dev-python/qtpy:scxml - Pull in bindings for the QtScXml module
 dev-python/qtpy:sensors - Pull in bindings for the QtSensors module
 dev-python/qtpy:serialport - Pull in bindings for the QtSerialPort module
 dev-python/qtpy:spatialaudio - Pull in bindings for the QtSpatialAudio module
@@ -3140,6 +3142,7 @@ games-emulation/ppsspp:discord - Enable interfacing with a locally running Disco
 games-emulation/rmg:angrylion-plugin - Enable the mupen64plus-video-angrylion-plus XMAME licensed plugin
 games-emulation/rmg:discord - Enable Discord RPC support
 games-emulation/rmg:dynarec - Enable the new dynarec for the mupen64plus-core plugin
+games-emulation/rmg:netplay - Enable Netplay
 games-emulation/rmg:rust-plugin - Enable the mupen64plus-input-gca rust plugin
 games-emulation/snes9x:libretro - Build libretro port
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
@@ -3700,6 +3703,7 @@ kde-plasma/plasma-workspace:policykit - Enable locale generation and Users KCM u
 kde-plasma/plasma-workspace:screencast - Enable screencast portal using kde-plasma/kpipewire
 kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for kde-plasma/systemsettings
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
+kde-plasma/plasma5support:activities - Enable kactivities support
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
 llvm-core/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
 llvm-core/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
