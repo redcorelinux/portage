@@ -7,7 +7,10 @@ inherit flag-o-matic libtool multilib-minimal
 
 DESCRIPTION="Free lossless audio encoder and decoder"
 HOMEPAGE="https://xiph.org/flac/"
-SRC_URI="https://downloads.xiph.org/releases/${PN}/${P}.tar.xz"
+SRC_URI="
+	https://github.com/xiph/flac/releases/download/${PV}/${P}.tar.xz
+	https://downloads.xiph.org/releases/${PN}/${P}.tar.xz
+"
 
 LICENSE="BSD FDL-1.2 GPL-2 LGPL-2.1"
 # <libFLAC SONAME>-<libFLAC++ SONAME>
@@ -57,7 +60,8 @@ multilib_src_configure() {
 		--with-ogg
 	)
 
-	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
+	# bash for https://github.com/xiph/flac/pull/803
+	CONFIG_SHELL="${BROOT}"/bin/bash ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_test() {
