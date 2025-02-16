@@ -365,7 +365,10 @@ src_install() {
 	use abi_x86_64 && emake DESTDIR="${D}" -C ../build64 install # do last
 
 	# "wine64" is no longer provided, but a keep symlink for old scripts
-	use abi_x86_64 && dosym wine ${WINE_PREFIX}/bin/wine64
+	# TODO: remove the guard later, only useful for bisecting -9999
+	if [[ ! -e ${ED}${WINE_PREFIX}/bin/wine64 ]]; then
+		use abi_x86_64 && dosym wine ${WINE_PREFIX}/bin/wine64
+	fi
 
 	use perl || rm "${ED}"${WINE_DATADIR}/man/man1/wine{dump,maker}.1 \
 		"${ED}"${WINE_PREFIX}/bin/{function_grep.pl,wine{dump,maker}} || die
