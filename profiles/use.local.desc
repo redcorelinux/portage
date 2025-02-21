@@ -559,6 +559,7 @@ app-emulation/fuse:backend-svga - Use svgalib rendering backend
 app-emulation/fuse:memlimit - Add compile-time memory usage limiting
 app-emulation/fuse-utils:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
 app-emulation/grub-xen-host:pvh - Build an additional grub bin for pvh.
+app-emulation/guestfs-tools:libvirt - Use app-emulation/libvirt to manipulate VMs
 app-emulation/hercules-sdl:object-rexx - Enable REXX support via Open Object Rexx (dev-lang/oorexx)
 app-emulation/hercules-sdl:regina-rexx - Enable REXX support via Regina Rexx (dev-lang/regina-rexx)
 app-emulation/libcacard:passthrough - Enable smartcard passthrough support via sys-apps/pcsc-lite
@@ -4605,6 +4606,7 @@ media-plugins/gst-plugins-vaapi:drm - Enable DRM renderer
 media-plugins/gst-plugins-vaapi:gles2 - Enable GLESv2 and GLESv3 support
 media-plugins/imlib2_loaders:xcf - Enable XCF image loader
 media-plugins/ir_lv2:tools - Build convert4chan tool
+media-plugins/live:tools - Build test tools
 media-plugins/mpg123-output-plugins:int-quality - Use rounding instead of fast truncation for integer output, where possible
 media-plugins/vdr-cdplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-plugins/vdr-dvbapi:dvbcsa - use media-libs/libdvbcsa free implementation of the DVB Common Scrambling Algorithm
