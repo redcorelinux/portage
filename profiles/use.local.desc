@@ -2540,7 +2540,6 @@ dev-python/qtpy:opengl - Pull in bindings for the QtOpenGL module
 dev-python/qtpy:pdfium - Pull in bindings for the QtPDFium module
 dev-python/qtpy:positioning - Pull in bindings for the QtPositioning module
 dev-python/qtpy:printsupport - Pull in bindings for the QtPrintSupport module
-dev-python/qtpy:pyqt5 - Use dev-python/pyqt5 as Qt for Python implementation
 dev-python/qtpy:pyqt6 - Use dev-python/pyqt6 as Qt for Python implementation
 dev-python/qtpy:pyside6 - Use dev-python/pyside as Qt for Python implementation
 dev-python/qtpy:qml - Build bindings for the QtQml
@@ -3975,6 +3974,7 @@ mail-mta/postfix:ldap-bind - Add support for binding to LDAP backend using dev-l
 mail-mta/postfix:lmdb - Add support for using dev-db/lmdb for lookup tables
 mail-mta/postfix:memcached - Add support for using net-misc/memcached for lookup tables
 mail-mta/postfix:mongodb - Add support for using dev-db/mongodb for lookup tables
+mail-mta/postfix:tlsrpt - Add support for TLSRPT protocol
 mail-mta/qpsmtpd:postfix - create user with permissions for proper postfix interaction
 mail-mta/ssmtp:mta - Install symlinks for sendmail-compatible MTA.
 mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment.
@@ -4651,6 +4651,11 @@ media-sound/alsa-utils:bat - install basic audio tester (BAT) util
 media-sound/alsa-utils:libsamplerate - install utils that use libsamplerate (e.g. alsaloop)
 media-sound/alsa-utils:ncurses - install utils that use ncurses (e.g. alsamixer)
 media-sound/alsaplayer:id3tag - Enables ID3 tagging with id3tag library
+media-sound/amarok:lastfm - Enable Last.fm streaming services support through media-libs/liblastfm
+media-sound/amarok:mariadb - Prefer dev-db/mariadb-connector-c over dev-db/mysql-connector-c
+media-sound/amarok:mtp - Enable support for libMTP (Plays4Sure) devices access through libmtp
+media-sound/amarok:podcast - Enable gpodder.net podcast support via media-libs/libmygpo-qt
+media-sound/amarok:webengine - Enable wikipedia widget using dev-qt/qtwebengine
 media-sound/amsynth:dssi - Enable support for DSSI Soft Synth Interface
 media-sound/amsynth:lv2 - Add support for Ladspa V2
 media-sound/amsynth:nsm - Build support for Non Session Manager
@@ -4964,7 +4969,6 @@ media-sound/xwax:fallback - Sets runtime dependencies to support decoding "other
 media-sound/xwax:mp3 - Sets runtime dependencies to support decoding MP3 audio.
 media-sound/xwax:oss - Adds support for OSS (open sound system) audio input/output.
 media-sound/yarock:mpv - Enable media-video/mpv backend
-media-sound/yarock:phonon - Enable media-libs/phonon backend
 media-sound/yarock:vlc - Enable media-video/vlc backend
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
 media-sound/zynaddsubfx:dssi - Enable support for DSSI Soft Synth Interface
@@ -9028,9 +9032,7 @@ x11-wm/mutter:sysprof - Enable profiling data capture support using dev-util/sys
 x11-wm/notion:xrandr - Add support for xrandr
 x11-wm/openbox:session - Enables support for session managers
 x11-wm/openbox:xdg - Install the python xdg files for xdg autostart
-x11-wm/pekwm:contrib - Install optional extras in the documentation directory
 x11-wm/pekwm:pango - Pango font support
-x11-wm/pekwm:themes - Install additional themes
 x11-wm/ratpoison:history - Use sys-libs/readline for history handling
 x11-wm/ratpoison:sloppy - Install sloppy, a focus-follows-mouse implementation for ratpoison
 x11-wm/ratpoison:xrandr - Enable support for XRandR
