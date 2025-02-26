@@ -22,6 +22,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.049-ar.patch
 	"${FILESDIR}"/${PN}-1.055-ar-part2.patch # https://github.com/fjcontrib/fjcontrib/issues/3
+	"${FILESDIR}"/${PN}-1.101-ldflags.patch
 )
 
 src_unpack() {
