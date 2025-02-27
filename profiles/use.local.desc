@@ -1235,6 +1235,7 @@ app-text/sdcv:darkterm - Improve readability of color output on terminals with d
 app-text/sigil:plugins - Installed needed Python packages for using Sigil plugins
 app-text/sigil:system-mathjax - Use the system-wide dev-libs/mathjax instead of bundled
 app-text/sword:clucene - Use dev-cpp/clucene for lucene search support
+app-text/sword:utils - CLI (diatheke) and conversion utilities for bible documents in SWORD supported formats
 app-text/tessdata_best:osd - Enable support orientation and script detection.
 app-text/tessdata_fast:osd - Enable support orientation and script detection.
 app-text/tessdata_legacy:math - Enable support for recognition of equations.
@@ -4750,6 +4751,10 @@ media-sound/fluidsynth:network - enable network support (requires BSD sockets)
 media-sound/fluidsynth:pipewire - enable media-video/pipewire support
 media-sound/gimmix:cover - Enable cover art fetching
 media-sound/gimmix:lyrics - Enable lyric fetching
+media-sound/gogglesmm:dca - Enable support for DTS Coherent Acoustics via media-libs/libdca
+media-sound/gogglesmm:sndio - Enable support for media-sound/sndio
+media-sound/gogglesmm:stream - Enable http(s) streaming
+media-sound/gogglesmm:tremor - Enable support for media-libs/tremor, a fixed-point version of the Ogg Vorbis decoder
 media-sound/guitarix:lv2 - Build lv2 plugins
 media-sound/guitarix:nsm - Build NSM (Non Session Manager) support
 media-sound/guitarix:standalone - Build standalone application
@@ -8456,7 +8461,7 @@ sys-libs/libseccomp:experimental-loong - Add experimental LoongArch patchset
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt implementations
-sys-libs/libxcrypt:headers-only - Build and install only the headers.
+sys-libs/libxcrypt:headers-only - Build and install only the headers. This is mostly useful for toolchain bootstrapping, to avoid circular deps.
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
 sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
 sys-libs/minizip-ng:openssl - Use dev-libs/openssl for further encryption capabilities
