@@ -4190,8 +4190,6 @@ media-gfx/netgen:logging - Enable logging through dev-libs/spdlog
 media-gfx/netgen:opencascade - Enable OpenCASCADE support
 media-gfx/nomacs:opencv - Build support for media-libs/opencv
 media-gfx/nomacs:plugins - Build officially support plugins
-media-gfx/okularpart:epub - Enable E-Book support via app-text/ebook-tools
-media-gfx/okularpart:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
 media-gfx/openclipart:gzip - Compresses clip art using gzip
 media-gfx/openscad:egl - Build using EGL instead of GLX
 media-gfx/openscad:experimental - Enable experimental features
@@ -4947,8 +4945,6 @@ media-sound/supercollider:gedit - Enable the SCED user interface
 media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
-media-sound/teamspeak-client:system-libcxx - Use llvm-runtimes/libcxx instead of shipped libs.
-media-sound/teamspeak-client:system-quazip - Use dev-libs/quazip instead of shipped libs.
 media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
 media-sound/vimpc:boost - Use boost instead of C++11 libraries
@@ -7049,6 +7045,7 @@ net-wireless/iwd:wired - Enable ethernet authentication daemon
 net-wireless/kismet:libusb - Support libusb based capture sources such as mousejack, cc2540(ble), and nrf51822(ble)
 net-wireless/kismet:mqtt - Enable MQTT support
 net-wireless/kismet:pcre - Build with pcre support
+net-wireless/kismet:protobuf - Support old protobuf message passing in case of remote capture sources which are not up to date.
 net-wireless/kismet:rtlsdr - Enable rtlsdr based kismet capture sources
 net-wireless/kismet:suid - Install a setuid root helper binary with limited functionality; this allows running kismet as a normal user, significantly reducing security risks
 net-wireless/kismet:ubertooth - Enable capture source for ubertooth to sniff bluetooth low energy
