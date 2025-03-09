@@ -33,6 +33,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2025-03-08)
+# EAPI=7. Broken CLI for packages.g.o.
+# Removal on 2025-04-07.
+app-portage/pgo
+
+# Anna (navi) Figueiredo Gomes <navi@vlhl.dev> (2025-03-08)
+# User services is merged and released in openrc-0.60, this fork
+# is now unmaintained and superseded.
+# Removal on 2025-04-08. Bug #950367
+sys-apps/openrc-navi
+
 # Sam James <sam@gentoo.org> (2025-03-07)
 # May cause emerge to hang (bug #950707). Tests hang on one machine
 # and another strange report upstream: https://github.com/pkgconf/pkgconf/issues/383.
@@ -274,12 +285,6 @@ games-fps/quakeforge
 # Suspicious subslot bump, causing humongous rebuilds.
 # https://bugs.gentoo.org/949414
 =dev-cpp/cpp-httplib-0.18.6
-
-# Mike Pagano <mpagano@gentoo.org> (2025-02-07)
-# Last release 3 years ago, no version compiles; ours or upstreams.
-# Ack from maintainer. Driver is available in the Linux Kernel
-# Removal on 2025-03-07. Bug: 949318
-net-misc/AQtion
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
 # Qt5 package without any revdeps. Use dev-qt/qttools[qdbus] instead.
