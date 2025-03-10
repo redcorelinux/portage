@@ -33,6 +33,16 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2025-03-09)
+# Breaks distutils.ccompiler with a lot of fallout. bug #950978 and
+# many others.
+=dev-python/setuptools-75.9.0
+=dev-python/setuptools-75.9.1
+=dev-python/setuptools-76.0.0
+=dev-python/ensurepip-setuptools-75.9.0
+=dev-python/ensurepip-setuptools-75.9.1
+=dev-python/ensurepip-setuptools-76.0.0
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-03-08)
 # EAPI=7. Broken CLI for packages.g.o.
 # Removal on 2025-04-07.
@@ -43,6 +53,18 @@ app-portage/pgo
 # is now unmaintained and superseded.
 # Removal on 2025-04-08. Bug #950367
 sys-apps/openrc-navi
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-07)
+# No more revdeps after kde-apps/knotes last-rites and Gear 24.08.3 cleanup.
+# Removal on 2025-03-31.
+kde-apps/akonadi-notes
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-07)
+# Downstream-split fallback package for KF5-based revdeps without any
+# revdeps left. Removal on 2025-03-31.
+kde-apps/kdesdk-thumbnailers-common
+media-libs/ksanecore-common
+net-misc/kio-zeroconf-common
 
 # Sam James <sam@gentoo.org> (2025-03-07)
 # May cause emerge to hang (bug #950707). Tests hang on one machine

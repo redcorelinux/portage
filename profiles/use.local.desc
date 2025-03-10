@@ -1061,6 +1061,7 @@ app-office/libreoffice:mariadb - Prefer mariadb connector over mysql connector
 app-office/libreoffice:odk - Build the Office Development Kit
 app-office/libreoffice:pdfimport - Enable PDF import via the Poppler library
 app-office/libreoffice:vulkan - Enable Vulkan usage via the skia library (clang recommended)
+app-office/libreoffice-bin:offlinehelp - Install help files locally instead of using the LibreOffice Wiki
 app-office/libreoffice-l10n:offlinehelp - Install help files locally instead of using the LibreOffice Wiki
 app-office/lyx:aspell - Add support for aspell spellchecking
 app-office/lyx:dia - Add support for diagrams (app-office/dia)
@@ -3437,6 +3438,7 @@ gnustep-base/gnustep-back-xlib:xim - Enable X11 XiM input method
 gnustep-base/gnustep-make:libobjc2 - Enables use of the GNUstep Objective-C runtime (gnustep-base/libobjc2) with non-fragile ABI and llvm-core/clang compiler
 gnustep-base/gnustep-make:native-exceptions - Enables use of the native Objective-C exception support (@try/@catch/@finally) built-in objective-c exceptions with compilers that support it
 gui-apps/foot:grapheme-clustering - Enable grapheme clustering support
+gui-apps/foot:utempter - Enable utmp support via sys-libs/libutempter
 gui-apps/grim:jpeg - Enable JPEG support.
 gui-apps/gtkgreet:layershell - Enable layer shell support
 gui-apps/kanshi:varlink - Enable remote control with varlink
@@ -7059,6 +7061,7 @@ net-wireless/kismet:wext - Enable building kismet with support for the deprecate
 net-wireless/libxtrxll:usb3380 - support xtrx usb model
 net-wireless/neard:tools - Build and install 'nfctool' for further NFC debugging
 net-wireless/rtl-sdr:zerocopy - may cause a bus error on some ARM systems
+net-wireless/rtl-sdr-blog:zerocopy - may cause a bus error on some ARM systems
 net-wireless/rtl_433:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
 net-wireless/rtl_433:soapysdr - Build with SoapySDR support
 net-wireless/soapysdr:bladerf - Add support for bladerf hardware
