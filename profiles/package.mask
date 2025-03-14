@@ -33,6 +33,15 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2025-03-13)
+# Causes build failures in reverse dependencies (bug #951062, bug #951120)
+=dev-util/spirv-headers-1.4.304.0-r1
+=dev-util/spirv-llvm-translator-15.0.10-r1
+=dev-util/spirv-llvm-translator-16.0.10-r1
+=dev-util/spirv-llvm-translator-17.0.10-r1
+=dev-util/spirv-llvm-translator-18.1.10-r1
+=dev-util/spirv-llvm-translator-19.1.5-r1
+
 # Sam James <sam@gentoo.org> (2025-03-09)
 # Obsolete in favour of dev-lang/ada-bootstrap. Using sys-devel/gcc[ada]
 # should now Just Work. Removal on 2025-04-10.
@@ -459,14 +468,9 @@ app-emulation/virtualbox-kvm
 
 # Alfredo Tupone <tupone@gentoo.org> (2024-06-09)
 # Not ready for testing
-dev-ml/sexplib0:0/0.17
 dev-ml/ocaml_intrinsics:0/0.17
-dev-ml/ocaml_intrinsics_kernel:0/0.17
-dev-ml/base:0/0.17
 dev-ml/fieldslib:0/0.17
 dev-ml/stdio:0/0.17
->=dev-ml/ocaml-compiler-libs-0.17
->=dev-ml/ppxlib-0.32.1
 dev-ml/ppx_cold:0/0.17
 dev-ml/ppxlib_jane
 dev-ml/ppx_compare:0/0.17
@@ -477,8 +481,6 @@ dev-ml/ppx_hash:0/0.17
 dev-ml/ppx_base:0/0.17
 dev-ml/ppx_fields_conv:0/0.17
 dev-ml/ppx_fixed_literal:0/0.17
-dev-ml/ppx_here:0/0.17
-dev-ml/ppx_let:0/0.17
 dev-ml/ppx_sexp_message:0/0.17
 dev-ml/ppx_sexp_value:0/0.17
 dev-ml/ppx_assert:0/0.17
@@ -533,7 +535,6 @@ dev-ml/textutils:0/0.17
 dev-ml/async:0/0.17
 >=dev-ml/labltk-8.06.14
 dev-ml/patience_diff:0/0.17
->=dev-ml/ppx_deriving-6.0.2
 dev-ml/ppx_js_style:0/0.17
 >=dev-ml/camlp4-5
 dev-ml/textutils_kernel:0/0.17
