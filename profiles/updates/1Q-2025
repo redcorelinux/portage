@@ -11,3 +11,16 @@ move sci-libs/safetensors sci-ml/safetensors
 move sci-libs/torchvision sci-ml/torchvision
 move sci-libs/pytorch sci-ml/pytorch
 move sci-libs/caffe2 sci-ml/caffe2
+move sci-libs/foxi sci-ml/foxi
+move sci-libs/gloo sci-ml/gloo
+move sci-libs/ideep sci-ml/ideep
+move sci-libs/jiwer sci-ml/jiwer
+move sci-libs/kineto sci-ml/kineto
+move sci-libs/NNPACK sci-ml/NNPACK
+move sci-libs/onnx sci-ml/onnx
+move sci-libs/seqeval sci-ml/seqeval
+move sci-libs/tensorpipe sci-ml/tensorpipe
+move sci-libs/XNNPACK sci-ml/XNNPACK
+move dev-libs/FBGEMM sci-ml/FBGEMM
+move dev-libs/FP16 sci-ml/FP16
+move dev-libs/oneDNN sci-ml/oneDNN
