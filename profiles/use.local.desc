@@ -1034,17 +1034,12 @@ app-office/calligra:lcms - Build colorengine plugins using media-libs/lcms
 app-office/calligra:okular - Enable bindings for kde-apps/okular
 app-office/calligra:phonon - Build stage/eventplugins and videoshape plugin using media-libs/phonon
 app-office/calligra:webengine - Enable Braindump support using dev-qt/qtwebengine
-app-office/calligraplan:activities - Enable kactivities support
-app-office/calligraplan:holidays - Enable kde-frameworks/kholidays integration
-app-office/calligraplan:kwallet - Enable access to encrypted OpenDocument files with kde-frameworks/kwallet storage
 app-office/glabels:barcode - Enable barcode support through external libraries.
 app-office/gnucash:aqbanking - Connect to some internet banks via AqBanking
 app-office/gnucash:quotes - Enable online stock quote retrieval
 app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
 app-office/gnumeric:perl - Enable perl plugin loader.
 app-office/grisbi:goffice - enable goffice graphic support
-app-office/kmymoney:activities - Enable kde-plasma/plasma-activities integration
-app-office/kmymoney:addressbook - Enable kde-apps/akonadi contact integration
 app-office/kmymoney:hbci - Enable HBCI support using net-libs/aqbanking
 app-office/kmymoney:holidays - Enable kde-frameworks/kholidays integration
 app-office/kmymoney:sql - Enable storage of financial data in SQL Db via dev-qt/qtsql
@@ -4100,6 +4095,8 @@ media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease
 media-gfx/blender:renderdoc - Build Blender with renderdoc support
 media-gfx/blender:tbb - Use threading building blocks library from dev-cpp/tbb.
 media-gfx/blender:vulkan - Add support for the experimental Vulkan viewport backend
+media-gfx/blender-bin:hip - Enable AMD HIP support (computation on GPU)
+media-gfx/blender-bin:oneapi - Enable Intel oneAPI SyCL support (computation on GPU)
 media-gfx/chafa:tools - Build command-line tools
 media-gfx/darktable:gamepad - Support using game controllers as input devices
 media-gfx/darktable:geolocation - Enable geotagging support
@@ -5098,8 +5095,6 @@ media-video/ffmpeg:lcms - Enable ICC profile support via media-libs/lcms
 media-video/ffmpeg:libaom - Enable AV1 de/encoding via media-libs/libaom (warning: this is the reference implementation and is slower than the alternatives)
 media-video/ffmpeg:libaribb24 - Enable ARIB text and caption decoding via media-libs/aribb24
 media-video/ffmpeg:libdrm - Enables x11-libs/libdrm support for better screen grabbing and hardware accelerated codecs.
-media-video/ffmpeg:libdvdnav - Uses media-libs/libdvdnav to enable DVD demuxing
-media-video/ffmpeg:libdvdread - Uses media-libs/libdvdread to enable DVD demuxing
 media-video/ffmpeg:libilbc - Enable internet Low Bitrate Codec de/encoding support via media-libs/libilbc
 media-video/ffmpeg:liblc3 - Enable Low Complexity Communication Codec de/encoding support via media-sound/liblc3
 media-video/ffmpeg:libplacebo - Enable use of GPU-accelerated filters from media-libs/libplacebo

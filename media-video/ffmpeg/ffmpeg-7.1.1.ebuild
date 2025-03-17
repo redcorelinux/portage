@@ -481,7 +481,7 @@ multilib_src_configure() {
 		--disable-libopencv # leaving for later due to circular opencv[ffmpeg]
 		--disable-librist # librist itself needs attention first (bug #822012)
 		--disable-libtensorflow # causes headaches, and is gone
-		--disable-libtorch # has not been looked at yet (bug #936127)
+		--disable-libtorch # support may need special attention (bug #936127)
 		--disable-mbedtls # messy with slots, tests underlinking issues
 		--disable-mmal # prefer USE=soc
 		--disable-omx # unsupported (bug #653386)
@@ -504,6 +504,12 @@ multilib_src_configure() {
 
 	# broken on x32 (bug #427004), and not PIC safe on x86 (bug #916067)
 	[[ ${ABI} == @(x32|x86) ]] && conf+=( --disable-asm )
+
+	# disable due to asm-related failures on ppc (bug #951464, ppc64be)
+	# https://trac.ffmpeg.org/ticket/9604 (ppc64el)
+	# https://trac.ffmpeg.org/ticket/10955 (ppc64el)
+	# (review re-enabling if resolved, or if debian allows it again)
+	use ppc || use ppc64 && conf+=( --disable-asm )
 
 	if tc-is-cross-compiler; then
 		conf+=(
