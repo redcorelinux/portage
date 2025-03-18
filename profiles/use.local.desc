@@ -3628,10 +3628,8 @@ kde-frameworks/kitemmodels:qml - Enable QML support via dev-qt/qtdeclarative
 kde-frameworks/kitemviews:designer - Build plugins for dev-qt/designer
 kde-frameworks/knewstuff:designer - Build plugins for dev-qt/designer
 kde-frameworks/knewstuff:opds - Enable support for the Open Publication Distribution System via kde-frameworks/syndication
-kde-frameworks/knotifications:phonon - Play notification sounds via media-libs/phonon instead of media-libs/libcanberra
 kde-frameworks/knotifications:qml - Enable QML support via dev-qt/qtdeclarative
 kde-frameworks/knotifications:speech - Enable text-to-speech notification support
-kde-frameworks/knotifyconfig:phonon - Play notification sounds via media-libs/phonon instead of media-libs/libcanberra
 kde-frameworks/kplotting:designer - Build plugins for dev-qt/designer
 kde-frameworks/ktexteditor:editorconfig - Enable support for EditorConfig configuration files
 kde-frameworks/ktextwidgets:designer - Build plugins for dev-qt/designer
@@ -7575,6 +7573,7 @@ sci-mathematics/boolector:cryptominisat - Enable support for sci-mathematics/cry
 sci-mathematics/boolector:minisat - Enable support for sci-mathematics/minisat
 sci-mathematics/boolector:picosat - Enable support for sci-mathematics/picosat
 sci-mathematics/cadabra:jupyter - Build the Cadabra Jupyter kernel
+sci-mathematics/coq:native-compiler - Enable "native_compute" and compile the Coq Standard Library
 sci-mathematics/cvc4:cln - Use sci-libs/cln
 sci-mathematics/cvc4:proofs - Support for proof generation
 sci-mathematics/cvc4:statistics - Include statistics
