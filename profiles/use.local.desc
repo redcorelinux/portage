@@ -1453,6 +1453,7 @@ dev-db/unixODBC:odbcmanual - Administrator, Internal Structure, Programmer and U
 dev-debug/bpftrace:lldb - Parse debug info usingllvm-core/lldb
 dev-debug/bpftrace:pcap - Enable skb_output using net-libs/libpcap
 dev-debug/dtrace:test-install - Install the testsuite for manual use. It is not suitable for automatic execution within the ebuild because it requires root privlieges.
+dev-debug/gdb:babeltrace - Enable dev-util/babeltrace support
 dev-debug/gdb:cet - Enable Intel Control-flow Enforcement Technology.
 dev-debug/gdb:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
 dev-debug/gdb:lzma - Support lzma compression in ELF debug info
@@ -7225,6 +7226,7 @@ sci-chemistry/gromacs:tng - Enable new trajectory format - tng
 sci-chemistry/molequeue:client - Build the client application
 sci-chemistry/molequeue:server - Build the serve application
 sci-chemistry/molequeue:zeromq - Build with net-libs/zeromq support
+sci-chemistry/molsketch:openbabel - Interface for sci-chemistry/openbabel to support many file formats
 sci-chemistry/openbabel:inchi - Build support for IUPAC International Chemical Identifier format
 sci-chemistry/openbabel:json - Build support for JSON formats (ChemDoodle, PubChem, etc...)
 sci-chemistry/pymol:web - Install Pymodule needed for web app support
@@ -7680,6 +7682,7 @@ sci-misc/h5utils:octave - Build Octave plugins
 sci-misc/nco:dap - Support for remote data access with the NETCDF DAP client
 sci-misc/nco:ncap2 - Build next generation netcdf arithmetic processor (needs dev-java/antlr)
 sci-misc/nco:udunits - Add sci-libs/udunits files support
+sci-ml/NNPACK:test-full - Run additional, quite slow tests
 sci-ml/XNNPACK:assembly - Build with assembly micro-kernels
 sci-ml/XNNPACK:jit - Build with JIT micro-kernels
 sci-ml/XNNPACK:memopt - Build with optimized memory allocation scheme
@@ -7767,6 +7770,7 @@ sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
 sci-physics/vgm:geant4 - Enable interaction with Geant4(sci-physics/geant:4)
 sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
+sci-physics/yoda:highfive - Build with sci-libs/HighFive and sci-libs/hdf5
 sci-physics/yoda:root - Adds support for sci-physics/root
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
 sci-visualization/gnuplot:amos - Enable Amos routines for complex Airy and Bessel functions (dev-libs/openspecfun)
@@ -8518,6 +8522,7 @@ sys-libs/libnbd:go - Build bindings for dev-lang/go
 sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:keyutils - Add support for sys-apps/keyutils
+sys-libs/libnvme:uring - uring support via sys-libs/liburing
 sys-libs/libnvme:uuid - UUID support via sys-apps/util-linux
 sys-libs/libseccomp:experimental-loong - Add experimental LoongArch patchset
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available

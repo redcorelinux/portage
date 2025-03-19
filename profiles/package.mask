@@ -33,6 +33,66 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2025-03-18)
+# Last release in 2019, no tests, no reverse dependencies.
+# Removal on 2025-04-17.  Bug #951540.
+dev-python/pysvg-py3
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# Unmaintained.  Last release in 2015, missing tests in sdist and not
+# tagged on GitHub.  Not marked for py3.13.  No reverse dependencies.
+# Removal on 2025-04-16.  Bug #951493.
+dev-python/simplebayes
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# Xfce 4.22 prereleases.  Masked because they tend to be quite unstable.
+>=xfce-base/libxfce4ui-4.21
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# A "forever beta" wrapper over dev-python/requests, with no tests,
+# and dead for 9 years already.  Finally, no reverse dependencies left.
+# Removal on 2025-04-16.  Bug #951492.
+dev-python/ssl-fetch
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# The package was broken from day one, assigned to python@ team
+# and the actual maintainer has ignored the bug report from day one.
+# No reverse dependencies.
+# Removal on 2025-04-16.  Bug #942776.
+dev-python/django-bootstrap5
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# Fragile package with no reverse dependencies.  Currently broken with
+# all dev-python/beartype versions in Gentoo.
+# Removal on 2025-04-16.  Bug #951491.
+dev-python/spdx-tools
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# Last release in 2021, aimed at Python 3.9.  Test suite is broken with
+# Python 3.13.  No reverse dependencies.
+# Removal on 2025-04-16.  Bug #951490.
+dev-python/bitvector
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# sys-cluster/pacemaker is not really maintained in Gentoo.  It is
+# multiple versions behind, does not support Python 3.11 and has a bunch
+# of other problems reported.  sys-cluster/crmsh is its only
+# unconditional dependency.
+# Removal on 2025-04-16.  Bug #897290.
+sys-cluster/crmsh
+sys-cluster/pacemaker
+
+# Michał Górny <mgorny@gentoo.org> (2025-03-17)
+# The package has not been touched by the author since it's re-import
+# in 2022.  It uses legacy distutils-r1 build and still requires Python
+# 3.10.  It has no reverse dependencies.
+# Removal on 2025-04-16.  Bug #897196.
+sci-chemistry/ParmEd
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-17)
+# Database migration issues on upgrade, bug #951486
+>=app-office/kmymoney-5.1.92
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-03-15)
 # EAPI=7, uses deprecated Go eclasses. Isn't maintained in Gentoo
 # since 2019, with awaiting version bump (upstream is still active).
@@ -206,12 +266,6 @@ dev-python/zstd
 dev-python/shiboken6
 dev-python/pyside6-tools
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-02-18)
-# Depends on deprecated Qt5WebEngine, no response from maintainers.
-# Download source appears gone; bugs #926675, #880649, #870256.
-# Removal on 2025-03-18.
-sci-electronics/eagle
-
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2025-02-16)
 # Discontinued, please use xournal++ instead.
 # Removal on 2025-03-16. Bug 948200.
@@ -348,32 +402,6 @@ dev-qt/qtwebview:5
 # [2] https://bugs.gentoo.org/942031#c7
 # [3] https://wiki.gentoo.org/wiki/Nouveau
 x11-drivers/nvidia-drivers:0/470
-
-# Michael Orlitzky <mjo@gentoo.org> (2024-11-13)
-# PHP 8.1.x no longer receives bug fixes unless they address security
-# issues. That means no build fixes, no updates for modern compilers,
-# and no tweaks for newer versions of dependencies. We can't really
-# afford to maintain our own little fork of this, so it's time to
-# upgrade (sorry). With it goes any unmaintained PECL packages
-# that don't support 8.2 or newer.
-dev-lang/php:8.1
-dev-php/pecl-dbase
-dev-php/pecl-gnupg
-dev-php/pecl-lzf
-dev-php/pecl-mcrypt
-dev-php/pecl-memcache
-dev-php/pecl-oauth
-dev-php/pecl-pam
-dev-php/pecl-ps
-dev-php/pecl-psr
-dev-php/pecl-timezonedb
-dev-php/pecl-translit
-dev-php/pecl-zmq
-dev-php/realpath_turbo
-dev-php/snuffleupagus
-dev-php/swoole
-=virtual/httpd-php-8.1
-<www-apps/icingaweb2-2.12.1-r1
 
 # Matt Jolly <kangie@gentoo.org> (2024-11-09)
 # The legacy Rust ebuilds are no longer maintained and have been

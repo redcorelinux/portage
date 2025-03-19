@@ -17,7 +17,7 @@ S="${WORKDIR}"/${PN}-${CommitId}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="doc test"
 
 DEPEND="
@@ -55,8 +55,6 @@ src_prepare() {
 	# Bug #855668
 	filter-lto
 
-	rm test/RowWiseSparseAdagradFusedTest.cc || die
-	rm test/SparseAdagradTest.cc || die
 	sed -i \
 		-e "/-Werror/d" \
 		CMakeLists.txt \
