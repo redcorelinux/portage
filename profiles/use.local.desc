@@ -311,7 +311,6 @@ app-backup/tsm:tsm-hw - Difference snapshot support for NetApp and N-Series file
 app-backup/tsm:vmware - Install vmware data protection support
 app-benchmarks/filebench:auto-completion - Enable command-line autocompletion using dev-libs/libtecla
 app-benchmarks/httperf:idleconn - Build with the idleconn program
-app-benchmarks/ioping:netdata - Add support for netdata
 app-benchmarks/ramspeed:pic - Force shared libraries to be built as PIC (this is slower)
 app-benchmarks/stress-ng:keyutils - Stress test the kernel's key generation facilities via sys-apps/keyutils
 app-benchmarks/sysbench:aio - Add support for AIO.
@@ -1430,6 +1429,7 @@ dev-db/postgis:address-standardizer - Normalize US and CA postal addresses
 dev-db/postgis:gtk - Build graphical interface for shp2pgsql (shp2pgsql-gui)
 dev-db/postgis:topology - Build topology spatial types and functions
 dev-db/postgresql:llvm - Add support for llvm JIT engine
+dev-db/postgresql:oauth - Enable OAuth2 authentication support
 dev-db/postgresql:server - Disable to build and install the clients and libraries only.
 dev-db/postgresql:uuid - Enable server side UUID generation (via dev-libs/ossp-uuid).
 dev-db/psqlodbc:iodbc - Use dev-db/libiodbc. Disable to use dev-db/unixODBC.
