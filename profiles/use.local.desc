@@ -1431,6 +1431,7 @@ dev-db/postgis:topology - Build topology spatial types and functions
 dev-db/postgresql:llvm - Add support for llvm JIT engine
 dev-db/postgresql:oauth - Enable OAuth2 authentication support
 dev-db/postgresql:server - Disable to build and install the clients and libraries only.
+dev-db/postgresql:uring - Build with support for sys-libs/liburing AIO backend
 dev-db/postgresql:uuid - Enable server side UUID generation (via dev-libs/ossp-uuid).
 dev-db/psqlodbc:iodbc - Use dev-db/libiodbc. Disable to use dev-db/unixODBC.
 dev-db/recutils:curl - Enable support for remote descriptors using net-misc/curl
@@ -1854,7 +1855,6 @@ dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
 dev-lang/php:bcmath - Enable the BCMath Arbitrary Precision Mathematics extension
 dev-lang/php:capstone - Support opcache JIT disassembly through dev-libs/capstone
 dev-lang/php:cli - Enable the Command-Line Interface (CLI) SAPI
-dev-lang/php:coverage - Include gcov symbols for test coverage and lcov reports. Only useful for extension developers, and requires GCC.
 dev-lang/php:ctype - Enable the Character type checking (ctype) extension
 dev-lang/php:embed - Enable embed SAPI
 dev-lang/php:enchant - Enable the Enchant spelling library extension using app-text/enchant
@@ -3783,7 +3783,6 @@ lxqt-base/lxqt-meta:desktop-portal - Enable the LXQt sys-apps/xdg-desktop-portal
 lxqt-base/lxqt-meta:display-manager - Install a graphical display manager
 lxqt-base/lxqt-meta:filemanager - Install x11-misc/pcmanfm-qt file manager
 lxqt-base/lxqt-meta:lximage - Install media-gfx/lximage-qt image viewer
-lxqt-base/lxqt-meta:minimal - Do not install x11-wm/openbox window manager
 lxqt-base/lxqt-meta:nls - Install dev-qt/qttranslations to better support different locales
 lxqt-base/lxqt-meta:powermanagement - Install lxqt-base/lxqt-powermanagement package
 lxqt-base/lxqt-meta:processviewer - Install x11-misc/qps package
@@ -5689,7 +5688,6 @@ net-dns/dnsdist:ipcipher - Enable support for ipcipher via dev-libs/openssl
 net-dns/dnsdist:lmdb - Enable support for lmdb
 net-dns/dnsdist:quic - Enable support for dns over quic via net-libs/quiche
 net-dns/dnsdist:regex - Enable support for regular expression matching via dev-libs/re2
-net-dns/dnsdist:remote-logging - Enable support for remote logging via dev-libs/protobuf
 net-dns/dnsdist:ssl - Enable support for and encrypted client-server communication via dev-libs/libsodium
 net-dns/dnsdist:web - Enable support for the web UI
 net-dns/dnsdist:xdp - Enable support for AF_XDP high performance packet processing
@@ -8521,7 +8519,6 @@ sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcap:tools - Install captree, which requires dev-lang/go
 sys-libs/libnbd:fuse - Install the sys-fs/fuse powered nbdfuse.
 sys-libs/libnbd:go - Build bindings for dev-lang/go
-sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:keyutils - Add support for sys-apps/keyutils
 sys-libs/libnvme:uring - uring support via sys-libs/liburing
@@ -8625,7 +8622,6 @@ www-apache/mod_musicindex:archive - Add archive support
 www-apache/mod_musicindex:cache - Add File cache support
 www-apache/mod_musicindex:mysql - Add MySQL cache support
 www-apache/mod_nss:ecc - enable Elliptical Curve Cyptography
-www-apache/mod_perl:ithreads - Build for use with thread-capable perl, needs same setting as in dev-lang/perl
 www-apache/mod_security:fuzzyhash - Support fuzzy hash computations (to detect malware, for example) using the app-crypt/ssdeep package.
 www-apache/mod_security:geoip - Pull in dev-libs/geoip for use by the SecGeoLookupDb directive.
 www-apache/mod_security:jit - Add support for the PCRE Just-in-Time optimisation, as enabled by dev-libs/libpcre with jit USE flag enabled. Might not be available on hardened systems.
@@ -9039,7 +9035,6 @@ x11-themes/arc-theme:gtk2 - Install GTK+2 theme
 x11-themes/arc-theme:gtk3 - Install GTK+3 theme
 x11-themes/arc-theme:gtk4 - Install GTK+4 theme
 x11-themes/arc-theme:mate - Install Metacity theme for mate-base/mate
-x11-themes/arc-theme:pre-rendered - Avoid media-gfx/inkscape and media-gfx/optipng dependencies by using pre-rendered PNGs
 x11-themes/arc-theme:transparency - Enable transparency
 x11-themes/arc-theme:xfce - Install theme for xfce-base/xfwm4
 x11-themes/comix-xcursors:lefthanded - Install lefthanded version of theme in addition to default one.
