@@ -115,6 +115,7 @@ app-admin/rsyslog:dbi - Build the general database output module (requires dev-d
 app-admin/rsyslog:elasticsearch - Build the Elasticsearch output module (requires net-misc/curl)
 app-admin/rsyslog:gcrypt - Add support for encrypted log files using dev-libs/libgcrypt
 app-admin/rsyslog:gnutls - Build the GnuTLS network stream driver (requires net-libs/gnutls)
+app-admin/rsyslog:imdocker - Build the docker input module (requires net-misc/curl)
 app-admin/rsyslog:imhttp - Build the http input module (requires www-servers/civetweb)
 app-admin/rsyslog:impcap - Build the pcap input module (requires net-libs/libpcap)
 app-admin/rsyslog:kafka - Build the Apache Kafka input/output module (requires dev-libs/librdkafka)
@@ -698,7 +699,6 @@ app-emulation/virtualbox-kvm:udev - Controls installation of special USB udev ru
 app-emulation/virtualbox-kvm:vboxwebsrv - Build and install the VirtualBox webservice
 app-emulation/virtualbox-kvm:vde - Support for VDE networking via net-misc/vde
 app-emulation/virtualbox-kvm:vmmraw - Enable 32-bit support on a 64-bit kernel.
-app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using dev-util/spirv-tools
 app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vkd3d-proton
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
@@ -980,6 +980,7 @@ app-misc/recoll:webengine - Use dev-qt/qtwebengine for fancy result list display
 app-misc/rlwrap:debug - Enable debug
 app-misc/screen:multiuser - Enable multiuser support (by setting correct permissions)
 app-misc/screen:nethack - Express error messages in nethack style
+app-misc/screen:utempter - Enable support for sys-libs/libutempter
 app-misc/sphinx:id64 - use 64-bit document and word IDs
 app-misc/sphinx:mariadb - Add mariadb database support
 app-misc/sphinx:stemmer - Enable language stemming support
@@ -3848,7 +3849,7 @@ mail-client/mutt:autocrypt - Enable autocrypt.org support
 mail-client/mutt:berkdb - Enable sys-libs/db database backend for header caching
 mail-client/mutt:gdbm - Enable sys-libs/gdbm database backend for header caching
 mail-client/mutt:gpgme - Build gpgme backend to support S/MIME, PGP/MIME and traditional/inline PGP
-mail-client/mutt:gsasl - Use GNU SASL via virtual/gsasl instead of Cyrus SASL (requires USE=sasl)
+mail-client/mutt:gsasl - Use GNU SASL via net-misc/gsasl instead of Cyrus SASL (requires USE=sasl)
 mail-client/mutt:hcache - Enable header cache, one database backend needs to be enabled
 mail-client/mutt:lmdb - Enable dev-db/lmdb database backend for header caching
 mail-client/mutt:pgp-classic - Build classic_pgp backend to support PGP/MIME and traditional/inline PGP
@@ -6707,7 +6708,6 @@ net-misc/tigervnc:drm - Build with DRM support
 net-misc/tigervnc:java - Build TigerVNC Java viewer
 net-misc/tigervnc:server - Build TigerVNC server
 net-misc/tigervnc:viewer - Build TigerVNC viewer
-net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-misc/turbovnc:dri3 - Build with DRI3 support
 net-misc/turbovnc:server - Build the server (vncserver, Xvnc)
 net-misc/turbovnc:viewer - Build the viewer (vncviewer)
@@ -6779,7 +6779,6 @@ net-p2p/bitcoin-core:gui - Build and install Bitcoin-Qt GUI
 net-p2p/bitcoin-core:nat-pmp - Enable NAT-PMP port forwarding
 net-p2p/bitcoin-core:qrcode - Enable generation of QR Codes for receiving payments
 net-p2p/bitcoin-core:sqlite - Support descriptor wallets in SQLite format
-net-p2p/bitcoin-core:system-leveldb - Link with virtual/bitcoin-leveldb rather than embedding an internal copy
 net-p2p/bitcoin-core:system-libsecp256k1 - Link with dev-libs/libsecp256k1 rather than embedding an internal copy
 net-p2p/bitcoin-core:systemtap - Enable SystemTap/DTrace tracing
 net-p2p/bitcoin-core:test-full - Run tests that take a long time
@@ -7728,10 +7727,10 @@ sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics
 sci-physics/pythia:mpich - Support mpich
 sci-physics/pythia:rivet - Support sci-physics/rivet
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
-sci-physics/rivet:hepmc2 - Build with HepMC2
-sci-physics/rivet:hepmc3 - Build with HepMC3
-sci-physics/rivet:highfive - Build with hdf5 and highfive
-sci-physics/rivet:zlib - Build with zlib
+sci-physics/rivet:hepmc2 - Build with sci-physics/hepmc version 2
+sci-physics/rivet:hepmc3 - Build with sci-physics/hepmc version 3
+sci-physics/rivet:highfive - Build with sci-libs/HighFive and sci-libs/hdf5
+sci-physics/rivet:zlib - Build with sys-libs/zlib
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
 sci-physics/root:cudnn - Enable support for nVidia cuDNN library
