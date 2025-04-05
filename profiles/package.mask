@@ -33,9 +33,35 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2025-04-04)
+# Temporary mask until handled the usage of shorter SLOT.
+# Bugs #953127, #953103.
+dev-lang/rust:1.86
+dev-lang/rust-bin:1.86
+
+# Matt Turner <mattst88@gentoo.org> (2025-04-04)
+# Package is dead (last release in 1999).
+# Not relevant today: purpose is to not overload a very slow system with
+# multiple X11 clients starting at the same time. SRC_URI is long dead.
+# Removal on 2025-05-04.  Bug #953120.
+x11-misc/xtoolwait
+
+# Matt Turner <mattst88@gentoo.org> (2025-04-04)
+# Package is dead and has a pile of patches to make it compile.
+# SRC_URI is long gone. Many alternative image viewers.
+# Removal on 2025-05-04.  Bug #953119.
+media-gfx/xloadimage
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-02)
+# Depends on Qt5WebEngine, and upstream seem to be having a hard time
+# porting to Qt6 with an unknown ETA likely well beyond the time we want
+# to keep dev-qt/qtwebengine:5 in ::gentoo.
+# Removal on 2025-04-30. Bug #926666
+media-video/jellyfin-media-player
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-04-02)
 # No release since 2021, no commit in 3 years, depends on Qt5WebEngine.
-# Use app-text/uchmviewer instead. Bug #823008
+# Use app-text/uchmviewer instead. Removal on 2025-04-30. Bug #823008
 app-text/kchmviewer
 
 # Ionen Wolkens <ionen@gentoo.org> (2025-04-02)
@@ -146,6 +172,8 @@ net-im/yowsup
 =app-emulation/virtualbox-7.1.6a
 =app-emulation/virtualbox-extpack-oracle-7.1.6
 =app-emulation/virtualbox-additions-7.1.6
+=app-emulation/virtualbox-modules-7.1.6
+=app-emulation/virtualbox-guest-additions-7.1.6-r1
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-03-25)
 # Package destabilisation mask after prolongued time w/o maintainer.
