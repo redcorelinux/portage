@@ -1435,6 +1435,7 @@ dev-db/postgis:address-standardizer - Normalize US and CA postal addresses
 dev-db/postgis:gtk - Build graphical interface for shp2pgsql (shp2pgsql-gui)
 dev-db/postgis:topology - Build topology spatial types and functions
 dev-db/postgresql:llvm - Add support for llvm JIT engine
+dev-db/postgresql:numa - Add support for NUMA
 dev-db/postgresql:oauth - Enable OAuth2 authentication support
 dev-db/postgresql:server - Disable to build and install the clients and libraries only.
 dev-db/postgresql:uring - Build with support for sys-libs/liburing AIO backend
@@ -6726,7 +6727,6 @@ net-misc/wget:metalink - Enable support for media-libs/libmetalink
 net-misc/wget:ntlm - Enable support for NTLM (Windows-based) authorization
 net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using libuuid; otherwise use a simple RNG (random number generator)
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
-net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
 net-misc/whois:xcrypt - Enable crypt through sys-libs/libxcrypt package
 net-misc/x2goserver:fuse - Use net-fs/sshfs to allow shared folders
