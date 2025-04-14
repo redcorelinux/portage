@@ -5967,7 +5967,6 @@ net-im/gajim:jingle - Audio and video calls
 net-im/gajim:remote - Controling Gajim instance from command line with gajim-remote
 net-im/gajim:rst - Generating XHTML output from RST code
 net-im/gajim:spell - Spellchecking of composed messages
-net-im/gajim:upnp - Ability to request your router to forward port for file transfer
 net-im/gajim:voice - Support for video calls, audio calls and voice messages
 net-im/gajim:webp - Support WebP avatars
 net-im/libcommuni:qml - Install optional qml files.
@@ -8760,7 +8759,6 @@ www-client/seamonkey:chatzilla - Build Mozilla's IRC client (default on)
 www-client/seamonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 www-client/seamonkey:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
 www-client/seamonkey:ipc - Use inter-process communication between tabs and plugins. Allows for greater stability in case of plugin crashes
-www-client/seamonkey:lto - Enable Link Time Optimization (LTO). Requires Gold linker
 www-client/seamonkey:system-av1 - Use the system-wide media-libs/dav1d and media-libs/libaom library instead of bundled
 www-client/seamonkey:system-harfbuzz - Use the system-wide media-libs/harfbuzz instead of bundled
 www-client/seamonkey:system-icu - Use the sytem-wide dev-libs/icu instead of bundled
@@ -8946,7 +8944,6 @@ x11-misc/mugshot:libreoffice - Add support for app-office/libreoffice and app-of
 x11-misc/mugshot:webcam - Add support for setting a profile photo in media-video/cheese
 x11-misc/openbox-menu:icons - Enable support for icons in menus
 x11-misc/openbox-menu:svg - Support SVG icons
-x11-misc/picom:config-file - Enable config file support
 x11-misc/picom:doc - Build documentation and man pages (requires app-text/asciidoc)
 x11-misc/picom:drm - Enable support for using drm for vsync
 x11-misc/picom:opengl - Enable features that require opengl (opengl backend, and opengl vsync methods)
@@ -9119,6 +9116,7 @@ x11-wm/musca:xlisten - Optionally install the xlisten utility
 x11-wm/mutter:elogind - Rely on sys-auth/elogind as logind provider for Wayland sessions
 x11-wm/mutter:libdisplay - Enable EDID and DisplayID using media-libs/libdisplay-info
 x11-wm/mutter:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
+x11-wm/mutter:xwayland - Enable X11 application support in Wayland sessions
 x11-wm/notion:xrandr - Add support for xrandr
 x11-wm/openbox:session - Enables support for session managers
 x11-wm/openbox:xdg - Install the python xdg files for xdg autostart
