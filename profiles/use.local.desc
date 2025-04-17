@@ -1460,6 +1460,7 @@ dev-db/unixODBC:minimal - Disable bundled drivers and extra libraries (most user
 dev-db/unixODBC:odbcmanual - Administrator, Internal Structure, Programmer and User documentation
 dev-debug/bpftrace:lldb - Parse debug info usingllvm-core/lldb
 dev-debug/bpftrace:pcap - Enable skb_output using net-libs/libpcap
+dev-debug/drgn:debuginfod - Enable debuginfod support
 dev-debug/dtrace:test-install - Install the testsuite for manual use. It is not suitable for automatic execution within the ebuild because it requires root privlieges.
 dev-debug/gdb:babeltrace - Enable dev-util/babeltrace support
 dev-debug/gdb:cet - Enable Intel Control-flow Enforcement Technology.
@@ -3085,7 +3086,6 @@ games-board/pasang-emas:extras - Install some extra themes
 games-board/pioneers:help - Enable gnome ingame help via scrollkeeper
 games-board/pysolfc:extra-cardsets - Install extra cardsets
 games-board/pysolfc:sound - Enable sound support using dev-python/pygame
-games-board/scid:photos - Install collection of player photos (large)
 games-board/scid:scripts - Install additional python and tcl utility scripts
 games-board/stockfish:general-32 - Generic unoptimized 32-bits build
 games-board/stockfish:general-64 - Generic unoptimized 64-bits build
