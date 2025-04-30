@@ -4,7 +4,8 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=no
+DISTUTILS_EXT=1
 
 inherit distutils-r1 toolchain-funcs
 
@@ -14,7 +15,7 @@ SRC_URI="https://downloads.sourceforge.net/project/pysvn/pysvn/V${PV}/${P}.tar.g
 
 LICENSE="Apache-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="amd64 ~arm ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="doc examples"
 
 DEPEND="

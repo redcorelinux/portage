@@ -135,7 +135,6 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	sysv-utils? (
 		!sys-apps/openrc[sysv-utils(-)]
-		!sys-apps/openrc-navi[sysv-utils(-)]
 		!sys-apps/sysvinit
 	)
 	!sysv-utils? ( sys-apps/sysvinit )
@@ -296,6 +295,7 @@ src_configure() {
 multilib_src_configure() {
 	local myconf=(
 		--localstatedir="${EPREFIX}/var"
+		-Ddocdir="share/doc/${PF}"
 		# default is developer, bug 918671
 		-Dmode=release
 		-Dsupport-url="https://gentoo.org/support/"
@@ -402,9 +402,6 @@ multilib_src_test() {
 }
 
 multilib_src_install_all() {
-	# meson doesn't know about docdir
-	mv "${ED}"/usr/share/doc/{systemd,${PF}} || die
-
 	einstalldocs
 	dodoc "${FILESDIR}"/nsswitch.conf
 

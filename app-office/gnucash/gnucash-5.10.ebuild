@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 GUILE_REQ_USE="regex"
 GUILE_COMPAT=( 2-2 3-0 )
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake flag-o-matic gnome2-utils guile-single python-single-r1
 
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/Gnucash/gnucash/releases/download/${PV}/${P}.tar.bz2
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres python quotes smartcard sqlite test"
 # Tests were previously restricted because guile would try to use installed,
 # not just-built modules. See https://bugs.gnucash.org/show_bug.cgi?id=799159#c1.
@@ -119,6 +119,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.0-webkit2gtk-4.1.patch"
 	"${FILESDIR}/${P}-import-qif.patch"
 	"${FILESDIR}/${PN}-5.8-guile-load-path.patch"
+	"${FILESDIR}/${P}-swig-4.3.patch"
 )
 
 pkg_setup() {

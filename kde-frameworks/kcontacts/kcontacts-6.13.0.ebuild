@@ -10,7 +10,7 @@ inherit ecm frameworks.kde.org
 DESCRIPTION="Address book API based on KDE Frameworks"
 
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 RDEPEND="
@@ -26,6 +26,6 @@ DEPEND="${RDEPEND}"
 CMAKE_SKIP_TESTS=(
 	# bug #566648 (access to /dev/dri/card0 denied)
 	kcontacts-picturetest
-	# bugs #712798, 838502 (again some Qt translations loading related err...)
-	kcontacts-{address,phonenumber}test
+	# bugs #712798, 838502, 953969 (again some Qt translations loading related err...)
+	kcontacts-{address{,format},phonenumber}test
 )

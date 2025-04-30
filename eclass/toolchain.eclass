@@ -1191,7 +1191,25 @@ toolchain_src_configure() {
 
 	local flag
 	for flag in $(all-flag-vars) ; do
-		einfo "${flag}=\"${!flag}\""
+		[[ -n ${!flag} ]] && einfo "${flag}=\"${!flag}\""
+
+		local stage_flag="STAGE1_${flag}"
+		[[ -n ${!stage_flag} ]] && einfo "${stage_flag}=\"${!stage_flag}\""
+
+		stage_flag="STAGE2_${flag}"
+		[[ -n ${!stage_flag} ]] && einfo "${stage_flag}=\"${!stage_flag}\""
+
+		stage_flag="STAGE3_${flag}"
+		[[ -n ${!stage_flag} ]] && einfo "${stage_flag}=\"${!stage_flag}\""
+
+		local boot_flag="BOOT_${flag}"
+		[[ -n ${!boot_flag} ]] && einfo "${boot_flag}=\"${!boot_flag}\""
+
+		local target_flag="${flag}_FOR_TARGET"
+		[[ -n ${!target_flag} ]] && einfo "${target_flag}=\"${!target_flag}\""
+
+		local build_flag="${flag}_FOR_BUILD"
+		[[ -n ${!build_flag} ]] && einfo "${build_flag}=\"${!build_flag}\""
 	done
 
 	local confgcc=( --host=${CHOST} )
@@ -1834,7 +1852,7 @@ toolchain_src_configure() {
 	fi
 
 	if [[ ${CTARGET} != *-darwin* ]] && tc_version_is_at_least 14.1 ; then
-		# This allows passing -stdlib-=libc++ at runtime.
+		# This allows passing -stdlib=libc++ at runtime.
 		confgcc+=( --with-gxx-libcxx-include-dir="${ESYSROOT}"/usr/include/c++/v1 )
 	fi
 
@@ -1842,7 +1860,7 @@ toolchain_src_configure() {
 	if [[ ${PV} == *_p* && -f "${S}"/gcc/doc/gcc.info ]] ; then
 		# Safeguard against https://gcc.gnu.org/PR106899 being fixed
 		# without corresponding ebuild changes.
-		eqawarn "Snapshot release with pre-generated info pages found!"
+		eqawarn "QA Notice: Snapshot release with pre-generated info pages found!"
 		eqawarn "The BDEPEND in the ebuild should be updated to drop texinfo."
 	fi
 
@@ -1915,7 +1933,6 @@ toolchain_src_configure() {
 			--disable-systemtap
 
 			--enable-host-shared
-			--enable-languages=jit
 
 			# Might be used for the just-built GCC. Easier to just
 			# respect USE=graphite here in case the user passes some
@@ -1923,6 +1940,12 @@ toolchain_src_configure() {
 			$(use_with graphite isl)
 			--with-system-zlib
 		)
+
+		if is_jit ; then
+			confgcc_jit+=( --enable-languages=jit )
+		else
+			confgcc_jit+=( --enable-languages=c,c++ )
+		fi
 
 		if tc_has_feature zstd ; then
 			confgcc_jit+=( $(use_with zstd) )
@@ -2309,15 +2332,19 @@ gcc_do_make() {
 		# to keep this bound somewhat fresh just to avoid problems. Ultimately,
 		# using not-O0 is just a build-time speed improvement anyway.
 		if ! tc-is-gcc || ver_test $(gcc-fullversion) -lt 10 ; then
+			einfo "Resetting STAGE1_*FLAGS to -O0 because of old or non-GCC bootstrap compiler"
 			STAGE1_CFLAGS="-O0"
 			STAGE1_CXXFLAGS="-O0"
+			STAGE1_GDCFLAGS="-O0"
 		# We have a very good host compiler but it may be a bit too good, and
 		# know about flags that the version we are compiling does not know
 		# about. In principle we could check e.g. which gnat1 we are using as
 		# a bootstrap. It's simpler to do it unconditionally for now.
-		elif _tc_use_if_iuse ada || _tc_use_if_iuse d; then
+		elif _tc_use_if_iuse ada || _tc_use_if_iuse d ; then
+			einfo "Resetting STAGE1_*FLAGS to -O2 for Ada/D bootstrapping"
 			STAGE1_CFLAGS="-O2"
 			STAGE1_CXXFLAGS="-O2"
+			STAGE1_GDCFLAGS="-O2"
 		fi
 
 		# We only want to use the system's CFLAGS if not building a
@@ -2338,6 +2365,7 @@ gcc_do_make() {
 			# matter there. If we want to go in the other direction
 			# and make this more conditional, we could check if
 			# the bootstrap compiler is < GCC 12. See bug #940470.
+			einfo "Adding -U_GLIBCXX_ASSERTIONS workaround to STAGE1_CXXFLAGS for D/hardened"
 			STAGE1_CXXFLAGS+=" -U_GLIBCXX_ASSERTIONS"
 		fi
 
