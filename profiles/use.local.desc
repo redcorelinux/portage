@@ -1320,7 +1320,6 @@ dev-ada/langkit-contrib:static-pic - Build static library with pic code
 dev-ada/libadalang:static-pic - Build static library with pic code
 dev-ada/libadalang-tools:shared - Build shared library
 dev-ada/libadalang-tools:static-pic - Build static library with pic code
-dev-ada/libgpr:shared - Build shared library
 dev-ada/libgpr:static-pic - Build static library with pic code
 dev-ada/prettier-ada:shared - Build shared library
 dev-ada/prettier-ada:static-pic - Build static library with pic code
@@ -1776,7 +1775,6 @@ dev-java/openjfx:source - Install JavaFX sources
 dev-java/pdfbox:tools - Build and install pdfbox-tools
 dev-java/protobuf-java:system-protoc - Use protoc provided by dev-libs/protobuf
 dev-java/qdox:ant-task - Build the ant-task
-dev-java/rxtx:lfd - Installs and uses LockFileServer daemon (lfd)
 dev-java/saxon:ant-task - BUILD and register the ant-task
 dev-java/sbt:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
 dev-lang/R:libdeflate - Use app-arch/libdeflate rather than sys-libs/zlib for lazy-loaded R objects.
@@ -3629,6 +3627,7 @@ kde-frameworks/kplotting:designer - Build plugins for dev-qt/designer
 kde-frameworks/ktexteditor:editorconfig - Enable support for EditorConfig configuration files
 kde-frameworks/ktextwidgets:designer - Build plugins for dev-qt/designer
 kde-frameworks/kwallet:gpg - Support wallets with GnuPG encryption in addition to the default blowfish-encrypted file
+kde-frameworks/kwallet:minimal - Pull in required runtime components for KWallet via kde-frameworks/kwallet
 kde-frameworks/kwidgetsaddons:designer - Build plugins for dev-qt/designer
 kde-frameworks/kxmlgui:designer - Build plugins for dev-qt/designer
 kde-frameworks/networkmanager-qt:teamd - Enable Teamd control support
@@ -4316,6 +4315,7 @@ media-libs/imlib2:packing - Enable structure packing. This will reduce memory fo
 media-libs/imlib2:shm - Use MIT shared memory support for X image transfer
 media-libs/imlib2:text - Build text (TrueType font) functions
 media-libs/imlib2:tools - Build and install the demo tools
+media-libs/imlib2:y4m - Y4M image loader support
 media-libs/imlib2:zlib - Zlib loader support
 media-libs/intel-mediasdk:tools - Build analyse and inspect tools
 media-libs/jasper:heif - Enable experimental support for HEIF/HEIC, unsupported by upstream
@@ -7629,7 +7629,6 @@ sci-mathematics/petsc:int64 - Use 64 bit indexes
 sci-mathematics/petsc:metis - Add support for metis (sci-libs/parmetis)
 sci-mathematics/petsc:mumps - Add support for mumps (sci-libs/mumps)
 sci-mathematics/petsc:scotch - Add support for scotch (sci-libs/scotch)
-sci-mathematics/petsc:sparse - Use suitesparse (sci-libs/suitesparse) including cholmod (sci-libs/cholmod) for sparse factorization
 sci-mathematics/petsc:superlu - Use superlu (sci-libs/superlu) for preconditioning
 sci-mathematics/polymake:bliss - Enable sci-libs/bliss interface for graph and face lattice isomorphism computations.
 sci-mathematics/polymake:cdd - Enable sci-libs/cddlib interface for convex hull computations (Should be kept enabled).
