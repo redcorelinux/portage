@@ -11,7 +11,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit edo flag-o-matic multiprocessing python-r1 toolchain-funcs multilib-minimal
+inherit dot-a edo flag-o-matic multiprocessing python-r1 toolchain-funcs multilib-minimal
 
 MY_PV="$(ver_rs 1- _)"
 
@@ -22,7 +22,7 @@ S="${WORKDIR}/${PN}_${MY_PV}"
 
 LICENSE="Boost-1.0"
 SLOT="0/${PV}"
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="bzip2 +context debug doc icu lzma +nls mpi numpy python +stacktrace test test-full tools zlib zstd"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -139,6 +139,14 @@ ejam() {
 }
 
 src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/943975
+	# https://github.com/boostorg/quickbook/issues/27
+	# https://github.com/boostorg/spirit/issues/800
+	use tools && filter-lto
+
+	lto-guarantee-fat
+
 	# Workaround for too many parallel processes requested, bug #506064
 	[[ "$(makeopts_jobs)" -gt 64 ]] && MAKEOPTS="${MAKEOPTS} -j64"
 
@@ -466,6 +474,8 @@ multilib_src_install_all() {
 
 		dosym ../../../../include/boost /usr/share/doc/${PF}/html/boost
 	fi
+
+	strip-lto-bytecode
 }
 
 pkg_preinst() {
