@@ -215,7 +215,7 @@
 # This is an optimization that can avoid the overhead of calling into
 # the build system in pure Python packages and packages using the stable
 # Python ABI.
-: ${DISTUTILS_ALLOW_WHEEL_REUSE=1}
+: "${DISTUTILS_ALLOW_WHEEL_REUSE=1}"
 
 # @ECLASS_VARIABLE: BUILD_DIR
 # @OUTPUT_VARIABLE
@@ -2030,7 +2030,10 @@ _distutils-r1_post_python_compile() {
 		ln -s "${PYTHON}" "${bindir}/${EPYTHON}" || die
 		ln -s "${EPYTHON}" "${bindir}/python3" || die
 		ln -s "${EPYTHON}" "${bindir}/python" || die
+		# python3.14t seems to require "home" being present
+		# (though it does not seem to care about the actual value)
 		cat > "${bindir}"/pyvenv.cfg <<-EOF || die
+			home = ${EPREFIX}/usr/bin
 			include-system-site-packages = true
 		EOF
 
