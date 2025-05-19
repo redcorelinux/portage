@@ -212,6 +212,8 @@ app-alternatives/gzip:pigz - Symlink to app-arch/pigz.
 app-alternatives/gzip:reference - Symlink to app-arch/gzip.
 app-alternatives/lex:flex - Symlink to sys-devel/flex.
 app-alternatives/lex:reflex - Symlink to sys-devel/reflex.
+app-alternatives/lzip:plzip - Symlink to app-arch/plzip.
+app-alternatives/lzip:reference - Symlink to app-arch/lzip.
 app-alternatives/ninja:reference - Symlink to dev-build/ninja.
 app-alternatives/ninja:samurai - Symlink to dev-build/samurai.
 app-alternatives/sh:bash - Symlink to app-shells/bash
@@ -3427,6 +3429,7 @@ gnustep-apps/sogo:sodium - Enable support for Argon2 password schemes using dev-
 gnustep-base/gnustep-back-art:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-cairo:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-xlib:xim - Enable X11 XiM input method
+gnustep-base/gnustep-base:libdispatch - Dispatch blocks via dev-libs/libdispatch
 gnustep-base/gnustep-make:libobjc2 - Enables use of the GNUstep Objective-C runtime (gnustep-base/libobjc2) with non-fragile ABI and llvm-core/clang compiler
 gnustep-base/gnustep-make:native-exceptions - Enables use of the native Objective-C exception support (@try/@catch/@finally) built-in objective-c exceptions with compilers that support it
 gui-apps/foot:grapheme-clustering - Enable grapheme clustering support
