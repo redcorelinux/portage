@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-20)
+# Unaddressed pending version bumps for almost 2 years, stuck on EAPI-7.
+# Bugs #908094, #908095, #908096, #908097, #908427, #908428
+# Removal on 2025-06-19.
+dev-libs/aws-c-cal
+dev-libs/aws-checksums
+dev-libs/aws-c-common
+dev-libs/aws-c-event-stream
+dev-libs/aws-c-io
+dev-libs/s2n
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-19)
 # Dead upstream (last commit >4 years ago), not ported to Qt6 and broken w/
 # CMake 4. Bugs #955134, #955135. Removal on 2025-06-18.
@@ -355,6 +366,7 @@ net-im/yowsup
 >=xfce-base/thunar-4.21
 >=xfce-base/tumbler-4.21
 >=xfce-base/xfce4-appfinder-4.21
+>=xfce-base/xfce4-dev-tools-4.21
 >=xfce-base/xfce4-panel-4.21
 >=xfce-base/xfce4-power-manager-4.21
 >=xfce-base/xfce4-session-4.21
