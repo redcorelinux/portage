@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1
 
@@ -26,13 +26,18 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="PSF-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~x86"
 
 DEPEND="
 	sys-libs/zlib-ng:=
 "
 RDEPEND="
 	${DEPEND}
+"
+BDEPEND="
+	test? (
+		dev-python/test[${PYTHON_USEDEP}]
+	)
 "
 
 EPYTEST_XDIST=1
