@@ -337,10 +337,11 @@ acct-user_pkg_preinst() {
 		return
 	fi
 
+	local groups=( ${_ACCT_USER_GROUPS} )
+
 	if egetent passwd "${ACCT_USER_NAME}" >/dev/null; then
 		elog "User ${ACCT_USER_NAME} already exists"
 	else
-		local groups=( ${_ACCT_USER_GROUPS} )
 		local aux_groups=${groups[*]:1}
 		local opts=(
 			--system
@@ -379,8 +380,15 @@ acct-user_pkg_preinst() {
 				group=${_ACCT_USER_HOME_OWNER#*:}
 			fi
 			local euid= egid=
-			[[ -z ${user} ]] || euid=$(egetent passwd "${user}" | cut -d: -f3)
-			[[ -z ${group} ]] || egid=$(egetent group "${group}" | cut -d: -f3)
+			if [[ -n ${user} ]]; then
+				euid=$(egetent passwd "${user}" | cut -d: -f3)
+				if [[ -z ${group} ]]; then
+					egid=$(egetent passwd "${user}" | cut -d: -f4)
+				fi
+			fi
+			if [[ -n ${group} ]]; then
+				egid=$(egetent group "${group}" | cut -d: -f3)
+			fi
 			_ACCT_USER_HOME_OWNER=${euid}:${egid}
 		elif [[ -z ${_ACCT_USER_HOME_OWNER} ]]; then
 			_ACCT_USER_HOME_OWNER=${user}:${group}
