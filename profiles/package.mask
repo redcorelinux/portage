@@ -36,6 +36,20 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2025-05-26)
+# Need to fix suffix
+x11-libs/wxGTK:3.2-gtk3/3.2
+
+# Sam James <sam@gentoo.org> (2025-05-26)
+# Breaks some reverse dependencies and is abandoned upstream (bug #956630).
+=dev-cpp/glog-0.7.1
+
+# Nowa Ammerlaan <nowa@gentoo.org> (2025-05-25)
+# Archived upstream and no longer builds with modern compilers.
+# Bugs #956601, #930253
+# Removal on 2025-06-24
+media-libs/oneVPL-cpu
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-24)
 # Dead upstream, fails to build with GCC-14, depends on media-libs/dumb.
 # A rescue mission would ideally package dsda-doom. Bugs #939219, #908973
@@ -291,16 +305,6 @@ dev-python/pypy3
 # Removal on 2025-05-22.  Bug #954213.
 dev-python/unittest-or-fail
 
-# Hans de Graaff <graaff@gentoo.org> (2025-04-21)
-# ruby32-only slot. Use the newer slot instead.
-# Masked for removal on 2025-05-21.
-dev-ruby/highline:2
-
-# Hans de Graaff <graaff@gentoo.org> (2025-04-20)
-# ruby32-only slot. Use the newer slot instead.
-# Masked for removal on 2025-05-20.
-dev-ruby/activeldap:6
-
 # Michał Górny <mgorny@gentoo.org> (2025-04-19)
 # This package will no longer feature stable keywords, due to unresolved
 # test failures blocking the stabilization request for months.
@@ -311,9 +315,6 @@ dev-ruby/activeldap:6
 # receive security updates. This mask also includes any
 # remaining ruby31-only packages.
 dev-lang/ruby:3.1
-dev-ruby/async:1
-dev-ruby/pathutil
-=app-admin/puppet-7*
 
 # Conrad Kostecki <conikost@gentoo.org> (2025-04-18)
 # Package not needed anymore by the only consumer net-dns/hash-slinger.
