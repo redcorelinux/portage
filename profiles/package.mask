@@ -328,12 +328,6 @@ dev-python/unittest-or-fail
 # test failures blocking the stabilization request for months.
 <dev-python/mpi4py-4
 
-# Hans de Graaff <graaff@gentoo.org> (2025-04-19)
-# Ruby 3.1 is no longer supported upstream and will no longer
-# receive security updates. This mask also includes any
-# remaining ruby31-only packages.
-dev-lang/ruby:3.1
-
 # Conrad Kostecki <conikost@gentoo.org> (2025-04-18)
 # Package not needed anymore by the only consumer net-dns/hash-slinger.
 # Masked for removal on 2025-05-18. Bug #952341
@@ -746,7 +740,10 @@ media-plugins/kodi-game-libretro-dosbox
 # Masked for more testing especially of reverse-deps.
 # ogre 1.11/1.12 breakage: bug #834468
 # ogre 2.x breakage: bug #740424
->=dev-games/ogre-1.11.2
+dev-games/ogre:0/1.12
+dev-games/ogre:0/2.1
+dev-games/ogre:0/13.6
+dev-games/ogre:0/14.3
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2018-09-11)
 # Mask transition ebuilds that were needed only for <glibc-2.26
