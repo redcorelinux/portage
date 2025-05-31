@@ -267,6 +267,7 @@ app-arch/p7zip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii f
 app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/rar:all-sfx - Install all SFX (Self-Extracting) files rather than just the native format (allows creation of Windows EXEs on Linux ELF systems)
 app-arch/rpm:sequoia - Use app-crypt/rpm-sequoia instead of the deprecated internal parser
+app-arch/sasquatch:deprecated - Enable deprecated LZMA1 support
 app-arch/tar:minimal - just install `tar`
 app-arch/unzip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
 app-arch/wimlib:fuse - Use fuse libraries
@@ -2906,7 +2907,6 @@ dev-util/hip:video_cards_nvidia - Build for Nvidia platform
 dev-util/idea-community:experimental - Enables Wayland support preview.
 dev-util/intel-graphics-compiler:vc - Enable VectorCompiler for a better performance.
 dev-util/intel-graphics-system-controller:cli - Build CLI tools for flashing manually a firmware upgrade.
-dev-util/kcov:binutils - Use sys-libs/binutils-libs for `--verify` support
 dev-util/kdevelop:gdbui - Enable GUI for attaching GDB to a running process
 dev-util/kdevelop:qmake - Enable support for QMake build system
 dev-util/kdevelop:share - Enable support for patch sharing using kde-frameworks/purpose
@@ -3636,7 +3636,6 @@ kde-frameworks/kfilemetadata:epub - Enable support for reading EPUB ebook metada
 kde-frameworks/kfilemetadata:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
 kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/designer
 kde-frameworks/kimageformats:eps - Support the EPS graphics file format
-kde-frameworks/kinit:caps - Capabilities support for improved security and better OOM handling
 kde-frameworks/kio:designer - Build plugins for dev-qt/designer
 kde-frameworks/kio:kwallet - Enable permanent storage of passwords for kpasswdserver with kde-frameworks/kwallet
 kde-frameworks/kitemmodels:qml - Enable QML support via dev-qt/qtdeclarative
@@ -5121,7 +5120,6 @@ media-video/aravis:viewer - Build the GTK+-based video viewer.
 media-video/bluray_info:mpv - Build bluray_player, powered by media-video/mpv
 media-video/droidcam:gtk - Build the dev-cpp/gtkmm:3.0 client.
 media-video/dvd_info:libmpv - Build DVD player using libmpv
-media-video/ffdiaporama:openclipart - Support openclipart database
 media-video/ffmpeg:amf - Enable AMD's Advanced Media Framework support via media-video/amdgpu-pro-amf
 media-video/ffmpeg:amr - Enable Adaptive Multi-Rate Audio support via media-libs/opencore-amr
 media-video/ffmpeg:amrenc - Enable Adaptive Multi-Rate Audio encoding support via media-libs/vo-amrwbenc
@@ -7458,6 +7456,7 @@ sci-libs/libqalculate:hardened - Disable unsafe functions like 'command' and var
 sci-libs/libsc:romio - Build with support for the ROMIO MPI-IO component
 sci-libs/libsemigroups:eigen - Use dev-cpp/eigen (at build time only) to speed up some matrix operations.
 sci-libs/libsigrok:ftdi - Enable drivers that need dev-embedded/libftdi
+sci-libs/libsigrok:gpib - Enable drivers that need sci-libs/linux-gpib
 sci-libs/libsigrok:hidapi - Enable drivers that need dev-libs/hidapi
 sci-libs/libsigrok:nettle - Enable drivers that need dev-libs/nettle
 sci-libs/libsigrok:parport - Enable drivers that are parallel (IEEE1284) based
