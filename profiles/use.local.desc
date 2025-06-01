@@ -195,6 +195,8 @@ app-admin/ulogd:nflog - Build NFLOG input plugin to support stateless packet-bas
 app-admin/ulogd:pcap - Build PCAP output plugin to save packets in libpcap file format
 app-admin/ulogd:ulog - Build ULOG input plugin to support deprecated packet-based logging via ULOG target
 app-admin/vault:webui - Enable the Web UI
+app-admin/vaultwarden:cli - Install client with the Command-Line Interface
+app-admin/vaultwarden:web - Install client with Web UI
 app-admin/webalizer:xtended - Include the 404 extension
 app-admin/webapp-config:portage - Propagate python_targets dependencies to sys-apps/portage
 app-alternatives/awk:busybox - Symlink to sys-apps/busybox
@@ -1001,6 +1003,7 @@ app-misc/unfoo:minimal - Do not install all support archive binaries
 app-misc/vcontrold:vclient - Build the vclient helper program to talk to vcontrold
 app-misc/vcontrold:vsim - Build the vsim helper program (simulates the heating's answers, for development and debugging)
 app-misc/vifm:extended-keys - Support for extended keys (arrows, home etc)
+app-misc/vifm:glib - Use dev-libs/glib:2 to determine mimetypes
 app-misc/vifm:gtk - Use gtk+ to determine mimetypes
 app-misc/vifm:vim - Install the vifm vim plugin and vim-compatible documentation
 app-misc/worker:avfs - Enable support for sys-fs/avfs
@@ -2400,7 +2403,6 @@ dev-python/frozenlist:native-extensions - Compile native C extensions (speedups,
 dev-python/google-api-core:grpc - Pull (heavy) gRPC dependencies in, that are optionally required by part of the API.
 dev-python/httpx:cli - Install the CLI "httpx" client.
 dev-python/hypothesis:cli - Install a CLI tool used to write tests.
-dev-python/icalendar:doc - Generate examples and other extra documentation
 dev-python/immutables:native-extensions - Compiles native "C" extensions (speedups, instead of using Python fallback code).
 dev-python/ipython:nbconvert - Enable support for converting notebooks to various formats using app-text/pandoc
 dev-python/ipython:notebook - Install requirements for the web notebook based on dev-python/tornado
