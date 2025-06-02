@@ -40,6 +40,7 @@ RDEPEND="
 	>=dev-python/yarl-1.17.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	>=dev-python/multidict-4.5.0[${PYTHON_USEDEP}]
 	native-extensions? (
 		>=dev-python/cython-3.1.1[${PYTHON_USEDEP}]
 		dev-python/pkgconfig[${PYTHON_USEDEP}]
@@ -96,7 +97,7 @@ python_configure() {
 python_compile() {
 	local -x AIOHTTP_USE_SYSTEM_DEPS=1
 	# implicitly disabled for pypy3
-	if ! use native-extensions; then
+	if [[ ${EPYTHON} == pypy3* ]] || ! use native-extensions; then
 		local -x AIOHTTP_NO_EXTENSIONS=1
 	fi
 
