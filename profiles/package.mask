@@ -36,6 +36,25 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2025-06-03)
+# Fetching from GitHub seems broken with this:
+# > Connecting to github.com|20.26.156.215|:443... connected.
+# > ERROR: cannot verify github.com's certificate, issued by 'CN=Sectigo ECC Domain Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB':
+# >  Unable to locally verify the issuer's authority.
+=app-misc/ca-certificates-20250419.3.112
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-06-02)
+# Package destabilisation mask. There is simply no need for this without
+# any stable consumers, and it is freeing up resources.
+# 0.6.0_pre20241020 is available in ~arch.
+~sci-libs/libsigrok-0.5.2
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-06-02)
+# Gui depends on Qt5 and is unmaintained for a very long time - its main
+# developers have moved to the InputLeap project (gui-apps/input-leap).
+# Bugs #942580, #949911, #951987, #953262; removal on 2025-07-02.
+x11-misc/barrier
+
 # Michael Orlitzky <mjo@gentoo.org> (2025-05-28)
 # I added this for SageMath, but in hindsight do not think anyone is
 # using it. It has code issues and upstream is not terribly interested
@@ -226,58 +245,10 @@ dev-libs/libxml2-compat
 =dev-python/ensurepip-setuptools-80.3.0
 =dev-python/setuptools-80.3.0
 
-# Michał Górny <mgorny@gentoo.org> (2025-05-03)
-# Not actively maintained in ::gentoo.  Last bumped a year ago.
-# Still on EAPI 7, no Python 3.13 support, does not work with new
-# dev-lang/swig.  Lots of bugs open.
-# Removal on 2025-06-02.  Bug #950475, #952653.
-sci-chemistry/modeller
-
-# Marc Schiffbauer <mschiff@gentoo.org> (2025-05-02)
-# Ancient version in tree, upstream discontinued to develop
-# a server for taskwarrior a long time ago
-# Bugs: #953857, #716762; removal on 2025-06-01
-acct-group/taskd
-acct-user/taskd
-app-misc/taskd
-
-# Matt Jolly <kangie@gentoo.org> (2025-04-28)
-# Unmaintained in Gentoo, depends on masked x11-wm/fvwm,
-# SRC_URI uses mirror://gentoo and the files don't exist on mirrors.
-# Bug #949035; Removal on 2025-05-28 (with x11-wm/fvwm)
-x11-themes/fvwm_icons
-x11-themes/fvwm_sounds
-
-# Matt Jolly <kangie@gentoo.org> (2025-04-28)
-# Unmaintained in Gentoo, is not supported upstream,
-# and has a modern successor that does not bring in additional dependencies.
-# Migrate to x11-wm/fvwm3: https://github.com/fvwmorg/fvwm3/discussions/878
-# Bug #949035; removal on 2025-05-28.
-x11-wm/fvwm
-x11-themes/fvwm-themes
-x11-themes/fvwm-themes-extra
-=x11-themes/fvwm-crystal-3.7.5
-
-# Michał Górny <mgorny@gentoo.org> (2025-04-22)
-# Metapackage used for pypy3 target in the past.
-# Removal on 2025-05-22.
-dev-python/pypy3
-
-# Michał Górny <mgorny@gentoo.org> (2025-04-22)
-# This package was only really necessary for packages without
-# Python 3.12+ support, and the eclass no longer uses it.
-# Removal on 2025-05-22.  Bug #954213.
-dev-python/unittest-or-fail
-
 # Michał Górny <mgorny@gentoo.org> (2025-04-19)
 # This package will no longer feature stable keywords, due to unresolved
 # test failures blocking the stabilization request for months.
 <dev-python/mpi4py-4
-
-# Conrad Kostecki <conikost@gentoo.org> (2025-04-18)
-# Package not needed anymore by the only consumer net-dns/hash-slinger.
-# Masked for removal on 2025-05-18. Bug #952341
-dev-python/ipaddr
 
 # Ionen Wolkens <ionen@gentoo.org> (2025-04-02)
 # Masked for testing the new .0 version and leave time for packages
@@ -414,7 +385,7 @@ net-im/yowsup
 =dev-cpp/cpp-httplib-0.18.6
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
-# Qt5 tools without any revdeps.
+# Qt5 tools without any revdeps. Removal on 2025-06-10.
 dev-qt/assistant
 dev-qt/linguist
 dev-qt/pixeltool
