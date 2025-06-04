@@ -37,6 +37,13 @@
 #--- END OF EXAMPLES ---
 
 # Sam James <sam@gentoo.org> (2025-06-03)
+# Major changes to packaging as bindings are split out by upstream.
+>=app-crypt/gpgme-2
+dev-cpp/gpgmepp
+dev-libs/qgpgme
+dev-python/gpgmepy
+
+# Sam James <sam@gentoo.org> (2025-06-03)
 # Fetching from GitHub seems broken with this:
 # > Connecting to github.com|20.26.156.215|:443... connected.
 # > ERROR: cannot verify github.com's certificate, issued by 'CN=Sectigo ECC Domain Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB':
@@ -250,47 +257,6 @@ dev-libs/libxml2-compat
 # test failures blocking the stabilization request for months.
 <dev-python/mpi4py-4
 
-# Ionen Wolkens <ionen@gentoo.org> (2025-04-02)
-# Masked for testing the new .0 version and leave time for packages
-# to catch up on support if needed. May or may keep masked until 6.9.1
-# depending on issues. If wanted, feel free to add `dev-qt/*:6/6.9.0`
-# to package.unmask and report issues.
-=dev-python/pyqt6-6.9*
-=dev-python/pyqt6-webengine-6.9*
-=dev-python/pyside-6.9.0*
-=dev-qt/qt-docs-6.9.0*
-=dev-qt/qt3d-6.9.0*
-=dev-qt/qt5compat-6.9.0*
-=dev-qt/qtbase-6.9.0*
-=dev-qt/qtcharts-6.9.0*
-=dev-qt/qtconnectivity-6.9.0*
-=dev-qt/qtdeclarative-6.9.0*
-=dev-qt/qthttpserver-6.9.0*
-=dev-qt/qtimageformats-6.9.0*
-=dev-qt/qtlanguageserver-6.9.0*
-=dev-qt/qtlocation-6.9.0*
-=dev-qt/qtmultimedia-6.9.0*
-=dev-qt/qtnetworkauth-6.9.0*
-=dev-qt/qtpositioning-6.9.0*
-=dev-qt/qtquick3d-6.9.0*
-=dev-qt/qtquicktimeline-6.9.0*
-=dev-qt/qtremoteobjects-6.9.0*
-=dev-qt/qtscxml-6.9.0*
-=dev-qt/qtsensors-6.9.0*
-=dev-qt/qtserialbus-6.9.0*
-=dev-qt/qtserialport-6.9.0*
-=dev-qt/qtshadertools-6.9.0*
-=dev-qt/qtspeech-6.9.0*
-=dev-qt/qtsvg-6.9.0*
-=dev-qt/qttools-6.9.0*
-=dev-qt/qttranslations-6.9.0*
-=dev-qt/qtvirtualkeyboard-6.9.0*
-=dev-qt/qtwayland-6.9.0*
-=dev-qt/qtwebchannel-6.9.0*
-=dev-qt/qtwebengine-6.9.0*
-=dev-qt/qtwebsockets-6.9.0*
-=dev-qt/qtwebview-6.9.0*
-
 # Norbert Norbiros <norbiros@protonmail.com> (2025-04-01)
 # Screen v5.0.0 has a lot of regressions
 # https://lists.gnu.org/archive/html/screen-devel/2024-10/msg00007.html
@@ -303,10 +269,6 @@ dev-libs/libxml2-compat
 # Bug #952588 #952589
 net-im/transwhat
 net-im/yowsup
-
-# Sam James <sam@gentoo.org> (2025-03-27)
-# Large-scale breakage (bug #951350).
-=dev-build/cmake-4*
 
 # Michał Górny <mgorny@gentoo.org> (2025-03-17)
 # Xfce 4.22 prereleases.  Masked because they tend to be quite unstable.
