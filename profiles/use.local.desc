@@ -689,9 +689,7 @@ app-emulation/virt-viewer:vnc - Support connecting to VNC-enabled virtual machin
 app-emulation/virt-viewer:vte - Enable terminal support (x11-libs/vte) in the GTK+ interface
 app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
 app-emulation/virtualbox:dtrace - Install dtrace Extension Pack.
-app-emulation/virtualbox:headless - Build without any graphic frontend.
 app-emulation/virtualbox:lvm - Build VBoxVolInfo that needs devicemapper from sys-fs/lvm2.
-app-emulation/virtualbox:pax-kernel - Apply patch needed for pax enabled kernels.
 app-emulation/virtualbox:sdk - Enable building of SDK.
 app-emulation/virtualbox:udev - Controls installation of special USB udev rules.
 app-emulation/virtualbox:vboxwebsrv - Build and install the VirtualBox webservice.
@@ -2212,6 +2210,7 @@ dev-libs/pocl:float-conversion - When enabled, OpenCL printf() call's f/e/g form
 dev-libs/pocl:hardening - Enable hardening against various attacks. May worsen performance
 dev-libs/pocl:hwloc - Enable hwloc support
 dev-libs/pocl:memmanager - Enables custom memory manager. Except for special circumstances, this should be disabled
+dev-libs/pocl:spirv - Build SPIR-V support
 dev-libs/poco:7z - Add Support for the 7z archive format
 dev-libs/poco:activerecord - Add ActiveRecord support
 dev-libs/poco:avahi - Add Support for avahi DNS-SD (zeroconf)
