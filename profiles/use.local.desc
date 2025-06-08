@@ -2986,7 +2986,6 @@ dev-vcs/fossil:tcl-private-stubs - Enable Tcl integration via private stubs mech
 dev-vcs/fossil:tcl-stubs - Enable Tcl integration via stubs library mechanism
 dev-vcs/fossil:th1-docs - Enable TH1 for embedded documentation pages
 dev-vcs/fossil:th1-hooks - Enable TH1 hooks for commands and web pages
-dev-vcs/git:blksha1 - Use the new optimized SHA1 implementation
 dev-vcs/git:cgi - Install gitweb too
 dev-vcs/git:curl - Support fetching and pushing (requires webdav too) over http:// and https:// protocols
 dev-vcs/git:gpg - Pull in gnupg for signing -- without gnupg, attempts at signing will fail at runtime!
@@ -3262,6 +3261,7 @@ games-mud/tf:gmcp - enable GMCP support.
 games-mud/tf:option102 - enable telnet option 102 support.
 games-puzzle/braid-gog:launcher - Install FLTK-based launcher that you probably don't need
 games-puzzle/braid-hb:launcher - Install FLTK-based launcher that you probably don't need
+games-puzzle/enigma:non-free - Install the non-free Pentagonal Dreams menu music track
 games-puzzle/gnome-tetravex:cli - Build the gnome-tetravex-cli command-line interface
 games-puzzle/gnome-tetravex:gui - Build the gnome-tetravex graphical Gtk user interface
 games-puzzle/nightsky:bundled-libs - Use the upstream provided bundled libraries.
@@ -3741,6 +3741,7 @@ llvm-core/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) su
 llvm-core/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
 llvm-core/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 llvm-core/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
+llvm-core/flang:clang - Force building using installed clang (rather than the default CC/CXX). This is the default since building Flang specifically with GCC requires lots of memory for now.
 llvm-core/libclc:spirv - Build SPIRV targets
 llvm-core/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 llvm-core/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
@@ -5346,7 +5347,7 @@ media-video/pipewire:liblc3 - Allow loading LC3 plugins via media-sound/liblc3
 media-video/pipewire:loudness - Enable loudness normalisation according to the EBU R128 standard using media-libs/libebur128
 media-video/pipewire:lv2 - Allow loading LV2 plugins via media-libs/lv2
 media-video/pipewire:modemmanager - Combined with USE=bluetooth, allows PipeWire to perform telephony on mobile devices.
-media-video/pipewire:pipewire-alsa - Replace PulseAudio's ALSA plugin with PipeWire's plugin
+media-video/pipewire:pipewire-alsa - Install ALSA plugin, similar to media-plugins/alsa-plugins's USE=pulseaudio.
 media-video/pipewire:roc - Enable roc support for real-time audio streaming over the network, using media-libs/roc-toolkit. See https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Network#roc
 media-video/pipewire:sound-server - Provide sound server using ALSA and bluetooth devices
 media-video/pipewire:ssl - Enable raop-sink support (needs dev-libs/openssl)
