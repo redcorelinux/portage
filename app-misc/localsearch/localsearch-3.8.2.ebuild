@@ -17,10 +17,6 @@ IUSE="cue exif ffmpeg gif gsf +gstreamer iptc +iso +jpeg networkmanager +pdf +pl
 REQUIRED_USE="cue? ( gstreamer )" # cue is currently only supported via gstreamer, not ffmpeg
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	"${FILESDIR}/Disable-the-examples-test-suite.patch"
-)
-
 # tracker-2.1.7 currently always depends on ICU (theoretically could be libunistring instead);
 # so choose ICU over enca always here for the time being (ICU is preferred)
 RDEPEND="
@@ -86,6 +82,11 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/localsearch-3.8.2-ontologies.patch"
+	"${FILESDIR}/localsearch-3.8.2-ffmpeg-7.patch"
+)
+
 python_check_deps() {
 	python_has_version -b \
 		"dev-python/pygobject[${PYTHON_USEDEP}]" \
@@ -136,6 +137,11 @@ src_configure() {
 		-Dps=true
 		-Dtext=true
 		-Dunzip_ps_gz_files=true # spawns gunzip
+		# Broken with our library layout for libstdc++ (bug #957705)
+		# Once https://gitlab.gnome.org/GNOME/localsearch/-/issues/368 is fixed,
+		# we should add a USE flag for it but likely give it the same treatment
+		# as seccomp (i.e. package.use.force).
+		-Dlandlock=disabled
 
 		$(meson_feature networkmanager network_manager)
 		$(meson_feature cue)
@@ -167,7 +173,7 @@ src_configure() {
 src_test() {
 	export GSETTINGS_BACKEND="dconf" # Tests require dconf and explicitly check for it (env_reset set it to "memory")
 	export PYTHONPATH="${ESYSROOT}"/usr/$(get_libdir)/tinysparql-3.0
-	dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	dbus-run-session meson test -C "${BUILD_DIR}" --no-suite examples || die 'tests failed'
 }
 
 pkg_postinst() {
