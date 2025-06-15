@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0/21"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86"
 
 BDEPEND="
 	kernel_linux? ( sys-apps/lsb-release )
@@ -32,6 +32,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/miniupnp.asc
 src_prepare() {
 	local PATCHES=(
 		"${FILESDIR}"/miniupnpc-2.2.3-drop-which.patch
+		"${FILESDIR}"/miniupnpc-2.3.3-cstddef.patch
 	)
 	default
 
