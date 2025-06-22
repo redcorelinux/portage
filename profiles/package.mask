@@ -36,6 +36,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2025-06-21)
+# Last commit in 2019.  Has an entry point conflict with
+# dev-python/pytest-tornasync.  No reverse dependencies left.
+# Removal on 2025-07-21.  Bug #958601.
+dev-python/pytest-tornado
+
+# Michał Górny <mgorny@gentoo.org> (2025-06-21)
+# No commits for two years.  Broken with Python 3.14
+# and with >=dev-python/pytest-asyncio-1.0.0.  No reverse dependencies.
+# Removal on 2025-07-21.  Bug #958592.
+dev-python/backoff
+
 # Maciej Barć <xgqt@gentoo.org> (2025-06-14)
 # Deprecated, repository archived upstream. Compilation problems.
 # Removal on 2025-07-14. bug #957435
@@ -162,8 +174,9 @@ x11-misc/qxkb
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-27)
 # Upstream repository+author, web pages and documentation gone after long
 # period of inactivity, based on Qt5. Bugs #949021, #940094
-# Removal on 2025-06-26.
-media-gfx/engauge
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2025-06-22)
+# Work in progress, preemptively limit mask to <12.3
+<media-gfx/engauge-12.3
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-27)
 # sci-electronics/gazebo depends on x11-libs/qwt:6[qt5] and Qt5, lots of
