@@ -10,4 +10,6 @@ inherit perl-module
 DESCRIPTION="string utility functions for expanding variables in self-referential sets"
 
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
+
+BDEPEND="dev-perl/Module-Build"
