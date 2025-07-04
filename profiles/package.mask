@@ -36,6 +36,25 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2025-07-04)
+# EAPI=7, upstream gone, Gentoo is the last distro packaging it.
+# Removal on 2025-08-03.  Bug #959505.
+app-misc/pip
+
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2025-07-04)
+# Obsolete Perl virtuals that will be removed (the list is work in progress).
+# If you have any of these installed, just remove them; they should not be
+# required anymore.
+virtual/perl-bignum
+virtual/perl-IO-Zlib
+virtual/perl-Locale-Maketext
+virtual/perl-Math-BigInt-FastCalc
+virtual/perl-Math-BigRat
+virtual/perl-Parse-CPAN-Meta
+virtual/perl-Params-Check
+perl-core/Params-Check
+virtual/perl-Term-ReadLine
+
 # Joonas Niilola <juippis@gentoo.org> (2025-07-01)
 # Python-3.13 enabled version of Spidermonkey. The test phase crashes
 # with 3.13 so I'm not fully convinced there won't be runtime issues
@@ -245,7 +264,6 @@ x11-misc/meteo
 # Sam James <sam@gentoo.org> (2025-05-22)
 # Introduces REQUIRED_USE that needs more discussion (bug #956402)
 =media-gfx/gimp-3.0.2-r2
-=media-gfx/gimp-3.0.4
 
 # Ulrich Müller <ulm@gentoo.org> (2025-05-18)
 # Pretest versions, masked for testing.
