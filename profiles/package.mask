@@ -36,6 +36,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2025-07-05)
+# Metapackage used as a dependency in dev-lang/python and dev-lang/pypy.
+# Replaced with inlined specific dev-python/ensurepip-* packages.
+# Removal on 2025-08-04.
+dev-python/ensurepip-wheels
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-07-04)
 # EAPI=7, upstream gone, Gentoo is the last distro packaging it.
 # Removal on 2025-08-03.  Bug #959505.
@@ -46,6 +52,7 @@ app-misc/pip
 # If you have any of these installed, just remove them; they should not be
 # required anymore.
 virtual/perl-bignum
+virtual/perl-HTTP-Tiny
 virtual/perl-IO-Zlib
 virtual/perl-Locale-Maketext
 virtual/perl-Math-BigInt-FastCalc
@@ -202,8 +209,8 @@ dev-util/bin_replace_string
 # Sam James <sam@gentoo.org> (2025-06-03)
 # Major changes to packaging as bindings are split out by upstream.
 >=app-crypt/gpgme-2
-dev-cpp/gpgmepp
-dev-libs/qgpgme
+>=dev-cpp/gpgmepp-2
+>=dev-libs/qgpgme-2
 dev-python/gpgmepy
 
 # Sam James <sam@gentoo.org> (2025-06-03)
