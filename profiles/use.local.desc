@@ -330,6 +330,7 @@ app-cdr/dvdisaster:debug - Enable memory debugging.
 app-cdr/gaffitter:scripts - Install additional gaffitter scripts for external programs
 app-cdr/mirage2iso:pinentry - Support app-crypt/pinentry password input backend.
 app-containers/apptainer:network - Install network plug-ins
+app-containers/apptainer:rootless - Enable libsubid (subuid/subgid mapping) for rootless
 app-containers/apptainer:suid - Install SUID helper binary
 app-containers/buildah:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-containers/containerd:btrfs - Support for BTRFS snapshot driver
@@ -351,7 +352,6 @@ app-containers/podman:btrfs - Enables btrfs support (graph driver) in Podman
 app-containers/podman:wrapper - Install wrapper which lets use podman for command `docker`
 app-containers/runc:kmem - Enable Kernel Memory Accounting.
 app-containers/skopeo:btrfs - Enables dependencies for the "btrfs" graph driver.
-app-containers/skopeo:device-mapper - Compiles with libdevmapper
 app-containers/skopeo:rootless - Compiles with libsubid
 app-containers/snapd:forced-devmode - Automatically disable application confinement if feature detection fails.
 app-crypt/aespipe:cpu_flags_x86_padlock - Use VIA padlock instructions, detected at run time, code still works on non-padlock processors
@@ -1046,7 +1046,6 @@ app-office/kmymoney:sqlcipher - Enable SQLite3 database encryption support via d
 app-office/kraft:pim - Enable support for KDE PIM resources integration
 app-office/libalkimia:webengine - Enable online quotes using dev-qt/qtwebengine
 app-office/libreoffice:base - Enable full support for LibreOffice Base databases (involves additional bundled libs)
-app-office/libreoffice:clang - Use Clang compiler instead of GCC
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:googledrive - Enable support for remote files on Google Drive
 app-office/libreoffice:gtk3 - Enable support for x11-libs/gtk+:3
@@ -3541,7 +3540,7 @@ kde-apps/kdeadmin-meta:cron - Installs KDE application for virtual/cron configur
 kde-apps/kdecore-meta:share - Install kde-frameworks/purpose for share file context menu actions in kde-apps/dolphin
 kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-qt/qtwebengine
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
-kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
+kde-apps/kdegraphics-meta:color-management - Enable color management via kde-misc/colord-kde
 kde-apps/kdegraphics-meta:webengine - Enable page scanning support via media-gfx/skanpage
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
@@ -8196,6 +8195,7 @@ sys-cluster/ceph:xfs - Add xfs support
 sys-cluster/ceph:zbd - Enable sys-block/libzbd bluestore backend
 sys-cluster/charliecloud:ch-image - Build the internal builder ch-image (previously named ch-grow)
 sys-cluster/charliecloud:fuse - Enable FUSE support for mounting squashfs images
+sys-cluster/charliecloud:json - Enable features that rely on cJSON such as CDI
 sys-cluster/charm:ampi - Build implementation of MPI on top of Charm++
 sys-cluster/charm:charmdebug - Enable the charm debugger
 sys-cluster/charm:charmproduction - Optimize performance of Charm++ runtime
