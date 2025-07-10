@@ -7368,6 +7368,7 @@ sci-libs/dealii:sparse - Add support for suitesparse (sci-libs/suitesparse)
 sci-libs/dealii:sundials - Add support for sundials (sci-libs/sundials)
 sci-libs/dealii:symengine - Add support for symengine (sci-libs/symengine)
 sci-libs/dealii:trilinos - Add support for trilinos (sci-libs/trilinos)
+sci-libs/dealii:vtk - Add support for VTK (sci-libs/vtk)
 sci-libs/dlib:cblas - Build with CBLAS virtual/cblas
 sci-libs/dlib:cuda - Enable support for CUDA for Deep Neural Networks (cuDNN) on GPU (experimental)
 sci-libs/dlib:mkl - Enable support for Intel FFT sci-libs/mkl
@@ -8686,6 +8687,7 @@ www-client/firefox:eme-free - Disable EME (DRM plugin) capability at build time
 www-client/firefox:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
 www-client/firefox:gnome-shell - Integrate with gnome-base/gnome-shell search
 www-client/firefox:hwaccel - Force-enable hardware-accelerated rendering (Mozilla bug 594876)
+www-client/firefox:jpegxl - Add JPEG XL image support (EXPERIMENTAL, no official upstream support)
 www-client/firefox:jumbo-build - Enable unified build - combines source files to speed up build process, but requires more memory
 www-client/firefox:libproxy - Enable libproxy support
 www-client/firefox:openh264 - Use media-libs/openh264 for H264 support instead of downloading binary blob from Mozilla at runtime
