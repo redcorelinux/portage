@@ -1166,11 +1166,8 @@ app-text/evince:spell - Enable inline spell check for annotations via app-text/g
 app-text/evince:xps - Enable XPS viewer using app-text/libgxps
 app-text/feathernotes:X - Link application against X11 libraries which adds support for virtual desktop awareness and tab DND
 app-text/ghostscript-gpl:unicode - Add support for unicode passwords via net-dns/libidn
-app-text/groonga:abort - Enable query abortion
 app-text/groonga:benchmark - Build benchmark programs
-app-text/groonga:dynamic-malloc-change - Allow dynamic memory allocation change for testing
 app-text/groonga:exact-alloc-count - Atomic counting for memory alloc count
-app-text/groonga:fmalloc - Make memory allocation failed in specified condition for debug
 app-text/groonga:futex - Use futex
 app-text/groonga:libevent - Enable dev-libs/libevent used for suggestion
 app-text/groonga:mecab - Use app-text/mecab for morphological analysis
@@ -2868,8 +2865,10 @@ dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:ctags - Enable ctags plugin
 dev-util/geany-plugins:debugger - Enable the debugger plugin which interfaces with dev-debug/gdb
 dev-util/geany-plugins:enchant - Enable spell checking using enchant
+dev-util/geany-plugins:geniuspaste - Enable the GeniusPaste plugin
 dev-util/geany-plugins:gpg - Enable geanypg plugin which integrates GPG using app-crypt/gpgme
 dev-util/geany-plugins:gtkspell - Use gtkspell for dictionary support in GeanyVC
+dev-util/geany-plugins:lsp - Enable the Language Server Protocol plugin
 dev-util/geany-plugins:markdown - Enable the markdown plugin
 dev-util/geany-plugins:pretty-printer - Enable pretty-printer plugin
 dev-util/geany-plugins:scope - Enable the scope plugin which is a graphical GDB front-end
@@ -4366,11 +4365,16 @@ media-libs/libggi:vis - Enables sparc vis support for libggi
 media-libs/libgphoto2:serial - Enable serial port support
 media-libs/libgpod:gtk - Enable ArtworkDB support
 media-libs/libheif:aom - Use media-libs/libaom for AVIF encoding/decoding
+media-libs/libheif:dav1d - Enable support for the dav1d codec decoding using media-libs/dav1d
+media-libs/libheif:de265 - Enable H.265 support using media-libs/libde265
 media-libs/libheif:gdk-pixbuf - Enable x11-libs/gdk-pixbuf plugin
 media-libs/libheif:go - Enable building dev-lang/go code/examples
+media-libs/libheif:kvazaar - Enable H.265/HEVC encoding support via media-libs/kvazaar
 media-libs/libheif:openh264 - Enable H.264 support using media-libs/openh264
 media-libs/libheif:rav1e - Use media-video/rav1e for AVIF encoding
 media-libs/libheif:svt-av1 - Use media-libs/svt-av1 for SVT-AV1 encoding
+media-libs/libheif:test-full - Allow tests that rely on options not normally enabled
+media-libs/libheif:tools - Build heif-view tool
 media-libs/libheif:webp - Enable high-quality YCbCr/RGB color space conversion algorithms
 media-libs/libheif:x265 - Use media-libs/x265 for HEIF encoding
 media-libs/libjxl:gdk-pixbuf - Build a gdk-pixbuf loader.
