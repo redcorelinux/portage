@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/linux-speakup/espeakup.git"
@@ -14,7 +14,7 @@ fi
 inherit linux-info meson
 
 DESCRIPTION="espeakup is a small lightweight connector for espeak and speakup"
-HOMEPAGE="https://github.com/williamh/espeakup"
+HOMEPAGE="https://linux-speakup.org/"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -42,6 +42,8 @@ src_install() {
 	einstalldocs
 	newconfd "${FILESDIR}"/espeakup.confd espeakup
 	newinitd "${FILESDIR}"/espeakup.initd espeakup
+	insinto /etc/modprobe.d
+	newins "${FILESDIR}/modules.espeakup" espeakup.conf
 }
 
 pkg_postinst() {

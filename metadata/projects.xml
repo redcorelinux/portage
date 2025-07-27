@@ -546,6 +546,11 @@
     <name>Crossdev Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Crossdev</url>
     <description>Crossdev is a small wrapper script around emerge to build cross-toolchains.</description>
+    <member>
+      <email>chewi@gentoo.org</email>
+      <name>James Le Cuirot</name>
+      <role>Developer</role>
+    </member>
   </project>
   <project>
     <email>desktop-misc@gentoo.org</email>
@@ -979,6 +984,10 @@
       <email>jstein@gentoo.org</email>
       <name>Jonas Stein</name>
       <role>QA and cleaning up bugs</role>
+    </member>
+    <member>
+      <email>mm1ke@gentoo.org</email>
+      <name>Michael Mair-Keimberger</name>
     </member>
     <member>
       <email>sam@gentoo.org</email>
@@ -1481,10 +1490,6 @@
       <role>Release engineering</role>
     </member>
     <member>
-      <email>kumba@gentoo.org</email>
-      <name>Joshua Kinard</name>
-    </member>
-    <member>
       <email>xen0n@gentoo.org</email>
       <name>WANG Xuerui</name>
     </member>
@@ -1754,6 +1759,11 @@
       <role>High Energy Physics</role>
     </member>
     <member>
+      <email>apn-pucky@gentoo.org</email>
+      <name>Alexander Puck Neuwirth</name>
+      <role>High Energy Physics</role>
+    </member>
+    <member>
       <email>nicolasbock@gentoo.org</email>
       <name>Nicolas Bock</name>
       <role>Physics</role>
@@ -1901,6 +1911,11 @@
     <member>
       <email>amadio@gentoo.org</email>
       <name>Guilherme Amadio</name>
+    </member>
+    <member>
+      <email>apn-pucky@gentoo.org</email>
+      <name>Alexander Puck Neuwirth</name>
+      <role>Testing</role>
     </member>
     <member>
       <email>grobian@gentoo.org</email>
@@ -2555,6 +2570,11 @@
       <email>amynka@gentoo.org</email>
       <name>Amy Liffey</name>
       <role>Mathematics, Physics, Geosciences, *</role>
+    </member>
+    <member>
+      <email>apn-pucky@gentoo.org</email>
+      <name>Alexander Puck Neuwirth</name>
+      <role>Physics</role>
     </member>
     <member>
       <email>heroxbd@gentoo.org</email>

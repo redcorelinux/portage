@@ -1919,7 +1919,6 @@ dev-lang/yap:raptor - Enable support for Raptor RDF syntax libarary
 dev-lang/zig:debug - Build with debug extensions enabled.
 dev-lang/zig:llvm - Build with LLVM backend and extensions enabled.
 dev-libs/aml:examples - Build and install examples
-dev-libs/antlr-c:debugger - Compiles debug info into the library
 dev-libs/apache-arrow:compute - Build the Arrow Compute Modules
 dev-libs/apache-arrow:dataset - Build the Arrow Dataset Modules
 dev-libs/apache-arrow:json - Enables read/write json format
@@ -3638,7 +3637,6 @@ kde-frameworks/kwidgetsaddons:designer - Build plugins for dev-qt/designer
 kde-frameworks/kxmlgui:designer - Build plugins for dev-qt/designer
 kde-frameworks/networkmanager-qt:teamd - Enable Teamd control support
 kde-frameworks/prison:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
-kde-frameworks/purpose:kaccounts - Enable support for system-wide defined KAccounts
 kde-frameworks/purpose:webengine - Enable support for system-wide defined KAccounts
 kde-frameworks/sonnet:aspell - Enable the app-text/aspell spell-checking backend
 kde-frameworks/sonnet:designer - Build plugins for dev-qt/designer
@@ -6492,12 +6490,12 @@ net-misc/iputils:clockdiff - Build and install clockdiff -- tool for comparing c
 net-misc/iputils:rarpd - Build and install rarpd -- server for handling RARP (reverse ARP) requests; generally only used by old systems
 net-misc/iputils:rdisc - Build and install rdisc -- server for the client side of the ICMP router discover protocol
 net-misc/iputils:tracepath - Build and install tracepath -- tool for tracing network paths for discovering MTU values
+net-misc/ipv6calc:openssl - Use dev-libs/openssl instead of app-crypt/libmd for MD5 digest
 net-misc/kafka-bin:connect - Install init for Kafka Connect Distributed mode
 net-misc/kafka-bin:internal-zookeeper - Use bundled local zookeeper instance
 net-misc/kafkacat:avro - Enable avro serialization/deserialization support
 net-misc/kafkacat:json - Enable json support
 net-misc/kea:openssl - Use dev-libs/openssl instead of dev-libs/botan
-net-misc/kea:samples - Install sample configuration files
 net-misc/kea:shell - Install kea-shell text management client for Control Agent
 net-misc/knock:server - Installs the knockd server daemon.
 net-misc/libteam:zmq - Build witch net-libs/zeromq support
