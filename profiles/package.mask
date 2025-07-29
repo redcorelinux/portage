@@ -36,8 +36,43 @@
 
 #--- END OF EXAMPLES ---
 
-# Hans de Graaff <graaff@gentoo.org> (2025-07-28)
+# Eli Schwartz <eschwartz@gentoo.org> (2025-07-28)
+# Unmaintained, out of date, last upstream release in 2018, last
+# packaged release 2015. Broken with modern system interfaces for
+# some time. Entire OpenVZ ecosystem is vaporware these days,
+# openvz-sources was last-rited in 2017 already.
+# Removal on 2025-08-27.  Bug #580516, #868252.
+sys-cluster/vzctl
+app-backup/vzdump
+app-misc/vzstats
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-07-28)
+# Current package is 4 years old and outdated compared to upstream, needs
+# a real maintainer: still EAPI-7, Qt5-based with unclear upstream status.
+# Many bugs: #955642, #957424, #957402, #903803, #841740
+# Removal on 2025-08-27.
+dev-debug/edb-debugger
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-07-28)
+# Current package is 4 years old and outdated compared to upstream.
+# Still Qt5-based with unclear upstream status. Needs real care.
+# Many bugs: #953380, #701988, #683464, #590002, #565034, #579396
+# Removal on 2025-08-27.
+app-office/texmacs
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-07-28)
+# Last release in 2015, last commit more than 2 years ago, still Qt5-based,
+# EAPI-7, no signs of work towards Qt6 upstream. Bug #960817
+# Removal on 2025-08-27.
+media-video/baka-mplayer
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-07-28)
+# Dead for many years, Qt5-based, EAPI-7. Anyone interested in its features
+# should look into qmp3gain instead (bug #949077) but it also needs porting
+# to Qt6. Removal on 2025-08-27.
+media-sound/qtgain
+
+# Hans de Graaff <graaff@gentoo.org> (2025-07-28)
 # Obsolete slots of cucumber components. These slots are no longer used
 # by dev-util/cucumber. Removal on 2025-08-28.
 dev-util/cucumber-gherkin:23
@@ -141,12 +176,6 @@ virtual/perl-Unicode-Normalize
 # bug #952299.
 =dev-lang/spidermonkey-128.12.0-r1
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-06-29)
-# KF5-based package, unmaintained upstream, see also:
-# https://mail.kde.org/pipermail/release-team/2025-June/013683.html
-# Removal on 2025-07-29.
-kde-apps/cervisia
-
 # Michał Górny <mgorny@gentoo.org> (2025-06-29)
 # File collision against gnome-base/gnome-keyring[pam], which is
 # required via pambase.  Masked until the maintainer determines a good
@@ -186,22 +215,6 @@ kde-apps/cervisia
 # > ERROR: cannot verify github.com's certificate, issued by 'CN=Sectigo ECC Domain Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB':
 # >  Unable to locally verify the issuer's authority.
 =app-misc/ca-certificates-20250419.3.112
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-27)
-# sci-electronics/gazebo depends on x11-libs/qwt:6[qt5] and Qt5, lots of
-# open bugs. Most packages perpetually stuck at EAPI-7 and several major
-# version bumps out of date. Bugs #937608, #947390; removal on 2025-06-26.
-sci-electronics/gazebo
-dev-libs/sdformat
-net-libs/ignition-msgs
-net-libs/ignition-transport
-sci-libs/ignition-common
-sci-libs/ignition-fuel-tools
-sci-libs/ignition-math
-dev-build/ignition-cmake
-dev-libs/console_bridge
-dev-libs/urdfdom
-dev-libs/urdfdom_headers
 
 # Sam James <sam@gentoo.org> (2025-05-26)
 # Breaks some reverse dependencies and is abandoned upstream (bug #956630).

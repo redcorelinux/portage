@@ -600,7 +600,6 @@ app-emulation/libvirt:lxc - Support management of Linux Containers virtualisatio
 app-emulation/libvirt:nbd - Allow using sys-block/nbdkit to access network disks
 app-emulation/libvirt:nfs - Allow using Network File System mounts as pool for disk image storage
 app-emulation/libvirt:numa - Use NUMA for memory segmenting via sys-process/numactl and sys-process/numad
-app-emulation/libvirt:openvz - Support management of OpenVZ virtualisation (openvz-sources)
 app-emulation/libvirt:parted - Allow using real disk partitions as pool for disk image storage, using sys-block/parted to create, resize and delete them.
 app-emulation/libvirt:pcap - Support auto learning IP addreses for routing
 app-emulation/libvirt:qemu - Support management of QEMU virtualisation (app-emulation/qemu)
@@ -997,7 +996,6 @@ app-misc/vcontrold:vclient - Build the vclient helper program to talk to vcontro
 app-misc/vcontrold:vsim - Build the vsim helper program (simulates the heating's answers, for development and debugging)
 app-misc/vifm:extended-keys - Support for extended keys (arrows, home etc)
 app-misc/vifm:glib - Use dev-libs/glib:2 to determine mimetypes
-app-misc/vifm:gtk - Use gtk+ to determine mimetypes
 app-misc/vifm:vim - Install the vifm vim plugin and vim-compatible documentation
 app-misc/worker:avfs - Enable support for sys-fs/avfs
 app-misc/yq:yq-symlink - Create a yq symlink to yq-python.
@@ -4983,7 +4981,6 @@ media-sound/strawberry:moodbar - Enable moodbar support
 media-sound/strawberry:streaming - Enable Online Streaming Support
 media-sound/supercollider:ableton-link - Enable support for Ableton Link
 media-sound/supercollider:emacs - Enable the SCEL user interface
-media-sound/supercollider:gedit - Enable the SCED user interface
 media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
@@ -5693,6 +5690,7 @@ net-dns/bind:systemtap - Build support for profiling and tracing using dev-debug
 net-dns/bind-tools:gssapi - Enable gssapi support
 net-dns/ddclient:examples - Install various example files, like for cron.
 net-dns/djbdns:ipv6 - Apply Fefe's patch (https://www.fefe.de/dns/) for ipv6 support.
+net-dns/dnscap:cryptopant - Enable cryptopANT plugin, implementation of crypto-PAn algorithm using app-crypt/cryptopant to anonymize IP addresses
 net-dns/dnsdist:bpf - Enable support for eBPF socket filtering
 net-dns/dnsdist:dnscrypt - Enable the ability to act as a DNSCrypt server
 net-dns/dnsdist:dnstap - Enable support for dnstap
@@ -7345,6 +7343,7 @@ sci-libs/dealii:ginkgo - Add support for ginkgo (sci-libs/ginkgo)
 sci-libs/dealii:gmsh - Add support for gmsh (sci-libs/gmsh)
 sci-libs/dealii:int64 - Use 64 bit indexes
 sci-libs/dealii:metis - Add support for metis (sci-libs/metis)
+sci-libs/dealii:mumps - Add support for mumps (sci-libs/mumps)
 sci-libs/dealii:muparser - Add support for muparser (dev-cpp/muParser)
 sci-libs/dealii:opencascade - Add support for opencascade (sci-libs/opencascade)
 sci-libs/dealii:p4est - Add support for p4est (sci-libs/p4est)
