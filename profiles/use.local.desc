@@ -8271,7 +8271,6 @@ sys-cluster/torque:munge - Enable authentication via munge
 sys-cluster/torque:nvidia - Enable management of Nvidia GPUs
 sys-cluster/torque:quickcommit - Enable the QUICKCOMMIT codebase
 sys-cluster/torque:server - Enable compilation of pbs_server and pbs_sched
-sys-cluster/ucx:numa - Add support for numa memory allocation
 sys-cluster/vzctl:ploop - Add support for ploop devices via sys-cluster/ploop
 sys-cluster/vzctl:vzmigrate - Add support for container migration
 sys-devel/autogen:libopts - install the libopts tarball (a few packages want this for developing)
@@ -8493,6 +8492,7 @@ sys-libs/glibc:multiarch - enable optimizations for multiple CPU architectures (
 sys-libs/glibc:multilib-bootstrap - Provide prebuilt libgcc.a and crt files if missing. Only needed for ABI switch.
 sys-libs/glibc:nscd - Build, and enable support for, the Name Service Cache Daemon
 sys-libs/glibc:perl - Install additional scripts written in Perl
+sys-libs/glibc:sframe - enable building with sframe backtrace support
 sys-libs/glibc:ssp - protect stack of glibc internals
 sys-libs/glibc:stack-realign - Realign the stack in the 32-bit build for compatibility with older binaries at some performance cost
 sys-libs/glibc:static-pie - Enable static PIE support (runtime files for -static-pie gcc option).

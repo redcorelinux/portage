@@ -6,6 +6,10 @@
 
 # New entries go on top.
 
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2025-08-06)
+# General mask, to be unmasked on arches where glibc supports this
+>=sys-libs/glibc-2.42 sframe
+
 # Ionen Wolkens <ionen@gentoo.org> (2025-08-02)
 # Fails to build, needs looking into but isn't currently needed
 # by anything and can leave it masked for now.
@@ -66,7 +70,6 @@ dev-cpp/fbthrift io-uring
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-04-21)
 # Prepare cleanup of dev-qt/qtwebengine:5
 app-i18n/fcitx-chinese-addons webengine
-app-office/libalkimia webengine
 
 # Matt Jolly <kangie@gentoo.org> (2025-04-16)
 # Older versions of freeciv build an incompatible client and
