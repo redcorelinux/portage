@@ -75,7 +75,7 @@ RDEPEND="
 	virtual/lapack
 	cuda? (
 		dev-libs/cudnn
-		>=sci-ml/cudnn-frontend-1.0.3:0/8
+		>=sci-ml/cudnn-frontend-1.12.0:=
 		>=dev-util/nvidia-cuda-toolkit-12.9:=[profiler]
 		cusparselt? ( dev-libs/cusparselt )
 	)
@@ -129,7 +129,7 @@ DEPEND="
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 	')
-	cuda? ( ~dev-libs/cutlass-3.8.0 )
+	cuda? ( ~dev-libs/cutlass-3.9.2[tools(+)] )
 	onednn? ( sci-ml/ideep )
 	qnnpack? ( dev-libs/clog )
 "
@@ -147,6 +147,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-cmake.patch
 	"${FILESDIR}"/${PN}-2.7.0-glog-0.7.1.patch
 	"${FILESDIR}"/${PN}-2.7.1-aotriton-fixes.patch
+	"${FILESDIR}"/${PN}-2.8.0-rocm-minus-flash.patch
 )
 
 src_prepare() {
