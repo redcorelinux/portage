@@ -1433,6 +1433,7 @@ dev-db/recutils:curl - Enable support for remote descriptors using net-misc/curl
 dev-db/recutils:mdb - Build the mdb2rec utility using app-office/mdbtools
 dev-db/redict:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
 dev-db/redis:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
+dev-db/soci:cxx11 - Enable c++11 support
 dev-db/spatialite:geos - Add the sci-libs/geos library for exact topological tests
 dev-db/spatialite:proj - Add the sci-libs/proj library for reprojection features
 dev-db/spatialite:rttopo - Add the sci-geosciences/librttopo library for topology support
@@ -2818,7 +2819,6 @@ dev-util/ccache:static-c++ - Avoid dynamic dependency on gcc's libstdc++.
 dev-util/cccc:apidoc - Build software docs with doxygen/graphviz and metrics with cccc
 dev-util/cccc:mfc - Add patch for MFC dialect options
 dev-util/claude-code:jetbrains - Install Jetbrains IDE extension to /opt/claude-code. Does not automatically load extension.
-dev-util/claude-code:vscode - Install VSCode IDE extension to /opt/claude-code. Does not automatically load extension.
 dev-util/codeblocks:contrib - Build additional contrib components
 dev-util/codeblocks:fortran - Build FortranProject plugin which enables to use Code::Blocks IDE for Fortran language
 dev-util/cppcheck:charts - Enable QtCharts usage in the GUI
@@ -2902,6 +2902,7 @@ dev-util/kernelshark:custom-optimization - Build with user-specified compiler op
 dev-util/kup:gitolite - Enable support for dev-vcs/gitolite in kup-server
 dev-util/libabigail:btf - Handle reading kernel debug files in BTF format via dev-libs/libbpf
 dev-util/librnp:botan - Use Botan crypto backend instead of OpenSSL
+dev-util/lttng-tools:kmod - Enable kernel module loading via sys-apps/kmod
 dev-util/lttng-tools:ust - Support LTTng-UST (Userspace Tracing)
 dev-util/lttng-ust:numa - Enable numa support
 dev-util/massif-visualizer:callgraph - Enable detailed snapshot analysis using media-gfx/kgraphviewer
@@ -4492,7 +4493,7 @@ media-libs/opencv:truetype - Enable media-libs/freetype support for gapi module
 media-libs/opencv:video_cards_intel - Enable Video Acceleration API for hardware decoding for Intel cards
 media-libs/opencv:vtk - Build new 3D visualization module viz based on sci-libs/vtk
 media-libs/opencv:vulkan - Enable experimental Vulkan backend
-media-libs/opencv:wechat_qrcode - Enable wechat_qrcode module
+media-libs/opencv:wechat-qrcode - Enable wechat_qrcode module
 media-libs/openexr:large-stack - Enables code to take advantage of large stack support.
 media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
 media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with Mozilla packages
