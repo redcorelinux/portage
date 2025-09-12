@@ -313,6 +313,8 @@ app-backup/duplicity:s3 - Support for backing up to the Amazon S3 system
 app-backup/rear:udev - Have ReaR start backup when attaching your USB drive.
 app-backup/snapper:lvm - Enable LVM thinprovisioned snapshots support sys-fs/lvm2
 app-backup/snapper:xattr - Add support for getting and setting POSIX extended attributes, through sys-apps/attr.
+app-backup/tsm:gpfs - Support the IBM General Parallel File System (GPFS)
+app-backup/tsm:journal - Support Journal based backups (JBB)
 app-backup/tsm:tsm-cit - IBM Tivoli Common Inventory Technology
 app-backup/tsm:tsm-hw - Difference snapshot support for NetApp and N-Series file servers
 app-backup/tsm:vmware - Install vmware data protection support
@@ -2905,6 +2907,7 @@ dev-util/librnp:botan - Use Botan crypto backend instead of OpenSSL
 dev-util/lttng-tools:kmod - Enable kernel module loading via sys-apps/kmod
 dev-util/lttng-tools:ust - Support LTTng-UST (Userspace Tracing)
 dev-util/lttng-ust:numa - Enable numa support
+dev-util/lttng-ust-compat:numa - Enable numa support
 dev-util/massif-visualizer:callgraph - Enable detailed snapshot analysis using media-gfx/kgraphviewer
 dev-util/mingw64-runtime:default-ucrt - Use ucrt instead of msvcrt-os as the default crt (WARNING: incompatible with each others and also for building Wine with USE=mingw, pick one from the start and keep it)
 dev-util/mingw64-runtime:idl - Install idl files
@@ -7459,6 +7462,7 @@ sci-libs/netcdf:dap - Support for remote data access with the built-in OPeNDAP c
 sci-libs/netcdf:hdf - Build with HDF4 read capability(sci-libs/hdf, sci-libs/hdf5 and sys-libs/zlib required).
 sci-libs/nlopt:octave - Add plugin for sci-mathematics/octave
 sci-libs/octomap:dynamicEDT3D - Build and install dynamicEDT3D library: A library for incrementally updatable Euclidean distance transforms in 3D.
+sci-libs/openblas:cpudetection - Build dynamic architecture detection at run time (for multi targets)
 sci-libs/openblas:dynamic - Build dynamic architecture detection at run time (for multi targets)
 sci-libs/openblas:eselect-ldso - Enable BLAS/LAPACK runtime switching
 sci-libs/openblas:index-64bit - Compile a separate INTERFACE64 OpenBLAS
