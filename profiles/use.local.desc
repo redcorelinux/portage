@@ -522,7 +522,6 @@ app-editors/xemacs:athena - Chooses the MIT Athena widget set
 app-editors/xemacs:bignum - Support for OpenSSL bignum implementation
 app-editors/xemacs:pop - Support POP for mail retrieval
 app-editors/xemacs:xim - Enable X11 XiM input method
-app-editors/zed:gles - Use simplified OpenGLES instead of full-scale OpenGL
 app-emacs/auctex:preview-latex - Use bundled preview-latex
 app-emacs/bbdb:tex - Install plain TeX support files
 app-emacs/bbdb:vm - Add support for app-emacs/vm
@@ -957,8 +956,10 @@ app-misc/lirc:inputlirc - Add a dependency on app-misc/inputlircd
 app-misc/lirc:uinput - Enable support for uinput
 app-misc/localsearch:cue - Enable cue sheet parsing
 app-misc/localsearch:gsf - Enable gnome-extra/libgsf based data extractor and for ODT.
+app-misc/localsearch:gstreamer - Enable support for metadata writeback functionality
 app-misc/localsearch:iptc - Enable extraction of IPTC data from pictures
 app-misc/localsearch:iso - Enable extraction of metadata from ISO disk images
+app-misc/localsearch:landlock - Enable sandboxing using Landlock LSM
 app-misc/localsearch:playlist - Add support for playlists
 app-misc/localsearch:xps - Add support for XPS file format through app-text/libgxps.
 app-misc/mc:edit - Compile and install the mcedit application
@@ -1004,6 +1005,7 @@ app-misc/tinysparql:stemmer - Add word stemming via dev-libs/snowball-stemmer.
 app-misc/tmux:sixel - Enable sixel support
 app-misc/tmux:utempter - Include libutempter support
 app-misc/unfoo:minimal - Do not install all support archive binaries
+app-misc/upterm:server - Compile server support (uptermd)
 app-misc/vcontrold:vclient - Build the vclient helper program to talk to vcontrold
 app-misc/vcontrold:vsim - Build the vsim helper program (simulates the heating's answers, for development and debugging)
 app-misc/vifm:extended-keys - Support for extended keys (arrows, home etc)
@@ -3438,6 +3440,7 @@ gui-apps/mako:icons - Enable support for icons
 gui-apps/swaybg:gdk-pixbuf - Support image types other than PNG
 gui-apps/swayidle:elogind - Enable support for rootless session via elogind
 gui-apps/swaylock:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
+gui-apps/waybar:backlight - Enable module that controls the current backlight level
 gui-apps/waybar:evdev - Enable libevdev support for evdev related features
 gui-apps/waybar:experimental - Enable experimental features, such as Bluetooth battery reporting
 gui-apps/waybar:libinput - Enable libinput support for libinput related features
@@ -3445,6 +3448,7 @@ gui-apps/waybar:logind - Enable support for logind (bluetooth and idle inhibit)
 gui-apps/waybar:mpd - Enable support for the Music Player Daemon
 gui-apps/waybar:mpris - Enable support for mpris
 gui-apps/waybar:network - Enable libnl support for network related features
+gui-apps/waybar:niri - Enable support for Niri Wayland compositor
 gui-apps/waybar:pipewire - Enable support for pipewire
 gui-apps/waybar:pulseaudio - Enable support for volume control via PulseAudio
 gui-apps/waybar:sndio - Enable support for volume control via sndio
@@ -5519,7 +5523,7 @@ net-analyzer/netdata:aclk - Enable Agent-Cloud Link (ACLK) for securely connecti
 net-analyzer/netdata:bpf - Enable the extended Berkeley Packet Filter (eBPF) collector to monitor kernel-level metrics about applications with per-second granularity
 net-analyzer/netdata:cloud - Enable Netdata Cloud support
 net-analyzer/netdata:dbengine - Enable the Netdata database engine
-net-analyzer/netdata:ipmi - Install sys-apps/ipmitool required for monitoring IPMI sensors.
+net-analyzer/netdata:ipmi - Install sys-apps/ipmitool required for monitoring IPMI sensors
 net-analyzer/netdata:mongodb - Enable support for the mongodb backend
 net-analyzer/netdata:nfacct - Enable the nfacct plugin
 net-analyzer/netdata:nodejs - Enable use of nodejs (which some plugins use)
@@ -7908,6 +7912,7 @@ sys-apps/fwupd:gusb - Enable dev-libs/libgusb support
 sys-apps/fwupd:logitech - Build and install Logitech bulk controller plugin
 sys-apps/fwupd:modemmanager - Build and install Modem Manager plugin
 sys-apps/fwupd:nvme - Build and install NVMe plugin
+sys-apps/fwupd:protobuf - Enable protobuf plugins
 sys-apps/fwupd:spi - Install Intel-SPI plugin
 sys-apps/fwupd:synaptics - Install synaptics plugin
 sys-apps/fwupd:test-full - Enable tests known not to play nicely with the sandbox
@@ -8166,6 +8171,15 @@ sys-boot/lilo:device-mapper - Enable support for device-mapper from sys-fs/lvm2
 sys-boot/lilo:keytab - Install keytab, keyboard remapping helper script
 sys-boot/lilo:minimal - Do not install optional bits (dolilo helper, docs, etc.)
 sys-boot/lilo:pxeserial - Avoid character echo on PXE serial console
+sys-boot/limine:bios - Enable BIOS/MBR boot support.
+sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
+sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.
+sys-boot/limine:cd-efi - Enable building cd-efi.bin using sys-fs/mtools. This flag was previously known as eltorito-efi.
+sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
+sys-boot/limine:uefi64 - Enable 64-bit UEFI support.
+sys-boot/limine:uefiaa64 - Enable AArch64 UEFI support.
+sys-boot/limine:uefiloong64 - Enable 64-bit LoongArch UEFI support.
+sys-boot/limine:uefirv64 - Enable 64-bit RISC-V UEFI support.
 sys-boot/plymouth:drm - Provides abstraction to the DRM drivers (intel, nouveau and vmwgfx at this moment)
 sys-boot/plymouth:freetype - Build with freetype support (if enabled, used for encryption prompts)
 sys-boot/plymouth:pango - Adds support for printing text on splash screen and text prompts, e.g. for password
