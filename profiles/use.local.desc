@@ -3390,7 +3390,6 @@ gnome-base/librsvg:tools - Build svg viewer tool
 gnome-base/nautilus:cloudproviders - Enable the cloudproviders support
 gnome-base/nautilus:gstreamer - Enable the Audio/Video file properties page
 gnome-base/nautilus:previewer - Use gnome-extra/sushi to preview files from the file manager
-gnome-extra/cinnamon:internal-polkit - Use Cinnamon's internal polkit agent instead of gnome-extra/polkit-gnome. This does not currently support multi-user fast switching.
 gnome-extra/cinnamon-control-center:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 gnome-extra/cjs:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 gnome-extra/eiciel:nautilus - Build gnome-base/nautilus extension
@@ -5023,7 +5022,7 @@ media-tv/kodi:bluetooth - Enable JSON-RPC over BT for remote control connected v
 media-tv/kodi:bluray - Enable playback of Blu-ray filesystems
 media-tv/kodi:caps - Use sys-libs/libcap to bind to privileged ports as non-root
 media-tv/kodi:cec - Enable support for HDMI-CEC devices via libcec
-media-tv/kodi:eventclients - Install full set of Kodi python evenclients and evenclients examples
+media-tv/kodi:eventclients - Install full set of Kodi python eventclients and eventclients examples
 media-tv/kodi:gbm - Use the Graphics Buffer Manager for EGL on KMS.
 media-tv/kodi:gles - Use simplified OpenGLES instead of full-scale OpenGL
 media-tv/kodi:libusb - Use virtual/libusb for usb device hotplug support. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use udev.
@@ -7509,8 +7508,6 @@ sci-libs/rocThrust:benchmark - Build and install benchmark binary.
 sci-libs/rtabmap:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2.
 sci-libs/scotch:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
 sci-libs/scotch:tools - Provides the graph, mesh, architecture, mapping/ordering, output handling programs (see Scotch User's Guide).
-sci-libs/silo:browser - Enable browser support
-sci-libs/silo:silex - Build silex data browser
 sci-libs/spqr:partition - Use the partition module of sci-libs/cholmod for partitioning
 sci-libs/spqr:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 sci-libs/spr:root - Add sci-physics/root graphics and i/o support
@@ -7559,14 +7556,12 @@ sci-libs/vtk:boost - Add support for boost
 sci-libs/vtk:cgns - Build support to handle CGNS data files
 sci-libs/vtk:gdal - Support for gdal formated data
 sci-libs/vtk:imaging - Building Imaging modules
-sci-libs/vtk:las - Build support for LiDAR files
 sci-libs/vtk:logging - Build the logging module
 sci-libs/vtk:opencascade - Enable OpenCASCADE support
 sci-libs/vtk:openvdb - Build support to handle VDB data files
 sci-libs/vtk:pdal - Build support to handle point cloud data files
 sci-libs/vtk:qt6 - Use Qt6 packages instead of Qt5
 sci-libs/vtk:rendering - Building Redering modules
-sci-libs/vtk:sdl - Enable SDL2 support for rendering modules
 sci-libs/vtk:tbb - Use dev-cpp/tbb to handle smp support
 sci-libs/vtk:views - Building Views modules
 sci-libs/vtk:vtkm - Build the vtkm accelerations modules
@@ -8172,15 +8167,15 @@ sys-boot/lilo:device-mapper - Enable support for device-mapper from sys-fs/lvm2
 sys-boot/lilo:keytab - Install keytab, keyboard remapping helper script
 sys-boot/lilo:minimal - Do not install optional bits (dolilo helper, docs, etc.)
 sys-boot/lilo:pxeserial - Avoid character echo on PXE serial console
-sys-boot/limine:bios - Enable BIOS/MBR boot support.
-sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
-sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.
-sys-boot/limine:cd-efi - Enable building cd-efi.bin using sys-fs/mtools. This flag was previously known as eltorito-efi.
-sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
-sys-boot/limine:uefi64 - Enable 64-bit UEFI support.
-sys-boot/limine:uefiaa64 - Enable AArch64 UEFI support.
-sys-boot/limine:uefiloong64 - Enable 64-bit LoongArch UEFI support.
-sys-boot/limine:uefirv64 - Enable 64-bit RISC-V UEFI support.
+sys-boot/limine:bios - Enable legacy x86 BIOS/MBR boot support.
+sys-boot/limine:bios-cd - Enables legacy x86 BIOS boot support for CDs.
+sys-boot/limine:bios-pxe - Enables legacy x86 BIOS PXE boot support.
+sys-boot/limine:uefi-aarch64 - Enable AArch64 UEFI support.
+sys-boot/limine:uefi-cd - Enable building limine-uefi-cd.bin using sys-fs/mtools.
+sys-boot/limine:uefi-ia32 - Enable IA32 (32-bit x86) UEFI support.
+sys-boot/limine:uefi-loongarch64 - Enable 64-bit LoongArch UEFI support.
+sys-boot/limine:uefi-riscv64 - Enable 64-bit RISC-V UEFI support.
+sys-boot/limine:uefi-x86-64 - Enable x86-64 UEFI support.
 sys-boot/plymouth:drm - Provides abstraction to the DRM drivers (intel, nouveau and vmwgfx at this moment)
 sys-boot/plymouth:freetype - Build with freetype support (if enabled, used for encryption prompts)
 sys-boot/plymouth:pango - Adds support for printing text on splash screen and text prompts, e.g. for password
