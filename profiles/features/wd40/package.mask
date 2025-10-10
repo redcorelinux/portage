@@ -400,7 +400,7 @@ gnome-extra/gnome-browser-connector
 gnome-extra/gnome-tweaks
 gnome-extra/sushi
 >=media-gfx/libimagequant-4
-media-gfx/gimp
+<media-gfx/gimp-3.0.6
 >=media-libs/libopenraw-0.3.2
 media-plugins/gimp-lqr
 media-video/rav1e
@@ -424,3 +424,4 @@ www-apps/radicale
 >=x11-themes/adwaita-icon-theme-3.36
 x11-themes/adwaita-icon-theme-legacy
 >=gui-libs/gtk-4.20.1
+>=dev-cpp/gtkmm-4.20
