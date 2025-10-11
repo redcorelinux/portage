@@ -36,6 +36,24 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2025-10-10)
+# No longer supported upstream since 2025-04-01. Use Rails 7.2 or newer
+# instead. Masked for removal on 2025-11-10).
+dev-ruby/activerecord:7.0
+dev-ruby/actioncable:7.0
+dev-ruby/actionview:7.0
+dev-ruby/activejob:7.0
+dev-ruby/activesupport:7.0
+dev-ruby/activestorage:7.0
+dev-ruby/actionpack:7.0
+dev-ruby/activemodel:7.0
+dev-ruby/actionmailer:7.0
+dev-ruby/actionmailbox:7.0
+dev-ruby/actiontext:7.0
+dev-ruby/rails:7.0
+dev-ruby/railties:7.0
+dev-ruby/haml:5
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2025-10-02)
 # Nothing depends on it.
 # Removal: 2025-11-01.  Bug #961199
@@ -87,8 +105,9 @@ net-libs/NativeThread
 =dev-qt/qtwebview-6.10.0*
 
 # Michał Górny <mgorny@gentoo.org> (2025-10-06)
-# Refcount errors that trigger crashes in dev-python/moto tests
-# tests/test_xray/test_xray_client.py.  TODO: investigate.
+# Refcount errors that trigger crashes in dev-python/moto
+# and dev-python/ipyparallel tests.
+=dev-python/pymongo-4.15.3
 =dev-python/pymongo-4.15.2
 
 # Sam James <sam@gentoo.org> (2025-10-05)
@@ -312,11 +331,6 @@ dev-python/spur
 # the pity port to py3 was likely misguided and never tested!
 # Removal on 2025-10-01.  Bug #956814.
 app-vim/voom
-
-# Michał Górny <mgorny@gentoo.org> (2025-08-30)
-# Multiple cases of test suite breakage.
-# https://github.com/pytest-dev/pytest-rerunfailures/issues/303
-=dev-python/pytest-rerunfailures-16.0
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-08-29)
 # Obsolete transitional meta package. Bug #961795. Removal on 2025-09-28.
