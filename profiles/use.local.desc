@@ -1086,7 +1086,6 @@ app-office/sc-im:wayland - Use gui-apps/wl-clipboard for clipboard copy/paste
 app-office/sc-im:xls - Add xls support
 app-office/sc-im:xlsx - Add xlsx support
 app-office/scribus:boost - Enable support for Boost based enhancement
-app-office/scribus:hunspell - Enable support for spell checking with app-text/hunspell
 app-office/scribus:minimal - Don't install headers (only required for e.g. plug-in developers)
 app-office/scribus:osg - 3D rendering via dev-games/openscenegraph
 app-office/scribus:scripts - Install the scripts
@@ -4994,6 +4993,7 @@ media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external
 media-sound/vimpc:boost - Use boost instead of C++11 libraries
 media-sound/vorbis-tools:kate - Adds support for Ogg Kate subtitles via libkate.
 media-sound/vorbis-tools:ogg123 - Build ogg123 player, needs libao and curl
+media-sound/wavpack:test-full - Run expensive tests (many tests and slow).
 media-sound/wildmidi:player - Install the wildmidi player
 media-sound/wildmidi:sndio - Enable support for the media-sound/sndio backend
 media-sound/xmms2:airplay - Support for airplay format
