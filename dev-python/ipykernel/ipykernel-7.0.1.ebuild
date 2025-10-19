@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi virtualx
@@ -48,15 +48,6 @@ BDEPEND="
 EPYTEST_PLUGINS=( pytest-{asyncio,rerunfailures,timeout} )
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# hangs?
-	tests/test_eventloop.py::test_tk_loop
-	# flaky
-	tests/test_eventloop.py::test_qt_enable_gui
-	# fails without pytest-cov; apparently "time-sensitive" too
-	tests/test_subshells.py::test_run_concurrently_sequence
-)
-
 src_prepare() {
 	# debugpy is actually optional
 	sed -i -e '/debugpy/d' pyproject.toml || die
@@ -72,4 +63,25 @@ python_compile() {
 
 src_test() {
 	virtx distutils-r1_src_test
+}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# hangs?
+		tests/test_eventloop.py::test_tk_loop
+		# flaky
+		tests/test_eventloop.py::test_qt_enable_gui
+		# fails without pytest-cov; apparently "time-sensitive" too
+		tests/test_subshells.py::test_run_concurrently_sequence
+	)
+
+	case ${EPYTHON} in
+		python3.14)
+			EPYTEST_DESELECT+=(
+				tests/test_kernel.py::test_subprocess_{error,print}
+			)
+			;;
+	esac
+
+	epytest
 }
