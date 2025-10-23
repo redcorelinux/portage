@@ -1124,6 +1124,7 @@ app-shells/bash:plugins - Add support for loading builtins at runtime via 'enabl
 app-shells/bash-completion:eselect - Support blacklisting of completions via 'eselect bashcomp'. This enables custom Gentoo patching of upstream completion loader.
 app-shells/mksh:lksh - variant that uses POSIX-compliant arithmetics with the host “long” data type and is automatically in POSIX mode when called as /bin/sh
 app-shells/nushell:mcp - Build MCP server
+app-shells/nushell:network - Build networking functionality
 app-shells/nushell:plugins - Build official plugins
 app-shells/nushell:system-clipboard - System clipboard support in `reedline`
 app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote copy) for authoring websites. sftp is a much more secure protocol and is preferred.
@@ -4696,7 +4697,8 @@ media-radio/ax25-tools:X - Enable some X based configuration tools.
 media-radio/chirp:radioreference - pull in optional deps for query of radioreference
 media-radio/direwolf:hamlib - Enables support by the Hamlib amateur radio rig control library
 media-radio/fldigi:hamlib - Enables support by the Hamlib amateur radio rig control library to get/set frequency and mode of the ham radio in use
-media-radio/svxlink:qt5 - Build and install qtel application
+media-radio/svxlink:qt5 - Build and install qtel application with Qt5
+media-radio/svxlink:qt6 - Build and install qtel application with Qt6
 media-radio/svxlink:rtlsdr - Add support for rtlsdr hardware
 media-radio/tucnak:hamlib - Enables support by the Hamlib amateur radio rig control library to get/set frequency and mode of the ham radio
 media-radio/tucnak:rtlsdr - Add support for rtlsdr hardware
@@ -6539,7 +6541,6 @@ net-misc/moonlight:soundio - Enable sound output via media-libs/libsoundio inste
 net-misc/moonlight:vkslow - Prefer hardware YUV-RGB conversion and scaling over Vulkan for better performance on some weaker GPUs
 net-misc/mosh:client - Build network client
 net-misc/mosh:examples - Include example scripts
-net-misc/mosh:mosh-hardening - Enable compiler and linker options to frustrate memory corruption exploits
 net-misc/mosh:nettle - Use dev-libs/nettle for some cryptographic functions instead of dev-libs/openssl. With Nettle, some of mosh's own code is used for OCB.
 net-misc/mosh:server - Build network server
 net-misc/mosh:ufw - Install net-firewall/ufw rule set
@@ -6737,6 +6738,7 @@ net-misc/x2goserver:fuse - Use net-fs/sshfs to allow shared folders
 net-misc/xmrig:donate - Set the default donation level to 1% instead of 0
 net-misc/xmrig:hwloc - Use sys-apps/hwloc for CPU affinity support
 net-misc/youtube-viewer:gtk - Install the gtk3 GUI
+net-misc/yt-dlp:deno - (warning: this USE is for testing versions only currently and can be ignored at the moment) Pull in dev-lang/deno-bin by default needed for proper YouTube support (if this USE is masked on your profile, refer to yt-dlp's documentation for lesser supported alternatives which are not supported out-of-the-box due to security concerns)
 net-misc/ytfzf:minimal - Skip all optional dependencies (may no longer work out-of-the-box and require custom setting up)
 net-misc/ytfzf:thumbnails - Pull media-gfx/ueberzugpp or media-gfx/ueberzug for viewing thumbnails (default method when using -t)
 net-misc/zerotier:sso - Enable support for Single sign-on through zeroidc
