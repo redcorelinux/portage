@@ -1124,7 +1124,6 @@ app-shells/bash:plugins - Add support for loading builtins at runtime via 'enabl
 app-shells/bash-completion:eselect - Support blacklisting of completions via 'eselect bashcomp'. This enables custom Gentoo patching of upstream completion loader.
 app-shells/mksh:lksh - variant that uses POSIX-compliant arithmetics with the host “long” data type and is automatically in POSIX mode when called as /bin/sh
 app-shells/nushell:mcp - Build MCP server
-app-shells/nushell:network - Build networking functionality
 app-shells/nushell:plugins - Build official plugins
 app-shells/nushell:system-clipboard - System clipboard support in `reedline`
 app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote copy) for authoring websites. sftp is a much more secure protocol and is preferred.
@@ -4307,7 +4306,7 @@ media-libs/freetype:adobe-cff - Use Adobe CFF as default font-renderer
 media-libs/freetype:bzip2 - Support bzip2 compressed PCF fonts.
 media-libs/freetype:cleartype-hinting - Bytecode hinting mode for TrueType fonts that activates subpixel hinting (a.k.a. ClearType hinting) by default
 media-libs/freetype:fontforge - Install internal headers required for TrueType debugger in media-gfx/fontforge (built with USE=truetype-debugger)
-media-libs/freetype:harfbuzz - Use media-libs/harfbuzz for auto-hinting OpenType fonts. WARNING: may trigger circular dependencies!
+media-libs/freetype:harfbuzz - Use media-libs/harfbuzz for auto-hinting OpenType fonts.
 media-libs/freetype:utils - Install utilities and examples from ft2demos
 media-libs/freeverb3:forcefpu - Disable assembly code
 media-libs/freeverb3:plugdouble - Build plugins in double precision mode (default is float)
@@ -6739,8 +6738,6 @@ net-misc/xmrig:donate - Set the default donation level to 1% instead of 0
 net-misc/xmrig:hwloc - Use sys-apps/hwloc for CPU affinity support
 net-misc/youtube-viewer:gtk - Install the gtk3 GUI
 net-misc/yt-dlp:deno - (warning: this USE is for testing versions only currently and can be ignored at the moment) Pull in dev-lang/deno-bin by default needed for proper YouTube support (if this USE is masked on your profile, refer to yt-dlp's documentation for lesser supported alternatives which are not supported out-of-the-box due to security concerns)
-net-misc/ytfzf:minimal - Skip all optional dependencies (may no longer work out-of-the-box and require custom setting up)
-net-misc/ytfzf:thumbnails - Pull media-gfx/ueberzugpp or media-gfx/ueberzug for viewing thumbnails (default method when using -t)
 net-misc/zerotier:sso - Enable support for Single sign-on through zeroidc
 net-nds/389-ds-base:accountpolicy - Enable account policy plugin - automatically lock an account after a certain amount of time has elapsed
 net-nds/389-ds-base:auto-dn-suffix - Enable auto bind with auto dn suffix over unix domain socket (LDAPI) support
@@ -7694,6 +7691,7 @@ sci-ml/caffe2:flash - Enable flash attention
 sci-ml/caffe2:gloo - Use sci-ml/gloo
 sci-ml/caffe2:memefficient - Enable mem efficient attention
 sci-ml/caffe2:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
+sci-ml/caffe2:nccl - Use dev-libs/rccl (NCCL compatible) backend for distributed operations
 sci-ml/caffe2:nnpack - Use sci-ml/NNPACK
 sci-ml/caffe2:numpy - Add support for math operations through numpy
 sci-ml/caffe2:onednn - Use sci-ml/oneDNN
@@ -8449,6 +8447,7 @@ sys-fs/quota:netlink - Compile daemon receiving quota messages via netlink
 sys-fs/quota:rpc - Enable quota interaction via RPC
 sys-fs/sanoid:cron - Installs cron file
 sys-fs/squashfs-tools-ng:tools - Build the gensquashfs, rdsquashfs, sqfs2tar, sqfsdiff, and tar2sqfs tools
+sys-fs/udiskie:autostart - Enable XDG-compatible autostart of udiskie
 sys-fs/udisks:daemon - Build the system daemon, not just the client tool
 sys-fs/udisks:lvm - Add support for Logical Volume Management via sys-fs/lvm2
 sys-fs/udisks:systemd - Support sys-apps/systemd's logind
