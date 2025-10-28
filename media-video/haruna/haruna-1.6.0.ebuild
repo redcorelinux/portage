@@ -22,7 +22,7 @@ IUSE=""
 DEPEND="
 	dev-libs/kdsingleapplication
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -40,9 +40,11 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	media-libs/mpvqt:6
+	media-libs/mpvqt:6=
 	media-video/ffmpeg:=
 "
 RDEPEND="${DEPEND}
 	net-misc/yt-dlp
 "
+
+PATCHES=( "${FILESDIR}"/${P}-cmake-minreqver-3.16.patch )
