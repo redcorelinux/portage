@@ -443,6 +443,9 @@ app-crypt/qca:softstore - Enable softstore plugin
 app-crypt/rpm-sequoia:nettle - Use dev-libs/nettle as a crypto backend
 app-crypt/rpm-sequoia:openssl - Use dev-libs/openssl as a crypto backend
 app-crypt/seahorse:ldap - Enable seahorse to manipulate GPG keys on a LDAP server.
+app-crypt/sequoia-chameleon-gnupg:botan - Use dev-libs/botan as crypto provider.
+app-crypt/sequoia-sq:botan - Use dev-libs/botan as crypto provider.
+app-crypt/sequoia-sqv:botan - Use dev-libs/botan as crypto provider.
 app-crypt/swtpm:fuse - Support sys-fs/fuse based /dev/tpm interface
 app-crypt/tpm-tools:pkcs11 - Build Token data management utilities based on OpenCryptoki's (dev-libs/opencryptoki) PKCS#11 implementation.
 app-crypt/tpm2-pkcs11:fapi - Enable feature API backend
@@ -1563,7 +1566,6 @@ dev-games/openscenegraph:collada - Enable DAE file support via dev-libs/collada-
 dev-games/openscenegraph:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
 dev-games/openscenegraph:fox - Build examples using x11-libs/fox library
 dev-games/openscenegraph:gdal - Enable support for sci-libs/gdal library
-dev-games/openscenegraph:las - Enable support for geospatial data LAS LiDAR format using sci-geosciences/liblas
 dev-games/openscenegraph:openinventor - Build OpenInventor plugin
 dev-games/openscenegraph:osgapps - Build osg applications
 dev-games/openscenegraph:sdl2 - Use media-libs/libsdl2 additionally to media-libs/libsdl
@@ -1572,7 +1574,6 @@ dev-games/openscenegraph-openmw:collada - Enable DAE file support via dev-libs/c
 dev-games/openscenegraph-openmw:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
 dev-games/openscenegraph-openmw:fox - Build examples using x11-libs/fox library
 dev-games/openscenegraph-openmw:gdal - Enable support for sci-libs/gdal library
-dev-games/openscenegraph-openmw:las - Enable support for geospatial data LAS LiDAR format using sci-geosciences/liblas
 dev-games/openscenegraph-openmw:openinventor - Build OpenInventor plugin
 dev-games/openscenegraph-openmw:osgapps - Build osg applications
 dev-games/openscenegraph-openmw:sdl2 - Use media-libs/libsdl2 additionally to media-libs/libsdl
@@ -7277,7 +7278,6 @@ sci-geosciences/grass:geos - Use sci-libs/geos for v.buffer and adds extended op
 sci-geosciences/grass:pdal - Enable support for PDAL for point clouds via sci-libs/pdal
 sci-geosciences/grass:svm - Enable support for the Support Vector Machine library sci-libs/libsvm
 sci-geosciences/gshhs:data - Add earth data with sci-geosciences/gshhs-data
-sci-geosciences/liblas:gdal - Add support for the sci-libs/gdal geospatial raster library
 sci-geosciences/mapserver:apache - Enable mapserver to run under apache
 sci-geosciences/mapserver:geos - Enable sci-libs/geos library support
 sci-geosciences/mapserver:postgis - Enable dev-db/postgis support
@@ -7758,7 +7758,7 @@ sci-physics/pythia:rivet - Support sci-physics/rivet
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
 sci-physics/rivet:hepmc2 - Build with sci-physics/hepmc version 2
 sci-physics/rivet:hepmc3 - Build with sci-physics/hepmc version 3
-sci-physics/rivet:highfive - Build with sci-libs/HighFive and sci-libs/hdf5
+sci-physics/rivet:highfive - Build with sci-libs/highfive and sci-libs/hdf5
 sci-physics/rivet:zlib - Build with sys-libs/zlib
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
@@ -7788,7 +7788,7 @@ sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
 sci-physics/vgm:geant4 - Enable interaction with Geant4(sci-physics/geant:4)
 sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
-sci-physics/yoda:highfive - Build with sci-libs/HighFive and sci-libs/hdf5
+sci-physics/yoda:highfive - Build with sci-libs/highfive and sci-libs/hdf5
 sci-physics/yoda:root - Adds support for sci-physics/root
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
 sci-visualization/gle:manip - Build data manipulation program
