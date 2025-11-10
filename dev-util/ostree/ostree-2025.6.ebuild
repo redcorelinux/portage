@@ -69,6 +69,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-2023.3-dont-force-clang-introspection.patch
 	"${FILESDIR}"/${PN}-2024.8-Werror.patch
+	"${FILESDIR}"/${PN}-2025.6-include-stdint-musl.patch
 )
 
 src_prepare() {
@@ -112,6 +113,7 @@ src_configure() {
 
 src_install() {
 	default
+	dotmpfiles src/boot/ostree-tmpfiles.conf #901797
 	find "${D}" -name '*.la' -type f -delete || die
 }
 
