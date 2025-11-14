@@ -36,6 +36,20 @@
 
 #--- END OF EXAMPLES ---
 
+# Petr Vaněk <arkamar@gentoo.org> (2025-11-13)
+# The MDEV-38068 issue has been discovered with MariaDB 11.8.4. The issue
+# caused a partial data deletion when using the DELETE statement on MyISAM or
+# Aria tables under specific conditions. InnoDB tables are not affected by
+# this. A prep work for a corrective MariaDB 11.8.5 release has begun.
+# Expected release date is Fri, 14 Nov 2025. See:
+# https://jira.mariadb.org/browse/MDEV-38068
+# https://lists.mariadb.org/hyperkitty/list/packagers@lists.mariadb.org/thread/IT3YIRPIS4ZVDZ5LBIDV7MPUDIL2VGIA/
+~dev-db/mariadb-11.8.4
+
+# Sam James <sam@gentoo.org> (2025-11-13)
+# Reported crashes (https://bugs.gentoo.org/914256#c18)
+=sys-libs/musl-1.2.5-r6
+
 # Sam James <sam@gentoo.org> (2025-11-05)
 # re 8.3.0: Has regressions breaking media-video/subliminal and 8.3.1
 # which fixes some (but not all of those regressions) is semi-released only.
@@ -64,13 +78,6 @@ dev-libs/eventlog
 # Old backport with no revdeps left.
 # Removal on 2025-11-20.  Bug #964780.
 dev-python/backports-ssl-match-hostname
-
-# Thomas Beierlein <tomjbe@gentoo.org> (2025-10-14)
-# Depends on Qt5.
-# Superseded by media-radio/wsjtx_improved. While both are based on the same
-# base code wsjtx_improved will be more actual AND provides Qt6 support.
-# Removal on 2025-11-13.  Bug #955965.
-media-radio/wsjtx
 
 # Sam James <sam@gentoo.org> (2025-10-13)
 # Crashes in memtodest when handling PATH. Not yet reported upstream.
