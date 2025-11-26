@@ -1842,7 +1842,6 @@ dev-lang/nim:test-js - Enable tests that require Node.js
 dev-lang/nqp:clang - Toggle usage of the clang compiler in conjunction with MoarVM
 dev-lang/nqp:moar - Build the MoarVM backend (experimental/broken)
 dev-lang/ocaml:flambda - Enables the Flambda optimizer: A new intermediate representation (introduced in ocaml 4.03) in the depths of the compiler designed to allow for better inlining.
-dev-lang/ocaml:spacetime - Enables the Spacetime memory profiler. See https://caml.inria.fr/pub/docs/manual-ocaml/spacetime.html for more information.
 dev-lang/php:apparmor - Support FPM application confinement through sys-libs/libapparmor
 dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
 dev-lang/php:bcmath - Enable the BCMath Arbitrary Precision Mathematics extension
@@ -5702,7 +5701,6 @@ net-dns/avahi:bookmarks - Install the avahi-bookmarks application (requires dev-
 net-dns/avahi:gtk - Use gtk3 for the avahi utilities to build the avahi-ui-gtk3 library
 net-dns/avahi:howl-compat - Enable compat libraries for howl
 net-dns/avahi:mdnsresponder-compat - Enable compat libraries for mDNSResponder
-net-dns/bind:dnsrps - Enable the DNS Response Policy Service (DNSRPS) API, a mechanism to allow an external response policy provider
 net-dns/bind:dnstap - Enables dnstap packet logging
 net-dns/bind:doh - Enables dns-over-https
 net-dns/bind:fixed-rrset - Enables fixed rrset-order option
@@ -7145,7 +7143,7 @@ net-wireless/uhd:usrp1 - support USRP1 hardware
 net-wireless/uhd:usrp2 - support USRP2, N200, N210 hardware
 net-wireless/uhd:utils - utilities needed to list, query, calibrate, or update FPGA/Firmware
 net-wireless/uhd:x300 - support X300, X310 hardware
-net-wireless/unifi:system-mongodb - Start dev-db/mongodb by its own init scripts instead managed by UniFi.
+net-wireless/unifi:system-mongodb - Start dev-db/mongodb by its own init scripts instead of managed by UniFi.
 net-wireless/urh:airspy - use native backend which directly uses net-wireless/airspy
 net-wireless/urh:audio - use a soundcard instead of an sdr
 net-wireless/urh:bladerf - use native backend which directly uses net-wireless/bladerf
