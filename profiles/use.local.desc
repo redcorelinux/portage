@@ -835,7 +835,6 @@ app-i18n/im-chooser:xfce - Enable support for XFCE panel
 app-i18n/imsettings:xfconf - Enable support for xfce-base/xfconf
 app-i18n/libime:data - Build data
 app-i18n/librime:debug - Enable debugging (including logging of input of RIME input methods)
-app-i18n/mozc:fcitx4 - Enable support for app-i18n/fcitx 4
 app-i18n/mozc:fcitx5 - Enable support for app-i18n/fcitx 5
 app-i18n/mozc:gui - Install graphical user interface tool (mozc_tool)
 app-i18n/mozc:ibus - Enable support for app-i18n/ibus
@@ -4361,6 +4360,7 @@ media-libs/imlib2:y4m - Y4M image loader support
 media-libs/imlib2:zlib - Zlib loader support
 media-libs/intel-mediasdk:tools - Build analyse and inspect tools
 media-libs/jasper:heif - Enable experimental support for HEIF/HEIC, unsupported by upstream
+media-libs/kquickimageeditor:opencv - Enable better blur performance using media-libs/opencv
 media-libs/leptonica:utils - Install command-line utilities
 media-libs/libafterimage:shaping - Use MIT shaped X windows extention.
 media-libs/libafterimage:shm - Use MIT shared memory extention for X image transfer.
@@ -4805,6 +4805,7 @@ media-sound/drumstick:fluidsynth - Enable support for media-sound/fluidsynth
 media-sound/easyeffects:calf - Enable use of media-plugins/calf for adding various FX
 media-sound/easyeffects:doc - Install packages needed to display built-in user documentation
 media-sound/easyeffects:mda-lv2 - Enable use of media-plugins/mda-lv2 for the loudness FX
+media-sound/easyeffects:webengine - Read documentation inside the application with dev-qt/qtwebengine
 media-sound/easyeffects:zamaudio - Enable use of media-plugins/zam-plugins for the maximizer FX
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
@@ -5401,7 +5402,6 @@ media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently s
 media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
 media-video/vlc:kms - Enable kernel mode setting video output plugin via x11-libs/libdrm
 media-video/vlc:libplacebo - Enable support for GPU accelerated video rendering with media-libs/libplacebo
-media-video/vlc:libtar - Uses libtar instead of the built-in tar reader for reading custom skins
 media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
 media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
 media-video/vlc:live - Enable live555 streaming media support (client support for rtsp)
@@ -6750,6 +6750,7 @@ net-misc/xmrig:donate - Set the default donation level to 1% instead of 0
 net-misc/xmrig:hwloc - Use sys-apps/hwloc for CPU affinity support
 net-misc/youtube-viewer:gtk - Install the gtk3 GUI
 net-misc/yt-dlp:deno - Pull in dev-lang/deno-bin by default needed for proper YouTube support (if this USE is masked on your profile, refer to yt-dlp's documentation for lesser supported alternatives which are not supported out-of-the-box due to security concerns)
+net-misc/zerotier:controller - Enable support for the network controller microservice (NONCOMM License)
 net-misc/zerotier:sso - Enable support for Single sign-on through zeroidc
 net-nds/389-ds-base:accountpolicy - Enable account policy plugin - automatically lock an account after a certain amount of time has elapsed
 net-nds/389-ds-base:auto-dn-suffix - Enable auto bind with auto dn suffix over unix domain socket (LDAPI) support
@@ -6986,6 +6987,7 @@ net-vpn/strongswan:strongswan_plugins_bypass-lan - Enable support for the bypass
 net-vpn/strongswan:strongswan_plugins_ccm - Enable support for the ccm plugin
 net-vpn/strongswan:strongswan_plugins_chapoly - Enable ChaCha20/Poly1305 AEAD implementation and ChaCha20 XOF plugin
 net-vpn/strongswan:strongswan_plugins_cmac - Enable support for the cmac plugin
+net-vpn/strongswan:strongswan_plugins_connmark - Enable connmark plugin using conntrack based marks to select return path SA
 net-vpn/strongswan:strongswan_plugins_ctr - Enable support for the ctr plugin
 net-vpn/strongswan:strongswan_plugins_curve25519 - Enable support for X25519 DH group and Ed25519 public key uthentication
 net-vpn/strongswan:strongswan_plugins_des - Enable DES/3DES cipher implementation
@@ -8805,6 +8807,7 @@ www-misc/litmus:libproxy - Support for automatic proxy configuration management 
 www-misc/litmus:libxml2 - Use dev-libs/libxml2 to parse XML
 www-misc/litmus:pkcs11 - Support for PKCS #11 through PaKChoiS (dev-libs/pakchois).
 www-nginx/ngx-set-misc:hmac - Enable support for generating HMAC digests using dev-libs/openssl
+www-nginx/njs:tools - Build the command-line utility njs
 www-plugins/lightspark:ppapi - Install the PPAPI plugin (for Chromium)
 www-plugins/lightspark:rtmp - Enable Real Time Messaging Protocol using librtmp
 www-plugins/passff-host:chrome - Install plugin for chrome (which also includes opera)
