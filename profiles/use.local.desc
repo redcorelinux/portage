@@ -8509,6 +8509,7 @@ sys-kernel/mips-sources:ip27 - Enables additional support for SGI Origin (IP27)
 sys-kernel/mips-sources:ip28 - Enables additional support for SGI Indigo2 Impact R10000 (IP28)
 sys-kernel/mips-sources:ip30 - Enables support for SGI Octane (IP30, 'Speedracer')
 sys-kernel/rt-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
+sys-kernel/udev-hid-bpf:userhacks - Build HID-BPF programs which affect user-subjective preferences for device behavior.
 sys-kernel/vanilla-kernel:initramfs - Build initramfs along with the kernel.
 sys-libs/binutils-libs:64-bit-bfd - Support 64-bit targets even on 32-bit hosts (is ignored on 64-bit hosts)
 sys-libs/binutils-libs:cet - Enable Intel Control-flow Enforcement Technology.
@@ -8901,7 +8902,7 @@ x11-base/xorg-server:xvfb - Build the Xvfb server
 x11-base/xwayland:libei - Enable emulated input using dev-libs/libei
 x11-base/xwayland:unwind - Enable libunwind usage for backtraces
 x11-base/xwayland:xcsecurity - Build Security extension
-x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (only works for Turing/Ampere or newer GPUs, aka GTX 1650+ -- recommended with >=560.xx drivers if usable and is *required* for 50xx Blackwell or newer GPUs)
+x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (only works for Turing/Ampere or newer GPUs, aka GTX 1650+ -- recommended with >=560.xx drivers if usable and is *required* for 50xx Blackwell or newer GPUs -- always-enabled regardless of USE in >=590.xx)
 x11-drivers/nvidia-drivers:persistenced - Install the persistence daemon for keeping devices state when unused (e.g. for headless)
 x11-drivers/nvidia-drivers:powerd - Install the NVIDIA dynamic boost support daemon (only useful with specific laptops, ignore if unsure)
 x11-drivers/nvidia-drivers:static-libs - Install the XNVCtrl static library for accessing sensors and other features
