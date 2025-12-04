@@ -36,6 +36,21 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2025-12-03)
+# Upstream changed how multiprocessing shares data between processes,
+# which means the upgrade randomly breaks some currently running Python
+# applications, notably Portage.
+~app-doc/python-docs-3.13.10
+~app-doc/python-docs-3.14.1
+~dev-lang/python-3.13.10
+~dev-lang/python-0.3.13.10
+~dev-lang/python-3.14.1
+~dev-lang/python-0.3.14.1
+~dev-python/python-tests-3.13.10
+~dev-python/python-tests-0.3.13.10
+~dev-python/python-tests-3.14.1
+~dev-python/python-tests-0.3.14.1
+
 # Jaco Kroon <jkroon@gentoo.org> (2025-12-02)
 # Dead upstream, limited usefulness.  If you're still using it please reach out
 # so we can discuss options.  Likely not worth the effort to fix the compiler
@@ -215,12 +230,6 @@ dev-ruby/actiontext:7.0
 dev-ruby/rails:7.0
 dev-ruby/railties:7.0
 dev-ruby/haml:5
-
-# Michał Górny <mgorny@gentoo.org> (2025-10-06)
-# Refcount errors that trigger crashes in dev-python/moto
-# and dev-python/ipyparallel tests.
-=dev-python/pymongo-4.15.3
-=dev-python/pymongo-4.15.2
 
 # Lukas Schmelting <lschmelting@posteo.com> (2025-10-03)
 # Breaks e.g. in combination with gnome-shell-48.4, gettext/gjs (bug #963815)
