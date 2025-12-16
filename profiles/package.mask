@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-15)
+# Last release depends on Qt5, upstream appears dormant. Bug #959826
+# Removal on 2026-01-15
+net-misc/electrum-ltc
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-12-14)
 # Still depends on Qt5 with no upstream activity in years. Bug #960814
 # Removal on 2026-01-15
@@ -105,7 +110,7 @@ games-strategy/hedgewars
 # Bugs #929093, #952086, #952528, #955277. Removal on 2026-01-04.
 media-gfx/yafaray
 
-# Nowa Ammerlaan <nowa@gentoo.org (2025-12-05)
+# Nowa Ammerlaan <nowa@gentoo.org> (2025-12-05)
 # Stuck on Qt5, no upstream action.
 # Please use the games-action/prismlauncher fork instead.
 # Removal on 2026-01-05. Bug 967108.
