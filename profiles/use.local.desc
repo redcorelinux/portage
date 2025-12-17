@@ -7797,6 +7797,7 @@ sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
 sci-physics/vgm:geant4 - Enable interaction with Geant4(sci-physics/geant:4)
 sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
+sci-physics/yoda:eigen - Build with dev-cpp/eigen
 sci-physics/yoda:highfive - Build with sci-libs/highfive and sci-libs/hdf5
 sci-physics/yoda:root - Adds support for sci-physics/root
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
@@ -8602,6 +8603,8 @@ sys-power/nut:xml - Includes all UPS drivers that use XML.
 sys-power/nvclock:gtk - Install the GTK+ based graphical interface
 sys-power/nvclock:nvcontrol - Add NVCONTROL support for OpenGL options
 sys-power/suspend:crypt - Allows suspend and resume from encrypted disk
+sys-power/tlp:pd - TLP Profiles Daemon that replaces power-profiles-daemon by using the same D-Bus API.
+sys-power/tlp:rdw - Enables TLP Radio Device Wizard feature
 sys-process/atop:modules - Build netatop kernel module and install netatopd daemon.
 sys-process/audit:gssapi - Enable GSSAPI support
 sys-process/bottom:battery - Include support for laptop battery information
