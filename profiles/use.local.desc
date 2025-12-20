@@ -4923,6 +4923,8 @@ media-sound/patchage:jack-dbus - Use Jack via D-Bus instead of libjack
 media-sound/pavucontrol:sound - Enable sound notifications using media-libs/libcanberra
 media-sound/picard:discid - Enable reading the ID of the inserted CD
 media-sound/picard:fingerprints - Enable calculation and lookup of AcoustID fingerprints
+media-sound/picard:markdown - Enable enhanced internal documentation (scripting, plugins, etc.)
+media-sound/picard:multimedia - Enable embedded audio player
 media-sound/pithos:keybinder - Use keybinder to enable global key bindings
 media-sound/pms:regex - Enable regular expression searches
 media-sound/puddletag:acoustid - Use media-libs/chromaprint for acoustic fingerprinting
@@ -8031,7 +8033,6 @@ sys-apps/portage:rsync-verify - Enable full-tree cryptographic verification of G
 sys-apps/portage:xattr - Preserve extended attributes (filesystem-stored metadata) when installing files. Usually only required for hardened systems.
 sys-apps/ppc64-diag:rtas - Add support for the Run Time Abstraction Services (RTAS)
 sys-apps/proot:care - Build dynamic CARE binary (more info - https://proot-me.github.io)
-sys-apps/razercfg:gui - Installs GUI configuration utility and status bar applet. Requires dev-python/pyqt5
 sys-apps/rng-tools:jitterentropy - Enable Jitter RNG entropy support
 sys-apps/rng-tools:nistbeacon - Enable NIST beacon entropy support
 sys-apps/rng-tools:pkcs11 - Enable PKCS11 entropy support
