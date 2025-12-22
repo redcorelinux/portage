@@ -1010,7 +1010,6 @@ app-misc/sphinx:mariadb - Add mariadb database support
 app-misc/sphinx:stemmer - Enable language stemming support
 app-misc/task:sync - Enable "task sync" support
 app-misc/tinysparql:localsearch - Install the app-misc/localsearch package for actual data mining support for tinysparql
-app-misc/tinysparql:miners - Install the app-misc/localsearch package for actual data mining support for tracker
 app-misc/tinysparql:stemmer - Add word stemming via dev-libs/snowball-stemmer.
 app-misc/tmux:sixel - Enable sixel support
 app-misc/tmux:utempter - Include libutempter support
@@ -1315,8 +1314,6 @@ app-text/zeal:X - Enable global shortcut support on X11
 app-vim/gentoo-syntax:ignore-glep31 - Remove GLEP 31 (UTF-8 file encodings) settings
 dev-ada/AdaSAT:shared - Build shared library
 dev-ada/AdaSAT:static-pic - Build static library with pic code
-dev-ada/VSS:shared - Build shared library
-dev-ada/VSS:static-pic - Build static library with pic code
 dev-ada/aws:shared - Build shared library
 dev-ada/aws:wsdl - Used to convert ada to wsdl
 dev-ada/gnatcoll-bindings:shared - Build shared library
@@ -1348,6 +1345,8 @@ dev-ada/prettier-ada:static-pic - Build static library with pic code
 dev-ada/spawn:static-pic - Build static library with pic code
 dev-ada/templates-parser:shared - Build shared library
 dev-ada/templates-parser:static-pic - Build static library with pic code
+dev-ada/vss-text:shared - Build shared library
+dev-ada/vss-text:static-pic - Build static library with pic code
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-build/bazelisk:bazel-symlink - Install bazel symlink that points to bazelisk
@@ -4973,6 +4972,7 @@ media-sound/qtractor:aubio - Enable media-libs/aubio support
 media-sound/qtractor:dssi - Enable support for DSSI Soft Synth Interface
 media-sound/qtractor:rubberband - Enable support for in-place audio clip pitch-shifting through the rubberband library
 media-sound/rhythmbox:daap - Build the local network music sharing plugin which uses the DAAP protocol using net-libs/libdmapsharing
+media-sound/rosegarden:lv2 - Add support for Ladspa V2 plugins
 media-sound/scream:pcap - Support sniffing packets from network using net-libs/libpcap
 media-sound/shntool:alac - Add support for Apple Lossless Audio Codec files
 media-sound/shntool:mac - Add support for Monkey's Audio files
