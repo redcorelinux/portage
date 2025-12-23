@@ -7959,6 +7959,7 @@ sys-apps/hwloc:nvml - Enable the NVML device discovery
 sys-apps/hwloc:pci - Enable PCI device discovery using libpci
 sys-apps/hwloc:plugins - Build hwloc components as plugins so that the hwloc core library does not directly depend on their dependencies (for instance the libpci library)
 sys-apps/hwloc:rocm - Enable AMD RSMI device discovery
+sys-apps/hwloc:video_cards_nvidia - Enable GL display device discovery (NVCtrl)
 sys-apps/hwloc:xml - use libxml2 for XML support, instead of a custom minimalistic support
 sys-apps/ibm-powerpc-utils:rtas - Add support for the Run Time Abstraction Services (RTAS)
 sys-apps/iotools:make-symlinks - Generate sub-command symlinks to iotools -- note that a lot are simple like "xor"
@@ -8448,6 +8449,7 @@ sys-fs/erofs-utils:libdeflate - Use app-arch/libdeflate rather than virtual/zlib
 sys-fs/erofs-utils:uuid - Enables UUID support via sys-apps/util-linux.
 sys-fs/ext4magic:expert-mode - Builds ext4magic with expert mode. Highly useful in recovering data from a corrupted filesystem
 sys-fs/ext4magic:file-attr - Enable the recovery of file attributes (append, immutable, nodump etc)
+sys-fs/fuse:systemtap - Enable SystemTap/DTrace tracing
 sys-fs/lessfs:filelog - Enable the ability to log to a file instead of syslog
 sys-fs/lessfs:memtrace - Enable leefs to create a report regarding the memory allocation. This feature should be used for debugging purposes to avoid performance degradation
 sys-fs/loop-aes:extra-ciphers - Enable extra ciphers
