@@ -641,6 +641,7 @@ app-emulation/open-vm-tools:gtkmm - Compile with Gtkmm and sigc++ (Recommended)
 app-emulation/open-vm-tools:multimon - Enable multimon (Requires X)
 app-emulation/open-vm-tools:resolutionkms - Build the linux/unix resolutionkms module
 app-emulation/open-vm-tools:vgauth - Build vgauth
+app-emulation/open-vmdk:python - Install Python-based tools
 app-emulation/pcem:experimental - Enable experimental devices like printers.
 app-emulation/pcem:networking - Enable support for emulation of network cards.
 app-emulation/pcem:plugins - Enable support for dynamic plugins, which can add additional features.
@@ -1345,6 +1346,7 @@ dev-ada/prettier-ada:static-pic - Build static library with pic code
 dev-ada/spawn:static-pic - Build static library with pic code
 dev-ada/templates-parser:shared - Build shared library
 dev-ada/templates-parser:static-pic - Build static library with pic code
+dev-ada/vss-extra:static-pic - Build static library with pic code
 dev-ada/vss-text:shared - Build shared library
 dev-ada/vss-text:static-pic - Build static library with pic code
 dev-ada/xmlada:shared - Build shared library
@@ -5318,6 +5320,7 @@ media-video/mpv:sdl - Enable media-libs/libsdl2 based video and audio outputs (N
 media-video/mpv:sixel - Enable support for the sixel video backend using media-libs/libsixel
 media-video/mpv:sndio - Enable sound support via media-sound/sndio
 media-video/mpv:soc - Use additional media-video/ffmpeg patches for efficient playback on some SoCs (e.g. ARM, RISC-V)
+media-video/mpv:subrandr - Enable support for SRV3 and WebVTT subtitle formats using media-libs/subrandr
 media-video/mpv:tools - Install extra tools: mpv_identify.sh, mpv_idet.sh, and umpv
 media-video/mpv:uchardet - Enable subtitles charset discovery via app-i18n/uchardet
 media-video/mpv:zimg - Enable libzimg support (for vf_fingerprint)
