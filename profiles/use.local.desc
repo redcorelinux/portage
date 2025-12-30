@@ -445,6 +445,7 @@ app-crypt/rpm-sequoia:nettle - Use dev-libs/nettle as a crypto backend
 app-crypt/rpm-sequoia:openssl - Use dev-libs/openssl as a crypto backend
 app-crypt/seahorse:ldap - Enable seahorse to manipulate GPG keys on a LDAP server.
 app-crypt/sequoia-chameleon-gnupg:botan - Use dev-libs/botan as crypto provider.
+app-crypt/sequoia-sop:botan - Use dev-libs/botan as crypto provider.
 app-crypt/sequoia-sq:botan - Use dev-libs/botan as crypto provider.
 app-crypt/sequoia-sqv:botan - Use dev-libs/botan as crypto provider.
 app-crypt/swtpm:fuse - Support sys-fs/fuse based /dev/tpm interface
@@ -1122,7 +1123,6 @@ app-portage/pfl:network-cron - Adds a cron job which does a weekly submit of the
 app-portage/portage-utils:gpkg - Build GLEP-78 gpkg support in qpkg
 app-portage/portage-utils:gtree - Build gtree repository cache support
 app-portage/portage-utils:qmanifest - Build qmanifest applet, this adds additional dependencies for GPG, OpenSSL and BLAKE2B hashing
-app-portage/portage-utils:qtegrity - Build qtegrity applet, this adds additional dependencies for OpenSSL
 app-portage/tatt:templates - Install template scripts to be used with tatt
 app-shells/atuin:client - Enable the autin client
 app-shells/atuin:daemon - Enable the autin background daemon on the client
@@ -4261,6 +4261,7 @@ media-gfx/openvdb:utils - Build utility binaries
 media-gfx/photoqt:barcode - Support for QR and barcodes detection using media-libs/zxing-cpp
 media-gfx/photoqt:chromecast - Enable Chromecast support using dev-python/pychromecast
 media-gfx/photoqt:devil - Support additional image formats using media-libs/devil
+media-gfx/photoqt:extensions - Support additional features using extensions
 media-gfx/photoqt:freeimage - Support additional image formats using media-libs/freeimage
 media-gfx/photoqt:mpv - Support for video files using media-video/mpv
 media-gfx/photoqt:vips - Support for media-libs/vips image processing library
@@ -7773,16 +7774,12 @@ sci-physics/lammps:extra - Additional compute, dump, fix, molecular, pair styles
 sci-physics/lammps:hip - Enable hip gpu computing support
 sci-physics/lammps:lammps-memalign - Enables the use of the posix_memalign() call instead of malloc() when large chunks or memory are allocated by LAMMPS. Aliengnment is on 16 byte boundaries.
 sci-physics/pythia:fastjet - Build jets using the sci-physics/fastjet package
-sci-physics/pythia:hepmc - Adds support for High Energy Physics Monte Carlo Generators sci-physics/hepmc
-sci-physics/pythia:hepmc2 - Adds support for High Energy Physics Monte Carlo Generators 2 sci-physics/hepmc
 sci-physics/pythia:hepmc3 - Adds support for High Energy Physics Monte Carlo Generators 3 sci-physics/hepmc
 sci-physics/pythia:highfive - Support hdf and highfive
 sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics/lhapdf
 sci-physics/pythia:mpich - Support mpich
 sci-physics/pythia:rivet - Support sci-physics/rivet
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
-sci-physics/rivet:hepmc2 - Build with sci-physics/hepmc version 2
-sci-physics/rivet:hepmc3 - Build with sci-physics/hepmc version 3
 sci-physics/rivet:highfive - Build with sci-libs/highfive and sci-libs/hdf5
 sci-physics/rivet:zlib - Build with virtual/zlib
 sci-physics/root:R - Enable support for dev-lang/R
@@ -7807,7 +7804,6 @@ sci-physics/root:uring - Enable support for sys-libs/liburing in RNTuple
 sci-physics/root:vc - Enable support for dev-libs/vc with VecCore
 sci-physics/root:xrootd - Build the interface for net-libs/xrootd
 sci-physics/thepeg:fastjet - Adds support for sci-physics/fastjet
-sci-physics/thepeg:hepmc - Adds support for High Energy Physics Monte Carlo Generatorssci-physics/hepmc
 sci-physics/thepeg:hepmc3 - Adds support for High Energy Physics Monte Carlo Generators 3sci-physics/hepmc
 sci-physics/thepeg:lhapdf - Adds support for sci-physics/lhapdf
 sci-physics/thepeg:rivet - Adds support for sci-physics/rivet
