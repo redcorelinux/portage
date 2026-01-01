@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,17 +12,19 @@ SRC_URI="https://github.com/shibatch/${PN}/archive/refs/tags/${PV}.tar.gz
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="test"
 RESTRICT="
 	!test? ( test )
 	x86? ( test )
 "
 
+DEPEND="
+	>=dev-cpp/tlfloat-1.15.0
+"
 BDEPEND="
 	test? (
 		>=dev-libs/mpfr-4.2
-		dev-cpp/tlfloat
 	)
 "
 
