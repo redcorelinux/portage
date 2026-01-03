@@ -1456,7 +1456,6 @@ dev-db/recutils:curl - Enable support for remote descriptors using net-misc/curl
 dev-db/recutils:mdb - Build the mdb2rec utility using app-office/mdbtools
 dev-db/redict:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
 dev-db/redis:tcmalloc - Use tcmalloc from dev-util/google-perftools for allocations.
-dev-db/soci:cxx11 - Enable c++11 support
 dev-db/spatialite:geos - Add the sci-libs/geos library for exact topological tests
 dev-db/spatialite:proj - Add the sci-libs/proj library for reprojection features
 dev-db/spatialite:rttopo - Add the sci-geosciences/librttopo library for topology support
@@ -3163,10 +3162,8 @@ games-emulation/pcsx2:clang - Use Clang compiler to build (the only compiler tha
 games-emulation/pcsx2:sndio - Enable support for the media-sound/sndio backend
 games-emulation/ppsspp:discord - Enable interfacing with a locally running Discord desktop client
 games-emulation/rmg:angrylion-plugin - Enable the mupen64plus-video-angrylion-plus XMAME licensed plugin
-games-emulation/rmg:discord - Enable Discord RPC support
 games-emulation/rmg:dynarec - Enable the new dynarec for the mupen64plus-core plugin
 games-emulation/rmg:netplay - Enable Netplay
-games-emulation/rmg:rust-plugin - Enable the mupen64plus-input-gca rust plugin
 games-emulation/snes9x:libretro - Build libretro port
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
 games-emulation/vbam:link - Enable GBA linking functionality
@@ -4279,9 +4276,6 @@ media-gfx/ueberzugpp:opencv - Use media-libs/opencv for additional image formats
 media-gfx/ueberzugpp:wayland - Enable wayland support (proper window positioning is only supported with some compositors)
 media-gfx/ueberzugpp:xcb-errors - Use x11-libs/xcb-util-errors for better error reporting with X
 media-gfx/xpaint:pgf - Support for loading PGF images
-media-gfx/yafaray:fastmath - Enable mathematic approximations to make code faster
-media-gfx/yafaray:fasttrig - Enable trigonometric approximations to make code faster
-media-gfx/yafaray:opencv - Add support for media-libs/opencv image processing.
 media-libs/allegro:dumb - Enable media-libs/dumb module library support
 media-libs/allegro:physfs - Enable physfs support
 media-libs/allegro:vga - Enables the VGA graphics driver
@@ -7633,6 +7627,7 @@ sci-mathematics/giac:glpk - Enable the use of sci-mathematics/glpk
 sci-mathematics/gmp-ecm:custom-tune - Improve performance of some operations by selecting machine-specific defaults
 sci-mathematics/gretl:R - Enable support for dev-lang/R
 sci-mathematics/gretl:extras - Build and install add-ons bundled with gretl
+sci-mathematics/highs:hipo - Build the new factorization-based interior-point solver requiring sci-libs/metis.
 sci-mathematics/lcalc:double - Use double precision (the upstream default)
 sci-mathematics/lcalc:double-double - Use sci-libs/qdfor double-double precision
 sci-mathematics/lcalc:pari - Use sci-mathematics/pari for elliptic curve L-functions
