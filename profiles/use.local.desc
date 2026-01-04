@@ -4787,7 +4787,8 @@ media-sound/csound:dssi - Build the DSSI opcodes
 media-sound/csound:portmidi - Build the PortMIDI I/O module
 media-sound/csound:samples - Install the HRTF datafiles for use with hrtfmove, hrtfmove2, hrtfstat, hrtfearly, and hrtfreverb
 media-sound/csound:utils - Build stand-alone executables for utilities that can also be used via `csound -U`
-media-sound/darkice:twolame - Build with twolame support
+media-sound/darkice:fdk - Build with HE-AAC support using media-libs/fdk-aac
+media-sound/darkice:twolame - Build with twolame support using media-sound/twolame
 media-sound/deadbeef:converter - File format converter
 media-sound/deadbeef:cover - Support for cover art
 media-sound/deadbeef:hotkeys - Keyboard shortcuts support
@@ -5535,7 +5536,6 @@ net-analyzer/nagios-plugins:rpc - Install net-nds/rpcbind required for monitorin
 net-analyzer/nagios-plugins:snmp - Install dev-perl/Net-SNMP required for monitoring SNMP values. Disabling the flag does not remove any plugin file.
 net-analyzer/nagios-plugins:ssh - Install net-misc/openssh required for monitoring SSH servers. Disabling the flag does not remove any plugin file.
 net-analyzer/nagios-plugins-linux-madrisan:curl - Build check_container which requires net-misc/curl
-net-analyzer/nagios-plugins-linux-madrisan:varlink - Build check_podman which requires dev-libs/libvarlink
 net-analyzer/net-snmp:elf - Enable the use of elf utils to check uptime on some systems
 net-analyzer/net-snmp:kmem - Enable usage of /dev/kmem
 net-analyzer/net-snmp:mfd-rewrites - Use MFD rewrites of mib modules where available
