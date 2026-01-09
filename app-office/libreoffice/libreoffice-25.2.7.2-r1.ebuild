@@ -299,6 +299,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-poppler-25.10.patch"
 	"${FILESDIR}/${P}-icu-77.1.patch"
 	"${FILESDIR}/${P}-icu-78.1.patch"
+	"${FILESDIR}/${P}-poppler-26.01.patch"
 
 	# add qt6 backend as possible fallback for gtk-based desktop environments:
 	# https://bugs.gentoo.org/950170
@@ -465,6 +466,9 @@ src_configure() {
 	else
 		strip-flags
 	fi
+
+	# Workaround for bug #967047
+	tc-is-gcc && [[ $(gcc-major-version) -eq 16 ]] && append-cxxflags -fno-devirtualize-speculatively
 
 	# Show flags set at the end
 	einfo "  Used CFLAGS:    ${CFLAGS}"
