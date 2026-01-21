@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 elisp-common
 
@@ -62,8 +62,8 @@ src_install() {
 	use dmenu && dobin contrib/dmenu/passmenu
 
 	if use emacs; then
-		elisp-install ${PN} contrib/emacs/*.{el,elc}
-		elisp-site-file-install "${FILESDIR}/50${PN}-gentoo.el"
+		elisp-install password-store contrib/emacs/*.{el,elc}
+		elisp-site-file-install "${FILESDIR}/50password-store-gentoo.el"
 	fi
 
 	if use importers; then
