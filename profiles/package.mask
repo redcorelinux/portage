@@ -36,6 +36,38 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2026-02-07)
+# Never packaged by other distros, QA and C23 issues.
+# Removal on 2026-03-09.
+net-analyzer/traceproto
+
+# David Seifert <soap@gentoo.org> (2026-02-07)
+# -Wformat and C23 issues, no other distro packages this anymore.
+# Removal on 2026-03-09.
+net-analyzer/mping
+
+# David Seifert <soap@gentoo.org> (2026-02-07)
+# Abandoned upstream, no other distro packages this anymore, lots of QA and
+# build issues. Removal on 2026-03-09. Bug #945191.
+net-analyzer/nttcp
+
+# David Seifert <soap@gentoo.org> (2026-02-06)
+# Abandoned upstream, no other distro packages this anymore, lots of QA and
+# build issues. Removal on 2026-03-08. Bug #899932.
+net-analyzer/ipcad
+
+# David Seifert <soap@gentoo.org> (2026-02-06)
+# Upstream disappeared, no other distro packages this anymore, lots of QA and
+# build issues. Removal on 2026-03-08. Bug #680718.
+net-analyzer/arp-sk
+
+# Arthur Zamarin <arthurzam@gentoo.org> (2026-02-06)
+# Marked as pre-release post release itself. Released without
+# maintainer ACK.
+# See-Also: https://github.com/emersion/slurp/issues/187
+# Bug #969685
+=gui-apps/slurp-1.6.0
+
 # Michał Górny <mgorny@gentoo.org> (2026-01-24)
 # Needs porting to Python 3.13.  Requires old versions of multiple
 # dependencies, and reportedly is already broken with its current
@@ -65,10 +97,6 @@ app-emacs/use-package
 # Removal on 2026-02-22.
 # Bug #966194, #907208, #906665, #796242, #794028, #656354.
 app-portage/java-ebuilder
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-01-18)
-# Masked for testing.
->=dev-libs/boost-1.90
 
 # Ulrich Müller <ulm@gentoo.org> (2026-01-18)
 # Obsolete since Emacs 29, per upstream README.md. Use the "docker"
@@ -112,11 +140,6 @@ app-emacs/docker-tramp
 =dev-libs/intel-compute-runtime-24.35.30872.32-r2
 =dev-libs/intel-compute-runtime-24.35.30872.36
 =dev-util/intel-graphics-compiler-1.0.17791.18-r1
-
-# Fabian Groffen <grobian@gentoo.org> (2026-01-08)
-# Too many issues already.  Further testing is appreciated, but expect
-# breakage.
-=app-portage/portage-utils-0.99
 
 # James Le Cuirot <chewi@gentoo.org> (2025-12-24)
 # The upstream community has forked with the vast majority going to UZDoom, now
@@ -721,7 +744,7 @@ media-plugins/kodi-game-libretro-dosbox
 # If you still use one of these old toolchain packages, please upgrade (and
 # switch the compiler / the binutils) ASAP. If you need them for a specific
 # (isolated) use case, feel free to unmask them on your system.
-<sys-libs/glibc-2.40-r8
+<sys-libs/glibc-2.41-r10
 <sys-libs/binutils-libs-2.44
 <sys-devel/binutils-2.44
 <sys-devel/binutils-hppa64-2.44

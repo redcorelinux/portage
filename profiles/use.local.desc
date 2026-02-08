@@ -3227,6 +3227,9 @@ games-engines/uzdoom:swr - Enable the software renderer
 games-fps/alephone:video-export - Enable film export support
 games-fps/alienarena:vidmode - Link against x11-libs/libXxf86vm. Required for full-screen support.
 games-fps/chocolate-doom:midi - basic support for MIDI files
+games-fps/crispy-doom:fluidsynth - Use media-sound/fluidsynth for MIDI support
+games-fps/crispy-doom:midi - Basic support for MIDI files
+games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 games-fps/darkplaces:cdsound - Enables using CD audio in the engine
 games-fps/darkplaces:demo - Uses the demo data from quake1 (quake1-demodata)
 games-fps/darkplaces:lights - Install and setup the updated light maps
@@ -3957,9 +3960,7 @@ mail-client/thunderbird:wifi - Enable necko-wifi for NetworkManager integration,
 mail-filter/MailScanner:exim - Set mail-mta/exim to used MTA
 mail-filter/MailScanner:postfix - Set mail-mta/postfix to used MTA
 mail-filter/MailScanner:spamassassin - Enable usage of mail-filter/spamassassin for spam protection
-mail-filter/amavisd-new:courier - Add courier support
 mail-filter/amavisd-new:dkim - Add DomainKeys Identified Mail support
-mail-filter/amavisd-new:qmail - Add qmail support
 mail-filter/amavisd-new:razor - Add support for mail-filter/razor
 mail-filter/amavisd-new:rspamd - Add support for mail-filter/rspamd extension (HTTP only)
 mail-filter/amavisd-new:rspamd-https - Add support for mail-filter/rspamd extension (both HTTP and HTTPS)
@@ -5721,9 +5722,11 @@ net-analyzer/zabbix:static - Build statically linked binaries
 net-dialup/accel-ppp:ipoe - Build IPoE kernel module
 net-dialup/accel-ppp:libtomcrypt - Support crypto algorithms through dev-libs/libtomcrypt instead of dev-libs/openssl
 net-dialup/accel-ppp:shaper - Support for traffic shaping
+net-dialup/freeradius:kafka - Include support for kafka
 net-dialup/freeradius:memcached - Include dev-libs/libmemcached in caching drivers
 net-dialup/freeradius:mongodb - Include support for MongoDB database
 net-dialup/freeradius:redis - Include support for Redis database
+net-dialup/freeradius:yubikey - Include support for ubikey
 net-dialup/freeradius-client:scp - Add service type hints derived from username prefix
 net-dialup/freeradius-client:shadow - Enable shadow password support
 net-dialup/mgetty:fax - Enables fax support
@@ -7642,7 +7645,6 @@ sci-mathematics/giac:glpk - Enable the use of sci-mathematics/glpk
 sci-mathematics/gmp-ecm:custom-tune - Improve performance of some operations by selecting machine-specific defaults
 sci-mathematics/gretl:R - Enable support for dev-lang/R
 sci-mathematics/gretl:extras - Build and install add-ons bundled with gretl
-sci-mathematics/highs:hipo - Build the new factorization-based interior-point solver requiring sci-libs/metis.
 sci-mathematics/lcalc:double - Use double precision (the upstream default)
 sci-mathematics/lcalc:double-double - Use sci-libs/qdfor double-double precision
 sci-mathematics/lcalc:pari - Use sci-mathematics/pari for elliptic curve L-functions
