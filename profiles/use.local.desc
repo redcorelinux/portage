@@ -3253,8 +3253,6 @@ games-fps/eduke32:tools - Install the support tools for mapster32.
 games-fps/eduke32:voidsw - Enable support for Shadow Warrior (Classic) through VoidSW.
 games-fps/eduke32:voxels - Install the Duke Nukem 3D Voxels Pack.
 games-fps/eduke32:xmp - Enable support for media-libs/exempi.
-games-fps/gzdoom:non-free - Enable non-free components
-games-fps/gzdoom:swr - Enable software renderer
 games-fps/nexuiz:maps - Install the community map pack
 games-fps/quake2-icculus:demo - Install the demo files (quake2-demodata) and configure for use
 games-fps/quake2-icculus:qmax - Build the pretty version (quake max)
@@ -3366,9 +3364,6 @@ games-strategy/freeciv:sound - Add support for sound provided by media-libs/sdl2
 games-strategy/freeciv:system-lua - Use dev-lang/lua instead of the bundled liblua
 games-strategy/freeciv:web-server - Build the freeciv-web server in place of the freeciv server
 games-strategy/freeorion:client - Build game client
-games-strategy/hedgewars:ffmpeg - Enable video recording feature
-games-strategy/hedgewars:pas2c - Translate Pascal sources to C and build with clang
-games-strategy/hedgewars:server - Enable local server
 games-strategy/ja2-stracciatella:editor - Adds necessary file to run the editor
 games-strategy/ja2-stracciatella:ru-gold - Support for russian gold ja2 version
 games-strategy/megaglest:editor - Build map editor
@@ -8683,8 +8678,6 @@ virtual/mysql:server - Build server (mysqld)
 virtual/pkgconfig:native-symlinks - Install generic symlinks like pkgconf and pkg-config. If this flag is disabled, only CHOST-prefixed pkg-config executables will be available to end users and ebuilds.
 virtual/podofo-build:boost - Add support for boost
 virtual/podofo-build:tools - Build and install commandline tools
-virtual/rust:profiler - Build the profiler runtime and rust-demangler tool (needed for '-C profile-generate' or '-C instrument-coverage' codegen opts)
-virtual/rust:rustfmt - Install rustfmt, Rust code formatter
 virtual/ssh:minimal - Prefer net-misc/dropbear over net-misc/openssh
 virtual/zlib:minizip - include the minizip library for quick and dirty zip extraction
 www-apache/mod_auth_openidc:brotli - Add support for brotli compressed data using app-arch/brotli
