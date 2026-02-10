@@ -36,6 +36,55 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2026-02-09)
+# Only needed by last-rited hyprland stack. Out-of-date by quite a few
+# versions. Removal on 2026-03-11.
+dev-cpp/glaze
+
+# Sam James <sam@gentoo.org> (2026-02-09)
+# This suite of packages is currently best placed in an overlay/external
+# repository where users can more easily contribute. The ecosystem moves
+# quickly and users expect even the live ebuilds to be updated apace.
+#
+# The rate of change as well as new packages requiring review places a heavy
+# combined with users (not unreasonably) wanting fresh versions of the software
+# places strain on the proxy-maint team. Pressure being put on proxied maintainers
+# to create and quickly have PRs merged doesn't facilitate the level of
+# testing for ::gentoo either.
+#
+# An unofficial 'hyproverlay' repository has been created at
+#  https://codeberg.org/hyproverlay/hyproverlay.git
+# for communal maintenance of these packages as well as several new
+# (unpackaged in ::gentoo) dependencies. It can be enabled with:
+#  $ emerge -an app-eselect/eselect-repository
+#  $ eselect repository enable hyproverlay
+#  $ emerge --sync
+#
+# Quite out-of-date, many open bugs, and needs several new dependencies.
+# Removal on 2026-03-11.
+gui-libs/aquamarine
+gui-libs/hyprutils
+gui-libs/hyprland-qt-support
+gui-libs/hyprcursor
+dev-util/hyprwayland-scanner
+dev-libs/hyprlang
+dev-libs/hyprland-protocols
+dev-libs/hyprgraphics
+gui-wm/hyprland
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-09)
+# Broken for ages with dev-libs/boost-1.85 but no one except tinderbox
+# complained, still needs porting to Python 3.13, no revdeps. Upstream
+# available 2025.1 claims to fix at least boost, but needs a maintainer.
+# Bugs #936978, #952658.  Removal on 2026-03-11.
+sci-chemistry/votca
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-09)
+# Broken for >1 year with dev-libs/boost-1.87 but no one except tinderbox
+# complained, no revdeps. Upstream disappeared, almost no one else is
+# packaging this.  Bug #946533.  Removal on 2026-03-11.
+net-analyzer/sinfo
+
 # Michał Górny <mgorny@gentoo.org> (2026-02-09)
 # setuptools-82 removes pkg_sources, inevitably leading to breakage.
 >=dev-python/ensurepip-setuptools-82
@@ -388,14 +437,6 @@ app-emulation/virtualbox-kvm
 # Sam James <sam@gentoo.org> (2024-06-25)
 # The symbol versioning "fix" breaks anything built with 3.0.0.
 >=dev-libs/libassuan-3.0.1
-
-# Sam James <sam@gentoo.org> (2023-09-09)
-# OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
-# https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/
-# https://www.openssl.org/blog/blog/2023/06/15/1.1.1-EOL-Reminder/
-# Please run a full world upgrade, especially checking /etc/portage and your world file
-# for old PHP or Ruby references.
-<dev-libs/openssl-3
 
 # Michał Górny <mgorny@gentoo.org> (2023-06-21)
 # suitesparseconfig-7.0.0 fails to build with multilib enabled
