@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="A a set of Thai language support routines"
+DESCRIPTION="Set of Thai language support routines"
 HOMEPAGE="
 	https://linux.thai.net/projects/libthai
 	https://github.com/tlwg/libthai
@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/tlwg/${PN}.git"
 else
 	SRC_URI="https://github.com/tlwg/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 LICENSE="LGPL-2.1+"
