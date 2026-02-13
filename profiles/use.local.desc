@@ -5057,7 +5057,6 @@ media-sound/xwax:mp3 - Sets runtime dependencies to support decoding MP3 audio.
 media-sound/xwax:oss - Adds support for OSS (open sound system) audio input/output.
 media-sound/yarock:mpv - Enable media-video/mpv backend
 media-sound/yarock:qtmedia - Enable playback via dev-qt/qtmultimedia
-media-sound/yarock:vlc - Enable media-video/vlc backend
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
 media-sound/zynaddsubfx:dssi - Enable support for DSSI Soft Synth Interface
 media-tv/kodi:airplay - enable AirPlay support
@@ -5430,7 +5429,7 @@ media-video/vlc:gcrypt - Enable cryptography support via libgcrypt
 media-video/vlc:gme - Enable support for media-libs/game-music-emu for playing various video game music formats
 media-video/vlc:gstreamer - Enable GStreamer based decoding support (currently supports only video decoding)
 media-video/vlc:kate - Adds support for Ogg Kate subtitles via libkate
-media-video/vlc:kms - Enable kernel mode setting video output plugin via x11-libs/libdrm
+media-video/vlc:libdrm - Enable kernel mode setting video output plugin via x11-libs/libdrm
 media-video/vlc:libplacebo - Enable support for GPU accelerated video rendering with media-libs/libplacebo
 media-video/vlc:libtiger - Enable Ogg Kate subtitles rendering using libtiger
 media-video/vlc:linsys - Enable support for Linux Linear Systems Ltd. SDI and HD-SDI input cards
@@ -7785,9 +7784,10 @@ sci-physics/lammps:hip - Enable hip gpu computing support
 sci-physics/lammps:lammps-memalign - Enables the use of the posix_memalign() call instead of malloc() when large chunks or memory are allocated by LAMMPS. Aliengnment is on 16 byte boundaries.
 sci-physics/pythia:fastjet - Build jets using the sci-physics/fastjet package
 sci-physics/pythia:hepmc3 - Adds support for High Energy Physics Monte Carlo Generators 3 sci-physics/hepmc
-sci-physics/pythia:highfive - Support hdf and highfive
+sci-physics/pythia:highfive - Support sci-libs/hdf5 and sci-libs/highfive
 sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics/lhapdf
-sci-physics/pythia:mpich - Support mpich
+sci-physics/pythia:mg5mes - MadGraph matrix element plugins for parton showers
+sci-physics/pythia:mpich - Multi-threading support via sys-cluster/mpich
 sci-physics/pythia:rivet - Support sci-physics/rivet
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
 sci-physics/rivet:highfive - Build with sci-libs/highfive and sci-libs/hdf5
@@ -8479,9 +8479,10 @@ sys-fs/lessfs:memtrace - Enable leefs to create a report regarding the memory al
 sys-fs/loop-aes:extra-ciphers - Enable extra ciphers
 sys-fs/loop-aes:keyscrub - Protects the encryption key in memory but takes more cpu resources
 sys-fs/lvm2:lvm - Build all of LVM2 including daemons and tools like lvchange, not just the device-mapper library (for other packages to use). If your system uses LVM2 for managing disks and partitions, enable this flag.
-sys-fs/lvm2:nvme - Build and install NVMe plugin
+sys-fs/lvm2:nvme - Build and install NVMe plugin for determining the World-Wide Identification (WWID) of an NVME device via sys-libs/libnvme.
 sys-fs/lvm2:sanlock - Enable lvmlockd with support for sanlock
 sys-fs/lvm2:thin - Support for thin volumes
+sys-fs/lvm2:xfs - Support XFS for 'lvextend --resizefs'.
 sys-fs/mdadm:corosync - Support for corosync cluster engine
 sys-fs/mtd-utils:ubifs - Build UBIFS tools
 sys-fs/mtpfs:mad - Enable handling of MP3's metadata
