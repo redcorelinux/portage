@@ -4756,6 +4756,7 @@ media-sound/amarok:mariadb - Prefer dev-db/mariadb-connector-c over dev-db/mysql
 media-sound/amarok:mtp - Enable support for libMTP (Plays4Sure) devices access through libmtp
 media-sound/amarok:podcast - Enable gpodder.net podcast support via media-libs/libmygpo-qt
 media-sound/amarok:webengine - Enable wikipedia widget using dev-qt/qtwebengine
+media-sound/amarok:zeroconf - Enable DAAP collections support using kde-frameworks/kdnssd
 media-sound/amsynth:dssi - Enable support for DSSI Soft Synth Interface
 media-sound/amsynth:lv2 - Add support for Ladspa V2
 media-sound/amsynth:nsm - Build support for Non Session Manager
@@ -5727,6 +5728,7 @@ net-dialup/mgetty:fidonet - Enables FidoNet support
 net-dialup/ppp:activefilter - Enables active filter support
 net-dialup/ppp:gtk - Installs GTK+ password prompting program that can be used by passprompt.so PPP plugin for reading the password from a X11 input terminal
 net-dialup/xl2tpd:kernel - Enable kernel interface for PPPoL2TP
+net-dialup/xl2tpd:poll - Use experimental patch to use poll rather than select (scalability patch)
 net-dns/avahi:autoipd - Build and install the IPv4LL (RFC3927) network address configuration daemon
 net-dns/avahi:bookmarks - Install the avahi-bookmarks application (requires dev-python/twisted)
 net-dns/avahi:gtk - Use gtk3 for the avahi utilities to build the avahi-ui-gtk3 library
