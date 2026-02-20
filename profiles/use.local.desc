@@ -4239,9 +4239,7 @@ media-gfx/inkscape:visio - Enable support for Microsoft Visio diagrams via media
 media-gfx/inkscape:wpg - Enable support for WordPerfect graphics via app-text/libwpg
 media-gfx/iscan-plugin-gt-f500:minimal - Install the firmware only, and not the plugin.
 media-gfx/kphotoalbum:map - Enable map display support using kde-apps/marble
-media-gfx/kphotoalbum:phonon - Enable media-libs/phonon video backend (known to crash on some video formats)
 media-gfx/kphotoalbum:share - Enable support for a share menu using kde-frameworks/purpose
-media-gfx/kphotoalbum:vlc - Enable media-video/vlc video backend (recommended for X11)
 media-gfx/krita:color-management - Enable color management via media-libs/opencolorio
 media-gfx/krita:media - Enable sound support for animations via media-libs/mlt
 media-gfx/krita:mypaint-brush-engine - Enable MyPaint brush engine support media-libs/libmypaint
@@ -5013,7 +5011,9 @@ media-sound/snd:notcurses - Terminal interface via dev-cpp/notcurses
 media-sound/snd:s7 - Enable the s7 extension language (a version of Scheme)
 media-sound/sonic-visualiser:id3tag - Enables ID3 tagging with id3tag library
 media-sound/sox:amr - Enables Adaptive Multi-Rate Audio support
+media-sound/sox:dolbyb - Support Dolby B like noise reduction with media-libs/libdolbyb
 media-sound/sox:id3tag - Enables ID3 tagging with id3tag library
+media-sound/sox:loudness - Support loudness normalisation according to the EBU R128 standard using media-libs/libebur128
 media-sound/sox:sndio - Enable support for sndio
 media-sound/sox:speexdsp - Support for automatic gain control, denoise and dereverb with media-libs/speexdsp
 media-sound/sox:twolame - Enables twolame support (MPEG Audio Layer 2 encoder)
