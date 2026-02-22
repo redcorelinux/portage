@@ -182,7 +182,6 @@ app-admin/syslog-ng:redis - Enable support for Redis destinations
 app-admin/syslog-ng:smtp - Enable support for SMTP destinations
 app-admin/syslog-ng:spoof-source - Enable support for spoofed source addresses
 app-admin/sysstat:dcron - Adjust cronjobs to work properly under sys-process/dcron
-app-admin/testdisk:ewf - Include ewf library
 app-admin/testdisk:ntfs - Include the ability to read NTFS filesystems
 app-admin/testdisk:reiserfs - Include reiserfs reading ability
 app-admin/testdisk:sudo - Enable sudo helper integration
@@ -988,7 +987,6 @@ app-misc/mosquitto:bridge - Enable bridge support in the MQTT broker.
 app-misc/mosquitto:persistence - Store messages and subscriptions to a file.
 app-misc/mosquitto:srv - Include SRV lookup support.
 app-misc/mosquitto:websockets - Support the WebSocket protocol.
-app-misc/neofetch:X - Enable support for detecting DEs, WMs, screen resolutions, and showing images from an X terminal
 app-misc/nnn:8contexts - Enable 8 contexts (instead of 4)
 app-misc/nnn:colemak - Key bindings for Colemak keyboard layout
 app-misc/nnn:emoji - Display icons using emoji
@@ -1071,6 +1069,7 @@ app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
 app-office/gnumeric:perl - Enable perl plugin loader.
 app-office/grisbi:goffice - enable goffice graphic support
 app-office/kmymoney:activities - Enable kde-plasma/plasma-activities integration
+app-office/kmymoney:addressbook - Enable kde-apps/akonadi contact integration
 app-office/kmymoney:hbci - Enable HBCI support using net-libs/aqbanking
 app-office/kmymoney:holidays - Enable kde-frameworks/kholidays integration
 app-office/kmymoney:sql - Enable storage of financial data in SQL Db via dev-qt/qtsql
@@ -1539,6 +1538,7 @@ dev-embedded/sdcc:device-lib - Enable built of devices libraries
 dev-embedded/sdcc:ds390 - Add support for Dallas DS390
 dev-embedded/sdcc:ds400 - Add support for Dallas DS400
 dev-embedded/sdcc:ez80-z80 - Add support for EZ80-Z80
+dev-embedded/sdcc:f8 - Add support for the new F8 arch
 dev-embedded/sdcc:hc08 - Add support for Freescale/Motorola HC08 based
 dev-embedded/sdcc:mcs51 - Add support for Intel mcs51
 dev-embedded/sdcc:mos6502 - Add support for MOS 6502
@@ -1554,6 +1554,7 @@ dev-embedded/sdcc:pic16 - Add support for Microchip 16 bits PICs
 dev-embedded/sdcc:r2k - Add support for Rabbit 2000
 dev-embedded/sdcc:r2ka - Add support for Rabbit 2000A
 dev-embedded/sdcc:r3ka - Add support for Rabbit 3000A
+dev-embedded/sdcc:r800 - Add support for ASCII Corporation R800
 dev-embedded/sdcc:s08 - Add support for Freescale/Motorola S08
 dev-embedded/sdcc:sdcdb - Enable SDCC source level debugger
 dev-embedded/sdcc:sdcpp - Enable SDCC preprocessor based on GCC cpp
@@ -3360,6 +3361,7 @@ games-strategy/freeciv:system-lua - Use dev-lang/lua instead of the bundled libl
 games-strategy/freeciv:web-server - Build the freeciv-web server in place of the freeciv server
 games-strategy/freeorion:client - Build game client
 games-strategy/ja2-stracciatella:editor - Adds necessary file to run the editor
+games-strategy/ja2-stracciatella:launcher - Build the ja2-stracciatella launcher
 games-strategy/ja2-stracciatella:ru-gold - Support for russian gold ja2 version
 games-strategy/megaglest:editor - Build map editor
 games-strategy/megaglest:fribidi - Enable FriBIDi support
@@ -5814,7 +5816,6 @@ net-dns/nsd:minimal-responses - If minimal responses are disabled, responses are
 net-dns/nsd:mmap - Use mmap(2) instead of malloc(3); currently experimental
 net-dns/nsd:munin - Install a plugin for net-analyzer/munin to graph statistical data from nsd
 net-dns/nsd:nsec3 - Enable NSEC3 support
-net-dns/nsd:packed - Enable packed structure alignment; uses less memory but has unaligned reads
 net-dns/nsd:radix-tree - Use a radix tree for main lookups instead of a red-black tree
 net-dns/nsd:ratelimit - Enables ratelimiting, based on query name, type and source
 net-dns/nsd:recvmmsg - Enable recvmmsg and sendmmsg compilation, faster but some kernel versions may have implementation problems for IPv6
@@ -6876,7 +6877,6 @@ net-p2p/rtorrent:tinyxml2 - Use vendor tinyxml2 instead of xmlrpc-c. This allows
 net-p2p/syncthing:tools - Install stdiscosrv, strelaysrv and other tools to /usr/libexec/syncthing/.
 net-p2p/transmission:cli - Build command-line client
 net-p2p/transmission:debug - Enable assertions
-net-p2p/transmission:mbedtls - Use mbed TLS instead of OpenSSL
 net-p2p/transmission-remote-gtk:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration.
 net-print/cups:openssl - Use dev-libs/openssl instead of net-libs/gnutls for TLS support
 net-print/cups-filters:foomatic - Build the included foomatic-rip printer driver. Strongly recommended.
@@ -7282,9 +7282,7 @@ sci-chemistry/votca:gromacs - Add support for gromacs file formats through sci-c
 sci-electronics/gerbv:unit-mm - Set default unit for coordinates in status bar to mm
 sci-electronics/ghdl:llvm - Build LLVM code generator
 sci-electronics/gtkwave:fasttree - Enables experimental Fast SST Tree widget code.
-sci-electronics/gtkwave:fatlines - Renders lines as double width in gtkwave.
 sci-electronics/gtkwave:judy - Enables Judy array support.
-sci-electronics/gtkwave:packed - Enables '#pragma pack' for data arrays (saves memory, costs time).
 sci-electronics/kicad-meta:minimal - Do not install extra data like 3D packages and templates.
 sci-electronics/ktechlab:gpsim - Enable support for Microchip PIC microcontrollers similation using dev-embedded/gpsim
 sci-electronics/librepcb:opencascade - Build with sci-libs/opencascadethe 3D features (e.g. reading/writing STEP files)
