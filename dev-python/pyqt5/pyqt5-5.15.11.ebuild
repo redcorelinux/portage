@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86"
 
 IUSE="
-	dbus debug declarative designer examples gles2-only gui multimedia
+	dbus debug declarative examples gles2-only gui multimedia
 	network opengl printsupport sql +ssl svg testlib widgets x11extras
 "
 
@@ -26,7 +26,6 @@ IUSE="
 # in project.py and from the output of 'grep -r "%Import " ${S}/sip'
 REQUIRED_USE="
 	declarative? ( gui network )
-	designer? ( widgets )
 	multimedia? ( gui network )
 	opengl? ( gui widgets )
 	printsupport? ( gui widgets )
@@ -45,7 +44,6 @@ DEPEND="
 		sys-apps/dbus
 	)
 	declarative? ( >=dev-qt/qtdeclarative-5.15:5[widgets?] )
-	designer? ( >=dev-qt/designer-5.15:5 )
 	gui? ( >=dev-qt/qtgui-5.15:5[gles2-only=] )
 	multimedia? ( >=dev-qt/qtmultimedia-5.15:5[widgets?] )
 	network? ( >=dev-qt/qtnetwork-5.15:5[ssl=] )
@@ -103,7 +101,6 @@ python_configure_all() {
 		$(pyqt_use_enable dbus QtDBus)
 		$(pyqt_use_enable declarative QtQml QtQuick \
 			$(usev widgets QtQuickWidgets))
-		$(pyqt_use_enable designer QtDesigner)
 		$(pyqt_use_enable gui QtGui \
 			$(use gles2-only && echo _QOpenGLFunctions_ES2 || echo _QOpenGLFunctions_{2_0,2_1,4_1_Core}))
 		$(pyqt_use_enable multimedia QtMultimedia \
@@ -120,6 +117,7 @@ python_configure_all() {
 
 		# no longer supported in Gentoo for PyQt5, use PyQt6
 		--disable=QtBluetooth
+		--disable=QtDesigner
 		--disable=QtHelp
 		--disable=QtLocation
 		--disable=QtPositioning
@@ -129,6 +127,7 @@ python_configure_all() {
 		--disable=QtWebChannel
 		--disable=QtWebSockets
 		--disable=QtXmlPatterns
+		--no-designer-plugin
 
 		$(usev debug '--debug --qml-debug --tracing')
 
@@ -137,7 +136,6 @@ python_configure_all() {
 		# plugins when using wheels w/ pep517 so, *if* something does need
 		# them, it will need to be handled manually
 		$(usev !declarative --no-qml-plugin)
-		$(usev !designer --no-designer-plugin)
 
 		$(usev gles2-only --disabled-feature=PyQt_Desktop_OpenGL)
 		$(usev !ssl --disabled-feature=PyQt_SSL)
