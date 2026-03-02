@@ -2712,7 +2712,6 @@ dev-qt/qtpositioning:qml - Build QML bindings
 dev-qt/qtquickcontrols:widgets - Enable QtWidgets support
 dev-qt/qtquickcontrols2:widgets - Enable QtWidgets support
 dev-qt/qtremoteobjects:qml - Build QML/QtQuick bindings and imports
-dev-qt/qtscript:scripttools - Build the QtScriptTools module (requires QtWidgets)
 dev-qt/qtscxml:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtsensors:qml - Build QML bindings
 dev-qt/qtspeech:flite - Enable text-to-speech synthesizer plugin using app-accessibility/flite engine
