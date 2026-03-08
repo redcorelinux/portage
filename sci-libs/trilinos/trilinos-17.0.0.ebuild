@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ IUSE="
 RESTRICT="test"
 
 RDEPEND="
-	!dev-cpp/kokkos
+	>=dev-cpp/kokkos-4.5.1:=[cuda(-)=,openmp=]
 	dev-libs/boost:=
 	sys-libs/binutils-libs:=
 	virtual/blas
@@ -65,8 +65,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix_compilation_gcc15.patch"
-)
+	"${FILESDIR}/${P}-drop_boost_system.patch"
+	)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -122,14 +122,12 @@ src_configure() {
 		-DTrilinos_ENABLE_Tpetra=ON
 		-DTrilinos_ENABLE_Zoltan=ON
 		-DTrilinos_ENABLE_TESTS="$(usex test)"
-		-DTPL_ENABLE_BinUtils=ON
-		-DTPL_ENABLE_BLAS=ON
-		-DTPL_ENABLE_LAPACK=ON
-		-DTPL_ENABLE_MPI=ON
 		-DTPL_ENABLE_ADOLC="$(usex adolc)"
 		-DTPL_ENABLE_AMD="$(usex sparse)"
 		-DTPL_ENABLE_ARPREC="$(usex arprec)"
+		-DTPL_ENABLE_BinUtils=ON
 		-DTPL_ENABLE_BLACS="$(usex scalapack)"
+		-DTPL_ENABLE_BLAS=ON
 		-DTPL_ENABLE_BoostLib=ON
 		-DTPL_ENABLE_Boost=ON
 		-DTPL_ENABLE_Clp="$(usex clp)"
@@ -142,9 +140,17 @@ src_configure() {
 		-DTPL_ENABLE_HDF5="$(usex hdf5)"
 		-DTPL_ENABLE_HWLOC="$(usex hwloc)"
 		-DTPL_ENABLE_HYPRE="$(usex hypre)"
+		-DTPL_ENABLE_Kokkos=ON
+		# Tpetra declares a dependency on kokkos-4.5.1, which we have in
+		# our version constraints. But the logic in the build system also
+		# unconditionally enforces that no newer version is installed.
+		# Thus, disable this check:
+		-DTpetra_IGNORE_KOKKOS_COMPATIBILITY=ON
+		-DTPL_ENABLE_LAPACK=ON
 		-DTPL_ENABLE_Matio="$(usex matio)"
 		-DTPL_ENABLE_METIS="$(usex metis)"
 		-DTPL_ENABLE_MKL="$(usex mkl)"
+		-DTPL_ENABLE_MPI=ON
 		-DTPL_ENABLE_MUMPS="$(usex mumps)"
 		-DTPL_ENABLE_Netcdf="$(usex netcdf)"
 		-DTPL_ENABLE_PARDISO_MKL="$(usex mkl)"
