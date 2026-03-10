@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="amd64 ~x86"
 
 SERVERS="ftpd inetd rexecd rlogind rshd syslogd talkd telnetd tftpd uucpd"
 CLIENTS="ftp dnsdomainname hostname ping ping6 rcp rexec rlogin rsh logger telnet tftp whois ifconfig traceroute"
@@ -55,7 +55,7 @@ RDEPEND="${DEPEND}
 	traceroute? ( !net-analyzer/traceroute )
 "
 BDEPEND="
-	sec-keys/openpgp-keys-inetutils
+	verify-sig? ( sec-keys/openpgp-keys-inetutils )
 "
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/inetutils.asc"
