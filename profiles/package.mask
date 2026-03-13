@@ -36,6 +36,28 @@
 
 #--- END OF EXAMPLES ---
 
+# Ionen Wolkens <ionen@gentoo.org> (2026-03-12)
+# Package was added for games-strategy/naev-0.12.x but 0.13.x no longer
+# needs it and it never gained other consumers. Have no intentions to
+# keep maintaining this so may as well remove rather than leave it m-n.
+# Removal on 2026-04-11.
+dev-libs/nativefiledialog-extended
+
+# Mike Pagano <mpagano@gentoo.org> (2026-03-13)
+# Upstream has announced the archiving of this application
+# at repo location: https://github.com/nginx/unit/
+# This announcement includes the statement that security
+# issues may not be addressed. Possible alternatives
+# are www-servers/nginx or www-servers/apache
+# depending on your application needs.
+# Removal on 2026-04-13.
+sys-apps/nginx-unit
+
+# Alfredo Tupone <tupone@gentoo.org> (2026-03-12)
+# No reverse dependency. Included in dev-tcltk/tklib
+# Removeal on 2026-04-12. Bug #971127
+dev-tcltk/tablelist
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2026-03-10)
 # Unused Java library.
 # Last consumer was net-p2p/freenet-0.7.5_p1505-r0.
@@ -254,19 +276,6 @@ net-analyzer/echoping
 <=dev-libs/hyprland-protocols-0.6.4
 <=dev-libs/hyprgraphics-0.1.5
 <=gui-wm/hyprland-0.51.1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-09)
-# Broken for ages with dev-libs/boost-1.85 but no one except tinderbox
-# complained, still needs porting to Python 3.13, no revdeps. Upstream
-# available 2025.1 claims to fix at least boost, but needs a maintainer.
-# Bugs #936978, #952658.  Removal on 2026-03-11.
-sci-chemistry/votca
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-09)
-# Broken for >1 year with dev-libs/boost-1.87 but no one except tinderbox
-# complained, no revdeps. Upstream disappeared, almost no one else is
-# packaging this.  Bug #946533.  Removal on 2026-03-11.
-net-analyzer/sinfo
 
 # Michał Górny <mgorny@gentoo.org> (2026-02-09)
 # setuptools-82 removes pkg_sources, inevitably leading to breakage.

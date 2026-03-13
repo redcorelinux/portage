@@ -3163,6 +3163,7 @@ games-emulation/rmg:netplay - Enable Netplay
 games-emulation/snes9x:libretro - Build libretro port
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
 games-emulation/vbam:link - Enable GBA linking functionality
+games-emulation/zsnes:pipewire - Enable using media-video/pipewire for audio
 games-engines/devilutionx:sodium - Enable network packet encryption using dev-libs/libsodium
 games-engines/devilutionx:zerotier - Enable ZeroTier for online public games
 games-engines/exult:fluidsynth - Compile with support for FluidSynth
@@ -7245,7 +7246,6 @@ sci-chemistry/vmd:gromacs - Add support for TNG file format
 sci-chemistry/vmd:msms - Add support for MSMS SES calcualtion tool
 sci-chemistry/vmd:povray - Add support for povray raytracer for HQ images
 sci-chemistry/vmd:tachyon - Add support for tachyon raytracer for HQ images
-sci-chemistry/votca:gromacs - Add support for gromacs file formats through sci-chemistry/gromacs
 sci-electronics/gerbv:unit-mm - Set default unit for coordinates in status bar to mm
 sci-electronics/ghdl:llvm - Build LLVM code generator
 sci-electronics/gtkwave:fasttree - Enables experimental Fast SST Tree widget code.
