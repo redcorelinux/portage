@@ -36,6 +36,13 @@
 
 #--- END OF EXAMPLES ---
 
+# Jakov Smolić <jsmolic@gentoo.org> (2026-03-13)
+# sqlite-3.52.0 has been withdrawn shortly after its release due to
+# backwards-compatibility issues
+# https://sqlite.org/releaselog/3_52_0.html
+=dev-db/sqlite-3.52.0-r1
+=dev-python/apsw-3.52.0.0
+
 # Ionen Wolkens <ionen@gentoo.org> (2026-03-12)
 # Package was added for games-strategy/naev-0.12.x but 0.13.x no longer
 # needs it and it never gained other consumers. Have no intentions to
@@ -51,7 +58,7 @@ dev-libs/nativefiledialog-extended
 # are www-servers/nginx or www-servers/apache
 # depending on your application needs.
 # Removal on 2026-04-13.
-sys-apps/nginx-unit
+www-servers/nginx-unit
 
 # Alfredo Tupone <tupone@gentoo.org> (2026-03-12)
 # No reverse dependency. Included in dev-tcltk/tklib
@@ -63,6 +70,13 @@ dev-tcltk/tablelist
 # Last consumer was net-p2p/freenet-0.7.5_p1505-r0.
 # Removal on 2026-04-10. Bug #971058.
 dev-java/mersennetwister
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-03-09)
+# Latest release is >21 years old, no one else packages this, buffer overflow
+# at launch, packaged only in gentoo. Alternatives exist, including the dockapp
+# x11-plugins/wmamixer. Bug #969091
+# Removal on 2026-04-08.
+media-sound/alsamixer-app
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-03-09)
 # Dead CORBA implementation, no one else packages this, impossible to build.
