@@ -7704,7 +7704,7 @@ sci-ml/XNNPACK:assembly - Build with assembly micro-kernels
 sci-ml/XNNPACK:jit - Build with JIT micro-kernels
 sci-ml/XNNPACK:memopt - Build with optimized memory allocation scheme
 sci-ml/XNNPACK:sparse - Build with graph rewriting for sparse inference
-sci-ml/caffe2:cusparselt - Use the CUDA Sparse Matrix Multiplication
+sci-ml/caffe2:cusparselt - Use the CUDA/HIP Sparse Matrix Multiplication
 sci-ml/caffe2:distributed - Support distributed applications
 sci-ml/caffe2:fbgemm - Use sci-ml/FBGEMM
 sci-ml/caffe2:flash - Enable flash attention
@@ -8495,6 +8495,7 @@ sys-kernel/gentoo-kernel:hardened - Use selection of hardening options recommend
 sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
+sys-kernel/hurd:ncurses - Build console-curses client for non-basic capabilities, unlike the builtin one.
 sys-kernel/installkernel:dracut - Generate an initramfs or UKI on each kernel installation
 sys-kernel/installkernel:efistub - EXPERIMENTAL: Update UEFI configuration on each kernel installation
 sys-kernel/installkernel:grub - Re-generate grub.cfg on each kernel installation, used grub.cfg is overridable with GRUB_CFG env var
