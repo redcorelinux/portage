@@ -38,9 +38,9 @@ RDEPEND="
 	bzip2? ( >=app-arch/bzip2-1.0.6-r4[static-libs?,${MULTILIB_USEDEP}] )
 	debuginfod? (
 		dev-db/sqlite:3=
-		>=dev-libs/json-c-0.11:=[${MULTILIB_USEDEP}]
+		>=dev-libs/json-c-0.11:=
 		>=net-libs/libmicrohttpd-0.9.33:=
-		>=net-misc/curl-7.29.0[static-libs?,${MULTILIB_USEDEP}]
+		>=net-misc/curl-7.29.0[static-libs?]
 	)
 	lzma? ( >=app-arch/xz-utils-5.0.5-r1[static-libs?,${MULTILIB_USEDEP}] )
 	stacktrace? ( dev-util/sysprof )
@@ -97,6 +97,8 @@ src_configure() {
 	# bug 660738
 	filter-flags -fno-asynchronous-unwind-tables
 
+	use debuginfod && MULTILIB_WRAPPED_HEADERS+=( /usr/include/elfutils/debuginfod.h )
+
 	multilib-minimal_src_configure
 }
 
@@ -107,7 +109,7 @@ multilib_src_configure() {
 		$(use_enable nls)
 		$(multilib_native_use_enable debuginfod)
 		# Could do dummy if needed?
-		$(use_enable debuginfod libdebuginfod)
+		$(multilib_native_use_enable debuginfod libdebuginfod)
 		$(multilib_native_use_enable stacktrace)
 		$(use_enable valgrind valgrind-annotations)
 
