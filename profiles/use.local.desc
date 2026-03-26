@@ -2556,7 +2556,6 @@ dev-python/python-lsp-server:all-plugins - Pull in all optional plugins
 dev-python/python-mpd2:twisted - Enable twisted support
 dev-python/python-stdnum:vies - Enable VIES
 dev-python/pyzmq:drafts - Enable draft API support
-dev-python/qiskit:visualization - Enable visualization modules
 dev-python/qtpy:designer - Pull in bindings for the QtDesigner module and enable the designer plugin
 dev-python/qtpy:gui - Pull in bindings for the QtGui module
 dev-python/qtpy:help - Pull in bindings for the QtHelp module
@@ -8495,6 +8494,7 @@ sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/hurd:ncurses - Build console-curses client for non-basic capabilities, unlike the builtin one.
+sys-kernel/hurd:rumpkernel - Build sys-kernel/rumpkernel support which provides drivers from NetBSD run in userland. This is needed for 64-bit systems and is considered the future of driver and hardware support on Hurd.
 sys-kernel/hurd:xkb - Depend on x11-libs/libxkbcommon for keymap support in the console.
 sys-kernel/installkernel:dracut - Generate an initramfs or UKI on each kernel installation
 sys-kernel/installkernel:efistub - EXPERIMENTAL: Update UEFI configuration on each kernel installation
