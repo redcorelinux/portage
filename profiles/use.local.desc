@@ -5447,11 +5447,6 @@ net-analyzer/bwm-ng:csv - Enable csv output
 net-analyzer/bwm-ng:html - Enable html output
 net-analyzer/cacti:doc - install html documentation
 net-analyzer/driftnet:httpd - Enable the HTTP/WebSockets server to display images
-net-analyzer/echoping:http - enable support for http protocol.
-net-analyzer/echoping:icp - enable support for ICP (used to monitor proxies).
-net-analyzer/echoping:priority - enable socket priority support.
-net-analyzer/echoping:smtp - enable support for SMTP protocol.
-net-analyzer/echoping:tos - enable support for TOS (TYpe Of Service).
 net-analyzer/ettercap:plugins - Install ettercap plugins (et_*.so)
 net-analyzer/flowgrind:pcap - Enable packet capturing support using net-libs/libpcap
 net-analyzer/fprobe:messages - enable console messages
@@ -7193,7 +7188,6 @@ sci-biology/clustalw-mpi:mpi-njtree - Use MPI (as opposed to serial) code for co
 sci-biology/clustalw-mpi:static-pairalign - Use static (as opposed to dynamic) scheduling for pair alignments
 sci-biology/exonerate:utils - Install the follow binaries: esd2esi, fasta2esd, fastaannotatecdna, fastachecksum, fastaclean, fastaclip, fastacomposition, fastadiff, fastaexplode, fastafetch, fastahardmask, fastaindex, fastalength, fastanrdb, fastaoverlap, fastareformat, fastaremove, fastarevcomp, fastasoftmask, fastasort, fastasplit, fastasubseq, fastatranslate, fastavalidcds
 sci-biology/fasttree:double-precision - use double precision instead of single-precision floating point (2x memroy required)
-sci-biology/mcl:blast - Add support for NCBI BLAST data
 sci-biology/mothur:boost - Depend on dev-libs/boost for make.contigs to read .gz compressed files.
 sci-biology/mothur:gsl - Use sci-libs/gsl to support diversity estimates for estimiator.single.
 sci-biology/mothur:hdf5 - Support Biom format 2.0 for the biom.info command via sci-libs/hdf5.
@@ -7782,6 +7776,8 @@ sci-physics/vgm:root - Enable interaction with ROOT (sci-physics/root)
 sci-physics/yoda:eigen - Build with dev-cpp/eigen
 sci-physics/yoda:highfive - Build with sci-libs/highfive and sci-libs/hdf5
 sci-physics/yoda:root - Adds support for sci-physics/root
+sci-visualization/dash:compress - Use dev-python/flask-compress to save bandwidth
+sci-visualization/dash:diskcache - Use dev-python/diskcache to cache on disk
 sci-visualization/fityk:nlopt - Enable optimization with sci-libs/nlopt
 sci-visualization/gle:manip - Build data manipulation program
 sci-visualization/gnuplot:amos - Enable Amos routines for complex Airy and Bessel functions (dev-libs/openspecfun)
@@ -8948,6 +8944,9 @@ x11-libs/libwnck:tools - Install wnckprop-3 and wnck-urgency-monitor-3 command-l
 x11-libs/libxcb:xkb - Enable the XCB keyboard extension
 x11-libs/libxkbcommon:tools - Build the xkbcli tools
 x11-libs/libxkbcommon:wayland - Build the Wayland utilities
+x11-libs/motif:xcursor - Add support for cursors (x11-libs/libXcursor)
+x11-libs/motif:xrandr - Add support for monitor information (x11-libs/libXrandr)
+x11-libs/motif:xrender - Add support for transparency (x11-libs/libXrender)
 x11-libs/pango:X - Build and install the legacy pangoxft library
 x11-libs/pango:examples - Install source code examples
 x11-libs/pango:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
