@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv ~s390"
+KEYWORDS="~alpha ~amd64 ~riscv ~s390"
 
 RDEPEND="
 	dev-python/cachetools[${PYTHON_USEDEP}]
@@ -36,6 +36,7 @@ BDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
+		dev-python/argcomplete[${PYTHON_USEDEP}]
 		dev-python/build[${PYTHON_USEDEP}]
 		dev-python/distlib[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
