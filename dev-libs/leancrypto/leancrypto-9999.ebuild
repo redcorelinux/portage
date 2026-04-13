@@ -20,7 +20,7 @@ else
 		verify-sig? ( https://leancrypto.org/leancrypto/releases/${P}/${P}.tar.xz.asc )
 	"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~m68k ~riscv ~s390 ~sparc ~x86"
 
 	BDEPEND="
 		verify-sig? ( sec-keys/openpgp-keys-leancrypto )
@@ -37,6 +37,21 @@ PATCHES=(
 )
 
 src_configure() {
+	use asm && MULTILIB_WRAPPED_HEADERS=(
+		# internal/api/meson.build modifies lc_memory_support
+		# based on asm support (bug #970513). Sort order here
+		# snakes out from that header.
+		/usr/include/leancrypto/lc_memory_support.h
+		/usr/include/leancrypto/ext_headers.h
+
+		# Another root (LC_HASH_COMMON_ALIGNMENT)
+		/usr/include/leancrypto/lc_hash.h
+		/usr/include/leancrypto/lc_memset_secure.h
+
+		# Another root (LC_DEF_ASCON_AVX512)
+		/usr/include/leancrypto/lc_ascon_hash.h
+	)
+
 	lto-guarantee-fat
 	meson-multilib_src_configure
 }
