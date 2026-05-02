@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Sebastian Pipping <sping@gentoo.org> (2026-05-01)
+# Dead for five years upstream, use Golang successor :2 instead please
+# Removal on 2026-06-01, bug #973547
+app-containers/docker-compose:0
+
 # Ulrich Müller <ulm@gentoo.org> (2026-04-30)
 # Upstream package is broken with Qt 6.10.3. Bug #973380.
 =net-im/zoom-7.0.0.1666-r1
@@ -410,6 +415,7 @@ virtual/perl-Unicode-Normalize
 =dev-libs/libpeas-1.38*
 >=app-office/endeavour-43.0-r2
 >=dev-vcs/gitg-44-r5
+>=media-gfx/eog-50
 
 # Sam James <sam@gentoo.ogr> (2025-06-08)
 # Masked for testing (bug #957583).
