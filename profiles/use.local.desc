@@ -355,6 +355,7 @@ app-containers/docker:overlay2 - Enables dependencies for the "overlay2" graph d
 app-containers/docker-credential-helpers:pass - Build pass helper for the pass utility.
 app-containers/incus:fuidshift - Install the fuidshift binary - currently conflicts with app-containers/lxd
 app-containers/incus:qemu - Pull dependencies needed to manage QEMU-based virtual machines with Incus
+app-containers/lxc:landlock - Use Landlock to restrict what the monitor API handlers can do on the system
 app-containers/lxc:tools - Build and install additional command line tools
 app-containers/nerdctl:rootless - Enables dependencies for running in rootless mode.
 app-containers/podman:btrfs - Enable btrfs support (graph driver) in Podman
@@ -2081,7 +2082,6 @@ dev-libs/json-glib:nls - Enable native language support (translations)
 dev-libs/ktextaddons:designer - Build plugins for dev-qt/qttools[designer]
 dev-libs/leancrypto:tools - Install sha*sum tools to /usr/libexec/leancrypto/.
 dev-libs/libbase58:tools - Build command line base58 tool
-dev-libs/libburn:cdio - Use dev-libs/libcdio for the transport of SCSI commands
 dev-libs/libbytesize:tools - Build bscalc python CLI tool
 dev-libs/libcdio:minimal - Only build the libcdio library and little more, just to be used to link against from multimedia players. With this USE flag enabled, none of the command-line utilities are built, nor is the CDDA library.
 dev-libs/libcec:exynos - Enable support for Exynos chipsets
@@ -2119,7 +2119,6 @@ dev-libs/libgit2-glib:ssh - Enable SSH transport support
 dev-libs/libgpg-error:common-lisp - Install common-lisp files
 dev-libs/libgpiod:tools - Build some useful gpio tools that use libgpiod.
 dev-libs/libical:glib - Enable dev-libs/glib interface support
-dev-libs/libisoburn:cdio - Use dev-libs/libcdio for the transport of SCSI commands
 dev-libs/libisoburn:external-filters - Allow the use of external processes as file content filters (Note: this is a potential security risk)
 dev-libs/libisoburn:external-filters-setuid - Also allow the use of external setuid processes as file content filters (Note: this is a potential security risk)
 dev-libs/libisoburn:frontend-optional - Use dev-tcltk/bwidget which is not strictly required for the frontend
@@ -5628,7 +5627,6 @@ net-analyzer/snort:shared-rep - Enables the use of shared memory for the Reputat
 net-analyzer/snort:side-channel - Enables Snort's side channel.
 net-analyzer/snort:sourcefire - Enables Sourcefire specific build options, which include --enable-perfprofiling and --enable-ppm.
 net-analyzer/suricata:af-packet - Enable AF_PACKET support
-net-analyzer/suricata:af-xdp - Enable AF_XDP support
 net-analyzer/suricata:bpf - Enable support for eBPF (as well as XDP if supported by the kernel and the NIC driver) for low-level, high-speed packet processing
 net-analyzer/suricata:control-socket - Enable unix socket
 net-analyzer/suricata:detection - Enable detection modules
@@ -5637,6 +5635,7 @@ net-analyzer/suricata:lz4 - Enable support for compressed pcap logging using the
 net-analyzer/suricata:nflog - Enable libnetfilter_log support
 net-analyzer/suricata:nfqueue - Enable NFQUEUE support for inline IDP
 net-analyzer/suricata:redis - Enable Redis support
+net-analyzer/suricata:xdp - Enable support for AF_XDP high performance packet processing
 net-analyzer/symon:perl - Enables a generic perl symux client
 net-analyzer/symon:symon - Enables the system monitor. Offers no functionality but monitoring and forwarding of measured data
 net-analyzer/symon:symux - Enables the multiplexer which stores incoming symon streams on disk in RRD (net-analyzer/rrdtool) files
@@ -8963,6 +8962,7 @@ x11-libs/motif:xrandr - Add support for monitor information (x11-libs/libXrandr)
 x11-libs/motif:xrender - Add support for transparency (x11-libs/libXrender)
 x11-libs/pango:X - Build and install the legacy pangoxft library
 x11-libs/pango:examples - Install source code examples
+x11-libs/pango:libthai - Support Thai line-breaking with dev-libs/libthai
 x11-libs/pango:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 x11-libs/pixman:loongson2f - Enable Loongson2f MMI optimizations.
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
