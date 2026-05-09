@@ -36,6 +36,59 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# Unmaintained upstream and broken with Python 3.13.
+# Removal on 2026-06-08.  Bug #952342.
+dev-python/ipdb
+
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# Discontinued upstream, broken with Python 3.14 and have no reverse
+# dependencies outside the cycle.
+# Removal on 2026-06-08.  Bug #973008.
+dev-python/dockerpty
+dev-python/doublex-expects
+dev-python/expects
+dev-python/mamba
+
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# Unmaintained, bad quality packages.  No support for Python 3.13.
+# No reverse dependencies.
+# Removal on 2026-06-08.  Bug #952373.
+dev-python/js2py
+dev-python/pyjsparser
+
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# Discontinued upstream, no support for Python 3.14, no revdeps left.
+# Removal on 2026-06-08.  Bug #974029.
+net-im/telepathy-logger
+
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# Discontinued split compression library from app-arch/upx.  It was
+# replaced by a vendored version, and has no reverse dependencies.
+# Removal on 2026-06-08.  Bug #921202.
+dev-libs/ucl
+
+# Michał Górny <mgorny@gentoo.org> (2026-05-09)
+# The buildbot packages aren't actively maintained in ::gentoo.  They
+# are stuck on Python 3.12 and obsolete dependencies.  Bug reports
+# aren't receiving any attention.
+# Removal on 2026-06-08.  Bug #952430.
+acct-group/buildbot
+acct-user/buildbot
+dev-util/buildbot
+dev-util/buildbot-badges
+dev-util/buildbot-console-view
+dev-util/buildbot-grid-view
+dev-util/buildbot-pkg
+dev-util/buildbot-react-console-view
+dev-util/buildbot-react-grid-view
+dev-util/buildbot-react-wsgi-dashboards
+dev-util/buildbot-waterfall-view
+dev-util/buildbot-worker
+dev-util/buildbot-wsgi-dashboards
+dev-util/buildbot-www
+dev-util/buildbot-www-react
+
 # Michał Górny <mgorny@gentoo.org> (2026-05-08)
 # Django 4.2 LTS reached EOL in April 2026, and is now vulnerable.
 # Removal on 2026-06-07.
@@ -430,6 +483,7 @@ virtual/perl-Unicode-Normalize
 >=media-gfx/mypaint-2.0.1-r8
 >=media-video/totem-43.2-r1
 >=net-news/liferea-1.16.9
+>=media-video/pitivi-2023.03-r3
 
 # Sam James <sam@gentoo.ogr> (2025-06-08)
 # Masked for testing (bug #957583).
