@@ -36,6 +36,23 @@
 
 #--- END OF EXAMPLES ---
 
+# Pacho Ramos <pacho@gentoo.org> (2026-05-09)
+# Obsolete version not compatible with current gnome-shell versions.
+# Upstream changed completely the way to package it. If still interested,
+# feel free to take it and update it. Removal in one month. Bug #974452
+gnome-extra/gnome-shell-extension-bluetooth-quick-connect
+
+# Pacho Ramos <pacho@gentoo.org> (2026-05-09)
+# No longer developed by upstream, does not work with current gnome-shell
+# versions. Removal in one month. Bug #974453
+gnome-extra/gnome-shell-extension-bluetooth-quick-connect
+
+# Pacho Ramos <pacho@gentoo.org> (2026-05-09)
+# No longer developed by upstream, does not work with current gnome-shell
+# versions. Use gnome-shell-extension-weather-oclock instead.
+# Removal in one month. Bug #974454
+gnome-extra/gnome-shell-extension-weather-in-the-clock
+
 # Michał Górny <mgorny@gentoo.org> (2026-05-09)
 # Unmaintained upstream and broken with Python 3.13.
 # Removal on 2026-06-08.  Bug #952342.
@@ -471,19 +488,6 @@ virtual/perl-Unicode-Normalize
 # required via pambase.  Masked until the maintainer determines a good
 # solution.  Bug #959274.
 =app-crypt/libsecret-0.21.7-r1
-
-# Sam James <sam@gentoo.org> (2025-06-12)
-# Breaks several applications (bug #957943)
->=dev-python/pygobject-3.52
->=net-im/gajim-2.3.0
-=dev-libs/libpeas-1.38*
->=app-office/endeavour-43.0-r2
->=dev-vcs/gitg-44-r5
->=media-gfx/eog-50
->=media-gfx/mypaint-2.0.1-r8
->=media-video/totem-43.2-r1
->=net-news/liferea-1.16.9
->=media-video/pitivi-2023.03-r3
 
 # Sam James <sam@gentoo.ogr> (2025-06-08)
 # Masked for testing (bug #957583).
