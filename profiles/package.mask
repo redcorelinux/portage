@@ -36,6 +36,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Louis Sautier <sbraz@gentoo.org> (2026-05-10)
+# Unmaintained since 2017, no revdeps.
+# Removal on 2026-06-10. Bug #974496.
+dev-python/flask-debug
+dev-python/flask-nav
+
+# Louis Sautier <sbraz@gentoo.org> (2026-05-10)
+# Unmaintained since 2018, no revdeps.
+# Only consumer is www-misc/urlwatch which suggests it.
+# Removal on 2026-06-10. Bug #953050.
+dev-python/chump
+
 # Pacho Ramos <pacho@gentoo.org> (2026-05-09)
 # Obsolete version not compatible with current gnome-shell versions.
 # Upstream changed completely the way to package it. If still interested,
@@ -217,7 +229,7 @@ dev-python/tempest
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
 # Perpetually stuck on Qt5. A Qt6-based snapshot is provided for testing,
-# currently as app-admin/keepassxc-2.8.0_pre260316-r1, but it is unclear when
+# currently as app-admin/keepassxc-2.8.0_pre20260504, but it is unclear when
 # (or even if) it will be stabilised.  Alternatives are app-admin/keepass,
 # app-admin/pass which can import kbdx files via app-admin/pass-import,
 # app-admin/vaultwarden, app-admin/bitwarden-desktop-bin,
@@ -452,11 +464,6 @@ dev-python/calver
 # any data/messages using this librnp version. <0.18 is fine as is >=0.18.1.
 # See bug #966299.
 =dev-util/librnp-0.18.0
-
-# Michał Górny <mgorny@gentoo.org> (2025-10-12)
-# Requires Rust with RUST_SYSROOTS=bpf, which isn't currently supported
-# by dev-lang/rust-bin.  Also needs net-proxy/mitmproxy-linux updates.
->=dev-util/bpf-linker-0.9.15-r1
 
 # Sam James <sam@gentoo.org> (2025-09-21)
 # Breaks (common) mt7921e WiFi driver with a hang in many cases, affecting
