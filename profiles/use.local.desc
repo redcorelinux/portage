@@ -903,6 +903,7 @@ app-misc/ebusd:mqtt - Enable support for connecting to MQTT.
 app-misc/fastfetch:chafa - Enables text/graphics renderer with media-gfx/chafa
 app-misc/fastfetch:ddcutil - Use app-misc/ddcutil to query monitor settings
 app-misc/fastfetch:drm - Enables support for X.org's x11-libs/libdrm
+app-misc/fastfetch:efl - Enables Enlightenment support using dev-libs/efl
 app-misc/fastfetch:elf - Use libelf to extract strings from binaries
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xrandr - Enables support for Xrandr
@@ -2123,6 +2124,8 @@ dev-libs/libisoburn:external-filters-setuid - Also allow the use of external set
 dev-libs/libisoburn:frontend-optional - Use dev-tcltk/bwidget which is not strictly required for the frontend
 dev-libs/libisoburn:launch-frontend - Enable the tcl gui for xorriso
 dev-libs/libisoburn:launch-frontend-setuid - Enable the tcl gui for xorriso under setuid
+dev-libs/libisofs:lfa-flags - Enable processing of Linux chattr(1) flags
+dev-libs/libisofs:projid - Enable processing of XFS-style project id
 dev-libs/libisofs:verbose-debug - Enable verbose debug messages
 dev-libs/libjcat:ed25519 - Enable ED25519 verification support via dev-libs/nettle and net-libs/gnutls
 dev-libs/libjcat:gpg - Enable GPG verification support via app-crypt/gpgme
