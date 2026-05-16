@@ -14,7 +14,7 @@ PATCHSET=linux-gentoo-patches-${PV}
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
 CONFIG_VER=6.12.41-gentoo
 GENTOO_CONFIG_VER=g18
-SHA256SUM_DATE=20260515
+SHA256SUM_DATE=20260514
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
@@ -54,7 +54,7 @@ SRC_URI+="
 "
 S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
 IUSE="debug hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )

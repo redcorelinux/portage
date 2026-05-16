@@ -12,7 +12,7 @@ PATCHSET=linux-gentoo-patches-${PV}
 CONFIG_VER=5.10.12
 CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20260515
+SHA256SUM_DATE=20260511
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
@@ -48,7 +48,7 @@ SRC_URI+="
 "
 S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm arm64 ~hppa ppc ppc64 ~sparc x86"
 IUSE="debug hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
