@@ -27,6 +27,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-cmake.patch
 	"${FILESDIR}"/${P}-configure.patch
 	"${FILESDIR}"/${P}-execStack.patch
+	"${FILESDIR}"/${P}-fixAliasing.patch
 )
 
 src_prepare() {
@@ -73,7 +74,7 @@ src_install() {
 
 	cd trunk
 	# Install executable
-	dobin objs/srs
+	newbin objs/srs srs-media
 
 	# Install configuration file
 	insinto /usr/share/srs/conf
