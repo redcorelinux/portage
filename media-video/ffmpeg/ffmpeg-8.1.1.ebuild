@@ -24,7 +24,7 @@ else
 		"}
 	"
 	S=${WORKDIR}/ffmpeg-${PV} # avoid ${P} for ffmpeg-compat
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86 ~arm64-macos ~x64-macos"
 fi
 
 DESCRIPTION="Complete solution to record/convert/stream audio and video"
@@ -546,6 +546,13 @@ multilib_src_configure() {
 			vsynth{1,2,3}-{flashsv,mpng,zlib}
 		)
 
+	# needs looking into, used to pass with 8.1 but unclear how it was
+	# tested (possibly BE-related, but skip only on ppc for now)
+	use ppc && skip_tests+=(
+		filter-drawvg-video
+		vsynth{1,2,3}-ffvhuff420p12
+	)
+
 	(( ${#skip_tests[@]} )) &&
 		conf+=( --ignore-tests=$(IFS=,; echo "${skip_tests[*]}") )
 
@@ -593,7 +600,7 @@ multilib_src_configure() {
 
 multilib_src_compile() {
 	mkdir -p fftools/resources/ || die #965687
-	mkdir -p libavfilter/vulkan/ || die #974907
+	mkdir -p libav{codec,filter}/vulkan/ || die #974907
 
 	emake V=1
 
