@@ -9,18 +9,16 @@ inherit flag-o-matic qt6-build
 DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt6 framework"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
-	KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv x86"
+	KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv x86"
 fi
 
 IUSE="
 	+X alsa +dbus eglfs +ffmpeg gstreamer opengl pipewire pulseaudio
 	qml +v4l vaapi vulkan wayland
 "
-# tst_qmediaplayerbackend hard requires qml, review in case becomes optional
 REQUIRED_USE="
 	|| ( ffmpeg gstreamer )
 	eglfs? ( ffmpeg opengl qml )
-	test? ( qml )
 	vaapi? ( ffmpeg opengl )
 "
 
