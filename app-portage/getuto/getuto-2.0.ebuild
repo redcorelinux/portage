@@ -15,7 +15,7 @@ else
 	"
 	S=${WORKDIR}/${PN}-${P}
 
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 SRC_URI+=" test? ( https://mirror.bytemark.co.uk/gentoo/releases/amd64/binpackages/23.0/x86-64/virtual/libc/libc-1-r1-1.gpkg.tar -> ${PN}-23.0-libc-1-r1-1.gpkg.tar )"
@@ -48,6 +48,14 @@ src_unpack() {
 	if use test ; then
 		cp "${DISTDIR}"/${PN}-23.0-libc-1-r1-1.gpkg.tar "${S}/libc-1-r1-1.gpkg.tar" || die
 	fi
+}
+
+src_test() {
+	# The default portage tempdir is too long for AF_UNIX sockets
+	local -x TMPDIR
+	TMPDIR="$(mktemp -d --tmpdir=/tmp ${PF}-XXX || die)"
+
+	default
 }
 
 src_install() {
