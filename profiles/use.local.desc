@@ -3131,6 +3131,7 @@ games-emulation/fceux:x265 - Use media-libs/x265 for video recording (HEVC)
 games-emulation/gambatte-jg:jgmodule - Build module for The Jolly Good API
 games-emulation/gambatte-jg:shared - Build shared library
 games-emulation/generator:sdlaudio - Enable SDL Audio
+games-emulation/geolith-jg:chdr - Build with libchdr (.chd) support
 games-emulation/hatari:capsimage - Use dev-libs/spsdeclib to read .IPF, .RAW, and .CTR disk images
 games-emulation/hatari:capstone - Use dev-libs/capstone for disassembly output in the debugger
 games-emulation/hatari:portmidi - Use media-libs/portmidi as an alternative MIDI backend
@@ -4792,7 +4793,6 @@ media-sound/csound:utils - Build stand-alone executables for utilities that can 
 media-sound/darkice:fdk - Build with HE-AAC support using media-libs/fdk-aac
 media-sound/darkice:twolame - Build with twolame support using media-sound/twolame
 media-sound/deadbeef:converter - File format converter
-media-sound/deadbeef:cover - Support for cover art
 media-sound/deadbeef:hotkeys - Keyboard shortcuts support
 media-sound/deadbeef:lastfm - last.fm/AudioScrobbler protocol support
 media-sound/deadbeef:libretro - libretro resampling plugin
@@ -8049,6 +8049,7 @@ sys-apps/systemd:http - Enable embedded HTTP server in journald
 sys-apps/systemd:importd - Enable import daemon
 sys-apps/systemd:kernel-install - Enable kernel-install
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod
+sys-apps/systemd:libarchive - Enable libarchive support
 sys-apps/systemd:lz4 - Enable lz4 compression for the journal
 sys-apps/systemd:openssl - Enable use of dev-libs/openssl for various features
 sys-apps/systemd:passwdqc - Use sys-auth/passwdqc for password checking in homed
