@@ -85,6 +85,8 @@ DEPEND="${CDEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/kismet-2025.09.1-fix-libwscflags-inc.patch" )
+
 src_prepare() {
 	#sed -i -e "s:^\(logtemplate\)=\(.*\):\1=/tmp/\2:" \
 	#	conf/kismet_logging.conf || die

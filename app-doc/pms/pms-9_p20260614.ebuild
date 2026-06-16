@@ -9,7 +9,7 @@ SRC_URI="https://distfiles.gentoo.org/pub/proj/pms/${P}.tar.xz"
 
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ~mips ppc ppc64 ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
 IUSE="html twoside"
 
 # texlive-bibtexextra for unsrturl.bst

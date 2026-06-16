@@ -2961,7 +2961,6 @@ dev-util/ostree:soup - Use libsoup for networking
 dev-util/perf:babeltrace - Enable dev-util/babeltrace support
 dev-util/perf:bpf - Enable support for eBPF features with dev-libs/libbpf
 dev-util/perf:capstone - Use dev-libs/capstone for disassembly support
-dev-util/perf:doc - Build documentation and man pages. With this USE flag disabled, the --help parameter for perf and its sub-tools will not be available. This is optional because it depends on a few documentation handling tools that are not always welcome on user systems.
 dev-util/perf:libpfm - Enable dev-libs/libpfm support
 dev-util/perf:libtraceevent - Enable dev-libs/libtraceevent support
 dev-util/perf:libtracefs - Enable dev-libs/libtracefs support
@@ -5812,8 +5811,8 @@ net-dns/unbound:dnstap - Enable dnstap support
 net-dns/unbound:ecdsa - Enable ECDSA support
 net-dns/unbound:ecs - Enable EDNS client subnet support
 net-dns/unbound:gost - Enable GOST support
-net-dns/unbound:http2 - Enable HTTP/2 support for DoHnet-libs/nghttp2
-net-dns/unbound:redis - Enable cache db backend which usesdev-libs/hiredis
+net-dns/unbound:http2 - Enable HTTP/2 support for DoH via net-libs/nghttp2
+net-dns/unbound:redis - Enable cache db backend which uses dev-libs/hiredis
 net-dns/unbound:tfo - Enable TCP Fast Open client+server
 net-firewall/arno-iptables-firewall:plugins - Install optional plugins
 net-firewall/arno-iptables-firewall:rsyslog - Install configuration snippet for app-admin/rsyslog
