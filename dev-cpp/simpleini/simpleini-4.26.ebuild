@@ -22,6 +22,12 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+src_prepare() {
+	cmake_src_prepare
+
+	sed -i 's/ -Werror//' tests/CMakeLists.txt || die #977472
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
