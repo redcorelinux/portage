@@ -76,6 +76,12 @@ RDEPEND="${COMMON_DEPEND}"
 CHECKREQS_MEMORY="8G"
 CHECKREQS_DISK_BUILD="22G"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-26.3.0-gcc17.patch
+	"${FILESDIR}"/${PN}-26.3.0-format-cstdlib.patch
+	"${FILESDIR}"/${PN}-26.3.0-v8-climits.patch
+)
+
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != "binary" ]]; then
 		if is-flagq "-g*" && ! is-flagq "-g*0" ; then
