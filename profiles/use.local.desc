@@ -1920,6 +1920,7 @@ dev-lang/php:sharedmem - Enable the shmop extension
 dev-lang/php:simplexml - Enable the SimpleXML extension
 dev-lang/php:sodium - Enable support for crypto through dev-libs/libsodium
 dev-lang/php:sysvipc - Enable the PHP System-V semaphore, shared memory and IPC extension
+dev-lang/php:test-full - Run slower tests
 dev-lang/php:tokenizer - Add support for the PHP file parser
 dev-lang/php:tokyocabinet - Enable support for dev-db/tokyocabinet db backend
 dev-lang/php:xmlreader - Enable the XMLReader extension

@@ -1,4 +1,4 @@
-BDEPEND=dev-texlive/texlive-bibtexextra >=dev-texlive/texlive-latexextra-2020-r2 dev-texlive/texlive-mathscience virtual/latex-base html? ( >=dev-tex/tex4ht-20090611_p1038-r11 )
+BDEPEND=dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-latexextra dev-texlive/texlive-mathscience virtual/latex-base html? ( dev-tex/tex4ht )
 DEFINED_PHASES=compile install
 DESCRIPTION=Gentoo Package Manager Specification
 EAPI=9
@@ -9,4 +9,4 @@ LICENSE=CC-BY-SA-4.0
 RDEPEND=!app-doc/pms-bin
 SLOT=0
 SRC_URI=https://distfiles.gentoo.org/pub/proj/pms/pms-9_p20260614.tar.xz
-_md5_=3ca27fff803c874a9ec508fb50662097
+_md5_=3a14355b8ae4ecb9e5f842ba26788de5
