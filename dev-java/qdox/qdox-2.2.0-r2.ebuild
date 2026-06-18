@@ -39,11 +39,6 @@ JAVA_TEST_GENTOO_CLASSPATH="asm assertj-core junit-5 mockito"
 JAVA_TEST_RESOURCE_DIRS="src/test/resources"
 JAVA_TEST_SRC_DIR="src/test/java"
 
-src_prepare() {
-	default # bug #780585
-	java-pkg-2_src_prepare
-}
-
 src_compile() {
 	einfo "Running jflex"
 	"$(java-config -J)" -cp "$(java-pkg_getjars --build-only jflex):$(java-pkg_getjars --build-only javacup)" \

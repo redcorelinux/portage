@@ -2668,7 +2668,7 @@ dev-qt/qt-docs:serialport - Install documentation for dev-qt/qtserialport
 dev-qt/qt-docs:shadertools - Install documentation for dev-qt/qtshadertools
 dev-qt/qt-docs:speech - Install documentation for dev-qt/qtspeech
 dev-qt/qt-docs:svg - Install documentation for dev-qt/qtsvg
-dev-qt/qt-docs:tasktree - Install documentation for QtTaskTree (unpackaged)
+dev-qt/qt-docs:tasktree - Install documentation for dev-qt/qttasktree
 dev-qt/qt-docs:timeline - Install documentation for dev-qt/qtquicktimeline
 dev-qt/qt-docs:tools - Install documentation for dev-qt/qttools
 dev-qt/qt-docs:virtualkeyboard - Install documentation for dev-qt/qtvirtualkeyboard
