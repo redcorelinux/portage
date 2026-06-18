@@ -45,6 +45,7 @@ src_configure() {
 	lto-guarantee-fat
 
 	local mycmakeargs=(
+		-DFIX_WARNINGS=OFF # bug #977487
 		-DINDI_SYSTEM_HIDAPILIB=ON
 		-DINDI_SYSTEM_HTTPLIB=ON
 		-DINDI_SYSTEM_JSONLIB=ON
