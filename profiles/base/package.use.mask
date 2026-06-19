@@ -8,6 +8,7 @@
 
 # Christian Ruppert <idl0r@gentoo.org> (2026-06-08)
 # dev-libs/openssl-4.0.0/0.4 is currently masked
+net-misc/curl ech
 net-proxy/haproxy ech
 
 # Sam James <sam@gentoo.org> (2026-06-01)

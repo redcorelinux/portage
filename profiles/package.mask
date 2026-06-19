@@ -36,6 +36,23 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2026-06-19)
+# dev-python/pytrie is broken on Python 3.14 and has not been touched
+# since 2020.  dev-python/autobahn and dev-python/txaio have become
+# complete broken slop, and still depend on it.  Remove these packages,
+# their reverse dependencies and their dependencies without revdeps.
+# Removal on 2026-07-19.  Bug #967367.
+dev-python/autobahn
+dev-python/flatbuffers
+dev-python/magic-wormhole
+dev-python/magic-wormhole-mailbox-server
+dev-python/magic-wormhole-transit-relay
+dev-python/py-ubjson
+dev-python/pytrie
+dev-python/txaio
+dev-python/vpython
+dev-python/wsaccel
+
 # Ionen Wolkens <ionen@gentoo.org> (2026-06-11)
 # Not used by maintainer anymore and, upon consideration, would rather
 # not handle the new rust rewrite using GTK4 and /dev/uinput (notably

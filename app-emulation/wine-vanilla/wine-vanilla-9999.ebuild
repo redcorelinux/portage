@@ -130,8 +130,10 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
+	amd64? ( dev-lang/nasm )
 	nls? ( sys-devel/gettext )
 	wayland? ( dev-util/wayland-scanner )
+	x86? ( dev-lang/nasm )
 "
 
 QA_CONFIG_IMPL_DECL_SKIP=(
