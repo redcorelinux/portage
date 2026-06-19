@@ -3,6 +3,8 @@
 
 EAPI=9
 
+NEED_EMACS="28.1"
+
 inherit elisp readme.gentoo-r1
 
 DESCRIPTION="Gnuplot mode for Emacs"
@@ -17,13 +19,17 @@ else
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${PN%-mode}-${PV}"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x64-macos"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
+BDEPEND="
+	>=app-emacs/compat-31.0.0.1
+"
 RDEPEND="
+	${BDEPEND}
 	sci-visualization/gnuplot
 "
 
