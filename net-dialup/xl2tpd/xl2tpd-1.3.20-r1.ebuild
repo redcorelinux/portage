@@ -34,7 +34,7 @@ PATCHES=(
 
 src_prepare() {
 	default
-	use poll && epatch "${DISTDIR}/xl2tpd-1.3.20-ditch-select-use-poll.patch"
+	use poll && eapply "${DISTDIR}/xl2tpd-1.3.20-ditch-select-use-poll.patch"
 	sed -e 's:/var/run/:/run/:' -i \
 		file.h \
 		l2tp.h \
