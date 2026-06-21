@@ -8047,13 +8047,14 @@ sys-apps/systemd:boot - Enable EFI boot manager and stub loader
 sys-apps/systemd:bpf - Enable BPF support for sandboxing and firewalling.
 sys-apps/systemd:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 sys-apps/systemd:cryptsetup - Enable cryptsetup tools (includes unit generator for crypttab)
-sys-apps/systemd:curl - Enable support for uploading journals
+sys-apps/systemd:curl - Enable libcurl (required by several features)
 sys-apps/systemd:dns-over-tls - Enable DNS-over-TLS support
 sys-apps/systemd:elfutils - Enable coredump stacktraces in the journal
 sys-apps/systemd:fido2 - Enable FIDO2 support
 sys-apps/systemd:gcrypt - Enable use of dev-libs/libgcrypt for various features
 sys-apps/systemd:homed - Enable portable home directories
 sys-apps/systemd:http - Enable embedded HTTP server in journald
+sys-apps/systemd:imds - Enable IMDS (Instance Metadata Service)
 sys-apps/systemd:importd - Enable import daemon
 sys-apps/systemd:kernel-install - Enable kernel-install
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod

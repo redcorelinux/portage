@@ -45,7 +45,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="debug"
 
 PDEPEND="
-	>=virtual/dist-kernel-${PATCH_PV}
+	>=virtual/dist-kernel-${PV}
 "
 BDEPEND="
 	app-alternatives/bc

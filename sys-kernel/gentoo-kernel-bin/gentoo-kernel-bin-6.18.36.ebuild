@@ -45,14 +45,14 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="debug"
 
 PDEPEND="
-	>=virtual/dist-kernel-${PATCH_PV}
+	>=virtual/dist-kernel-${PV}
 "
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
+	app-alternatives/yacc
 	dev-util/pahole
 	virtual/libelf
-	app-alternatives/yacc
 	amd64? ( app-crypt/sbsigntools )
 	arm64? ( app-crypt/sbsigntools )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )

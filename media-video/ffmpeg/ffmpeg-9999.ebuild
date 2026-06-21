@@ -487,7 +487,6 @@ multilib_src_configure() {
 
 		# disabled for other or additional reasons
 		--disable-cuda-nvcc # prefer cuda-llvm for less issues
-		--disable-libcelt # obsolete (bug #664158)
 		--disable-libglslang # prefer shaderc (bug #918989,#920283,#922333)
 		--disable-liblensfun # https://trac.ffmpeg.org/ticket/9112 (abandoned?)
 		--disable-libmfx # prefer libvpl for USE=qsv
