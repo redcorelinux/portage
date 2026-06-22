@@ -39,7 +39,7 @@ BDEPEND="
 EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
-	dev-python/alabaster
+	dev-python/furo
 
 EPYTEST_IGNORE=(
 	# eventlet is masked for removal

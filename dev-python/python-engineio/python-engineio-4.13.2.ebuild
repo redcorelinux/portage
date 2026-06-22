@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
@@ -39,7 +39,7 @@ BDEPEND="
 EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
-	dev-python/alabaster
+	dev-python/furo
 
 EPYTEST_IGNORE=(
 	# eventlet is masked for removal
