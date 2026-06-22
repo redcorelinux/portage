@@ -9220,7 +9220,9 @@ xfce-base/xfce4-panel:dbusmenu - Enable dev-libs/libdbusmenu integration (in sta
 xfce-base/xfce4-power-manager:panel-plugin - Build the power management plugin for the XFCE panel
 xfce-base/xfce4-settings:libcanberra - Enable sound event support using media-libs/libcanberra
 xfce-base/xfce4-settings:xklavier - Enable keyboard layout selection support using x11-libs/libxklavier
-xfce-base/xfdesktop:thunar - Build support for desktop icons (for example, launchers and folders)
+xfce-base/xfdesktop:libnotify - Build support for mount notifications.
+xfce-base/xfdesktop:thunar - Build support for Thunar file management extensions.
+xfce-base/xfdesktop:video - Build support for using video as a backdrop.
 xfce-base/xfwm4:xpresent - Enable the XPresent extension for sync to vblank
 xfce-extra/xfce4-clipman-plugin:qrcode - Enable support for media-gfx/qrencode
 xfce-extra/xfce4-mixer:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
