@@ -35,6 +35,7 @@ BDEPEND="
 	dev-build/autoconf-archive
 	>=dev-build/libtool-2.2
 	doc? ( app-text/doxygen
+		media-gfx/graphviz
 		dev-util/source-highlight )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

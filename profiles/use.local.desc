@@ -3785,7 +3785,6 @@ llvm-core/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and
 llvm-core/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 llvm-core/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
 llvm-core/flang:clang - Force building using installed clang (rather than the default CC/CXX). This is the default since building Flang specifically with GCC requires lots of memory for now.
-llvm-core/libclc:spirv - Build SPIRV targets
 llvm-core/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 llvm-core/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
 llvm-core/lldb:debuginfod - Expose the transitive dependencies on net-misc/curl and dev-cpp/cpp-httplib) to match llvm-core/llvm.
@@ -3835,6 +3834,7 @@ llvm-runtimes/compiler-rt-sanitizers:shadowcallstack - Build ShadowCallStack.
 llvm-runtimes/compiler-rt-sanitizers:tsan - Build Thread Sanitizer runtime.
 llvm-runtimes/compiler-rt-sanitizers:ubsan - Build Undefined Behavior Sanitizer runtime.
 llvm-runtimes/compiler-rt-sanitizers:xray - Build XRay runtime.
+llvm-runtimes/libclc:spirv - Build SPIRV targets
 llvm-runtimes/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 llvm-runtimes/libcxx:libcxxabi - Build on top of llvm-runtimes/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
 llvm-runtimes/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
