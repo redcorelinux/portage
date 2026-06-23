@@ -36,6 +36,10 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2026-06-23)
+# Work in progress
+=dev-lang/perl-5.44*
+
 # Michał Górny <mgorny@gentoo.org> (2026-06-20)
 # No py3.14 in compat, tests lost on bump, no revdeps.
 # Removal on 2026-07-20.  Bug #973904.
@@ -71,7 +75,6 @@ dev-python/pyotherside
 # their reverse dependencies and their dependencies without revdeps.
 # Removal on 2026-07-19.  Bug #967367.
 dev-python/autobahn
-dev-python/flatbuffers
 dev-python/magic-wormhole
 dev-python/magic-wormhole-mailbox-server
 dev-python/magic-wormhole-transit-relay
@@ -452,23 +455,6 @@ app-emulation/virtualbox-kvm
 # Sam James <sam@gentoo.org> (2024-06-25)
 # The symbol versioning "fix" breaks anything built with 3.0.0.
 >=dev-libs/libassuan-3.0.1
-
-# Michał Górny <mgorny@gentoo.org> (2023-06-21)
-# suitesparseconfig-7.0.0 fails to build with multilib enabled
-# because of dependencies that cannot be satisfied.  All the other
-# packages require it.  Bug #908851.
-=sci-libs/amd-3.0.3
-=sci-libs/btf-2.0.3
-=sci-libs/camd-3.0.3
-=sci-libs/ccolamd-3.0.3
-=sci-libs/cholmod-4.0.3
-=sci-libs/colamd-3.0.3
-=sci-libs/cxsparse-4.0.3
-=sci-libs/klu-2.0.3
-=sci-libs/ldl-3.0.3
-=sci-libs/spqr-3.0.3
-=sci-libs/suitesparseconfig-7.0.0
-=sci-libs/umfpack-6.1.0
 
 # Ionen Wolkens <ionen@gentoo.org> (2023-03-30)
 # NVIDIA dropped support for the 390.xx branch in December 2022[1].
