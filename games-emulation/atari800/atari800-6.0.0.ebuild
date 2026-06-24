@@ -85,5 +85,5 @@ src_install() {
 	insinto /etc
 	newins "${FILESDIR}"/atari800-4.2.0.cfg atari800.cfg
 	newicon data/atari2.svg ${PN}.svg
-	make_desktop_entry ${PN} "Atari 800 emulator"
+	make_desktop_entry ${PN} -n "Atari 800 emulator"
 }

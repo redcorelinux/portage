@@ -39,6 +39,8 @@
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2026-06-23)
 # Work in progress
 =dev-lang/perl-5.44*
+~virtual/perl-Archive-Tar-3.120.0
+~virtual/perl-Compress-Raw-Bzip2-2.218.0
 
 # Michał Górny <mgorny@gentoo.org> (2026-06-20)
 # No py3.14 in compat, tests lost on bump, no revdeps.

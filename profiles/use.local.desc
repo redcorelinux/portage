@@ -3721,6 +3721,7 @@ kde-plasma/kwin:lock - Enable screen locking via kde-plasma/kscreenlocker
 kde-plasma/kwin:screencast - Enable screencast portal using media-video/pipewire
 kde-plasma/kwin:shortcuts - Enable global shortcuts support via kde-plasma/kglobalacceld
 kde-plasma/kwin-x11:lock - Enable screen locking via kde-plasma/kscreenlocker
+kde-plasma/kwin-x11:nightlight - Enable night light support via kde-plasma/knighttime
 kde-plasma/kwin-x11:shortcuts - Enable global shortcuts support via kde-plasma/kglobalacceld
 kde-plasma/libplasma:activities - Enable support for KDE Activities
 kde-plasma/plasma-desktop:ibus - Use ibus input method via app-i18n/ibus
@@ -3732,6 +3733,7 @@ kde-plasma/plasma-firewall:firewalld - Build net-firewall/firewalld backend
 kde-plasma/plasma-firewall:ufw - Build net-firewall/ufw backend
 kde-plasma/plasma-login-sessions:X - Install X11 session file for Display Managers (default is Wayland if both enabled)
 kde-plasma/plasma-login-sessions:wayland - Install Wayland session file for Display Managers
+kde-plasma/plasma-meta:X - Enable X window manager support via kde-plasma/kwin-x11 (only until and including Plasma 6.7)
 kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Firefox with browser extensions
 kde-plasma/plasma-meta:crash-handler - Pull in kde-plasma/drkonqi for assisted upstream crash reports
 kde-plasma/plasma-meta:crypt - Pull in kde-plasma/plasma-vault for encrypted vaults integration

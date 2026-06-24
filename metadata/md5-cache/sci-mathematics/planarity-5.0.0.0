@@ -1,0 +1,9 @@
+DEFINED_PHASES=install test
+DESCRIPTION=The edge addition planarity suite of graph algorithms
+EAPI=9
+HOMEPAGE=https://github.com/graph-algorithms/edge-addition-planarity-suite/
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/graph-algorithms/edge-addition-planarity-suite/releases/download/Version_5.0.0.0/planarity-5.0.0.0.tar.gz
+_md5_=72e829c6187e6c02badefac49ed5d610
