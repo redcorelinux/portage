@@ -13,7 +13,7 @@ SRC_URI="https://git.kernel.org/pub/scm/utils/b4/b4.git/snapshot/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RESTRICT=test # gentoo:: is missing dependences (e.g. dev-python/textual)
 
@@ -32,6 +32,10 @@ RDEPEND="
 	>=dev-vcs/git-filter-repo-2.47[${PYTHON_USEDEP}]
 "
 
+BDEPEND="
+	dev-python/shtab[${PYTHON_USEDEP}]
+"
+
 python_compile_all() {
 	local shell
 	local -x PYTHONPATH="${S}/src:${S}/patatt/src"
@@ -44,6 +48,7 @@ python_compile_all() {
 }
 
 python_install_all() {
+	einstalldocs
 	newbashcomp bash.completion b4
 	newzshcomp zsh.completion _b4
 }

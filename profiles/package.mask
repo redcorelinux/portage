@@ -41,6 +41,9 @@
 =dev-lang/perl-5.44*
 ~virtual/perl-Archive-Tar-3.120.0
 ~virtual/perl-Compress-Raw-Bzip2-2.218.0
+~virtual/perl-CPAN-Meta-2.150.13
+~virtual/perl-CPAN-Meta-Requirements-2.145.0
+~virtual/perl-DB_File-1.860.0
 
 # Michał Górny <mgorny@gentoo.org> (2026-06-20)
 # No py3.14 in compat, tests lost on bump, no revdeps.

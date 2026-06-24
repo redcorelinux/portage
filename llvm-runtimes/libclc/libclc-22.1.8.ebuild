@@ -3,9 +3,8 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 22 )
 PYTHON_COMPAT=( python3_{12..14} )
-inherit cmake llvm.org llvm-r1 python-any-r1
+inherit cmake llvm.org python-any-r1
 
 DESCRIPTION="OpenCL C library"
 HOMEPAGE="https://libclc.llvm.org/"
@@ -17,9 +16,7 @@ IUSE="+spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi"
 
 BDEPEND="
 	${PYTHON_DEPS}
-	$(llvm_gen_dep '
-		llvm-core/clang:${LLVM_SLOT}
-	')
+	llvm-core/clang:${LLVM_MAJOR}
 	spirv? (
 		>=dev-util/spirv-llvm-translator-22:*
 	)
@@ -27,11 +24,6 @@ BDEPEND="
 
 LLVM_COMPONENTS=( libclc )
 llvm.org_set_globals
-
-pkg_setup() {
-	llvm-r1_pkg_setup
-	python-any-r1_pkg_setup
-}
 
 src_configure() {
 	local libclc_targets=(
@@ -59,6 +51,7 @@ src_configure() {
 
 	libclc_targets=${libclc_targets[*]}
 	local mycmakeargs=(
+		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${LLVM_MAJOR}"
 		-DLIBCLC_TARGETS_TO_BUILD="${libclc_targets// /;}"
 	)
 	cmake_src_configure

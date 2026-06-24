@@ -3,9 +3,8 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 23 )
 PYTHON_COMPAT=( python3_{12..14} )
-inherit cmake llvm.org llvm-r1 multibuild python-any-r1
+inherit cmake llvm.org multibuild python-any-r1
 
 DESCRIPTION="OpenCL C library"
 HOMEPAGE="https://libclc.llvm.org/"
@@ -17,9 +16,7 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	${PYTHON_DEPS}
-	$(llvm_gen_dep '
-		llvm-core/clang:${LLVM_SLOT}
-	')
+	llvm-core/clang:${LLVM_MAJOR}
 	spirv? (
 		>=dev-util/spirv-llvm-translator-23:*
 	)
@@ -32,11 +29,6 @@ BDEPEND="
 
 LLVM_COMPONENTS=( libclc )
 llvm.org_set_globals
-
-pkg_setup() {
-	llvm-r1_pkg_setup
-	python-any-r1_pkg_setup
-}
 
 src_configure() {
 	MULTIBUILD_VARIANTS=()
@@ -58,6 +50,8 @@ src_configure() {
 
 my_configure() {
 	local mycmakeargs=(
+		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${LLVM_MAJOR}"
+
 		-DCMAKE_CLC_COMPILER="$(type -P clang-${LLVM_MAJOR})"
 		-DLLVM_DEFAULT_TARGET_TRIPLE="${MULTIBUILD_VARIANT}"
 		-DLLVM_INCLUDE_TESTS="$(usex test)"
