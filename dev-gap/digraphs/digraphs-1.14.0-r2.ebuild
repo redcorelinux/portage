@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gap-pkg
+inherit autotools gap-pkg
 
 DESCRIPTION="Graphs, digraphs, and multidigraphs in GAP"
 SRC_URI="https://github.com/digraphs/Digraphs/releases/download/v${PV}/${P}.tar.gz"
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
 DEPEND="sci-mathematics/gap:=
-	sci-mathematics/planarity:=
+	>=sci-mathematics/planarity-5:=
 	sci-libs/bliss:="
 RDEPEND="${DEPEND}
 	dev-gap/io
@@ -32,8 +32,20 @@ BDEPEND="test? ( || (
 
 DOCS=( CHANGELOG.md README.md )
 
+PATCHES=( "${FILESDIR}/digraphs-1.14-planarity-5.patch" )
+
 GAP_PKG_EXTRA_INSTALL=( data notebooks )
 gap-pkg_enable_tests
+
+src_prepare() {
+	# belt and suspenders
+	rm -r extern/bliss-0.73 \
+		extern/edge-addition-planarity-suite-Version_4.0.0.0 \
+		|| die
+
+	default
+	eautoreconf
+}
 
 src_configure() {
 	gap-pkg_econf \

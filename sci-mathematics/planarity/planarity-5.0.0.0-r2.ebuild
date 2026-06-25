@@ -6,7 +6,8 @@ EAPI=9
 DESCRIPTION="The edge addition planarity suite of graph algorithms"
 HOMEPAGE="https://github.com/graph-algorithms/edge-addition-planarity-suite/"
 
-SRC_URI="https://github.com/graph-algorithms/edge-addition-planarity-suite/releases/download/Version_${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/graph-algorithms/edge-addition-planarity-suite/releases/download/Version_${PV}/${P}.tar.gz
+	-> ${P}-r2.tar.gz"  # Temporary workaround for changed tarball
 
 LICENSE="BSD"
 SLOT="0/4"  # soname major, may be ${PV} minus one
@@ -15,13 +16,4 @@ KEYWORDS="~amd64 ~riscv ~x86"
 src_install() {
 	default
 	find "${ED}" -type f -name '*.la' -delete || die
-}
-
-src_test() {
-	# "make check" usually works but the test script has
-	# non-UNIX line endings in the release tarball:
-	#
-	# https://github.com/graph-algorithms/edge-addition-planarity-suite/issues/255
-	#
-	./planarity -test c/samples || die
 }

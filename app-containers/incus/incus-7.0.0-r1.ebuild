@@ -28,12 +28,9 @@ DEPEND="acct-group/incus
 	sys-libs/libcap
 	virtual/udev"
 RDEPEND="${DEPEND}
-	|| (
-		net-firewall/iptables
-		net-firewall/nftables[json]
-	)
 	fuidshift? ( !app-containers/lxd )
 	net-firewall/ebtables
+	net-firewall/nftables[json]
 	sys-apps/iproute2
 	sys-fs/fuse:*
 	>=sys-fs/lxcfs-6.0.0
