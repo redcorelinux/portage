@@ -4291,7 +4291,6 @@ media-gfx/photoqt:chromecast - Enable Chromecast support using dev-python/pychro
 media-gfx/photoqt:devil - Support additional image formats using media-libs/devil
 media-gfx/photoqt:extensions - Support additional features using extensions
 media-gfx/photoqt:ffmpegthumbnailer - Support for video thumbnail using media-video/ffmpegthumbnailer
-media-gfx/photoqt:freeimage - Support additional image formats using media-libs/freeimage
 media-gfx/photoqt:mpv - Support for video files using media-video/mpv
 media-gfx/photoqt:vips - Support for media-libs/vips image processing library
 media-gfx/plantuml:ant-task - Provides classes used to manage PlantUML Ant task

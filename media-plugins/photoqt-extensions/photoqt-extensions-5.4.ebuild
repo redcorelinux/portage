@@ -13,16 +13,12 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="geolocation graphicsmagick histogram +imagemagick"
+IUSE="geolocation histogram"
 
 DEPEND="
 	dev-qt/qtbase:6[dbus,gui,network,opengl,sql,sqlite,widgets]
 	dev-qt/qtdeclarative:6[opengl]
 	dev-qt/qtsvg:6
-	imagemagick? (
-		!graphicsmagick? ( media-gfx/imagemagick:=[cxx,hdri] )
-		graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] )
-	)
 "
 RDEPEND="
 	${DEPEND}
@@ -39,14 +35,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_MAPCURRENT=$(usex geolocation)
 		-DBUILD_HISTOGRAM=$(usex histogram)
-		-DBUILD_CROPIMAGE=$(usex imagemagick)
-		-DBUILD_EXPORTIMAGE=$(usex imagemagick)
-		-DBUILD_SCALEIMAGE=$(usex imagemagick)
-	)
-
-	use imagemagick && mycmakeargs+=(
-		-DWITH_GRAPHICSMAGICK=$(usex graphicsmagick $(usex imagemagick))
-		-DWITH_IMAGEMAGICK=$(usex imagemagick $(usex !graphicsmagick))
 	)
 
 	cmake_src_configure

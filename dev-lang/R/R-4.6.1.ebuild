@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~hppa ~loong ~sparc ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~hppa ~loong ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="cairo doc icu java jpeg +libdeflate lto minimal nls openmp perl png prefix profile readline test tiff tk X"
 
 REQUIRED_USE="
@@ -77,9 +77,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/R-4.3.0-parallel.patch
-	"${FILESDIR}"/R-4.3.0-no-LDFLAGS-in-libR-pkg-config.patch
+	"${FILESDIR}"/R-4.6.1-no-LDFLAGS-in-libR-pkg-config.patch
 	"${FILESDIR}"/R-4.3.0-no-gzip-doc.patch
-	"${FILESDIR}"/R-4.5.0-static-initializer.patch  # 4.5.0 only
 )
 
 # false positive, the linking step fails (as it should)

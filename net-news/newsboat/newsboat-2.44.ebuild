@@ -1,10 +1,10 @@
-# Copyright 2017-2025 Gentoo Authors
+# Copyright 2017-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CRATES=""
-RUST_MIN_VER="1.85.0"
+CRATES=" "
+RUST_MIN_VER="1.88.0"
 
 inherit cargo flag-o-matic toolchain-funcs xdg
 
@@ -12,13 +12,13 @@ DESCRIPTION="An RSS/Atom feed reader for text terminals"
 HOMEPAGE="https://newsboat.org/ https://github.com/newsboat/newsboat"
 SRC_URI="https://newsboat.org/releases/${PV}/${P}.tar.xz"
 SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/r${PV}/${PN}-r${PV}-crates.tar.xz"
-SRC_URI+=" !doc? ( https://dev.gentoo.org/~arthurzam/distfiles/net-news/${PN}/${P}-docs.tar.xz )"
+SRC_URI+=" !doc? ( https://distfiles.gentoo.org/pub/dev/arthurzam@gentoo.org/net-news/${PN}/${P}-docs.tar.xz )"
 
 LICENSE="Apache-2.0 Boost-1.0 CC-BY-4.0 MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 CC0-1.0 MIT Unicode-3.0 ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="doc"
 
 COMMON_DEPEND="
@@ -69,9 +69,7 @@ src_prepare() {
 
 src_configure() {
 	# bug #877657
-	if tc-is-gcc ; then
-		filter-lto
-	fi
+	tc-is-gcc && filter-lto
 
 	# Set up CXXFLAGS_FOR_BUILD among other (standard) env vars.
 	tc-export_build_env AR {BUILD_,}CXX PKG_CONFIG RANLIB
@@ -92,9 +90,8 @@ src_install() {
 	emake DESTDIR="${D}" prefix="${EPREFIX}/usr" docdir="${EPREFIX}/usr/share/doc/${PF}" install
 
 	if use doc && [[ ${DOC_DIST} = 1 ]]; then # used by the maintainer to create the docs tarball
-		local -x XZ_OPTS="-T0 -9e"
 		local TAR_FLAGS=( --mtime=1970-01-01 --sort=name --owner=portage --group=portage )
 		cd "${WORKDIR}" || die
-		tar "${TAR_FLAGS[@]}" -cJf "${D}/${P}-docs.tar.xz" ${P}/doc/{*.1,xhtml/*.html} || die
+		tar "${TAR_FLAGS[@]}" -cf "${D}/${P}-docs.tar" ${P}/doc/{*.1,xhtml/*.html} || die
 	fi
 }
