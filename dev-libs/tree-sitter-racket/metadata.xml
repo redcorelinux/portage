@@ -7,7 +7,7 @@
     <name>Maciej Barć</name>
   </maintainer>
   <upstream>
-    <bugs-to>https://github.com/kylegoetz/tree-sitter-unison/issues/</bugs-to>
-    <remote-id type="github">kylegoetz/tree-sitter-unison</remote-id>
+    <bugs-to>https://github.com/6cdh/tree-sitter-racket/issues/</bugs-to>
+    <remote-id type="github">6cdh/tree-sitter-racket</remote-id>
   </upstream>
 </pkgmetadata>
