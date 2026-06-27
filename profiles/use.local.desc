@@ -3388,6 +3388,13 @@ games-strategy/ufoai:server - Build the dedicated server
 games-strategy/uqm:music - download and install original 3DO music files
 games-strategy/uqm:remix - download and install remixed music files (large)
 games-strategy/uqm:voice - download and install voice files (large)
+games-strategy/vcmi:discord - Enable Discord integration
+games-strategy/vcmi:editor - Enable editor support
+games-strategy/vcmi:erm - Enable compilation of ERM scripting module
+games-strategy/vcmi:launcher - Enable launcher support
+games-strategy/vcmi:lobby - Enable lobby server
+games-strategy/vcmi:translations - Install translations
+games-strategy/vcmi:video - Enable video support using ffmpeg
 games-strategy/wargus:bne - Support extracting data from the Battle.net Edition
 games-strategy/warzone2100:discord - Enable Discord presence/join integration
 games-strategy/wesnoth:server - Enable compilation of server
@@ -4510,6 +4517,7 @@ media-libs/mesa-amber:wayland - Enable support for dev-libs/wayland
 media-libs/mlt:frei0r - Build the module for media-plugins/frei0r-plugins
 media-libs/mlt:opencv - Build motion tracking module using media-libs/opencv
 media-libs/mlt:python - Build SWIG bindings for Python
+media-libs/mlt:rnnoise - Build noise-reduction module using media-libs/rnnoise
 media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms
 media-libs/mlt:rubberband - Enable audio pitch-shifting using media-libs/rubberband
 media-libs/mlt:vidstab - Enabled video stabilization with media-libs/vidstab
