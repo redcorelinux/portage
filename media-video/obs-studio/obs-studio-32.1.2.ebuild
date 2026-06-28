@@ -13,8 +13,8 @@ inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_AMD64="cef_binary_6533_linux_x86_64_v6"
 CEF_ARM64="cef_binary_6533_linux_aarch64_v6"
-OBS_BROWSER_COMMIT="a776dd6a1a0ded4a8a723f2f572f3f8a9707f5a8"
-OBS_WEBSOCKET_COMMIT="1c9306b1e200704ebe192e06c893dfc06b097c43"
+OBS_BROWSER_COMMIT="ea04212e4bbadd077f9e6038758c4e4779c24fa3"
+OBS_WEBSOCKET_COMMIT="1fcb95b15aa88b1b7e9bda3f9c8650e314377169"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -63,15 +63,13 @@ BDEPEND="
 	python? ( dev-lang/swig )
 "
 # media-video/ffmpeg[opus] required due to bug 909566
-# The websocket plug-in fails to build with 'dev-cpp/asio-1.34.0':
-#   https://github.com/obsproject/obs-websocket/issues/1291
 DEPEND="
 	dev-cpp/nlohmann_json
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/simde
 	dev-libs/uthash
-	dev-qt/qtbase:6[network,widgets,X,xml(+)]
+	dev-qt/qtbase:6=[network,widgets,X,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libva
@@ -142,7 +140,7 @@ DEPEND="
 		x11-libs/libxkbcommon
 	)
 	websocket? (
-		<dev-cpp/asio-1.34.0
+		dev-cpp/asio
 		dev-cpp/websocketpp
 		dev-libs/qr-code-generator
 	)
@@ -159,11 +157,6 @@ QA_PREBUILT="
 	usr/lib*/obs-plugins/swiftshader/libEGL.so
 	usr/lib*/obs-plugins/swiftshader/libGLESv2.so
 "
-
-PATCHES=(
-	# https://bugs.gentoo.org/966051
-	"${FILESDIR}/${PN}-32.0.2-fix-build-with-qt-6.10.patch"
-)
 
 pkg_setup() {
 	use lua && lua-single_pkg_setup
@@ -185,8 +178,9 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Un-comment after all patches are gone.
-	#default
+	default
+
+	sed -i 's/-Werror //' libobs/cmake/linux/libobs.pc.in || die
 
 	# -Werror=lto-type-mismatch
 	# https://bugs.gentoo.org/867250
