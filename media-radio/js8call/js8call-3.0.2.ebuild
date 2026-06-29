@@ -8,13 +8,13 @@ MY_P=${P/_/-}
 
 DESCRIPTION="Weak signal ham radio communication"
 HOMEPAGE="https://groups.io/g/js8call"
-SRC_URI="https://github.com/${PN}-improved/${PN}-improved/archive/refs/tags/release/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}-improved/${PN}-improved/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}"/JS8Call-improved-release-${PV}
+S="${WORKDIR}"/JS8Call-improved-${PV}
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="dev-qt/qtbase:6[gui,network,widgets]
 	dev-qt/qtmultimedia:6
@@ -25,8 +25,14 @@ RDEPEND="dev-qt/qtbase:6[gui,network,widgets]
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.5.1-no-pcr.patch
+	"${FILESDIR}"/${PN}-3.0.1-no-pcr.patch
 	)
+
+src_prepare() {
+	cmake_src_prepare
+
+	sed -i -e "s/0.0.0/3.0.2/g" CMakeLists.txt || die
+}
 
 src_install() {
 	dobin "${S}_build"/JS8Call
@@ -34,7 +40,7 @@ src_install() {
 	insinto /usr/share/${PN}
 	doins JS8_Include/cty.dat
 	doins JS8_Include/eclipse.txt
-	domenu JS8Call.desktop
+	domenu .github/workflows/misc/JS8Call.desktop
 	insinto /usr/share/pixmaps
 	doins icons/Unix/js8call_icon.png
 }
