@@ -12,10 +12,9 @@ HOMEPAGE="https://github.com/vibhorkum/pg_background"
 SRC_URI="https://github.com/vibhorkum/pg_background/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
-
-SLOT=0
+SLOT="0"
 KEYWORDS="~amd64"
-
+REQUIRED_USE="${POSTGRES_REQ_USE}"
 RESTRICT="test"
 
 DEPEND="${POSTGRES_DEP}"
@@ -24,12 +23,4 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 	postgres-multi_src_prepare
-}
-
-src_compile() {
-	postgres-multi_foreach emake || die "emake failed"
-}
-
-src_install() {
-	postgres-multi_foreach emake DESTDIR="${D}" install
 }
