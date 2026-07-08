@@ -9,7 +9,7 @@ inherit ecm frameworks.kde.org
 DESCRIPTION="Framework for reading, creation, and manipulation of various archive formats"
 
 LICENSE="GPL-2 LGPL-2.1"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="crypt +zstd"
 
 DEPEND="
@@ -26,8 +26,8 @@ BDEPEND="
 "
 
 CMAKE_SKIP_TESTS=(
-	# bug 948899
-	karchivetest
+	karchivetest # bug 948899
+	kfiltertest # bug 978879
 )
 
 src_prepare() {
