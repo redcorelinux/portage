@@ -3,9 +3,6 @@
 
 EAPI=8
 
-# Avoid circular dependency
-JAVA_DISABLE_DEPEND_ON_JAVA_DEP_CHECK="true"
-
 inherit check-reqs dot-a flag-o-matic java-pkg-2 java-vm-2 multiprocessing toolchain-funcs
 
 # variable name format: <UPPERCASE_KEYWORD>_XPAK
@@ -118,7 +115,7 @@ DEPEND="
 	!headless-awt? ( x11-base/xorg-proto )
 	system-bootstrap? (
 		|| (
-			dev-java/openjdk:26
+			dev-java/openjdk:27
 			dev-java/openjdk-bin:${SLOT}
 			dev-java/openjdk:${SLOT}
 		)
@@ -151,7 +148,7 @@ pkg_setup() {
 
 	[[ ${MERGE_TYPE} == "binary" ]] && return
 
-	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
+	JAVA_PKG_WANT_BUILD_VM="openjdk-27 openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
 
