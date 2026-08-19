@@ -2245,7 +2245,6 @@ dev-libs/m17n-lib:libotf - Use dev-libs/libotf to handle OpenType fonts
 dev-libs/m17n-lib:libxml2 - Use dev-libs/libxml2 to parse XML
 dev-libs/marisa:tools - Build command-line tools
 dev-libs/md4c:md2html - Build the md2html cli tool
-dev-libs/mimalloc:hardened - Enable exploit mitigations
 dev-libs/modsecurity:fuzzyhash - Support fuzzy hash computations (to detect malware, for example) using the app-crypt/ssdeep package.
 dev-libs/modsecurity:geoip2 - Pull in dev-libs/libmaxminddb for use by the SecGeoLookupDb directive.
 dev-libs/modsecurity:json - Suppose JSON in the request body parser through dev-libs/yajl.
@@ -9294,6 +9293,7 @@ xfce-base/xfdesktop:thunar - Build support for Thunar file management extensions
 xfce-base/xfdesktop:video - Build support for using video as a backdrop.
 xfce-base/xfwm4:xpresent - Enable the XPresent extension for sync to vblank
 xfce-extra/xfce4-clipman-plugin:qrcode - Enable support for media-gfx/qrencode
+xfce-extra/xfce4-dict:llm - Enable support for Large Language Models via HTTP API (HTTPS is not supported).
 xfce-extra/xfce4-mixer:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
 xfce-extra/xfce4-mixer:sndio - Enable media-sound/sndio backend.
 xfce-extra/xfce4-pulseaudio-plugin:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
