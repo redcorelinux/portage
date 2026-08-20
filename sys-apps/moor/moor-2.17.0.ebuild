@@ -7,14 +7,16 @@ inherit go-env go-module eapi9-ver
 
 DESCRIPTION="Pager designed to do the right thing without any configuration"
 HOMEPAGE="https://github.com/walles/moor"
-SRC_URI="https://github.com/walles/moor/archive/refs/tags/v${PV}.tar.gz -> moor-${PV}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/moor/moor-${PV}-deps.tar.xz"
+SRC_URI="
+	https://github.com/walles/moor/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/gentoo-golang-dist/moor/releases/download/v${PV}/${P}-vendor.tar.xz
+"
 
 LICENSE="BSD-2 BSD MIT"
 # Dependent licenses
 LICENSE+="  Apache-2.0 BSD BSD-2 ISC MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
 IUSE="test l10n_ru"
 RESTRICT="!test? ( test )"
 

@@ -57,6 +57,7 @@ get_opts() {
 	fi
 
 	CHARM_OPTS+="$(usex numa ' --with-numa' '')"
+
 	echo ${CHARM_OPTS}
 }
 
@@ -72,13 +73,12 @@ src_prepare() {
 	append-cppflags $($(tc-getPKG_CONFIG) --cflags libtirpc)
 
 	sed \
-		-e "/CMK_CF77/s:[fg]77:$(usex mpi "mpif90" "$(tc-getF77)") ${FCFLAGS}:g" \
-		-e "/CMK_CF90/s:f95:$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}:g" \
-		-e "/CMK_CF90/s:\`which f90.*$::g" \
-		-e "/CMK_CXX/s:g++:$(usex mpi "mpic++" "$(tc-getCXX)") ${CPPFLAGS}:g" \
-		-e "/CMK_CC/s:gcc:$(usex mpi "mpicc" "$(tc-getCC)") ${CPPFLAGS}:g" \
-		-e '/CMK_F90_MODINC/s:-p:-I:g' \
-		-e "/CMK_LD/s:\"$: ${LDFLAGS} \":g" \
+		-e "/CMK_CF77/s|[fg]77|$(usex mpi "mpif90" "$(tc-getF77)") ${FCFLAGS}|g" \
+		-e "/CMK_CF90/s|f95|$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}|g" \
+		-e "/CMK_CF90/s|\`which f90.*$||g" \
+		-e "/CMK_CXX/s|g++|$(usex mpi "mpic++" "$(tc-getCXX)") ${CPPFLAGS}|g" \
+		-e "/CMK_CC/s|gcc|$(usex mpi "mpicc" "$(tc-getCC)") ${CPPFLAGS}|g" \
+		-e '/CMK_F90_MODINC/s|-p|-I|g' \
 		-i src/arch/$(usex mpi "mpi" "net")*-linux*/*sh || die
 
 	sed \
@@ -87,20 +87,13 @@ src_prepare() {
 		-e "/CMK_LDXX='g++'/s|g++|$(usex mpi "mpic++" "$(tc-getCXX)")|" \
 		-e "s|CMK_CF90=\$(which .*)|CMK_CF90=\$(which $(usex mpi "mpif90" "$(tc-getFC)"))|" \
 		-e "/-z \$CMK_CF90/d" \
-		-e "/F90DIR/s:gfortran:$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}:g" \
-		-e "/f95target/s:gfortran:$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}:g" \
-		-e "/f95version/s:gfortran:$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}:g" \
+		-e "/F90DIR/s|gfortran|$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}|g" \
+		-e "/f95target/s|gfortran|$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}|g" \
+		-e "/f95version/s|gfortran|$(usex mpi "mpif90" "$(tc-getFC)") ${FCFLAGS}|g" \
 		-i src/arch/common/*.sh || die
 
 	sed \
-		-e "s:-o conv-cpm:${LDFLAGS} &:g" \
-		-e "s:-o charmxi:${LDFLAGS} &:g" \
-		-e "s:-o charmrun-silent:${LDFLAGS} &:g" \
-		-e "s:-o charmrun-notify:${LDFLAGS} &:g" \
-		-e "s:-o charmrun:${LDFLAGS} &:g" \
-		-e "s:-o charmd_faceless:${LDFLAGS} &:g" \
-		-e "s:-o charmd:${LDFLAGS} &:g" \
-		-e "/^CHARMC/s:$: ${CPPFLAGS}:g" \
+		-e "/^CHARMC/s|$| ${CPPFLAGS}|g" \
 		-i \
 		src/scripts/Makefile \
 		src/util/charmrun-src/Makefile || die
@@ -109,7 +102,8 @@ src_prepare() {
 		-e "s|^OPTS=\"\"|OPTS=\"-c++-option ${CXXFLAGS} -cc-option ${CFLAGS}\"|" \
 		build || die
 
-	eapply "${FILESDIR}"/${P}-cxxflags.patch
+	eapply "${FILESDIR}"/${P}-cxxflags.patch \
+		"${FILESDIR}"/${P}-soname.patch
 
 	# CMK optimization
 	use cmkopt && append-cppflags -DCMK_OPTIMIZE=1
@@ -124,7 +118,7 @@ src_compile() {
 	local build_version="$(usex mpi "mpi" "net")-linux$(usex amd64 "-amd64" '')"
 	local build_options="$(get_opts)"
 	#build only accepts -j from MAKEOPTS
-	local build_commandline="${build_version} ${build_options} -j$(makeopts_jobs)"
+	local build_commandline="${build_version} ${build_options} -j$(makeopts_jobs) -ld-option ${LDFLAGS}"
 
 	# Build charmm++ first.
 	einfo "running ./build charm++ ${build_commandline}"
@@ -189,10 +183,10 @@ src_install() {
 	# Install examples.
 	if use examples; then
 		find examples/ -name 'Makefile' | xargs sed \
-			-r "s:(../)+bin/charmc:/usr/bin/charmc:" -i || \
+			-r "s|(../)+bin/charmc|/usr/bin/charmc|" -i || \
 			die "Failed to fix examples"
 		find examples/ -name 'Makefile' | xargs sed \
-			-r "s:./charmrun:./charmrun ++local:" -i || \
+			-r "s|./charmrun|./charmrun ++local|" -i || \
 			die "Failed to fix examples"
 		docinto examples
 		dodoc -r examples/charm++/*
