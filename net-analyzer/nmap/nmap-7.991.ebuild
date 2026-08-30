@@ -27,10 +27,10 @@ else
 	SRC_URI="https://nmap.org/dist/${P}.tar.bz2"
 	SRC_URI+=" verify-sig? ( https://nmap.org/dist/sigs/${P}.tar.bz2.asc )"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
 fi
 
-SRC_URI+=" https://distfiles.gentoo.org/pub/dev/dilfridge@gentoo.org/${CATEGORY}/${PN}/${PN}-7.991-patches-1.tar.xz"
+SRC_URI+=" https://distfiles.gentoo.org/pub/dev/sam@gentoo.org/${CATEGORY}/${PN}/${PN}-7.991-patches-1.tar.xz"
 
 # https://github.com/nmap/nmap/issues/2199
 LICENSE="NPSL-0.95"
@@ -85,6 +85,7 @@ fi
 
 PATCHES=(
 	"${WORKDIR}"/${PN}-7.991-patches-1
+	"${FILESDIR}"/${PN}-7.9991-no-lua.patch
 )
 
 pkg_setup() {
