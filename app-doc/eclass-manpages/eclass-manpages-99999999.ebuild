@@ -10,6 +10,8 @@ if [[ ${PV} = 99999999 ]]; then
 else
 	# Instructions to make a dist tarball:
 	# cd /path/to/gentoo-repo
+	# P=eclass-manpages-$(TZ=UTC git log -1 --pretty="%cd" \
+	#   --date="format-local:%Y%m%d" -- eclass)
 	# tar -cJf ${P}.tar.xz --transform="s:^eclass/:${P}/:" eclass/*.eclass
 	SRC_URI="https://distfiles.gentoo.org/pub/proj/qa/${PN}/${P}.tar.xz"
 	# Keep the keywords stable. No need to change to ~arch.
