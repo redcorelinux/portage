@@ -6796,6 +6796,7 @@ net-misc/wget:cookie-check - Enable cookie checks via net-libs/libpsl
 net-misc/wget:libproxy - Support for automatic proxy configuration management through net-libs/libproxy.
 net-misc/wget:metalink - Enable support for media-libs/libmetalink
 net-misc/wget:ntlm - Enable support for NTLM (Windows-based) authorization
+net-misc/wget:psl - Enable Public Suffix List (PSL) support
 net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using libuuid; otherwise use a simple RNG (random number generator)
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
