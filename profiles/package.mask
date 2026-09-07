@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2026-09-07)
+# Unmaintained, lots of FetchContent_* hacks.
+# Removal on 2026-10-07. Bug #927149.
+sci-physics/espresso
+
 # Michał Górny <mgorny@gentoo.org> (2026-09-05)
 # Broken with current dev-python/pywayland version.  Stuck on old
 # gui-libs/wlroots.  Used only by old versions of x11-wm/qtile.

@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=BPSCHUCK
-DIST_VERSION=1.65
+DIST_VERSION=1.71
 DIST_EXAMPLES=( "Examples/*" )
 inherit perl-module
 
@@ -12,7 +12,7 @@ DESCRIPTION="Get stock and mutual fund quotes from various exchanges"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm64 ppc ~ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-perl/CGI
@@ -29,14 +29,13 @@ RDEPEND="
 	dev-perl/JSON-Parse
 	dev-perl/LWP-Protocol-https
 	dev-perl/libwww-perl
-	>=virtual/perl-Module-Load-0.360.0-r2
 	dev-perl/Mozilla-CA
+	>=dev-perl/Net-SSLeay-1.920.0
 	dev-perl/Readonly
 	dev-perl/Spreadsheet-XLSX
 	dev-perl/String-Util
 	dev-perl/Text-Template
 	dev-perl/TimeDate
-	dev-perl/Try-Tiny
 	>=dev-perl/URI-3.310.0
 	dev-perl/Web-Scraper
 	dev-perl/XML-LibXML

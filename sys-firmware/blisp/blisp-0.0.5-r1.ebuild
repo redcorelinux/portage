@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,8 @@ IUSE="+tools"
 RDEPEND="dev-libs/argtable3
 	dev-libs/libserialport"
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-no-static-libs.patch" )
 
 src_prepare() {
 	cmake_src_prepare
