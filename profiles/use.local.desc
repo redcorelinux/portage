@@ -1210,21 +1210,13 @@ app-text/fbpdf:poppler - Use app-text/poppler instead of app-text/mupdf for rend
 app-text/feathernotes:X - Link application against X11 libraries which adds support for virtual desktop awareness and tab DND
 app-text/ghostscript-gpl:unicode - Add support for unicode passwords via net-dns/libidn
 app-text/groonga:apache-arrow - Enable support for Apache Arrow
-app-text/groonga:benchmark - Build benchmark programs
 app-text/groonga:blosc - Allow using blosc compression via dev-libs/c-blosc2
-app-text/groonga:exact-alloc-count - Atomic counting for memory alloc count
-app-text/groonga:futex - Use futex
-app-text/groonga:json - Enable JSON processing using dev-libs/rapidjson
-app-text/groonga:libevent - Enable dev-libs/libevent used for suggestion
+app-text/groonga:json - Enable JSON parser
 app-text/groonga:mecab - Use app-text/mecab for morphological analysis
 app-text/groonga:msgpack - Enable dev-libs/msgpack used for suggestion
-app-text/groonga:nfkc - Use nfkc based utf8 normalization
-app-text/groonga:sphinx - Enable document generation by app-misc/sphinx
 app-text/groonga:stemmer - Enable stemming token filter using dev-libs/snowball-stemmer
 app-text/groonga:suggest-learner - Build groonga-suggest-learner to learn suggest result from groonga-suggest-httpd or query logs
-app-text/groonga:uyield - Build for detecting race conditions
 app-text/groonga:xxhash - Enable drilldown by hashed key using dev-libs/xxhash
-app-text/groonga:zeromq - Enable net-libs/zeromq used for suggestion
 app-text/htmltidy:deprecated - Install tools and header files which are now considered deprecated
 app-text/hyperestraier:mecab - Enable app-text/mecab support for Estraier
 app-text/kbibtex:webengine - Use dev-qt/qtwebengine for HTML previews
@@ -4743,7 +4735,6 @@ media-plugins/ir_lv2:tools - Build convert4chan tool
 media-plugins/live:tools - Build test tools
 media-plugins/mpg123-output-plugins:int-quality - Use rounding instead of fast truncation for integer output, where possible
 media-plugins/photoqt-extensions:histogram - Support histogram using dev-qt/qtcharts
-media-plugins/photoqt-extensions:imagemagick - Support image manipulation: crop, export, scale
 media-plugins/qmmp-plugin-pack:mpv - Enable video support via media-video/mpv(experimental)
 media-plugins/vdr-cdplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-plugins/vdr-dvbapi:dvbcsa - use media-libs/libdvbcsa free implementation of the DVB Common Scrambling Algorithm
@@ -5059,7 +5050,7 @@ media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for hand
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
 media-sound/vimpc:boost - Use boost instead of C++11 libraries
 media-sound/vorbis-tools:kate - Adds support for Ogg Kate subtitles via libkate.
-media-sound/vorbis-tools:ogg123 - Build ogg123 player, needs libao and curl
+media-sound/vorbis-tools:ogg123 - Build ogg123 player, needs libao opusfile and curl
 media-sound/wavpack:test-full - Run expensive tests (many tests and slow).
 media-sound/wildmidi:player - Install the wildmidi player
 media-sound/wildmidi:sndio - Enable support for the media-sound/sndio backend
