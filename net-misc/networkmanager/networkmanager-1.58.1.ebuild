@@ -4,7 +4,7 @@
 EAPI=8
 
 MY_PN="NetworkManager"
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit linux-info meson-multilib flag-o-matic python-any-r1 \
 	readme.gentoo-r1 systemd toolchain-funcs udev vala virtualx
@@ -191,6 +191,7 @@ multilib_src_configure() {
 
 		# system paths
 		-Dsystemdsystemunitdir=$(systemd_get_systemunitdir)
+		-Dsystemdsystemgeneratordir=$(systemd_get_systemgeneratordir)
 		-Dsystem_ca_path=/etc/ssl/certs
 		-Dudev_dir=$(get_udevdir)
 		-Ddbus_conf_dir=/usr/share/dbus-1/system.d
