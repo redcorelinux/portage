@@ -360,7 +360,6 @@ app-containers/incus:fuidshift - Install the fuidshift binary - currently confli
 app-containers/incus:qemu - Pull dependencies needed to manage QEMU-based virtual machines with Incus
 app-containers/lxc:landlock - Use Landlock to restrict what the monitor API handlers can do on the system
 app-containers/lxc:tools - Build and install additional command line tools
-app-containers/nerdctl:rootless - Enables dependencies for running in rootless mode.
 app-containers/podman:btrfs - Enable btrfs support (graph driver) in Podman
 app-containers/podman:cron - Installs cron script to automatically update running containers image to newest
 app-containers/podman:wrapper - Install a wrapper to allow using `podman` as a drop-in replacement for `docker`
@@ -4736,6 +4735,7 @@ media-plugins/live:tools - Build test tools
 media-plugins/mpg123-output-plugins:int-quality - Use rounding instead of fast truncation for integer output, where possible
 media-plugins/photoqt-extensions:histogram - Support histogram using dev-qt/qtcharts
 media-plugins/qmmp-plugin-pack:mpv - Enable video support via media-video/mpv(experimental)
+media-plugins/qmmp-plugin-pack:timidity - Enable midi support via media-libs/libtimidity
 media-plugins/vdr-cdplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-plugins/vdr-dvbapi:dvbcsa - use media-libs/libdvbcsa free implementation of the DVB Common Scrambling Algorithm
 media-plugins/vdr-epgsearch:conflictcheckonly - install the "conflictcheckonly" vdr-plugin
@@ -6604,6 +6604,7 @@ net-misc/mulk:checksum - Enable checksum verification for Metalink from dev-libs
 net-misc/mulk:metalink - Enable support for media-libs/libmetalink
 net-misc/netifrc:dhcp - Allow interfaces to configure via DHCP
 net-misc/netkit-bootparamd:libtirpc - Build against net-libs/libtirpc for RPC support
+net-misc/networkmanager:clat - Enable CLAT (464XLAT) support for IPv4 over IPv6-only networks
 net-misc/networkmanager:concheck - Enable connectivity checking support (needed for Captive portals detection)
 net-misc/networkmanager:connection-sharing - Support connection sharing (uses net-dns/dnsmasq)
 net-misc/networkmanager:dhclient - Use dhclient from net-misc/dhcp for getting an IP via DHCP
@@ -8742,7 +8743,6 @@ www-apache/pwauth:domain-aware - Ignore leading domain names in username (Window
 www-apache/pwauth:faillog - Log failed login attempts
 www-apache/pwauth:ignore-case - Ignore string case in username (mostly Windows compat)
 www-apps/cgit:highlight - Enable source code highlighting
-www-apps/cgit:lua - Enable support for Lua scripting
 www-apps/drupal:uploadprogress - Install dev-php/pecl-uploadprogress package
 www-apps/gitea:acct - User and group management via acct-*/git packages
 www-apps/gitea:gogit - (EXPERIMENTAL) Use go-git variants of Git commands.
