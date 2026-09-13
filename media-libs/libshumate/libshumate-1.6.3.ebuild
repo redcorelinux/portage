@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/libshumate"
 
 LICENSE="LGPL-2.1+"
 SLOT="1.0/1"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~sparc ~x86"
 REQUIRED_USE="gtk-doc? ( introspection )"
 
 IUSE="gtk-doc +introspection sysprof vala"
@@ -44,20 +44,19 @@ src_configure() {
 		$(meson_use vala vapi)
 		$(meson_use gtk-doc gtk_doc)
 		-Ddemos=false # only built, not installed
-		-Dvector_renderer=true
 		$(meson_feature sysprof)
 	)
 	meson_src_configure
 }
 
 src_test() {
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die 'tests failed'
 }
 
 src_install() {
 	meson_src_install
 	if use gtk-doc; then
 		mkdir -p "${ED}"/usr/share/gtk-doc/html || die
-		mv "${ED}"/usr/share/doc/libshumate-1.0 "${ED}"/usr/share/gtk-doc/html/libshumate-1.0 || die
+		mv "${ED}"/usr/share/doc/libshumate-1.0 "${ED}"/usr/share/gtk-doc/html/ || die
 	fi
 }

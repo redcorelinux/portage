@@ -984,6 +984,7 @@ app-misc/localsearch:iptc - Enable extraction of IPTC data from pictures
 app-misc/localsearch:iso - Enable extraction of metadata from ISO disk images
 app-misc/localsearch:playlist - Add support for playlists
 app-misc/localsearch:xps - Add support for XPS file format through app-text/libgxps.
+app-misc/localsearch:zip - Support extracting zipped EPUB, OOXML and ODF files using dev-libs/libzip
 app-misc/mc:edit - Compile and install the mcedit application
 app-misc/mc:sftp - Add support for sftp (uses net-libs/libssh2 for it).
 app-misc/mc:slang - Use sys-libs/slang instead of sys-libs/ncurses.
