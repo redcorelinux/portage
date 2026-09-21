@@ -503,6 +503,7 @@ gnome-extra/gnome-browser-connector
 gnome-extra/gnome-tweaks
 gnome-extra/sushi
 >=gnome-extra/yelp-49
+mate-extra/mate-user-guide
 >=media-gfx/libimagequant-4
 media-gfx/loupe
 <media-gfx/gimp-3.0.6
@@ -588,3 +589,6 @@ x11-wm/muffin
 x11-wm/mutter
 mate-base/mate
 mate-base/mate-control-center
+gnome-extra/eiciel
+media-sound/pavucontrol
+net-p2p/transmission
