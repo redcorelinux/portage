@@ -26,16 +26,16 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/jinja2[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/ml-dtypes[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
 		test-rust? (
 			dev-python/nbval[${PYTHON_USEDEP}]
 		)
-		!arm? ( !x86? (
+		!arm? (
+			dev-python/jinja2[${PYTHON_USEDEP}]
 			dev-python/pandas[${PYTHON_USEDEP}]
-		) )
+		)
 	)
 "
 

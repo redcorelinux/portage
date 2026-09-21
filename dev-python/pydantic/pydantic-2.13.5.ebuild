@@ -177,8 +177,7 @@ QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/pydantic_core/_pydantic_core.*.so
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 src_prepare() {

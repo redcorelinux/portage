@@ -128,7 +128,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.9.0-0004-Only-try-to-find-the-jemalloc-libs-we-are-going-to-u.patch"
 	"${FILESDIR}/${PN}-7.8.0-tests.patch"
 	"${FILESDIR}/${PN}-7.8.0-jemalloc-noexcept.patch"
-	"${FILESDIR}/${PN}-7.8.1-no-tk.patch"
 )
 
 src_unpack() {

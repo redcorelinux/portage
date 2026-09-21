@@ -143,8 +143,7 @@ export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 src_prepare() {

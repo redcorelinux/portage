@@ -90,8 +90,7 @@ QA_FLAGS_IGNORED="usr/lib/python.*/site-packages/cachebox/_core.*"
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 python_test() {

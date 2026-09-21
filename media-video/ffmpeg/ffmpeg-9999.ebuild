@@ -454,7 +454,6 @@ multilib_src_configure() {
 		# disabled primarily due to being unpackaged
 		--disable-decklink
 		--disable-libaribcaption
-		--disable-libastcenc
 		--disable-libdavs2
 		--disable-libklvanc
 		--disable-liblcevc-dec

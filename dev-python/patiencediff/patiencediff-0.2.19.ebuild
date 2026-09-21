@@ -57,8 +57,7 @@ QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/patiencediff/_patiencediff_rs.*.s
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 src_configure() {

@@ -1,7 +1,7 @@
 # Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=9
+EAPI=8
 
 DESCRIPTION="Gentoo defaults for SDDM (Simple Desktop Display Manager)"
 HOMEPAGE="https://wiki.gentoo.org/wiki/SDDM"
@@ -10,15 +10,15 @@ S=${WORKDIR}
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="custom-compositor kwin systemd weston"
-REQUIRED_USE="?? ( custom-compositor kwin weston )"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="kwin systemd weston"
+REQUIRED_USE="?? ( kwin weston )"
 
 RDEPEND="
 	!<x11-misc/sddm-0.21.0_p20250818
 	kwin? ( kde-plasma/kwin:6 )
 	weston? ( dev-libs/weston[kiosk] )
-	!custom-compositor? ( !kwin? ( !weston? ( x11-base/xorg-server ) ) )
+	!kwin? ( !weston? ( x11-base/xorg-server ) )
 "
 
 GEN2CONF=01gentoo.conf
@@ -27,7 +27,7 @@ src_prepare() {
 	touch "${T}"/${GEN2CONF} || die
 
 	_displayserver() {
-		if use custom-compositor || use kwin || use weston; then
+		if use kwin || use weston; then
 			echo "wayland"
 		else
 			echo "x11"
@@ -41,10 +41,8 @@ src_prepare() {
 			has_version "kde-plasma/kwin[lock]" && cc+=( --no-lockscreen )
 			has_version "kde-plasma/kwin[shortcuts]" && cc+=( --no-global-shortcuts )
 			use systemd && cc+=( --locale1 )
-		elif use weston; then
-			cc=( weston --shell=kiosk )
 		else
-			cc=( " # must be set by user" )
+			cc=( weston --shell=kiosk )
 		fi
 		echo "${cc[@]}"
 	}
@@ -54,18 +52,14 @@ src_prepare() {
 		# Remove qtvirtualkeyboard as InputMethod default
 		InputMethod=
 
-		# Which display server should be used (default: x11)
+		# Which display server should be used
 		DisplayServer=$(_displayserver)
 	_EOF_
 
-	if use custom-compositor || use kwin || use weston; then
-		if use kwin; then
-			cat >> "${T}"/${GEN2CONF} <<- _EOF_ || die
-				GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
-			_EOF_
-		fi
-
+	if use kwin; then
 		cat >> "${T}"/${GEN2CONF} <<- _EOF_ || die
+
+			GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
 
 			[Wayland]
 			CompositorCommand=$(_compositorcommand)

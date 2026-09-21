@@ -84,8 +84,7 @@ distutils_enable_tests pytest
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 src_prepare() {

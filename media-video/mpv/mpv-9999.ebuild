@@ -69,10 +69,7 @@ COMMON_DEPEND="
 		x11-libs/libdrm
 		egl? ( media-libs/mesa[gbm(+)] )
 	)
-	dvd? (
-		media-libs/libdvdnav
-		>=media-libs/libdvdread-7.1.1:=
-	)
+	dvd? ( media-libs/libdvdnav )
 	egl? (
 		media-libs/libglvnd
 		media-libs/libplacebo[opengl]
@@ -171,7 +168,9 @@ src_configure() {
 		-Dcplugins=enabled
 		$(meson_feature curl libcurl)
 		$(meson_feature dvb dvbin)
-		$(meson_feature dvd dvda)
+		# TODO: depend on >=libdvdread-7.1.1 w/ USE=dvd when it is
+		# packaged (bug #981444)
+		-Ddvda=disabled #$(meson_feature dvd dvda)
 		$(meson_feature dvd dvdnav)
 		$(meson_feature gamepad sdl2-gamepad)
 		$(meson_feature iconv)

@@ -57,7 +57,6 @@ PATCHES=(
 )
 
 python_check_deps() {
-	use test || return 0
 	python_has_version -b \
 		"dev-python/pygobject[${PYTHON_USEDEP}]" \
 		"dev-python/tap-py[${PYTHON_USEDEP}]"

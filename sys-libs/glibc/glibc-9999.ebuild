@@ -203,6 +203,9 @@ XFAIL_TEST_LIST=(
 	# Fails regularly, unreliable
 	tst-valgrind-smoke
 
+	# https://sourceware.org/bugzilla/show_bug.cgi?id=31877 (bug #927973)
+	tst-shstk-legacy-1g
+
 	# https://sourceware.org/bugzilla/show_bug.cgi?id=33239
 	test-double-compoundn
 	test-float-compoundn

@@ -171,8 +171,7 @@ QA_FLAGS_IGNORED="usr/lib/py.*/site-packages/cramjam/cramjam.*.so"
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_crate_unpack
-	cargo_gen_config
+	cargo_src_unpack
 }
 
 src_prepare() {

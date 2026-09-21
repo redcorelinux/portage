@@ -40,9 +40,15 @@ multilib_src_configure() {
 	meson_src_configure
 }
 
-multilib_src_install_all(){
+multilib_src_install(){
+	meson_src_install
 	if use gtk-doc; then
-		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
-		mv "${ED}"/usr/share/doc/pangomm-2.48 "${ED}"/usr/share/gtk-doc/html/ || die
+		mkdir -p "${ED}"/usr/share/gtk-doc/ || die
+		mv "${ED}"/usr/share/doc/pangomm-*/reference/html/ "${ED}"/usr/share/gtk-doc/ || die
+		# remove leftovers in doc folder:
+		# - pangomm-${SLOT}/images contains multiple gif files
+		# - pangomm-${SLOT}/reference contains compressed pango-${SLOT}.tag file
+		# - pangomm-${PV} contains compressed Changelog, NEWS, README.md, README.win32.md
+		rm -r "${ED}"/usr/share/doc/* || die
 	fi
 }

@@ -81,7 +81,7 @@ COMMON_DEPEND="
 	net-libs/glib-networking[ssl]
 	virtual/zlib:=
 	>=x11-libs/cairo-1.14.0[introspection(+),X?]
-	>=x11-libs/gdk-pixbuf-2.32.0:2[introspection]
+	>=x11-libs/gdk-pixbuf-2.30.8:2[introspection]
 	>=x11-libs/gtk+-3.24.0:3[introspection,wayland?,X?]
 	>=x11-libs/pango-1.50.0[introspection,X?]
 	aalib? ( media-libs/aalib )

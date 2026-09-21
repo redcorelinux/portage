@@ -9,7 +9,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI=${EGIT_REPO_URI:-"https://codeberg.org/OpenRGB/OpenRGB.git"}
 else
-	SRC_URI="https://codeberg.org/OpenRGB/OpenRGB/archive/release_${PV}.tar.gz -> ${P}.tar.gz"
+	MY_PV=$(ver_rs 2 "")
+	SRC_URI="https://codeberg.org/OpenRGB/OpenRGB/archive/release_candidate_${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/openrgb"
 	KEYWORDS="~amd64 ~loong"
 fi
@@ -18,17 +19,15 @@ DESCRIPTION="Open source RGB lighting control"
 HOMEPAGE="https://openrgb.org https://gitlab.com/CalcProgrammer1/OpenRGB/ https://codeberg.org/OpenRGB/OpenRGB"
 LICENSE="GPL-2+"
 # subslot is OPENRGB_PLUGIN_API_VERSION from
-# https://codeberg.org/OpenRGB/OpenRGB/src/branch/master/OpenRGBPluginInterface.h
-SLOT="0/5"
-IUSE="+hotplug"
+# https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/master/OpenRGBPluginInterface.h
+SLOT="0/4"
 
 RDEPEND="
 	dev-cpp/cpp-httplib:=
+	dev-libs/hidapi
 	dev-qt/qtbase:6[gui,widgets]
 	net-libs/mbedtls:3=
 	virtual/libusb:1
-	hotplug? ( dev-libs/hidapi-hotplug )
-	!hotplug? ( dev-libs/hidapi )
 "
 DEPEND="
 	${RDEPEND}
@@ -55,10 +54,6 @@ src_prepare() {
 
 	rm -r dependencies/{httplib,hidapi,libusb,mdns,json,mbedtls,stb}* \
 		|| die "Failed to remove unneded deps"
-
-	if ! use hotplug; then
-		sed -i -e 's/packagesExist.hidapi-hotplug-hidraw./false/' OpenRGB.pro || die
-	fi
 }
 
 src_configure() {
@@ -92,7 +87,7 @@ src_install() {
 
 	dodoc README.md
 
-	./openrgb --generate-udev-rules 60-openrgb.rules || die
+	rm -r "${ED}"/usr/lib/udev/ || die
 	udev_dorules 60-openrgb.rules
 
 	# This is for plugins. Upstream doesn't install any headers at all.

@@ -28,7 +28,7 @@ SRC_URI+="
 LICENSE="BSD"
 SLOT="0"
 if [[ ${PV} != *_rc* ]]; then
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 RDEPEND="
