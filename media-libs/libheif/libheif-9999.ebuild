@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/strukturag/libheif/releases/download/v${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
 fi
 
 LICENSE="GPL-3 MIT"
@@ -79,9 +79,7 @@ pkg_pretend() {
 src_prepare() {
 	cmake_src_prepare
 
-	if use geotiff; then
-		sed -e 's:geotiff/::g' -i heifio/CMakeLists.txt heifio/decoder_tiff.cc || die
-	fi
+	sed -e 's:geotiff/::g' -i heifio/CMakeLists.txt heifio/decoder_tiff.cc || die
 }
 
 multilib_src_configure() {
