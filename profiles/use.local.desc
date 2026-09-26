@@ -5488,6 +5488,7 @@ media-video/vlc:nfs - Enable support for nfs protocol via net-fs/libnfs
 media-video/vlc:omxil - Enable OpenMAX Integration Layer codec module
 media-video/vlc:optimisememory - Enable optimisation for memory rather than performance
 media-video/vlc:projectm - Enable the projectM visualization plugin
+media-video/vlc:qsv - Enable Intel Quick Sync Video support via media-libs/libvpl
 media-video/vlc:run-as-root - Allows vlc to start for root. Don't enable this unless you have a very specific (e.g. embedded) need for it!
 media-video/vlc:sftp - Enable libssh2 to support SFTP file transfer
 media-video/vlc:shout - Enable libshout output
@@ -6344,6 +6345,7 @@ net-mail/dovecot:stemmer - Add libstemmer support (for FTS)
 net-mail/dovecot:system-icu - Use system dev-libs/icu instead of the bundled library
 net-mail/dovecot:textcat - Add libtextcat language guessing support for full text search (FTS)
 net-mail/dovecot:xapian - Add xapian (flatcurve) full text search (FTS) support
+net-mail/fetchmail:ntlm - Enable support for NTLM authentication (discouraged)
 net-mail/fetchmail:socks - Enable support for socks proxy
 net-mail/fetchmail:tk - Enable support for Tk GUI toolkit, in particular it installs fetchmailconf
 net-mail/gnubiff:password - Enable save passwords to connect mail servers in user space
@@ -7840,7 +7842,8 @@ sci-physics/geant4_vmc:geant3 - Build with Geant4 G3toG4 library
 sci-physics/geant4_vmc:vgm - Enable the Virtual Geometry Model (sci-physics/vgm)
 sci-physics/hepmc:cm - Build with cm instead of default mm for length units
 sci-physics/hepmc:gev - Build with GeV instead of default MeV for momentum units
-sci-physics/hepmc:root - Build with ROOTIO enabled
+sci-physics/hepmc:protobuf - Build with dev-libs/protobuf IO support
+sci-physics/hepmc:root - Build with sci-physics/root IO enabled
 sci-physics/lammps:extra - Additional compute, dump, fix, molecular, pair styles
 sci-physics/lammps:hip - Enable hip gpu computing support
 sci-physics/lammps:lammps-memalign - Enables the use of the posix_memalign() call instead of malloc() when large chunks or memory are allocated by LAMMPS. Aliengnment is on 16 byte boundaries.
@@ -8867,11 +8870,7 @@ www-client/lynx:gnutls - Use gnutls library for HTTPS support (openssl is the de
 www-client/lynx:ssl - Enable HTTPS support.
 www-client/microsoft-edge:gtk3 - Pull in x11-libs/gtk+ for the user interface.
 www-client/microsoft-edge:gtk4 - Pull in gui-libs/gtk for the user interface.
-www-client/microsoft-edge-beta:gtk3 - Pull in x11-libs/gtk+ for the user interface.
-www-client/microsoft-edge-beta:gtk4 - Pull in gui-libs/gtk for the user interface.
 www-client/microsoft-edge-beta:mip - Install Microsoft Information Protection plugin.
-www-client/microsoft-edge-dev:gtk3 - Pull in x11-libs/gtk+ for the user interface.
-www-client/microsoft-edge-dev:gtk4 - Pull in gui-libs/gtk for the user interface.
 www-client/microsoft-edge-dev:mip - Install Microsoft Information Protection plugin.
 www-client/netsurf:bmp - Bitmap (BMP and ICO) image support via media-libs/libnsbmp
 www-client/netsurf:gtk - Build GTK3 GUI
