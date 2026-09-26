@@ -26,7 +26,7 @@ if [[ ${PV} = *9999* ]] ; then
 	)
 else
 	if [[ ${PV} = *pre* ]] ; then
-		COMMIT="033ddb6f6aafa7f3042b6ff2b7f60c5ecf59f926"
+		COMMIT="019c069c3c07ed9c280e643f2c156104736cebd0"
 		SANITIZERS_CMAKE_COMMIT="bcb1fc68616e9645ca5acea2992412606373ab04"
 		MCAD_COMMIT="1ea402208c3127ffb443931e9bb1681c191dacca"
 
@@ -63,7 +63,6 @@ REQUIRED_USE="
 	manifold? ( cgal )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	spacenav? ( gui )
-	test? ( pdf )
 "
 
 RDEPEND="
@@ -96,7 +95,7 @@ RDEPEND="
 	hidapi? ( dev-libs/hidapi )
 	manifold? (
 		dev-cpp/tbb:=
-		>=sci-mathematics/manifold-3.0.2_pre20250330:=[tbb]
+		>=sci-mathematics/manifold-3.0.2_pre20250330:=
 	)
 	mimalloc? ( dev-libs/mimalloc:= )
 	pdf? ( x11-libs/cairo )
@@ -127,7 +126,6 @@ BDEPEND="
 		gui-wm/tinywl
 		python? (
 			${PYTHON_DEPS}
-			dev-python/pillow[zlib]
 		)
 		!python? (
 			media-gfx/imagemagick
@@ -207,6 +205,7 @@ src_configure() {
 		-DHEADLESS="$(usex !gui)"
 		-DNULLGL="$(usex !gui)"
 
+		-DUSE_IMAGE_COMPARE_PY="$(usex python)"
 		-DUSE_MIMALLOC="$(usex mimalloc)"
 		-DUSE_QT6="$(usex gui)"
 		-DOFFLINE_DOCS="no" # TODO
@@ -219,12 +218,6 @@ src_configure() {
 			-DENABLE_GUI_TESTS="$(usex gui)"
 			-DENABLE_QTDBUS="$(usex dbus)"
 			-DENABLE_SPNAV="$(usex spacenav)"
-		)
-	fi
-
-	if use test; then
-		mycmakeargs+=(
-			-DUSE_IMAGE_COMPARE_PY="$(usex python)"
 		)
 	fi
 
@@ -360,6 +353,10 @@ virtwl() {
 src_test() {
 	hardware_add_gpu_sandbox
 
+	sed \
+		-e "s/OPENSCAD_BINARY/OPENSCADPATH/g" \
+		-i tests/test_cmdline_tool.py || die
+
 	cd "${BUILD_DIR}" || die
 
 	# NOTE link in from CMAKE_USE_DIR
@@ -388,9 +385,7 @@ src_test() {
 		)
 	fi
 
-	if [[ ${PV} = *9999* ]] ; then
-		local -x GIT_DIR="${CMAKE_USE_DIR}/.git"
-	fi
+	local -x GIT_DIR="${CMAKE_USE_DIR}/.git"
 
 	if use egl; then
 		xdg_environment_reset

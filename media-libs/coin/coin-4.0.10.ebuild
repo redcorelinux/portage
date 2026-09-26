@@ -41,6 +41,7 @@ RDEPEND="
 	openal? ( media-libs/openal )
 "
 DEPEND="${RDEPEND}
+	dev-libs/boost:0
 "
 BDEPEND="
 	x11-base/xorg-proto

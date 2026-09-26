@@ -54,10 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	boost? ( >=dev-libs/boost-1.83 )
-	test? (
-		media-fonts/noto-cjk
-		qt6? ( dev-qt/qtbase:6[widgets] )
-	)
+	test? ( qt6? ( dev-qt/qtbase:6[widgets] ) )
 "
 BDEPEND="${PYTHON_DEPS}
 	>=dev-util/glib-utils-2.80

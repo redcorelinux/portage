@@ -5,16 +5,16 @@ EAPI=8
 
 # Please bump with app-editors/vim-core and app-editors/vim
 
-VIM_VERSION="9.2"
-VIM_PATCHES_VERSION="9.2.1119"
+VIM_VERSION="9.1"
+VIM_PATCHES_VERSION="9.1.1432"
 
 LUA_COMPAT=( lua5-{1..4} luajit )
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 USE_RUBY="ruby32 ruby33"
 GENTOO_DEPEND_ON_PERL=no
 
-inherit flag-o-matic lua-single perl-module prefix python-single-r1 ruby-single shell-completion toolchain-funcs vim-doc xdg-utils
+inherit bash-completion-r1 flag-o-matic lua-single perl-module prefix python-single-r1 ruby-single toolchain-funcs vim-doc xdg-utils
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -34,34 +34,25 @@ S="${WORKDIR}"/vim-${PV}
 
 LICENSE="vim"
 SLOT="0"
-IUSE="acl crypt cscope debug gtk4 lua minimal motif netbeans nls +pango perl python racket ruby selinux session sound tcl wayland ${GENTOO_PERL_USESTRING}"
+IUSE="acl crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl wayland ${GENTOO_PERL_USESTRING}"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	?? ( gtk4 motif )
-	gtk4? ( !session )
 "
 
 RDEPEND="
 	~app-editors/vim-core-${PV}
 	>=app-eselect/eselect-vi-1.1
 	>=sys-libs/ncurses-5.2-r2:0=
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libXext
+	x11-libs/libXt
 	acl? ( kernel_linux? ( sys-apps/acl ) )
 	motif? ( >=x11-libs/motif-2.3:0 )
-	gtk4? ( gui-libs/gtk:4 )
-	!gtk4? (
-		x11-libs/libICE
-		x11-libs/libSM
-		x11-libs/libXext
-		x11-libs/libXt
-		!motif? (
-			x11-libs/gtk+:3[X]
-			x11-libs/libXft
-		)
-	)
-	pango? (
-		x11-libs/cairo
-		>=x11-libs/pango-1.44
+	!motif? (
+		x11-libs/gtk+:3[X]
+		x11-libs/libXft
 	)
 	crypt? ( dev-libs/libsodium:= )
 	cscope? ( dev-util/cscope )
@@ -84,10 +75,10 @@ RDEPEND="
 	wayland? ( dev-libs/wayland )
 "
 DEPEND="${RDEPEND}
-	!gtk4? ( x11-base/xorg-proto )"
+	x11-base/xorg-proto"
 # configure runs the Lua interpreter
 BDEPEND="
-	>=dev-build/autoconf-2.71
+	dev-build/autoconf
 	virtual/pkgconfig
 	lua? ( ${LUA_DEPS} )
 	nls? ( sys-devel/gettext )
@@ -232,25 +223,17 @@ src_configure() {
 		)
 	fi
 
-	# Default is gtk+-3 unless motif or gtk4 is enabled
+	# Default is gtk unless motif is enabled
 	echo ; echo
 	if use motif; then
 		einfo "Building gvim with the MOTIF GUI"
-		myconf+=( --enable-gui=motif --with-x )
-	elif use gtk4; then
-		einfo "Building gvim with the GTK 4 GUI"
-		# GTK4 talks to no X11 API of its own, and configure forces
-		# with_x=no for it; so do not drag in the X11 libraries.
-		myconf+=( --enable-gui=gtk4 --without-x )
+		myconf+=( --enable-gui=motif )
 	else
-		myconf+=( --enable-gtk3-check --disable-gtk4-check )
+		myconf+=( --enable-gtk3-check )
 		einfo "Building gvim with the gtk+-3 GUI"
-		myconf+=( --enable-gui=gtk3 --with-x )
+		myconf+=( --enable-gui=gtk3 )
 	fi
 	echo ; echo
-
-	# Render hardcopy with system Pango/Cairo instead of Vim's own PostScript generator
-	myconf+=( $(use_enable pango hardcopy-pango) )
 
 	# let package manager strip binaries
 	export ac_cv_prog_STRIP="$(type -P true ) faking strip"
@@ -269,6 +252,7 @@ src_configure() {
 	econf \
 		--with-modified-by="Gentoo-${PVR} (RIP Bram)" \
 		--with-vim-name=gvim \
+		--with-x \
 		"${myconf[@]}"
 }
 

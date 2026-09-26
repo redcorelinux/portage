@@ -202,7 +202,7 @@ multilib_src_test() {
 		targets+=( check-offload check-offload-unit )
 	fi
 
-	if multilib_is_native_abi && use fortran; then
+	if use fortran; then
 		# hack header search around by copying the modules to a directory
 		# that is already given via -I
 		cp "${BUILD_DIR}/$(get_libdir)/clang"/*/finclude/flang/*/*.mod \

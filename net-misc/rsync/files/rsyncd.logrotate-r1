@@ -1,5 +1,0 @@
-/var/log/rsync.log {
-	notifempty
-	missingok
-	copytruncate
-}
