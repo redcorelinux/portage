@@ -19,7 +19,7 @@ LICENSE="PHP-3.01
 	unicode? ( BSD-2 LGPL-2.1 )"
 
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~mips ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
 
 # We can build the following SAPIs in the given order
 SAPIS="embed cli cgi fpm apache2 phpdbg"
@@ -290,6 +290,9 @@ src_prepare() {
 	   ext/standard/tests/file/fsync.phpt \
 	   ext/standard/tests/general_functions/proc_nice_basic.phpt \
 	   || die
+
+	# bug 983491
+	rm sapi/cli/tests/gh14189.phpt || die
 
 	eautoconf --force
 }
