@@ -16,7 +16,7 @@ LIBABIGAIL_DOCS_USEFLAG="+doc"
 
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit libtool bash-completion-r1 python-any-r1 out-of-source
+inherit libtool out-of-source python-any-r1 shell-completion
 
 DESCRIPTION="Suite of tools for checking ABI differences between ELF objects"
 HOMEPAGE="https://sourceware.org/libabigail/"
@@ -28,7 +28,7 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	SRC_URI="https://mirrors.kernel.org/sourceware/libabigail/${P}.tar.xz"
 	if [[ ${LIBABIGAIL_DOCS_PREBUILT} == 1 ]] ; then
-		SRC_URI+=" !doc? ( https://dev.gentoo.org/~${LIBABIGAIL_DOCS_PREBUILT_DEV}/distfiles/${CATEGORY}/${PN}/${PN}-${LIBABIGAIL_DOCS_VERSION}-docs.tar.xz )"
+		SRC_URI+=" !doc? ( https://distfiles.gentoo.org/pub/dev/${LIBABIGAIL_DOCS_PREBUILT_DEV}@gentoo.org/${CATEGORY}/${PN}/${PN}-${LIBABIGAIL_DOCS_VERSION}-docs.tar.xz )"
 		LIBABIGAIL_DOCS_USEFLAG="doc"
 	fi
 
