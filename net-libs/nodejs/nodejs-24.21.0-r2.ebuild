@@ -23,7 +23,7 @@ else
 		https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz
 	"
 	SLOT="0/$(ver_cut 1)"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~x64-macos"
+	KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~x64-macos"
 	S="${WORKDIR}/node-v${PV}"
 fi
 
@@ -255,12 +255,6 @@ src_install() {
 
 src_test() {
 
-	# Prevent failures caused by color-disabling environment
-	# variables (most commonly NO_COLOR or NODE_DISABLE_COLORS)
-	# present in the build/test environment.
-	unset NO_COLOR NODE_DISABLE_COLORS
-	FORCE_COLOR=1
-
 	local drop_tests=(
 		test/parallel/test-dns.js
 		test/parallel/test-dns-resolveany-bad-ancount.js
@@ -280,6 +274,8 @@ src_test() {
 		test/parallel/test-release-npm.js
 		test/parallel/test-socket-write-after-fin-error.js
 		test/parallel/test-strace-openat-openssl.js
+		test/parallel/test-util-styletext.js
+		test/parallel/test-util-styletext-hex.js
 		test/sequential/test-tls-session-timeout.js
 		test/sequential/test-util-debug.js
 	)
