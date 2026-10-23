@@ -1374,7 +1374,6 @@ dev-ada/gpr:static-pic - Build static library with pic code
 dev-ada/gtkada:shared - Build gtkada as shared library
 dev-ada/gtkada:static-pic - Build static library with pic code
 dev-ada/lal-refactor:static-pic - Build static library with pic code
-dev-ada/langkit:shared - Build shared library
 dev-ada/langkit:static-pic - Build static library with pic code
 dev-ada/langkit-contrib:static-pic - Build static library with pic code
 dev-ada/libadalang:static-pic - Build static library with pic code
@@ -3247,6 +3246,7 @@ games-engines/uzdoom:non-free - Install non-free components for an optimal exper
 games-engines/uzdoom:swr - Enable the software renderer
 games-fps/alephone:video-export - Enable film export support
 games-fps/alienarena:vidmode - Link against x11-libs/libXxf86vm. Required for full-screen support.
+games-fps/chocolate-doom:fluidsynth - enable the fluidsynth sound module
 games-fps/chocolate-doom:midi - basic support for MIDI files
 games-fps/crispy-doom:fluidsynth - Use media-sound/fluidsynth for MIDI support
 games-fps/crispy-doom:midi - Basic support for MIDI files
