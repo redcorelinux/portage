@@ -682,6 +682,7 @@ app-emulation/qemu:alsa - Enable alsa output for sound emulation
 app-emulation/qemu:bpf - Enable eBPF support for RSS implementation.
 app-emulation/qemu:capstone - Enable disassembly support with dev-libs/capstone
 app-emulation/qemu:curl - Support ISOs / -cdrom directives via HTTP or HTTPS.
+app-emulation/qemu:elfutils - Enable debuginfo support with dev-libs/elfutils
 app-emulation/qemu:fdt - Enables firmware device tree support
 app-emulation/qemu:fuse - Enables FUSE block device export
 app-emulation/qemu:glusterfs - Enables GlusterFS cluster fileystem via sys-cluster/glusterfs
@@ -1254,6 +1255,7 @@ app-text/libwps:tools - Build file conversion tools
 app-text/mandoc:cgi - build man.cgi web plugin for viewing man pages
 app-text/mandoc:system-man - set as the default man provider
 app-text/mathtex:png - Generate png images by default instead of gif
+app-text/mdbook:serve - Build support for the serve command (web server for testing books)
 app-text/msort:heap - Use heap instead of alloca()
 app-text/msort:icu - Use dev-libs/icu instead of dev-libs/libutf8proc.
 app-text/msort:libuninum - Use dev-libs/libuninum for conversion.
