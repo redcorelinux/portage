@@ -59,8 +59,8 @@ inherit cmake flag-o-matic toolchain-funcs
 if [[ ${PV} == *.9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI=(
-		"https://code.qt.io/qt/${QT6_MODULE}.git"
 		"https://github.com/qt/${QT6_MODULE}.git"
+		"https://code.qt.io/qt/${QT6_MODULE}.git"
 	)
 
 	QT6_BUILD_TYPE=live
@@ -78,7 +78,7 @@ else
 	_QT6_P=${QT6_MODULE}-everywhere-src-${PV/_/-}
 	# TODO: cleanup ver_test bit at some point after <6.12 is gone
 	if [[ ${PN} == qtwebengine ]] && ver_test -ge 6.12; then
-		SRC_URI="https://download.qt.io/${_QT6_SRC}_releases/qtwebengine/${PV/_/-}/${_QT6_P}.tar.xz"
+		SRC_URI="https://download.qt.io/${_QT6_SRC}_releases/qtwebengine/$(ver_cut 1-2)/${PV/_/-}/src/${_QT6_P}.tar.xz"
 	else
 		SRC_URI="https://download.qt.io/${_QT6_SRC}_releases/qt/${PV%.*}/${PV/_/-}/submodules/${_QT6_P}.tar.xz"
 	fi

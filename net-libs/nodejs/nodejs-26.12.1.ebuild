@@ -23,7 +23,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz"
 	SLOT="0/$(ver_cut 1)"
-	KEYWORDS="~amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86 ~x64-macos"
+	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86 ~x64-macos"
 	S="${WORKDIR}/node-v${PV}"
 fi
 
@@ -62,7 +62,7 @@ BDEPEND="${PYTHON_DEPS}
 	pax-kernel? ( sys-apps/elfix )
 	sys-apps/coreutils
 	temporal? ( ${RUST_DEPEND} )
-	test? ( net-misc/curl )
+	test? ( net-misc/curl app-arch/unzip )
 	virtual/pkgconfig"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
@@ -202,6 +202,9 @@ src_configure() {
 	fi
 	! use temporal && myconf+=( --v8-disable-temporal-support )
 
+	# https://bugs.gentoo.org/985006
+	use ppc64 && myconf+=( --without-lief )
+
 	local myarch=""
 	case "${ARCH}:${ABI}" in
 		*:amd64) myarch="x64";;
@@ -306,6 +309,7 @@ src_test() {
 		test/parallel/test-strace-openat-openssl.js
 		test/sequential/test-tls-session-timeout.js
 		test/sequential/test-util-debug.js
+		test/sequential/test-watch-mode.mjs
 	)
 
 	if has_version "sys-libs/zlib-ng" ; then
@@ -314,6 +318,13 @@ src_test() {
 		drop_tests+=( test/parallel/test-process-versions.js )
 		drop_tests+=( test/parallel/test-zlib-zip-interop.js )
 		elog
+	fi
+
+	# Skip the ZIP interop test when system unzip lacks natspec
+	# (zipinfo can't handle the Unicode filename otherwise)
+	if ! has_version "app-arch/unzip[natspec]" ; then
+		elog "Skipping test-zlib-zip-interop.js: system unzip was built without natspec"
+		drop_tests+=( test/parallel/test-zlib-zip-interop.js )
 	fi
 
 	use inspector ||

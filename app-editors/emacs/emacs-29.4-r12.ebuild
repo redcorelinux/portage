@@ -26,7 +26,7 @@ else
 	# 27.0.90              upstream prerelease snapshot (27-vcs)
 	# 27.0.50_pre20191223  snapshot by Gentoo developer (27-vcs)
 	if [[ ${PV} == *_pre* ]]; then
-		SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.tar.xz"
+		SRC_URI="https://distfiles.gentoo.org/pub/proj/emacs/${P}.tar.xz"
 		S="${WORKDIR}/emacs"
 	elif [[ ${PV//[0-9]} != "." ]]; then
 		SRC_URI="https://alpha.gnu.org/gnu/emacs/pretest/${PN}-${PV/_/-}.tar.xz"
@@ -43,7 +43,7 @@ DESCRIPTION="The advanced, extensible, customizable, self-documenting editor"
 HOMEPAGE="https://www.gnu.org/software/emacs/"
 
 LICENSE="GPL-3+ FDL-1.3+ Boost-1.0 BSD CC-BY-SA-3.0 CC-BY-SA-4.0 HPND MIT MPL-2.0 PCRE PSF-2 unicode W3C"
-IUSE="acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm gsettings gtk gui gzip-el harfbuzz imagemagick +inotify jit jpeg json lcms libxml2 livecd m17n-lib mailutils motif png selinux sound source sqlite ssl svg systemd +threads tiff toolkit-scroll-bars tree-sitter valgrind webp wide-int +X Xaw3d xft +xpm zlib"
+IUSE="acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm gsettings gtk gui gzip-el harfbuzz imagemagick +inotify jit jpeg json lcms +libxml2 livecd m17n-lib mailutils motif png selinux sound source sqlite ssl svg systemd +threads tiff toolkit-scroll-bars tree-sitter valgrind webp wide-int +X Xaw3d xft +xpm zlib"
 
 X_DEPEND="x11-libs/libICE
 	x11-libs/libSM

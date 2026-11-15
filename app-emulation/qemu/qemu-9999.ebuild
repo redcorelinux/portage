@@ -196,6 +196,7 @@ SOFTMMU_TOOLS_DEPEND="
 	)
 	gtk? (
 		x11-libs/gtk+:3[wayland?,X?]
+		x11-libs/libX11
 		vte? ( x11-libs/vte:2.91 )
 	)
 	infiniband? ( sys-cluster/rdma-core[static-libs(+)] )
@@ -229,6 +230,7 @@ SOFTMMU_TOOLS_DEPEND="
 	sdl? (
 		media-libs/libsdl2[video]
 		media-libs/libsdl2[static-libs(+)]
+		x11-libs/libX11
 	)
 	sdl-image? ( media-libs/sdl2-image[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-2.1.0[static-libs(+)] )
@@ -246,7 +248,6 @@ SOFTMMU_TOOLS_DEPEND="
 	vde? ( net-misc/vde[static-libs(+)] )
 	virgl? ( media-libs/virglrenderer[static-libs(+)] )
 	virtfs? ( sys-libs/libcap )
-	X? ( x11-libs/libX11 )
 	xdp? ( net-libs/xdp-tools )
 	xen? ( app-emulation/xen-tools:= )
 	zstd? ( >=app-arch/zstd-1.4.0[static-libs(+)] )
@@ -268,12 +269,12 @@ SOFTMMU_TOOLS_DEPEND="
 #
 
 FIRMWARE_ABI_VERSION="10.0.2"
-EDK2_OVMF_VERSION="202408"
+EDK2_OVMF_VERSION="202608"
 SEABIOS_VERSION="1.16.3"
 
 X86_FIRMWARE_DEPEND="
 	pin-upstream-blobs? (
-		~sys-firmware/edk2-bin-${EDK2_OVMF_VERSION}[qemu_softmmu_targets_x86_64(+)]
+		=sys-firmware/edk2-bin-${EDK2_OVMF_VERSION}*[qemu_softmmu_targets_x86_64(+)]
 		~sys-firmware/ipxe-1.21.1_p20230601[binary,qemu]
 		~sys-firmware/seabios-bin-${SEABIOS_VERSION}
 		~sys-firmware/sgabios-0.1_pre10[binary]

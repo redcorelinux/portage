@@ -235,7 +235,7 @@ COMMON_DEPEND="
 	libcaca? ( media-libs/libcaca[${MULTILIB_USEDEP}] )
 	libilbc? ( media-libs/libilbc:=[${MULTILIB_USEDEP}] )
 	liblc3? ( >=media-sound/liblc3-1.1[${MULTILIB_USEDEP}] )
-	libplacebo? ( media-libs/libplacebo:=[vulkan,${MULTILIB_USEDEP}] )
+	libplacebo? ( >=media-libs/libplacebo-7.386.0:=[vulkan,${MULTILIB_USEDEP}] )
 	librtmp? ( media-video/rtmpdump[${MULTILIB_USEDEP}] )
 	libsoxr? ( media-libs/soxr[${MULTILIB_USEDEP}] )
 	lv2? (
@@ -312,12 +312,12 @@ COMMON_DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	amf? ( media-video/amdgpu-pro-amf )
+	amf? ( virtual/amdgpu-pro-amf )
 "
 DEPEND="
 	${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
-	amf? ( >=media-libs/amf-headers-1.5.2 )
+	amf? ( >=media-libs/amf-headers-1.5.3 )
 	kernel_linux? ( >=sys-kernel/linux-headers-6 )
 	ladspa? ( media-libs/ladspa-sdk )
 	nvenc? ( >=media-libs/nv-codec-headers-12.1.14.0 )

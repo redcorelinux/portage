@@ -193,8 +193,8 @@ DEPEND="
 	>=media-libs/amf-headers-1.5.2
 	=media-libs/nv-codec-headers-13*
 	cuda? (
-		>=dev-util/nvidia-cuda-toolkit-13.4
-		<dev-util/nvidia-cuda-toolkit-12.10
+		>=dev-util/nvidia-cuda-toolkit-12
+		<dev-util/nvidia-cuda-toolkit-13.5
 	)
 	kde? ( >=dev-libs/plasma-wayland-protocols-1.21 )
 	pipewire? ( x11-libs/libdrm )
@@ -223,6 +223,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-new-boost.patch
 	"${FILESDIR}"/${PN}-fix-pairing.patch
+	"${FILESDIR}"/${PN}-no-va-headers.patch
 )
 
 # Make this mess a bit simpler.
@@ -408,7 +409,6 @@ src_configure() {
 		-DBOOST_USE_STATIC=no
 		-DBUILD_DOCS=no
 		-DBUILD_TESTS=no
-		-DCCACHE_FOUND=no
 		-DFFMPEG_PLATFORM_LIBRARIES="$(usev svt-av1 SvtAv1Enc);$(usev vaapi 'va;va-drm');$(usev vulkan);$(usev x264);$(usev x265)"
 		-DFFMPEG_PREPARED_BINARIES="${build_deps}"/ffmpeg
 		-DGLAD_SKIP_PIP_INSTALL=yes
