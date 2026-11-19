@@ -2997,6 +2997,7 @@ dev-util/perf:libtraceevent - Enable dev-libs/libtraceevent support
 dev-util/perf:libtracefs - Enable dev-libs/libtracefs support
 dev-util/perf:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-util/perf:perl - Add support for Perl as a scripting language for perf tools.
+dev-util/perf:rust - Enable support for Rust
 dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
 dev-util/pixi:rustls - Use Rustls instead of OpenSSL.
@@ -7402,7 +7403,6 @@ sci-geosciences/merkaartor:webengine - Enable dev-qt/qtwebengine in some plugins
 sci-geosciences/merkaartor:zbar - Enable barcode support in MWalkingPapersBackground/GeoImage via media-gfx/zbar
 sci-geosciences/owntracks-recorder:crypt - Enable support for payload encryption with dev-libs/libsodium
 sci-geosciences/owntracks-recorder:http - Enable support for the built-in HTTP REST API
-sci-geosciences/owntracks-recorder:kill - Enable support removing data via the API (dangerous)
 sci-geosciences/owntracks-recorder:lua - Enable support for Lua hook integration
 sci-geosciences/owntracks-recorder:mqtt - Enable MQTT support
 sci-geosciences/owntracks-recorder:ping - Enable support for the "pingping" monitoring feature
