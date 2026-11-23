@@ -728,7 +728,6 @@ app-emulation/virt-viewer:spice - Support connecting to SPICE-enabled virtual ma
 app-emulation/virt-viewer:vnc - Support connecting to VNC-enabled virtual machines.
 app-emulation/virt-viewer:vte - Enable terminal support (x11-libs/vte) in the GTK+ interface
 app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
-app-emulation/virtiofsd:xen - Support for Xen virtualization. Enabling this will _disable_ QEMU/KVM support (app-emulation/qemu)
 app-emulation/virtualbox:dtrace - Install dtrace Extension Pack.
 app-emulation/virtualbox:lvm - Build VBoxVolInfo that needs devicemapper from sys-fs/lvm2.
 app-emulation/virtualbox:sdk - Enable building of SDK.
@@ -5097,6 +5096,7 @@ media-sound/spotify:pax-kernel - Triggers a paxmarking of the main Spotify binar
 media-sound/spotify:pulseaudio - Controls the dependency on pulseaudio or apulse
 media-sound/strawberry:chromaprint - Enables audio fingerprinting support with media-libs/chromaprint
 media-sound/strawberry:discord - Enables Discord Rich Presence
+media-sound/strawberry:libsecret - Store Subsonic password in keyring using app-crypt/libsecret (kwallet and gnome backends use USE=dbus instead)
 media-sound/strawberry:loudness - Enable loudness normalisation according to the EBU R128 standard using media-libs/libebur128
 media-sound/strawberry:moodbar - Enable moodbar support
 media-sound/strawberry:streaming - Enable Online Streaming Support
@@ -5536,17 +5536,11 @@ media-video/vlc:upnp - Enable support for the Intel SDK stack based UPnP discove
 media-video/vlc:x265 - Support X265 Encoder
 media-video/vlc:zeroconf - Enable support for zero-configuration networking via avahi
 media-video/vlc:zvbi - Enable support for teletext subtitles via the zvbi library
-media-video/webcamoid:X - Enable x11-libs/libX11 screen capture support
-media-video/webcamoid:aom - Enable media-libs/libaom audio codec support
-media-video/webcamoid:faac - Enable media-libs/faac audio codec support
-media-video/webcamoid:fdk-aac - Enable media-libs/fdk-aac audio codec support
-media-video/webcamoid:headers - Install development headers
 media-video/webcamoid:libusb - Enable video capturing from USB devices using dev-libs/libusb
 media-video/webcamoid:libuvc - Enable video capturing from USB devices using media-libs/libuvc
-media-video/webcamoid:qtmedia - Enable audio/video/screen capture/play via dev-qt/qtmultimedia
-media-video/webcamoid:rav1e - Enable media-video/rav1e audio codec support
-media-video/webcamoid:svt-av1 - Enable media-libs/svt-av1 video codec support
-media-video/webcamoid:vlc - Enable media-video/vlc video backend support
+media-video/webcamoid:pipewire - Enable PipeWire backend
+media-video/webcamoid:qtmedia - Enable Qt Multimedia backend
+media-video/webcamoid:wayland - Enable Wayland backend using wlroots protocol
 media-video/wireplumber:system-service - Install systemd unit files for running as a system service. Not recommended.
 media-video/x264-encoder:avs - enable AvxSynth support in the AviSynth input module
 media-video/x264-encoder:ffmpegsource - Enable ffmpegsource aka ffms support, disables lavf
