@@ -15,7 +15,7 @@ SRC_URI="
 
 LICENSE="LGPL-2.1"
 SLOT="1"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
 IUSE="debug doc examples static-libs test udev"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="static-libs? ( !udev )"
@@ -35,6 +35,11 @@ src_prepare() {
 
 	# bug #923738
 	sed -i -e "s:umockdev-1.0:umockdev-1.0-DISABLED:" configure || die
+
+	# device visible in sysfs but without a node in /dev/bus/usb (containers)
+	# https://github.com/libusb/libusb/issues/1402
+	sed -i -e 's/if (open_err == LIBUSB_ERROR_ACCESS$/& || open_err == LIBUSB_ERROR_NO_DEVICE/' \
+		tests/stress_mt.c || die
 
 	elibtoolize
 }

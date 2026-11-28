@@ -18,7 +18,7 @@ SRC_URI="https://github.com/pry/pry/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="ruby19"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="test"
 
 ruby_add_rdepend "
@@ -44,4 +44,10 @@ all_ruby_prepare() {
 	# Skip integration tests because they depend too much on specifics of the environment.
 	rm -f spec/integration/* || die
 	sed -i -e '/loads files through repl and exits/askip "depends on parent directory"' spec/cli_spec.rb || die
+}
+
+each_ruby_test() {
+	# color and auto_indent are nil when TERM is unset
+	local -x TERM=xterm
+	each_fakegem_test
 }

@@ -12,12 +12,10 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/numerodix/ansicolor.git"
 else
-	# pypi tars don't include tests and github repo is missing release tags,
-	# so only enabling tests for 9999 at this time
 	SRC_URI="
 	https://github.com/numerodix/ansicolor/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 x86"
 fi
 
 DESCRIPTION="Produce ansi color output and colored highlighting and diffing"
@@ -31,3 +29,8 @@ SLOT="0"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+python_test() {
+	local -x TERM=xterm
+	epytest
+}
